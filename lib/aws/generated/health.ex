@@ -113,6 +113,7 @@ defmodule AWS.Health do
   ## Example:
       
       organization_event_filter() :: %{
+        "actionabilities" => list(list(any())()),
         "awsAccountIds" => list(String.t() | atom()),
         "endTime" => date_time_range(),
         "entityArns" => list(String.t() | atom()),
@@ -121,6 +122,7 @@ defmodule AWS.Health do
         "eventTypeCategories" => list(list(any())()),
         "eventTypeCodes" => list(String.t() | atom()),
         "lastUpdatedTime" => date_time_range(),
+        "personas" => list(list(any())()),
         "regions" => list(String.t() | atom()),
         "services" => list(String.t() | atom()),
         "startTime" => date_time_range()
@@ -476,6 +478,7 @@ defmodule AWS.Health do
   ## Example:
       
       event_filter() :: %{
+        "actionabilities" => list(list(any())()),
         "availabilityZones" => list(String.t() | atom()),
         "endTimes" => list(date_time_range()),
         "entityArns" => list(String.t() | atom()),
@@ -485,6 +488,7 @@ defmodule AWS.Health do
         "eventTypeCategories" => list(list(any())()),
         "eventTypeCodes" => list(String.t() | atom()),
         "lastUpdatedTimes" => list(date_time_range()),
+        "personas" => list(list(any())()),
         "regions" => list(String.t() | atom()),
         "services" => list(String.t() | atom()),
         "startTimes" => list(date_time_range()),
@@ -527,6 +531,7 @@ defmodule AWS.Health do
   ## Example:
       
       event() :: %{
+        "actionability" => list(any()),
         "arn" => String.t() | atom(),
         "availabilityZone" => String.t() | atom(),
         "endTime" => non_neg_integer(),
@@ -534,6 +539,7 @@ defmodule AWS.Health do
         "eventTypeCategory" => list(any()),
         "eventTypeCode" => String.t() | atom(),
         "lastUpdatedTime" => non_neg_integer(),
+        "personas" => list(list(any())()),
         "region" => String.t() | atom(),
         "service" => String.t() | atom(),
         "startTime" => non_neg_integer(),
@@ -585,8 +591,10 @@ defmodule AWS.Health do
   ## Example:
       
       event_type_filter() :: %{
+        "actionabilities" => list(list(any())()),
         "eventTypeCategories" => list(list(any())()),
         "eventTypeCodes" => list(String.t() | atom()),
+        "personas" => list(list(any())()),
         "services" => list(String.t() | atom())
       }
       
@@ -624,8 +632,10 @@ defmodule AWS.Health do
   ## Example:
       
       event_type() :: %{
+        "actionability" => list(any()),
         "category" => list(any()),
         "code" => String.t() | atom(),
+        "personas" => list(list(any())()),
         "service" => String.t() | atom()
       }
       
@@ -637,12 +647,14 @@ defmodule AWS.Health do
   ## Example:
       
       organization_event() :: %{
+        "actionability" => list(any()),
         "arn" => String.t() | atom(),
         "endTime" => non_neg_integer(),
         "eventScopeCode" => list(any()),
         "eventTypeCategory" => list(any()),
         "eventTypeCode" => String.t() | atom(),
         "lastUpdatedTime" => non_neg_integer(),
+        "personas" => list(list(any())()),
         "region" => String.t() | atom(),
         "service" => String.t() | atom(),
         "startTime" => non_neg_integer(),

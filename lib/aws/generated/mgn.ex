@@ -250,6 +250,7 @@ defmodule AWS.Mgn do
         optional("defaultLargeStagingDiskType") => String.t() | atom(),
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("replicationServerInstanceType") => String.t() | atom(),
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
@@ -302,6 +303,7 @@ defmodule AWS.Mgn do
         optional("defaultLargeStagingDiskType") => String.t() | atom(),
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("replicationServerInstanceType") => String.t() | atom(),
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
@@ -393,6 +395,7 @@ defmodule AWS.Mgn do
 
       create_replication_configuration_template_request() :: %{
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("tags") => map(),
         optional("useFipsEndpoint") => [boolean()],
         required("associateDefaultSecurityGroup") => [boolean()],
@@ -724,10 +727,12 @@ defmodule AWS.Mgn do
         optional("copyTags") => [boolean()],
         optional("ec2LaunchTemplateID") => String.t() | atom(),
         optional("enableMapAutoTagging") => [boolean()],
+        optional("enableParametersEncryption") => [boolean()],
         optional("largeVolumeConf") => launch_template_disk_conf(),
         optional("launchDisposition") => String.t() | atom(),
         optional("licensing") => licensing(),
         optional("mapAutoTaggingMpeID") => String.t() | atom(),
+        optional("parametersEncryptionKey") => String.t() | atom(),
         optional("postLaunchActions") => post_launch_actions(),
         optional("smallVolumeConf") => launch_template_disk_conf(),
         optional("smallVolumeMaxSize") => float(),
@@ -955,6 +960,7 @@ defmodule AWS.Mgn do
         optional("defaultLargeStagingDiskType") => String.t() | atom(),
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
         optional("replicationServerInstanceType") => String.t() | atom(),
@@ -1204,10 +1210,12 @@ defmodule AWS.Mgn do
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
         optional("enableMapAutoTagging") => [boolean()],
+        optional("enableParametersEncryption") => [boolean()],
         optional("largeVolumeConf") => launch_template_disk_conf(),
         optional("launchDisposition") => String.t() | atom(),
         optional("licensing") => licensing(),
         optional("mapAutoTaggingMpeID") => String.t() | atom(),
+        optional("parametersEncryptionKey") => String.t() | atom(),
         optional("postLaunchActions") => post_launch_actions(),
         optional("smallVolumeConf") => launch_template_disk_conf(),
         optional("smallVolumeMaxSize") => float(),
@@ -1293,7 +1301,8 @@ defmodule AWS.Mgn do
         "etaDateTime" => String.t() | atom(),
         "lagDuration" => String.t() | atom(),
         "lastSnapshotDateTime" => String.t() | atom(),
-        "replicatedDisks" => list(data_replication_info_replicated_disk())
+        "replicatedDisks" => list(data_replication_info_replicated_disk()),
+        "replicatorId" => String.t() | atom()
       }
 
   """
@@ -1383,13 +1392,15 @@ defmodule AWS.Mgn do
   ## Example:
 
       import_task() :: %{
+        "arn" => String.t() | atom(),
         "creationDateTime" => String.t() | atom(),
         "endDateTime" => String.t() | atom(),
         "importID" => String.t() | atom(),
         "progressPercentage" => [float()],
         "s3BucketSource" => s3_bucket_source(),
         "status" => String.t() | atom(),
-        "summary" => import_task_summary()
+        "summary" => import_task_summary(),
+        "tags" => map()
       }
 
   """
@@ -1521,6 +1532,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       export_task() :: %{
+        "arn" => String.t() | atom(),
         "creationDateTime" => String.t() | atom(),
         "endDateTime" => String.t() | atom(),
         "exportID" => String.t() | atom(),
@@ -1529,7 +1541,8 @@ defmodule AWS.Mgn do
         "s3BucketOwner" => String.t() | atom(),
         "s3Key" => String.t() | atom(),
         "status" => String.t() | atom(),
-        "summary" => export_task_summary()
+        "summary" => export_task_summary(),
+        "tags" => map()
       }
 
   """
@@ -1642,7 +1655,8 @@ defmodule AWS.Mgn do
       start_export_request() :: %{
         "s3Bucket" => String.t() | atom(),
         "s3BucketOwner" => String.t() | atom(),
-        "s3Key" => String.t() | atom()
+        "s3Key" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
@@ -2064,7 +2078,9 @@ defmodule AWS.Mgn do
   ## Example:
 
       job_log_event_data() :: %{
+        "attemptCount" => integer(),
         "conversionServerID" => String.t() | atom(),
+        "maxAttemptsCount" => integer(),
         "rawError" => String.t() | atom(),
         "sourceServerID" => String.t() | atom(),
         "targetInstanceID" => String.t() | atom()
@@ -2166,6 +2182,7 @@ defmodule AWS.Mgn do
         optional("defaultLargeStagingDiskType") => String.t() | atom(),
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
         optional("replicationServerInstanceType") => String.t() | atom(),
@@ -2406,7 +2423,8 @@ defmodule AWS.Mgn do
 
       start_import_request() :: %{
         "clientToken" => String.t() | atom(),
-        "s3BucketSource" => s3_bucket_source()
+        "s3BucketSource" => s3_bucket_source(),
+        "tags" => map()
       }
 
   """
@@ -2422,10 +2440,12 @@ defmodule AWS.Mgn do
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
         optional("enableMapAutoTagging") => [boolean()],
+        optional("enableParametersEncryption") => [boolean()],
         optional("largeVolumeConf") => launch_template_disk_conf(),
         optional("launchDisposition") => String.t() | atom(),
         optional("licensing") => licensing(),
         optional("mapAutoTaggingMpeID") => String.t() | atom(),
+        optional("parametersEncryptionKey") => String.t() | atom(),
         optional("postLaunchActions") => post_launch_actions(),
         optional("smallVolumeConf") => launch_template_disk_conf(),
         optional("smallVolumeMaxSize") => float(),
@@ -4486,7 +4506,7 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Starts replication for SNAPSHOT_SHIPPING agents.
+  Start replication for source server irrespective of its replication type.
   """
   @spec start_replication(map(), start_replication_request(), list()) ::
           {:ok, source_server(), any()}
@@ -4954,6 +4974,8 @@ defmodule AWS.Mgn do
   @doc """
   Allows you to change between the AGENT_BASED replication type and the
   SNAPSHOT_SHIPPING replication type.
+
+  SNAPSHOT_SHIPPING should be used for agentless replication.
   """
   @spec update_source_server_replication_type(
           map(),

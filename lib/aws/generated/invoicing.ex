@@ -21,16 +21,67 @@ defmodule AWS.Invoicing do
   Configuration APIs, you can automate the creation of new invoice units and
   subsequently automate the addition of new accounts to your invoice units.
 
+  ## Amazon Web Services Procurement Portal Preferences
+
+  You can use Amazon Web Services Procurement Portal Preferences APIs to
+  programmatically create, update, delete, get, and list procurement portal
+  connections and e-invoice delivery settings. You can also programmatically fetch
+  and modify the status of procurement portal configurations. For example, SAP
+  Business Network or Coupa connections, configure e-invoice delivery and purchase
+  order retrieval features.
+
+  You can use Amazon Web Services Procurement Portal Preferences to connect
+  e-invoice delivery to your procurement portals based on your organizational
+  needs. By using Amazon Web Services Procurement Portal Preferences, you can
+  configure connections to SAP Business Network and Coupa procurement portals that
+  retrieve purchase orders and deliver Amazon Web Services invoices on the same
+  day they are generated. You can also set up testing environments to validate
+  invoice delivery without affecting live transactions, and manage contact
+  information for portal setup and support.
+
+  Administrative users should understand that billing read-only policies will show
+  all procurement portal connection details. Review your IAM policies to ensure
+  appropriate access controls are in place for procurement portal preferences.
+
+  ## Amazon Web Services Invoice Management
+
+  You can use Amazon Web Services Invoice Management APIs to programmatically list
+  invoice summaries and get invoice documents. You can also programmatically fetch
+  invoice documents with S3 pre-signed URLs.
+
+  You can use Amazon Web Services Invoice Management to access invoice information
+  based on your organizational needs. By using Amazon Web Services Invoice
+  Management, you can retrieve paginated lists of invoice summaries that include
+  invoice metadata such as invoice IDs, amounts, and currencies without
+  downloading documents. You can also download invoice documents in PDF format
+  using S3 pre-signed URLs with built-in expiration. As you manage invoices across
+  your organization using Amazon Web Services Invoice Management APIs, you can
+  create invoice retrieval processes and integrate invoice data into your
+  financial systems.
+
   Service endpoint
 
   You can use the following endpoints for Amazon Web Services Invoice
-  Configuration:
+  Configuration, Amazon Web Services Procurement Portal Preferences, and Amazon
+  Web Services Invoice Management:
 
     * `https://invoicing.us-east-1.api.aws`
   """
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+      
+      purchase_order_data_source() :: %{
+        "EinvoiceDeliveryDocumentType" => list(any()),
+        "PurchaseOrderDataSourceType" => list(any())
+      }
+      
+  """
+  @type purchase_order_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -43,6 +94,31 @@ defmodule AWS.Invoicing do
       
   """
   @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_procurement_portal_preference_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("EinvoiceDeliveryPreference") => einvoice_delivery_preference(),
+        optional("ProcurementPortalInstanceEndpoint") => String.t() | atom(),
+        optional("ProcurementPortalSharedSecret") => String.t() | atom(),
+        optional("ResourceTags") => list(resource_tag()),
+        optional("Selector") => procurement_portal_preference_selector(),
+        optional("TestEnvPreference") => test_env_preference_input(),
+        required("BuyerDomain") => list(any()),
+        required("BuyerIdentifier") => String.t() | atom(),
+        required("Contacts") => list(contact()),
+        required("EinvoiceDeliveryEnabled") => [boolean()],
+        required("ProcurementPortalName") => list(any()),
+        required("PurchaseOrderRetrievalEnabled") => [boolean()],
+        required("SupplierDomain") => list(any()),
+        required("SupplierIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type create_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,6 +172,58 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      put_procurement_portal_preference_request() :: %{
+        optional("EinvoiceDeliveryPreference") => einvoice_delivery_preference(),
+        optional("ProcurementPortalInstanceEndpoint") => String.t() | atom(),
+        optional("ProcurementPortalSharedSecret") => String.t() | atom(),
+        optional("Selector") => procurement_portal_preference_selector(),
+        optional("TestEnvPreference") => test_env_preference_input(),
+        required("Contacts") => list(contact()),
+        required("EinvoiceDeliveryEnabled") => [boolean()],
+        required("ProcurementPortalPreferenceArn") => String.t() | atom(),
+        required("PurchaseOrderRetrievalEnabled") => [boolean()]
+      }
+      
+  """
+  @type put_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      procurement_portal_preference() :: %{
+        "AwsAccountId" => String.t() | atom(),
+        "BuyerDomain" => list(any()),
+        "BuyerIdentifier" => String.t() | atom(),
+        "Contacts" => list(contact()),
+        "CreateDate" => [non_neg_integer()],
+        "EinvoiceDeliveryEnabled" => [boolean()],
+        "EinvoiceDeliveryPreference" => einvoice_delivery_preference(),
+        "EinvoiceDeliveryPreferenceStatus" => list(any()),
+        "EinvoiceDeliveryPreferenceStatusReason" => String.t() | atom(),
+        "LastUpdateDate" => [non_neg_integer()],
+        "ProcurementPortalInstanceEndpoint" => String.t() | atom(),
+        "ProcurementPortalName" => list(any()),
+        "ProcurementPortalPreferenceArn" => String.t() | atom(),
+        "ProcurementPortalSharedSecret" => String.t() | atom(),
+        "PurchaseOrderRetrievalEnabled" => [boolean()],
+        "PurchaseOrderRetrievalEndpoint" => String.t() | atom(),
+        "PurchaseOrderRetrievalPreferenceStatus" => list(any()),
+        "PurchaseOrderRetrievalPreferenceStatusReason" => String.t() | atom(),
+        "Selector" => procurement_portal_preference_selector(),
+        "SupplierDomain" => list(any()),
+        "SupplierIdentifier" => String.t() | atom(),
+        "TestEnvPreference" => test_env_preference(),
+        "Version" => [float()]
+      }
+      
+  """
+  @type procurement_portal_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       discounts_breakdown_amount() :: %{
         "Amount" => String.t() | atom(),
         "Description" => String.t() | atom(),
@@ -116,6 +244,19 @@ defmodule AWS.Invoicing do
       
   """
   @type date_interval() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_procurement_portal_preference_status_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_procurement_portal_preference_status_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -218,6 +359,30 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      delete_procurement_portal_preference_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "message" => String.t() | atom(),
         "resourceName" => String.t() | atom()
@@ -298,6 +463,18 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      list_procurement_portal_preferences_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_procurement_portal_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_response() :: %{
         "ResourceTags" => list(resource_tag())
       }
@@ -345,6 +522,37 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      einvoice_delivery_preference() :: %{
+        "ConnectionTestingMethod" => list(any()),
+        "EinvoiceDeliveryActivationDate" => [non_neg_integer()],
+        "EinvoiceDeliveryAttachmentTypes" => list(list(any())()),
+        "EinvoiceDeliveryDocumentTypes" => list(list(any())()),
+        "Protocol" => list(any()),
+        "PurchaseOrderDataSources" => list(purchase_order_data_source())
+      }
+      
+  """
+  @type einvoice_delivery_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_procurement_portal_preference_status_request() :: %{
+        optional("EinvoiceDeliveryPreferenceStatus") => list(any()),
+        optional("EinvoiceDeliveryPreferenceStatusReason") => String.t() | atom(),
+        optional("PurchaseOrderRetrievalPreferenceStatus") => list(any()),
+        optional("PurchaseOrderRetrievalPreferenceStatusReason") => String.t() | atom(),
+        required("ProcurementPortalPreferenceArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_procurement_portal_preference_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invoice_currency_amount() :: %{
         "AmountBreakdown" => amount_breakdown(),
         "CurrencyCode" => String.t() | atom(),
@@ -372,6 +580,18 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      contact() :: %{
+        "Email" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       billing_period() :: %{
         "Month" => integer(),
         "Year" => integer()
@@ -392,6 +612,33 @@ defmodule AWS.Invoicing do
       
   """
   @type fees_breakdown_amount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_env_preference_input() :: %{
+        "BuyerDomain" => list(any()),
+        "BuyerIdentifier" => String.t() | atom(),
+        "ProcurementPortalInstanceEndpoint" => String.t() | atom(),
+        "ProcurementPortalSharedSecret" => String.t() | atom(),
+        "SupplierDomain" => list(any()),
+        "SupplierIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type test_env_preference_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_procurement_portal_preference_request() :: %{
+        required("ProcurementPortalPreferenceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -435,12 +682,34 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      put_procurement_portal_preference_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_invoice_p_d_f_response() :: %{
         "InvoicePDF" => invoice_p_d_f()
       }
       
   """
   @type get_invoice_p_d_f_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_procurement_portal_preference_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -467,7 +736,36 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      get_procurement_portal_preference_response() :: %{
+        "ProcurementPortalPreference" => procurement_portal_preference()
+      }
+      
+  """
+  @type get_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_env_preference() :: %{
+        "BuyerDomain" => list(any()),
+        "BuyerIdentifier" => String.t() | atom(),
+        "ProcurementPortalInstanceEndpoint" => String.t() | atom(),
+        "ProcurementPortalSharedSecret" => String.t() | atom(),
+        "PurchaseOrderRetrievalEndpoint" => String.t() | atom(),
+        "SupplierDomain" => list(any()),
+        "SupplierIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type test_env_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invoice_unit_rule() :: %{
+        "BillSourceAccounts" => list(String.t() | atom()),
         "LinkedAccounts" => list(String.t() | atom())
       }
       
@@ -593,8 +891,21 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      list_procurement_portal_preferences_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProcurementPortalPreferences" => list(procurement_portal_preference_summary())
+      }
+      
+  """
+  @type list_procurement_portal_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       filters() :: %{
         "Accounts" => list(String.t() | atom()),
+        "BillSourceAccounts" => list(String.t() | atom()),
         "InvoiceReceivers" => list(String.t() | atom()),
         "Names" => list(String.t() | atom())
       }
@@ -624,6 +935,17 @@ defmodule AWS.Invoicing do
       
   """
   @type create_invoice_unit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_procurement_portal_preference_request() :: %{
+        required("ProcurementPortalPreferenceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -670,6 +992,33 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      procurement_portal_preference_summary() :: %{
+        "AwsAccountId" => String.t() | atom(),
+        "BuyerDomain" => list(any()),
+        "BuyerIdentifier" => String.t() | atom(),
+        "CreateDate" => [non_neg_integer()],
+        "EinvoiceDeliveryEnabled" => [boolean()],
+        "EinvoiceDeliveryPreferenceStatus" => list(any()),
+        "EinvoiceDeliveryPreferenceStatusReason" => String.t() | atom(),
+        "LastUpdateDate" => [non_neg_integer()],
+        "ProcurementPortalName" => list(any()),
+        "ProcurementPortalPreferenceArn" => String.t() | atom(),
+        "PurchaseOrderRetrievalEnabled" => [boolean()],
+        "PurchaseOrderRetrievalPreferenceStatus" => list(any()),
+        "PurchaseOrderRetrievalPreferenceStatusReason" => String.t() | atom(),
+        "Selector" => procurement_portal_preference_selector(),
+        "SupplierDomain" => list(any()),
+        "SupplierIdentifier" => String.t() | atom(),
+        "Version" => [float()]
+      }
+      
+  """
+  @type procurement_portal_preference_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_invoice_summaries_request() :: %{
         optional("Filter") => invoice_summaries_filter(),
         optional("MaxResults") => integer(),
@@ -679,6 +1028,18 @@ defmodule AWS.Invoicing do
       
   """
   @type list_invoice_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      procurement_portal_preference_selector() :: %{
+        "InvoiceUnitArns" => list(String.t() | atom()),
+        "SellerOfRecords" => list(String.t() | atom())
+      }
+      
+  """
+  @type procurement_portal_preference_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,11 +1066,27 @@ defmodule AWS.Invoicing do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type create_procurement_portal_preference_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type delete_invoice_unit_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_procurement_portal_preference_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
   @type get_invoice_p_d_f_errors() ::
@@ -726,6 +1103,15 @@ defmodule AWS.Invoicing do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_procurement_portal_preference_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type list_invoice_summaries_errors() ::
           throttling_exception()
           | validation_exception()
@@ -739,12 +1125,29 @@ defmodule AWS.Invoicing do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_procurement_portal_preferences_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type list_tags_for_resource_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type put_procurement_portal_preference_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type tag_resource_errors() ::
           throttling_exception()
@@ -767,6 +1170,15 @@ defmodule AWS.Invoicing do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type update_procurement_portal_preference_status_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -816,6 +1228,28 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
+  Creates a procurement portal preference configuration for e-invoice delivery and
+  purchase order retrieval.
+
+  This preference defines how invoices are delivered to a procurement portal and
+  how purchase orders are retrieved.
+  """
+  @spec create_procurement_portal_preference(
+          map(),
+          create_procurement_portal_preference_request(),
+          list()
+        ) ::
+          {:ok, create_procurement_portal_preference_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_procurement_portal_preference_errors()}
+  def create_procurement_portal_preference(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProcurementPortalPreference", input, options)
+  end
+
+  @doc """
   This deletes an invoice unit with the provided invoice unit ARN.
   """
   @spec delete_invoice_unit(map(), delete_invoice_unit_request(), list()) ::
@@ -827,6 +1261,27 @@ defmodule AWS.Invoicing do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteInvoiceUnit", input, options)
+  end
+
+  @doc """
+  Deletes an existing procurement portal preference.
+
+  This action cannot be undone. Active e-invoice delivery and PO retrieval
+  configurations will be terminated.
+  """
+  @spec delete_procurement_portal_preference(
+          map(),
+          delete_procurement_portal_preference_request(),
+          list()
+        ) ::
+          {:ok, delete_procurement_portal_preference_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_procurement_portal_preference_errors()}
+  def delete_procurement_portal_preference(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProcurementPortalPreference", input, options)
   end
 
   @doc """
@@ -865,6 +1320,24 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
+  Retrieves the details of a specific procurement portal preference configuration.
+  """
+  @spec get_procurement_portal_preference(
+          map(),
+          get_procurement_portal_preference_request(),
+          list()
+        ) ::
+          {:ok, get_procurement_portal_preference_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_procurement_portal_preference_errors()}
+  def get_procurement_portal_preference(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetProcurementPortalPreference", input, options)
+  end
+
+  @doc """
   Retrieves your invoice details programmatically, without line item details.
   """
   @spec list_invoice_summaries(map(), list_invoice_summaries_request(), list()) ::
@@ -894,6 +1367,25 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
+  Retrieves a list of procurement portal preferences associated with the Amazon
+  Web Services account.
+  """
+  @spec list_procurement_portal_preferences(
+          map(),
+          list_procurement_portal_preferences_request(),
+          list()
+        ) ::
+          {:ok, list_procurement_portal_preferences_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_procurement_portal_preferences_errors()}
+  def list_procurement_portal_preferences(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListProcurementPortalPreferences", input, options)
+  end
+
+  @doc """
   Lists the tags for a resource.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
@@ -905,6 +1397,27 @@ defmodule AWS.Invoicing do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Updates an existing procurement portal preference configuration.
+
+  This operation can modify settings for e-invoice delivery and purchase order
+  retrieval.
+  """
+  @spec put_procurement_portal_preference(
+          map(),
+          put_procurement_portal_preference_request(),
+          list()
+        ) ::
+          {:ok, put_procurement_portal_preference_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_procurement_portal_preference_errors()}
+  def put_procurement_portal_preference(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutProcurementPortalPreference", input, options)
   end
 
   @doc """
@@ -948,5 +1461,24 @@ defmodule AWS.Invoicing do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateInvoiceUnit", input, options)
+  end
+
+  @doc """
+  Updates the status of a procurement portal preference, including the activation
+  state of e-invoice delivery and purchase order retrieval features.
+  """
+  @spec update_procurement_portal_preference_status(
+          map(),
+          update_procurement_portal_preference_status_request(),
+          list()
+        ) ::
+          {:ok, update_procurement_portal_preference_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_procurement_portal_preference_status_errors()}
+  def update_procurement_portal_preference_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProcurementPortalPreferenceStatus", input, options)
   end
 end

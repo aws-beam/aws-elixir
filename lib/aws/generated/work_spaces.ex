@@ -2919,7 +2919,9 @@ defmodule AWS.WorkSpaces do
         "ImageSource" => list(),
         "InfrastructureConfigurationArn" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "State" => list(any())
+        "ProgressPercentage" => integer(),
+        "State" => list(any()),
+        "StateMessage" => String.t() | atom()
       }
       
   """
@@ -4193,7 +4195,7 @@ defmodule AWS.WorkSpaces do
   In the China (Ningxia) Region, you can copy images only within the same Region.
 
   In Amazon Web Services GovCloud (US), to copy images to and from other Regions,
-  contact Amazon Web ServicesSupport.
+  contact Amazon Web Services Support.
 
   Before copying a shared image, be sure to verify that it has been shared from
   the
@@ -5666,8 +5668,8 @@ defmodule AWS.WorkSpaces do
 
   Terminating a WorkSpace is a permanent action and cannot be undone. The user's
   data
-  is destroyed. If you need to archive any user data, contact Amazon Web
-  ServicesSupport before
+  is destroyed. If you need to archive any user data, contact Amazon Web Services
+  Support before
   terminating the WorkSpace.
 
   You can terminate a WorkSpace that is in any state except `SUSPENDED`.
@@ -5858,7 +5860,7 @@ defmodule AWS.WorkSpaces do
   In the China (Ningxia) Region, you can copy images only within the same Region.
 
   In Amazon Web Services GovCloud (US), to copy images to and from other Regions,
-  contact Amazon Web ServicesSupport.
+  contact Amazon Web Services Support.
 
   For more information about sharing images, see [ Share or Unshare a Custom WorkSpaces
   Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html).
@@ -5872,7 +5874,7 @@ defmodule AWS.WorkSpaces do
   isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL
   images
   across accounts in Amazon Web Services GovCloud (US), contact Amazon Web
-  ServicesSupport.
+  Services Support.
   """
   @spec update_workspace_image_permission(
           map(),

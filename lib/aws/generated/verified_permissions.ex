@@ -270,6 +270,7 @@ defmodule AWS.VerifiedPermissions do
         optional("clientToken") => String.t() | atom(),
         optional("deletionProtection") => list(any()),
         optional("description") => String.t() | atom(),
+        optional("encryptionSettings") => list(),
         optional("tags") => map(),
         required("validationSettings") => validation_settings()
       }
@@ -451,6 +452,18 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      kms_encryption_state() :: %{
+        "encryptionContext" => map(),
+        "key" => String.t() | atom()
+      }
+      
+  """
+  @type kms_encryption_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_policy_store_output() :: %{
         "arn" => String.t() | atom(),
         "createdDate" => non_neg_integer(),
@@ -505,7 +518,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       update_policy_input() :: %{
-        required("definition") => list(),
+        optional("definition") => list(),
         required("policyId") => String.t() | atom(),
         required("policyStoreId") => String.t() | atom()
       }
@@ -733,6 +746,18 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type identity_source_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_encryption_settings() :: %{
+        "encryptionContext" => map(),
+        "key" => String.t() | atom()
+      }
+      
+  """
+  @type kms_encryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1176,6 +1201,7 @@ defmodule AWS.VerifiedPermissions do
         "createdDate" => non_neg_integer(),
         "deletionProtection" => list(any()),
         "description" => String.t() | atom(),
+        "encryptionState" => list(),
         "lastUpdatedDate" => non_neg_integer(),
         "policyStoreId" => String.t() | atom(),
         "tags" => map(),

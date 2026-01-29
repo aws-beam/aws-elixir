@@ -9,13 +9,11 @@ defmodule AWS.RedshiftServerless do
   you can use to manage Amazon Redshift Serverless.
 
   Amazon Redshift Serverless automatically provisions data warehouse capacity and
-  intelligently scales the
-  underlying resources based on workload demands. Amazon Redshift Serverless
-  adjusts capacity in seconds to deliver consistently high
+  intelligently scales the underlying resources based on workload demands. Amazon
+  Redshift Serverless adjusts capacity in seconds to deliver consistently high
   performance and simplified operations for even the most demanding and volatile
-  workloads. Amazon Redshift Serverless lets you
-  focus on using your data to acquire new insights for your business and
-  customers.
+  workloads. Amazon Redshift Serverless lets you focus on using your data to
+  acquire new insights for your business and customers.
 
   To learn more about Amazon Redshift Serverless, see [What is Amazon Redshift Serverless?](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html).
   """
@@ -93,6 +91,17 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type update_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_center_auth_token_request() :: %{
+        required("workgroupNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_identity_center_auth_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -566,6 +575,20 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      update_lakehouse_configuration_response() :: %{
+        "catalogArn" => [String.t() | atom()],
+        "lakehouseIdcApplicationArn" => [String.t() | atom()],
+        "lakehouseRegistrationStatus" => [String.t() | atom()],
+        "namespaceName" => String.t() | atom()
+      }
+      
+  """
+  @type update_lakehouse_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_usage_limit_response() :: %{
         "usageLimit" => usage_limit()
       }
@@ -702,6 +725,22 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      update_lakehouse_configuration_request() :: %{
+        optional("catalogName") => String.t() | atom(),
+        optional("dryRun") => [boolean()],
+        optional("lakehouseIdcApplicationArn") => [String.t() | atom()],
+        optional("lakehouseIdcRegistration") => String.t() | atom(),
+        optional("lakehouseRegistration") => String.t() | atom(),
+        required("namespaceName") => String.t() | atom()
+      }
+      
+  """
+  @type update_lakehouse_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_recovery_point_request() :: %{
         required("recoveryPointId") => [String.t() | atom()]
       }
@@ -734,6 +773,17 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type list_scheduled_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dry_run_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type dry_run_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -869,6 +919,7 @@ defmodule AWS.RedshiftServerless do
         "customDomainName" => String.t() | atom(),
         "endpoint" => endpoint(),
         "enhancedVpcRouting" => [boolean()],
+        "extraComputeForAutomaticOptimization" => [boolean()],
         "ipAddressType" => String.t() | atom(),
         "maxCapacity" => [integer()],
         "namespaceName" => [String.t() | atom()],
@@ -913,6 +964,18 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type list_usage_limits_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_center_auth_token_response() :: %{
+        "expirationTime" => [non_neg_integer()],
+        "token" => [String.t() | atom()]
+      }
+      
+  """
+  @type get_identity_center_auth_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,6 +1295,7 @@ defmodule AWS.RedshiftServerless do
         optional("baseCapacity") => [integer()],
         optional("configParameters") => list(config_parameter()),
         optional("enhancedVpcRouting") => [boolean()],
+        optional("extraComputeForAutomaticOptimization") => [boolean()],
         optional("ipAddressType") => String.t() | atom(),
         optional("maxCapacity") => [integer()],
         optional("port") => [integer()],
@@ -1880,6 +1944,7 @@ defmodule AWS.RedshiftServerless do
         optional("baseCapacity") => [integer()],
         optional("configParameters") => list(config_parameter()),
         optional("enhancedVpcRouting") => [boolean()],
+        optional("extraComputeForAutomaticOptimization") => [boolean()],
         optional("ipAddressType") => String.t() | atom(),
         optional("maxCapacity") => [integer()],
         optional("port") => [integer()],
@@ -1979,11 +2044,13 @@ defmodule AWS.RedshiftServerless do
         "adminPasswordSecretArn" => [String.t() | atom()],
         "adminPasswordSecretKmsKeyId" => String.t() | atom(),
         "adminUsername" => String.t() | atom(),
+        "catalogArn" => [String.t() | atom()],
         "creationDate" => [non_neg_integer()],
         "dbName" => [String.t() | atom()],
         "defaultIamRoleArn" => [String.t() | atom()],
         "iamRoles" => list(String.t() | atom()),
         "kmsKeyId" => [String.t() | atom()],
+        "lakehouseRegistrationStatus" => [String.t() | atom()],
         "logExports" => list(String.t() | atom()),
         "namespaceArn" => [String.t() | atom()],
         "namespaceId" => [String.t() | atom()],
@@ -2280,6 +2347,15 @@ defmodule AWS.RedshiftServerless do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type get_identity_center_auth_token_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dry_run_exception()
+
   @type get_namespace_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
@@ -2320,6 +2396,7 @@ defmodule AWS.RedshiftServerless do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | dry_run_exception()
 
   @type get_usage_limit_errors() ::
           validation_exception()
@@ -2457,6 +2534,13 @@ defmodule AWS.RedshiftServerless do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_lakehouse_configuration_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dry_run_exception()
+
   @type update_namespace_errors() ::
           validation_exception()
           | internal_server_exception()
@@ -2515,8 +2599,8 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Converts a recovery point to a snapshot.
 
-  For more information about recovery points and snapshots,
-  see [Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html).
+  For more information about recovery points and snapshots, see [Working with snapshots and recovery
+  points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html).
   """
   @spec convert_recovery_point_to_snapshot(
           map(),
@@ -2581,8 +2665,8 @@ defmodule AWS.RedshiftServerless do
 
   @doc """
   Creates an Amazon Redshift Serverless reservation, which gives you the option to
-  commit to a specified number of Redshift Processing Units (RPUs)
-  for a year at a discount from Serverless on-demand (OD) rates.
+  commit to a specified number of Redshift Processing Units (RPUs) for a year at a
+  discount from Serverless on-demand (OD) rates.
   """
   @spec create_reservation(map(), create_reservation_request(), list()) ::
           {:ok, create_reservation_response(), any()}
@@ -2598,8 +2682,8 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Creates a scheduled action.
 
-  A scheduled action contains a schedule and an Amazon Redshift API action.
-  For example, you can create a schedule of when to run the `CreateSnapshot` API
+  A scheduled action contains a schedule and an Amazon Redshift API action. For
+  example, you can create a schedule of when to run the `CreateSnapshot` API
   operation.
   """
   @spec create_scheduled_action(map(), create_scheduled_action_request(), list()) ::
@@ -2616,10 +2700,7 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Creates a snapshot of all databases in a namespace.
 
-  For more information about snapshots, see
-  [
-  Working with snapshots and recovery
-  points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html).
+  For more information about snapshots, see [ Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html).
   """
   @spec create_snapshot(map(), create_snapshot_request(), list()) ::
           {:ok, create_snapshot_response(), any()}
@@ -2671,22 +2752,16 @@ defmodule AWS.RedshiftServerless do
   Creates an workgroup in Amazon Redshift Serverless.
 
   VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
-  that
-  you own in a Region from reaching or being reached from the internet through
-  internet
-  gateways and egress-only internet gateways. If a workgroup is in an account with
-  VPC BPA
-  turned on, the following capabilities are blocked:
+  that you own in a Region from reaching or being reached from the internet
+  through internet gateways and egress-only internet gateways. If a workgroup is
+  in an account with VPC BPA turned on, the following capabilities are blocked:
 
-    *
-  Creating a public access workgroup
+    * Creating a public access workgroup
 
-    *
-  Modifying a private workgroup to public
+    * Modifying a private workgroup to public
 
-    *
-  Adding a subnet with VPC BPA turned on to the workgroup when the workgroup is
-  public
+    * Adding a subnet with VPC BPA turned on to the workgroup when the
+  workgroup is public
 
   For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
   in the *Amazon VPC User Guide*.
@@ -2840,19 +2915,19 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Returns a database user name and temporary password with
-  temporary authorization to log in to Amazon Redshift Serverless.
+  Returns a database user name and temporary password with temporary authorization
+  to log in to Amazon Redshift Serverless.
 
-  By default, the temporary credentials expire in 900 seconds.
-  You can optionally specify a duration between 900 seconds (15 minutes) and 3600
-  seconds (60 minutes).
+  By default, the temporary credentials expire in 900 seconds. You can optionally
+  specify a duration between 900 seconds (15 minutes) and 3600 seconds (60
+  minutes).
 
-  The Identity and Access Management (IAM) user or role that runs
-  GetCredentials must have an IAM policy attached that allows access to all
-  necessary actions and resources.
+  The Identity and Access Management (IAM) user or role that runs GetCredentials
+  must have an IAM policy attached that allows access to all necessary actions and
+  resources.
 
-  If the `DbName` parameter is specified, the IAM policy must
-  allow access to the resource dbname for the specified database name.
+  If the `DbName` parameter is specified, the IAM policy must allow access to the
+  resource dbname for the specified database name.
   """
   @spec get_credentials(map(), get_credentials_request(), list()) ::
           {:ok, get_credentials_response(), any()}
@@ -2894,6 +2969,30 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Returns an Identity Center authentication token for accessing Amazon Redshift
+  Serverless workgroups.
+
+  The token provides secure access to data within the specified workgroups using
+  Identity Center identity propagation. The token expires after a specified
+  duration and must be refreshed for continued access.
+
+  The Identity and Access Management (IAM) user or role that runs
+  GetIdentityCenterAuthToken must have appropriate permissions to access the
+  specified workgroups and Identity Center integration must be configured for the
+  workgroups.
+  """
+  @spec get_identity_center_auth_token(map(), get_identity_center_auth_token_request(), list()) ::
+          {:ok, get_identity_center_auth_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_identity_center_auth_token_errors()}
+  def get_identity_center_auth_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIdentityCenterAuthToken", input, options)
+  end
+
+  @doc """
   Returns information about a namespace in Amazon Redshift Serverless.
   """
   @spec get_namespace(map(), get_namespace_request(), list()) ::
@@ -2925,8 +3024,8 @@ defmodule AWS.RedshiftServerless do
   Gets an Amazon Redshift Serverless reservation.
 
   A reservation gives you the option to commit to a specified number of Redshift
-  Processing Units (RPUs)
-  for a year at a discount from Serverless on-demand (OD) rates.
+  Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD)
+  rates.
   """
   @spec get_reservation(map(), get_reservation_request(), list()) ::
           {:ok, get_reservation_response(), any()}
@@ -3339,8 +3438,7 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Restores a table from a snapshot to your Amazon Redshift Serverless instance.
 
-  You can't use this operation to
-  restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
+  You can't use this operation to restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
   """
   @spec restore_table_from_snapshot(map(), restore_table_from_snapshot_request(), list()) ::
           {:ok, restore_table_from_snapshot_response(), any()}
@@ -3415,13 +3513,29 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Modifies the lakehouse configuration for a namespace.
+
+  This operation allows you to manage Amazon Redshift federated permissions and
+  Amazon Web Services IAM Identity Center trusted identity propagation.
+  """
+  @spec update_lakehouse_configuration(map(), update_lakehouse_configuration_request(), list()) ::
+          {:ok, update_lakehouse_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_lakehouse_configuration_errors()}
+  def update_lakehouse_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLakehouseConfiguration", input, options)
+  end
+
+  @doc """
   Updates a namespace with the specified settings.
 
   Unless required, you can't update multiple parameters in one request. For
-  example,
-  you must specify both `adminUsername` and `adminUserPassword` to update either
-  field, but you can't update both `kmsKeyId`
-  and `logExports` in a single request.
+  example, you must specify both `adminUsername` and `adminUserPassword` to update
+  either field, but you can't update both `kmsKeyId` and `logExports` in a single
+  request.
   """
   @spec update_namespace(map(), update_namespace_request(), list()) ::
           {:ok, update_namespace_response(), any()}
@@ -3499,27 +3613,21 @@ defmodule AWS.RedshiftServerless do
   @doc """
   Updates a workgroup with the specified configuration settings.
 
-  You can't update multiple parameters in one request. For example,
-  you can update `baseCapacity` or `port` in a single request, but you can't
-  update both in the same request.
+  You can't update multiple parameters in one request. For example, you can update
+  `baseCapacity` or `port` in a single request, but you can't update both in the
+  same request.
 
   VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
-  that
-  you own in a Region from reaching or being reached from the internet through
-  internet
-  gateways and egress-only internet gateways. If a workgroup is in an account with
-  VPC BPA
-  turned on, the following capabilities are blocked:
+  that you own in a Region from reaching or being reached from the internet
+  through internet gateways and egress-only internet gateways. If a workgroup is
+  in an account with VPC BPA turned on, the following capabilities are blocked:
 
-    *
-  Creating a public access workgroup
+    * Creating a public access workgroup
 
-    *
-  Modifying a private workgroup to public
+    * Modifying a private workgroup to public
 
-    *
-  Adding a subnet with VPC BPA turned on to the workgroup when the workgroup is
-  public
+    * Adding a subnet with VPC BPA turned on to the workgroup when the
+  workgroup is public
 
   For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
   in the *Amazon VPC User Guide*.

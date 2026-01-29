@@ -16,11 +16,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      custom_claim_validation_type() :: %{
+        "authorizingClaimMatchValue" => authorizing_claim_match_value_type(),
+        "inboundTokenClaimName" => String.t() | atom(),
+        "inboundTokenClaimValueType" => list(any())
+      }
+
+  """
+  @type custom_claim_validation_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_gateway_request() :: %{
         optional("authorizerConfiguration") => list(),
         optional("description") => String.t() | atom(),
         optional("exceptionLevel") => list(any()),
+        optional("interceptorConfigurations") => list(gateway_interceptor_configuration()),
         optional("kmsKeyArn") => String.t() | atom(),
+        optional("policyEngineConfiguration") => gateway_policy_engine_configuration(),
         optional("protocolConfiguration") => list(),
         required("authorizerType") => list(any()),
         required("name") => String.t() | atom(),
@@ -35,14 +50,38 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      lambda_interceptor_configuration() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_interceptor_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       modify_strategy_configuration() :: %{
         "consolidation" => list(),
         "extraction" => list(),
+        "reflection" => list(),
         "selfManagedConfiguration" => modify_self_managed_configuration()
       }
 
   """
   @type modify_strategy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_gateway_tool_configuration() :: %{
+        "toolFilters" => list(api_gateway_tool_filter()),
+        "toolOverrides" => list(api_gateway_tool_override())
+      }
+
+  """
+  @type api_gateway_tool_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -170,6 +209,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_resource_policy_response() :: %{}
+
+  """
+  @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       browser_summary() :: %{
         "browserArn" => String.t() | atom(),
         "browserId" => String.t() | atom(),
@@ -222,6 +270,37 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type code_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      numerical_scale_definition() :: %{
+        "definition" => [String.t() | atom()],
+        "label" => [String.t() | atom()],
+        "value" => [float()]
+      }
+
+  """
+  @type numerical_scale_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_policy_engine_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_policy_engine_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -293,6 +372,27 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_evaluator_request() :: %{}
+
+  """
+  @type get_evaluator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policies" => list(policy())
+      }
+
+  """
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       schema_definition() :: %{
         "description" => [String.t() | atom()],
         "items" => schema_definition(),
@@ -338,8 +438,10 @@ defmodule AWS.BedrockAgentCoreControl do
         "gatewayArn" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
         "gatewayUrl" => String.t() | atom(),
+        "interceptorConfigurations" => list(gateway_interceptor_configuration()),
         "kmsKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "policyEngineConfiguration" => gateway_policy_engine_configuration(),
         "protocolConfiguration" => list(),
         "protocolType" => list(any()),
         "roleArn" => String.t() | atom(),
@@ -351,6 +453,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_gateway_tool_override() :: %{
+        "description" => [String.t() | atom()],
+        "method" => list(any()),
+        "name" => [String.t() | atom()],
+        "path" => [String.t() | atom()]
+      }
+
+  """
+  @type api_gateway_tool_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -368,6 +484,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      inference_configuration() :: %{
+        "maxTokens" => [integer()],
+        "stopSequences" => list(String.t() | atom()),
+        "temperature" => [float()],
+        "topP" => [float()]
+      }
+
+  """
+  @type inference_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_gateways_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -375,6 +505,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_output_config() :: %{
+        "logGroupName" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -391,12 +532,67 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_online_evaluation_config_response() :: %{
+        "executionStatus" => list(any()),
+        "failureReason" => [String.t() | atom()],
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_evaluators_response() :: %{
+        "evaluators" => list(evaluator_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_evaluators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_workload_identity_request() :: %{
         required("name") => String.t() | atom()
       }
 
   """
   @type get_workload_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_evaluator_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("evaluatorConfig") => list(),
+        optional("level") => list(any())
+      }
+
+  """
+  @type update_evaluator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("targetResourceScope") => String.t() | atom()
+      }
+
+  """
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -413,6 +609,40 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_policy_request() :: %{}
+
+  """
+  @type get_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      api_gateway_target_configuration() :: %{
+        "apiGatewayToolConfiguration" => api_gateway_tool_configuration(),
+        "restApiId" => [String.t() | atom()],
+        "stage" => [String.t() | atom()]
+      }
+
+  """
+  @type api_gateway_target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generation_assets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_generation_assets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_gateway_target_response() :: %{
         "gatewayArn" => String.t() | atom(),
         "status" => list(any()),
@@ -422,6 +652,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_gateway_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_gateway_tool_filter() :: %{
+        "filterPath" => [String.t() | atom()],
+        "methods" => list(list(any())())
+      }
+
+  """
+  @type api_gateway_tool_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -481,6 +723,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_policy_engine_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_engine_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_browser_response() :: %{
         "browserArn" => String.t() | atom(),
         "browserId" => String.t() | atom(),
@@ -519,6 +779,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      policy_generation_asset() :: %{
+        "definition" => list(),
+        "findings" => list(finding()),
+        "policyGenerationAssetId" => String.t() | atom(),
+        "rawTextFragment" => String.t() | atom()
+      }
+
+  """
+  @type policy_generation_asset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_browser_response() :: %{
         "browserId" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
@@ -527,6 +801,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_online_evaluation_config_request() :: %{}
+
+  """
+  @type get_online_evaluation_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("validationMode") => list(any()),
+        required("definition") => list(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -543,10 +841,12 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      get_memory_input() :: %{}
+      get_memory_input() :: %{
+        optional("view") => list(any())
+      }
 
   """
-  @type get_memory_input() :: %{}
+  @type get_memory_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,6 +928,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      episodic_override_reflection_configuration_input() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()],
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type episodic_override_reflection_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "policy" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_preference_override_configuration_input() :: %{
         "consolidation" => user_preference_override_consolidation_configuration_input(),
         "extraction" => user_preference_override_extraction_configuration_input()
@@ -640,12 +964,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      episodic_reflection_configuration() :: %{
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type episodic_reflection_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_gateway_target_response() :: %{
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
         "gatewayArn" => String.t() | atom(),
         "lastSynchronizedAt" => non_neg_integer(),
+        "metadataConfiguration" => metadata_configuration(),
         "name" => String.t() | atom(),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
@@ -656,6 +992,68 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_gateway_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_override_configuration_input() :: %{
+        "consolidation" => episodic_override_consolidation_configuration_input(),
+        "extraction" => episodic_override_extraction_configuration_input(),
+        "reflection" => episodic_override_reflection_configuration_input()
+      }
+
+  """
+  @type episodic_override_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_online_evaluation_config_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("dataSourceConfig") => list(),
+        optional("description") => String.t() | atom(),
+        optional("evaluationExecutionRoleArn") => String.t() | atom(),
+        optional("evaluators") => list(list()),
+        optional("executionStatus") => list(any()),
+        optional("rule") => rule()
+      }
+
+  """
+  @type update_online_evaluation_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_evaluator_response() :: %{
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      online_evaluation_config_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "executionStatus" => list(any()),
+        "failureReason" => [String.t() | atom()],
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "onlineEvaluationConfigName" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type online_evaluation_config_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -694,6 +1092,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      gateway_policy_engine_configuration() :: %{
+        "arn" => String.t() | atom(),
+        "mode" => list(any())
+      }
+
+  """
+  @type gateway_policy_engine_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       semantic_override_consolidation_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -701,6 +1111,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type semantic_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type delete_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -731,6 +1161,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type self_managed_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -808,6 +1258,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("clientToken") => String.t() | atom(),
         optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
+        optional("metadataConfiguration") => metadata_configuration(),
         required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }
@@ -863,6 +1314,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "description" => String.t() | atom(),
         "gatewayArn" => String.t() | atom(),
         "lastSynchronizedAt" => non_neg_integer(),
+        "metadataConfiguration" => metadata_configuration(),
         "name" => String.t() | atom(),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
@@ -885,6 +1337,39 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type github_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_engines_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyEngines" => list(policy_engine())
+      }
+
+  """
+  @type list_policy_engines_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_engine_request() :: %{}
+
+  """
+  @type get_policy_engine_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_online_evaluation_configs_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "onlineEvaluationConfigs" => list(online_evaluation_config_summary())
+      }
+
+  """
+  @type list_online_evaluation_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -921,6 +1406,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type github_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_evaluator_request() :: %{}
+
+  """
+  @type delete_evaluator_request() :: %{}
 
   @typedoc """
 
@@ -972,6 +1466,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type gateway_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_memory_strategy_input() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom()),
+        "reflectionConfiguration" => episodic_reflection_configuration_input()
+      }
+
+  """
+  @type episodic_memory_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1068,6 +1576,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_online_evaluation_config_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("dataSourceConfig") => list(),
+        required("enableOnCreate") => [boolean()],
+        required("evaluationExecutionRoleArn") => String.t() | atom(),
+        required("evaluators") => list(list()),
+        required("onlineEvaluationConfigName") => String.t() | atom(),
+        required("rule") => rule()
+      }
+
+  """
+  @type create_online_evaluation_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_browser_request() :: %{
         optional("browserSigning") => browser_signing_config_input(),
         optional("clientToken") => String.t() | atom(),
@@ -1104,6 +1630,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "description" => String.t() | atom(),
         "gatewayArn" => String.t() | atom(),
         "lastSynchronizedAt" => non_neg_integer(),
+        "metadataConfiguration" => metadata_configuration(),
         "name" => String.t() | atom(),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
@@ -1141,6 +1668,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_online_evaluation_config_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "executionStatus" => list(any()),
+        "failureReason" => [String.t() | atom()],
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "outputConfig" => output_config(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_workload_identity_request() :: %{
         optional("allowedResourceOauth2ReturnUrls") => list(String.t() | atom()),
         optional("tags") => map(),
@@ -1163,8 +1707,10 @@ defmodule AWS.BedrockAgentCoreControl do
         "gatewayArn" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
         "gatewayUrl" => String.t() | atom(),
+        "interceptorConfigurations" => list(gateway_interceptor_configuration()),
         "kmsKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "policyEngineConfiguration" => gateway_policy_engine_configuration(),
         "protocolConfiguration" => list(),
         "protocolType" => list(any()),
         "roleArn" => String.t() | atom(),
@@ -1176,6 +1722,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_reflection_configuration_input() :: %{
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type episodic_reflection_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1193,12 +1750,62 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      llm_as_a_judge_evaluator_config() :: %{
+        "instructions" => String.t() | atom(),
+        "modelConfig" => list(),
+        "ratingScale" => list()
+      }
+
+  """
+  @type llm_as_a_judge_evaluator_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_memory_output() :: %{
         "memory" => memory()
       }
 
   """
   @type create_memory_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorizing_claim_match_value_type() :: %{
+        "claimMatchOperator" => list(any()),
+        "claimMatchValue" => list()
+      }
+
+  """
+  @type authorizing_claim_match_value_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_reflection_override() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()],
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type episodic_reflection_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_override_consolidation_configuration_input() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type episodic_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1250,6 +1857,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type set_token_vault_cm_k_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_evaluator_model_config() :: %{
+        "additionalModelRequestFields" => any(),
+        "inferenceConfig" => inference_configuration(),
+        "modelId" => String.t() | atom()
+      }
+
+  """
+  @type bedrock_evaluator_model_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1390,6 +2010,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_online_evaluation_config_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "dataSourceConfig" => list(),
+        "description" => String.t() | atom(),
+        "evaluationExecutionRoleArn" => String.t() | atom(),
+        "evaluators" => list(list()),
+        "executionStatus" => list(any()),
+        "failureReason" => [String.t() | atom()],
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "onlineEvaluationConfigName" => String.t() | atom(),
+        "outputConfig" => output_config(),
+        "rule" => rule(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       vpc_config() :: %{
         "securityGroups" => list(String.t() | atom()),
         "subnets" => list(String.t() | atom())
@@ -1421,6 +2065,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding() :: %{
+        "description" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1462,6 +2118,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      episodic_override_extraction_configuration_input() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type episodic_override_extraction_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_oauth2_credential_provider_request() :: %{
         required("credentialProviderVendor") => list(any()),
         required("name") => String.t() | atom(),
@@ -1470,6 +2138,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_config() :: %{
+        "sessionTimeoutMinutes" => [integer()]
+      }
+
+  """
+  @type session_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1498,6 +2177,31 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_policy_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("validationMode") => list(any()),
+        required("definition") => list()
+      }
+
+  """
+  @type update_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_generations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_workload_identities_response() :: %{
         "nextToken" => [String.t() | atom()],
         "workloadIdentities" => list(workload_identity_type())
@@ -1514,6 +2218,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_code_interpreter_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_evaluator_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_evaluator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1554,6 +2272,62 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_online_evaluation_config_response() :: %{
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cedar_policy() :: %{
+        "statement" => String.t() | atom()
+      }
+
+  """
+  @type cedar_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generation_assets_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyGenerationAssets" => list(policy_generation_asset())
+      }
+
+  """
+  @type list_policy_generation_assets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_generation() :: %{
+        "createdAt" => non_neg_integer(),
+        "findings" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyGenerationArn" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom(),
+        "resource" => list(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_generation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_location() :: %{
         "bucket" => [String.t() | atom()],
         "prefix" => [String.t() | atom()],
@@ -1573,6 +2347,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type container_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyGenerations" => list(policy_generation())
+      }
+
+  """
+  @type list_policy_generations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1598,8 +2384,10 @@ defmodule AWS.BedrockAgentCoreControl do
         "gatewayArn" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
         "gatewayUrl" => String.t() | atom(),
+        "interceptorConfigurations" => list(gateway_interceptor_configuration()),
         "kmsKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "policyEngineConfiguration" => gateway_policy_engine_configuration(),
         "protocolConfiguration" => list(),
         "protocolType" => list(any()),
         "roleArn" => String.t() | atom(),
@@ -1622,6 +2410,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_workload_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
 
   @typedoc """
 
@@ -1657,6 +2454,84 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_policy_generation_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "findings" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyGenerationArn" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom(),
+        "resource" => list(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_generation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "key" => [String.t() | atom()],
+        "operator" => list(any()),
+        "value" => list()
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule() :: %{
+        "filters" => list(filter()),
+        "samplingConfig" => sampling_config(),
+        "sessionConfig" => session_config()
+      }
+
+  """
+  @type rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_input_config() :: %{
+        "logGroupNames" => list(String.t() | atom()),
+        "serviceNames" => list(String.t() | atom())
+      }
+
+  """
+  @type cloud_watch_logs_input_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_preference_override_extraction_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -1685,6 +2560,8 @@ defmodule AWS.BedrockAgentCoreControl do
 
       o_auth_credential_provider() :: %{
         "customParameters" => map(),
+        "defaultReturnUrl" => String.t() | atom(),
+        "grantType" => list(any()),
         "providerArn" => String.t() | atom(),
         "scopes" => list(String.t() | atom())
       }
@@ -1745,6 +2622,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_memory_output() :: %{
         "memory" => memory()
       }
@@ -1763,6 +2660,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_memory_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_online_evaluation_config_request() :: %{}
+
+  """
+  @type delete_online_evaluation_config_request() :: %{}
 
   @typedoc """
 
@@ -1829,12 +2735,41 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_policy_request() :: %{}
+
+  """
+  @type delete_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_generation_request() :: %{}
+
+  """
+  @type get_policy_generation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_browser_request() :: %{
         optional("clientToken") => String.t() | atom()
       }
 
   """
   @type delete_browser_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sampling_config() :: %{
+        "samplingPercentage" => float()
+      }
+
+  """
+  @type sampling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1868,6 +2803,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      metadata_configuration() :: %{
+        "allowedQueryParameters" => list(String.t() | atom()),
+        "allowedRequestHeaders" => list(String.t() | atom()),
+        "allowedResponseHeaders" => list(String.t() | atom())
+      }
+
+  """
+  @type metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       modify_memory_strategy_input() :: %{
         "configuration" => modify_strategy_configuration(),
         "description" => String.t() | atom(),
@@ -1887,7 +2835,9 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("exceptionLevel") => list(any()),
+        optional("interceptorConfigurations") => list(gateway_interceptor_configuration()),
         optional("kmsKeyArn") => String.t() | atom(),
+        optional("policyEngineConfiguration") => gateway_policy_engine_configuration(),
         optional("protocolConfiguration") => list(),
         optional("tags") => map(),
         required("authorizerType") => list(any()),
@@ -1921,6 +2871,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "description" => String.t() | atom(),
         "gatewayArn" => String.t() | atom(),
         "lastSynchronizedAt" => non_neg_integer(),
+        "metadataConfiguration" => metadata_configuration(),
         "name" => String.t() | atom(),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
@@ -1946,6 +2897,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "environmentVariables" => map(),
+        "failureReason" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
         "lifecycleConfiguration" => lifecycle_configuration(),
         "networkConfiguration" => network_configuration(),
@@ -2022,6 +2974,63 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      policy() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_consolidation_override() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type episodic_consolidation_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_policy_generation_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("content") => list(),
+        required("name") => String.t() | atom(),
+        required("resource") => list()
+      }
+
+  """
+  @type start_policy_generation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       set_token_vault_cm_k_request() :: %{
         optional("tokenVaultId") => String.t() | atom(),
         required("kmsConfiguration") => kms_configuration()
@@ -2065,6 +3074,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_policy_engine_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_policy_engine_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_token_vault_response() :: %{
         "kmsConfiguration" => kms_configuration(),
         "lastModifiedDate" => [non_neg_integer()],
@@ -2078,12 +3105,44 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      categorical_scale_definition() :: %{
+        "definition" => [String.t() | atom()],
+        "label" => [String.t() | atom()]
+      }
+
+  """
+  @type categorical_scale_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       summary_override_configuration_input() :: %{
         "consolidation" => summary_override_consolidation_configuration_input()
       }
 
   """
   @type summary_override_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evaluator_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorConfig" => list(),
+        "evaluatorId" => String.t() | atom(),
+        "evaluatorName" => String.t() | atom(),
+        "level" => list(any()),
+        "lockedForModification" => [boolean()],
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_evaluator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2103,6 +3162,7 @@ defmodule AWS.BedrockAgentCoreControl do
       strategy_configuration() :: %{
         "consolidation" => list(),
         "extraction" => list(),
+        "reflection" => list(),
         "selfManagedConfiguration" => self_managed_configuration(),
         "type" => list(any())
       }
@@ -2148,6 +3208,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_policy_engine_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_policy_engine_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -2160,11 +3233,25 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_j_w_t_authorizer_configuration() :: %{
         "allowedAudience" => list(String.t() | atom()),
         "allowedClients" => list(String.t() | atom()),
+        "allowedScopes" => list(String.t() | atom()),
+        "customClaims" => list(custom_claim_validation_type()),
         "discoveryUrl" => String.t() | atom()
       }
 
   """
   @type custom_j_w_t_authorizer_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_engines_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_engines_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2198,6 +3285,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_agent_runtime_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_config() :: %{
+        "cloudWatchConfig" => cloud_watch_output_config()
+      }
+
+  """
+  @type output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2256,6 +3354,32 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_online_evaluation_configs_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_online_evaluation_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_evaluator_response() :: %{
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_agent_runtime_response() :: %{
         "agentRuntimeId" => String.t() | atom(),
         "status" => list(any())
@@ -2268,12 +3392,42 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_evaluators_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_evaluators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       time_based_trigger() :: %{
         "idleSessionTimeout" => [integer()]
       }
 
   """
   @type time_based_trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_engine_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type delete_policy_engine_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2305,6 +3459,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_extraction_override() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type episodic_extraction_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2387,6 +3553,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      interceptor_input_configuration() :: %{
+        "passRequestHeaders" => [boolean()]
+      }
+
+  """
+  @type interceptor_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_configuration() :: %{
         "bucketOwnerAccountId" => String.t() | atom(),
         "uri" => String.t() | atom()
@@ -2407,6 +3584,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_code_interpreters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "policy" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2475,6 +3663,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_resource_policy_request() :: %{}
+
+  """
+  @type delete_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       semantic_override_configuration_input() :: %{
         "consolidation" => semantic_override_consolidation_configuration_input(),
         "extraction" => semantic_override_extraction_configuration_input()
@@ -2537,6 +3734,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type browser_signing_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_engine() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_engine() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2656,6 +3871,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_evaluator_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("evaluatorConfig") => list(),
+        required("evaluatorName") => String.t() | atom(),
+        required("level") => list(any())
+      }
+
+  """
+  @type create_evaluator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_agent_runtime_endpoint_request() :: %{
         optional("agentRuntimeVersion") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
@@ -2672,6 +3902,7 @@ defmodule AWS.BedrockAgentCoreControl do
       update_gateway_target_request() :: %{
         optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
+        optional("metadataConfiguration") => metadata_configuration(),
         required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }
@@ -2691,6 +3922,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_workload_identity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_policy_generation_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "findings" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyGenerationArn" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom(),
+        "resource" => list(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type start_policy_generation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2747,6 +3998,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      evaluator_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "evaluatorName" => String.t() | atom(),
+        "evaluatorType" => list(any()),
+        "level" => list(any()),
+        "lockedForModification" => [boolean()],
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type evaluator_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_preference_override_consolidation_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -2796,6 +4067,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_policy_engine_request() :: %{}
+
+  """
+  @type delete_policy_engine_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_gateway_targets_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -2832,10 +4112,34 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_policy_engine_request() :: %{
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type update_policy_engine_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_gateway_request() :: %{}
 
   """
   @type get_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_interceptor_configuration() :: %{
+        "inputConfiguration" => interceptor_input_configuration(),
+        "interceptionPoints" => list(list(any())()),
+        "interceptor" => list()
+      }
+
+  """
+  @type gateway_interceptor_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2908,6 +4212,14 @@ defmodule AWS.BedrockAgentCoreControl do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_evaluator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type create_gateway_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2946,6 +4258,31 @@ defmodule AWS.BedrockAgentCoreControl do
           | encryption_failure()
           | decryption_failure()
           | unauthorized_exception()
+
+  @type create_online_evaluation_config_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_policy_engine_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
 
   @type create_workload_identity_errors() ::
           throttling_exception()
@@ -2995,6 +4332,14 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_evaluator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_gateway_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3016,6 +4361,7 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | service_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | throttled_exception()
 
   @type delete_oauth2_credential_provider_errors() ::
@@ -3025,6 +4371,37 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
+
+  @type delete_online_evaluation_config_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_policy_engine_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type delete_workload_identity_errors() ::
           throttling_exception()
@@ -3071,6 +4448,13 @@ defmodule AWS.BedrockAgentCoreControl do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
+  @type get_evaluator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_gateway_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3100,6 +4484,41 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | decryption_failure()
           | unauthorized_exception()
+
+  @type get_online_evaluation_config_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_policy_engine_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_policy_generation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type get_token_vault_errors() ::
           throttling_exception()
@@ -3156,6 +4575,12 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_evaluators_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_gateway_targets_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3183,6 +4608,39 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | unauthorized_exception()
 
+  @type list_online_evaluation_configs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_policies_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_policy_engines_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_policy_generation_assets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_policy_generations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_tags_for_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3198,6 +4656,13 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | unauthorized_exception()
 
+  @type put_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type set_token_vault_cm_k_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3206,6 +4671,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
+
+  @type start_policy_generation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type synchronize_gateway_targets_errors() ::
           throttling_exception()
@@ -3261,6 +4735,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | decryption_failure()
           | unauthorized_exception()
 
+  @type update_evaluator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_gateway_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3299,6 +4782,31 @@ defmodule AWS.BedrockAgentCoreControl do
           | encryption_failure()
           | decryption_failure()
           | unauthorized_exception()
+
+  @type update_online_evaluation_config_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_policy_engine_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_workload_identity_errors() ::
           throttling_exception()
@@ -3479,6 +4987,39 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Creates a custom evaluator for agent quality assessment.
+
+  Custom evaluators use LLM-as-a-Judge configurations with user-defined prompts,
+  rating scales, and model settings to evaluate agent performance at tool call,
+  trace, or session levels.
+  """
+  @spec create_evaluator(map(), create_evaluator_request(), list()) ::
+          {:ok, create_evaluator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_evaluator_errors()}
+  def create_evaluator(%Client{} = client, input, options \\ []) do
+    url_path = "/evaluators/create"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Creates a gateway for Amazon Bedrock Agent.
 
   A gateway serves as an integration point between your agent and external
@@ -3603,6 +5144,117 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates an online evaluation configuration for continuous monitoring of agent
+  performance.
+
+  Online evaluation automatically samples live traffic from CloudWatch logs at
+  specified rates and applies evaluators to assess agent quality in production.
+  """
+  @spec create_online_evaluation_config(map(), create_online_evaluation_config_request(), list()) ::
+          {:ok, create_online_evaluation_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_online_evaluation_config_errors()}
+  def create_online_evaluation_config(%Client{} = client, input, options \\ []) do
+    url_path = "/online-evaluation-configs/create"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a policy within the AgentCore Policy system.
+
+  Policies provide real-time, deterministic control over agentic interactions with
+  AgentCore Gateway. Using the Cedar policy language, you can define fine-grained
+  policies that specify which interactions with Gateway tools are permitted based
+  on input parameters and OAuth claims, ensuring agents operate within defined
+  boundaries and business rules. The policy is validated during creation against
+  the Cedar schema generated from the Gateway's tools' input schemas, which
+  defines the available tools, their parameters, and expected data types. This is
+  an asynchronous operation. Use the
+  [GetPolicy](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicy.html)
+  operation to poll the `status` field to track completion.
+  """
+  @spec create_policy(map(), String.t() | atom(), create_policy_request(), list()) ::
+          {:ok, create_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_policy_errors()}
+  def create_policy(%Client{} = client, policy_engine_id, input, options \\ []) do
+    url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policies"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a new policy engine within the AgentCore Policy system.
+
+  A policy engine is a collection of policies that evaluates and authorizes agent
+  tool calls. When associated with Gateways (each Gateway can be associated with
+  at most one policy engine, but multiple Gateways can be associated with the same
+  engine), the policy engine intercepts all agent requests and determines whether
+  to allow or deny each action based on the defined policies. This is an
+  asynchronous operation. Use the
+  [GetPolicyEngine](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicyEngine.html)
+  operation to poll the `status` field to track completion.
+  """
+  @spec create_policy_engine(map(), create_policy_engine_request(), list()) ::
+          {:ok, create_policy_engine_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_policy_engine_errors()}
+  def create_policy_engine(%Client{} = client, input, options \\ []) do
+    url_path = "/policy-engines"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -3824,6 +5476,38 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Deletes a custom evaluator.
+
+  Builtin evaluators cannot be deleted. The evaluator must not be referenced by
+  any active online evaluation configurations.
+  """
+  @spec delete_evaluator(map(), String.t() | atom(), delete_evaluator_request(), list()) ::
+          {:ok, delete_evaluator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_evaluator_errors()}
+  def delete_evaluator(%Client{} = client, evaluator_id, input, options \\ []) do
+    url_path = "/evaluators/#{AWS.Util.encode_uri(evaluator_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a gateway.
   """
   @spec delete_gateway(map(), String.t() | atom(), delete_gateway_request(), list()) ::
@@ -3953,6 +5637,157 @@ defmodule AWS.BedrockAgentCoreControl do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an online evaluation configuration and stops any ongoing evaluation
+  processes associated with it.
+  """
+  @spec delete_online_evaluation_config(
+          map(),
+          String.t() | atom(),
+          delete_online_evaluation_config_request(),
+          list()
+        ) ::
+          {:ok, delete_online_evaluation_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_online_evaluation_config_errors()}
+  def delete_online_evaluation_config(
+        %Client{} = client,
+        online_evaluation_config_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/online-evaluation-configs/#{AWS.Util.encode_uri(online_evaluation_config_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes an existing policy from the AgentCore Policy system.
+
+  Once deleted, the policy can no longer be used for agent behavior control and
+  all references to it become invalid. This is an asynchronous operation. Use the
+  `GetPolicy` operation to poll the `status` field to track completion.
+  """
+  @spec delete_policy(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_policy_errors()}
+  def delete_policy(%Client{} = client, policy_engine_id, policy_id, input, options \\ []) do
+    url_path =
+      "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policies/#{AWS.Util.encode_uri(policy_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes an existing policy engine from the AgentCore Policy system.
+
+  The policy engine must not have any associated policies before deletion. Once
+  deleted, the policy engine and all its configurations become unavailable for
+  policy management and evaluation. This is an asynchronous operation. Use the
+  `GetPolicyEngine` operation to poll the `status` field to track completion.
+  """
+  @spec delete_policy_engine(map(), String.t() | atom(), delete_policy_engine_request(), list()) ::
+          {:ok, delete_policy_engine_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_policy_engine_errors()}
+  def delete_policy_engine(%Client{} = client, policy_engine_id, input, options \\ []) do
+    url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes the resource-based policy for a specified resource.
+
+  This feature is currently available only for AgentCore Runtime and Gateway.
+  """
+  @spec delete_resource_policy(
+          map(),
+          String.t() | atom(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -4112,6 +5947,27 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Retrieves detailed information about an evaluator, including its configuration,
+  status, and metadata.
+
+  Works with both built-in and custom evaluators.
+  """
+  @spec get_evaluator(map(), String.t() | atom(), list()) ::
+          {:ok, get_evaluator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_evaluator_errors()}
+  def get_evaluator(%Client{} = client, evaluator_id, options \\ []) do
+    url_path = "/evaluators/#{AWS.Util.encode_uri(evaluator_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a specific Gateway.
   """
   @spec get_gateway(map(), String.t() | atom(), list()) ::
@@ -4152,15 +6008,22 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Retrieve an existing Amazon Bedrock AgentCore Memory resource.
   """
-  @spec get_memory(map(), String.t() | atom(), list()) ::
+  @spec get_memory(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_memory_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_memory_errors()}
-  def get_memory(%Client{} = client, memory_id, options \\ []) do
+  def get_memory(%Client{} = client, memory_id, view \\ nil, options \\ []) do
     url_path = "/memories/#{AWS.Util.encode_uri(memory_id)}/details"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(view) do
+        [{"view", view} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -4194,6 +6057,122 @@ defmodule AWS.BedrockAgentCoreControl do
       options,
       200
     )
+  end
+
+  @doc """
+  Retrieves detailed information about an online evaluation configuration,
+  including its rules, data sources, evaluators, and execution status.
+  """
+  @spec get_online_evaluation_config(map(), String.t() | atom(), list()) ::
+          {:ok, get_online_evaluation_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_online_evaluation_config_errors()}
+  def get_online_evaluation_config(%Client{} = client, online_evaluation_config_id, options \\ []) do
+    url_path = "/online-evaluation-configs/#{AWS.Util.encode_uri(online_evaluation_config_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves detailed information about a specific policy within the AgentCore
+  Policy system.
+
+  This operation returns the complete policy definition, metadata, and current
+  status, allowing administrators to review and manage policy configurations.
+  """
+  @spec get_policy(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_errors()}
+  def get_policy(%Client{} = client, policy_engine_id, policy_id, options \\ []) do
+    url_path =
+      "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policies/#{AWS.Util.encode_uri(policy_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves detailed information about a specific policy engine within the
+  AgentCore Policy system.
+
+  This operation returns the complete policy engine configuration, metadata, and
+  current status, allowing administrators to review and manage policy engine
+  settings.
+  """
+  @spec get_policy_engine(map(), String.t() | atom(), list()) ::
+          {:ok, get_policy_engine_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_engine_errors()}
+  def get_policy_engine(%Client{} = client, policy_engine_id, options \\ []) do
+    url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a policy generation request within the AgentCore
+  Policy system.
+
+  Policy generation converts natural language descriptions into Cedar policy
+  statements using AI-powered translation, enabling non-technical users to create
+  policies.
+  """
+  @spec get_policy_generation(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_policy_generation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_generation_errors()}
+  def get_policy_generation(
+        %Client{} = client,
+        policy_engine_id,
+        policy_generation_id,
+        options \\ []
+      ) do
+    url_path =
+      "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-generations/#{AWS.Util.encode_uri(policy_generation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the resource-based policy for a specified resource.
+
+  This feature is currently available only for AgentCore Runtime and Gateway.
+  """
+  @spec get_resource_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4475,6 +6454,42 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Lists all available evaluators, including both builtin evaluators provided by
+  the service and custom evaluators created by the user.
+  """
+  @spec list_evaluators(map(), list_evaluators_request(), list()) ::
+          {:ok, list_evaluators_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_evaluators_errors()}
+  def list_evaluators(%Client{} = client, input, options \\ []) do
+    url_path = "/evaluators"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all targets for a specific gateway.
   """
   @spec list_gateway_targets(
@@ -4614,6 +6629,241 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Lists all online evaluation configurations in the account, providing summary
+  information about each configuration's status and settings.
+  """
+  @spec list_online_evaluation_configs(map(), list_online_evaluation_configs_request(), list()) ::
+          {:ok, list_online_evaluation_configs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_online_evaluation_configs_errors()}
+  def list_online_evaluation_configs(%Client{} = client, input, options \\ []) do
+    url_path = "/online-evaluation-configs"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a list of policies within the AgentCore Policy engine.
+
+  This operation supports pagination and filtering to help administrators manage
+  and discover policies across policy engines. Results can be filtered by policy
+  engine or resource associations.
+  """
+  @spec list_policies(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_policies_errors()}
+  def list_policies(
+        %Client{} = client,
+        policy_engine_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        target_resource_scope \\ nil,
+        options \\ []
+      ) do
+    url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policies"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(target_resource_scope) do
+        [{"targetResourceScope", target_resource_scope} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of policy engines within the AgentCore Policy system.
+
+  This operation supports pagination to help administrators discover and manage
+  policy engines across their account. Each policy engine serves as a container
+  for related policies.
+  """
+  @spec list_policy_engines(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_policy_engines_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_policy_engines_errors()}
+  def list_policy_engines(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/policy-engines"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of generated policy assets from a policy generation request
+  within the AgentCore Policy system.
+
+  This operation returns the actual Cedar policies and related artifacts produced
+  by the AI-powered policy generation process, allowing users to review and select
+  from multiple generated policy options.
+  """
+  @spec list_policy_generation_assets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_policy_generation_assets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_policy_generation_assets_errors()}
+  def list_policy_generation_assets(
+        %Client{} = client,
+        policy_engine_id,
+        policy_generation_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-generations/#{AWS.Util.encode_uri(policy_generation_id)}/assets"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of policy generation requests within the AgentCore Policy
+  system.
+
+  This operation supports pagination and filtering to help track and manage
+  AI-powered policy generation operations.
+  """
+  @spec list_policy_generations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_policy_generations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_policy_generations_errors()}
+  def list_policy_generations(
+        %Client{} = client,
+        policy_engine_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-generations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the tags associated with the specified resource.
 
   This feature is currently available only for AgentCore Runtime, Browser, Code
@@ -4664,6 +6914,38 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Creates or updates a resource-based policy for a resource with the specified
+  resourceArn.
+
+  This feature is currently available only for AgentCore Runtime and Gateway.
+  """
+  @spec put_resource_policy(map(), String.t() | atom(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Sets the customer master key (CMK) for a token vault.
   """
   @spec set_token_vault_cm_k(map(), set_token_vault_cm_k_request(), list()) ::
@@ -4689,6 +6971,53 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Initiates the AI-powered generation of Cedar policies from natural language
+  descriptions within the AgentCore Policy system.
+
+  This feature enables both technical and non-technical users to create policies
+  by describing their authorization requirements in plain English, which is then
+  automatically translated into formal Cedar policy statements. The generation
+  process analyzes the natural language input along with the Gateway's tool
+  context to produce validated policy options. Generated policy assets are
+  automatically deleted after 7 days, so you should review and create policies
+  from the generated assets within this timeframe. Once created, policies are
+  permanent and not subject to this expiration. Generated policies should be
+  reviewed and tested in log-only mode before deploying to production. Use this
+  when you want to describe policy intent naturally rather than learning Cedar
+  syntax, though generated policies may require refinement for complex scenarios.
+  """
+  @spec start_policy_generation(
+          map(),
+          String.t() | atom(),
+          start_policy_generation_request(),
+          list()
+        ) ::
+          {:ok, start_policy_generation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_policy_generation_errors()}
+  def start_policy_generation(%Client{} = client, policy_engine_id, input, options \\ []) do
+    url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-generations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -4905,6 +7234,38 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Updates a custom evaluator's configuration, description, or evaluation level.
+
+  Built-in evaluators cannot be updated. The evaluator must not be locked for
+  modification.
+  """
+  @spec update_evaluator(map(), String.t() | atom(), update_evaluator_request(), list()) ::
+          {:ok, update_evaluator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_evaluator_errors()}
+  def update_evaluator(%Client{} = client, evaluator_id, input, options \\ []) do
+    url_path = "/evaluators/#{AWS.Util.encode_uri(evaluator_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Updates an existing gateway.
   """
   @spec update_gateway(map(), String.t() | atom(), update_gateway_request(), list()) ::
@@ -5035,6 +7396,123 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Updates an online evaluation configuration's settings, including rules, data
+  sources, evaluators, and execution status.
+
+  Changes take effect immediately for ongoing evaluations.
+  """
+  @spec update_online_evaluation_config(
+          map(),
+          String.t() | atom(),
+          update_online_evaluation_config_request(),
+          list()
+        ) ::
+          {:ok, update_online_evaluation_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_online_evaluation_config_errors()}
+  def update_online_evaluation_config(
+        %Client{} = client,
+        online_evaluation_config_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/online-evaluation-configs/#{AWS.Util.encode_uri(online_evaluation_config_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates an existing policy within the AgentCore Policy system.
+
+  This operation allows modification of the policy description and definition
+  while maintaining the policy's identity. The updated policy is validated against
+  the Cedar schema before being applied. This is an asynchronous operation. Use
+  the `GetPolicy` operation to poll the `status` field to track completion.
+  """
+  @spec update_policy(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_policy_request(),
+          list()
+        ) ::
+          {:ok, update_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_policy_errors()}
+  def update_policy(%Client{} = client, policy_engine_id, policy_id, input, options \\ []) do
+    url_path =
+      "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policies/#{AWS.Util.encode_uri(policy_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates an existing policy engine within the AgentCore Policy system.
+
+  This operation allows modification of the policy engine description while
+  maintaining its identity. This is an asynchronous operation. Use the
+  `GetPolicyEngine` operation to poll the `status` field to track completion.
+  """
+  @spec update_policy_engine(map(), String.t() | atom(), update_policy_engine_request(), list()) ::
+          {:ok, update_policy_engine_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_policy_engine_errors()}
+  def update_policy_engine(%Client{} = client, policy_engine_id, input, options \\ []) do
+    url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

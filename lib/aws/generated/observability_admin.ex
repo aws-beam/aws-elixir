@@ -43,6 +43,18 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      record() :: %{
+        "Data" => [String.t() | atom()],
+        "Type" => list(any())
+      }
+
+  """
+  @type record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_telemetry_rule_input() :: %{
         optional("Tags") => map(),
         required("Rule") => telemetry_rule(),
@@ -51,6 +63,29 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type create_telemetry_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_output() :: %{
+        "Error" => pipeline_output_error(),
+        "Record" => record()
+      }
+
+  """
+  @type pipeline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      telemetry_pipeline_configuration() :: %{
+        "Body" => String.t() | atom()
+      }
+
+  """
+  @type telemetry_pipeline_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,6 +101,45 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type get_telemetry_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      telemetry_pipeline_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "ConfigurationSummary" => configuration_summary(),
+        "CreatedTimeStamp" => [float()],
+        "LastUpdateTimeStamp" => [float()],
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type telemetry_pipeline_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_telemetry_pipeline_output() :: %{
+        "Results" => list(pipeline_output())
+      }
+
+  """
+  @type test_telemetry_pipeline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_s3_table_integration_input() :: %{
+        required("Arn") => String.t() | atom()
+      }
+
+  """
+  @type get_s3_table_integration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,6 +170,20 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      field_to_match() :: %{
+        "Method" => [String.t() | atom()],
+        "QueryString" => [String.t() | atom()],
+        "SingleHeader" => single_header(),
+        "UriPath" => [String.t() | atom()]
+      }
+
+  """
+  @type field_to_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_centralization_rule_for_organization_output() :: %{
         "RuleArn" => String.t() | atom()
       }
@@ -115,6 +203,15 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type logs_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_telemetry_pipeline_output() :: %{}
+
+  """
+  @type update_telemetry_pipeline_output() :: %{}
 
   @typedoc """
 
@@ -155,10 +252,14 @@ defmodule AWS.ObservabilityAdmin do
   ## Example:
 
       telemetry_destination_configuration() :: %{
+        "CloudtrailParameters" => cloudtrail_parameters(),
         "DestinationPattern" => [String.t() | atom()],
         "DestinationType" => list(any()),
+        "ELBLoadBalancerLoggingParameters" => e_lb_load_balancer_logging_parameters(),
+        "LogDeliveryParameters" => log_delivery_parameters(),
         "RetentionInDays" => integer(),
-        "VPCFlowLogParameters" => vpc_flow_log_parameters()
+        "VPCFlowLogParameters" => vpc_flow_log_parameters(),
+        "WAFLoggingParameters" => w_a_f_logging_parameters()
       }
 
   """
@@ -187,6 +288,18 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      integration_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type integration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       source_logs_configuration() :: %{
         "EncryptedLogGroupStrategy" => list(any()),
         "LogGroupSelectionCriteria" => String.t() | atom()
@@ -194,6 +307,32 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type source_logs_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_summary() :: %{
+        "DataSources" => list(data_source()),
+        "ProcessorCount" => [integer()],
+        "Processors" => list([String.t() | atom()]()),
+        "Sinks" => list([String.t() | atom()]()),
+        "Sources" => list(source())
+      }
+
+  """
+  @type configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_state_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -232,12 +371,48 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      create_telemetry_pipeline_input() :: %{
+        optional("Tags") => map(),
+        required("Configuration") => telemetry_pipeline_configuration(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_telemetry_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_telemetry_pipeline_input() :: %{
+        required("PipelineIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type delete_telemetry_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_centralization_rule_for_organization_input() :: %{
         required("RuleIdentifier") => String.t() | atom()
       }
 
   """
   @type delete_centralization_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_event_selector() :: %{
+        "FieldSelectors" => list(advanced_field_selector()),
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type advanced_event_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -312,7 +487,9 @@ defmodule AWS.ObservabilityAdmin do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t() | atom()]
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
 
   """
@@ -322,8 +499,26 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      get_s3_table_integration_output() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTimeStamp" => [float()],
+        "DestinationTableBucketArn" => String.t() | atom(),
+        "Encryption" => encryption(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_s3_table_integration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()]
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
 
   """
@@ -344,6 +539,17 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      log_delivery_parameters() :: %{
+        "LogTypes" => list(list(any())())
+      }
+
+  """
+  @type log_delivery_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_centralization_rule_for_organization_input() :: %{
         required("Rule") => centralization_rule(),
         required("RuleIdentifier") => String.t() | atom()
@@ -358,6 +564,10 @@ defmodule AWS.ObservabilityAdmin do
 
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()],
         "amznErrorType" => [String.t() | atom()]
       }
 
@@ -375,6 +585,18 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type destination_logs_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_s3_table_integrations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_s3_table_integrations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -399,6 +621,18 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type list_resource_telemetry_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption() :: %{
+        "KmsKeyArn" => String.t() | atom(),
+        "SseAlgorithm" => list(any())
+      }
+
+  """
+  @type encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,6 +678,19 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      validation_error() :: %{
+        "FieldMap" => map(),
+        "Message" => [String.t() | atom()],
+        "Reason" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       logs_backup_configuration() :: %{
         "KmsKeyArn" => String.t() | atom(),
         "Region" => String.t() | atom()
@@ -451,6 +698,35 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type logs_backup_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      telemetry_pipeline() :: %{
+        "Arn" => String.t() | atom(),
+        "Configuration" => telemetry_pipeline_configuration(),
+        "CreatedTimeStamp" => [float()],
+        "LastUpdateTimeStamp" => [float()],
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => telemetry_pipeline_status_reason(),
+        "Tags" => map()
+      }
+
+  """
+  @type telemetry_pipeline() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloudtrail_parameters() :: %{
+        "AdvancedEventSelectors" => list(advanced_event_selector())
+      }
+
+  """
+  @type cloudtrail_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -468,6 +744,30 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type list_resource_telemetry_for_organization_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      e_lb_load_balancer_logging_parameters() :: %{
+        "FieldDelimiter" => [String.t() | atom()],
+        "OutputFormat" => list(any())
+      }
+
+  """
+  @type e_lb_load_balancer_logging_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition() :: %{
+        "ActionCondition" => action_condition(),
+        "LabelNameCondition" => label_name_condition()
+      }
+
+  """
+  @type condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -497,6 +797,19 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      filter() :: %{
+        "Behavior" => list(any()),
+        "Conditions" => list(condition()),
+        "Requirement" => list(any())
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       centralization_rule_summary() :: %{
         "CreatedRegion" => String.t() | atom(),
         "CreatedTimeStamp" => [float()],
@@ -512,6 +825,30 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type centralization_rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_telemetry_pipeline_input() :: %{
+        required("Configuration") => telemetry_pipeline_configuration(),
+        required("PipelineIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type update_telemetry_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_s3_table_integrations_output() :: %{
+        "IntegrationSummaries" => list(integration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_s3_table_integrations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,13 +876,36 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      source() :: %{
+        "Type" => [String.t() | atom()]
+      }
+
+  """
+  @type source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "Message" => [String.t() | atom()],
-        "amznErrorType" => [String.t() | atom()]
+        "amznErrorType" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
       }
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_telemetry_pipeline_configuration_input() :: %{
+        required("Configuration") => telemetry_pipeline_configuration()
+      }
+
+  """
+  @type validate_telemetry_pipeline_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,6 +931,17 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type vpc_flow_log_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_telemetry_pipeline_configuration_output() :: %{
+        "Errors" => list(validation_error())
+      }
+
+  """
+  @type validate_telemetry_pipeline_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -611,6 +982,19 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      create_s3_table_integration_input() :: %{
+        optional("Tags") => map(),
+        required("Encryption") => encryption(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_s3_table_integration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_telemetry_rules_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -619,6 +1003,18 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type list_telemetry_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_filter() :: %{
+        "DefaultBehavior" => list(any()),
+        "Filters" => list(filter())
+      }
+
+  """
+  @type logging_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,6 +1038,7 @@ defmodule AWS.ObservabilityAdmin do
         "ResourceType" => list(any()),
         "RuleArn" => String.t() | atom(),
         "RuleName" => String.t() | atom(),
+        "TelemetrySourceTypes" => list(list(any())()),
         "TelemetryType" => list(any())
       }
 
@@ -652,7 +1049,19 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      create_s3_table_integration_output() :: %{
+        "Arn" => String.t() | atom()
+      }
+
+  """
+  @type create_s3_table_integration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
+        "Errors" => list(validation_error()),
         "Message" => [String.t() | atom()]
       }
 
@@ -674,6 +1083,28 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      label_name_condition() :: %{
+        "LabelName" => [String.t() | atom()]
+      }
+
+  """
+  @type label_name_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      single_header() :: %{
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type single_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_telemetry_rule_for_organization_input() :: %{
         optional("Tags") => map(),
         required("Rule") => telemetry_rule(),
@@ -682,6 +1113,23 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type create_telemetry_rule_for_organization_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_field_selector() :: %{
+        "EndsWith" => list([String.t() | atom()]()),
+        "Equals" => list([String.t() | atom()]()),
+        "Field" => [String.t() | atom()],
+        "NotEndsWith" => list([String.t() | atom()]()),
+        "NotEquals" => list([String.t() | atom()]()),
+        "NotStartsWith" => list([String.t() | atom()]()),
+        "StartsWith" => list([String.t() | atom()]())
+      }
+
+  """
+  @type advanced_field_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,11 +1153,45 @@ defmodule AWS.ObservabilityAdmin do
         "ResourceType" => list(any()),
         "Scope" => [String.t() | atom()],
         "SelectionCriteria" => [String.t() | atom()],
+        "TelemetrySourceTypes" => list(list(any())()),
         "TelemetryType" => list(any())
       }
 
   """
   @type telemetry_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_s3_table_integration_input() :: %{
+        required("Arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_s3_table_integration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      telemetry_pipeline_status_reason() :: %{
+        "Description" => [String.t() | atom()]
+      }
+
+  """
+  @type telemetry_pipeline_status_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_condition() :: %{
+        "Action" => list(any())
+      }
+
+  """
+  @type action_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,6 +1208,18 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      data_source() :: %{
+        "Name" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
+      }
+
+  """
+  @type data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_telemetry_rule_for_organization_input() :: %{
         required("RuleIdentifier") => String.t() | atom()
       }
@@ -737,12 +1231,80 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      list_telemetry_pipelines_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_telemetry_pipelines_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_telemetry_pipeline_output() :: %{
+        "Pipeline" => telemetry_pipeline()
+      }
+
+  """
+  @type get_telemetry_pipeline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_telemetry_rule_output() :: %{
         "RuleArn" => String.t() | atom()
       }
 
   """
   @type create_telemetry_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_telemetry_pipeline_output() :: %{}
+
+  """
+  @type delete_telemetry_pipeline_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      w_a_f_logging_parameters() :: %{
+        "LogType" => list(any()),
+        "LoggingFilter" => logging_filter(),
+        "RedactedFields" => list(field_to_match())
+      }
+
+  """
+  @type w_a_f_logging_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_telemetry_pipeline_output() :: %{
+        "Arn" => String.t() | atom()
+      }
+
+  """
+  @type create_telemetry_pipeline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_telemetry_pipelines_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "PipelineSummaries" => list(telemetry_pipeline_summary())
+      }
+
+  """
+  @type list_telemetry_pipelines_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -772,6 +1334,28 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      pipeline_output_error() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type pipeline_output_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_telemetry_pipeline_input() :: %{
+        required("PipelineIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_telemetry_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_centralization_rules_for_organization_input() :: %{
         optional("AllRegions") => [boolean()],
         optional("MaxResults") => integer(),
@@ -782,7 +1366,35 @@ defmodule AWS.ObservabilityAdmin do
   """
   @type list_centralization_rules_for_organization_input() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      test_telemetry_pipeline_input() :: %{
+        required("Configuration") => telemetry_pipeline_configuration(),
+        required("Records") => list(record())
+      }
+
+  """
+  @type test_telemetry_pipeline_input() :: %{(String.t() | atom()) => any()}
+
   @type create_centralization_rule_for_organization_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_s3_table_integration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_telemetry_pipeline_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -813,6 +1425,22 @@ defmodule AWS.ObservabilityAdmin do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type delete_s3_table_integration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | too_many_requests_exception()
+          | invalid_state_exception()
+
+  @type delete_telemetry_pipeline_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
   @type delete_telemetry_rule_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -834,6 +1462,13 @@ defmodule AWS.ObservabilityAdmin do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type get_s3_table_integration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type get_telemetry_enrichment_status_errors() ::
           access_denied_exception()
           | internal_server_exception()
@@ -847,6 +1482,13 @@ defmodule AWS.ObservabilityAdmin do
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | too_many_requests_exception()
+
+  @type get_telemetry_pipeline_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type get_telemetry_rule_errors() ::
@@ -881,11 +1523,23 @@ defmodule AWS.ObservabilityAdmin do
           | internal_server_exception()
           | too_many_requests_exception()
 
+  @type list_s3_table_integrations_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | too_many_requests_exception()
+
   @type list_tags_for_resource_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_telemetry_pipelines_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | too_many_requests_exception()
 
   @type list_telemetry_rules_errors() ::
@@ -944,6 +1598,12 @@ defmodule AWS.ObservabilityAdmin do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type test_telemetry_pipeline_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | too_many_requests_exception()
+
   @type untag_resource_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -959,12 +1619,20 @@ defmodule AWS.ObservabilityAdmin do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type update_telemetry_pipeline_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type update_telemetry_rule_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | too_many_requests_exception()
 
   @type update_telemetry_rule_for_organization_errors() ::
@@ -973,6 +1641,12 @@ defmodule AWS.ObservabilityAdmin do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type validate_telemetry_pipeline_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | too_many_requests_exception()
 
   def metadata do
@@ -1009,6 +1683,70 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, create_centralization_rule_for_organization_errors()}
   def create_centralization_rule_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/CreateCentralizationRuleForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an integration between CloudWatch and S3 Tables for analytics.
+
+  This integration enables querying CloudWatch telemetry data using analytics
+  engines like Amazon Athena, Amazon Redshift, and Apache Spark.
+  """
+  @spec create_s3_table_integration(map(), create_s3_table_integration_input(), list()) ::
+          {:ok, create_s3_table_integration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_s3_table_integration_errors()}
+  def create_s3_table_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateS3TableIntegration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a telemetry pipeline for processing and transforming telemetry data.
+
+  The pipeline defines how data flows from sources through processors to
+  destinations, enabling data transformation and delivering capabilities.
+  """
+  @spec create_telemetry_pipeline(map(), create_telemetry_pipeline_input(), list()) ::
+          {:ok, create_telemetry_pipeline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_telemetry_pipeline_errors()}
+  def create_telemetry_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateTelemetryPipeline"
     headers = []
     custom_headers = []
     query_params = []
@@ -1136,6 +1874,69 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Deletes an S3 Table integration and its associated data.
+
+  This operation removes the connection between CloudWatch Observability Admin and
+  S3 Tables.
+  """
+  @spec delete_s3_table_integration(map(), delete_s3_table_integration_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_s3_table_integration_errors()}
+  def delete_s3_table_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteS3TableIntegration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a telemetry pipeline and its associated resources.
+
+  This operation stops data processing and removes the pipeline configuration.
+  """
+  @spec delete_telemetry_pipeline(map(), delete_telemetry_pipeline_input(), list()) ::
+          {:ok, delete_telemetry_pipeline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_telemetry_pipeline_errors()}
+  def delete_telemetry_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteTelemetryPipeline"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a telemetry rule from your account.
 
   Any telemetry configurations previously created by the rule will remain but no
@@ -1240,9 +2041,39 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Retrieves information about a specific S3 Table integration, including its
+  configuration, status, and metadata.
+  """
+  @spec get_s3_table_integration(map(), get_s3_table_integration_input(), list()) ::
+          {:ok, get_s3_table_integration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_s3_table_integration_errors()}
+  def get_s3_table_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/GetS3TableIntegration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns the current status of the resource tags for telemetry feature, which
-  enhances telemetry data with additional resource metadata from Amazon Web
-  Services Resource Explorer.
+  enhances telemetry data with additional resource metadata from Resource
+  Explorer.
   """
   @spec get_telemetry_enrichment_status(map(), %{}, list()) ::
           {:ok, get_telemetry_enrichment_status_output(), any()}
@@ -1315,6 +2146,36 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, get_telemetry_evaluation_status_for_organization_errors()}
   def get_telemetry_evaluation_status_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/GetTelemetryEvaluationStatusForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves information about a specific telemetry pipeline, including its
+  configuration, status, and metadata.
+  """
+  @spec get_telemetry_pipeline(map(), get_telemetry_pipeline_input(), list()) ::
+          {:ok, get_telemetry_pipeline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_telemetry_pipeline_errors()}
+  def get_telemetry_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTelemetryPipeline"
     headers = []
     custom_headers = []
     query_params = []
@@ -1502,7 +2363,41 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-  Lists all tags attached to the specified telemetry rule resource.
+  Lists all S3 Table integrations in your account.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec list_s3_table_integrations(map(), list_s3_table_integrations_input(), list()) ::
+          {:ok, list_s3_table_integrations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_s3_table_integrations_errors()}
+  def list_s3_table_integrations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListS3TableIntegrations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all tags attached to the specified resource.
+
+  Supports telemetry rule resources and telemetry pipeline resources.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -1511,6 +2406,38 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of telemetry pipelines in your account.
+
+  Returns up to 100 results. If more than 100 telemetry pipelines exist, include
+  the `NextToken` value from the response to retrieve the next set of results.
+  """
+  @spec list_telemetry_pipelines(map(), list_telemetry_pipelines_input(), list()) ::
+          {:ok, list_telemetry_pipelines_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_telemetry_pipelines_errors()}
+  def list_telemetry_pipelines(%Client{} = client, input, options \\ []) do
+    url_path = "/ListTelemetryPipelines"
     headers = []
     custom_headers = []
     query_params = []
@@ -1599,8 +2526,8 @@ defmodule AWS.ObservabilityAdmin do
 
   @doc """
   Enables the resource tags for telemetry feature for your account, which enhances
-  telemetry data with additional resource metadata from Amazon Web Services
-  Resource Explorer to provide richer context for monitoring and observability.
+  telemetry data with additional resource metadata from Resource Explorer to
+  provide richer context for monitoring and observability.
   """
   @spec start_telemetry_enrichment(map(), %{}, list()) ::
           {:ok, start_telemetry_enrichment_output(), any()}
@@ -1779,7 +2706,9 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-  Adds or updates tags for a telemetry rule resource.
+  Adds or updates tags for a resource.
+
+  Supports telemetry rule resources and telemetry pipeline resources.
   """
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
@@ -1808,7 +2737,41 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
-  Removes tags from a telemetry rule resource.
+  Tests a pipeline configuration with sample records to validate data processing
+  before deployment.
+
+  This operation helps ensure your pipeline configuration works as expected.
+  """
+  @spec test_telemetry_pipeline(map(), test_telemetry_pipeline_input(), list()) ::
+          {:ok, test_telemetry_pipeline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, test_telemetry_pipeline_errors()}
+  def test_telemetry_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/TestTelemetryPipeline"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes tags from a resource.
+
+  Supports telemetry rule resources and telemetry pipeline resources.
   """
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
@@ -1874,7 +2837,103 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Updates the configuration of an existing telemetry pipeline.
+
+  The following attributes cannot be updated after pipeline creation:
+
+     **Pipeline name** - The pipeline name is immutable
+
+     **Pipeline ARN** - The ARN is automatically generated and cannot be
+  changed
+
+     **Source type** - Once a pipeline is created with a specific source
+  type (such as S3, CloudWatch Logs, GitHub, or third-party sources), it cannot be
+  changed to a different source type
+
+  Processors can be added, removed, or modified. However, some processors are not
+  supported for third-party pipelines and cannot be added through updates.
+
+  ## Source-Specific Update Rules
+
+  ## Definitions
+
+  ### CloudWatch Logs Sources (Vended and Custom)
+
+  **Updatable:** `sts_role_arn`
+
+  **Fixed:** `data_source_name`, `data_source_type`, sink (must remain
+  `@original`)
+
+  ### S3 Sources (Crowdstrike, Zscaler, SentinelOne, Custom)
+
+  **Updatable:** All SQS configuration parameters, `sts_role_arn`, codec settings,
+  compression type, bucket ownership settings, sink log group
+
+  **Fixed:** `notification_type`, `aws.region`
+
+  ### GitHub Audit Logs
+
+  **Updatable:** All Amazon Web Services Secrets Manager attributes, `scope` (can
+  switch between ORGANIZATION/ENTERPRISE), `organization` or `enterprise` name,
+  `range`, authentication credentials (PAT or GitHub App)
+
+  ### Microsoft Sources (Entra ID, Office365, Windows)
+
+  **Updatable:** All Amazon Web Services Secrets Manager attributes, `tenant_id`,
+  `workspace_id` (Windows only), OAuth2 credentials (`client_id`, `client_secret`)
+
+  ### Okta Sources (SSO, Auth0)
+
+  **Updatable:** All Amazon Web Services Secrets Manager attributes, `domain`,
+  `range` (SSO only), OAuth2 credentials (`client_id`, `client_secret`)
+
+  ### Palo Alto Networks
+
+  **Updatable:** All Amazon Web Services Secrets Manager attributes, `hostname`,
+  basic authentication credentials (`username`, `password`)
+
+  ### ServiceNow CMDB
+
+  **Updatable:** All Amazon Web Services Secrets Manager attributes,
+  `instance_url`, `range`, OAuth2 credentials (`client_id`, `client_secret`)
+
+  ### Wiz CNAPP
+
+  **Updatable:** All Amazon Web Services Secrets Manager attributes, `region`,
+  `range`, OAuth2 credentials (`client_id`, `client_secret`)
+  """
+  @spec update_telemetry_pipeline(map(), update_telemetry_pipeline_input(), list()) ::
+          {:ok, update_telemetry_pipeline_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_telemetry_pipeline_errors()}
+  def update_telemetry_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateTelemetryPipeline"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates an existing telemetry rule in your account.
+
+  If multiple users attempt to modify the same telemetry rule simultaneously, a
+  ConflictException is returned to provide specific error information for
+  concurrent modification scenarios.
   """
   @spec update_telemetry_rule(map(), update_telemetry_rule_input(), list()) ::
           {:ok, update_telemetry_rule_output(), any()}
@@ -1920,6 +2979,42 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, update_telemetry_rule_for_organization_errors()}
   def update_telemetry_rule_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateTelemetryRuleForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Validates a pipeline configuration without creating the pipeline.
+
+  This operation checks the configuration for syntax errors and compatibility
+  issues.
+  """
+  @spec validate_telemetry_pipeline_configuration(
+          map(),
+          validate_telemetry_pipeline_configuration_input(),
+          list()
+        ) ::
+          {:ok, validate_telemetry_pipeline_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, validate_telemetry_pipeline_configuration_errors()}
+  def validate_telemetry_pipeline_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/ValidateTelemetryPipelineConfiguration"
     headers = []
     custom_headers = []
     query_params = []

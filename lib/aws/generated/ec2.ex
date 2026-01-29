@@ -409,6 +409,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_ipam_policy_allocation_rules_result() :: %{
+        "IpamPolicyDocuments" => list(ipam_policy_document()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_policy_allocation_rules_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       phase2_integrity_algorithms_request_list_value() :: %{
         "Value" => String.t() | atom()
       }
@@ -523,6 +535,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       byoip_cidr() :: %{
+        "AdvertisementType" => String.t() | atom(),
         "AsnAssociations" => list(asn_association()),
         "Cidr" => String.t() | atom(),
         "Description" => String.t() | atom(),
@@ -768,6 +781,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      availability_zone_address() :: %{
+        "AllocationIds" => list(String.t() | atom()),
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom()
+      }
+      
+  """
+  @type availability_zone_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_transit_gateway_connect_request() :: %{
         optional("DryRun") => boolean(),
         required("TransitGatewayAttachmentId") => String.t() | atom()
@@ -868,6 +894,21 @@ defmodule AWS.EC2 do
       
   """
   @type create_local_gateway_virtual_interface_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_transit_gateway_metering_policy_entry_request() :: %{
+        optional("DryRun") => boolean(),
+        required("PolicyRuleNumber") => integer(),
+        required("TransitGatewayMeteringPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_transit_gateway_metering_policy_entry_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -983,6 +1024,17 @@ defmodule AWS.EC2 do
       
   """
   @type create_route_server_peer_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_instance_sql_ha_standby_detections_result() :: %{
+        "Instances" => list(registered_instance())
+      }
+      
+  """
+  @type disable_instance_sql_ha_standby_detections_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1174,6 +1226,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_vpc_encryption_control_result() :: %{
+        "VpcEncryptionControl" => vpc_encryption_control()
+      }
+      
+  """
+  @type delete_vpc_encryption_control_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_route_table_result() :: %{
         "ClientToken" => String.t() | atom(),
         "RouteTable" => route_table()
@@ -1329,6 +1392,9 @@ defmodule AWS.EC2 do
         "InstanceMatchCriteria" => list(any()),
         "InstancePlatform" => list(any()),
         "InstanceType" => String.t() | atom(),
+        "Interruptible" => boolean(),
+        "InterruptibleCapacityAllocation" => interruptible_capacity_allocation(),
+        "InterruptionInfo" => interruption_info(),
         "OutpostArn" => String.t() | atom(),
         "OwnerId" => String.t() | atom(),
         "PlacementGroupArn" => String.t() | atom(),
@@ -1430,6 +1496,17 @@ defmodule AWS.EC2 do
       
   """
   @type launch_template_placement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_transit_gateway_metering_policy_entry_result() :: %{
+        "TransitGatewayMeteringPolicyEntry" => transit_gateway_metering_policy_entry()
+      }
+      
+  """
+  @type create_transit_gateway_metering_policy_entry_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1570,6 +1647,7 @@ defmodule AWS.EC2 do
       
       search_transit_gateway_routes_result() :: %{
         "AdditionalRoutesAvailable" => boolean(),
+        "NextToken" => String.t() | atom(),
         "Routes" => list(transit_gateway_route())
       }
       
@@ -1671,6 +1749,7 @@ defmodule AWS.EC2 do
         "DefaultRouteTableAssociation" => list(any()),
         "DefaultRouteTablePropagation" => list(any()),
         "DnsSupport" => list(any()),
+        "EncryptionSupport" => encryption_support(),
         "MulticastSupport" => list(any()),
         "PropagationDefaultRouteTableId" => String.t() | atom(),
         "SecurityGroupReferencingSupport" => list(any()),
@@ -2245,6 +2324,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_ipam_policy_result() :: %{
+        "IpamPolicy" => ipam_policy()
+      }
+      
+  """
+  @type delete_ipam_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       path_component() :: %{
         "AclRule" => analysis_acl_rule(),
         "AdditionalDetails" => list(additional_detail()),
@@ -2403,6 +2493,25 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      vpc_encryption_control_configuration() :: %{
+        "EgressOnlyInternetGatewayExclusion" => list(any()),
+        "ElasticFileSystemExclusion" => list(any()),
+        "InternetGatewayExclusion" => list(any()),
+        "LambdaExclusion" => list(any()),
+        "Mode" => list(any()),
+        "NatGatewayExclusion" => list(any()),
+        "VirtualPrivateGatewayExclusion" => list(any()),
+        "VpcLatticeExclusion" => list(any()),
+        "VpcPeeringExclusion" => list(any())
+      }
+      
+  """
+  @type vpc_encryption_control_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deregister_instance_event_notification_attributes_request() :: %{
         optional("DryRun") => boolean(),
         required("InstanceTagAttribute") => deregister_instance_tag_attribute_request()
@@ -2427,6 +2536,18 @@ defmodule AWS.EC2 do
       
   """
   @type attribute_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_sql_ha_states_result() :: %{
+        "Instances" => list(registered_instance()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_instance_sql_ha_states_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2959,6 +3080,22 @@ defmodule AWS.EC2 do
       
   """
   @type modify_vpc_peering_connection_options_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transit_gateway_metering_policy() :: %{
+        "MiddleboxAttachmentIds" => list(String.t() | atom()),
+        "State" => list(any()),
+        "Tags" => list(tag()),
+        "TransitGatewayId" => String.t() | atom(),
+        "TransitGatewayMeteringPolicyId" => String.t() | atom(),
+        "UpdateEffectiveAt" => non_neg_integer()
+      }
+      
+  """
+  @type transit_gateway_metering_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3590,6 +3727,7 @@ defmodule AWS.EC2 do
         "AttachTime" => non_neg_integer(),
         "DeleteOnTermination" => boolean(),
         "Device" => String.t() | atom(),
+        "EbsCardIndex" => integer(),
         "InstanceId" => String.t() | atom(),
         "InstanceOwningService" => String.t() | atom(),
         "State" => list(any()),
@@ -3610,6 +3748,23 @@ defmodule AWS.EC2 do
       
   """
   @type resource_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_card_info() :: %{
+        "BaselineBandwidthInMbps" => integer(),
+        "BaselineIops" => integer(),
+        "BaselineThroughputInMBps" => float(),
+        "EbsCardIndex" => integer(),
+        "MaximumBandwidthInMbps" => integer(),
+        "MaximumIops" => integer(),
+        "MaximumThroughputInMBps" => float()
+      }
+      
+  """
+  @type ebs_card_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4042,6 +4197,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_transit_gateway_metering_policy_request() :: %{
+        optional("AddMiddleboxAttachmentIds") => list(String.t() | atom()),
+        optional("DryRun") => boolean(),
+        optional("RemoveMiddleboxAttachmentIds") => list(String.t() | atom()),
+        required("TransitGatewayMeteringPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_transit_gateway_metering_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_coip_pool_request() :: %{
         optional("DryRun") => boolean(),
         required("CoipPoolId") => String.t() | atom()
@@ -4290,10 +4459,12 @@ defmodule AWS.EC2 do
       
       ebs_info() :: %{
         "AttachmentLimitType" => list(any()),
+        "EbsCards" => list(ebs_card_info()),
         "EbsOptimizedInfo" => ebs_optimized_info(),
         "EbsOptimizedSupport" => list(any()),
         "EncryptionSupport" => list(any()),
         "MaximumEbsAttachments" => integer(),
+        "MaximumEbsCards" => integer(),
         "NvmeSupport" => list(any())
       }
       
@@ -5417,6 +5588,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_vpc_encryption_control_request() :: %{
+        optional("DryRun") => boolean(),
+        required("VpcEncryptionControlId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_vpc_encryption_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_fleet_request() :: %{
         optional("Context") => String.t() | atom(),
         optional("DryRun") => boolean(),
@@ -6135,6 +6318,8 @@ defmodule AWS.EC2 do
       nat_gateway_address() :: %{
         "AllocationId" => String.t() | atom(),
         "AssociationId" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "FailureMessage" => String.t() | atom(),
         "IsPrimary" => boolean(),
         "NetworkInterfaceId" => String.t() | atom(),
@@ -6347,6 +6532,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_enabled_ipam_policy_result() :: %{
+        "IpamPolicyEnabled" => boolean(),
+        "IpamPolicyId" => String.t() | atom(),
+        "ManagedBy" => list(any())
+      }
+      
+  """
+  @type get_enabled_ipam_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       transit_gateway_multicast_domain_associations() :: %{
         "ResourceId" => String.t() | atom(),
         "ResourceOwnerId" => String.t() | atom(),
@@ -6441,8 +6639,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       vpc_encryption_control_exclusion() :: %{
-        optional("State") => list(any()),
-        optional("StateMessage") => String.t() | atom()
+        "State" => list(any()),
+        "StateMessage" => String.t() | atom()
       }
       
   """
@@ -6475,6 +6673,17 @@ defmodule AWS.EC2 do
       
   """
   @type transit_gateway_policy_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpn_concentrator_result() :: %{
+        "VpnConcentrator" => vpn_concentrator()
+      }
+      
+  """
+  @type create_vpn_concentrator_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6552,6 +6761,19 @@ defmodule AWS.EC2 do
       
   """
   @type verified_access_endpoint_rds_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_encryption_control_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("VpcId") => String.t() | atom()
+      }
+      
+  """
+  @type create_vpc_encryption_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6736,6 +6958,22 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      vpn_concentrator() :: %{
+        "State" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TransitGatewayAttachmentId" => String.t() | atom(),
+        "TransitGatewayId" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "VpnConcentratorId" => String.t() | atom()
+      }
+      
+  """
+  @type vpn_concentrator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ipam_pool_cidr() :: %{
         "Cidr" => String.t() | atom(),
         "FailureReason" => ipam_pool_cidr_failure_reason(),
@@ -6761,6 +6999,18 @@ defmodule AWS.EC2 do
       
   """
   @type modify_vpn_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_instance_sql_ha_standby_detections_request() :: %{
+        optional("DryRun") => boolean(),
+        required("InstanceIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type disable_instance_sql_ha_standby_detections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6949,6 +7199,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_transit_gateway_metering_policy_entries_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "TransitGatewayMeteringPolicyEntries" => list(transit_gateway_metering_policy_entry())
+      }
+      
+  """
+  @type get_transit_gateway_metering_policy_entries_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_network_insights_access_scope_analysis_request() :: %{
         optional("DryRun") => boolean(),
         optional("TagSpecifications") => list(tag_specification()),
@@ -7083,6 +7345,7 @@ defmodule AWS.EC2 do
         "GroupArn" => String.t() | atom(),
         "GroupId" => String.t() | atom(),
         "GroupName" => String.t() | atom(),
+        "LinkedGroupId" => String.t() | atom(),
         "PartitionCount" => integer(),
         "SpreadLevel" => list(any()),
         "State" => list(any()),
@@ -7240,6 +7503,18 @@ defmodule AWS.EC2 do
       
   """
   @type delete_network_insights_path_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_volumes_in_recycle_bin_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "Volumes" => list(volume_recycle_bin_info())
+      }
+      
+  """
+  @type list_volumes_in_recycle_bin_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7473,6 +7748,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_ipam_policy_request() :: %{
+        optional("DryRun") => boolean(),
+        required("IpamPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_ipam_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_flow_logs_request() :: %{
         optional("DryRun") => boolean(),
         required("FlowLogIds") => list(String.t() | atom())
@@ -7642,6 +7929,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      enable_instance_sql_ha_standby_detections_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("SqlServerCredentials") => String.t() | atom(),
+        required("InstanceIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type enable_instance_sql_ha_standby_detections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_instance_types_from_instance_requirements_request() :: %{
         optional("Context") => String.t() | atom(),
         optional("DryRun") => boolean(),
@@ -7668,6 +7968,23 @@ defmodule AWS.EC2 do
       
   """
   @type describe_hosts_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_sql_ha_history_states_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("EndTime") => non_neg_integer(),
+        optional("Filters") => list(filter()),
+        optional("InstanceIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type describe_instance_sql_ha_history_states_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7843,6 +8160,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       cloud_watch_log_options_specification() :: %{
+        "BgpLogEnabled" => boolean(),
+        "BgpLogGroupArn" => String.t() | atom(),
+        "BgpLogOutputFormat" => String.t() | atom(),
         "LogEnabled" => boolean(),
         "LogGroupArn" => String.t() | atom(),
         "LogOutputFormat" => String.t() | atom()
@@ -7873,6 +8193,17 @@ defmodule AWS.EC2 do
       
   """
   @type phase2_integrity_algorithms_list_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_volume_from_recycle_bin_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type restore_volume_from_recycle_bin_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8526,7 +8857,8 @@ defmodule AWS.EC2 do
         optional("Ipv6IpamPoolId") => String.t() | atom(),
         optional("Ipv6NetmaskLength") => integer(),
         optional("Ipv6Pool") => String.t() | atom(),
-        optional("TagSpecifications") => list(tag_specification())
+        optional("TagSpecifications") => list(tag_specification()),
+        optional("VpcEncryptionControl") => vpc_encryption_control_configuration()
       }
       
   """
@@ -8555,6 +8887,18 @@ defmodule AWS.EC2 do
       
   """
   @type capacity_reservation_specification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_encryption_controls_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "VpcEncryptionControls" => list(vpc_encryption_control())
+      }
+      
+  """
+  @type describe_vpc_encryption_controls_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9296,6 +9640,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_transit_gateway_metering_policy_entries_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("TransitGatewayMeteringPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type get_transit_gateway_metering_policy_entries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       vpc_peering_connection_vpc_info() :: %{
         "CidrBlock" => String.t() | atom(),
         "CidrBlockSet" => list(cidr_block()),
@@ -9371,6 +9730,21 @@ defmodule AWS.EC2 do
       
   """
   @type cancel_import_task_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ipam_policies_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("IpamPolicyIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10418,6 +10792,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ipam_policy_organization_target() :: %{
+        "OrganizationTargetId" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_policy_organization_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_transit_gateway_policy_table_result() :: %{
         "Association" => transit_gateway_policy_table_association()
       }
@@ -10607,6 +10992,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      restore_volume_from_recycle_bin_request() :: %{
+        optional("DryRun") => boolean(),
+        required("VolumeId") => String.t() | atom()
+      }
+      
+  """
+  @type restore_volume_from_recycle_bin_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_spot_price_history_result() :: %{
         "NextToken" => String.t() | atom(),
         "SpotPriceHistory" => list(spot_price())
@@ -10688,6 +11085,7 @@ defmodule AWS.EC2 do
         "TransitGatewayId" => String.t() | atom(),
         "Type" => list(any()),
         "VgwTelemetry" => list(vgw_telemetry()),
+        "VpnConcentratorId" => String.t() | atom(),
         "VpnConnectionId" => String.t() | atom(),
         "VpnGatewayId" => String.t() | atom()
       }
@@ -10816,6 +11214,24 @@ defmodule AWS.EC2 do
       
   """
   @type deprovision_ipam_pool_cidr_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_interruptible_capacity_reservation_allocation_result() :: %{
+        "InstanceCount" => integer(),
+        "InterruptibleCapacityReservationId" => String.t() | atom(),
+        "InterruptionType" => list(any()),
+        "SourceCapacityReservationId" => String.t() | atom(),
+        "Status" => list(any()),
+        "TargetInstanceCount" => integer()
+      }
+      
+  """
+  @type update_interruptible_capacity_reservation_allocation_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -11178,6 +11594,23 @@ defmodule AWS.EC2 do
       
   """
   @type modify_verified_access_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ipam_policy_allocation_rules_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("Locale") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => list(any()),
+        required("IpamPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_policy_allocation_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11699,6 +12132,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_ipam_policy_organization_targets_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "OrganizationTargets" => list(ipam_policy_organization_target())
+      }
+      
+  """
+  @type get_ipam_policy_organization_targets_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ipam_cidr_authorization_context() :: %{
         "Message" => String.t() | atom(),
         "Signature" => String.t() | atom()
@@ -11789,6 +12234,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      update_interruptible_capacity_reservation_allocation_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CapacityReservationId") => String.t() | atom(),
+        required("TargetInstanceCount") => integer()
+      }
+      
+  """
+  @type update_interruptible_capacity_reservation_allocation_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       modify_vpc_block_public_access_options_request() :: %{
         optional("DryRun") => boolean(),
         required("InternetGatewayBlockMode") => list(any())
@@ -11870,6 +12330,21 @@ defmodule AWS.EC2 do
   @type get_vpn_connection_device_sample_configuration_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_sql_ha_states_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("InstanceIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_instance_sql_ha_states_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12493,6 +12968,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       network_card_info() :: %{
+        "AdditionalFlexibleNetworkInterfaces" => integer(),
         "BaselineBandwidthInGbps" => float(),
         "DefaultEnaQueueCountPerInterface" => integer(),
         "MaximumEnaQueueCount" => integer(),
@@ -12577,6 +13053,7 @@ defmodule AWS.EC2 do
       
       fleet_launch_template_overrides() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "BlockDeviceMappings" => list(block_device_mapping_response()),
         "ImageId" => String.t() | atom(),
         "InstanceRequirements" => instance_requirements(),
@@ -12750,6 +13227,7 @@ defmodule AWS.EC2 do
       create_placement_group_request() :: %{
         optional("DryRun") => boolean(),
         optional("GroupName") => String.t() | atom(),
+        optional("LinkedGroupId") => String.t() | atom(),
         optional("PartitionCount") => integer(),
         optional("SpreadLevel") => list(any()),
         optional("Strategy") => list(any()),
@@ -12771,6 +13249,7 @@ defmodule AWS.EC2 do
         "DefaultRouteTableAssociation" => list(any()),
         "DefaultRouteTablePropagation" => list(any()),
         "DnsSupport" => list(any()),
+        "EncryptionSupport" => list(any()),
         "PropagationDefaultRouteTableId" => String.t() | atom(),
         "RemoveTransitGatewayCidrBlocks" => list(String.t() | atom()),
         "SecurityGroupReferencingSupport" => list(any()),
@@ -12820,6 +13299,8 @@ defmodule AWS.EC2 do
       
       create_nat_gateway_request() :: %{
         optional("AllocationId") => String.t() | atom(),
+        optional("AvailabilityMode") => list(any()),
+        optional("AvailabilityZoneAddresses") => list(availability_zone_address()),
         optional("ClientToken") => String.t() | atom(),
         optional("ConnectivityType") => list(any()),
         optional("DryRun") => boolean(),
@@ -12827,8 +13308,9 @@ defmodule AWS.EC2 do
         optional("SecondaryAllocationIds") => list(String.t() | atom()),
         optional("SecondaryPrivateIpAddressCount") => integer(),
         optional("SecondaryPrivateIpAddresses") => list(String.t() | atom()),
+        optional("SubnetId") => String.t() | atom(),
         optional("TagSpecifications") => list(tag_specification()),
-        required("SubnetId") => String.t() | atom()
+        optional("VpcId") => String.t() | atom()
       }
       
   """
@@ -13042,6 +13524,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_interruptible_capacity_reservation_allocation_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("CapacityReservationId") => String.t() | atom(),
+        required("InstanceCount") => integer()
+      }
+      
+  """
+  @type create_interruptible_capacity_reservation_allocation_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       successful_instance_credit_specification_item() :: %{
         "InstanceId" => String.t() | atom()
       }
@@ -13140,6 +13639,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      enable_ipam_policy_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("OrganizationTargetId") => String.t() | atom(),
+        required("IpamPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type enable_ipam_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       unassign_ipv6_addresses_request() :: %{
         optional("Ipv6Addresses") => list(String.t() | atom()),
         optional("Ipv6Prefixes") => list(String.t() | atom()),
@@ -13168,6 +13680,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_vpc_encryption_control_result() :: %{
+        "VpcEncryptionControl" => vpc_encryption_control()
+      }
+      
+  """
+  @type create_vpc_encryption_control_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_host_reservation_offerings_request() :: %{
         optional("Filter") => list(filter()),
         optional("MaxDuration") => integer(),
@@ -13190,6 +13713,18 @@ defmodule AWS.EC2 do
       
   """
   @type create_capacity_manager_data_export_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_sql_ha_history_states_result() :: %{
+        "Instances" => list(registered_instance()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_instance_sql_ha_history_states_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13473,6 +14008,17 @@ defmodule AWS.EC2 do
       
   """
   @type modify_availability_zone_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_ipam_policy_result() :: %{
+        "IpamPolicyId" => String.t() | atom()
+      }
+      
+  """
+  @type enable_ipam_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14029,6 +14575,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_transit_gateway_metering_policy_result() :: %{
+        "TransitGatewayMeteringPolicy" => transit_gateway_metering_policy()
+      }
+      
+  """
+  @type delete_transit_gateway_metering_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity_reservation_target_response() :: %{
         "CapacityReservationId" => String.t() | atom(),
         "CapacityReservationResourceGroupArn" => String.t() | atom()
@@ -14376,6 +14933,20 @@ defmodule AWS.EC2 do
       
   """
   @type reserved_instances_modification_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ipam_policy_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("IpamId") => String.t() | atom()
+      }
+      
+  """
+  @type create_ipam_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14902,8 +15473,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_vpc_encryption_control_result() :: %{
+        "VpcEncryptionControl" => vpc_encryption_control()
+      }
+      
+  """
+  @type modify_vpc_encryption_control_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       launch_template_ebs_block_device() :: %{
         "DeleteOnTermination" => boolean(),
+        "EbsCardIndex" => integer(),
         "Encrypted" => boolean(),
         "Iops" => integer(),
         "KmsKeyId" => String.t() | atom(),
@@ -14916,6 +15499,21 @@ defmodule AWS.EC2 do
       
   """
   @type launch_template_ebs_block_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ipam_policy_allocation_rules_request() :: %{
+        optional("AllocationRules") => list(ipam_policy_allocation_rule_request()),
+        optional("DryRun") => boolean(),
+        required("IpamPolicyId") => String.t() | atom(),
+        required("Locale") => String.t() | atom(),
+        required("ResourceType") => list(any())
+      }
+      
+  """
+  @type modify_ipam_policy_allocation_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15191,6 +15789,7 @@ defmodule AWS.EC2 do
       
       attach_volume_request() :: %{
         optional("DryRun") => boolean(),
+        optional("EbsCardIndex") => integer(),
         required("Device") => String.t() | atom(),
         required("InstanceId") => String.t() | atom(),
         required("VolumeId") => String.t() | atom()
@@ -16724,9 +17323,12 @@ defmodule AWS.EC2 do
       
       gpu_device_info() :: %{
         "Count" => integer(),
+        "GpuPartitionSize" => float(),
+        "LogicalGpuCount" => integer(),
         "Manufacturer" => String.t() | atom(),
         "MemoryInfo" => gpu_device_memory_info(),
-        "Name" => String.t() | atom()
+        "Name" => String.t() | atom(),
+        "Workloads" => list(String.t() | atom())
       }
       
   """
@@ -16946,6 +17548,7 @@ defmodule AWS.EC2 do
         "AvailabilityZone" => String.t() | atom(),
         "AvailabilityZoneId" => String.t() | atom(),
         "DeleteOnTermination" => boolean(),
+        "EbsCardIndex" => integer(),
         "Encrypted" => boolean(),
         "Iops" => integer(),
         "KmsKeyId" => String.t() | atom(),
@@ -17009,6 +17612,31 @@ defmodule AWS.EC2 do
       
   """
   @type list_snapshots_in_recycle_bin_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      volume_recycle_bin_info() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "CreateTime" => non_neg_integer(),
+        "Iops" => integer(),
+        "Operator" => operator_response(),
+        "OutpostArn" => String.t() | atom(),
+        "RecycleBinEnterTime" => non_neg_integer(),
+        "RecycleBinExitTime" => non_neg_integer(),
+        "Size" => integer(),
+        "SnapshotId" => String.t() | atom(),
+        "SourceVolumeId" => String.t() | atom(),
+        "State" => list(any()),
+        "Throughput" => integer(),
+        "VolumeId" => String.t() | atom(),
+        "VolumeType" => list(any())
+      }
+      
+  """
+  @type volume_recycle_bin_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17106,6 +17734,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       nat_gateway() :: %{
+        "AttachedAppliances" => list(nat_gateway_attached_appliance()),
+        "AutoProvisionZones" => list(any()),
+        "AutoScalingIps" => list(any()),
+        "AvailabilityMode" => list(any()),
         "ConnectivityType" => list(any()),
         "CreateTime" => non_neg_integer(),
         "DeleteTime" => non_neg_integer(),
@@ -17114,6 +17746,7 @@ defmodule AWS.EC2 do
         "NatGatewayAddresses" => list(nat_gateway_address()),
         "NatGatewayId" => String.t() | atom(),
         "ProvisionedBandwidth" => provisioned_bandwidth(),
+        "RouteTableId" => String.t() | atom(),
         "State" => list(any()),
         "SubnetId" => String.t() | atom(),
         "Tags" => list(tag()),
@@ -17475,6 +18108,7 @@ defmodule AWS.EC2 do
       
       launch_template_overrides() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "InstanceRequirements" => instance_requirements(),
         "InstanceType" => list(any()),
         "Priority" => float(),
@@ -18357,6 +18991,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ipam_policy_allocation_rule() :: %{
+        "SourceIpamPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_policy_allocation_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       export_client_vpn_client_certificate_revocation_list_result() :: %{
         "CertificateRevocationList" => String.t() | atom(),
         "Status" => client_certificate_revocation_list_status()
@@ -18856,6 +19501,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_transit_gateway_metering_policy_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("MiddleboxAttachmentIds") => list(String.t() | atom()),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("TransitGatewayId") => String.t() | atom()
+      }
+      
+  """
+  @type create_transit_gateway_metering_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_verified_access_endpoint_port_range() :: %{
         "FromPort" => integer(),
         "ToPort" => integer()
@@ -19073,6 +19732,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      disable_ipam_policy_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("OrganizationTargetId") => String.t() | atom(),
+        required("IpamPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type disable_ipam_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_network_acls_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -19105,6 +19777,22 @@ defmodule AWS.EC2 do
       
   """
   @type modify_private_dns_name_options_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_encryption_controls_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("VpcEncryptionControlIds") => list(String.t() | atom()),
+        optional("VpcIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_vpc_encryption_controls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19149,6 +19837,20 @@ defmodule AWS.EC2 do
       
   """
   @type create_transit_gateway_vpc_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_policy_document() :: %{
+        "AllocationRules" => list(ipam_policy_allocation_rule()),
+        "IpamPolicyId" => String.t() | atom(),
+        "Locale" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type ipam_policy_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19218,6 +19920,7 @@ defmodule AWS.EC2 do
       
       spot_placement() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "GroupName" => String.t() | atom(),
         "Tenancy" => list(any())
       }
@@ -19991,6 +20694,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_ipam_policy_result() :: %{
+        "IpamPolicy" => ipam_policy()
+      }
+      
+  """
+  @type create_ipam_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_network_interface_attachment() :: %{
         "AttachTime" => non_neg_integer(),
         "AttachmentId" => String.t() | atom(),
@@ -20124,6 +20838,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       associate_nat_gateway_address_request() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
         optional("DryRun") => boolean(),
         optional("PrivateIpAddresses") => list(String.t() | atom()),
         required("AllocationIds") => list(String.t() | atom()),
@@ -20475,6 +21191,24 @@ defmodule AWS.EC2 do
   @type get_vpn_connection_device_sample_configuration_result() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_policy() :: %{
+        "IpamId" => String.t() | atom(),
+        "IpamPolicyArn" => String.t() | atom(),
+        "IpamPolicyId" => String.t() | atom(),
+        "IpamPolicyRegion" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "State" => list(any()),
+        "StateMessage" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type ipam_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21100,6 +21834,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_vpc_resources_blocking_encryption_enforcement_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "NonCompliantResources" => list(vpc_encryption_non_compliant_resource())
+      }
+      
+  """
+  @type get_vpc_resources_blocking_encryption_enforcement_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       delete_network_insights_analysis_request() :: %{
         optional("DryRun") => boolean(),
         required("NetworkInsightsAnalysisId") => String.t() | atom()
@@ -21124,6 +21872,18 @@ defmodule AWS.EC2 do
       
   """
   @type capacity_reservation_billing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ipam_policies_result() :: %{
+        "IpamPolicies" => list(ipam_policy()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_policies_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21834,6 +22594,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_transit_gateway_metering_policy_result() :: %{
+        "TransitGatewayMeteringPolicy" => transit_gateway_metering_policy()
+      }
+      
+  """
+  @type create_transit_gateway_metering_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_carrier_gateways_result() :: %{
         "CarrierGateways" => list(carrier_gateway()),
         "NextToken" => String.t() | atom()
@@ -22334,6 +23105,7 @@ defmodule AWS.EC2 do
       search_transit_gateway_routes_request() :: %{
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
         required("Filters") => list(filter()),
         required("TransitGatewayRouteTableId") => String.t() | atom()
       }
@@ -22720,6 +23492,17 @@ defmodule AWS.EC2 do
   @type enable_transit_gateway_route_table_propagation_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ipam_policy_allocation_rules_result() :: %{
+        "IpamPolicyDocument" => ipam_policy_document()
+      }
+      
+  """
+  @type modify_ipam_policy_allocation_rules_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -23241,14 +24024,14 @@ defmodule AWS.EC2 do
   ## Example:
       
       vpc_encryption_control_exclusions() :: %{
-        optional("EgressOnlyInternetGateway") => vpc_encryption_control_exclusion(),
-        optional("ElasticFileSystem") => vpc_encryption_control_exclusion(),
-        optional("InternetGateway") => vpc_encryption_control_exclusion(),
-        optional("Lambda") => vpc_encryption_control_exclusion(),
-        optional("NatGateway") => vpc_encryption_control_exclusion(),
-        optional("VirtualPrivateGateway") => vpc_encryption_control_exclusion(),
-        optional("VpcLattice") => vpc_encryption_control_exclusion(),
-        optional("VpcPeering") => vpc_encryption_control_exclusion()
+        "EgressOnlyInternetGateway" => vpc_encryption_control_exclusion(),
+        "ElasticFileSystem" => vpc_encryption_control_exclusion(),
+        "InternetGateway" => vpc_encryption_control_exclusion(),
+        "Lambda" => vpc_encryption_control_exclusion(),
+        "NatGateway" => vpc_encryption_control_exclusion(),
+        "VirtualPrivateGateway" => vpc_encryption_control_exclusion(),
+        "VpcLattice" => vpc_encryption_control_exclusion(),
+        "VpcPeering" => vpc_encryption_control_exclusion()
       }
       
   """
@@ -23482,6 +24265,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      disable_ipam_policy_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type disable_ipam_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       fleet_launch_template_config_request() :: %{
         "LaunchTemplateSpecification" => fleet_launch_template_specification_request(),
         "Overrides" => list(fleet_launch_template_overrides_request())
@@ -23536,6 +24330,25 @@ defmodule AWS.EC2 do
       
   """
   @type disable_vpc_classic_link_dns_support_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transit_gateway_metering_policy_rule() :: %{
+        "DestinationCidrBlock" => String.t() | atom(),
+        "DestinationPortRange" => String.t() | atom(),
+        "DestinationTransitGatewayAttachmentId" => String.t() | atom(),
+        "DestinationTransitGatewayAttachmentType" => list(any()),
+        "Protocol" => String.t() | atom(),
+        "SourceCidrBlock" => String.t() | atom(),
+        "SourcePortRange" => String.t() | atom(),
+        "SourceTransitGatewayAttachmentId" => String.t() | atom(),
+        "SourceTransitGatewayAttachmentType" => list(any())
+      }
+      
+  """
+  @type transit_gateway_metering_policy_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -23755,6 +24568,7 @@ defmodule AWS.EC2 do
         "AssociatedResource" => String.t() | atom(),
         "AttachTime" => non_neg_integer(),
         "DeleteOnTermination" => boolean(),
+        "EbsCardIndex" => integer(),
         "Operator" => operator_response(),
         "Status" => list(any()),
         "VolumeId" => String.t() | atom(),
@@ -24117,6 +24931,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_transit_gateway_metering_policy_result() :: %{
+        "TransitGatewayMeteringPolicy" => transit_gateway_metering_policy()
+      }
+      
+  """
+  @type modify_transit_gateway_metering_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       dns_options_specification() :: %{
         "DnsRecordIpType" => list(any()),
         "PrivateDnsOnlyForInboundResolverEndpoint" => boolean(),
@@ -24315,6 +25140,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      list_volumes_in_recycle_bin_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("VolumeIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_volumes_in_recycle_bin_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_fleet_history_request() :: %{
         optional("DryRun") => boolean(),
         optional("EventType") => list(any()),
@@ -24432,6 +25271,9 @@ defmodule AWS.EC2 do
         "CapacityReservationId" => String.t() | atom(),
         "InstanceType" => String.t() | atom(),
         "InstanceUsages" => list(instance_usage()),
+        "Interruptible" => boolean(),
+        "InterruptibleCapacityAllocation" => interruptible_capacity_allocation(),
+        "InterruptionInfo" => interruption_info(),
         "NextToken" => String.t() | atom(),
         "State" => list(any()),
         "TotalInstanceCount" => integer()
@@ -24584,6 +25426,18 @@ defmodule AWS.EC2 do
       
   """
   @type create_ipam_pool_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_support() :: %{
+        "EncryptionState" => list(any()),
+        "StateMessage" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_support() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -25042,6 +25896,29 @@ defmodule AWS.EC2 do
   @type describe_aws_network_performance_metric_subscriptions_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_transit_gateway_metering_policy_request() :: %{
+        optional("DryRun") => boolean(),
+        required("TransitGatewayMeteringPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_transit_gateway_metering_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_transit_gateway_metering_policy_entry_result() :: %{
+        "TransitGatewayMeteringPolicyEntry" => transit_gateway_metering_policy_entry()
+      }
+      
+  """
+  @type delete_transit_gateway_metering_policy_entry_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -25737,6 +26614,31 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_transit_gateway_metering_policy_entry_request() :: %{
+        optional("DestinationCidrBlock") => String.t() | atom(),
+        optional("DestinationPortRange") => String.t() | atom(),
+        optional("DestinationTransitGatewayAttachmentId") => String.t() | atom(),
+        optional("DestinationTransitGatewayAttachmentType") => list(any()),
+        optional("DryRun") => boolean(),
+        optional("Protocol") => String.t() | atom(),
+        optional("SourceCidrBlock") => String.t() | atom(),
+        optional("SourcePortRange") => String.t() | atom(),
+        optional("SourceTransitGatewayAttachmentId") => String.t() | atom(),
+        optional("SourceTransitGatewayAttachmentType") => list(any()),
+        required("MeteredAccount") => list(any()),
+        required("PolicyRuleNumber") => integer(),
+        required("TransitGatewayMeteringPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type create_transit_gateway_metering_policy_entry_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       security_group_rule_request() :: %{
         "CidrIpv4" => String.t() | atom(),
         "CidrIpv6" => String.t() | atom(),
@@ -26063,6 +26965,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_vpn_concentrator_request() :: %{
+        optional("DryRun") => boolean(),
+        required("VpnConcentratorId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_vpn_concentrator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       availability_zone_message() :: %{
         "Message" => String.t() | atom()
       }
@@ -26099,6 +27013,23 @@ defmodule AWS.EC2 do
       
   """
   @type metric_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      nat_gateway_attached_appliance() :: %{
+        "ApplianceArn" => String.t() | atom(),
+        "AttachmentState" => list(any()),
+        "FailureCode" => String.t() | atom(),
+        "FailureMessage" => String.t() | atom(),
+        "ModificationState" => list(any()),
+        "Type" => list(any()),
+        "VpcEndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type nat_gateway_attached_appliance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -26244,6 +27175,18 @@ defmodule AWS.EC2 do
       
   """
   @type describe_prefix_lists_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_transit_gateway_metering_policies_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "TransitGatewayMeteringPolicies" => list(transit_gateway_metering_policy())
+      }
+      
+  """
+  @type describe_transit_gateway_metering_policies_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -27179,6 +28122,27 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_vpc_encryption_control_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("EgressOnlyInternetGatewayExclusion") => list(any()),
+        optional("ElasticFileSystemExclusion") => list(any()),
+        optional("InternetGatewayExclusion") => list(any()),
+        optional("LambdaExclusion") => list(any()),
+        optional("Mode") => list(any()),
+        optional("NatGatewayExclusion") => list(any()),
+        optional("VirtualPrivateGatewayExclusion") => list(any()),
+        optional("VpcLatticeExclusion") => list(any()),
+        optional("VpcPeeringExclusion") => list(any()),
+        required("VpcEncryptionControlId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_vpc_encryption_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       transit_gateway_vpc_attachment_options() :: %{
         "ApplianceModeSupport" => list(any()),
         "DnsSupport" => list(any()),
@@ -27201,6 +28165,22 @@ defmodule AWS.EC2 do
       
   """
   @type terminate_connection_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_vpc_resources_blocking_encryption_enforcement_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("VpcId") => String.t() | atom()
+      }
+      
+  """
+  @type get_vpc_resources_blocking_encryption_enforcement_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -27353,6 +28333,7 @@ defmodule AWS.EC2 do
       
       fleet_launch_template_overrides_request() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "BlockDeviceMappings" => list(fleet_block_device_mapping_request()),
         "ImageId" => String.t() | atom(),
         "InstanceRequirements" => instance_requirements_request(),
@@ -27427,6 +28408,22 @@ defmodule AWS.EC2 do
       
   """
   @type associate_security_group_vpc_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_interruptible_capacity_reservation_allocation_result() :: %{
+        "InterruptionType" => list(any()),
+        "SourceCapacityReservationId" => String.t() | atom(),
+        "Status" => list(any()),
+        "TargetInstanceCount" => integer()
+      }
+      
+  """
+  @type create_interruptible_capacity_reservation_allocation_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -28318,6 +29315,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      enable_instance_sql_ha_standby_detections_result() :: %{
+        "Instances" => list(registered_instance())
+      }
+      
+  """
+  @type enable_instance_sql_ha_standby_detections_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_traffic_mirror_filter_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
@@ -28386,6 +29394,17 @@ defmodule AWS.EC2 do
       
   """
   @type add_ipam_operating_region() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_enabled_ipam_policy_request() :: %{
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type get_enabled_ipam_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -28607,6 +29626,21 @@ defmodule AWS.EC2 do
       
   """
   @type failed_queued_purchase_deletion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_transit_gateway_metering_policies_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TransitGatewayMeteringPolicyIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_transit_gateway_metering_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -28996,6 +30030,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_ipam_policy_organization_targets_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IpamPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ipam_policy_organization_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       prefix_list_id() :: %{
         "Description" => String.t() | atom(),
         "PrefixListId" => String.t() | atom()
@@ -29135,6 +30184,7 @@ defmodule AWS.EC2 do
       
       launch_template_ebs_block_device_request() :: %{
         "DeleteOnTermination" => boolean(),
+        "EbsCardIndex" => integer(),
         "Encrypted" => boolean(),
         "Iops" => integer(),
         "KmsKeyId" => String.t() | atom(),
@@ -29382,6 +30432,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ipam_policy_allocation_rule_request() :: %{
+        "SourceIpamPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_policy_allocation_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       enable_snapshot_block_public_access_request() :: %{
         optional("DryRun") => boolean(),
         required("State") => list(any())
@@ -29403,6 +30464,22 @@ defmodule AWS.EC2 do
       
   """
   @type capacity_reservation_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transit_gateway_metering_policy_entry() :: %{
+        "MeteredAccount" => list(any()),
+        "MeteringPolicyRule" => transit_gateway_metering_policy_rule(),
+        "PolicyRuleNumber" => String.t() | atom(),
+        "State" => list(any()),
+        "UpdateEffectiveAt" => non_neg_integer(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type transit_gateway_metering_policy_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29624,6 +30701,7 @@ defmodule AWS.EC2 do
         optional("PreSharedKeyStorage") => String.t() | atom(),
         optional("TagSpecifications") => list(tag_specification()),
         optional("TransitGatewayId") => String.t() | atom(),
+        optional("VpnConcentratorId") => String.t() | atom(),
         optional("VpnGatewayId") => String.t() | atom(),
         required("CustomerGatewayId") => String.t() | atom(),
         required("Type") => String.t() | atom()
@@ -29631,6 +30709,31 @@ defmodule AWS.EC2 do
       
   """
   @type create_vpn_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpn_concentrator_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type delete_vpn_concentrator_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpn_concentrator_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        optional("TransitGatewayId") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_vpn_concentrator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29808,6 +30911,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       cloud_watch_log_options() :: %{
+        "BgpLogEnabled" => boolean(),
+        "BgpLogGroupArn" => String.t() | atom(),
+        "BgpLogOutputFormat" => String.t() | atom(),
         "LogEnabled" => boolean(),
         "LogGroupArn" => String.t() | atom(),
         "LogOutputFormat" => String.t() | atom()
@@ -30122,6 +31228,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      interruption_info() :: %{
+        "InterruptionType" => list(any()),
+        "SourceCapacityReservationId" => String.t() | atom()
+      }
+      
+  """
+  @type interruption_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       client_connect_options() :: %{
         "Enabled" => boolean(),
         "LambdaFunctionArn" => String.t() | atom()
@@ -30129,6 +31247,21 @@ defmodule AWS.EC2 do
       
   """
   @type client_connect_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      interruptible_capacity_allocation() :: %{
+        "InstanceCount" => integer(),
+        "InterruptibleCapacityReservationId" => String.t() | atom(),
+        "InterruptionType" => list(any()),
+        "Status" => list(any()),
+        "TargetInstanceCount" => integer()
+      }
+      
+  """
+  @type interruptible_capacity_allocation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30417,6 +31550,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      vpc_encryption_non_compliant_resource() :: %{
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IsExcludable" => boolean(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_encryption_non_compliant_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cancel_spot_instance_requests_result() :: %{
         "CancelledSpotInstanceRequests" => list(cancelled_spot_instance_request())
       }
@@ -30597,6 +31744,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_vpn_concentrators_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "VpnConcentrators" => list(vpn_concentrator())
+      }
+      
+  """
+  @type describe_vpn_concentrators_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_capacity_manager_metric_data_request() :: %{
         optional("DryRun") => boolean(),
         optional("FilterBy") => list(capacity_manager_condition()),
@@ -30726,13 +31885,13 @@ defmodule AWS.EC2 do
   ## Example:
       
       vpc_encryption_control() :: %{
-        optional("Mode") => list(any()),
-        optional("ResourceExclusions") => vpc_encryption_control_exclusions(),
-        optional("State") => list(any()),
-        optional("StateMessage") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("VpcEncryptionControlId") => String.t() | atom(),
-        optional("VpcId") => String.t() | atom()
+        "Mode" => list(any()),
+        "ResourceExclusions" => vpc_encryption_control_exclusions(),
+        "State" => list(any()),
+        "StateMessage" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "VpcEncryptionControlId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
@@ -30995,6 +32154,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_vpn_concentrators_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("VpnConcentratorIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_vpn_concentrators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associated_target_network() :: %{
         "NetworkId" => String.t() | atom(),
         "NetworkType" => list(any())
@@ -31136,6 +32310,23 @@ defmodule AWS.EC2 do
       
   """
   @type get_route_server_routing_database_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registered_instance() :: %{
+        "HaStatus" => list(any()),
+        "InstanceId" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ProcessingStatus" => String.t() | atom(),
+        "SqlServerCredentials" => String.t() | atom(),
+        "SqlServerLicenseUsage" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type registered_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -33846,6 +35037,38 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+
+  Creates an interruptible Capacity Reservation by specifying the number of unused
+  instances you want to allocate from your source reservation.
+
+  This helps you make unused capacity available for other workloads within your
+  account while maintaining control to reclaim it.
+  """
+  @spec create_interruptible_capacity_reservation_allocation(
+          map(),
+          create_interruptible_capacity_reservation_allocation_request(),
+          list()
+        ) ::
+          {:ok, create_interruptible_capacity_reservation_allocation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_interruptible_capacity_reservation_allocation(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "CreateInterruptibleCapacityReservationAllocation",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Create an IPAM.
 
   Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use
@@ -33893,6 +35116,31 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Creates an IPAM policy.
+
+  An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
+  pools are allocated to Amazon Web Services resources. Each rule maps an Amazon
+  Web Services service to IPAM pools that the service will use to get IP
+  addresses. A single policy can have multiple rules and be applied to multiple
+  Amazon Web Services Regions. If the IPAM pool run out of addresses then the
+  services fallback to Amazon-provided IP addresses. A policy can be applied to an
+  individual Amazon Web Services account or an entity within Amazon Web Services
+  Organizations.
+
+  For more information, see [Define public IPv4 allocation strategy with IPAM policies](https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html)
+  in the *Amazon VPC IPAM User Guide*.
+  """
+  @spec create_ipam_policy(map(), create_ipam_policy_request(), list()) ::
+          {:ok, create_ipam_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_ipam_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIpamPolicy", input, options)
   end
 
   @doc """
@@ -35262,6 +36510,42 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Creates a metering policy for a transit gateway to track and measure network
+  traffic.
+  """
+  @spec create_transit_gateway_metering_policy(
+          map(),
+          create_transit_gateway_metering_policy_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_metering_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_transit_gateway_metering_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTransitGatewayMeteringPolicy", input, options)
+  end
+
+  @doc """
+  Creates an entry in a transit gateway metering policy to define traffic
+  measurement rules.
+  """
+  @spec create_transit_gateway_metering_policy_entry(
+          map(),
+          create_transit_gateway_metering_policy_entry_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_metering_policy_entry_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_transit_gateway_metering_policy_entry(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTransitGatewayMeteringPolicyEntry", input, options)
+  end
+
+  @doc """
   Creates a multicast domain using the specified transit gateway.
 
   The transit gateway must be in the available state before you create a domain.
@@ -35590,6 +36874,26 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Creates a VPC Encryption Control configuration for a specified VPC.
+
+  VPC Encryption Control enables you to enforce encryption for all data in transit
+  within and between VPCs to meet compliance requirements for standards like
+  HIPAA, FedRAMP, and PCI DSS.
+
+  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec create_vpc_encryption_control(map(), create_vpc_encryption_control_request(), list()) ::
+          {:ok, create_vpc_encryption_control_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_vpc_encryption_control(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVpcEncryptionControl", input, options)
+  end
+
+  @doc """
   Creates a VPC endpoint.
 
   A VPC endpoint provides a private connection between the
@@ -35704,6 +37008,20 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateVpcPeeringConnection", input, options)
+  end
+
+  @doc """
+  Creates a VPN concentrator that aggregates multiple VPN connections to a transit
+  gateway.
+  """
+  @spec create_vpn_concentrator(map(), create_vpn_concentrator_request(), list()) ::
+          {:ok, create_vpn_concentrator_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_vpn_concentrator(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVpnConcentrator", input, options)
   end
 
   @doc """
@@ -36147,6 +37465,28 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Deletes an IPAM policy.
+
+  An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
+  pools are allocated to Amazon Web Services resources. Each rule maps an Amazon
+  Web Services service to IPAM pools that the service will use to get IP
+  addresses. A single policy can have multiple rules and be applied to multiple
+  Amazon Web Services Regions. If the IPAM pool run out of addresses then the
+  services fallback to Amazon-provided IP addresses. A policy can be applied to an
+  individual Amazon Web Services account or an entity within Amazon Web Services
+  Organizations.
+  """
+  @spec delete_ipam_policy(map(), delete_ipam_policy_request(), list()) ::
+          {:ok, delete_ipam_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_ipam_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIpamPolicy", input, options)
   end
 
   @doc """
@@ -36979,6 +38319,40 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Deletes a transit gateway metering policy.
+  """
+  @spec delete_transit_gateway_metering_policy(
+          map(),
+          delete_transit_gateway_metering_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_metering_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_transit_gateway_metering_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTransitGatewayMeteringPolicy", input, options)
+  end
+
+  @doc """
+  Deletes an entry from a transit gateway metering policy.
+  """
+  @spec delete_transit_gateway_metering_policy_entry(
+          map(),
+          delete_transit_gateway_metering_policy_entry_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_metering_policy_entry_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_transit_gateway_metering_policy_entry(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTransitGatewayMeteringPolicyEntry", input, options)
+  end
+
+  @doc """
   Deletes the specified transit gateway multicast domain.
   """
   @spec delete_transit_gateway_multicast_domain(
@@ -37252,6 +38626,24 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Deletes a VPC Encryption Control configuration.
+
+  This removes the encryption policy enforcement from the specified VPC.
+
+  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec delete_vpc_encryption_control(map(), delete_vpc_encryption_control_request(), list()) ::
+          {:ok, delete_vpc_encryption_control_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_vpc_encryption_control(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVpcEncryptionControl", input, options)
+  end
+
+  @doc """
   Deletes the specified VPC endpoint connection notifications.
   """
   @spec delete_vpc_endpoint_connection_notifications(
@@ -37331,6 +38723,19 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringConnection", input, options)
+  end
+
+  @doc """
+  Deletes the specified VPN concentrator.
+  """
+  @spec delete_vpn_concentrator(map(), delete_vpn_concentrator_request(), list()) ::
+          {:ok, delete_vpn_concentrator_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_vpn_concentrator(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVpnConcentrator", input, options)
   end
 
   @doc """
@@ -38795,7 +40200,9 @@ defmodule AWS.EC2 do
   Describes the specified attribute of the specified instance.
 
   You can specify only one
-  attribute at a time.
+  attribute at a time. Available attributes include SQL license exemption
+  configuration
+  for instances registered with the SQL LE service.
   """
   @spec describe_instance_attribute(map(), describe_instance_attribute_request(), list()) ::
           {:ok, instance_attribute(), any()}
@@ -38977,6 +40384,40 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes the historical SQL Server High Availability states for Amazon EC2
+  instances that are enabled for Amazon EC2 High Availability for SQL Server
+  monitoring.
+  """
+  @spec describe_instance_sql_ha_history_states(
+          map(),
+          describe_instance_sql_ha_history_states_request(),
+          list()
+        ) ::
+          {:ok, describe_instance_sql_ha_history_states_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_instance_sql_ha_history_states(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstanceSqlHaHistoryStates", input, options)
+  end
+
+  @doc """
+  Describes the SQL Server High Availability states for Amazon EC2 instances that
+  are
+  enabled for Amazon EC2 High Availability for SQL Server monitoring.
+  """
+  @spec describe_instance_sql_ha_states(map(), describe_instance_sql_ha_states_request(), list()) ::
+          {:ok, describe_instance_sql_ha_states_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_instance_sql_ha_states(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstanceSqlHaStates", input, options)
+  end
+
+  @doc """
   Describes the status of the specified instances or all of your instances.
 
   By default,
@@ -39130,6 +40571,11 @@ defmodule AWS.EC2 do
   and
   successfully.
 
+  The response includes SQL license exemption status information for instances
+  registered
+  with the SQL LE service, providing visibility into license exemption
+  configuration and status.
+
   If you specify an instance ID that is not valid, an error is returned. If you
   specify
   an instance that you do not own, it is not included in the output.
@@ -39239,6 +40685,28 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Describes one or more IPAM policies.
+
+  An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
+  pools are allocated to Amazon Web Services resources. Each rule maps an Amazon
+  Web Services service to IPAM pools that the service will use to get IP
+  addresses. A single policy can have multiple rules and be applied to multiple
+  Amazon Web Services Regions. If the IPAM pool run out of addresses then the
+  services fallback to Amazon-provided IP addresses. A policy can be applied to an
+  individual Amazon Web Services account or an entity within Amazon Web Services
+  Organizations.
+  """
+  @spec describe_ipam_policies(map(), describe_ipam_policies_request(), list()) ::
+          {:ok, describe_ipam_policies_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_ipam_policies(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIpamPolicies", input, options)
   end
 
   @doc """
@@ -40803,6 +42271,23 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes one or more transit gateway metering policies.
+  """
+  @spec describe_transit_gateway_metering_policies(
+          map(),
+          describe_transit_gateway_metering_policies_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_metering_policies_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_transit_gateway_metering_policies(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTransitGatewayMeteringPolicies", input, options)
+  end
+
+  @doc """
   Describes one or more transit gateway multicast domains.
   """
   @spec describe_transit_gateway_multicast_domains(
@@ -41281,6 +42766,30 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes one or more VPC Encryption Control configurations.
+
+  VPC Encryption Control enables you to enforce encryption for all data in transit
+  within and between VPCs to meet compliance requirements You can filter the
+  results to return information about specific encryption controls or VPCs.
+
+  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec describe_vpc_encryption_controls(
+          map(),
+          describe_vpc_encryption_controls_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_encryption_controls_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_vpc_encryption_controls(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpcEncryptionControls", input, options)
+  end
+
+  @doc """
   Describes the VPC resources, VPC endpoint services, Amazon Lattice services, or
   service networks
   associated with the VPC endpoint.
@@ -41459,6 +42968,19 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcs", input, options)
+  end
+
+  @doc """
+  Describes one or more of your VPN concentrators.
+  """
+  @spec describe_vpn_concentrators(map(), describe_vpn_concentrators_request(), list()) ::
+          {:ok, describe_vpn_concentrators_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_vpn_concentrators(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpnConcentrators", input, options)
   end
 
   @doc """
@@ -41894,6 +43416,30 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Disable Amazon EC2 instances running in an SQL Server High Availability cluster
+  from SQL Server High Availability
+  instance standby detection monitoring.
+
+  Once disabled, Amazon Web Services no longer monitors the
+  metadata for the instances to determine whether they are active or standby nodes
+  in the
+  SQL Server High Availability cluster.
+  """
+  @spec disable_instance_sql_ha_standby_detections(
+          map(),
+          disable_instance_sql_ha_standby_detections_request(),
+          list()
+        ) ::
+          {:ok, disable_instance_sql_ha_standby_detections_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def disable_instance_sql_ha_standby_detections(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableInstanceSqlHaStandbyDetections", input, options)
+  end
+
+  @doc """
   Disable the IPAM account.
 
   For more information, see [Enable integration with Organizations](https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html)
@@ -41911,6 +43457,28 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DisableIpamOrganizationAdminAccount", input, options)
+  end
+
+  @doc """
+  Disables an IPAM policy.
+
+  An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
+  pools are allocated to Amazon Web Services resources. Each rule maps an Amazon
+  Web Services service to IPAM pools that the service will use to get IP
+  addresses. A single policy can have multiple rules and be applied to multiple
+  Amazon Web Services Regions. If the IPAM pool run out of addresses then the
+  services fallback to Amazon-provided IP addresses. A policy can be applied to an
+  individual Amazon Web Services account or an entity within Amazon Web Services
+  Organizations.
+  """
+  @spec disable_ipam_policy(map(), disable_ipam_policy_request(), list()) ::
+          {:ok, disable_ipam_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def disable_ipam_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableIpamPolicy", input, options)
   end
 
   @doc """
@@ -42789,6 +44357,42 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Enable Amazon EC2 instances running in an SQL Server High Availability cluster
+  for SQL Server High Availability
+  instance standby detection monitoring.
+
+  Once enabled, Amazon Web Services monitors the metadata for
+  the instances to determine whether they are active or standby nodes in the SQL
+  Server High Availability cluster.
+  If the instances are determined to be standby failover nodes, Amazon Web
+  Services
+  automatically applies SQL Server licensing fee waiver for those instances.
+
+  To register an instance, it must be running a Windows SQL Server
+  license-included
+  AMI and have the Amazon Web Services Systems Manager agent installed and
+  running. Only Windows Server 2019 and later
+  and SQL Server (Standard and Enterprise editions) 2017 and later are supported.
+  For more
+  information, see [
+  Prerequisites for using SQL Server High Availability instance standby
+  detection](https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/prerequisites-and-requirements.html).
+  """
+  @spec enable_instance_sql_ha_standby_detections(
+          map(),
+          enable_instance_sql_ha_standby_detections_request(),
+          list()
+        ) ::
+          {:ok, enable_instance_sql_ha_standby_detections_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def enable_instance_sql_ha_standby_detections(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableInstanceSqlHaStandbyDetections", input, options)
+  end
+
+  @doc """
   Enable an Organizations member account as the IPAM admin account.
 
   You cannot select the Organizations management account as the IPAM admin
@@ -42807,6 +44411,31 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "EnableIpamOrganizationAdminAccount", input, options)
+  end
+
+  @doc """
+  Enables an IPAM policy.
+
+  An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
+  pools are allocated to Amazon Web Services resources. Each rule maps an Amazon
+  Web Services service to IPAM pools that the service will use to get IP
+  addresses. A single policy can have multiple rules and be applied to multiple
+  Amazon Web Services Regions. If the IPAM pool run out of addresses then the
+  services fallback to Amazon-provided IP addresses. A policy can be applied to an
+  individual Amazon Web Services account or an entity within Amazon Web Services
+  Organizations.
+
+  For more information, see [Define public IPv4 allocation strategy with IPAM policies](https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html)
+  in the *Amazon VPC IPAM User Guide*.
+  """
+  @spec enable_ipam_policy(map(), enable_ipam_policy_request(), list()) ::
+          {:ok, enable_ipam_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def enable_ipam_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableIpamPolicy", input, options)
   end
 
   @doc """
@@ -43469,6 +45098,28 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Gets the enabled IPAM policy.
+
+  An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
+  pools are allocated to Amazon Web Services resources. Each rule maps an Amazon
+  Web Services service to IPAM pools that the service will use to get IP
+  addresses. A single policy can have multiple rules and be applied to multiple
+  Amazon Web Services Regions. If the IPAM pool run out of addresses then the
+  services fallback to Amazon-provided IP addresses. A policy can be applied to an
+  individual Amazon Web Services account or an entity within Amazon Web Services
+  Organizations.
+  """
+  @spec get_enabled_ipam_policy(map(), get_enabled_ipam_policy_request(), list()) ::
+          {:ok, get_enabled_ipam_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_enabled_ipam_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEnabledIpamPolicy", input, options)
+  end
+
+  @doc """
   Generates a CloudFormation template that streamlines and automates the
   integration of VPC flow logs
   with Amazon Athena.
@@ -43764,6 +45415,65 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetIpamDiscoveredResourceCidrs", input, options)
+  end
+
+  @doc """
+  Gets the allocation rules for an IPAM policy.
+
+  An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
+  pools are allocated to Amazon Web Services resources. Each rule maps an Amazon
+  Web Services service to IPAM pools that the service will use to get IP
+  addresses. A single policy can have multiple rules and be applied to multiple
+  Amazon Web Services Regions. If the IPAM pool run out of addresses then the
+  services fallback to Amazon-provided IP addresses. A policy can be applied to an
+  individual Amazon Web Services account or an entity within Amazon Web Services
+  Organizations.
+
+  Allocation rules are optional configurations within an IPAM policy that map
+  Amazon Web Services resource types to specific IPAM pools. If no rules are
+  defined, the resource types default to using Amazon-provided IP addresses.
+  """
+  @spec get_ipam_policy_allocation_rules(
+          map(),
+          get_ipam_policy_allocation_rules_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_policy_allocation_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_policy_allocation_rules(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIpamPolicyAllocationRules", input, options)
+  end
+
+  @doc """
+  Gets the Amazon Web Services Organizations targets for an IPAM policy.
+
+  An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
+  pools are allocated to Amazon Web Services resources. Each rule maps an Amazon
+  Web Services service to IPAM pools that the service will use to get IP
+  addresses. A single policy can have multiple rules and be applied to multiple
+  Amazon Web Services Regions. If the IPAM pool run out of addresses then the
+  services fallback to Amazon-provided IP addresses. A policy can be applied to an
+  individual Amazon Web Services account or an entity within Amazon Web Services
+  Organizations.
+
+  A target can be an individual Amazon Web Services account or an entity within an
+  Amazon Web Services Organization to which an IPAM policy can be applied.
+  """
+  @spec get_ipam_policy_organization_targets(
+          map(),
+          get_ipam_policy_organization_targets_request(),
+          list()
+        ) ::
+          {:ok, get_ipam_policy_organization_targets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_ipam_policy_organization_targets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIpamPolicyOrganizationTargets", input, options)
   end
 
   @doc """
@@ -44288,6 +45998,23 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Retrieves the entries for a transit gateway metering policy.
+  """
+  @spec get_transit_gateway_metering_policy_entries(
+          map(),
+          get_transit_gateway_metering_policy_entries_request(),
+          list()
+        ) ::
+          {:ok, get_transit_gateway_metering_policy_entries_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_transit_gateway_metering_policy_entries(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTransitGatewayMeteringPolicyEntries", input, options)
+  end
+
+  @doc """
   Gets information about the associations for the transit gateway multicast
   domain.
   """
@@ -44448,6 +46175,33 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetVerifiedAccessGroupPolicy", input, options)
+  end
+
+  @doc """
+  Gets information about resources in a VPC that are blocking encryption
+  enforcement.
+
+  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec get_vpc_resources_blocking_encryption_enforcement(
+          map(),
+          get_vpc_resources_blocking_encryption_enforcement_request(),
+          list()
+        ) ::
+          {:ok, get_vpc_resources_blocking_encryption_enforcement_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_vpc_resources_blocking_encryption_enforcement(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "GetVpcResourcesBlockingEncryptionEnforcement",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -44703,6 +46457,19 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ListSnapshotsInRecycleBin", input, options)
+  end
+
+  @doc """
+  Lists one or more volumes that are currently in the Recycle Bin.
+  """
+  @spec list_volumes_in_recycle_bin(map(), list_volumes_in_recycle_bin_request(), list()) ::
+          {:ok, list_volumes_in_recycle_bin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_volumes_in_recycle_bin(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVolumesInRecycleBin", input, options)
   end
 
   @doc """
@@ -45481,6 +47248,36 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Modifies the allocation rules in an IPAM policy.
+
+  An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM
+  pools are allocated to Amazon Web Services resources. Each rule maps an Amazon
+  Web Services service to IPAM pools that the service will use to get IP
+  addresses. A single policy can have multiple rules and be applied to multiple
+  Amazon Web Services Regions. If the IPAM pool run out of addresses then the
+  services fallback to Amazon-provided IP addresses. A policy can be applied to an
+  individual Amazon Web Services account or an entity within Amazon Web Services
+  Organizations.
+
+  Allocation rules are optional configurations within an IPAM policy that map
+  Amazon Web Services resource types to specific IPAM pools. If no rules are
+  defined, the resource types default to using Amazon-provided IP addresses.
+  """
+  @spec modify_ipam_policy_allocation_rules(
+          map(),
+          modify_ipam_policy_allocation_rules_request(),
+          list()
+        ) ::
+          {:ok, modify_ipam_policy_allocation_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_ipam_policy_allocation_rules(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyIpamPolicyAllocationRules", input, options)
+  end
+
+  @doc """
   Modify the configurations of an IPAM pool.
 
   For more information, see [Modify a pool](https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html) in the
@@ -45984,6 +47781,23 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Modifies a transit gateway metering policy.
+  """
+  @spec modify_transit_gateway_metering_policy(
+          map(),
+          modify_transit_gateway_metering_policy_request(),
+          list()
+        ) ::
+          {:ok, modify_transit_gateway_metering_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_transit_gateway_metering_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyTransitGatewayMeteringPolicy", input, options)
+  end
+
+  @doc """
   Modifies a reference (route) to a prefix list in a specified transit gateway
   route table.
   """
@@ -46163,10 +47977,16 @@ defmodule AWS.EC2 do
   detaching and
   reattaching the volume or stopping and restarting the instance.
 
-  After modifying a volume, you must wait at least six hours and ensure that the
-  volume
-  is in the `in-use` or `available` state before you can modify the same
-  volume. This is sometimes referred to as a cooldown period.
+  After you initiate a volume modification, you must wait for that modification to
+  reach the
+  `completed` state before you can initiate another modification for the same
+  volume.
+  You can modify a volume up to four times within a rolling 24-hour period, as
+  long as the volume
+  is in the `in-use` or `available` state, and all previous modifications
+  for that volume are `completed`. If you exceed this limit, you get an error
+  message
+  that indicates when you can perform your next modification.
   """
   @spec modify_volume(map(), modify_volume_request(), list()) ::
           {:ok, modify_volume_result(), any()}
@@ -46260,6 +48080,25 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyVpcBlockPublicAccessOptions", input, options)
+  end
+
+  @doc """
+  Modifies the encryption control configuration for a VPC.
+
+  You can update the encryption mode and exclusion settings for various gateway
+  types and peering connections.
+
+  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec modify_vpc_encryption_control(map(), modify_vpc_encryption_control_request(), list()) ::
+          {:ok, modify_vpc_encryption_control_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_vpc_encryption_control(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyVpcEncryptionControl", input, options)
   end
 
   @doc """
@@ -47776,6 +49615,23 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Restores a volume from the Recycle Bin.
+
+  For more information, see [Restore volumes from the Recycle
+  Bin](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-volumes.html#recycle-bin-restore-volumes)
+  in the *Amazon EBS User Guide*.
+  """
+  @spec restore_volume_from_recycle_bin(map(), restore_volume_from_recycle_bin_request(), list()) ::
+          {:ok, restore_volume_from_recycle_bin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def restore_volume_from_recycle_bin(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RestoreVolumeFromRecycleBin", input, options)
+  end
+
+  @doc """
   Removes an ingress authorization rule from a Client VPN endpoint.
   """
   @spec revoke_client_vpn_ingress(map(), revoke_client_vpn_ingress_request(), list()) ::
@@ -48549,6 +50405,36 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateCapacityManagerOrganizationsAccess", input, options)
+  end
+
+  @doc """
+
+  Modifies the number of instances allocated to an interruptible reservation,
+  allowing you to add more capacity or reclaim capacity to your source Capacity
+  Reservation.
+  """
+  @spec update_interruptible_capacity_reservation_allocation(
+          map(),
+          update_interruptible_capacity_reservation_allocation_request(),
+          list()
+        ) ::
+          {:ok, update_interruptible_capacity_reservation_allocation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def update_interruptible_capacity_reservation_allocation(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "UpdateInterruptibleCapacityReservationAllocation",
+      input,
+      options
+    )
   end
 
   @doc """

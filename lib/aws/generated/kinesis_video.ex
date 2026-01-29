@@ -101,6 +101,15 @@ defmodule AWS.KinesisVideo do
 
   ## Example:
 
+      update_stream_storage_configuration_output() :: %{}
+
+  """
+  @type update_stream_storage_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_stream_output() :: %{
         "NextToken" => String.t() | atom(),
         "Tags" => map()
@@ -227,6 +236,19 @@ defmodule AWS.KinesisVideo do
 
   """
   @type last_uploader_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_stream_storage_configuration_output() :: %{
+        "StreamARN" => String.t() | atom(),
+        "StreamName" => String.t() | atom(),
+        "StreamStorageConfiguration" => stream_storage_configuration()
+      }
+
+  """
+  @type describe_stream_storage_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -409,6 +431,20 @@ defmodule AWS.KinesisVideo do
 
   ## Example:
 
+      update_stream_storage_configuration_input() :: %{
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
+        required("CurrentVersion") => String.t() | atom(),
+        required("StreamStorageConfiguration") => stream_storage_configuration()
+      }
+
+  """
+  @type update_stream_storage_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -493,6 +529,29 @@ defmodule AWS.KinesisVideo do
 
   """
   @type mapped_resource_configuration_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_stream_storage_configuration_input() :: %{
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
+      }
+
+  """
+  @type describe_stream_storage_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_storage_configuration() :: %{
+        "DefaultStorageTier" => list(any())
+      }
+
+  """
+  @type stream_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -993,6 +1052,7 @@ defmodule AWS.KinesisVideo do
         optional("DeviceName") => String.t() | atom(),
         optional("KmsKeyId") => String.t() | atom(),
         optional("MediaType") => String.t() | atom(),
+        optional("StreamStorageConfiguration") => stream_storage_configuration(),
         optional("Tags") => map(),
         required("StreamName") => String.t() | atom()
       }
@@ -1288,6 +1348,12 @@ defmodule AWS.KinesisVideo do
           | client_limit_exceeded_exception()
           | resource_not_found_exception()
 
+  @type describe_stream_storage_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+
   @type get_data_endpoint_errors() ::
           invalid_argument_exception()
           | not_authorized_exception()
@@ -1405,6 +1471,14 @@ defmodule AWS.KinesisVideo do
   @type update_stream_errors() ::
           invalid_argument_exception()
           | not_authorized_exception()
+          | client_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | version_mismatch_exception()
+          | resource_in_use_exception()
+
+  @type update_stream_storage_configuration_errors() ::
+          invalid_argument_exception()
+          | access_denied_exception()
           | client_limit_exceeded_exception()
           | resource_not_found_exception()
           | version_mismatch_exception()
@@ -1853,6 +1927,45 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
+  Retrieves the current storage configuration for the specified Kinesis video
+  stream.
+
+  In the request, you must specify either the `StreamName` or the `StreamARN`.
+
+  You must have permissions for the
+  `KinesisVideo:DescribeStreamStorageConfiguration` action.
+  """
+  @spec describe_stream_storage_configuration(
+          map(),
+          describe_stream_storage_configuration_input(),
+          list()
+        ) ::
+          {:ok, describe_stream_storage_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_stream_storage_configuration_errors()}
+  def describe_stream_storage_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeStreamStorageConfiguration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets an endpoint for a specified stream for either reading or writing.
 
   Use this
@@ -1902,7 +2015,10 @@ defmodule AWS.KinesisVideo do
   `Protocols` is used to determine the communication mechanism. For example,
   if you specify `WSS` as the protocol, this API produces a secure websocket
   endpoint. If you specify `HTTPS` as the protocol, this API generates an HTTPS
-  endpoint.
+  endpoint. If you specify `WEBRTC` as the protocol, but the signaling channel
+  isn't
+  configured for ingestion, you will receive the error
+  `InvalidArgumentException`.
 
   `Role` determines the messaging permissions. A `MASTER` role
   results in this API generating an endpoint that a client can use to communicate
@@ -2537,6 +2653,48 @@ defmodule AWS.KinesisVideo do
           | {:error, update_stream_errors()}
   def update_stream(%Client{} = client, input, options \\ []) do
     url_path = "/updateStream"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the storage configuration for an existing Kinesis video stream.
+
+  This operation allows you to modify the storage tier settings for a stream,
+  enabling you to optimize storage costs and performance based on your access
+  patterns.
+
+  `UpdateStreamStorageConfiguration` is an asynchronous operation.
+
+  You must have permissions for the
+  `KinesisVideo:UpdateStreamStorageConfiguration` action.
+  """
+  @spec update_stream_storage_configuration(
+          map(),
+          update_stream_storage_configuration_input(),
+          list()
+        ) ::
+          {:ok, update_stream_storage_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_stream_storage_configuration_errors()}
+  def update_stream_storage_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/updateStreamStorageConfiguration"
     headers = []
     custom_headers = []
     query_params = []

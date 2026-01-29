@@ -10,31 +10,26 @@ defmodule AWS.Connect do
 
     *
 
-  [Amazon Connect data
-  types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
+  [Amazon Connect data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
 
   Amazon Connect is a cloud-based contact center solution that you use to set up
-  and
-  manage a customer contact center and provide reliable customer engagement at any
-  scale.
+  and manage a customer contact
+  center and provide reliable customer engagement at any scale.
 
   Amazon Connect provides metrics and real-time reporting that enable you to
-  optimize
-  contact routing. You can also resolve customer issues more efficiently by
-  getting customers in
-  touch with the appropriate agents.
+  optimize contact routing. You can
+  also resolve customer issues more efficiently by getting customers in touch with
+  the appropriate agents.
 
   There are limits to the number of Amazon Connect resources that you can create.
-  There
-  are also limits to the number of requests that you can make per second. For more
-  information, see
+  There are also limits to the
+  number of requests that you can make per second. For more information, see
   [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
 
   You can use an endpoint to connect programmatically to an Amazon Web Services
-  service. For a
-  list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  service. For a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
 
   alias AWS.Client
@@ -52,6 +47,17 @@ defmodule AWS.Connect do
 
   """
   @type associate_instance_storage_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workspace_media_response() :: %{
+        "Media" => list(media_item())
+      }
+
+  """
+  @type list_workspace_media_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -86,6 +92,18 @@ defmodule AWS.Connect do
 
   """
   @type answer_machine_detection_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_table_values_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Values" => list(data_table_value_summary())
+      }
+
+  """
+  @type list_data_table_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -179,6 +197,43 @@ defmodule AWS.Connect do
 
   """
   @type associate_default_vocabulary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_review_configuration() :: %{
+        "EligibilityDays" => integer(),
+        "ReviewNotificationRecipients" => list(evaluation_review_notification_recipient())
+      }
+
+  """
+  @type evaluation_review_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_table_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LockVersion" => data_table_lock_version()
+      }
+
+  """
+  @type create_data_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_enum() :: %{
+        "Strict" => boolean(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type validation_enum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,6 +356,30 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_review_notification_recipient_value() :: %{
+        "UserId" => String.t() | atom()
+      }
+
+  """
+  @type evaluation_review_notification_recipient_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_table_attribute_response() :: %{
+        "AttributeId" => String.t() | atom(),
+        "LockVersion" => data_table_lock_version(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_data_table_attribute_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       participant_capabilities() :: %{
         "ScreenShare" => list(any()),
         "Video" => list(any())
@@ -330,11 +409,15 @@ defmodule AWS.Connect do
   ## Example:
 
       update_evaluation_form_request() :: %{
+        optional("AsDraft") => boolean(),
         optional("AutoEvaluationConfiguration") => evaluation_form_auto_evaluation_configuration(),
         optional("ClientToken") => String.t() | atom(),
         optional("CreateNewVersion") => boolean(),
         optional("Description") => String.t() | atom(),
+        optional("LanguageConfiguration") => evaluation_form_language_configuration(),
+        optional("ReviewConfiguration") => evaluation_review_configuration(),
         optional("ScoringStrategy") => evaluation_form_scoring_strategy(),
+        optional("TargetConfiguration") => evaluation_form_target_configuration(),
         required("EvaluationFormVersion") => integer(),
         required("Items") => list(list()),
         required("Title") => String.t() | atom()
@@ -404,6 +487,33 @@ defmodule AWS.Connect do
   @type disassociate_traffic_distribution_group_user_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_data_table_value_success_result() :: %{
+        "AttributeName" => String.t() | atom(),
+        "LockVersion" => data_table_lock_version(),
+        "PrimaryValues" => list(primary_value())
+      }
+
+  """
+  @type batch_update_data_table_value_success_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_flow_attribute_filter() :: %{
+        "AndCondition" => contact_flow_attribute_and_condition(),
+        "ContactFlowTypeCondition" => contact_flow_type_condition(),
+        "OrConditions" => list(contact_flow_attribute_and_condition()),
+        "TagCondition" => tag_condition()
+      }
+
+  """
+  @type contact_flow_attribute_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -503,15 +613,33 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_form_multi_select_question_automation() :: %{
+        "AnswerSource" => evaluation_form_question_automation_answer_source(),
+        "DefaultOptionRefIds" => list(String.t() | atom()),
+        "Options" => list(list())
+      }
+
+  """
+  @type evaluation_form_multi_select_question_automation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_flow_module() :: %{
         "Arn" => String.t() | atom(),
         "Content" => String.t() | atom(),
         "Description" => String.t() | atom(),
+        "ExternalInvocationConfiguration" => external_invocation_configuration(),
+        "FlowModuleContentSha256" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
+        "Settings" => String.t() | atom(),
         "State" => list(any()),
         "Status" => list(any()),
-        "Tags" => map()
+        "Tags" => map(),
+        "Version" => float(),
+        "VersionDescription" => String.t() | atom()
       }
 
   """
@@ -536,6 +664,28 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      primary_value_response() :: %{
+        "AttributeId" => String.t() | atom(),
+        "AttributeName" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type primary_value_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_test_case_response() :: %{}
+
+  """
+  @type delete_test_case_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       range() :: %{
         "MaxProficiencyLevel" => float(),
         "MinProficiencyLevel" => float()
@@ -543,6 +693,24 @@ defmodule AWS.Connect do
 
   """
   @type range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_describe_data_table_value_success_result() :: %{
+        "AttributeId" => String.t() | atom(),
+        "AttributeName" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LockVersion" => data_table_lock_version(),
+        "PrimaryValues" => list(primary_value_response()),
+        "RecordId" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type batch_describe_data_table_value_success_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -561,6 +729,20 @@ defmodule AWS.Connect do
 
   """
   @type get_federation_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      test_case_search_criteria() :: %{
+        "AndConditions" => list(test_case_search_criteria()),
+        "OrConditions" => list(test_case_search_criteria()),
+        "StatusCondition" => list(any()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type test_case_search_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -648,6 +830,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_flow_attribute_and_condition() :: %{
+        "ContactFlowTypeCondition" => contact_flow_type_condition(),
+        "TagConditions" => list(tag_condition())
+      }
+
+  """
+  @type contact_flow_attribute_and_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_user_hierarchy_group_request() :: %{}
 
   """
@@ -691,6 +885,7 @@ defmodule AWS.Connect do
         optional("ChatDurationInMinutes") => integer(),
         optional("ClientToken") => String.t() | atom(),
         optional("InitialSystemMessage") => chat_message(),
+        optional("InitialTemplatedSystemMessage") => templated_message_config(),
         optional("ParticipantDetails") => participant_details(),
         optional("RelatedContactId") => String.t() | atom(),
         optional("SupportedMessagingContentTypes") => list(String.t() | atom()),
@@ -808,6 +1003,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_workspace_visibility_request() :: %{
+        required("Visibility") => list(any())
+      }
+
+  """
+  @type update_workspace_visibility_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_hours_of_operation_override_request() :: %{}
 
   """
@@ -861,6 +1067,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      flow_quick_connect_config() :: %{
+        "ContactFlowId" => String.t() | atom()
+      }
+
+  """
+  @type flow_quick_connect_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       replicate_instance_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         required("ReplicaAlias") => String.t() | atom(),
@@ -888,6 +1105,7 @@ defmodule AWS.Connect do
   ## Example:
 
       contact_flow_search_filter() :: %{
+        "FlowAttributeFilter" => contact_flow_attribute_filter(),
         "TagFilter" => control_plane_tag_filter()
       }
 
@@ -911,10 +1129,59 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_data_tables_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "DataTables" => list(data_table()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_data_tables_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_contact_with_user_response() :: %{}
 
   """
   @type associate_contact_with_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_child_hours_of_operations_response() :: %{
+        "ChildHoursOfOperationsSummaryList" => list(hours_of_operations_identifier()),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_child_hours_of_operations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workspace_media_request() :: %{
+        required("MediaType") => list(any())
+      }
+
+  """
+  @type delete_workspace_media_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_invocation_configuration() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type external_invocation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -948,12 +1215,47 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      workspace_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+
+  """
+  @type workspace_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_test_case_exception() :: %{
+        "Problems" => list(problem_detail())
+      }
+
+  """
+  @type invalid_test_case_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       activate_evaluation_form_request() :: %{
         required("EvaluationFormVersion") => integer()
       }
 
   """
   @type activate_evaluation_form_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_security_profiles_request() :: %{
+        required("EntityArn") => String.t() | atom(),
+        required("EntityType") => list(any()),
+        required("SecurityProfiles") => list(security_profile_item())
+      }
+
+  """
+  @type disassociate_security_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1028,7 +1330,9 @@ defmodule AWS.Connect do
         "Channel" => list(any()),
         "Queue" => queue_reference(),
         "RoutingProfile" => routing_profile_reference(),
-        "RoutingStepExpression" => String.t() | atom()
+        "RoutingStepExpression" => String.t() | atom(),
+        "Subtype" => String.t() | atom(),
+        "ValidationTestType" => String.t() | atom()
       }
 
   """
@@ -1094,6 +1398,33 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      get_test_case_execution_summary_response() :: %{
+        "EndTime" => non_neg_integer(),
+        "ObservationSummary" => observation_summary(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_test_case_execution_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_data_table_value_failure_result() :: %{
+        "AttributeName" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "PrimaryValues" => list(primary_value())
+      }
+
+  """
+  @type batch_update_data_table_value_failure_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_suggested_answer_transcript_millisecond_offsets() :: %{
         "BeginOffsetMillis" => integer()
       }
@@ -1114,6 +1445,17 @@ defmodule AWS.Connect do
 
   """
   @type predefined_attribute_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      font_family() :: %{
+        "Default" => list(any())
+      }
+
+  """
+  @type font_family() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1238,6 +1580,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_workspace_metadata_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Title") => String.t() | atom()
+      }
+
+  """
+  @type update_workspace_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       upload_url_metadata() :: %{
         "HeadersToInclude" => map(),
         "Url" => String.t() | atom(),
@@ -1335,6 +1690,21 @@ defmodule AWS.Connect do
 
   """
   @type get_prompt_file_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      view_search_criteria() :: %{
+        "AndConditions" => list(view_search_criteria()),
+        "OrConditions" => list(view_search_criteria()),
+        "StringCondition" => string_condition(),
+        "ViewStatusCondition" => list(any()),
+        "ViewTypeCondition" => list(any())
+      }
+
+  """
+  @type view_search_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1460,12 +1830,38 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_data_table_attributes_response() :: %{
+        "Attributes" => list(data_table_attribute()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_table_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_agent_status_response() :: %{
         "AgentStatus" => agent_status()
       }
 
   """
   @type describe_agent_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_review_metadata() :: %{
+        "CreatedBy" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "ReviewId" => String.t() | atom(),
+        "ReviewRequestComments" => list(evaluation_review_request_comment())
+      }
+
+  """
+  @type evaluation_review_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1478,6 +1874,15 @@ defmodule AWS.Connect do
 
   """
   @type send_chat_integration_event_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_flow_module_alias_request() :: %{}
+
+  """
+  @type delete_contact_flow_module_alias_request() :: %{}
 
   @typedoc """
 
@@ -1549,6 +1954,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      batch_delete_data_table_value_response() :: %{
+        "Failed" => list(batch_delete_data_table_value_failure_result()),
+        "Successful" => list(batch_delete_data_table_value_success_result())
+      }
+
+  """
+  @type batch_delete_data_table_value_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       searchable_segment_attributes_criteria() :: %{
         "Key" => String.t() | atom(),
         "Values" => list(String.t() | atom())
@@ -1565,6 +1982,33 @@ defmodule AWS.Connect do
 
   """
   @type delete_contact_flow_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_case_execution_records_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_test_case_execution_records_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_profile_flow_modules_response() :: %{
+        "AllowedFlowModules" => list(flow_module()),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_security_profile_flow_modules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1631,6 +2075,19 @@ defmodule AWS.Connect do
 
   """
   @type create_security_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_batch_association_summary() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type failed_batch_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1708,6 +2165,7 @@ defmodule AWS.Connect do
 
       create_hours_of_operation_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("ParentHoursOfOperationConfigs") => list(parent_hours_of_operation_config()),
         optional("Tags") => map(),
         required("Config") => list(hours_of_operation_config()),
         required("Name") => String.t() | atom(),
@@ -1779,8 +2237,10 @@ defmodule AWS.Connect do
       update_security_profile_request() :: %{
         optional("AllowedAccessControlHierarchyGroupId") => String.t() | atom(),
         optional("AllowedAccessControlTags") => map(),
+        optional("AllowedFlowModules") => list(flow_module()),
         optional("Applications") => list(application()),
         optional("Description") => String.t() | atom(),
+        optional("GranularAccessControlConfiguration") => granular_access_control_configuration(),
         optional("HierarchyRestrictedResources") => list(String.t() | atom()),
         optional("Permissions") => list(String.t() | atom()),
         optional("TagRestrictedResources") => list(String.t() | atom())
@@ -1841,6 +2301,18 @@ defmodule AWS.Connect do
 
   """
   @type get_contact_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_case_execution_records_response() :: %{
+        "ExecutionRecords" => list(execution_record()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_test_case_execution_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1920,6 +2392,31 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      associate_hours_of_operations_request() :: %{
+        required("ParentHoursOfOperationConfigs") => list(parent_hours_of_operation_config())
+      }
+
+  """
+  @type associate_hours_of_operations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_table_lock_version() :: %{
+        "Attribute" => String.t() | atom(),
+        "DataTable" => String.t() | atom(),
+        "PrimaryValues" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type data_table_lock_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       view() :: %{
         "Arn" => String.t() | atom(),
         "Content" => view_content(),
@@ -1988,6 +2485,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      images_logo() :: %{
+        "Default" => String.t() | atom(),
+        "Favicon" => String.t() | atom()
+      }
+
+  """
+  @type images_logo() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       hours_of_operation() :: %{
         "Config" => list(hours_of_operation_config()),
         "Description" => String.t() | atom(),
@@ -1996,6 +2505,7 @@ defmodule AWS.Connect do
         "LastModifiedRegion" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "ParentHoursOfOperations" => list(hours_of_operations_identifier()),
         "Tags" => map(),
         "TimeZone" => String.t() | atom()
       }
@@ -2117,6 +2627,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      filter_v2_string_condition() :: %{
+        "Comparison" => list(any())
+      }
+
+  """
+  @type filter_v2_string_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_task_template_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Constraints") => task_template_constraints(),
@@ -2159,6 +2680,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_contact_flow_module_alias_request() :: %{}
+
+  """
+  @type describe_contact_flow_module_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       task_template_field() :: %{
         "Description" => String.t() | atom(),
         "Id" => task_template_field_identifier(),
@@ -2179,6 +2709,23 @@ defmodule AWS.Connect do
 
   """
   @type describe_evaluation_form_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_table_evaluated_value() :: %{
+        "AttributeName" => String.t() | atom(),
+        "Error" => boolean(),
+        "EvaluatedValue" => String.t() | atom(),
+        "Found" => boolean(),
+        "PrimaryValues" => list(primary_value()),
+        "RecordId" => String.t() | atom(),
+        "ValueType" => list(any())
+      }
+
+  """
+  @type data_table_evaluated_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2222,6 +2769,17 @@ defmodule AWS.Connect do
 
   """
   @type create_integration_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_test_case_request() :: %{
+        optional("Status") => list(any())
+      }
+
+  """
+  @type describe_test_case_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2288,6 +2846,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_contact_flow_module_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_contact_flow_module_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       lex_v2_bot() :: %{
         "AliasArn" => String.t() | atom()
       }
@@ -2317,6 +2887,46 @@ defmodule AWS.Connect do
 
   """
   @type contact_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      palette_primary() :: %{
+        "Active" => String.t() | atom(),
+        "ContrastText" => String.t() | atom(),
+        "Default" => String.t() | atom()
+      }
+
+  """
+  @type palette_primary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_contact_participant() :: %{
+        "ContactParticipantId" => String.t() | atom(),
+        "ContactParticipantRole" => list(any())
+      }
+
+  """
+  @type evaluation_contact_participant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type workspace_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2372,6 +2982,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_flow_module_version_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Version" => float(),
+        "VersionDescription" => String.t() | atom()
+      }
+
+  """
+  @type contact_flow_module_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_hours_of_operation_request() :: %{
         optional("Config") => list(hours_of_operation_config()),
         optional("Description") => String.t() | atom(),
@@ -2406,6 +3029,52 @@ defmodule AWS.Connect do
 
   """
   @type number_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_table_metadata_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("TimeZone") => String.t() | atom(),
+        required("ValueLockLevel") => list(any())
+      }
+
+  """
+  @type update_data_table_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_theme_config() :: %{
+        "Images" => workspace_theme_images(),
+        "Palette" => workspace_theme_palette(),
+        "Typography" => workspace_theme_typography()
+      }
+
+  """
+  @type workspace_theme_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_table_value_summary() :: %{
+        "AttributeId" => String.t() | atom(),
+        "AttributeName" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LockVersion" => data_table_lock_version(),
+        "PrimaryValues" => list(primary_value_response()),
+        "RecordId" => String.t() | atom(),
+        "Value" => String.t() | atom(),
+        "ValueType" => list(any())
+      }
+
+  """
+  @type data_table_value_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2520,6 +3189,7 @@ defmodule AWS.Connect do
   ## Example:
 
       wisdom_info() :: %{
+        "AiAgents" => list(ai_agent_info()),
         "SessionArn" => String.t() | atom()
       }
 
@@ -2621,12 +3291,35 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_data_table_metadata_response() :: %{
+        "LockVersion" => data_table_lock_version()
+      }
+
+  """
+  @type update_data_table_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_hierarchy_group() :: %{
         "Arn" => String.t() | atom()
       }
 
   """
   @type agent_hierarchy_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_workspace_media_request() :: %{
+        required("MediaSource") => String.t() | atom(),
+        required("MediaType") => list(any())
+      }
+
+  """
+  @type import_workspace_media_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2725,6 +3418,32 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      palette_navigation() :: %{
+        "Background" => String.t() | atom(),
+        "InvertActionsColors" => boolean(),
+        "Text" => String.t() | atom(),
+        "TextActive" => String.t() | atom(),
+        "TextBackgroundActive" => String.t() | atom(),
+        "TextBackgroundHover" => String.t() | atom(),
+        "TextHover" => String.t() | atom()
+      }
+
+  """
+  @type palette_navigation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_table_attribute_request() :: %{}
+
+  """
+  @type delete_data_table_attribute_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_contact_flow_module_metadata_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
@@ -2796,6 +3515,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      stop_test_case_execution_response() :: %{}
+
+  """
+  @type stop_test_case_execution_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_agent_statuses_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -2818,6 +3546,28 @@ defmodule AWS.Connect do
 
   """
   @type inbound_email_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_table_attribute() :: %{
+        "AttributeId" => String.t() | atom(),
+        "DataTableArn" => String.t() | atom(),
+        "DataTableId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LockVersion" => data_table_lock_version(),
+        "Name" => String.t() | atom(),
+        "Primary" => boolean(),
+        "Validation" => validation(),
+        "ValueType" => list(any()),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type data_table_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2882,6 +3632,19 @@ defmodule AWS.Connect do
 
   """
   @type queue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_security_profiles_request() :: %{
+        required("EntityArn") => String.t() | atom(),
+        required("EntityType") => list(any()),
+        required("SecurityProfiles") => list(security_profile_item())
+      }
+
+  """
+  @type associate_security_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3041,6 +3804,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      multi_select_question_rule_category_automation() :: %{
+        "Category" => String.t() | atom(),
+        "Condition" => list(any()),
+        "OptionRefIds" => list(String.t() | atom())
+      }
+
+  """
+  @type multi_select_question_rule_category_automation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       download_url_metadata() :: %{
         "Url" => String.t() | atom(),
         "UrlExpiry" => String.t() | atom()
@@ -3048,6 +3824,19 @@ defmodule AWS.Connect do
 
   """
   @type download_url_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_table_attributes_request() :: %{
+        optional("AttributeIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_table_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3091,6 +3880,30 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      batch_describe_data_table_value_response() :: %{
+        "Failed" => list(batch_describe_data_table_value_failure_result()),
+        "Successful" => list(batch_describe_data_table_value_success_result())
+      }
+
+  """
+  @type batch_describe_data_table_value_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_flow_module_version_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("FlowModuleContentSha256") => String.t() | atom()
+      }
+
+  """
+  @type create_contact_flow_module_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t() | atom())
       }
@@ -3102,12 +3915,26 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_contact_flow_module_version_response() :: %{
+        "ContactFlowModuleArn" => String.t() | atom(),
+        "Version" => float()
+      }
+
+  """
+  @type create_contact_flow_module_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_hours_of_operation_override_request() :: %{
         optional("Config") => list(hours_of_operation_override_config()),
         optional("Description") => String.t() | atom(),
         optional("EffectiveFrom") => String.t() | atom(),
         optional("EffectiveTill") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
+        optional("Name") => String.t() | atom(),
+        optional("OverrideType") => list(any()),
+        optional("RecurrenceConfig") => recurrence_config()
       }
 
   """
@@ -3131,12 +3958,42 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      workspace_theme_palette() :: %{
+        "Canvas" => palette_canvas(),
+        "Header" => palette_header(),
+        "Navigation" => palette_navigation(),
+        "Primary" => palette_primary()
+      }
+
+  """
+  @type workspace_theme_palette() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_quick_connect_config_request() :: %{
         required("QuickConnectConfig") => quick_connect_config()
       }
 
   """
   @type update_quick_connect_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_table_value() :: %{
+        "AttributeName" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LockVersion" => data_table_lock_version(),
+        "PrimaryValues" => list(primary_value()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type data_table_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3253,6 +4110,26 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_data_table_response() :: %{
+        "DataTable" => data_table()
+      }
+
+  """
+  @type describe_data_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_contact_media_processing_response() :: %{}
+
+  """
+  @type stop_contact_media_processing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_rules_request() :: %{
         optional("EventSourceName") => list(any()),
         optional("MaxResults") => integer(),
@@ -3262,6 +4139,40 @@ defmodule AWS.Connect do
 
   """
   @type list_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      primary_attribute_value_filter() :: %{
+        "AttributeName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type primary_attribute_value_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_case() :: %{
+        "Arn" => String.t() | atom(),
+        "Content" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EntryPoint" => test_case_entry_point(),
+        "Id" => String.t() | atom(),
+        "InitializationData" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "TestCaseSha256" => String.t() | atom()
+      }
+
+  """
+  @type test_case() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3277,6 +4188,17 @@ defmodule AWS.Connect do
 
   """
   @type import_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_hours_of_operations_request() :: %{
+        required("ParentHoursOfOperationIds") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_hours_of_operations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3301,6 +4223,17 @@ defmodule AWS.Connect do
 
   """
   @type queue_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      view_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+
+  """
+  @type view_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3344,6 +4277,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      participant_configuration() :: %{
+        "ResponseMode" => list(any())
+      }
+
+  """
+  @type participant_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       available_number_summary() :: %{
         "PhoneNumber" => String.t() | atom(),
         "PhoneNumberCountryCode" => list(any()),
@@ -3359,6 +4303,7 @@ defmodule AWS.Connect do
 
       get_effective_hours_of_operations_response() :: %{
         "EffectiveHoursOfOperationList" => list(effective_hours_of_operations()),
+        "EffectiveOverrideHoursList" => list(effective_override_hours()),
         "TimeZone" => String.t() | atom()
       }
 
@@ -3501,6 +4446,22 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      test_case_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type test_case_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       destination_not_allowed_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -3518,6 +4479,26 @@ defmodule AWS.Connect do
 
   """
   @type invisible_field_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      primary_attribute_access_control_configuration_item() :: %{
+        "PrimaryAttributeValues" => list(primary_attribute_value())
+      }
+
+  """
+  @type primary_attribute_access_control_configuration_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workspace_response() :: %{}
+
+  """
+  @type delete_workspace_response() :: %{}
 
   @typedoc """
 
@@ -3635,6 +4616,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_test_cases_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "NextToken" => String.t() | atom(),
+        "TestCases" => list(test_case())
+      }
+
+  """
+  @type search_test_cases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_attached_file_request() :: %{
         optional("UrlExpiryInSeconds") => integer(),
         required("AssociatedResourceArn") => String.t() | atom()
@@ -3667,6 +4661,36 @@ defmodule AWS.Connect do
 
   """
   @type describe_phone_number_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation() :: %{
+        "Enum" => validation_enum(),
+        "ExclusiveMaximum" => float(),
+        "ExclusiveMinimum" => float(),
+        "IgnoreCase" => boolean(),
+        "MaxLength" => integer(),
+        "MaxValues" => integer(),
+        "Maximum" => float(),
+        "MinLength" => integer(),
+        "MinValues" => integer(),
+        "Minimum" => float(),
+        "MultipleOf" => float()
+      }
+
+  """
+  @type validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_table_request() :: %{}
+
+  """
+  @type delete_data_table_request() :: %{}
 
   @typedoc """
 
@@ -3812,6 +4836,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_workspace_page_response() :: %{}
+
+  """
+  @type delete_workspace_page_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_analytics_data_lake_data_sets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -3877,12 +4910,42 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      test_case_execution() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Tags" => map(),
+        "TestCaseExecutionId" => String.t() | atom(),
+        "TestCaseExecutionStatus" => list(any()),
+        "TestCaseId" => String.t() | atom()
+      }
+
+  """
+  @type test_case_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_user_hierarchy_structure_response() :: %{
         "HierarchyStructure" => hierarchy_structure()
       }
 
   """
   @type describe_user_hierarchy_structure_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_page() :: %{
+        "InputData" => String.t() | atom(),
+        "Page" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Slug" => String.t() | atom()
+      }
+
+  """
+  @type workspace_page() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3902,6 +4965,18 @@ defmodule AWS.Connect do
 
   """
   @type user_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      effective_override_hours() :: %{
+        "Date" => String.t() | atom(),
+        "OverrideHours" => list(override_hour())
+      }
+
+  """
+  @type effective_override_hours() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3968,6 +5043,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_workspace_theme_response() :: %{}
+
+  """
+  @type update_workspace_theme_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       start_email_contact_response() :: %{
         "ContactId" => String.t() | atom()
       }
@@ -3988,6 +5072,18 @@ defmodule AWS.Connect do
 
   """
   @type get_federation_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_cases_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TestCaseSummaryList" => list(test_case_summary())
+      }
+
+  """
+  @type list_test_cases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4045,6 +5141,26 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_test_case_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EntryPoint") => test_case_entry_point(),
+        optional("InitializationData") => String.t() | atom(),
+        optional("LastModifiedRegion") => String.t() | atom(),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("Status") => list(any()),
+        optional("Tags") => map(),
+        optional("TestCaseId") => String.t() | atom(),
+        required("Content") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_test_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_quick_connect_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
@@ -4054,6 +5170,15 @@ defmodule AWS.Connect do
 
   """
   @type create_quick_connect_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_data_table_attribute_request() :: %{}
+
+  """
+  @type describe_data_table_attribute_request() :: %{}
 
   @typedoc """
 
@@ -4130,6 +5255,29 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_workspace_response() :: %{
+        "Workspace" => workspace()
+      }
+
+  """
+  @type describe_workspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contact_flow_module_aliases_response() :: %{
+        "ContactFlowModuleAliasSummaryList" => list(contact_flow_module_alias_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_contact_flow_module_aliases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       task_template_info_v2() :: %{
         "Arn" => String.t() | atom(),
         "Name" => String.t() | atom()
@@ -4198,6 +5346,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_workspace_page_request() :: %{
+        optional("InputData") => String.t() | atom(),
+        optional("Slug") => String.t() | atom(),
+        required("Page") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type create_workspace_page_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_routing_profile_request() :: %{}
 
   """
@@ -4227,6 +5389,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_workspace_media_response() :: %{}
+
+  """
+  @type delete_workspace_media_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       view_content() :: %{
         "Actions" => list(String.t() | atom()),
         "InputSchema" => String.t() | atom(),
@@ -4246,6 +5417,17 @@ defmodule AWS.Connect do
 
   """
   @type update_queue_outbound_email_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_association_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+
+  """
+  @type workspace_association_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4299,6 +5481,19 @@ defmodule AWS.Connect do
 
   """
   @type describe_agent_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      palette_canvas() :: %{
+        "ActiveBackground" => String.t() | atom(),
+        "ContainerBackground" => String.t() | atom(),
+        "PageBackground" => String.t() | atom()
+      }
+
+  """
+  @type palette_canvas() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4422,8 +5617,10 @@ defmodule AWS.Connect do
       create_security_profile_request() :: %{
         optional("AllowedAccessControlHierarchyGroupId") => String.t() | atom(),
         optional("AllowedAccessControlTags") => map(),
+        optional("AllowedFlowModules") => list(flow_module()),
         optional("Applications") => list(application()),
         optional("Description") => String.t() | atom(),
+        optional("GranularAccessControlConfiguration") => granular_access_control_configuration(),
         optional("HierarchyRestrictedResources") => list(String.t() | atom()),
         optional("Permissions") => list(String.t() | atom()),
         optional("TagRestrictedResources") => list(String.t() | atom()),
@@ -4433,6 +5630,18 @@ defmodule AWS.Connect do
 
   """
   @type create_security_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_table_value_identifier() :: %{
+        "AttributeName" => String.t() | atom(),
+        "PrimaryValues" => list(primary_value())
+      }
+
+  """
+  @type data_table_value_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4498,6 +5707,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      start_contact_media_processing_request() :: %{
+        optional("ContactId") => String.t() | atom(),
+        optional("FailureMode") => list(any()),
+        optional("InstanceId") => String.t() | atom(),
+        optional("ProcessorArn") => String.t() | atom()
+      }
+
+  """
+  @type start_contact_media_processing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_contact_metrics_response() :: %{
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
@@ -4551,6 +5774,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_contact_flow_module_alias_response() :: %{}
+
+  """
+  @type update_contact_flow_module_alias_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       security_profile_summary() :: %{
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
@@ -4589,10 +5821,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      get_test_case_execution_summary_request() :: %{}
+
+  """
+  @type get_test_case_execution_summary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       send_notification_action_definition() :: %{
         "Content" => String.t() | atom(),
         "ContentType" => list(any()),
         "DeliveryMethod" => list(any()),
+        "Exclusion" => notification_recipient_type(),
         "Recipient" => notification_recipient_type(),
         "Subject" => String.t() | atom()
       }
@@ -4628,6 +5870,50 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_entity_security_profiles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EntityArn") => String.t() | atom(),
+        required("EntityType") => list(any())
+      }
+
+  """
+  @type list_entity_security_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_table_primary_values_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PrimaryValuesList" => list(record_primary_value())
+      }
+
+  """
+  @type list_data_table_primary_values_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_search_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Tags" => map(),
+        "Title" => String.t() | atom(),
+        "Visibility" => list(any())
+      }
+
+  """
+  @type workspace_search_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_info() :: %{
         "AcceptedByAgentTimestamp" => non_neg_integer(),
         "AfterContactWorkDuration" => integer(),
@@ -4657,6 +5943,31 @@ defmodule AWS.Connect do
 
   """
   @type describe_hours_of_operation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_data_table_value_failure_result() :: %{
+        "AttributeName" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "PrimaryValues" => list(primary_value())
+      }
+
+  """
+  @type batch_delete_data_table_value_failure_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_child_hours_of_operations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_child_hours_of_operations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4750,6 +6061,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      batch_create_data_table_value_response() :: %{
+        "Failed" => list(batch_create_data_table_value_failure_result()),
+        "Successful" => list(batch_create_data_table_value_success_result())
+      }
+
+  """
+  @type batch_create_data_table_value_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_task_template_request() :: %{
         optional("Constraints") => task_template_constraints(),
         optional("ContactFlowId") => String.t() | atom(),
@@ -4791,6 +6114,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_score() :: %{
+        "AppliedWeight" => float(),
         "AutomaticFail" => boolean(),
         "NotApplicable" => boolean(),
         "Percentage" => float()
@@ -4798,6 +6122,20 @@ defmodule AWS.Connect do
 
   """
   @type evaluation_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_table_values_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PrimaryAttributeValues") => list(primary_attribute_value_filter()),
+        optional("RecordIds") => list(String.t() | atom())
+      }
+
+  """
+  @type list_data_table_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4852,6 +6190,28 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      batch_update_data_table_value_request() :: %{
+        required("Values") => list(data_table_value())
+      }
+
+  """
+  @type batch_update_data_table_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workspace_theme_request() :: %{
+        optional("Theme") => workspace_theme()
+      }
+
+  """
+  @type update_workspace_theme_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_participant_response() :: %{
         "ParticipantCredentials" => participant_token_credentials(),
         "ParticipantId" => String.t() | atom()
@@ -4893,6 +6253,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      stop_test_case_execution_request() :: %{
+        optional("ClientToken") => String.t() | atom()
+      }
+
+  """
+  @type stop_test_case_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_view_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -4908,6 +6279,8 @@ defmodule AWS.Connect do
       create_contact_flow_module_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("ExternalInvocationConfiguration") => external_invocation_configuration(),
+        optional("Settings") => String.t() | atom(),
         optional("Tags") => map(),
         required("Content") => String.t() | atom(),
         required("Name") => String.t() | atom()
@@ -4989,6 +6362,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_data_table_attribute_response() :: %{
+        "LockVersion" => data_table_lock_version(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type update_data_table_attribute_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_authentication_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -5007,6 +6392,24 @@ defmodule AWS.Connect do
 
   """
   @type alias_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workspace_visibility_response() :: %{}
+
+  """
+  @type update_workspace_visibility_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workspace_metadata_response() :: %{}
+
+  """
+  @type update_workspace_metadata_response() :: %{}
 
   @typedoc """
 
@@ -5035,6 +6438,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      batch_create_data_table_value_failure_result() :: %{
+        "AttributeName" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "PrimaryValues" => list(primary_value())
+      }
+
+  """
+  @type batch_create_data_table_value_failure_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_phone_config() :: %{
         "AfterContactWorkTimeLimit" => integer(),
         "AutoAccept" => boolean(),
@@ -5045,6 +6461,21 @@ defmodule AWS.Connect do
 
   """
   @type user_phone_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_connect_contact_data() :: %{
+        "ContactId" => String.t() | atom(),
+        "InitiationTimestamp" => non_neg_integer(),
+        "QuickConnectId" => String.t() | atom(),
+        "QuickConnectName" => String.t() | atom(),
+        "QuickConnectType" => list(any())
+      }
+
+  """
+  @type quick_connect_contact_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5080,12 +6511,15 @@ defmodule AWS.Connect do
         "EvaluationFormId" => String.t() | atom(),
         "EvaluationFormVersion" => integer(),
         "Items" => list(list()),
+        "LanguageConfiguration" => evaluation_form_language_configuration(),
         "LastModifiedBy" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "Locked" => boolean(),
+        "ReviewConfiguration" => evaluation_review_configuration(),
         "ScoringStrategy" => evaluation_form_scoring_strategy(),
         "Status" => list(any()),
         "Tags" => map(),
+        "TargetConfiguration" => evaluation_form_target_configuration(),
         "Title" => String.t() | atom()
       }
 
@@ -5183,6 +6617,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      hours_of_operations_identifier() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type hours_of_operations_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_phone_numbers_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -5204,6 +6651,18 @@ defmodule AWS.Connect do
 
   """
   @type create_contact_flow_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_theme() :: %{
+        "Dark" => workspace_theme_config(),
+        "Light" => workspace_theme_config()
+      }
+
+  """
+  @type workspace_theme() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5273,7 +6732,8 @@ defmodule AWS.Connect do
 
       filter_v2() :: %{
         "FilterKey" => String.t() | atom(),
-        "FilterValues" => list(String.t() | atom())
+        "FilterValues" => list(String.t() | atom()),
+        "StringCondition" => filter_v2_string_condition()
       }
 
   """
@@ -5344,7 +6804,8 @@ defmodule AWS.Connect do
 
       application() :: %{
         "ApplicationPermissions" => list(String.t() | atom()),
-        "Namespace" => String.t() | atom()
+        "Namespace" => String.t() | atom(),
+        "Type" => list(any())
       }
 
   """
@@ -5451,11 +6912,15 @@ defmodule AWS.Connect do
   ## Example:
 
       create_evaluation_form_request() :: %{
+        optional("AsDraft") => boolean(),
         optional("AutoEvaluationConfiguration") => evaluation_form_auto_evaluation_configuration(),
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("LanguageConfiguration") => evaluation_form_language_configuration(),
+        optional("ReviewConfiguration") => evaluation_review_configuration(),
         optional("ScoringStrategy") => evaluation_form_scoring_strategy(),
         optional("Tags") => map(),
+        optional("TargetConfiguration") => evaluation_form_target_configuration(),
         required("Items") => list(list()),
         required("Title") => String.t() | atom()
       }
@@ -5677,6 +7142,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      flow_module() :: %{
+        "FlowModuleId" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type flow_module() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_push_notification_registration_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         required("ContactConfiguration") => contact_configuration(),
@@ -5687,6 +7164,30 @@ defmodule AWS.Connect do
 
   """
   @type create_push_notification_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_views_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchCriteria") => view_search_criteria(),
+        optional("SearchFilter") => view_search_filter(),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type search_views_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_flow_module_version_response() :: %{}
+
+  """
+  @type delete_contact_flow_module_version_response() :: %{}
 
   @typedoc """
 
@@ -5725,6 +7226,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_workspace_request() :: %{}
+
+  """
+  @type describe_workspace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_lambda_function_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         required("FunctionArn") => String.t() | atom()
@@ -5732,6 +7242,28 @@ defmodule AWS.Connect do
 
   """
   @type disassociate_lambda_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_workspace_media_response() :: %{}
+
+  """
+  @type import_workspace_media_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      primary_attribute_value() :: %{
+        "AccessType" => list(any()),
+        "AttributeName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type primary_attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5789,6 +7321,31 @@ defmodule AWS.Connect do
 
   """
   @type update_user_phone_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_table_search_criteria() :: %{
+        "AndConditions" => list(data_table_search_criteria()),
+        "OrConditions" => list(data_table_search_criteria()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type data_table_search_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_entity_security_profiles_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SecurityProfiles" => list(security_profile_item())
+      }
+
+  """
+  @type list_entity_security_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5854,6 +7411,27 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      batch_update_data_table_value_response() :: %{
+        "Failed" => list(batch_update_data_table_value_failure_result()),
+        "Successful" => list(batch_update_data_table_value_success_result())
+      }
+
+  """
+  @type batch_update_data_table_value_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_data_table_request() :: %{}
+
+  """
+  @type describe_data_table_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       template_attributes() :: %{
         "CustomAttributes" => map(),
         "CustomerProfileAttributes" => String.t() | atom()
@@ -5877,6 +7455,19 @@ defmodule AWS.Connect do
 
   """
   @type real_time_contact_analysis_segment_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_data_table_value_success_result() :: %{
+        "AttributeName" => String.t() | atom(),
+        "LockVersion" => data_table_lock_version(),
+        "PrimaryValues" => list(primary_value())
+      }
+
+  """
+  @type batch_delete_data_table_value_success_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5994,6 +7585,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_test_case_executions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TestCaseExecutions" => list(test_case_execution())
+      }
+
+  """
+  @type list_test_case_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_analytics_data_set_request() :: %{
         optional("TargetAccountId") => String.t() | atom(),
         required("DataSetId") => String.t() | atom()
@@ -6001,6 +7604,19 @@ defmodule AWS.Connect do
 
   """
   @type associate_analytics_data_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_association_search_criteria() :: %{
+        "AndConditions" => list(workspace_association_search_criteria()),
+        "OrConditions" => list(workspace_association_search_criteria()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type workspace_association_search_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6016,6 +7632,17 @@ defmodule AWS.Connect do
 
   """
   @type search_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_test_case_execution_request() :: %{
+        optional("ClientToken") => String.t() | atom()
+      }
+
+  """
+  @type start_test_case_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6039,6 +7666,30 @@ defmodule AWS.Connect do
 
   """
   @type disassociate_user_proficiencies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_language_configuration() :: %{
+        "FormLanguage" => list(any())
+      }
+
+  """
+  @type evaluation_form_language_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      observation_summary() :: %{
+        "ObservationsFailed" => integer(),
+        "ObservationsPassed" => integer(),
+        "TotalObservations" => integer()
+      }
+
+  """
+  @type observation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6107,7 +7758,8 @@ defmodule AWS.Connect do
         "StartTimestamp" => non_neg_integer(),
         "Status" => list(any()),
         "StopTimestamp" => non_neg_integer(),
-        "StorageType" => list(any())
+        "StorageType" => list(any()),
+        "UnprocessedTranscriptLocation" => String.t() | atom()
       }
 
   """
@@ -6208,6 +7860,7 @@ defmodule AWS.Connect do
   ## Example:
 
       start_task_contact_request() :: %{
+        optional("Attachments") => list(task_attachment()),
         optional("Attributes") => map(),
         optional("ClientToken") => String.t() | atom(),
         optional("ContactFlowId") => String.t() | atom(),
@@ -6303,6 +7956,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_data_table_primary_values_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PrimaryAttributeValues") => list(primary_attribute_value_filter()),
+        optional("RecordIds") => list(String.t() | atom())
+      }
+
+  """
+  @type list_data_table_primary_values_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_email_addresses_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -6327,6 +7994,21 @@ defmodule AWS.Connect do
 
   """
   @type list_integration_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_table_attribute_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Primary") => boolean(),
+        optional("Validation") => validation(),
+        required("Name") => String.t() | atom(),
+        required("ValueType") => list(any())
+      }
+
+  """
+  @type update_data_table_attribute_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6399,12 +8081,61 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      workspace_association_search_summary() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "WorkspaceArn" => String.t() | atom(),
+        "WorkspaceId" => String.t() | atom()
+      }
+
+  """
+  @type workspace_association_search_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       chat_participant_role_config() :: %{
         "ParticipantTimerConfigList" => list(participant_timer_configuration())
       }
 
   """
   @type chat_participant_role_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_test_case_execution_response() :: %{
+        "Status" => list(any()),
+        "TestCaseExecutionId" => String.t() | atom(),
+        "TestCaseId" => String.t() | atom()
+      }
+
+  """
+  @type start_test_case_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_data_table_value_request() :: %{
+        required("Values") => list(data_table_value())
+      }
+
+  """
+  @type batch_create_data_table_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_test_case_request() :: %{}
+
+  """
+  @type delete_test_case_request() :: %{}
 
   @typedoc """
 
@@ -6460,6 +8191,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_contact_flow_module_aliases_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_contact_flow_module_aliases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       hierarchy_path() :: %{
         "LevelFive" => hierarchy_group_summary(),
         "LevelFour" => hierarchy_group_summary(),
@@ -6476,6 +8219,7 @@ defmodule AWS.Connect do
   ## Example:
 
       quick_connect_config() :: %{
+        "FlowConfig" => flow_quick_connect_config(),
         "PhoneConfig" => phone_number_quick_connect_config(),
         "QueueConfig" => queue_quick_connect_config(),
         "QuickConnectType" => list(any()),
@@ -6496,6 +8240,19 @@ defmodule AWS.Connect do
 
   """
   @type list_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_contact_flow_module_alias_request() :: %{
+        optional("ContactFlowModuleVersion") => float(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_contact_flow_module_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6581,6 +8338,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      workspace_theme_images() :: %{
+        "Logo" => images_logo()
+      }
+
+  """
+  @type workspace_theme_images() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_flow_module_summary() :: %{
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
@@ -6595,6 +8363,29 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_workspace_pages_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "WorkspacePageList" => list(workspace_page())
+      }
+
+  """
+  @type list_workspace_pages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_table_primary_values_response() :: %{
+        "LockVersion" => data_table_lock_version()
+      }
+
+  """
+  @type update_data_table_primary_values_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_search_metadata() :: %{
         "AcknowledgedBy" => String.t() | atom(),
         "AcknowledgedTime" => non_neg_integer(),
@@ -6604,7 +8395,11 @@ defmodule AWS.Connect do
         "CalibrationSessionId" => String.t() | atom(),
         "ContactAgentId" => String.t() | atom(),
         "ContactId" => String.t() | atom(),
+        "ContactParticipantId" => String.t() | atom(),
+        "ContactParticipantRole" => list(any()),
         "EvaluatorArn" => String.t() | atom(),
+        "ReviewId" => String.t() | atom(),
+        "SamplingJobId" => String.t() | atom(),
         "ScoreAutomaticFail" => boolean(),
         "ScoreNotApplicable" => boolean(),
         "ScorePercentage" => float()
@@ -6634,6 +8429,15 @@ defmodule AWS.Connect do
 
   """
   @type flow_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workspace_request() :: %{}
+
+  """
+  @type delete_workspace_request() :: %{}
 
   @typedoc """
 
@@ -6686,6 +8490,7 @@ defmodule AWS.Connect do
 
       contact() :: %{
         "QueueTimeAdjustmentSeconds" => integer(),
+        "NextContacts" => list(next_contact_entry()),
         "RelatedContactId" => String.t() | atom(),
         "InitiationTimestamp" => non_neg_integer(),
         "Tags" => map(),
@@ -6698,6 +8503,7 @@ defmodule AWS.Connect do
         "LastResumedTimestamp" => non_neg_integer(),
         "LastUpdateTimestamp" => non_neg_integer(),
         "ContactDetails" => contact_details(),
+        "RingStartTimestamp" => non_neg_integer(),
         "ChatMetrics" => chat_metrics(),
         "QueueInfo" => queue_info(),
         "SegmentAttributes" => map(),
@@ -6707,6 +8513,7 @@ defmodule AWS.Connect do
         "WisdomInfo" => wisdom_info(),
         "InitiationMethod" => list(any()),
         "Id" => String.t() | atom(),
+        "GlobalResiliencyMetadata" => global_resiliency_metadata(),
         "AdditionalEmailRecipients" => additional_email_recipients(),
         "TaskTemplateInfo" => task_template_info_v2(),
         "Campaign" => campaign(),
@@ -6734,6 +8541,20 @@ defmodule AWS.Connect do
 
   """
   @type contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluate_data_table_values_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TimeZone") => String.t() | atom(),
+        required("Values") => list(data_table_value_evaluation_set())
+      }
+
+  """
+  @type evaluate_data_table_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6781,6 +8602,39 @@ defmodule AWS.Connect do
 
   """
   @type routing_profile_queue_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_contact_media_processing_response() :: %{}
+
+  """
+  @type start_contact_media_processing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      granular_access_control_configuration() :: %{
+        "DataTableAccessControlConfiguration" => data_table_access_control_configuration()
+      }
+
+  """
+  @type granular_access_control_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      global_resiliency_metadata() :: %{
+        "ActiveRegion" => String.t() | atom(),
+        "OriginRegion" => String.t() | atom(),
+        "TrafficDistributionGroupId" => String.t() | atom()
+      }
+
+  """
+  @type global_resiliency_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6917,6 +8771,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_data_tables_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchCriteria") => data_table_search_criteria(),
+        optional("SearchFilter") => data_table_search_filter(),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type search_data_tables_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       voice_recording_configuration() :: %{
         "IvrRecordingTrack" => list(any()),
         "VoiceRecordingTrack" => list(any())
@@ -7008,6 +8877,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_data_tables_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_tables_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_view_versions_response() :: %{
         "NextToken" => String.t() | atom(),
         "ViewVersionSummaryList" => list(view_version_summary())
@@ -7044,6 +8925,35 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_flow_module_alias_info() :: %{
+        "AliasId" => String.t() | atom(),
+        "ContactFlowModuleArn" => String.t() | atom(),
+        "ContactFlowModuleId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Version" => float()
+      }
+
+  """
+  @type contact_flow_module_alias_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_data_table_value_request() :: %{
+        required("Values") => list(data_table_delete_value_identifier())
+      }
+
+  """
+  @type batch_delete_data_table_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       interval_details() :: %{
         "IntervalPeriod" => list(any()),
         "TimeZone" => String.t() | atom()
@@ -7068,6 +8978,21 @@ defmodule AWS.Connect do
 
   """
   @type contact_evaluation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_workspaces_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchCriteria") => workspace_search_criteria(),
+        optional("SearchFilter") => workspace_search_filter(),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type search_workspaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7117,6 +9042,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_test_cases_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchCriteria") => test_case_search_criteria(),
+        optional("SearchFilter") => test_case_search_filter(),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type search_test_cases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_routing_profile_agent_availability_timer_request() :: %{
         required("AgentAvailabilityTimer") => list(any())
       }
@@ -7125,6 +9065,17 @@ defmodule AWS.Connect do
   @type update_routing_profile_agent_availability_timer_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      successful_batch_association_summary() :: %{
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type successful_batch_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7197,6 +9148,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      batch_describe_data_table_value_request() :: %{
+        required("Values") => list(data_table_value_identifier())
+      }
+
+  """
+  @type batch_describe_data_table_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_case_action_definition() :: %{
         "Fields" => list(field_value())
       }
@@ -7222,6 +9184,7 @@ defmodule AWS.Connect do
         "AllowedAccessControlTags" => map(),
         "Arn" => String.t() | atom(),
         "Description" => String.t() | atom(),
+        "GranularAccessControlConfiguration" => granular_access_control_configuration(),
         "HierarchyRestrictedResources" => list(String.t() | atom()),
         "Id" => String.t() | atom(),
         "LastModifiedRegion" => String.t() | atom(),
@@ -7268,6 +9231,7 @@ defmodule AWS.Connect do
   ## Example:
 
       current_metric() :: %{
+        "MetricId" => String.t() | atom(),
         "Name" => list(any()),
         "Unit" => list(any())
       }
@@ -7318,7 +9282,9 @@ defmodule AWS.Connect do
         "HoursOfOperationArn" => String.t() | atom(),
         "HoursOfOperationId" => String.t() | atom(),
         "HoursOfOperationOverrideId" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "Name" => String.t() | atom(),
+        "OverrideType" => list(any()),
+        "RecurrenceConfig" => recurrence_config()
       }
 
   """
@@ -7332,6 +9298,7 @@ defmodule AWS.Connect do
         "CreatedTime" => non_neg_integer(),
         "EvaluationArn" => String.t() | atom(),
         "EvaluationFormId" => String.t() | atom(),
+        "EvaluationFormTitle" => String.t() | atom(),
         "EvaluationFormVersion" => integer(),
         "EvaluationId" => String.t() | atom(),
         "EvaluationType" => list(any()),
@@ -7343,6 +9310,15 @@ defmodule AWS.Connect do
 
   """
   @type evaluation_search_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workspace_page_response() :: %{}
+
+  """
+  @type update_workspace_page_response() :: %{}
 
   @typedoc """
 
@@ -7373,6 +9349,18 @@ defmodule AWS.Connect do
 
   """
   @type rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_table_value_evaluation_set() :: %{
+        "AttributeNames" => list(String.t() | atom()),
+        "PrimaryValues" => list(primary_value())
+      }
+
+  """
+  @type data_table_value_evaluation_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7413,12 +9401,55 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      security_profile_item() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type security_profile_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_hours_of_operation_override_response() :: %{
         "HoursOfOperationOverride" => hours_of_operation_override()
       }
 
   """
   @type describe_hours_of_operation_override_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workspace_response() :: %{
+        "WorkspaceArn" => String.t() | atom(),
+        "WorkspaceId" => String.t() | atom()
+      }
+
+  """
+  @type create_workspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map(),
+        "Theme" => workspace_theme(),
+        "Title" => String.t() | atom(),
+        "Visibility" => list(any())
+      }
+
+  """
+  @type workspace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7471,6 +9502,17 @@ defmodule AWS.Connect do
 
   """
   @type associate_lex_bot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_data_table_attribute_response() :: %{
+        "Attribute" => data_table_attribute()
+      }
+
+  """
+  @type describe_data_table_attribute_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7545,6 +9587,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_workspaces_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "WorkspaceSummaryList" => list(workspace_summary())
+      }
+
+  """
+  @type list_workspaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       quality_metrics() :: %{
         "Agent" => agent_quality_metrics(),
         "Customer" => customer_quality_metrics()
@@ -7606,6 +9660,17 @@ defmodule AWS.Connect do
 
   """
   @type describe_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_test_case_response() :: %{
+        "TestCase" => test_case()
+      }
+
+  """
+  @type describe_test_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7683,6 +9748,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      stop_contact_media_processing_request() :: %{
+        optional("ContactId") => String.t() | atom(),
+        optional("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type stop_contact_media_processing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_traffic_distribution_group_user_response() :: %{}
 
   """
@@ -7708,6 +9785,17 @@ defmodule AWS.Connect do
 
   """
   @type update_contact_routing_data_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_table_attribute_response() :: %{
+        "LockVersion" => data_table_lock_version()
+      }
+
+  """
+  @type delete_data_table_attribute_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7796,6 +9884,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      data_table_delete_value_identifier() :: %{
+        "AttributeName" => String.t() | atom(),
+        "LockVersion" => data_table_lock_version(),
+        "PrimaryValues" => list(primary_value())
+      }
+
+  """
+  @type data_table_delete_value_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_status_search_filter() :: %{
         "AttributeFilter" => control_plane_attribute_filter()
       }
@@ -7817,6 +9918,15 @@ defmodule AWS.Connect do
 
   """
   @type get_traffic_distribution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_flow_module_alias_response() :: %{}
+
+  """
+  @type delete_contact_flow_module_alias_response() :: %{}
 
   @typedoc """
 
@@ -8057,6 +10167,31 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      execution_record() :: %{
+        "ObservationId" => String.t() | atom(),
+        "Record" => String.t() | atom(),
+        "Status" => list(any()),
+        "Timestamp" => non_neg_integer()
+      }
+
+  """
+  @type execution_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_flow_type_condition() :: %{
+        "ContactFlowType" => list(any())
+      }
+
+  """
+  @type contact_flow_type_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sign_in_config() :: %{
         "Distributions" => list(sign_in_distribution())
       }
@@ -8153,6 +10288,24 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_test_case_request() :: %{
+        optional("Content") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("EntryPoint") => test_case_entry_point(),
+        optional("InitializationData") => String.t() | atom(),
+        optional("LastModifiedRegion") => String.t() | atom(),
+        optional("LastModifiedTime") => non_neg_integer(),
+        optional("Name") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type update_test_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_traffic_distribution_response() :: %{}
 
   """
@@ -8219,6 +10372,18 @@ defmodule AWS.Connect do
 
   """
   @type disconnect_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_cases_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_test_cases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8364,6 +10529,18 @@ defmodule AWS.Connect do
 
   """
   @type start_contact_evaluation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_case_entry_point() :: %{
+        "Type" => list(any()),
+        "VoiceCallEntryPointParameters" => voice_call_entry_point_parameters()
+      }
+
+  """
+  @type test_case_entry_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8564,12 +10741,37 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_data_tables_response() :: %{
+        "DataTableSummaryList" => list(data_table_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_tables_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_answer_input() :: %{
         "Value" => list()
       }
 
   """
   @type evaluation_answer_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_search_criteria() :: %{
+        "AndConditions" => list(workspace_search_criteria()),
+        "OrConditions" => list(workspace_search_criteria()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type workspace_search_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8594,6 +10796,17 @@ defmodule AWS.Connect do
 
   """
   @type list_default_vocabularies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_active_region_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_active_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8645,6 +10858,17 @@ defmodule AWS.Connect do
 
   """
   @type update_contact_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_theme_typography() :: %{
+        "FontFamily" => font_family()
+      }
+
+  """
+  @type workspace_theme_typography() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8835,6 +11059,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_workspaces_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_workspaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_contact_flows_response() :: %{
         "ContactFlowSummaryList" => list(contact_flow_summary()),
         "NextToken" => String.t() | atom()
@@ -8868,6 +11104,23 @@ defmodule AWS.Connect do
 
   """
   @type search_quick_connects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_test_case_executions_request() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer(),
+        optional("Status") => list(any()),
+        optional("TestCaseId") => String.t() | atom(),
+        optional("TestCaseName") => String.t() | atom()
+      }
+
+  """
+  @type list_test_case_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8908,6 +11161,19 @@ defmodule AWS.Connect do
 
   """
   @type delete_quick_connect_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_flow_module_alias_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("AliasName") => String.t() | atom(),
+        required("ContactFlowModuleVersion") => float()
+      }
+
+  """
+  @type create_contact_flow_module_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8990,6 +11256,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      voice_call_entry_point_parameters() :: %{
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "FlowId" => String.t() | atom(),
+        "SourcePhoneNumber" => String.t() | atom()
+      }
+
+  """
+  @type voice_call_entry_point_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       phone_number_summary() :: %{
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
@@ -9000,6 +11279,18 @@ defmodule AWS.Connect do
 
   """
   @type phone_number_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      primary_value() :: %{
+        "AttributeName" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type primary_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9181,6 +11472,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      recurrence_config() :: %{
+        "RecurrencePattern" => recurrence_pattern()
+      }
+
+  """
+  @type recurrence_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       current_metric_data() :: %{
         "Metric" => current_metric(),
         "Value" => float()
@@ -9188,6 +11490,19 @@ defmodule AWS.Connect do
 
   """
   @type current_metric_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_views_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "NextToken" => String.t() | atom(),
+        "Views" => list(view())
+      }
+
+  """
+  @type search_views_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9255,6 +11570,7 @@ defmodule AWS.Connect do
         "Arn" => String.t() | atom(),
         "Channel" => list(any()),
         "DisconnectTimestamp" => non_neg_integer(),
+        "GlobalResiliencyMetadata" => global_resiliency_metadata(),
         "Id" => String.t() | atom(),
         "InitialContactId" => String.t() | atom(),
         "InitiationMethod" => list(any()),
@@ -9264,7 +11580,8 @@ defmodule AWS.Connect do
         "QueueInfo" => contact_search_summary_queue_info(),
         "RoutingCriteria" => routing_criteria(),
         "ScheduledTimestamp" => non_neg_integer(),
-        "SegmentAttributes" => map()
+        "SegmentAttributes" => map(),
+        "Tags" => map()
       }
 
   """
@@ -9276,6 +11593,8 @@ defmodule AWS.Connect do
 
       create_hours_of_operation_override_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("OverrideType") => list(any()),
+        optional("RecurrenceConfig") => recurrence_config(),
         required("Config") => list(hours_of_operation_override_config()),
         required("EffectiveFrom") => String.t() | atom(),
         required("EffectiveTill") => String.t() | atom(),
@@ -9340,6 +11659,18 @@ defmodule AWS.Connect do
 
   """
   @type disassociate_flow_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_multi_select_question_option() :: %{
+        "RefId" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+
+  """
+  @type evaluation_form_multi_select_question_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9518,6 +11849,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_contact_flow_module_versions_response() :: %{
+        "ContactFlowModuleVersionSummaryList" => list(contact_flow_module_version_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_contact_flow_module_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_phone_numbers_v2_response() :: %{
         "ListPhoneNumbersSummaryList" => list(list_phone_numbers_summary()),
         "NextToken" => String.t() | atom()
@@ -9567,6 +11910,7 @@ defmodule AWS.Connect do
 
       metric_v2() :: %{
         "MetricFilters" => list(metric_filter_v2()),
+        "MetricId" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "Threshold" => list(threshold_v2())
       }
@@ -9616,6 +11960,7 @@ defmodule AWS.Connect do
         optional("QueueId") => String.t() | atom(),
         optional("References") => map(),
         optional("RelatedContactId") => String.t() | atom(),
+        optional("RingTimeoutInSeconds") => integer(),
         optional("SourcePhoneNumber") => String.t() | atom(),
         optional("TrafficType") => list(any()),
         required("ContactFlowId") => String.t() | atom(),
@@ -9709,7 +12054,9 @@ defmodule AWS.Connect do
         "Channels" => list(list(any())()),
         "Queues" => list(String.t() | atom()),
         "RoutingProfiles" => list(String.t() | atom()),
-        "RoutingStepExpressions" => list(String.t() | atom())
+        "RoutingStepExpressions" => list(String.t() | atom()),
+        "Subtypes" => list(String.t() | atom()),
+        "ValidationTestTypes" => list(String.t() | atom())
       }
 
   """
@@ -9800,6 +12147,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      data_table_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type data_table_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_form_single_select_question_properties() :: %{
         "Automation" => evaluation_form_single_select_question_automation(),
         "DisplayAs" => list(any()),
@@ -9867,6 +12229,29 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      palette_header() :: %{
+        "Background" => String.t() | atom(),
+        "InvertActionsColors" => boolean(),
+        "Text" => String.t() | atom(),
+        "TextHover" => String.t() | atom()
+      }
+
+  """
+  @type palette_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_table_response() :: %{}
+
+  """
+  @type delete_data_table_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       send_outbound_email_request() :: %{
         optional("AdditionalRecipients") => outbound_additional_recipients(),
         optional("ClientToken") => String.t() | atom(),
@@ -9879,6 +12264,18 @@ defmodule AWS.Connect do
 
   """
   @type send_outbound_email_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workspace_pages_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_workspace_pages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9904,6 +12301,18 @@ defmodule AWS.Connect do
 
   """
   @type disassociate_traffic_distribution_group_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_test_case_response() :: %{
+        "TestCaseArn" => String.t() | atom(),
+        "TestCaseId" => String.t() | atom()
+      }
+
+  """
+  @type create_test_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10019,6 +12428,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      next_contact_entry() :: %{
+        "NextContactMetadata" => list(),
+        "Type" => list(any())
+      }
+
+  """
+  @type next_contact_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_details() :: %{
         "Description" => String.t() | atom(),
         "Name" => String.t() | atom()
@@ -10108,6 +12529,17 @@ defmodule AWS.Connect do
 
   """
   @type search_contacts_additional_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_target_configuration() :: %{
+        "ContactInteractionType" => list(any())
+      }
+
+  """
+  @type evaluation_form_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10230,13 +12662,38 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      ai_agent_info() :: %{
+        "AiAgentEscalated" => boolean(),
+        "AiAgentVersionId" => String.t() | atom(),
+        "AiUseCase" => list(any())
+      }
+
+  """
+  @type ai_agent_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_flow_module_version_request() :: %{}
+
+  """
+  @type delete_contact_flow_module_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_metadata() :: %{
         "Acknowledgement" => evaluation_acknowledgement(),
         "AutoEvaluation" => auto_evaluation_details(),
         "CalibrationSessionId" => String.t() | atom(),
         "ContactAgentId" => String.t() | atom(),
         "ContactId" => String.t() | atom(),
+        "ContactParticipant" => evaluation_contact_participant(),
         "EvaluatorArn" => String.t() | atom(),
+        "Review" => evaluation_review_metadata(),
+        "SamplingJobId" => String.t() | atom(),
         "Score" => evaluation_score()
       }
 
@@ -10263,6 +12720,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_workspace_associations_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "NextToken" => String.t() | atom(),
+        "WorkspaceAssociations" => list(workspace_association_search_summary())
+      }
+
+  """
+  @type search_workspace_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       templated_message_config() :: %{
         "KnowledgeBaseId" => String.t() | atom(),
         "MessageTemplateId" => String.t() | atom(),
@@ -10283,6 +12753,20 @@ defmodule AWS.Connect do
 
   """
   @type evaluation_form_scoring_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_data_table_value_success_result() :: %{
+        "AttributeName" => String.t() | atom(),
+        "LockVersion" => data_table_lock_version(),
+        "PrimaryValues" => list(primary_value()),
+        "RecordId" => String.t() | atom()
+      }
+
+  """
+  @type batch_create_data_table_value_success_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10366,6 +12850,33 @@ defmodule AWS.Connect do
 
   """
   @type associate_security_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_describe_data_table_value_failure_result() :: %{
+        "AttributeName" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "PrimaryValues" => list(primary_value())
+      }
+
+  """
+  @type batch_describe_data_table_value_failure_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workspace_page_request() :: %{
+        optional("InputData") => String.t() | atom(),
+        optional("NewPage") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
+        optional("Slug") => String.t() | atom()
+      }
+
+  """
+  @type update_workspace_page_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10518,6 +13029,22 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_flow_module_alias_summary() :: %{
+        "AliasDescription" => String.t() | atom(),
+        "AliasId" => String.t() | atom(),
+        "AliasName" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Version" => float()
+      }
+
+  """
+  @type contact_flow_module_alias_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_queue_quick_connects_request() :: %{
         required("QuickConnectIds") => list(String.t() | atom())
       }
@@ -10569,6 +13096,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_workspace_page_response() :: %{}
+
+  """
+  @type create_workspace_page_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       attachment_reference() :: %{
         "Arn" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -10578,6 +13114,17 @@ defmodule AWS.Connect do
 
   """
   @type attachment_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_case_search_filter() :: %{
+        "TagFilter" => control_plane_tag_filter()
+      }
+
+  """
+  @type test_case_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10646,6 +13193,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      recurrence_pattern() :: %{
+        "ByMonth" => list(integer()),
+        "ByMonthDay" => list(integer()),
+        "ByWeekdayOccurrence" => list(integer()),
+        "Frequency" => list(any()),
+        "Interval" => integer()
+      }
+
+  """
+  @type recurrence_pattern() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_routing_profile_response() :: %{
         "RoutingProfile" => routing_profile()
       }
@@ -10687,6 +13249,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      associate_workspace_response() :: %{
+        "FailedList" => list(failed_batch_association_summary()),
+        "SuccessfulList" => list(successful_batch_association_summary())
+      }
+
+  """
+  @type associate_workspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_form_item_enablement_configuration() :: %{
         "Action" => list(any()),
         "Condition" => evaluation_form_item_enablement_condition(),
@@ -10705,7 +13279,9 @@ defmodule AWS.Connect do
         optional("ChatDurationInMinutes") => integer(),
         optional("ClientToken") => String.t() | atom(),
         optional("CustomerId") => String.t() | atom(),
+        optional("DisconnectOnCustomerExit") => list(list(any())()),
         optional("InitialMessage") => chat_message(),
+        optional("ParticipantConfiguration") => participant_configuration(),
         optional("PersistentChat") => persistent_chat(),
         optional("RelatedContactId") => String.t() | atom(),
         optional("SegmentAttributes") => map(),
@@ -10783,6 +13359,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      data_table_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+
+  """
+  @type data_table_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_search_criteria() :: %{
         "AndConditions" => list(prompt_search_criteria()),
         "OrConditions" => list(prompt_search_criteria()),
@@ -10796,12 +13383,23 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_test_case_response() :: %{}
+
+  """
+  @type update_test_case_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_criteria() :: %{
+        "ActiveRegions" => list(String.t() | atom()),
         "AdditionalTimeRange" => search_contacts_additional_time_range(),
         "AgentHierarchyGroups" => agent_hierarchy_groups(),
         "AgentIds" => list(String.t() | atom()),
         "Channels" => list(list(any())()),
         "ContactAnalysis" => contact_analysis(),
+        "ContactTags" => control_plane_tag_filter(),
         "InitiationMethods" => list(list(any())()),
         "Name" => name_criteria(),
         "QueueIds" => list(String.t() | atom()),
@@ -10941,6 +13539,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_security_profile_flow_modules_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_security_profile_flow_modules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_contact_with_user_request() :: %{
         required("UserId") => String.t() | atom()
       }
@@ -10972,6 +13582,7 @@ defmodule AWS.Connect do
         "AutoEvaluationEnabled" => boolean(),
         "AutoEvaluationStatus" => list(any()),
         "CalibrationSessionId" => String.t() | atom(),
+        "ContactParticipant" => evaluation_contact_participant(),
         "CreatedTime" => non_neg_integer(),
         "EvaluationArn" => String.t() | atom(),
         "EvaluationFormId" => String.t() | atom(),
@@ -11057,6 +13668,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      task_attachment() :: %{
+        "FileName" => String.t() | atom(),
+        "S3Url" => String.t() | atom()
+      }
+
+  """
+  @type task_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_queues_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t() | atom(),
@@ -11119,6 +13742,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_review_notification_recipient() :: %{
+        "Type" => list(any()),
+        "Value" => evaluation_review_notification_recipient_value()
+      }
+
+  """
+  @type evaluation_review_notification_recipient() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_predefined_attribute_request() :: %{}
 
   """
@@ -11135,6 +13770,30 @@ defmodule AWS.Connect do
 
   """
   @type create_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_table() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LockVersion" => data_table_lock_version(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "TimeZone" => String.t() | atom(),
+        "ValueLockLevel" => list(any()),
+        "Version" => String.t() | atom(),
+        "VersionDescription" => String.t() | atom()
+      }
+
+  """
+  @type data_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11168,11 +13827,13 @@ defmodule AWS.Connect do
       evaluation_form_search_summary() :: %{
         "ActiveVersion" => integer(),
         "AutoEvaluationEnabled" => boolean(),
+        "ContactInteractionType" => list(any()),
         "CreatedBy" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "EvaluationFormArn" => String.t() | atom(),
         "EvaluationFormId" => String.t() | atom(),
+        "EvaluationFormLanguage" => list(any()),
         "LastActivatedBy" => String.t() | atom(),
         "LastActivatedTime" => non_neg_integer(),
         "LastModifiedBy" => String.t() | atom(),
@@ -11336,6 +13997,41 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_contact_flow_module_alias_response() :: %{
+        "ContactFlowModuleAlias" => contact_flow_module_alias_info()
+      }
+
+  """
+  @type describe_contact_flow_module_alias_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_workspaces_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "NextToken" => String.t() | atom(),
+        "Workspaces" => list(workspace_search_summary())
+      }
+
+  """
+  @type search_workspaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parent_hours_of_operation_config() :: %{
+        "HoursOfOperationId" => String.t() | atom()
+      }
+
+  """
+  @type parent_hours_of_operation_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       hierarchy_structure_update() :: %{
         "LevelFive" => hierarchy_level_update(),
         "LevelFour" => hierarchy_level_update(),
@@ -11375,6 +14071,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      evaluation_review_request_comment() :: %{
+        "Comment" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer()
+      }
+
+  """
+  @type evaluation_review_request_comment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt() :: %{
         "Description" => String.t() | atom(),
         "LastModifiedRegion" => String.t() | atom(),
@@ -11402,6 +14111,28 @@ defmodule AWS.Connect do
 
   """
   @type media_placement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_workspace_request() :: %{
+        required("ResourceArns") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_workspace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_workspace_request() :: %{
+        required("ResourceArns") => list(String.t() | atom())
+      }
+
+  """
+  @type associate_workspace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11518,6 +14249,71 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_workspace_page_request() :: %{}
+
+  """
+  @type delete_workspace_page_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_form_multi_select_question_properties() :: %{
+        "Automation" => evaluation_form_multi_select_question_automation(),
+        "DisplayAs" => list(any()),
+        "Options" => list(evaluation_form_multi_select_question_option())
+      }
+
+  """
+  @type evaluation_form_multi_select_question_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_table_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom(),
+        required("Status") => list(any()),
+        required("TimeZone") => String.t() | atom(),
+        required("ValueLockLevel") => list(any())
+      }
+
+  """
+  @type create_data_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_workspace_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchCriteria") => workspace_association_search_criteria(),
+        optional("SearchFilter") => workspace_association_search_filter(),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type search_workspace_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_flow_module_alias_response() :: %{
+        "ContactFlowModuleArn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_contact_flow_module_alias_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_contact_evaluations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -11528,6 +14324,30 @@ defmodule AWS.Connect do
 
   """
   @type search_contact_evaluations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_workspace_response() :: %{
+        "FailedList" => list(failed_batch_association_summary()),
+        "SuccessfulList" => list(successful_batch_association_summary())
+      }
+
+  """
+  @type disassociate_workspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_item() :: %{
+        "Source" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type media_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11545,6 +14365,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_data_table_primary_values_request() :: %{
+        required("LockVersion") => data_table_lock_version(),
+        required("NewPrimaryValues") => list(primary_value()),
+        required("PrimaryValues") => list(primary_value())
+      }
+
+  """
+  @type update_data_table_primary_values_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_email_address_metadata_response() :: %{
         "EmailAddressArn" => String.t() | atom(),
         "EmailAddressId" => String.t() | atom()
@@ -11552,6 +14385,18 @@ defmodule AWS.Connect do
 
   """
   @type update_email_address_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluate_data_table_values_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Values" => list(data_table_evaluated_value())
+      }
+
+  """
+  @type evaluate_data_table_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11655,6 +14500,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      data_table_access_control_configuration() :: %{
+        "PrimaryAttributeAccessControlConfiguration" => primary_attribute_access_control_configuration_item()
+      }
+
+  """
+  @type data_table_access_control_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_contact_flow_response() :: %{
         "ContactFlowArn" => String.t() | atom(),
         "ContactFlowId" => String.t() | atom(),
@@ -11731,6 +14587,35 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_workspace_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        optional("Theme") => workspace_theme(),
+        optional("Title") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_workspace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      override_hour() :: %{
+        "End" => override_time_slice(),
+        "OperationalStatus" => list(any()),
+        "OverrideName" => String.t() | atom(),
+        "Start" => override_time_slice()
+      }
+
+  """
+  @type override_hour() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       suspend_contact_recording_request() :: %{
         optional("ContactRecordingType") => list(any()),
         required("ContactId") => String.t() | atom(),
@@ -11784,7 +14669,10 @@ defmodule AWS.Connect do
         "EvaluationFormId" => String.t() | atom(),
         "EvaluationFormVersion" => integer(),
         "Items" => list(list()),
+        "LanguageConfiguration" => evaluation_form_language_configuration(),
+        "ReviewConfiguration" => evaluation_review_configuration(),
         "ScoringStrategy" => evaluation_form_scoring_strategy(),
+        "TargetConfiguration" => evaluation_form_target_configuration(),
         "Title" => String.t() | atom()
       }
 
@@ -11805,7 +14693,8 @@ defmodule AWS.Connect do
   ## Example:
 
       update_contact_flow_module_content_request() :: %{
-        required("Content") => String.t() | atom()
+        optional("Content") => String.t() | atom(),
+        optional("Settings") => String.t() | atom()
       }
 
   """
@@ -11829,6 +14718,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_data_table_attribute_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Primary") => boolean(),
+        optional("Validation") => validation(),
+        required("Name") => String.t() | atom(),
+        required("ValueType") => list(any())
+      }
+
+  """
+  @type create_data_table_attribute_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       instance_storage_config() :: %{
         "AssociationId" => String.t() | atom(),
         "KinesisFirehoseConfig" => kinesis_firehose_config(),
@@ -11840,6 +14744,29 @@ defmodule AWS.Connect do
 
   """
   @type instance_storage_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workspace_media_request() :: %{}
+
+  """
+  @type list_workspace_media_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      record_primary_value() :: %{
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "PrimaryValues" => list(primary_value_response()),
+        "RecordId" => String.t() | atom()
+      }
+
+  """
+  @type record_primary_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11977,6 +14904,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type associate_hours_of_operations_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | conditional_operation_failed_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type associate_instance_storage_config_errors() ::
           resource_conflict_exception()
           | throttling_exception()
@@ -12034,6 +14970,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type associate_security_profiles_errors() ::
+          resource_conflict_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | conditional_operation_failed_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type associate_traffic_distribution_group_user_errors() ::
           resource_conflict_exception()
           | throttling_exception()
@@ -12049,9 +14994,46 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type associate_workspace_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type batch_associate_analytics_data_set_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type batch_create_data_table_value_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_service_exception()
+
+  @type batch_delete_data_table_value_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_service_exception()
+
+  @type batch_describe_data_table_value_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -12084,6 +15066,15 @@ defmodule AWS.Connect do
           | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type batch_update_data_table_value_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | internal_service_exception()
 
   @type claim_phone_number_errors() ::
@@ -12143,6 +15134,25 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type create_contact_flow_module_alias_errors() ::
+          duplicate_resource_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type create_contact_flow_module_version_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type create_contact_flow_version_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -12150,6 +15160,28 @@ defmodule AWS.Connect do
           | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type create_data_table_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_service_exception()
+
+  @type create_data_table_attribute_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | internal_service_exception()
 
   @type create_email_address_errors() ::
@@ -12177,6 +15209,7 @@ defmodule AWS.Connect do
           | limit_exceeded_exception()
           | throttling_exception()
           | invalid_parameter_exception()
+          | service_quota_exceeded_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -12298,6 +15331,19 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | property_validation_exception()
 
+  @type create_test_case_errors() ::
+          duplicate_resource_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | idempotency_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | invalid_test_case_exception()
+
   @type create_traffic_distribution_group_errors() ::
           resource_conflict_exception()
           | resource_not_ready_exception()
@@ -12363,6 +15409,29 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type create_workspace_errors() ::
+          duplicate_resource_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type create_workspace_page_errors() ::
+          resource_conflict_exception()
+          | duplicate_resource_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type deactivate_evaluation_form_errors() ::
           resource_conflict_exception()
           | throttling_exception()
@@ -12400,12 +15469,46 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type delete_contact_flow_module_alias_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type delete_contact_flow_module_version_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type delete_contact_flow_version_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type delete_data_table_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_service_exception()
+
+  @type delete_data_table_attribute_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | internal_service_exception()
 
   @type delete_email_address_errors() ::
@@ -12517,6 +15620,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type delete_test_case_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type delete_traffic_distribution_group_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -12571,6 +15682,30 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | resource_in_use_exception()
 
+  @type delete_workspace_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type delete_workspace_media_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type delete_workspace_page_errors() ::
+          resource_conflict_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type describe_agent_status_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -12607,6 +15742,30 @@ defmodule AWS.Connect do
           | contact_flow_not_published_exception()
 
   @type describe_contact_flow_module_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type describe_contact_flow_module_alias_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type describe_data_table_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type describe_data_table_attribute_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
@@ -12717,6 +15876,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type describe_test_case_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type describe_traffic_distribution_group_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -12760,6 +15927,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type describe_workspace_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type disassociate_analytics_data_set_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -12793,6 +15968,14 @@ defmodule AWS.Connect do
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type disassociate_hours_of_operations_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | conditional_operation_failed_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -12846,6 +16029,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type disassociate_security_profiles_errors() ::
+          resource_conflict_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | conditional_operation_failed_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type disassociate_traffic_distribution_group_user_errors() ::
           resource_conflict_exception()
           | throttling_exception()
@@ -12861,7 +16053,23 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type disassociate_workspace_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type dismiss_user_contact_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type evaluate_data_table_values_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
@@ -12954,6 +16162,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type get_test_case_execution_summary_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type get_traffic_distribution_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -12966,6 +16182,13 @@ defmodule AWS.Connect do
           | idempotency_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type import_workspace_media_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
@@ -13017,9 +16240,32 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type list_child_hours_of_operations_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type list_contact_evaluations_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_contact_flow_module_aliases_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_contact_flow_module_versions_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
@@ -13053,10 +16299,49 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type list_data_table_attributes_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_data_table_primary_values_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_data_table_values_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_data_tables_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type list_default_vocabularies_errors() ::
           throttling_exception()
           | access_denied_exception()
           | invalid_request_exception()
+          | internal_service_exception()
+
+  @type list_entity_security_profiles_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
           | internal_service_exception()
 
   @type list_evaluation_form_versions_errors() ::
@@ -13228,6 +16513,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type list_security_profile_flow_modules_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type list_security_profile_permissions_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -13252,6 +16544,30 @@ defmodule AWS.Connect do
   @type list_task_templates_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_test_case_execution_records_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_test_case_executions_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_test_cases_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -13312,6 +16628,30 @@ defmodule AWS.Connect do
           | too_many_requests_exception()
           | internal_service_exception()
 
+  @type list_workspace_media_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_workspace_pages_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_workspaces_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type monitor_contact_errors() ::
           throttling_exception()
           | idempotency_exception()
@@ -13368,7 +16708,8 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type resume_contact_recording_errors() ::
-          invalid_request_exception()
+          invalid_active_region_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
@@ -13407,6 +16748,13 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type search_contacts_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type search_data_tables_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
@@ -13492,6 +16840,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type search_test_cases_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type search_user_hierarchy_groups_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -13506,10 +16862,34 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type search_views_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type search_vocabularies_errors() ::
           throttling_exception()
           | access_denied_exception()
           | invalid_request_exception()
+          | internal_service_exception()
+
+  @type search_workspace_associations_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type search_workspaces_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
           | internal_service_exception()
 
   @type send_chat_integration_event_errors() ::
@@ -13551,8 +16931,18 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type start_contact_media_processing_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type start_contact_recording_errors() ::
-          invalid_parameter_exception()
+          invalid_active_region_exception()
+          | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -13616,6 +17006,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type start_test_case_execution_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type start_web_r_t_c_contact_errors() ::
           limit_exceeded_exception()
           | invalid_parameter_exception()
@@ -13624,19 +17023,37 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type stop_contact_errors() ::
-          invalid_parameter_exception()
+          invalid_active_region_exception()
+          | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
           | contact_not_found_exception()
 
+  @type stop_contact_media_processing_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type stop_contact_recording_errors() ::
-          invalid_request_exception()
+          invalid_active_region_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
   @type stop_contact_streaming_errors() ::
           invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type stop_test_case_execution_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -13649,12 +17066,14 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type suspend_contact_recording_errors() ::
-          invalid_request_exception()
+          invalid_active_region_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
   @type tag_contact_errors() ::
           throttling_exception()
+          | invalid_active_region_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -13678,6 +17097,7 @@ defmodule AWS.Connect do
 
   @type untag_contact_errors() ::
           throttling_exception()
+          | invalid_active_region_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -13708,6 +17128,7 @@ defmodule AWS.Connect do
 
   @type update_contact_errors() ::
           throttling_exception()
+          | invalid_active_region_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
           | invalid_request_exception()
@@ -13716,7 +17137,8 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type update_contact_attributes_errors() ::
-          invalid_parameter_exception()
+          invalid_active_region_exception()
+          | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -13740,6 +17162,16 @@ defmodule AWS.Connect do
           duplicate_resource_exception()
           | throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_contact_flow_module_alias_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | conditional_operation_failed_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -13772,6 +17204,7 @@ defmodule AWS.Connect do
   @type update_contact_routing_data_errors() ::
           resource_conflict_exception()
           | throttling_exception()
+          | invalid_active_region_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
           | resource_not_found_exception()
@@ -13783,6 +17216,36 @@ defmodule AWS.Connect do
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_data_table_attribute_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_service_exception()
+
+  @type update_data_table_metadata_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_service_exception()
+
+  @type update_data_table_primary_values_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | internal_service_exception()
 
   @type update_email_address_metadata_errors() ::
@@ -14000,6 +17463,16 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | property_validation_exception()
 
+  @type update_test_case_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | invalid_test_case_exception()
+
   @type update_traffic_distribution_errors() ::
           resource_conflict_exception()
           | throttling_exception()
@@ -14085,6 +17558,41 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | resource_in_use_exception()
 
+  @type update_workspace_metadata_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_workspace_page_errors() ::
+          resource_conflict_exception()
+          | duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_workspace_theme_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_workspace_visibility_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   def metadata do
     %{
       api_version: "2017-08-08",
@@ -14104,9 +17612,8 @@ defmodule AWS.Connect do
   @doc """
   Activates an evaluation form in the specified Amazon Connect instance.
 
-  After the
-  evaluation form is activated, it is available to start new evaluations based on
-  the form.
+  After the evaluation form is
+  activated, it is available to start new evaluations based on the form.
   """
   @spec activate_evaluation_form(
           map(),
@@ -14152,7 +17659,8 @@ defmodule AWS.Connect do
   Associates the specified dataset for a Amazon Connect instance with the target
   account.
 
-  You can associate only one dataset in a single call.
+  You can associate
+  only one dataset in a single call.
   """
   @spec associate_analytics_data_set(
           map(),
@@ -14225,7 +17733,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Allows the specified Amazon Connect instance to access the specified Amazon Lex
-  or Amazon Lex V2 bot.
+  or Amazon Lex V2
+  bot.
   """
   @spec associate_bot(map(), String.t() | atom(), associate_bot_request(), list()) ::
           {:ok, nil, any()}
@@ -14265,7 +17774,8 @@ defmodule AWS.Connect do
 
     *
   Leverage the IAM context key `connect:PreferredUserArn` to restrict contact
-  association to specific preferred user.
+  association to specific
+  preferred user.
 
   ## Important things to know
 
@@ -14275,27 +17785,27 @@ defmodule AWS.Connect do
 
     *
   Use it to associate contacts with users regardless of their current state,
-  including
-  custom states. Ensure your application logic accounts for user availability
-  before making
+  including custom states. Ensure
+  your application logic accounts for user availability before making
   associations.
 
     *
-  It honors the IAM context key `connect:PreferredUserArn` to prevent
-  unauthorized contact associations.
+  It honors the IAM context key `connect:PreferredUserArn` to prevent unauthorized
+  contact
+  associations.
 
     *
   It respects the IAM context key `connect:PreferredUserArn` to enforce
-  authorization controls and prevent unauthorized contact associations. Verify
-  that your IAM
-  policies are properly configured to support your intended use cases.
+  authorization controls and
+  prevent unauthorized contact associations. Verify that your IAM policies are
+  properly configured to support your
+  intended use cases.
 
     *
-  The service quota *Queues per routing profile per instance* applies to
-  manually assigned queues, too. For more information about this quota, see
-  [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas)
-  in the *Amazon Connect Administrator
-  Guide*.
+  The service quota *Queues per routing profile per instance* applies to manually
+  assigned
+  queues, too. For more information about this quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas)
+  in the *Amazon Connect Administrator Guide*.
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
@@ -14342,8 +17852,8 @@ defmodule AWS.Connect do
   @doc """
   Associates an existing vocabulary as the default.
 
-  Contact Lens for Amazon Connect uses the vocabulary in post-call
-  and real-time analysis sessions for the given language.
+  Contact Lens for Amazon Connect uses the vocabulary in post-call and real-time
+  analysis sessions for the given language.
   """
   @spec associate_default_vocabulary(
           map(),
@@ -14387,12 +17897,12 @@ defmodule AWS.Connect do
 
   @doc """
   Associates an email address alias with an existing email address in an Amazon
-  Connect
-  instance.
+  Connect instance.
 
-  This creates a forwarding relationship where emails sent to the alias email
-  address are
-  automatically forwarded to the primary email address.
+  This creates
+  a forwarding relationship where emails sent to the alias email address are
+  automatically forwarded to the primary
+  email address.
 
   ## Use cases
 
@@ -14401,36 +17911,33 @@ defmodule AWS.Connect do
     *
 
   **Unified customer support**: Create multiple entry points (for example,
-  support@example.com,
-  help@example.com, customercare@example.com) that all forward to a single agent
-  queue for
+  support@example.com, help@example.com, customercare@example.com) that all
+  forward to a single agent queue for
   streamlined management.
 
     *
 
   **Department consolidation**: Forward emails from legacy department addresses
-  (for example,
-  sales@example.com, info@example.com) to a centralized customer service email
-  during
-  organizational restructuring.
+  (for example, sales@example.com, info@example.com) to a centralized customer
+  service email during organizational
+  restructuring.
 
     *
 
   **Brand management**: Enable you to use familiar brand-specific email addresses
-  that forward
-  to the appropriate Amazon Connect instance email address.
+  that forward to the appropriate Amazon Connect instance email address.
 
   ## Important things to know
 
     *
   Each email address can have a maximum of one alias. You cannot create multiple
-  aliases for
-  the same email address.
+  aliases for the same email
+  address.
 
     *
   If the alias email address already receives direct emails, it continues to
-  receive direct
-  emails plus forwarded emails.
+  receive direct emails plus
+  forwarded emails.
 
     *
   You cannot chain email aliases together (that is, create an alias of an alias).
@@ -14447,43 +17954,38 @@ defmodule AWS.Connect do
     *
   The status of the forwarding configuration.
 
-  **Endpoints**: See
-  [Amazon Connect endpoints and
+  **Endpoints**: See [Amazon Connect endpoints and
   quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
 
   ## Related operations
 
     *
 
-  [DisassociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html): Removes the alias association between two email
-  addresses in an Amazon Connect instance.
+  [DisassociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html): Removes the alias association between two email addresses in an Amazon Connect
+  instance.
 
     *
 
   [DescribeEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html):
-
   View current alias configurations for an email address.
 
     *
 
-  [SearchEmailAddresses](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html):  Find email addresses and their alias relationships across an instance.
+  [SearchEmailAddresses](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html): Find email addresses and their alias relationships across an instance.
 
     *
 
   [CreateEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html):
-  Create new email addresses that can participate in alias
-  relationships.
+  Create new email addresses that can participate in alias relationships.
 
     *
 
-  [DeleteEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html): Remove email addresses (automatically removes any alias
-  relationships).
+  [DeleteEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html): Remove email addresses (automatically removes any alias relationships).
 
     *
 
   [UpdateEmailAddressMetadata](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html):
-  Modify email address properties (does not affect alias
-  relationships).
+  Modify email address properties (does not affect alias relationships).
   """
   @spec associate_email_address_alias(
           map(),
@@ -14555,19 +18057,66 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Associates a set of hours of operations with another hours of operation.
+
+  Refer to Administrator Guide [ here
+  ](https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html)
+  for more information on inheriting overrides from parent hours of operation(s).
+  """
+  @spec associate_hours_of_operations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          associate_hours_of_operations_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_hours_of_operations_errors()}
+  def associate_hours_of_operations(
+        %Client{} = client,
+        hours_of_operation_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}/associate-hours"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Associates a storage resource type for the first time. You can only associate
-  one type of
-  storage configuration in a single call. This means, for example, that you can't
-  define an
-  instance with multiple S3 buckets for storing chat transcripts.
+  one type of storage configuration
+  in a single call. This means, for example, that you can't define an instance
+  with multiple S3 buckets for storing
+  chat transcripts.
 
   This API does not create a resource that doesn't exist. It only associates it to
-  the
-  instance. Ensure that the resource being specified in the storage configuration,
-  like an S3
-  bucket, exists when being used for association.
+  the instance. Ensure that the
+  resource being specified in the storage configuration, like an S3 bucket, exists
+  when being used for
+  association.
   """
   @spec associate_instance_storage_config(
           map(),
@@ -14641,7 +18190,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Allows the specified Amazon Connect instance to access the specified Amazon Lex
-  V1 bot. This API only supports the association of Amazon Lex V1 bots.
+  V1 bot. This API
+  only supports the association of Amazon Lex V1 bots.
   """
   @spec associate_lex_bot(map(), String.t() | atom(), associate_lex_bot_request(), list()) ::
           {:ok, nil, any()}
@@ -14673,18 +18223,16 @@ defmodule AWS.Connect do
   Associates a flow with a phone number claimed to your Amazon Connect instance.
 
   If the number is claimed to a traffic distribution group, and you are calling
-  this API using an instance in the
-  Amazon Web Services Region where the traffic distribution group was created, you
-  can use either a full phone number
-  ARN or UUID value for the `PhoneNumberId` URI request parameter. However, if the
-  number is claimed to a traffic distribution group and you are calling this API
-  using an instance in the alternate
-  Amazon Web Services Region associated with the traffic distribution group, you
-  must provide a full phone number ARN.
-  If a UUID is provided
+  this API using an instance in the Amazon Web Services Region where the traffic
+  distribution group was created, you can use either a full phone number ARN or
+  UUID value for the
+  `PhoneNumberId` URI request parameter. However, if the number is claimed to a
+  traffic distribution group and you are calling
+  this API using an instance in the alternate Amazon Web Services Region
+  associated with the traffic distribution group, you must provide a
+  full phone number ARN. If a UUID is provided
   in
-  this scenario, you will receive a
-  `ResourceNotFoundException`.
+  this scenario, you will receive a `ResourceNotFoundException`.
   """
   @spec associate_phone_number_contact_flow(
           map(),
@@ -14845,10 +18393,44 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Associate security profiles with an Entity in an Amazon Connect instance.
+  """
+  @spec associate_security_profiles(
+          map(),
+          String.t() | atom(),
+          associate_security_profiles_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_security_profiles_errors()}
+  def associate_security_profiles(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/associate-security-profiles/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Associates an agent with a traffic distribution group.
 
-  This API can be called only in the
-  Region where the traffic distribution group is created.
+  This API can be called only in the Region where the traffic distribution group
+  is created.
   """
   @spec associate_traffic_distribution_group_user(
           map(),
@@ -14926,11 +18508,50 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Associates a list of analytics datasets for a given Amazon Connect instance to a
-  target
-  account.
+  Associates a workspace with one or more users or routing profiles, allowing them
+  to access the workspace's
+  configured views and pages.
+  """
+  @spec associate_workspace(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          associate_workspace_request(),
+          list()
+        ) ::
+          {:ok, associate_workspace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_workspace_errors()}
+  def associate_workspace(%Client{} = client, instance_id, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/associate"
 
-  You can associate multiple datasets in a single call.
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates a list of analytics datasets for a given Amazon Connect instance to a
+  target account.
+
+  You can
+  associate multiple datasets in a single call.
   """
   @spec batch_associate_analytics_data_set(
           map(),
@@ -14964,10 +18585,161 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates values for attributes in a data table.
+
+  The value may be a default or it may be associated with a primary
+  value. The value must pass all customer defined validation as well as the
+  default validation for the value type. The
+  operation must conform to Batch Operation API Standards. Although the standard
+  specifies that successful and failed
+  entities are listed separately in the response, authorization fails if any
+  primary values or attributes are
+  unauthorized. The combination of primary values and the attribute name serve as
+  the identifier for the individual
+  item request.
+  """
+  @spec batch_create_data_table_value(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          batch_create_data_table_value_request(),
+          list()
+        ) ::
+          {:ok, batch_create_data_table_value_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_create_data_table_value_errors()}
+  def batch_create_data_table_value(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/values/create"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes multiple values from a data table.
+
+  API users may delete values at any time. When deletion is requested
+  from the admin website, a warning is shown alerting the user of the most recent
+  time the attribute and its values
+  were accessed. System managed values are not deletable by customers.
+  """
+  @spec batch_delete_data_table_value(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          batch_delete_data_table_value_request(),
+          list()
+        ) ::
+          {:ok, batch_delete_data_table_value_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_delete_data_table_value_errors()}
+  def batch_delete_data_table_value(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/values/delete"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves multiple values from a data table without evaluating expressions.
+
+  Returns the raw stored values along
+  with metadata such as lock versions and modification timestamps. "Describe" is a
+  deprecated term but is allowed to
+  maintain consistency with existing operations.
+  """
+  @spec batch_describe_data_table_value(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          batch_describe_data_table_value_request(),
+          list()
+        ) ::
+          {:ok, batch_describe_data_table_value_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_describe_data_table_value_errors()}
+  def batch_describe_data_table_value(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/values/describe"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Removes a list of analytics datasets associated with a given Amazon Connect
   instance.
 
-  You can disassociate multiple datasets in a single call.
+  You can disassociate
+  multiple datasets in a single call.
   """
   @spec batch_disassociate_analytics_data_set(
           map(),
@@ -15004,7 +18776,8 @@ defmodule AWS.Connect do
   Allows you to retrieve metadata about multiple attached files on an associated
   resource.
 
-  Each attached file provided in the input list must be associated with the input
+  Each attached file
+  provided in the input list must be associated with the input
   AssociatedResourceArn.
   """
   @spec batch_get_attached_file_metadata(
@@ -15080,19 +18853,17 @@ defmodule AWS.Connect do
   @doc """
 
   Only the Amazon Connect outbound campaigns service principal is allowed to
-  assume a
-  role in your account and call this API.
+  assume a role in your account
+  and call this API.
 
   Allows you to create a batch of contacts in Amazon Connect. The outbound
-  campaigns
-  capability ingests dial requests via the
+  campaigns capability ingests dial
+  requests via the
   [PutDialRequestBatch](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html)
-  API. It then uses BatchPutContact to create contacts corresponding
-  to those dial requests. If agents are available, the dial requests are dialed
-  out, which results
-  in a voice call. The resulting voice call uses the same contactId that was
-  created by
-  BatchPutContact.
+  API. It then uses BatchPutContact to create contacts corresponding to those dial
+  requests. If agents are available, the dial requests are dialed out, which
+  results in a voice call. The resulting
+  voice call uses the same contactId that was created by BatchPutContact.
   """
   @spec batch_put_contact(map(), String.t() | atom(), batch_put_contact_request(), list()) ::
           {:ok, batch_put_contact_response(), any()}
@@ -15121,12 +18892,62 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Claims an available phone number to your Amazon Connect instance or traffic
-  distribution
-  group.
+  Updates multiple data table values using all properties from
+  BatchCreateDataTableValue.
 
-  You can call this API only in the same Amazon Web Services Region where the
-  Amazon Connect instance or traffic distribution group was created.
+  System managed values
+  are not modifiable by customers. The operation requires proper lock versions to
+  prevent concurrent modification
+  conflicts.
+  """
+  @spec batch_update_data_table_value(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          batch_update_data_table_value_request(),
+          list()
+        ) ::
+          {:ok, batch_update_data_table_value_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_update_data_table_value_errors()}
+  def batch_update_data_table_value(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/values/update"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Claims an available phone number to your Amazon Connect instance or traffic
+  distribution group.
+
+  You can call
+  this API only in the same Amazon Web Services Region where the Amazon Connect
+  instance or traffic distribution group was
+  created.
 
   For more information about how to use this operation, see [Claim a phone number in your
   country](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html)
@@ -15136,10 +18957,11 @@ defmodule AWS.Connect do
   Guide*.
 
   You can call the
-  [SearchAvailablePhoneNumbers](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html) API for available phone numbers that you can claim. Call
-  the
+  [SearchAvailablePhoneNumbers](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html) API for
+  available phone numbers that you can claim. Call the
   [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html)
-  API to verify the status of a previous
+  API to verify the status
+  of a previous
   [ClaimPhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html)
   operation.
 
@@ -15194,8 +19016,8 @@ defmodule AWS.Connect do
 
   @doc """
   Allows you to confirm that the attached file has been uploaded using the
-  pre-signed URL
-  provided in the StartAttachedFileUpload API.
+  pre-signed URL provided in the
+  StartAttachedFileUpload API.
   """
   @spec complete_attached_file_upload(
           map(),
@@ -15277,26 +19099,26 @@ defmodule AWS.Connect do
 
     
   For VOICE: The supported initiation method is `TRANSFER`. The contacts created
-  with this initiation method have a subtype `connect:ExternalAudio`.
+  with this
+  initiation method have a subtype `connect:ExternalAudio`.
 
     
-  For EMAIL: The supported initiation methods are `OUTBOUND`,
-  `AGENT_REPLY`, and `FLOW`.
+  For EMAIL: The supported initiation methods are `OUTBOUND`, `AGENT_REPLY`, and
+  `FLOW`.
 
     
   For TASK: The supported initiation method is `API`. Contacts created with this
-  API have a sub-type of `connect:ExternalTask`.
+  API have a sub-type
+  of `connect:ExternalTask`.
 
   Creates a new VOICE, EMAIL, or TASK contact.
 
   After a contact is created, you can move it to the desired state by using the
-  `InitiateAs` parameter. While you can use API to create task contacts that are
-  in the
-  `COMPLETED` state, you must contact Amazon Web Services Support before using it
-  for
-  bulk import use cases. Bulk import causes your requests to be throttled or fail
-  if your
-  CreateContact limits aren't high enough.
+  `InitiateAs` parameter.
+  While you can use API to create task contacts that are in the `COMPLETED` state,
+  you must contact Amazon Web Services Support before using it for bulk import use
+  cases. Bulk import causes your requests to be throttled or
+  fail if your CreateContact limits aren't high enough.
   """
   @spec create_contact(map(), create_contact_request(), list()) ::
           {:ok, create_contact_response(), any()}
@@ -15391,13 +19213,102 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a named alias that points to a specific version of a contact flow
+  module.
+  """
+  @spec create_contact_flow_module_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_contact_flow_module_alias_request(),
+          list()
+        ) ::
+          {:ok, create_contact_flow_module_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_contact_flow_module_alias_errors()}
+  def create_contact_flow_module_alias(
+        %Client{} = client,
+        contact_flow_module_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/alias"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an immutable snapshot of a contact flow module, preserving its content
+  and settings at a specific point
+  in time for version control and rollback capabilities.
+  """
+  @spec create_contact_flow_module_version(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_contact_flow_module_version_request(),
+          list()
+        ) ::
+          {:ok, create_contact_flow_module_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_contact_flow_module_version_errors()}
+  def create_contact_flow_module_version(
+        %Client{} = client,
+        contact_flow_module_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/version"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Publishes a new version of the flow provided.
 
-  Versions are immutable and monotonically
-  increasing. If the `FlowContentSha256` provided is different from the
-  `FlowContentSha256` of the `$LATEST` published flow content, then an error
-  is returned. This API only supports creating versions for flows of type
-  `Campaign`.
+  Versions are immutable and monotonically increasing. If the
+  `FlowContentSha256` provided is different from the `FlowContentSha256` of the
+  `$LATEST` published flow content, then an error is returned. This API only
+  supports creating versions for
+  flows of type `Campaign`.
   """
   @spec create_contact_flow_version(
           map(),
@@ -15440,12 +19351,96 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a new data table with the specified properties.
+
+  Supports the creation of all table properties except for
+  attributes and values. A table with no attributes and values is a valid state
+  for a table. The number of tables per
+  instance is limited to 100 per instance. Customers can request an increase by
+  using Amazon Web Services Service Quotas.
+  """
+  @spec create_data_table(map(), String.t() | atom(), create_data_table_request(), list()) ::
+          {:ok, create_data_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_data_table_errors()}
+  def create_data_table(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/data-tables/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds an attribute to an existing data table.
+
+  Creating a new primary attribute uses the empty value for the
+  specified value type for all existing records. This should not affect uniqueness
+  of published data tables since the
+  existing primary values will already be unique. Creating attributes does not
+  create any values. System managed tables
+  may not allow customers to create new attributes.
+  """
+  @spec create_data_table_attribute(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_data_table_attribute_request(),
+          list()
+        ) ::
+          {:ok, create_data_table_attribute_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_data_table_attribute_errors()}
+  def create_data_table_attribute(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/attributes"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Create new email address in the specified Amazon Connect instance.
 
-  For more information
-  about email addresses, see [Create email addresses](https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html)
-  in the
-  Amazon Connect Administrator Guide.
+  For more information about email
+  addresses, see [Create email addresses](https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html)
+  in the Amazon Connect Administrator Guide.
   """
   @spec create_email_address(map(), String.t() | atom(), create_email_address_request(), list()) ::
           {:ok, create_email_address_response(), any()}
@@ -15476,12 +19471,10 @@ defmodule AWS.Connect do
   @doc """
   Creates an evaluation form in the specified Amazon Connect instance.
 
-  The form can be
-  used to define questions related to agent performance, and create sections to
-  organize such
-  questions. Question and section identifiers cannot be duplicated within the same
-  evaluation
-  form.
+  The form can be used to define
+  questions related to agent performance, and create sections to organize such
+  questions. Question and section
+  identifiers cannot be duplicated within the same evaluation form.
   """
   @spec create_evaluation_form(
           map(),
@@ -15596,14 +19589,14 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Initiates an Amazon Connect instance with all the supported channels enabled. It
-  does
-  not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or
-  Amazon Kinesis. It
-  also does not allow for any configurations on features, such as Contact Lens for
-  Amazon Connect.
+  does not attach any
+  storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It
+  also does not allow for any
+  configurations on features, such as Contact Lens for Amazon Connect.
 
   For more information, see [Create an Amazon Connect instance](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
 
   Amazon Connect enforces a limit on the total number of instances that you can
   create or delete in 30 days.
@@ -15676,10 +19669,9 @@ defmodule AWS.Connect do
   @doc """
   Adds a new participant into an on-going chat contact or webRTC call.
 
-  For more information,
-  see [Customize chat flow experiences by integrating custom participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html)
-  or [Enable multi-user web, in-app, and video
-  calling](https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html).
+  For more information, see [Customize chat flow experiences by integrating custom
+  participants](https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html)
+  or [Enable multi-user web, in-app, and video calling](https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html).
   """
   @spec create_participant(map(), create_participant_request(), list()) ::
           {:ok, create_participant_response(), any()}
@@ -15710,10 +19702,10 @@ defmodule AWS.Connect do
   @doc """
   Enables rehydration of chats for the lifespan of a contact.
 
-  For more information about chat
-  rehydration, see [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  For more information about chat rehydration, see
+  [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html)
+  in
+  the *Amazon Connect Administrator Guide*.
   """
   @spec create_persistent_contact_association(
           map(),
@@ -15758,8 +19750,8 @@ defmodule AWS.Connect do
   @doc """
   Creates a new predefined attribute for the specified Amazon Connect instance.
 
-  A *predefined
-  attribute* is made up of a name and a value.
+  A *predefined attribute*
+  is made up of a name and a value.
 
   For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
@@ -15769,18 +19761,16 @@ defmodule AWS.Connect do
 
     *
   Create an attribute for routing proficiency (for example, agent certification)
-  that has
-  predefined values (for example, a list of possible certifications). For more
-  information, see
-  [Create predefined attributes for routing contacts to
+  that has predefined values (for
+  example, a list of possible certifications). For more information, see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
 
     *
   Create an attribute for business unit name that has a list of predefined
-  business unit
-  names used in your organization. This is a use case where information for a
-  contact varies
-  between transfers or conferences. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  business unit names used in your
+  organization. This is a use case where information for a contact varies between
+  transfers or conferences. For more
+  information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
@@ -15818,10 +19808,11 @@ defmodule AWS.Connect do
   @doc """
   Creates a prompt.
 
-  For more information about prompts, such as supported file types and
-  maximum length, see [Create prompts](https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html) in
-  the *Amazon Connect Administrator
-  Guide*.
+  For more information about prompts, such as supported file types and maximum
+  length, see
+  [Create prompts](https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html) in
+  the
+  *Amazon Connect Administrator Guide*.
   """
   @spec create_prompt(map(), String.t() | atom(), create_prompt_request(), list()) ::
           {:ok, create_prompt_response(), any()}
@@ -15851,13 +19842,12 @@ defmodule AWS.Connect do
 
   @doc """
   Creates registration for a device token and a chat contact to receive real-time
-  push
-  notifications.
+  push notifications.
 
-  For more information about push notifications, see [Set up push notifications in Amazon Connect for mobile
+  For more
+  information about push notifications, see [Set up push notifications in Amazon Connect for mobile
   chat](https://docs.aws.amazon.com/connect/latest/adminguide/enable-push-notifications-for-mobile-chat.html)
-  in the *Amazon Connect
-  Administrator Guide*.
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec create_push_notification_registration(
           map(),
@@ -15909,15 +19899,17 @@ defmodule AWS.Connect do
 
     
   Only use the phone number ARN format that doesn't contain `instance` in the
-  path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`.
-  This
-  is the same ARN format that is returned when you call the
+  path, for example,
+  `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`. This is the same ARN
+  format that is returned
+  when you call the
   [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
 
     
   If you plan to use IAM policies to allow/deny access to this API for phone
-  number resources claimed to a traffic distribution group, see [Allow or Deny
-  queue API actions for phone numbers in a replica
+  number resources
+  claimed to a traffic distribution group, see [Allow or Deny queue API actions
+  for phone numbers in a replica
   Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
   """
   @spec create_queue(map(), String.t() | atom(), create_queue_request(), list()) ::
@@ -16013,8 +20005,7 @@ defmodule AWS.Connect do
   Creates a rule for the specified Amazon Connect instance.
 
   Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
-  to
-  code conditions for the rule.
+  to code conditions for the rule.
   """
   @spec create_rule(map(), String.t() | atom(), create_rule_request(), list()) ::
           {:ok, create_rule_response(), any()}
@@ -16046,9 +20037,9 @@ defmodule AWS.Connect do
   Creates a security profile.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the
-  *Amazon Connect Administrator Guide*. For a mapping of the API name and
-  user interface name of the security profile permissions, see [List of security profile
+  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security
+  profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec create_security_profile(
@@ -16112,6 +20103,44 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a test case with its content and metadata for the specified Amazon
+  Connect instance.
+  """
+  @spec create_test_case(map(), String.t() | atom(), create_test_case_request(), list()) ::
+          {:ok, create_test_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_test_case_errors()}
+  def create_test_case(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/test-cases/#{AWS.Util.encode_uri(instance_id)}"
+
+    {headers, input} =
+      [
+        {"LastModifiedRegion", "x-amz-last-modified-region"},
+        {"LastModifiedTime", "x-amz-last-modified-time"},
+        {"TestCaseId", "x-amz-resource-id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a traffic distribution group given an Amazon Connect instance that has
   been replicated.
 
@@ -16125,8 +20154,8 @@ defmodule AWS.Connect do
   For more information about creating traffic distribution groups, see [Set up
   traffic distribution
   groups](https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html)
-  in
-  the *Amazon Connect Administrator Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   @spec create_traffic_distribution_group(
           map(),
@@ -16205,15 +20234,16 @@ defmodule AWS.Connect do
   Creates a user account for the specified Amazon Connect instance.
 
   Certain
-  [UserIdentityInfo](https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html) parameters
-  are required in some situations. For example, `Email`, `FirstName` and
-  `LastName` are required if you are using Amazon Connect or SAML for identity
-  management.
+  [UserIdentityInfo](https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html) parameters are required in some situations. For example, `Email`,
+  `FirstName` and `LastName` are required if you are using Amazon Connect or SAML
+  for
+  identity management.
 
   For information about how to create users using the Amazon Connect admin
   website, see [Add
   Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect
+  Administrator Guide*.
   """
   @spec create_user(map(), String.t() | atom(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
@@ -16276,18 +20306,17 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a new view with the possible status of `SAVED` or
-  `PUBLISHED`.
+  Creates a new view with the possible status of `SAVED` or `PUBLISHED`.
 
   The views will have a unique name for each connect instance.
 
   It performs basic content validation if the status is `SAVED` or full content
-  validation if the status is set to `PUBLISHED`. An error is returned if
-  validation
-  fails. It associates either the `$SAVED` qualifier or both of the `$SAVED`
-  and `$LATEST` qualifiers with the provided view content based on the status. The
-  view
-  is idempotent if ClientToken is provided.
+  validation if the
+  status is set to `PUBLISHED`. An error is returned if validation fails. It
+  associates either the
+  `$SAVED` qualifier or both of the `$SAVED` and `$LATEST` qualifiers with the
+  provided view content based on the status. The view is idempotent if ClientToken
+  is provided.
   """
   @spec create_view(map(), String.t() | atom(), create_view_request(), list()) ::
           {:ok, create_view_response(), any()}
@@ -16321,10 +20350,9 @@ defmodule AWS.Connect do
   Versions are immutable and monotonically increasing.
 
   It returns the highest version if there is no change in content compared to that
-  version. An
-  error is displayed if the supplied ViewContentSha256 is different from the
-  ViewContentSha256 of
-  the `$LATEST` alias.
+  version. An error is displayed
+  if the supplied ViewContentSha256 is different from the ViewContentSha256 of the
+  `$LATEST` alias.
   """
   @spec create_view_version(
           map(),
@@ -16363,11 +20391,10 @@ defmodule AWS.Connect do
   @doc """
   Creates a custom vocabulary associated with your Amazon Connect instance.
 
-  You can set a
-  custom vocabulary to be your default vocabulary for a given language. Contact
-  Lens for Amazon Connect uses the default
-  vocabulary in post-call and real-time contact analysis sessions for that
-  language.
+  You can set a custom vocabulary to
+  be your default vocabulary for a given language. Contact Lens for Amazon Connect
+  uses the default vocabulary in post-call and real-time
+  contact analysis sessions for that language.
   """
   @spec create_vocabulary(map(), String.t() | atom(), create_vocabulary_request(), list()) ::
           {:ok, create_vocabulary_response(), any()}
@@ -16396,10 +20423,80 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a workspace that defines the user experience by mapping views to pages.
+
+  Workspaces can be assigned to
+  users or routing profiles.
+  """
+  @spec create_workspace(map(), String.t() | atom(), create_workspace_request(), list()) ::
+          {:ok, create_workspace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_workspace_errors()}
+  def create_workspace(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates a view with a page in a workspace, defining what users see when they
+  navigate to that page.
+  """
+  @spec create_workspace_page(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_workspace_page_request(),
+          list()
+        ) ::
+          {:ok, create_workspace_page_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_workspace_page_errors()}
+  def create_workspace_page(%Client{} = client, instance_id, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/pages"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deactivates an evaluation form in the specified Amazon Connect instance.
 
-  After a form is deactivated,
-  it is no longer available for users to start new evaluations based on the form.
+  After a form is deactivated, it is no longer
+  available for users to start new evaluations based on the form.
   """
   @spec deactivate_evaluation_form(
           map(),
@@ -16444,8 +20541,8 @@ defmodule AWS.Connect do
   @doc """
   Deletes an attached file along with the underlying S3 Object.
 
-  The attached file is **permanently deleted** if S3 bucket
-  versioning is not enabled.
+  The attached file is **permanently deleted** if S3 bucket versioning is not
+  enabled.
   """
   @spec delete_attached_file(
           map(),
@@ -16610,6 +20707,98 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Removes an alias reference, breaking the named connection to the underlying
+  module version without affecting the
+  version itself.
+  """
+  @spec delete_contact_flow_module_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_contact_flow_module_alias_request(),
+          list()
+        ) ::
+          {:ok, delete_contact_flow_module_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_contact_flow_module_alias_errors()}
+  def delete_contact_flow_module_alias(
+        %Client{} = client,
+        alias_id,
+        contact_flow_module_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/alias/#{AWS.Util.encode_uri(alias_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes a specific version of a contact flow module.
+  """
+  @spec delete_contact_flow_module_version(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_contact_flow_module_version_request(),
+          list()
+        ) ::
+          {:ok, delete_contact_flow_module_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_contact_flow_module_version_errors()}
+  def delete_contact_flow_module_version(
+        %Client{} = client,
+        contact_flow_module_id,
+        contact_flow_module_version,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/version/#{AWS.Util.encode_uri(contact_flow_module_version)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the particular version specified in flow version identifier.
   """
   @spec delete_contact_flow_version(
@@ -16634,6 +20823,98 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/version/#{AWS.Util.encode_uri(contact_flow_version)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a data table and all associated attributes, versions, audits, and
+  values.
+
+  Does not update any references
+  to the data table, even from other data tables. This includes dynamic values and
+  conditional validations. System
+  managed data tables are not deletable by customers. API users may delete the
+  table at any time. When deletion is
+  requested from the admin website, a warning is shown alerting the user of the
+  most recent time the table and its
+  values were accessed.
+  """
+  @spec delete_data_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_data_table_request(),
+          list()
+        ) ::
+          {:ok, delete_data_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_data_table_errors()}
+  def delete_data_table(%Client{} = client, data_table_id, instance_id, input, options \\ []) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an attribute and all its values from a data table.
+  """
+  @spec delete_data_table_attribute(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_data_table_attribute_request(),
+          list()
+        ) ::
+          {:ok, delete_data_table_attribute_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_data_table_attribute_errors()}
+  def delete_data_table_attribute(
+        %Client{} = client,
+        attribute_name,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/attributes/#{AWS.Util.encode_uri(attribute_name)}"
 
     headers = []
     custom_headers = []
@@ -16702,8 +20983,7 @@ defmodule AWS.Connect do
 
     *
   If the version property is provided, only the specified version of the
-  evaluation form is
-  deleted.
+  evaluation form is deleted.
 
     *
   If no version is provided, then the full form (all versions) is deleted.
@@ -16847,8 +21127,8 @@ defmodule AWS.Connect do
 
   Deletes the Amazon Connect instance. For more information, see [Delete your Amazon Connect
   instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-connect-instance.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
 
   Amazon Connect enforces a limit on the total number of instances that you can
   create or delete in 30 days.
@@ -16892,8 +21172,8 @@ defmodule AWS.Connect do
   Deletes an Amazon Web Services resource association from an Amazon Connect
   instance.
 
-  The
-  association must not have any use cases associated with it.
+  The association must not
+  have any use cases associated with it.
   """
   @spec delete_integration_association(
           map(),
@@ -17094,10 +21374,8 @@ defmodule AWS.Connect do
   Deletes a quick connect.
 
   After calling
-  [DeleteUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html), it's important to
-  call `DeleteQuickConnect` to delete any records related to the deleted users.
-  This
-  will help you:
+  [DeleteUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html), it's important to call `DeleteQuickConnect` to delete any records related to the
+  deleted users. This will help you:
 
     
   Avoid dangling resources that impact your service quotas.
@@ -17107,9 +21385,8 @@ defmodule AWS.Connect do
 
     
   Avoid the disruption of other Amazon Connect processes, such as instance
-  replication
-  and syncing if you're using [Amazon Connect
-  Global
+  replication and syncing if
+  you're using [Amazon Connect Global
   Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
   """
   @spec delete_quick_connect(
@@ -17317,16 +21594,53 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes the test case that has already been created for the specified Amazon
+  Connect instance.
+  """
+  @spec delete_test_case(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_test_case_request(),
+          list()
+        ) ::
+          {:ok, delete_test_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_test_case_errors()}
+  def delete_test_case(%Client{} = client, instance_id, test_case_id, input, options \\ []) do
+    url_path =
+      "/test-cases/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(test_case_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a traffic distribution group.
 
   This API can be called only in the Region where the traffic distribution group
-  is
-  created.
+  is created.
 
   For more information about deleting traffic distribution groups, see [Delete traffic distribution
   groups](https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html)
-  in
-  the *Amazon Connect Administrator Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   @spec delete_traffic_distribution_group(
           map(),
@@ -17413,15 +21727,12 @@ defmodule AWS.Connect do
   Deletes a user account from the specified Amazon Connect instance.
 
   For information about what happens to a user's data when their account is
-  deleted, see
-  [Delete Users from Your Amazon Connect
-  Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  deleted, see [Delete Users from Your Amazon Connect Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html)
+  in the *Amazon Connect Administrator Guide*.
 
   After calling DeleteUser, call
-  [DeleteQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html) to
-  delete any records related to the deleted users. This will help you:
+  [DeleteQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html) to delete any records
+  related to the deleted users. This will help you:
 
     
   Avoid dangling resources that impact your service quotas.
@@ -17431,9 +21742,8 @@ defmodule AWS.Connect do
 
     
   Avoid the disruption of other Amazon Connect processes, such as instance
-  replication
-  and syncing if you're using [Amazon Connect
-  Global
+  replication and syncing if
+  you're using [Amazon Connect Global
   Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
   """
   @spec delete_user(
@@ -17471,8 +21781,8 @@ defmodule AWS.Connect do
   @doc """
   Deletes an existing user hierarchy group.
 
-  It must not be associated with any agents or have
-  any active child groups.
+  It must not be associated with any agents or have any active child
+  groups.
   """
   @spec delete_user_hierarchy_group(
           map(),
@@ -17517,8 +21827,7 @@ defmodule AWS.Connect do
   @doc """
   Deletes the view entirely.
 
-  It deletes the view and all associated qualifiers (versions and
-  aliases).
+  It deletes the view and all associated qualifiers (versions and aliases).
   """
   @spec delete_view(
           map(),
@@ -17635,6 +21944,133 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes a workspace and removes all associated view and resource assignments.
+  """
+  @spec delete_workspace(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_workspace_request(),
+          list()
+        ) ::
+          {:ok, delete_workspace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_workspace_errors()}
+  def delete_workspace(%Client{} = client, instance_id, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a media asset (such as a logo) from a workspace.
+  """
+  @spec delete_workspace_media(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_workspace_media_request(),
+          list()
+        ) ::
+          {:ok, delete_workspace_media_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_workspace_media_errors()}
+  def delete_workspace_media(%Client{} = client, instance_id, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/media"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MediaType", "mediaType"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes the association between a view and a page in a workspace.
+
+  The page will display the default view after
+  deletion.
+  """
+  @spec delete_workspace_page(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_workspace_page_request(),
+          list()
+        ) ::
+          {:ok, delete_workspace_page_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_workspace_page_errors()}
+  def delete_workspace_page(
+        %Client{} = client,
+        instance_id,
+        page,
+        workspace_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/pages/#{AWS.Util.encode_uri(page)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Describes an agent status.
   """
   @spec describe_agent_status(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -17695,21 +22131,20 @@ defmodule AWS.Connect do
 
     *
   Retrieve contact information such as the caller's phone number and the specific
-  number the
-  caller dialed to integrate into custom monitoring or custom agent experience
-  solutions.
+  number the caller dialed to
+  integrate into custom monitoring or custom agent experience solutions.
 
     *
   Detect when a customer chat session disconnects due to a network issue on the
-  agent's end.
-  Use the DisconnectReason field in the
-  [ContactTraceRecord](https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord) to detect this event and then re-queue the chat for
-  followup.
+  agent's end. Use the
+  DisconnectReason field in the
+  [ContactTraceRecord](https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord) to detect
+  this event and then re-queue the chat for followup.
 
     *
   Identify after contact work (ACW) duration and call recordings information when
-  a
-  COMPLETED event is received by using the [contact event
+  a COMPLETED event is received
+  by using the [contact event
   stream](https://docs.aws.amazon.com/connect/latest/adminguide/contact-events.html).
 
   ## Important things to know
@@ -17717,7 +22152,8 @@ defmodule AWS.Connect do
     *
 
   `SystemEndpoint` is not populated for contacts with initiation method of
-  MONITOR, QUEUE_TRANSFER, or CALLBACK
+  MONITOR, QUEUE_TRANSFER,
+  or CALLBACK
 
     *
   Contact information remains available in Amazon Connect for 24 months from the
@@ -17767,18 +22203,19 @@ defmodule AWS.Connect do
   You can also create and update flows using the [Amazon Connect Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
-  Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is
-  published, `$SAVED` needs to be supplied to view saved content that has not been
-  published.
+  Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow.
+  For
+  example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is published,
+  `$SAVED` needs to
+  be supplied to view saved content that has not been published.
 
   Use `arn:aws:.../contact-flow/{id}:{version}` to retrieve the content of a
-  specific flow version.
+  specific flow
+  version.
 
-  In the response, **Status** indicates the flow status as either
-  `SAVED` or `PUBLISHED`. The `PUBLISHED` status will initiate
-  validation on the content. `SAVED` does not initiate validation of the content.
-  `SAVED` | `PUBLISHED`
+  In the response, **Status** indicates the flow status as either `SAVED`
+  or `PUBLISHED`. The `PUBLISHED` status will initiate validation on the content.
+  `SAVED` does not initiate validation of the content. `SAVED` | `PUBLISHED`
   """
   @spec describe_contact_flow(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_contact_flow_response(), any()}
@@ -17800,10 +22237,11 @@ defmodule AWS.Connect do
   @doc """
   Describes the specified flow module.
 
-  Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is
-  published, `$SAVED` needs to be supplied to view saved content that has not been
-  published.
+  Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow.
+  For
+  example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is published,
+  `$SAVED` needs to
+  be supplied to view saved content that has not been published.
   """
   @spec describe_contact_flow_module(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_contact_flow_module_response(), any()}
@@ -17818,6 +22256,102 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves detailed information about a specific alias, including which version
+  it currently points to and its
+  metadata.
+  """
+  @spec describe_contact_flow_module_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_contact_flow_module_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_contact_flow_module_alias_errors()}
+  def describe_contact_flow_module_alias(
+        %Client{} = client,
+        alias_id,
+        contact_flow_module_id,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/alias/#{AWS.Util.encode_uri(alias_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns all properties for a data table except for attributes and values.
+
+  All properties from CreateDataTable
+  are returned as well as properties for region replication, versioning, and
+  system tables. "Describe" is a deprecated
+  term but is allowed to maintain consistency with existing operations.
+  """
+  @spec describe_data_table(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_data_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_data_table_errors()}
+  def describe_data_table(%Client{} = client, data_table_id, instance_id, options \\ []) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns detailed information for a specific data table attribute including its
+  configuration, validation rules,
+  and metadata.
+
+  "Describe" is a deprecated term but is allowed to maintain consistency with
+  existing operations.
+  """
+  @spec describe_data_table_attribute(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_data_table_attribute_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_data_table_attribute_errors()}
+  def describe_data_table_attribute(
+        %Client{} = client,
+        attribute_name,
+        data_table_id,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/attributes/#{AWS.Util.encode_uri(attribute_name)}"
 
     headers = []
     query_params = []
@@ -17850,9 +22384,8 @@ defmodule AWS.Connect do
   @doc """
   Describes an evaluation form in the specified Amazon Connect instance.
 
-  If the version
-  property is not provided, the latest version of the evaluation form is
-  described.
+  If the version property is not
+  provided, the latest version of the evaluation form is described.
   """
   @spec describe_evaluation_form(
           map(),
@@ -17951,13 +22484,12 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns the current state of the specified instance identifier. It tracks the
-  instance while
-  it is being created and returns an error status, if applicable.
+  instance while it is being created
+  and returns an error status, if applicable.
 
   If an instance is not created successfully, the instance status reason field
-  returns details
-  relevant to the reason. The instance in a failed state is returned only for 24
-  hours after the
+  returns details relevant to the
+  reason. The instance in a failed state is returned only for 24 hours after the
   CreateInstance API was invoked.
   """
   @spec describe_instance(map(), String.t() | atom(), list()) ::
@@ -18001,8 +22533,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Retrieves the current storage configurations for the specified resource type,
-  association
-  ID, and instance ID.
+  association ID, and instance
+  ID.
   """
   @spec describe_instance_storage_config(
           map(),
@@ -18042,19 +22574,16 @@ defmodule AWS.Connect do
 
   @doc """
   Gets details and status of a phone number that’s claimed to your Amazon Connect
-  instance
-  or traffic distribution group.
+  instance or traffic distribution group.
 
   If the number is claimed to a traffic distribution group, and you are calling in
-  the Amazon Web Services Region
-  where the traffic distribution group was created, you can use either a phone
-  number ARN or UUID value for the
-  `PhoneNumberId` URI request parameter. However, if the number is claimed to a
-  traffic distribution group
-  and you are calling this API in the alternate Amazon Web Services Region
-  associated with the
-  traffic distribution group, you must provide a full phone number ARN. If a UUID
-  is provided
+  the Amazon Web Services Region where the traffic distribution group was
+  created, you can use either a phone number ARN or UUID value for the
+  `PhoneNumberId` URI request
+  parameter. However, if the number is claimed to a traffic distribution group and
+  you are calling this API in the alternate Amazon Web Services Region associated
+  with the traffic distribution group, you must provide a full phone number ARN.
+  If a UUID is provided
   in
   this scenario, you receive a `ResourceNotFoundException`.
   """
@@ -18076,21 +22605,19 @@ defmodule AWS.Connect do
   @doc """
   Describes a predefined attribute for the specified Amazon Connect instance.
 
-  A *predefined
-  attribute* is made up of a name and a value. You can use predefined attributes
-  for:
+  A *predefined attribute*
+  is made up of a name and a value. You can use predefined attributes for:
 
     *
   Routing proficiency (for example, agent certification) that has predefined
-  values (for
-  example, a list of possible certifications). For more information, see [Create predefined attributes for routing contacts to
+  values (for example, a list of
+  possible certifications). For more information, see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
 
     *
   Contact information that varies between transfers or conferences, such as the
-  name of the
-  business unit handling the contact. For more information, see [Use contact segment
-  attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  name of the business unit
+  handling the contact. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
@@ -18173,10 +22700,11 @@ defmodule AWS.Connect do
   Describes the specified routing profile.
 
   `DescribeRoutingProfile` does not populate AssociatedQueueIds in its response.
-  The example Response Syntax shown on this page is incorrect; we are working to
-  update it.
+  The example Response
+  Syntax shown on this page is incorrect; we are working to update it.
   [SearchRoutingProfiles](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html)
-  does include AssociatedQueueIds.
+  does include
+  AssociatedQueueIds.
   """
   @spec describe_routing_profile(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_routing_profile_response(), any()}
@@ -18217,9 +22745,9 @@ defmodule AWS.Connect do
   Gets basic information about the security profile.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the
-  *Amazon Connect Administrator Guide*. For a mapping of the API name and
-  user interface name of the security profile permissions, see [List of security profile
+  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security
+  profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec describe_security_profile(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -18238,6 +22766,46 @@ defmodule AWS.Connect do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the specified test case and allows you to get the content and metadata
+  of the test case for the specified Amazon Connect instance.
+  """
+  @spec describe_test_case(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, describe_test_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_test_case_errors()}
+  def describe_test_case(
+        %Client{} = client,
+        instance_id,
+        test_case_id,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/test-cases/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(test_case_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -18270,8 +22838,9 @@ defmodule AWS.Connect do
   Describes the specified user.
 
   You can [find the instance ID in the Amazon Connect console](https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html)
-  (it’s the final part of the ARN). The console does not display the
-  user IDs. Instead, list the users and note the IDs provided in the output.
+  (it’s the final part of the ARN). The console does not display the user IDs.
+  Instead, list the users
+  and note the IDs provided in the output.
   """
   @spec describe_user(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_user_response(), any()}
@@ -18339,12 +22908,13 @@ defmodule AWS.Connect do
 
   `$SAVED` needs to be supplied if a view is unpublished.
 
-  The view identifier can contain an optional qualifier, for example,
-  `:$SAVED`, which is either an actual version number or an Amazon Connect managed
-  qualifier `$SAVED | $LATEST`. If it is not supplied, then
-  `$LATEST` is assumed for customer managed views and an error is returned if
-  there is
-  no published content available. Version 1 is assumed for Amazon Web Services
+  The view identifier can contain an optional qualifier, for example, `:$SAVED`,
+  which
+  is either an actual version number or an Amazon Connect managed qualifier
+  `$SAVED | $LATEST`. If it is
+  not supplied, then `$LATEST` is assumed for customer managed views and an error
+  is returned if there is no
+  published content available. Version 1 is assumed for Amazon Web Services
   managed views.
   """
   @spec describe_view(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -18373,6 +22943,26 @@ defmodule AWS.Connect do
   def describe_vocabulary(%Client{} = client, instance_id, vocabulary_id, options \\ []) do
     url_path =
       "/vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(vocabulary_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves details about a workspace, including its configuration and metadata.
+  """
+  @spec describe_workspace(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_workspace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_workspace_errors()}
+  def describe_workspace(%Client{} = client, instance_id, workspace_id, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}"
 
     headers = []
     query_params = []
@@ -18462,8 +23052,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Revokes authorization from the specified instance to access the specified Amazon
-  Lex or Amazon Lex V2
-  bot.
+  Lex or Amazon Lex V2 bot.
   """
   @spec disassociate_bot(map(), String.t() | atom(), disassociate_bot_request(), list()) ::
           {:ok, nil, any()}
@@ -18495,11 +23084,11 @@ defmodule AWS.Connect do
   Removes the alias association between two email addresses in an Amazon Connect
   instance.
 
-  After disassociation, emails sent to the former alias email address are no
-  longer forwarded to
-  the primary email address. Both email addresses continue to exist independently
-  and can receive
-  emails directly.
+  After
+  disassociation, emails sent to the former alias email address are no longer
+  forwarded to the primary email address.
+  Both email addresses continue to exist independently and can receive emails
+  directly.
 
   ## Use cases
 
@@ -18508,42 +23097,38 @@ defmodule AWS.Connect do
     *
 
   **Department separation**: Remove alias relationships when splitting a
-  consolidated support
-  queue back into separate department-specific queues.
+  consolidated support queue back into separate department-specific queues.
 
     *
 
   **Email address retirement**: Cleanly remove forwarding relationships before
-  decommissioning
-  old email addresses.
+  decommissioning old email addresses.
 
     *
 
   **Organizational restructuring**: Reconfigure email routing when business
-  processes change and
-  aliases are no longer needed.
+  processes change and aliases are no longer needed.
 
   ## Important things to know
 
     *
   Concurrent operations: This API uses distributed locking, so concurrent
-  operations on the
-  same email addresses may be temporarily blocked.
+  operations on the same email addresses
+  may be temporarily blocked.
 
     *
   Emails sent to the former alias address are still delivered directly to that
-  address if it
-  exists.
+  address if it exists.
 
     *
   You do not need to delete the email addresses after disassociation. Both
-  addresses remain
-  active independently.
+  addresses remain active
+  independently.
 
     *
   After a successful disassociation, you can immediately create a new alias
-  relationship
-  with the same addresses.
+  relationship with the same
+  addresses.
 
     *
   200 status means alias was successfully disassociated.
@@ -18557,42 +23142,37 @@ defmodule AWS.Connect do
     *
   The timestamp of when the disassociation occurred.
 
-  **Endpoints**: See
-  [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
 
   ## Related operations
 
     *
 
-  [AssociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateEmailAddressAlias.html): Associates an email address alias with an existing email
-  address in an Amazon Connect instance.
+  [AssociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateEmailAddressAlias.html): Associates an email address alias with an existing email address in an
+  Amazon Connect instance.
 
     *
 
   [DescribeEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html):
-
   View current alias configurations for an email address.
 
     *
 
-  [SearchEmailAddresses](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html):  Find email addresses and their alias relationships across an instance.
+  [SearchEmailAddresses](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html): Find email addresses and their alias relationships across an instance.
 
     *
 
   [CreateEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html):
-  Create new email addresses that can participate in alias
-  relationships.
+  Create new email addresses that can participate in alias relationships.
 
     *
 
-  [DeleteEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html): Remove email addresses (automatically removes any alias
-  relationships).
+  [DeleteEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html): Remove email addresses (automatically removes any alias relationships).
 
     *
 
   [UpdateEmailAddressMetadata](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html):
-  Modify email address properties (does not affect alias
-  relationships).
+  Modify email address properties (does not affect alias relationships).
   """
   @spec disassociate_email_address_alias(
           map(),
@@ -18680,11 +23260,57 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Disassociates a set of hours of operations with another hours of operation.
+
+  Refer to Administrator Guide [ here
+  ](https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html)
+  for more information on inheriting overrides from parent hours of operation(s).
+  """
+  @spec disassociate_hours_of_operations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          disassociate_hours_of_operations_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_hours_of_operations_errors()}
+  def disassociate_hours_of_operations(
+        %Client{} = client,
+        hours_of_operation_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}/disassociate-hours"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Removes the storage type configurations for the specified resource type and
-  association
-  ID.
+  association ID.
   """
   @spec disassociate_instance_storage_config(
           map(),
@@ -18779,8 +23405,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Revokes authorization from the specified instance to access the specified Amazon
-  Lex
-  bot.
+  Lex bot.
   """
   @spec disassociate_lex_bot(map(), String.t() | atom(), disassociate_lex_bot_request(), list()) ::
           {:ok, nil, any()}
@@ -18820,15 +23445,15 @@ defmodule AWS.Connect do
   instance.
 
   If the number is claimed to a traffic distribution group, and you are calling
-  this API using an instance in the
-  Amazon Web Services Region where the traffic distribution group was created, you
-  can use either a full phone number
-  ARN or UUID value for the `PhoneNumberId` URI request parameter. However, if the
-  number is claimed to a traffic distribution group and you are calling this API
-  using an instance in the alternate
-  Amazon Web Services Region associated with the traffic distribution group, you
-  must provide a full phone number ARN.
-  If a UUID is provided in this scenario, you will receive a
+  this API using an instance in the Amazon Web Services Region where the traffic
+  distribution group was created, you can use either a full phone number ARN or
+  UUID value for the
+  `PhoneNumberId` URI request parameter. However, if the number is claimed to a
+  traffic distribution group and you are calling
+  this API using an instance in the alternate Amazon Web Services Region
+  associated with the traffic distribution group, you must provide a
+  full phone number ARN. If a UUID is provided in this scenario, you will receive
+  a
   `ResourceNotFoundException`.
   """
   @spec disassociate_phone_number_contact_flow(
@@ -18919,8 +23544,8 @@ defmodule AWS.Connect do
   Disassociates a set of queues from a routing profile.
 
   Up to 10 queue references can be disassociated in a single API call. More than
-  10 queue
-  references results in a single call results in an InvalidParameterException.
+  10 queue references results in a
+  single call results in an InvalidParameterException.
   """
   @spec disassociate_routing_profile_queues(
           map(),
@@ -19013,10 +23638,45 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Disassociates a security profile attached to a Q in Connect AI Agent Entity in
+  an Amazon Connect instance.
+  """
+  @spec disassociate_security_profiles(
+          map(),
+          String.t() | atom(),
+          disassociate_security_profiles_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_security_profiles_errors()}
+  def disassociate_security_profiles(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/disassociate-security-profiles/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Disassociates an agent from a traffic distribution group.
 
-  This API can be called only in the
-  Region where the traffic distribution group is created.
+  This API can be called only in the Region where the
+  traffic distribution group is created.
   """
   @spec disassociate_traffic_distribution_group_user(
           map(),
@@ -19106,14 +23766,50 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Dismisses contacts from an agent’s CCP and returns the agent to an available
-  state, which
-  allows the agent to receive a new routed contact.
+  Removes the association between a workspace and one or more users or routing
+  profiles.
+  """
+  @spec disassociate_workspace(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          disassociate_workspace_request(),
+          list()
+        ) ::
+          {:ok, disassociate_workspace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_workspace_errors()}
+  def disassociate_workspace(%Client{} = client, instance_id, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/disassociate"
 
-  Contacts can only be dismissed if they are in a
-  `MISSED`, `ERROR`, `ENDED`, or `REJECTED` state in
-  the [Agent Event
-  Stream](https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html).
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Dismisses contacts from an agent’s CCP and returns the agent to an available
+  state, which allows the agent to
+  receive a new routed contact.
+
+  Contacts can only be dismissed if they are in a `MISSED`,
+  `ERROR`, `ENDED`, or `REJECTED` state in the [Agent Event Stream](https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html).
   """
   @spec dismiss_user_contact(
           map(),
@@ -19150,11 +23846,68 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Evaluates values at the time of the request and returns them.
+
+  It considers the request's timezone or the table's
+  timezone, in that order, when accessing time based tables. When a value is
+  accessed, the accessor's identity and the
+  time of access are saved alongside the value to help identify values that are
+  actively in use. The term "Batch" is
+  not included in the operation name since it does not meet all the criteria for a
+  batch operation as specified in
+  Batch Operations: Amazon Web Services API Standards.
+  """
+  @spec evaluate_data_table_values(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          evaluate_data_table_values_request(),
+          list()
+        ) ::
+          {:ok, evaluate_data_table_values_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, evaluate_data_table_values_errors()}
+  def evaluate_data_table_values(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/values/evaluate"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Provides a pre-signed URL for download of an approved attached file.
 
-  This API also returns
-  metadata about the attached file. It will only return a downloadURL if the
-  status of the attached
+  This API also returns metadata about the
+  attached file. It will only return a downloadURL if the status of the attached
   file is `APPROVED`.
   """
   @spec get_attached_file(
@@ -19246,13 +23999,12 @@ defmodule AWS.Connect do
 
     *
   The only way to retrieve the position of the contact in queue is by using this
-  API. You
-  can't retrieve the position by using flows and attributes.
+  API. You can't retrieve the
+  position by using flows and attributes.
 
     *
   For more information, see the [Position in queue](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
-  metric in
-  the *Amazon Connect Administrator Guide*.
+  metric in the *Amazon Connect Administrator Guide*.
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
@@ -19286,27 +24038,25 @@ defmodule AWS.Connect do
   Gets the real-time metric data from the specified Amazon Connect instance.
 
   For a description of each metric, see [Metrics definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect Administrator Guide*.
 
   When you make a successful API request, you can expect the following metric
-  values in the
-  response:
+  values in the response:
 
     
 
-  **Metric value is null**: The calculation cannot be
-  performed due to divide by zero or insufficient data
+  **Metric value is null**: The calculation cannot be performed due to divide by
+  zero or insufficient data
 
     
 
-  **Metric value is a number (including 0) of defined type**:
-  The number provided is the calculation result
+  **Metric value is a number (including 0) of defined type**: The number provided
+  is the calculation result
 
     
 
-  **MetricResult list is empty**: The request cannot find any
-  data in the system
+  **MetricResult list is empty**: The request cannot find any data in the
+  system
 
   The following guidelines can help you work with the API:
 
@@ -19433,9 +24183,8 @@ defmodule AWS.Connect do
   @doc """
   Supports SAML sign-in for Amazon Connect.
 
-  Retrieves a token for federation. The token is
-  for the Amazon Connect user which corresponds to the IAM credentials that were
-  used to invoke this action.
+  Retrieves a token for federation. The token is for the Amazon Connect user which
+  corresponds to the IAM credentials that were used to invoke this action.
 
   For more information about how SAML sign-in works in Amazon Connect, see
   [Configure SAML with IAM for Amazon Connect in the *Amazon Connect Administrator
@@ -19443,13 +24192,11 @@ defmodule AWS.Connect do
   )
 
   This API doesn't support root users. If you try to invoke GetFederationToken
-  with root
-  credentials, an error message similar to the following one appears:
+  with root credentials, an error
+  message similar to the following one appears:
 
-  ```
-  Provided identity: Principal: .... User: .... cannot be used for federation with
-  Amazon Connect
-  ```
+  `Provided identity: Principal: .... User: .... cannot be used for federation
+  with Amazon Connect`
   """
   @spec get_federation_token(map(), String.t() | atom(), list()) ::
           {:ok, get_federation_token_response(), any()}
@@ -19502,22 +24249,19 @@ defmodule AWS.Connect do
   Gets historical metric data from the specified Amazon Connect instance.
 
   For a description of each historical metric, see [Metrics definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect Administrator Guide*.
 
   We recommend using the
   [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html)
-  API. It
-  provides more flexibility, features, and the ability to query longer time ranges
-  than
-  `GetMetricData`. Use it to retrieve historical agent and contact metrics for the
-  last 3 months, at varying intervals. You can also use it to build custom
-  dashboards to measure
-  historical queue and agent performance. For example, you can track the number of
-  incoming
-  contacts for the last 7 days, with data split by day, to see how contact volume
-  changed per day
-  of the week.
+  API. It provides more flexibility, features, and the ability to query longer
+  time ranges
+  than `GetMetricData`. Use it to retrieve historical agent and contact metrics
+  for the last 3 months, at
+  varying intervals. You can also use it to build custom dashboards to measure
+  historical queue and agent performance.
+  For example, you can track the number of incoming contacts for the last 7 days,
+  with data split by day, to see how
+  contact volume changed per day of the week.
   """
   @spec get_metric_data(map(), String.t() | atom(), get_metric_data_request(), list()) ::
           {:ok, get_metric_data_response(), any()}
@@ -19549,39 +24293,36 @@ defmodule AWS.Connect do
   Gets metric data from the specified Amazon Connect instance.
 
   `GetMetricDataV2` offers more features than
-  [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html), the previous
-  version of this API. It has new metrics, offers filtering at a metric level, and
-  offers the
-  ability to filter and group data by channels, queues, routing profiles, agents,
-  and agent
-  hierarchy levels. It can retrieve historical data for the last 3 months, at
-  varying intervals. It
-  does not support agent queues.
+  [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html), the previous version of this API. It
+  has new metrics, offers filtering at a metric level, and offers the ability to
+  filter and group data by channels,
+  queues, routing profiles, agents, and agent hierarchy levels. It can retrieve
+  historical data for the last 3 months,
+  at varying intervals. It does not support agent queues.
 
   For a description of the historical metrics that are supported by
-  `GetMetricDataV2` and `GetMetricData`, see [Metrics
+  `GetMetricDataV2` and
+  `GetMetricData`, see [Metrics
   definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect Administrator Guide*.
 
   When you make a successful API request, you can expect the following metric
-  values in the
-  response:
+  values in the response:
 
     
 
-  **Metric value is null**: The calculation cannot be
-  performed due to divide by zero or insufficient data
+  **Metric value is null**: The calculation cannot be performed due to divide by
+  zero or insufficient data
 
     
 
-  **Metric value is a number (including 0) of defined type**:
-  The number provided is the calculation result
+  **Metric value is a number (including 0) of defined type**: The number provided
+  is the calculation result
 
     
 
-  **MetricResult list is empty**: The request cannot find any
-  data in the system
+  **MetricResult list is empty**: The request cannot find any data in the
+  system
 
   The following guidelines can help you work with the API:
 
@@ -19687,6 +24428,39 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Retrieves an overview of a test execution that includes the status of the
+  execution, start and end time, and observation summary.
+  """
+  @spec get_test_case_execution_summary(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_test_case_execution_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_test_case_execution_summary_errors()}
+  def get_test_case_execution_summary(
+        %Client{} = client,
+        instance_id,
+        test_case_execution_id,
+        test_case_id,
+        options \\ []
+      ) do
+    url_path =
+      "/test-cases/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(test_case_id)}/#{AWS.Util.encode_uri(test_case_execution_id)}/summary"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the current traffic distribution for a given traffic distribution
   group.
   """
@@ -19707,41 +24481,36 @@ defmodule AWS.Connect do
 
   @doc """
   Imports a claimed phone number from an external service, such as Amazon Web
-  Services End User
-  Messaging, into an Amazon Connect instance.
+  Services End User Messaging, into an
+  Amazon Connect instance.
 
   You can call this API only in the same Amazon Web Services Region where the
   Amazon Connect instance was created.
 
   Call the
   [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html)
-  API
-  to verify the status of a previous `ImportPhoneNumber` operation.
+  API to verify the status of a previous `ImportPhoneNumber` operation.
 
   If you plan to claim or import numbers and then release numbers frequently,
-  contact us for a
-  service quota exception. Otherwise, it is possible you will be blocked from
-  claiming and
-  releasing any more numbers until up to 180 days past the oldest number released
-  has expired.
+  contact us for a service quota
+  exception. Otherwise, it is possible you will be blocked from claiming and
+  releasing any more numbers until up to 180
+  days past the oldest number released has expired.
 
   By default you can claim or import and then release up to 200% of your maximum
-  number of
-  active phone numbers. If you claim or import and then release phone numbers
-  using the UI or API
-  during a rolling 180 day cycle that exceeds 200% of your phone number service
-  level quota, you
-  will be blocked from claiming or importing any more numbers until 180 days past
-  the oldest number
-  released has expired.
+  number of active phone numbers.
+  If you claim or import and then release phone numbers using the UI or API during
+  a rolling 180 day cycle that exceeds
+  200% of your phone number service level quota, you will be blocked from claiming
+  or importing any more numbers until
+  180 days past the oldest number released has expired.
 
   For example, if you already have 99 claimed or imported numbers and a service
-  level quota of
-  99 phone numbers, and in any 180 day period you release 99, claim 99, and then
-  release 99, you
-  will have exceeded the 200% limit. At that point you are blocked from claiming
-  any more numbers
-  until you open an Amazon Web Services Support ticket.
+  level quota of 99 phone numbers,
+  and in any 180 day period you release 99, claim 99, and then release 99, you
+  will have exceeded the 200% limit. At
+  that point you are blocked from claiming any more numbers until you open an
+  Amazon Web Services Support ticket.
   """
   @spec import_phone_number(map(), import_phone_number_request(), list()) ::
           {:ok, import_phone_number_response(), any()}
@@ -19750,6 +24519,43 @@ defmodule AWS.Connect do
           | {:error, import_phone_number_errors()}
   def import_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/import"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Imports a media asset (such as a logo) for use in a workspace.
+  """
+  @spec import_workspace_media(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          import_workspace_media_request(),
+          list()
+        ) ::
+          {:ok, import_workspace_media_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, import_workspace_media_errors()}
+  def import_workspace_media(%Client{} = client, instance_id, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/media"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -19878,8 +24684,7 @@ defmodule AWS.Connect do
 
   @doc """
   Lists the data lake datasets available to associate with for a given Amazon
-  Connect
-  instance.
+  Connect instance.
   """
   @spec list_analytics_data_lake_data_sets(
           map(),
@@ -19970,8 +24775,7 @@ defmodule AWS.Connect do
 
   @doc """
   Provides information about contact tree, a list of associated contacts with a
-  unique
-  identifier.
+  unique identifier.
   """
   @spec list_associated_contacts(
           map(),
@@ -20030,7 +24834,8 @@ defmodule AWS.Connect do
   request access to this API, contact Amazon Web Services Support.
 
   Provides summary information about the authentication profiles in a specified
-  Amazon Connect instance.
+  Amazon Connect
+  instance.
   """
   @spec list_authentication_profiles(
           map(),
@@ -20077,8 +24882,10 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   For the specified version of Amazon Lex, returns a paginated list of all the
-  Amazon Lex bots currently associated with the instance. Use this API to return
-  both Amazon Lex V1 and V2 bots.
+  Amazon Lex bots
+  currently associated with the instance. Use this API to return both Amazon Lex
+  V1 and V2
+  bots.
   """
   @spec list_bots(
           map(),
@@ -20131,6 +24938,59 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Provides information about the child hours of operations for the specified
+  parent hours of operation.
+
+  For more information about child hours of operations, see [Link overrides from different hours of
+  operation](https://docs.aws.amazon.com/connect/latest/adminguide/) in the
+  * Administrator Guide*.
+  """
+  @spec list_child_hours_of_operations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_child_hours_of_operations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_child_hours_of_operations_errors()}
+  def list_child_hours_of_operations(
+        %Client{} = client,
+        hours_of_operation_id,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}/hours"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists contact evaluations in the specified Amazon Connect instance.
   """
   @spec list_contact_evaluations(
@@ -20165,6 +25025,104 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(contact_id) do
         [{"contactId", contact_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all aliases associated with a contact flow module, showing their current
+  version mappings and
+  metadata.
+  """
+  @spec list_contact_flow_module_aliases(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_contact_flow_module_aliases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_contact_flow_module_aliases_errors()}
+  def list_contact_flow_module_aliases(
+        %Client{} = client,
+        contact_flow_module_id,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/aliases"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a paginated list of all versions for a specific contact flow module.
+  """
+  @spec list_contact_flow_module_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_contact_flow_module_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_contact_flow_module_versions_errors()}
+  def list_contact_flow_module_versions(
+        %Client{} = client,
+        contact_flow_module_id,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -20230,8 +25188,7 @@ defmodule AWS.Connect do
 
   @doc """
   Returns all the available versions for the specified Amazon Connect instance and
-  flow
-  identifier.
+  flow identifier.
   """
   @spec list_contact_flow_versions(
           map(),
@@ -20286,8 +25243,8 @@ defmodule AWS.Connect do
 
   For more information about flows, see
   [Flows](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect
+  Administrator Guide*.
   """
   @spec list_contact_flows(
           map(),
@@ -20343,8 +25300,10 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   For the specified `referenceTypes`, returns a list of references associated with
-  the contact. *References* are links to documents that are related to a
-  contact, such as emails, attachments, or URLs.
+  the contact.
+  *References* are links to documents that are related to a contact, such as
+  emails, attachments,
+  or URLs.
   """
   @spec list_contact_references(
           map(),
@@ -20392,6 +25351,208 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Returns all attributes for a specified data table.
+
+  A maximum of 100 attributes per data table is allowed.
+  Customers can request an increase by using Amazon Web Services Service Quotas.
+  The response can be filtered by specific attribute IDs
+  for CloudFormation integration.
+  """
+  @spec list_data_table_attributes(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list_data_table_attributes_request(),
+          list()
+        ) ::
+          {:ok, list_data_table_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_table_attributes_errors()}
+  def list_data_table_attributes(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/attributes"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all primary value combinations for a given data table.
+
+  Returns the unique combinations of primary
+  attribute values that identify records in the table. Up to 100 records are
+  returned per request.
+  """
+  @spec list_data_table_primary_values(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list_data_table_primary_values_request(),
+          list()
+        ) ::
+          {:ok, list_data_table_primary_values_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_table_primary_values_errors()}
+  def list_data_table_primary_values(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/values/list-primary"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists values stored in a data table with optional filtering by record IDs or
+  primary attribute values.
+
+  Returns
+  the raw stored values along with metadata such as lock versions and modification
+  timestamps.
+  """
+  @spec list_data_table_values(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list_data_table_values_request(),
+          list()
+        ) ::
+          {:ok, list_data_table_values_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_table_values_errors()}
+  def list_data_table_values(%Client{} = client, data_table_id, instance_id, input, options \\ []) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/values/list"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all data tables for the specified Amazon Connect instance.
+
+  Returns summary information for each table
+  including basic metadata and modification details.
+  """
+  @spec list_data_tables(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_data_tables_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_tables_errors()}
+  def list_data_tables(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/data-tables/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the default vocabularies for the specified Amazon Connect instance.
   """
   @spec list_default_vocabularies(
@@ -20406,6 +25567,41 @@ defmodule AWS.Connect do
           | {:error, list_default_vocabularies_errors()}
   def list_default_vocabularies(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/default-vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all security profiles attached to a Q in Connect AIAgent Entity in an
+  Amazon Connect instance.
+  """
+  @spec list_entity_security_profiles(
+          map(),
+          String.t() | atom(),
+          list_entity_security_profiles_request(),
+          list()
+        ) ::
+          {:ok, list_entity_security_profiles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_entity_security_profiles_errors()}
+  def list_entity_security_profiles(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/entity-security-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -20620,12 +25816,12 @@ defmodule AWS.Connect do
 
   @doc """
   Provides information about the hours of operation for the specified Amazon
-  Connect
-  instance.
+  Connect instance.
 
   For more information about hours of operation, see [Set the Hours of Operation for a
   Queue](https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   @spec list_hours_of_operations(
           map(),
@@ -20718,8 +25914,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns a paginated list of storage configs for the identified instance and
-  resource
-  type.
+  resource type.
   """
   @spec list_instance_storage_configs(
           map(),
@@ -20775,10 +25970,10 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Return a list of instances which are in active state, creation-in-progress
-  state, and failed
-  state. Instances that aren't successfully created (they are in a failed state)
-  are returned only
-  for 24 hours after the CreateInstance API was invoked.
+  state, and failed state. Instances
+  that aren't successfully created (they are in a failed state) are returned only
+  for 24 hours after the CreateInstance
+  API was invoked.
   """
   @spec list_instances(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_instances_response(), any()}
@@ -20811,8 +26006,7 @@ defmodule AWS.Connect do
 
   @doc """
   Provides summary information about the Amazon Web Services resource associations
-  for the
-  specified Amazon Connect instance.
+  for the specified Amazon Connect instance.
   """
   @spec list_integration_associations(
           map(),
@@ -20877,8 +26071,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns a paginated list of all Lambda functions that display in the dropdown
-  options in the
-  relevant flow blocks.
+  options in the relevant flow
+  blocks.
   """
   @spec list_lambda_functions(
           map(),
@@ -20925,8 +26119,8 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns a paginated list of all the Amazon Lex V1 bots currently associated with
-  the
-  instance. To return both Amazon Lex V1 and V2 bots, use the
+  the instance. To return
+  both Amazon Lex V1 and V2 bots, use the
   [ListBots](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html)
   API.
   """
@@ -20977,26 +26171,23 @@ defmodule AWS.Connect do
 
   For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  in the *Amazon Connect Administrator Guide*.
 
     
   We recommend using
-  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) to
-  return phone number types. ListPhoneNumbers doesn't support number types `UIFN`,
-  `SHARED`, `THIRD_PARTY_TF`, and `THIRD_PARTY_DID`. While it
+  [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) to return phone number types. ListPhoneNumbers doesn't support number types
+  `UIFN`, `SHARED`, `THIRD_PARTY_TF`, and `THIRD_PARTY_DID`. While it
   returns numbers of those types, it incorrectly lists them as `TOLL_FREE` or
   `DID`.
 
     
   The phone number `Arn` value that is returned from each of the items in the
   [PhoneNumberSummaryList](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList)
-  cannot be used to tag phone number resources. It will fail
-  with a `ResourceNotFoundException`. Instead, use the
+  cannot be used to tag phone number resources. It will fail with a
+  `ResourceNotFoundException`. Instead, use the
   [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html)
-  API.
-  It returns the new phone number ARN that can be used to tag phone number
-  resources.
+  API. It returns the new
+  phone number ARN that can be used to tag phone number resources.
   """
   @spec list_phone_numbers(
           map(),
@@ -21061,24 +26252,23 @@ defmodule AWS.Connect do
   Lists phone numbers claimed to your Amazon Connect instance or traffic
   distribution group.
 
-  If the provided
-  `TargetArn` is a traffic distribution group, you can call this API in both
-  Amazon Web Services Regions
-  associated with traffic distribution group.
+  If the provided `TargetArn`
+  is a traffic distribution group, you can call this API in both Amazon Web
+  Services Regions associated with traffic distribution group.
 
   For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  in the *Amazon Connect Administrator Guide*.
 
     
-  When given an instance ARN, `ListPhoneNumbersV2` returns only the phone
-  numbers claimed to the instance.
+  When given an instance ARN, `ListPhoneNumbersV2` returns only the phone numbers
+  claimed to the
+  instance.
 
     
   When given a traffic distribution group ARN `ListPhoneNumbersV2` returns only
-  the phone numbers
-  claimed to the traffic distribution group.
+  the phone numbers claimed to the
+  traffic distribution group.
   """
   @spec list_phone_numbers_v2(map(), list_phone_numbers_v2_request(), list()) ::
           {:ok, list_phone_numbers_v2_response(), any()}
@@ -21109,21 +26299,19 @@ defmodule AWS.Connect do
   @doc """
   Lists predefined attributes for the specified Amazon Connect instance.
 
-  A *predefined
-  attribute* is made up of a name and a value. You can use predefined attributes
-  for:
+  A *predefined attribute* is
+  made up of a name and a value. You can use predefined attributes for:
 
     *
   Routing proficiency (for example, agent certification) that has predefined
-  values (for
-  example, a list of possible certifications). For more information, see [Create predefined attributes for routing contacts to
+  values (for example, a list of
+  possible certifications). For more information, see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
 
     *
   Contact information that varies between transfers or conferences, such as the
-  name of the
-  business unit handling the contact. For more information, see [Use contact segment
-  attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  name of the business unit
+  handling the contact. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
@@ -21266,15 +26454,14 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the queues for the specified Amazon Connect instance.
 
-  If you do not specify a `QueueTypes`
-  parameter, both standard and agent queues are returned. This might cause an
-  unexpected truncation
-  of results if you have more than 1000 agents and you limit the number of results
-  of the API call
-  in code.
+  If you do not specify a `QueueTypes` parameter, both standard and
+  agent queues are returned. This might cause an unexpected truncation of results
+  if you have more than 1000 agents and
+  you limit the number of results of the API call in code.
 
   For more information about queues, see [Queues: Standard and Agent](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   @spec list_queues(
           map(),
@@ -21383,11 +26570,12 @@ defmodule AWS.Connect do
   @doc """
   Provides a list of analysis segments for a real-time chat analysis session.
 
-  This API
-  supports CHAT channels only.
+  This API supports CHAT channels
+  only.
 
   This API does not support VOICE. If you attempt to use it for VOICE, an
-  `InvalidRequestException` occurs.
+  `InvalidRequestException`
+  occurs.
   """
   @spec list_realtime_contact_analysis_segments_v2(
           map(),
@@ -21438,25 +26626,21 @@ defmodule AWS.Connect do
 
     *
   This API returns list of queues where contacts can be manually assigned or
-  picked by an
-  agent who has access to the Worklist app. The user can additionally filter on
-  queues, if they
-  have access to those queues (otherwise a invalid request exception will be
-  thrown).
+  picked by an agent who has access
+  to the Worklist app. The user can additionally filter on queues, if they have
+  access to those queues (otherwise a
+  invalid request exception will be thrown).
 
   For information about how manual contact assignment works in the agent
-  workspace, see the
-  [Access the Worklist app in the Amazon Connect agent
-  workspace](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html)
+  workspace, see the [Access the Worklist app in the Amazon Connect agent workspace](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html)
   in the *Amazon Connect Administrator Guide*.
 
   ## Important things to know
 
     *
   This API only returns the manual assignment queues associated with a routing
-  profile. Use
-  the ListRoutingProfileQueues API to list the auto assignment queues for the
-  routing
+  profile. Use the
+  ListRoutingProfileQueues API to list the auto assignment queues for the routing
   profile.
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
@@ -21556,8 +26740,7 @@ defmodule AWS.Connect do
 
   @doc """
   Provides summary information about the routing profiles for the specified Amazon
-  Connect
-  instance.
+  Connect instance.
 
   For more information about routing profiles, see [Routing Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html)
   and [Create a Routing Profile](https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html)
@@ -21713,7 +26896,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Returns a list of third-party applications in a specific security profile.
+  Returns a list of third-party applications or MCP Servers in a specific security
+  profile.
   """
   @spec list_security_profile_applications(
           map(),
@@ -21761,12 +26945,60 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  A list of Flow Modules an AI Agent can invoke as a tool
+  """
+  @spec list_security_profile_flow_modules(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_security_profile_flow_modules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_security_profile_flow_modules_errors()}
+  def list_security_profile_flow_modules(
+        %Client{} = client,
+        instance_id,
+        security_profile_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/security-profiles-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the permissions granted to a security profile.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the
-  *Amazon Connect Administrator Guide*. For a mapping of the API name and
-  user interface name of the security profile permissions, see [List of security profile
+  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security
+  profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec list_security_profile_permissions(
@@ -21819,9 +27051,9 @@ defmodule AWS.Connect do
   Amazon Connect instance.
 
   For more information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the
-  *Amazon Connect Administrator Guide*. For a mapping of the API name and
-  user interface name of the security profile permissions, see [List of security profile
+  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security
+  profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec list_security_profiles(
@@ -21868,10 +27100,8 @@ defmodule AWS.Connect do
   @doc """
   Lists the tags for the specified resource.
 
-  For sample policies that use tags, see [Amazon Connect Identity-Based Policy
-  Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -21934,6 +27164,201 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(name) do
         [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists detailed steps of test case execution that includes all observations along
+  with actions taken and data associated in the specified Amazon Connect instance.
+  """
+  @spec list_test_case_execution_records(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_test_case_execution_records_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_case_execution_records_errors()}
+  def list_test_case_execution_records(
+        %Client{} = client,
+        instance_id,
+        test_case_execution_id,
+        test_case_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/test-cases/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(test_case_id)}/#{AWS.Util.encode_uri(test_case_execution_id)}/records"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all test case executions and allows filtering by test case id, test case
+  name, start time, end time or status of the execution for the specified Amazon
+  Connect instance.
+  """
+  @spec list_test_case_executions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_test_case_executions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_case_executions_errors()}
+  def list_test_case_executions(
+        %Client{} = client,
+        instance_id,
+        end_time \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        start_time \\ nil,
+        status \\ nil,
+        test_case_id \\ nil,
+        test_case_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/test-case-executions/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(test_case_name) do
+        [{"testCaseName", test_case_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(test_case_id) do
+        [{"testCaseId", test_case_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the test cases present in the specific Amazon Connect instance.
+  """
+  @spec list_test_cases(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_test_cases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_test_cases_errors()}
+  def list_test_cases(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/test-cases-summary/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -22097,12 +27522,10 @@ defmodule AWS.Connect do
 
   @doc """
   Provides summary information about the hierarchy groups for the specified Amazon
-  Connect
-  instance.
+  Connect instance.
 
   For more information about agent hierarchies, see [Set Up Agent Hierarchies](https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html)
-  in the
-  *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec list_user_hierarchy_groups(
           map(),
@@ -22240,8 +27663,7 @@ defmodule AWS.Connect do
 
   @doc """
   Returns all the available versions for the specified Amazon Connect instance and
-  view
-  identifier.
+  view identifier.
 
   Results will be sorted from highest to lowest.
   """
@@ -22346,11 +27768,123 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists media assets (such as logos) associated with a workspace.
+  """
+  @spec list_workspace_media(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, list_workspace_media_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_workspace_media_errors()}
+  def list_workspace_media(%Client{} = client, instance_id, workspace_id, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/media"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the page configurations in a workspace, including the views assigned to
+  each page.
+  """
+  @spec list_workspace_pages(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_workspace_pages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_workspace_pages_errors()}
+  def list_workspace_pages(
+        %Client{} = client,
+        instance_id,
+        workspace_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/pages"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the workspaces in an Amazon Connect instance.
+  """
+  @spec list_workspaces(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_workspaces_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_workspaces_errors()}
+  def list_workspaces(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Initiates silent monitoring of a contact.
 
-  The Contact Control Panel (CCP) of the user
-  specified by *userId* will be set to silent monitoring mode on the
-  contact.
+  The Contact Control Panel (CCP) of the user specified by
+  *userId* will be set to silent monitoring mode on the contact.
   """
   @spec monitor_contact(map(), monitor_contact_request(), list()) ::
           {:ok, monitor_contact_response(), any()}
@@ -22410,11 +27944,12 @@ defmodule AWS.Connect do
   @doc """
   Changes the current status of a user or agent in Amazon Connect.
 
-  If the agent is
-  currently handling a contact, this sets the agent's next status.
+  If the agent is currently handling a
+  contact, this sets the agent's next status.
 
   For more information, see [Agent status](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html)
-  and [Set your next status](https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html)
+  and [Set your next
+  status](https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html)
   in the *Amazon Connect Administrator Guide*.
   """
   @spec put_user_status(
@@ -22453,19 +27988,17 @@ defmodule AWS.Connect do
   Releases a phone number previously claimed to an Amazon Connect instance or
   traffic distribution group.
 
-  You
-  can call this API only in the Amazon Web Services Region where the number was
-  claimed.
+  You can call this API
+  only in the Amazon Web Services Region where the number was claimed.
 
   To release phone numbers from a traffic distribution group, use the
-  `ReleasePhoneNumber` API, not the
-  Amazon Connect admin website.
+  `ReleasePhoneNumber` API, not the Amazon Connect admin website.
 
   After releasing a phone number, the phone number enters into a cooldown period
-  for up to
-  180 days. It cannot be searched for or claimed again until the period has ended.
-  If you
-  accidentally release a phone number, contact Amazon Web Services Support.
+  for up to 180 days. It cannot be
+  searched for or claimed again until the period has ended. If you accidentally
+  release a phone number, contact
+  Amazon Web Services Support.
 
   If you plan to claim and release numbers frequently,
   contact us for a service quota exception. Otherwise, it is possible you will be
@@ -22523,14 +28056,12 @@ defmodule AWS.Connect do
 
   @doc """
   Replicates an Amazon Connect instance in the specified Amazon Web Services
-  Region and
-  copies configuration information for Amazon Connect resources across Amazon Web
-  Services Regions.
+  Region and copies configuration
+  information for Amazon Connect resources across Amazon Web Services Regions.
 
   For more information about replicating an Amazon Connect instance, see [Create a replica of your existing Amazon Connect
   instance](https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html)
-  in the *Amazon Connect
-  Administrator Guide*.
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec replicate_instance(map(), String.t() | atom(), replicate_instance_request(), list()) ::
           {:ok, replicate_instance_response(), any()}
@@ -22589,12 +28120,12 @@ defmodule AWS.Connect do
 
   @doc """
   When a contact is being recorded, and the recording has been suspended using
-  SuspendContactRecording, this API resumes recording whatever recording is
-  selected in the flow
-  configuration: call, screen, or both.
+  SuspendContactRecording, this API
+  resumes recording whatever recording is selected in the flow configuration:
+  call, screen, or both.
 
-  If only call recording or only screen recording is enabled,
-  then it would resume.
+  If only call
+  recording or only screen recording is enabled, then it would resume.
 
   Voice and screen recordings are supported.
   """
@@ -22655,12 +28186,12 @@ defmodule AWS.Connect do
 
   @doc """
   Searches for available phone numbers that you can claim to your Amazon Connect
-  instance
-  or traffic distribution group.
+  instance or traffic distribution group.
 
-  If the provided `TargetArn` is a traffic distribution group, you can call this
-  API in both
-  Amazon Web Services Regions associated with the traffic distribution group.
+  If the
+  provided `TargetArn` is a traffic distribution group, you can call this API in
+  both Amazon Web Services Regions associated with
+  the traffic distribution group.
   """
   @spec search_available_phone_numbers(map(), search_available_phone_numbers_request(), list()) ::
           {:ok, search_available_phone_numbers_response(), any()}
@@ -22706,14 +28237,12 @@ defmodule AWS.Connect do
 
     *
   A Search operation, unlike a List operation, takes time to index changes to
-  resource
-  (create, update or delete). If you don't see updated information for recently
-  changed
-  contact evaluations, try calling the API again in a few seconds. Contact
-  Evaluations
-  may not be fully backfilled with historical data in all regions yet, however all
-  recently
-  created Contact Evaluations should be available for search.
+  resource (create, update or
+  delete). If you don't see updated information for recently changed contact
+  evaluations, try calling the API again
+  in a few seconds. Contact Evaluations may not be fully backfilled with
+  historical data in all regions yet, however
+  all recently created Contact Evaluations should be available for search.
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
@@ -22832,6 +28361,40 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches for data tables based on the table's ID, name, and description.
+
+  In the future, this operation can
+  support searching on attribute names and possibly primary values. Follows other
+  search operations closely and
+  supports both search criteria and filters.
+  """
+  @spec search_data_tables(map(), search_data_tables_request(), list()) ::
+          {:ok, search_data_tables_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_data_tables_errors()}
+  def search_data_tables(%Client{} = client, input, options \\ []) do
+    url_path = "/search-data-tables"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches email address in an instance, with optional filtering.
   """
   @spec search_email_addresses(map(), search_email_addresses_request(), list()) ::
@@ -22882,10 +28445,10 @@ defmodule AWS.Connect do
 
     *
   A Search operation, unlike a List operation, takes time to index changes to
-  resource
-  (create, update or delete). If you don't see updated information for recently
-  changed
-  contact evaluations, try calling the API again in a few seconds.
+  resource (create, update or
+  delete). If you don't see updated information for recently changed contact
+  evaluations, try calling the API again
+  in a few seconds.
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
@@ -22981,21 +28544,19 @@ defmodule AWS.Connect do
   @doc """
   Searches predefined attributes that meet certain criteria.
 
-  A *predefined
-  attribute* is made up of a name and a value. You can use predefined attributes
-  for:
+  A *predefined attribute* is made
+  up of a name and a value. You can use predefined attributes for:
 
     *
   Routing proficiency (for example, agent certification) that has predefined
-  values (for
-  example, a list of possible certifications). For more information, see [Create predefined attributes for routing contacts to
+  values (for example, a list of
+  possible certifications). For more information, see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
 
     *
   Contact information that varies between transfers or conferences, such as the
-  name of the
-  business unit handling the contact. For more information, see [Use contact segment
-  attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  name of the business unit
+  handling the contact. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
@@ -23184,9 +28745,9 @@ defmodule AWS.Connect do
   filtering.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the
-  *Amazon Connect Administrator Guide*. For a mapping of the API name and
-  user interface name of the security profile permissions, see [List of security profile
+  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security
+  profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec search_security_profiles(map(), search_security_profiles_request(), list()) ::
@@ -23216,12 +28777,42 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches for test cases in the specified Amazon Connect instance, with optional
+  filtering.
+  """
+  @spec search_test_cases(map(), search_test_cases_request(), list()) ::
+          {:ok, search_test_cases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_test_cases_errors()}
+  def search_test_cases(%Client{} = client, input, options \\ []) do
+    url_path = "/search-test-cases"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches UserHierarchyGroups in an Amazon Connect instance, with optional
   filtering.
 
   The UserHierarchyGroup with `"LevelId": "0"` is the foundation for building
-  levels on top of an instance. It is not user-definable, nor is it visible in the
-  UI.
+  levels on top of an
+  instance. It is not user-definable, nor is it visible in the UI.
   """
   @spec search_user_hierarchy_groups(map(), search_user_hierarchy_groups_request(), list()) ::
           {:ok, search_user_hierarchy_groups_response(), any()}
@@ -23281,8 +28872,38 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches views based on name, description, or tags.
+  """
+  @spec search_views(map(), search_views_request(), list()) ::
+          {:ok, search_views_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_views_errors()}
+  def search_views(%Client{} = client, input, options \\ []) do
+    url_path = "/search-views"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches for vocabularies within a specific Amazon Connect instance using
-  `State`, `NameStartsWith`, and `LanguageCode`.
+  `State`,
+  `NameStartsWith`, and `LanguageCode`.
   """
   @spec search_vocabularies(map(), String.t() | atom(), search_vocabularies_request(), list()) ::
           {:ok, search_vocabularies_response(), any()}
@@ -23311,29 +28932,87 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Processes chat integration events from Amazon Web Services or external
-  integrations to
-  Amazon Connect.
+  Searches for workspace associations with users or routing profiles based on
+  various criteria.
+  """
+  @spec search_workspace_associations(map(), search_workspace_associations_request(), list()) ::
+          {:ok, search_workspace_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_workspace_associations_errors()}
+  def search_workspace_associations(%Client{} = client, input, options \\ []) do
+    url_path = "/search-workspace-associations"
+    headers = []
+    custom_headers = []
+    query_params = []
 
-  A chat integration event includes:
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches workspaces based on name, description, visibility, or tags.
+  """
+  @spec search_workspaces(map(), search_workspaces_request(), list()) ::
+          {:ok, search_workspaces_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_workspaces_errors()}
+  def search_workspaces(%Client{} = client, input, options \\ []) do
+    url_path = "/search-workspaces"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Processes chat integration events from Amazon Web Services or external
+  integrations to Amazon Connect.
+
+  A chat
+  integration event includes:
 
     *
   SourceId, DestinationId, and Subtype: a set of identifiers, uniquely
-  representing a
-  chat
+  representing a chat
 
     *
   ChatEvent: details of the chat action to perform such as sending a message,
-  event, or
-  disconnecting from a chat
+  event, or disconnecting from a
+  chat
 
   When a chat integration event is sent with chat identifiers that do not map to
-  an active
-  chat contact, a new chat contact is also created before handling chat action.
+  an active chat contact, a new
+  chat contact is also created before handling chat action.
 
   Access to this API is currently restricted to Amazon Web Services End User
-  Messaging for
-  supporting SMS integration.
+  Messaging for supporting SMS
+  integration.
   """
   @spec send_chat_integration_event(map(), send_chat_integration_event_request(), list()) ::
           {:ok, send_chat_integration_event_response(), any()}
@@ -23364,12 +29043,12 @@ defmodule AWS.Connect do
   @doc """
   Send outbound email for outbound campaigns.
 
-  For more information about outbound campaigns,
-  see [Set up Amazon Connect outbound campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html).
+  For more information about outbound campaigns, see [Set up Amazon Connect outbound
+  campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html).
 
   Only the Amazon Connect outbound campaigns service principal is allowed to
-  assume a
-  role in your account and call this API.
+  assume a role in your account
+  and call this API.
   """
   @spec send_outbound_email(map(), String.t() | atom(), send_outbound_email_request(), list()) ::
           {:ok, send_outbound_email_response(), any()}
@@ -23401,8 +29080,7 @@ defmodule AWS.Connect do
   Provides a pre-signed Amazon S3 URL in response for uploading your content.
 
   You may only use this API to upload attachments to an [Amazon Connect Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html)
-  or
-  [Amazon Connect Email](https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html).
+  or [Amazon Connect Email](https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html).
   """
   @spec start_attached_file_upload(
           map(),
@@ -23443,13 +29121,13 @@ defmodule AWS.Connect do
   @doc """
   Initiates a flow to start a new chat for the customer.
 
-  Response of this API provides a token
-  required to obtain credentials from the
+  Response of this API provides a token required to obtain
+  credentials from the
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API in the Amazon Connect Participant Service.
 
   When a new chat contact is successfully created, clients must subscribe to the
-  participant’s
-  connection for the created chat within 5 minutes. This is achieved by invoking
+  participant’s connection for the
+  created chat within 5 minutes. This is achieved by invoking
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html)
   with WEBSOCKET and CONNECTION_CREDENTIALS.
 
@@ -23460,13 +29138,14 @@ defmodule AWS.Connect do
   exception.
 
     *
-  The [quota for concurrent active chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  The [quota for concurrent active
+  chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   is exceeded. Active chat throttling returns a
   `LimitExceededException`.
 
   If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your
-  account may not support the ability to configure custom chat durations. For more
-  information,
+  account may not
+  support the ability to configure custom chat durations. For more information,
   contact Amazon Web Services Support.
 
   For more information about chat, see the following topics in the *Amazon Connect
@@ -23508,17 +29187,16 @@ defmodule AWS.Connect do
 
   @doc """
   Starts an empty evaluation in the specified Amazon Connect instance, using the
-  given
-  evaluation form for the particular contact.
+  given evaluation form for the
+  particular contact.
 
-  The evaluation form version used for the contact
-  evaluation corresponds to the currently activated version. If no version is
-  activated for the
-  evaluation form, the contact evaluation cannot be started.
+  The evaluation form version used for the contact evaluation corresponds to the
+  currently
+  activated version. If no version is activated for the evaluation form, the
+  contact evaluation cannot be started.
 
   Evaluations created through the public API do not contain answer values
-  suggested from
-  automation.
+  suggested from automation.
   """
   @spec start_contact_evaluation(
           map(),
@@ -23552,25 +29230,57 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Enables in-flight message processing for an ongoing chat session.
+
+  Message processing will stay active for the
+  rest of the chat, even if an individual contact segment ends.
+  """
+  @spec start_contact_media_processing(map(), start_contact_media_processing_request(), list()) ::
+          {:ok, start_contact_media_processing_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_contact_media_processing_errors()}
+  def start_contact_media_processing(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/start-contact-media-processing"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Starts recording the contact:
 
     *
-  If the API is called *before* the agent joins the call, recording
-  starts when the agent joins the call.
+  If the API is called *before* the agent joins the call, recording starts when
+  the agent
+  joins the call.
 
     *
-  If the API is called *after* the agent joins the call, recording starts
-  at the time of the API call.
+  If the API is called *after* the agent joins the call, recording starts at the
+  time of the
+  API call.
 
   StartContactRecording is a one-time action. For example, if you use
-  StopContactRecording to
-  stop recording an ongoing call, you can't use StartContactRecording to restart
-  it. For scenarios
-  where the recording has started and you want to suspend and resume it, such as
-  when collecting
-  sensitive information (for example, a credit card number), use
-  SuspendContactRecording and
-  ResumeContactRecording.
+  StopContactRecording to stop recording an
+  ongoing call, you can't use StartContactRecording to restart it. For scenarios
+  where the recording has started and
+  you want to suspend and resume it, such as when collecting sensitive information
+  (for example, a credit card number),
+  use SuspendContactRecording and ResumeContactRecording.
 
   You can use this API to override the recording behavior configured in the [Set recording
   behavior](https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html)
@@ -23608,7 +29318,8 @@ defmodule AWS.Connect do
   Initiates real-time message streaming for a new chat contact.
 
   For more information about message streaming, see [Enable real-time chat message streaming](https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the
+  *Amazon Connect Administrator Guide*.
 
   For more information about chat, see the following topics in the *Amazon Connect
   Administrator Guide*:
@@ -23649,10 +29360,10 @@ defmodule AWS.Connect do
 
   @doc """
   Creates an inbound email contact and initiates a flow to start the email contact
-  for the
-  customer.
+  for the customer.
 
-  Response of this API provides the ContactId of the email contact created.
+  Response of
+  this API provides the ContactId of the email contact created.
   """
   @spec start_email_contact(map(), start_email_contact_request(), list()) ::
           {:ok, start_email_contact_response(), any()}
@@ -23681,36 +29392,40 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Initiates a new outbound SMS contact to a customer.
+  Initiates a new outbound SMS or WhatsApp contact to a customer.
 
   Response of this API provides the
-  `ContactId` of the outbound SMS contact created.
+  `ContactId` of the outbound SMS or WhatsApp contact created.
 
   **SourceEndpoint** only supports Endpoints with
   `CONNECT_PHONENUMBER_ARN` as Type and **DestinationEndpoint** only supports
-  Endpoints with `TELEPHONE_NUMBER` as
-  Type. **ContactFlowId** initiates the flow to manage the new SMS
-  contact created.
+  Endpoints with `TELEPHONE_NUMBER` as Type. **ContactFlowId** initiates the
+  flow to manage the new contact created.
 
-  This API can be used to initiate outbound SMS contacts for an agent, or it can
-  also deflect
-  an ongoing contact to an outbound SMS contact by using the
-  [StartOutboundChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html) Flow Action.
+  This API can be used to initiate outbound SMS or WhatsApp contacts for an agent,
+  or it can also deflect
+  an ongoing contact to an outbound SMS or WhatsApp contact by using the
+  [StartOutboundChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html) Flow
+  Action.
 
-  For more information about using SMS in Amazon Connect, see the following topics
-  in the
-  *Amazon Connect Administrator Guide*:
+  For more information about using SMS or WhatsApp in Amazon Connect, see the
+  following topics in
+  the *Amazon Connect Administrator Guide*:
 
     *
 
-  [Set
-  up SMS
+  [Set up SMS
   messaging](https://docs.aws.amazon.com/connect/latest/adminguide/setup-sms-messaging.html)
 
     *
 
-  [Request an SMS-enabled phone number through AWS End User Messaging
+  [Request an SMS-enabled phone number through Amazon Web Services End User Messaging
   SMS](https://docs.aws.amazon.com/connect/latest/adminguide/sms-number.html)
+
+    *
+
+  [Set up WhatsApp Business
+  messaging](https://docs.aws.amazon.com/connect/latest/adminguide/whatsapp-integration.html)
   """
   @spec start_outbound_chat_contact(map(), start_outbound_chat_contact_request(), list()) ::
           {:ok, start_outbound_chat_contact_response(), any()}
@@ -23740,8 +29455,8 @@ defmodule AWS.Connect do
 
   @doc """
   Initiates a flow to send an agent reply or outbound email contact (created from
-  the
-  CreateContact API) to a customer.
+  the CreateContact API) to a
+  customer.
   """
   @spec start_outbound_email_contact(map(), start_outbound_email_contact_request(), list()) ::
           {:ok, start_outbound_email_contact_response(), any()}
@@ -23772,30 +29487,36 @@ defmodule AWS.Connect do
   @doc """
   Places an outbound call to a contact, and then initiates the flow.
 
-  It performs the actions
-  in the flow that's specified (in `ContactFlowId`).
+  It performs the actions in the flow that's
+  specified (in `ContactFlowId`).
 
   Agents do not initiate the outbound API, which means that they do not dial the
-  contact. If
-  the flow places an outbound call to a contact, and then puts the contact in
-  queue, the call is
-  then routed to the agent, like any other inbound case.
+  contact. If the flow places an
+  outbound call to a contact, and then puts the contact in queue, the call is then
+  routed to the agent, like any other
+  inbound case.
 
-  There is a 60-second dialing timeout for this operation. If the call is not
-  connected after
-  60 seconds, it fails.
+  Dialing timeout for this operation can be configured with the
+  “RingTimeoutInSeconds” parameter. If not
+  specified, the default dialing timeout will be 60 seconds which means if the
+  call is not connected within 60 seconds,
+  it fails.
 
   UK numbers with a 447 prefix are not allowed by default. Before you can dial
-  these UK
-  mobile numbers, you must submit a service quota increase request. For more
-  information, see
-  [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  these UK mobile numbers, you must
+  submit a service quota increase request. For more information, see [Amazon Connect Service
+  Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  in the
+  *Amazon Connect Administrator Guide*.
 
   Campaign calls are not allowed by default. Before you can make a call with
-  `TrafficType` = `CAMPAIGN`, you must submit a service quota increase
-  request to the quota [Amazon Connect campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas).
+  `TrafficType` =
+  `CAMPAIGN`, you must submit a service quota increase request to the quota
+  [Amazon Connect campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas).
+
+  For Preview dialing mode, only the Amazon Connect outbound campaigns service
+  principal is allowed to assume a
+  role in your account and call this API with OutboundStrategy.
   """
   @spec start_outbound_voice_contact(map(), start_outbound_voice_contact_request(), list()) ::
           {:ok, start_outbound_voice_contact_response(), any()}
@@ -23828,8 +29549,7 @@ defmodule AWS.Connect do
 
   For more information about screen sharing, see [Set up in-app, web, video calling, and screen sharing
   capabilities](https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec start_screen_sharing(map(), start_screen_sharing_request(), list()) ::
           {:ok, start_screen_sharing_response(), any()}
@@ -23860,13 +29580,12 @@ defmodule AWS.Connect do
   @doc """
   Initiates a flow to start a new task contact.
 
-  For more information about task contacts, see
-  [Concepts: Tasks in Amazon
-  Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html) in
-  the *Amazon Connect Administrator Guide*.
+  For more information about task contacts, see [Concepts: Tasks in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html) in
+  the
+  *Amazon Connect Administrator Guide*.
 
-  When using `PreviousContactId` and `RelatedContactId` input
-  parameters, note the following:
+  When using `PreviousContactId` and `RelatedContactId` input parameters, note the
+  following:
 
     *
 
@@ -23874,13 +29593,13 @@ defmodule AWS.Connect do
 
       *
   Any updates to user-defined task contact attributes on any contact linked
-  through the
-  same `PreviousContactId` will affect every contact in the chain.
+  through the same
+  `PreviousContactId` will affect every contact in the chain.
 
       *
   There can be a maximum of 12 linked task contacts in a chain. That is, 12 task
-  contacts
-  can be created that share the same `PreviousContactId`.
+  contacts can be created that
+  share the same `PreviousContactId`.
 
     *
 
@@ -23891,8 +29610,7 @@ defmodule AWS.Connect do
 
       *
   Any update on attributes in a new task contact does not update attributes on
-  previous
-  contact.
+  previous contact.
 
       *
   There’s no limit on the number of task contacts that can be created that use the
@@ -23900,22 +29618,23 @@ defmodule AWS.Connect do
   `RelatedContactId`.
 
   In addition, when calling StartTaskContact include only one of these parameters:
-  `ContactFlowID`, `QuickConnectID`, or `TaskTemplateID`. Only
-  one parameter is required as long as the task template has a flow configured to
-  run it. If more
-  than one parameter is specified, or only the `TaskTemplateID` is specified but
-  it does
-  not have a flow configured, the request returns an error because Amazon Connect
-  cannot
-  identify the unique flow to run when the task is created.
+  `ContactFlowID`,
+  `QuickConnectID`, or `TaskTemplateID`. Only one parameter is required as long as
+  the task
+  template has a flow configured to run it. If more than one parameter is
+  specified, or only the
+  `TaskTemplateID` is specified but it does not have a flow configured, the
+  request returns an error
+  because Amazon Connect cannot identify the unique flow to run when the task is
+  created.
 
   A `ServiceQuotaExceededException` occurs when the number of open tasks exceeds
-  the active tasks quota or there are already 12 tasks referencing the same
-  `PreviousContactId`. For more information about service quotas for task
-  contacts, see
-  [Amazon Connect service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  the active tasks quota
+  or there are already 12 tasks referencing the same `PreviousContactId`. For more
+  information about service
+  quotas for task contacts, see [Amazon Connect service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   @spec start_task_contact(map(), start_task_contact_request(), list()) ::
           {:ok, start_task_contact_response(), any()}
@@ -23944,12 +29663,56 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Starts executing a published test case.
+  """
+  @spec start_test_case_execution(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          start_test_case_execution_request(),
+          list()
+        ) ::
+          {:ok, start_test_case_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_test_case_execution_errors()}
+  def start_test_case_execution(
+        %Client{} = client,
+        instance_id,
+        test_case_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/test-cases/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(test_case_id)}/start-execution"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Places an inbound in-app, web, or video call to a contact, and then initiates
   the flow.
 
-  It
-  performs the actions in the flow that are specified (in ContactFlowId) and
-  present in the Amazon Connect instance (specified as InstanceId).
+  It performs the actions
+  in the flow that are specified (in ContactFlowId) and present in the Amazon
+  Connect instance (specified as
+  InstanceId).
   """
   @spec start_web_r_t_c_contact(map(), start_web_r_t_c_contact_request(), list()) ::
           {:ok, start_web_r_t_c_contact_response(), any()}
@@ -23980,8 +29743,9 @@ defmodule AWS.Connect do
   @doc """
   Ends the specified contact.
 
-  Use this API to stop queued callbacks. It does not work for
-  voice contacts that use the following initiation methods:
+  Use this API to stop queued callbacks. It does not work for voice contacts that
+  use
+  the following initiation methods:
 
     *
   DISCONNECT
@@ -24028,16 +29792,44 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Stops in-flight message processing for an ongoing chat session.
+  """
+  @spec stop_contact_media_processing(map(), stop_contact_media_processing_request(), list()) ::
+          {:ok, stop_contact_media_processing_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_contact_media_processing_errors()}
+  def stop_contact_media_processing(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/stop-contact-media-processing"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Stops recording a call when a contact is being recorded.
 
-  StopContactRecording is a one-time
-  action. If you use StopContactRecording to stop recording an ongoing call, you
-  can't use
-  StartContactRecording to restart it. For scenarios where the recording has
-  started and you want
-  to suspend it for sensitive information (for example, to collect a credit card
-  number), and then
-  restart it, use SuspendContactRecording and ResumeContactRecording.
+  StopContactRecording is a one-time action. If you use
+  StopContactRecording to stop recording an ongoing call, you can't use
+  StartContactRecording to restart it. For
+  scenarios where the recording has started and you want to suspend it for
+  sensitive information (for example, to
+  collect a credit card number), and then restart it, use SuspendContactRecording
+  and ResumeContactRecording.
 
   Only voice recordings are supported at this time.
   """
@@ -24070,8 +29862,7 @@ defmodule AWS.Connect do
   @doc """
   Ends message streaming on a specified contact.
 
-  To restart message streaming on that
-  contact, call the
+  To restart message streaming on that contact, call the
   [StartContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html)
   API.
   """
@@ -24102,18 +29893,62 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Stops a running test execution.
+  """
+  @spec stop_test_case_execution(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          stop_test_case_execution_request(),
+          list()
+        ) ::
+          {:ok, stop_test_case_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_test_case_execution_errors()}
+  def stop_test_case_execution(
+        %Client{} = client,
+        instance_id,
+        test_case_execution_id,
+        test_case_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/test-cases/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(test_case_id)}/#{AWS.Util.encode_uri(test_case_execution_id)}/stop-execution"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Submits a contact evaluation in the specified Amazon Connect instance.
 
-  Answers included
-  in the request are merged with existing answers for the given evaluation. If no
-  answers or notes
-  are passed, the evaluation is submitted with the existing answers and notes. You
-  can delete an
-  answer or note by passing an empty object (`{}`) to the question identifier.
+  Answers included in the request are
+  merged with existing answers for the given evaluation. If no answers or notes
+  are passed, the evaluation is submitted
+  with the existing answers and notes. You can delete an answer or note by passing
+  an empty object (`{}`) to
+  the question identifier.
 
   If a contact evaluation is already in submitted state, this operation will
-  trigger a
-  resubmission.
+  trigger a resubmission.
   """
   @spec submit_contact_evaluation(
           map(),
@@ -24157,20 +29992,19 @@ defmodule AWS.Connect do
 
   @doc """
   When a contact is being recorded, this API suspends recording whatever is
-  selected in the
-  flow configuration: call (IVR or agent), screen, or both.
+  selected in the flow configuration:
+  call (IVR or agent), screen, or both.
 
-  If only call recording or only screen
-  recording is enabled, then it would be suspended. For example, you might suspend
-  the screen
-  recording while collecting sensitive information, such as a credit card number.
-  Then use
+  If only call recording or only screen recording is enabled, then it would be
+  suspended. For example, you might suspend the screen recording while collecting
+  sensitive information, such as a
+  credit card number. Then use
   [ResumeContactRecording](https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html)
-  to restart recording the screen.
+  to restart
+  recording the screen.
 
   The period of time that the recording is suspended is filled with silence in the
-  final
-  recording.
+  final recording.
 
   Voice (IVR, agent) and screen recordings are supported.
   """
@@ -24203,8 +30037,8 @@ defmodule AWS.Connect do
   @doc """
   Adds the specified tags to the contact resource.
 
-  For more information about this API is
-  used, see [Set up granular billing for a detailed view of your Amazon Connect
+  For more information about this API is used, see [Set up granular billing for a detailed
+  view of your Amazon Connect
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
   """
   @spec tag_contact(map(), tag_contact_request(), list()) ::
@@ -24237,15 +30071,12 @@ defmodule AWS.Connect do
   Adds the specified tags to the specified resource.
 
   Some of the supported resource types are agents, routing profiles, queues, quick
-  connects,
-  flows, agent statuses, hours of operation, phone numbers, security profiles, and
-  task templates.
-  For a complete list, see [Tagging resources in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
+  connects, flows, agent
+  statuses, hours of operation, phone numbers, security profiles, and task
+  templates. For a complete list, see [Tagging resources in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
 
-  For sample policies that use tags, see [Amazon Connect Identity-Based Policy
-  Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -24275,15 +30106,15 @@ defmodule AWS.Connect do
 
   @doc """
   Transfers `TASK` or `EMAIL`
-  contacts from one agent or queue to another agent or queue at any point
-  after a contact is created.
+  contacts from one agent or queue to another agent or queue at any point after a
+  contact is
+  created.
 
-  You can transfer a contact to another queue by providing the flow
-  which orchestrates the contact to the destination queue. This gives you more
-  control over contact
-  handling and helps you adhere to the service level agreement (SLA) guaranteed to
-  your
-  customers.
+  You can transfer a contact to another queue by providing the flow which
+  orchestrates the contact to the
+  destination queue. This gives you more control over contact handling and helps
+  you adhere to the service level
+  agreement (SLA) guaranteed to your customers.
 
   Note the following requirements:
 
@@ -24295,8 +30126,8 @@ defmodule AWS.Connect do
 
     *
   The following flow types are supported: Inbound flow, Transfer to agent flow,
-  and Transfer
-  to queue flow.
+  and Transfer to queue
+  flow.
 
     *
   The `TransferContact` API can be called only on active contacts.
@@ -24333,8 +30164,8 @@ defmodule AWS.Connect do
   @doc """
   Removes the specified tags from the contact resource.
 
-  For more information about this API is
-  used, see [Set up granular billing for a detailed view of your Amazon Connect
+  For more information about this API is used, see [Set up granular billing for a detailed
+  view of your Amazon Connect
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
   """
   @spec untag_contact(
@@ -24499,12 +30330,11 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Adds or updates user-defined contact information associated with the specified
-  contact. At
-  least one field to be updated must be present in the request.
+  contact. At least one field to be
+  updated must be present in the request.
 
   You can add or update user-defined contact information for both ongoing and
-  completed
-  contacts.
+  completed contacts.
   """
   @spec update_contact(
           map(),
@@ -24539,28 +30369,22 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates or updates
-  user-defined contact attributes
-  associated with the specified contact.
+  Creates or updates user-defined contact
+  attributes associated with the specified contact.
 
   You can create or update user-defined attributes for both ongoing and completed
-  contacts.
-  For example, while the call is active, you can update the customer's name or the
-  reason the
-  customer called. You can add notes about steps that the agent took during the
-  call that display
-  to the next agent that takes the call. You can also update attributes for a
-  contact using data
-  from your CRM application and save the data with the contact in Amazon Connect.
-  You could
-  also flag calls for additional analysis, such as legal review or to identify
-  abusive
-  callers.
+  contacts. For example, while the
+  call is active, you can update the customer's name or the reason the customer
+  called. You can add notes about steps
+  that the agent took during the call that display to the next agent that takes
+  the call. You can also update
+  attributes for a contact using data from your CRM application and save the data
+  with the contact in Amazon Connect. You could also flag calls for additional
+  analysis, such as legal review or to identify abusive callers.
 
   Contact attributes are available in Amazon Connect for 24 months, and are then
-  deleted.
-  For information about contact record retention and the maximum size of the
-  contact record
+  deleted. For information
+  about contact record retention and the maximum size of the contact record
   attributes section, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits)
   in the *Amazon Connect Administrator Guide*.
   """
@@ -24594,12 +30418,11 @@ defmodule AWS.Connect do
   Updates details about a contact evaluation in the specified Amazon Connect
   instance.
 
-  A
-  contact evaluation must be in draft state. Answers included in the request are
-  merged with
-  existing answers for the given evaluation. An answer or note can be deleted by
-  passing an empty
-  object (`{}`) to the question identifier.
+  A contact evaluation
+  must be in draft state. Answers included in the request are merged with existing
+  answers for the given evaluation. An
+  answer or note can be deleted by passing an empty object (`{}`) to the question
+  identifier.
   """
   @spec update_contact_evaluation(
           map(),
@@ -24647,10 +30470,11 @@ defmodule AWS.Connect do
   You can also create and update flows using the [Amazon Connect Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
-  Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is
-  published, `$SAVED` needs to be supplied to view saved content that has not been
-  published.
+  Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow.
+  For
+  example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is published,
+  `$SAVED` needs to
+  be supplied to view saved content that has not been published.
   """
   @spec update_contact_flow_content(
           map(),
@@ -24736,12 +30560,59 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Updates a specific Aliases metadata, including the version it’s tied to, it’s
+  name, and description.
+  """
+  @spec update_contact_flow_module_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_contact_flow_module_alias_request(),
+          list()
+        ) ::
+          {:ok, update_contact_flow_module_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_contact_flow_module_alias_errors()}
+  def update_contact_flow_module_alias(
+        %Client{} = client,
+        alias_id,
+        contact_flow_module_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/alias/#{AWS.Util.encode_uri(alias_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates specified flow module for the specified Amazon Connect instance.
 
-  Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is
-  published, `$SAVED` needs to be supplied to view saved content that has not been
-  published.
+  Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow.
+  For
+  example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is published,
+  `$SAVED` needs to
+  be supplied to view saved content that has not been published.
   """
   @spec update_contact_flow_module_content(
           map(),
@@ -24876,23 +30747,20 @@ defmodule AWS.Connect do
   Updates routing priority and age on the contact (**QueuePriority** and
   **QueueTimeAdjustmentInSeconds**).
 
-  These properties can be used to change a customer's position in the queue. For
-  example, you can
-  move a contact to the back of the queue by setting a lower routing priority
-  relative to other
-  contacts in queue; or you can move a contact to the front of the queue by
-  increasing the routing
+  These properties can be used to change a customer's position
+  in the queue. For example, you can move a contact to the back of the queue by
+  setting a lower routing priority
+  relative to other contacts in queue; or you can move a contact to the front of
+  the queue by increasing the routing
   age which will make the contact look artificially older and therefore higher up
-  in the
-  first-in-first-out routing order. Note that adjusting the routing age of a
-  contact affects only
-  its position in queue, and not its actual queue wait time as reported through
-  metrics. These
-  properties can also be updated by using [the Set routing priority / age flow block](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html).
+  in the first-in-first-out routing
+  order. Note that adjusting the routing age of a contact affects only its
+  position in queue, and not its actual queue
+  wait time as reported through metrics. These properties can also be updated by
+  using [the Set routing priority / age flow block](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html).
 
   Either **QueuePriority** or **QueueTimeAdjustmentInSeconds** should be provided
-  within the request body, but not
-  both.
+  within the request body, but not both.
   """
   @spec update_contact_routing_data(
           map(),
@@ -24964,10 +30832,162 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Updates all properties for an attribute using all properties from
+  CreateDataTableAttribute.
+
+  There are no other
+  granular update endpoints. It does not act as a patch operation - all properties
+  must be provided. System managed
+  attributes are not mutable by customers. Changing an attribute's validation does
+  not invalidate existing values since
+  validation only runs when values are created or updated.
+  """
+  @spec update_data_table_attribute(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_data_table_attribute_request(),
+          list()
+        ) ::
+          {:ok, update_data_table_attribute_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_data_table_attribute_errors()}
+  def update_data_table_attribute(
+        %Client{} = client,
+        attribute_name,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/attributes/#{AWS.Util.encode_uri(attribute_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the metadata properties of a data table.
+
+  Accepts all fields similar to CreateDataTable, except for
+  fields and tags. There are no other granular update endpoints. It does not act
+  as a patch operation - all properties
+  must be provided or defaults will be used. Fields follow the same requirements
+  as CreateDataTable.
+  """
+  @spec update_data_table_metadata(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_data_table_metadata_request(),
+          list()
+        ) ::
+          {:ok, update_data_table_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_data_table_metadata_errors()}
+  def update_data_table_metadata(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the primary values for a record.
+
+  This operation affects all existing values that are currently
+  associated to the record and its primary values. Users that have restrictions on
+  attributes and/or primary values are
+  not authorized to use this endpoint. The combination of new primary values must
+  be unique within the table.
+  """
+  @spec update_data_table_primary_values(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_data_table_primary_values_request(),
+          list()
+        ) ::
+          {:ok, update_data_table_primary_values_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_data_table_primary_values_errors()}
+  def update_data_table_primary_values(
+        %Client{} = client,
+        data_table_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-tables/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(data_table_id)}/values/update-primary"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates an email address metadata.
 
   For more information about email addresses, see [Create email addresses](https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html)
-  in the Amazon Connect Administrator Guide.
+  in the Amazon Connect
+  Administrator Guide.
   """
   @spec update_email_address_metadata(
           map(),
@@ -25011,15 +31031,14 @@ defmodule AWS.Connect do
 
   @doc """
   Updates details about a specific evaluation form version in the specified Amazon
-  Connect
-  instance.
+  Connect instance.
 
-  Question and section identifiers cannot be duplicated within the same evaluation
-  form.
+  Question
+  and section identifiers cannot be duplicated within the same evaluation form.
 
   This operation does not support partial updates. Instead it does a full update
-  of evaluation
-  form content.
+  of evaluation form
+  content.
   """
   @spec update_evaluation_form(
           map(),
@@ -25247,23 +31266,23 @@ defmodule AWS.Connect do
   @doc """
   Instructs Amazon Connect to resume the authentication process.
 
-  The subsequent actions
-  depend on the request body contents:
+  The subsequent actions depend on the request
+  body contents:
 
     *
 
-  **If a code is provided**: Connect retrieves the identity
-  information from Amazon Cognito and imports it into Connect Customer Profiles.
+  **If a code is provided**: Connect retrieves the identity information from
+  Amazon
+  Cognito and imports it into Connect Customer Profiles.
 
     *
 
-  **If an error is provided**: The error branch of the
-  Authenticate Customer block is executed.
+  **If an error is provided**: The error branch of the Authenticate Customer block
+  is executed.
 
   The API returns a success response to acknowledge the request. However, the
-  interaction and
-  exchange of identity information occur asynchronously after the response is
-  returned.
+  interaction and exchange of
+  identity information occur asynchronously after the response is returned.
   """
   @spec update_participant_authentication(
           map(),
@@ -25297,8 +31316,8 @@ defmodule AWS.Connect do
 
   @doc """
   Updates timeouts for when human chat participants are to be considered idle, and
-  when agents
-  are automatically disconnected from a chat due to idleness.
+  when agents are automatically
+  disconnected from a chat due to idleness.
 
   You can set four timers:
 
@@ -25359,21 +31378,18 @@ defmodule AWS.Connect do
 
   @doc """
   Updates your claimed phone number from its current Amazon Connect instance or
-  traffic distribution group to
-  another Amazon Connect instance or traffic distribution group in the same Amazon
-  Web Services Region.
+  traffic distribution group to another Amazon Connect instance or traffic
+  distribution group in the same Amazon Web Services Region.
 
   After using this API, you must verify that the phone number is attached to the
-  correct flow
-  in the target instance or traffic distribution group. You need to do this
-  because the API
-  switches only the phone number to a new instance or traffic distribution group.
-  It doesn't
-  migrate the flow configuration of the phone number, too.
+  correct flow in the target
+  instance or traffic distribution group. You need to do this because the API
+  switches only the phone number to a new
+  instance or traffic distribution group. It doesn't migrate the flow
+  configuration of the phone number, too.
 
   You can call
-  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html) API
-  to verify the status of a previous
+  [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html) API to verify the status of a previous
   [UpdatePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html)
   operation.
   """
@@ -25444,8 +31460,8 @@ defmodule AWS.Connect do
   @doc """
   Updates a predefined attribute for the specified Amazon Connect instance.
 
-  A *predefined
-  attribute* is made up of a name and a value.
+  A *predefined attribute* is
+  made up of a name and a value.
 
   For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
@@ -25455,17 +31471,16 @@ defmodule AWS.Connect do
 
     *
   Update routing proficiency (for example, agent certification) that has
-  predefined values
-  (for example, a list of possible certifications). For more information, see
-  [Create predefined attributes for routing contacts to
+  predefined values (for example, a list
+  of possible certifications). For more information, see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
 
     *
   Update an attribute for business unit name that has a list of predefined
-  business unit
-  names used in your organization. This is a use case where information for a
-  contact varies
-  between transfers or conferences. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
+  business unit names used in your
+  organization. This is a use case where information for a contact varies between
+  transfers or conferences. For more
+  information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
@@ -25583,8 +31598,7 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the maximum number of contacts allowed in a queue before it is
-  considered
-  full.
+  considered full.
   """
   @spec update_queue_max_contacts(
           map(),
@@ -25659,8 +31673,7 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the outbound caller ID name, number, and outbound whisper flow for a
-  specified
-  queue.
+  specified queue.
 
     
   If the phone number is claimed to a traffic distribution group that was created
@@ -25678,15 +31691,17 @@ defmodule AWS.Connect do
 
     
   Only use the phone number ARN format that doesn't contain `instance` in the
-  path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`.
-  This
-  is the same ARN format that is returned when you call the
+  path, for example,
+  `arn:aws:connect:us-east-1:1234567890:phone-number/uuid`. This is the same ARN
+  format that is returned
+  when you call the
   [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
 
     
   If you plan to use IAM policies to allow/deny access to this API for phone
-  number resources claimed to a traffic distribution group, see [Allow or Deny
-  queue API actions for phone numbers in a replica
+  number resources
+  claimed to a traffic distribution group, see [Allow or Deny queue API actions
+  for phone numbers in a replica
   Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
   """
   @spec update_queue_outbound_caller_config(
@@ -25900,9 +31915,8 @@ defmodule AWS.Connect do
 
   @doc """
   Whether agents with this routing profile will have their routing order
-  calculated based on
-  *time since their last inbound contact* or *longest idle
-  time*.
+  calculated based on *time since
+  their last inbound contact* or *longest idle time*.
   """
   @spec update_routing_profile_agent_availability_timer(
           map(),
@@ -25946,8 +31960,7 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the channels that agents can handle in the Contact Control Panel (CCP)
-  for a routing
-  profile.
+  for a routing profile.
   """
   @spec update_routing_profile_concurrency(
           map(),
@@ -26035,8 +32048,8 @@ defmodule AWS.Connect do
   @doc """
   Updates the name and description of a routing profile.
 
-  The request accepts the following data in JSON format.
-  At least `Name` or `Description` must be provided.
+  The request accepts the following data in JSON format. At least `Name` or
+  `Description` must be provided.
   """
   @spec update_routing_profile_name(
           map(),
@@ -26125,8 +32138,7 @@ defmodule AWS.Connect do
   Updates a rule for the specified Amazon Connect instance.
 
   Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
-  to
-  code conditions for the rule.
+  to code conditions for the rule.
   """
   @spec update_rule(
           map(),
@@ -26164,9 +32176,9 @@ defmodule AWS.Connect do
   Updates a security profile.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the
-  *Amazon Connect Administrator Guide*. For a mapping of the API name and
-  user interface name of the security profile permissions, see [List of security profile
+  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security
+  profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec update_security_profile(
@@ -26213,9 +32225,8 @@ defmodule AWS.Connect do
   Updates details about a specific task template in the specified Amazon Connect
   instance.
 
-  This operation does not support partial updates. Instead it does a full update
-  of template
-  content.
+  This operation does
+  not support partial updates. Instead it does a full update of template content.
   """
   @spec update_task_template(
           map(),
@@ -26258,13 +32269,60 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Updates any of the metadata for a test case, such as the name, description, and
+  status or content of an existing test case.
+
+  This API doesn't allow customers to update the tags of the test case resource
+  for the specified Amazon Connect instance.
+  """
+  @spec update_test_case(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_test_case_request(),
+          list()
+        ) ::
+          {:ok, update_test_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_test_case_errors()}
+  def update_test_case(%Client{} = client, instance_id, test_case_id, input, options \\ []) do
+    url_path =
+      "/test-cases/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(test_case_id)}"
+
+    {headers, input} =
+      [
+        {"LastModifiedRegion", "x-amz-last-modified-region"},
+        {"LastModifiedTime", "x-amz-last-modified-time"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the traffic distribution for a given traffic distribution group.
 
   When you shift telephony traffic, also shift agents and/or agent sign-ins to
-  ensure they
-  can handle the calls in the other Region. If you don't shift the agents, voice
-  calls will go to
-  the shifted Region but there won't be any agents available to receive the calls.
+  ensure they can handle the calls
+  in the other Region. If you don't shift the agents, voice calls will go to the
+  shifted Region but there won't be any
+  agents available to receive the calls.
 
   The `SignInConfig` distribution is available only on a
   default `TrafficDistributionGroup` (see the `IsDefault` parameter in the
@@ -26274,8 +32332,8 @@ defmodule AWS.Connect do
   an `InvalidRequestException` is returned.
 
   For more information about updating a traffic distribution group, see [Update
-  telephony
-  traffic distribution across Amazon Web Services Regions
+  telephony traffic distribution
+  across Amazon Web Services Regions
   ](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html)
   in the *Amazon Connect Administrator Guide*.
   """
@@ -26429,16 +32487,14 @@ defmodule AWS.Connect do
   Updates the identity information for the specified user.
 
   We strongly recommend limiting who has the ability to invoke
-  `UpdateUserIdentityInfo`. Someone with that ability can change the login
-  credentials
-  of other users by changing their email address. This poses a security risk to
-  your organization.
-  They can change the email address of a user to the attacker's email address, and
-  then reset the
-  password through email. For more information, see [Best Practices for Security
+  `UpdateUserIdentityInfo`. Someone with
+  that ability can change the login credentials of other users by changing their
+  email address. This poses a security
+  risk to your organization. They can change the email address of a user to the
+  attacker's email address, and then
+  reset the password through email. For more information, see [Best Practices for Security
   Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec update_user_identity_info(
           map(),
@@ -26630,13 +32686,15 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the view content of the given view identifier in the specified Amazon
-  Connect
-  instance.
+  Connect instance.
 
-  It performs content validation if `Status` is set to `SAVED` and
-  performs full content validation if `Status` is `PUBLISHED`. Note that the
-  `$SAVED` alias' content will always be updated, but the `$LATEST` alias'
-  content will only be updated if `Status` is `PUBLISHED`.
+  It performs content validation if `Status` is set to `SAVED` and performs full
+  content
+  validation if `Status` is `PUBLISHED`. Note that the `$SAVED` alias' content
+  will
+  always be updated, but the `$LATEST` alias' content will only be updated if
+  `Status` is
+  `PUBLISHED`.
   """
   @spec update_view_content(
           map(),
@@ -26673,8 +32731,8 @@ defmodule AWS.Connect do
   @doc """
   Updates the view metadata.
 
-  Note that either `Name` or `Description`
-  must be provided.
+  Note that either `Name` or `Description` must be
+  provided.
   """
   @spec update_view_metadata(
           map(),
@@ -26690,6 +32748,177 @@ defmodule AWS.Connect do
   def update_view_metadata(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/metadata"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the metadata of a workspace, such as its name and description.
+  """
+  @spec update_workspace_metadata(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_workspace_metadata_request(),
+          list()
+        ) ::
+          {:ok, update_workspace_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_workspace_metadata_errors()}
+  def update_workspace_metadata(
+        %Client{} = client,
+        instance_id,
+        workspace_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/metadata"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the configuration of a page in a workspace, including the associated
+  view and input data.
+  """
+  @spec update_workspace_page(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_workspace_page_request(),
+          list()
+        ) ::
+          {:ok, update_workspace_page_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_workspace_page_errors()}
+  def update_workspace_page(
+        %Client{} = client,
+        instance_id,
+        page,
+        workspace_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/pages/#{AWS.Util.encode_uri(page)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the theme configuration for a workspace, including colors and styling.
+  """
+  @spec update_workspace_theme(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_workspace_theme_request(),
+          list()
+        ) ::
+          {:ok, update_workspace_theme_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_workspace_theme_errors()}
+  def update_workspace_theme(%Client{} = client, instance_id, workspace_id, input, options \\ []) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/theme"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the visibility setting of a workspace, controlling whether it is
+  available to all users, assigned users
+  only, or none.
+  """
+  @spec update_workspace_visibility(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_workspace_visibility_request(),
+          list()
+        ) ::
+          {:ok, update_workspace_visibility_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_workspace_visibility_errors()}
+  def update_workspace_visibility(
+        %Client{} = client,
+        instance_id,
+        workspace_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(workspace_id)}/visibility"
 
     headers = []
     custom_headers = []

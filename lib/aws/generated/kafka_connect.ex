@@ -195,6 +195,7 @@ defmodule AWS.KafkaConnect do
         optional("kafkaClusterEncryptionInTransit") => kafka_cluster_encryption_in_transit_description(),
         optional("kafkaConnectVersion") => String.t() | atom(),
         optional("logDelivery") => log_delivery_description(),
+        optional("networkType") => String.t() | atom(),
         optional("plugins") => list(plugin_description()),
         optional("serviceExecutionRoleArn") => String.t() | atom(),
         optional("stateDescription") => state_description(),
@@ -799,6 +800,7 @@ defmodule AWS.KafkaConnect do
       create_connector_request() :: %{
         optional("connectorDescription") => String.t() | atom(),
         optional("logDelivery") => log_delivery(),
+        optional("networkType") => String.t() | atom(),
         optional("tags") => map(),
         optional("workerConfiguration") => worker_configuration(),
         required("capacity") => capacity(),
@@ -889,6 +891,7 @@ defmodule AWS.KafkaConnect do
         "kafkaClusterEncryptionInTransit" => kafka_cluster_encryption_in_transit_description(),
         "kafkaConnectVersion" => String.t() | atom(),
         "logDelivery" => log_delivery_description(),
+        "networkType" => String.t() | atom(),
         "plugins" => list(plugin_description()),
         "serviceExecutionRoleArn" => String.t() | atom(),
         "workerConfiguration" => worker_configuration_description()
@@ -1744,10 +1747,8 @@ defmodule AWS.KafkaConnect do
   @doc """
   Returns a list of all the connectors in this account and Region.
 
-  The list is limited to
-  connectors whose name starts with the specified prefix. The response also
-  includes a
-  description of each of the listed connectors.
+  The list is limited to connectors whose name starts with the specified prefix.
+  The response also includes a description of each of the listed connectors.
   """
   @spec list_connectors(
           map(),
@@ -1982,6 +1983,9 @@ defmodule AWS.KafkaConnect do
 
   @doc """
   Updates the specified connector.
+
+  For request body, specify only one parameter: either `capacity` or
+  `connectorConfiguration`.
   """
   @spec update_connector(map(), String.t() | atom(), update_connector_request(), list()) ::
           {:ok, update_connector_response(), any()}

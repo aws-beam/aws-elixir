@@ -113,6 +113,7 @@ defmodule AWS.QuickSight do
 
       line_chart_default_series_settings() :: %{
         "AxisBinding" => list(any()),
+        "DecalSettings" => decal_settings(),
         "LineStyleSettings" => line_chart_line_style_settings(),
         "MarkerStyleSettings" => line_chart_marker_style_settings()
       }
@@ -157,6 +158,15 @@ defmodule AWS.QuickSight do
 
   """
   @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_self_upgrade_configuration_request() :: %{}
+
+  """
+  @type describe_self_upgrade_configuration_request() :: %{}
 
   @typedoc """
 
@@ -759,9 +769,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       start_dashboard_snapshot_job_request() :: %{
+        optional("UserConfiguration") => snapshot_user_configuration(),
         required("SnapshotConfiguration") => snapshot_configuration(),
-        required("SnapshotJobId") => String.t() | atom(),
-        required("UserConfiguration") => snapshot_user_configuration()
+        required("SnapshotJobId") => String.t() | atom()
       }
 
   """
@@ -1412,6 +1422,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      get_identity_context_response() :: %{
+        "Context" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type get_identity_context_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_folder_request() :: %{}
 
   """
@@ -1901,6 +1924,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_self_upgrades_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_self_upgrades_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_action_connector_response() :: %{
         "ActionConnectorId" => [String.t() | atom()],
         "Arn" => String.t() | atom(),
@@ -2220,6 +2255,17 @@ defmodule AWS.QuickSight do
 
   """
   @type sheet_text_box() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dashboard_customization_visual_options() :: %{
+        "FieldsConfiguration" => visual_customization_fields_configuration()
+      }
+
+  """
+  @type dashboard_customization_visual_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2782,6 +2828,20 @@ defmodule AWS.QuickSight do
 
   """
   @type update_template_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_self_upgrades_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "SelfUpgradeRequestDetails" => list(self_upgrade_request_detail()),
+        "Status" => integer()
+      }
+
+  """
+  @type list_self_upgrades_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3534,6 +3594,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      sheet_layout_group() :: %{
+        "Id" => String.t() | atom(),
+        "Members" => list(sheet_layout_group_member())
+      }
+
+  """
+  @type sheet_layout_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_topics_response() :: %{
         "NextToken" => String.t() | atom(),
         "RequestId" => String.t() | atom(),
@@ -4172,12 +4244,52 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      sheet_background_style() :: %{
+        "Color" => String.t() | atom(),
+        "Gradient" => String.t() | atom()
+      }
+
+  """
+  @type sheet_background_style() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_pair_credentials() :: %{
+        "KeyPairUsername" => String.t() | atom(),
+        "PrivateKey" => String.t() | atom(),
+        "PrivateKeyPassphrase" => String.t() | atom()
+      }
+
+  """
+  @type key_pair_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       snapshot_s3_destination_configuration() :: %{
         "BucketConfiguration" => s3_bucket_configuration()
       }
 
   """
   @type snapshot_s3_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      geocoder_hierarchy() :: %{
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "County" => String.t() | atom(),
+        "PostCode" => String.t() | atom(),
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type geocoder_hierarchy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4426,10 +4538,35 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_field_bar_series_item() :: %{
+        "FieldId" => String.t() | atom(),
+        "FieldValue" => String.t() | atom(),
+        "Settings" => bar_chart_series_settings()
+      }
+
+  """
+  @type data_field_bar_series_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_dashboard_published_version_request() :: %{}
 
   """
   @type update_dashboard_published_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      field_bar_series_item() :: %{
+        "FieldId" => String.t() | atom(),
+        "Settings" => bar_chart_series_settings()
+      }
+
+  """
+  @type field_bar_series_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4490,7 +4627,8 @@ defmodule AWS.QuickSight do
 
       free_form_layout_element_border_style() :: %{
         "Color" => String.t() | atom(),
-        "Visibility" => list(any())
+        "Visibility" => list(any()),
+        "Width" => String.t() | atom()
       }
 
   """
@@ -4976,6 +5114,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      visual_customization_fields_configuration() :: %{
+        "AdditionalFields" => list(column_identifier()),
+        "Status" => list(any())
+      }
+
+  """
+  @type visual_customization_fields_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dynamic_default_value() :: %{
         "DefaultValueColumn" => column_identifier(),
         "GroupNameColumn" => column_identifier(),
@@ -5201,6 +5351,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       line_chart_series_settings() :: %{
+        "DecalSettings" => decal_settings(),
         "LineStyleSettings" => line_chart_line_style_settings(),
         "MarkerStyleSettings" => line_chart_marker_style_settings()
       }
@@ -5287,12 +5438,18 @@ defmodule AWS.QuickSight do
   ## Example:
 
       grid_layout_element() :: %{
+        "BackgroundStyle" => grid_layout_element_background_style(),
+        "BorderRadius" => String.t() | atom(),
+        "BorderStyle" => grid_layout_element_border_style(),
         "ColumnIndex" => integer(),
         "ColumnSpan" => integer(),
         "ElementId" => String.t() | atom(),
         "ElementType" => list(any()),
+        "LoadingAnimation" => loading_animation(),
+        "Padding" => String.t() | atom(),
         "RowIndex" => integer(),
-        "RowSpan" => integer()
+        "RowSpan" => integer(),
+        "SelectedBorderStyle" => grid_layout_element_border_style()
       }
 
   """
@@ -6181,7 +6338,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_job_result() :: %{
-        "AnonymousUsers" => list(anonymous_user_snapshot_job_result())
+        "AnonymousUsers" => list(anonymous_user_snapshot_job_result()),
+        "RegisteredUsers" => list(registered_user_snapshot_job_result())
       }
 
   """
@@ -6509,6 +6667,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_self_upgrade_request() :: %{
+        required("Action") => list(any()),
+        required("UpgradeRequestId") => String.t() | atom()
+      }
+
+  """
+  @type update_self_upgrade_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       body_section_dynamic_numeric_dimension_configuration() :: %{
         "Column" => column_identifier(),
         "Limit" => integer(),
@@ -6694,6 +6864,18 @@ defmodule AWS.QuickSight do
 
   """
   @type active_iam_policy_assignment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bar_chart_series_settings() :: %{
+        "BorderSettings" => border_settings(),
+        "DecalSettings" => decal_settings()
+      }
+
+  """
+  @type bar_chart_series_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7150,6 +7332,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      field_combo_series_item() :: %{
+        "FieldId" => String.t() | atom(),
+        "Settings" => combo_chart_series_settings()
+      }
+
+  """
+  @type field_combo_series_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       numeric_range_filter() :: %{
         "AggregationFunction" => aggregation_function(),
         "Column" => column_identifier(),
@@ -7215,6 +7409,17 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_resource_link_sharing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      self_upgrade_configuration() :: %{
+        "SelfUpgradeStatus" => list(any())
+      }
+
+  """
+  @type self_upgrade_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7531,6 +7736,18 @@ defmodule AWS.QuickSight do
 
   """
   @type data_set_column_id_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bar_chart_default_series_settings() :: %{
+        "BorderSettings" => border_settings(),
+        "DecalSettings" => decal_settings()
+      }
+
+  """
+  @type bar_chart_default_series_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8188,6 +8405,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      registered_user_quick_chat_embedding_configuration() :: %{}
+
+  """
+  @type registered_user_quick_chat_embedding_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_topic_refresh_response() :: %{
         "RefreshDetails" => topic_refresh_details(),
         "RequestId" => String.t() | atom(),
@@ -8448,6 +8674,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_self_upgrade_response() :: %{
+        "RequestId" => String.t() | atom(),
+        "SelfUpgradeRequestDetail" => self_upgrade_request_detail(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_self_upgrade_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       snapshot_anonymous_user_redacted() :: %{
         "RowLevelPermissionTagKeys" => list(String.t() | atom())
       }
@@ -8690,6 +8929,18 @@ defmodule AWS.QuickSight do
 
   """
   @type geospatial_circle_symbol_style() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coordinate() :: %{
+        "Latitude" => float(),
+        "Longitude" => float()
+      }
+
+  """
+  @type coordinate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9742,6 +9993,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_self_upgrade_configuration_response() :: %{
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_self_upgrade_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       k_p_iprogress_bar_conditional_formatting() :: %{
         "ForegroundColor" => conditional_formatting_color()
       }
@@ -9767,7 +10030,8 @@ defmodule AWS.QuickSight do
 
       free_form_layout_configuration() :: %{
         "CanvasSizeOptions" => free_form_layout_canvas_size_options(),
-        "Elements" => list(free_form_layout_element())
+        "Elements" => list(free_form_layout_element()),
+        "Groups" => list(sheet_layout_group())
       }
 
   """
@@ -10225,11 +10489,13 @@ defmodule AWS.QuickSight do
         "ColorLabelOptions" => chart_axis_label_options(),
         "ContributionAnalysisDefaults" => list(contribution_analysis_default()),
         "DataLabels" => data_label_options(),
+        "DefaultSeriesSettings" => bar_chart_default_series_settings(),
         "FieldWells" => bar_chart_field_wells(),
         "Interactions" => visual_interaction_options(),
         "Legend" => legend_options(),
         "Orientation" => list(any()),
         "ReferenceLines" => list(reference_line()),
+        "Series" => list(bar_series_item()),
         "SmallMultiplesOptions" => small_multiples_options(),
         "SortConfiguration" => bar_chart_sort_configuration(),
         "Tooltip" => tooltip_options(),
@@ -10380,7 +10646,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       tile_style() :: %{
-        "Border" => border_style()
+        "BackgroundColor" => String.t() | atom(),
+        "Border" => border_style(),
+        "BorderRadius" => String.t() | atom(),
+        "Padding" => String.t() | atom()
       }
 
   """
@@ -10604,6 +10873,7 @@ defmodule AWS.QuickSight do
       data_source_credentials() :: %{
         "CopySourceArn" => String.t() | atom(),
         "CredentialPair" => credential_pair(),
+        "KeyPairCredentials" => key_pair_credentials(),
         "SecretArn" => String.t() | atom(),
         "WebProxyCredentials" => web_proxy_credentials()
       }
@@ -11283,6 +11553,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      bar_series_item() :: %{
+        "DataFieldBarSeriesItem" => data_field_bar_series_item(),
+        "FieldBarSeriesItem" => field_bar_series_item()
+      }
+
+  """
+  @type bar_series_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dataset_parameter() :: %{
         "DateTimeDatasetParameter" => date_time_dataset_parameter(),
         "DecimalDatasetParameter" => decimal_dataset_parameter(),
@@ -11616,6 +11898,19 @@ defmodule AWS.QuickSight do
 
   """
   @type palette() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_field_combo_series_item() :: %{
+        "FieldId" => String.t() | atom(),
+        "FieldValue" => String.t() | atom(),
+        "Settings" => combo_chart_series_settings()
+      }
+
+  """
+  @type data_field_combo_series_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12007,6 +12302,7 @@ defmodule AWS.QuickSight do
         "CategoryAxis" => axis_display_options(),
         "CategoryLabelOptions" => chart_axis_label_options(),
         "ColorLabelOptions" => chart_axis_label_options(),
+        "DefaultSeriesSettings" => combo_chart_default_series_settings(),
         "FieldWells" => combo_chart_field_wells(),
         "Interactions" => visual_interaction_options(),
         "Legend" => legend_options(),
@@ -12016,6 +12312,7 @@ defmodule AWS.QuickSight do
         "ReferenceLines" => list(reference_line()),
         "SecondaryYAxisDisplayOptions" => axis_display_options(),
         "SecondaryYAxisLabelOptions" => chart_axis_label_options(),
+        "Series" => list(combo_series_item()),
         "SingleAxisOptions" => single_axis_options(),
         "SortConfiguration" => combo_chart_sort_configuration(),
         "Tooltip" => tooltip_options(),
@@ -12214,6 +12511,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      border_settings() :: %{
+        "BorderColor" => String.t() | atom(),
+        "BorderVisibility" => list(any()),
+        "BorderWidth" => String.t() | atom()
+      }
+
+  """
+  @type border_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       table_field_custom_text_content() :: %{
         "FontConfiguration" => font_configuration(),
         "Value" => String.t() | atom()
@@ -12373,6 +12683,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      visual_subtitle_font_configuration() :: %{
+        "FontConfiguration" => font_configuration(),
+        "TextAlignment" => list(any()),
+        "TextTransform" => list(any())
+      }
+
+  """
+  @type visual_subtitle_font_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_topic_response() :: %{
         "Arn" => String.t() | atom(),
         "RefreshArn" => String.t() | atom(),
@@ -12493,6 +12816,20 @@ defmodule AWS.QuickSight do
 
   """
   @type delete_identity_propagation_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      combo_chart_series_settings() :: %{
+        "BorderSettings" => border_settings(),
+        "DecalSettings" => decal_settings(),
+        "LineStyleSettings" => line_chart_line_style_settings(),
+        "MarkerStyleSettings" => line_chart_marker_style_settings()
+      }
+
+  """
+  @type combo_chart_series_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12695,6 +13032,7 @@ defmodule AWS.QuickSight do
         "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => geospatial_map_configuration(),
         "ColumnHierarchies" => list(column_hierarchy()),
+        "GeocodingPreferences" => list(geocode_preference()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t() | atom(),
@@ -12954,9 +13292,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      registered_user_snapshot_job_result() :: %{
+        "FileGroups" => list(snapshot_job_result_file_group())
+      }
+
+  """
+  @type registered_user_snapshot_job_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       column_configuration() :: %{
         "ColorsConfiguration" => colors_configuration(),
         "Column" => column_identifier(),
+        "DecalSettingsConfiguration" => decal_settings_configuration(),
         "FormatConfiguration" => format_configuration(),
         "Role" => list(any())
       }
@@ -13230,11 +13580,24 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      invalid_parameter_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registered_user_embedding_experience_configuration() :: %{
         "Dashboard" => registered_user_dashboard_embedding_configuration(),
         "DashboardVisual" => registered_user_dashboard_visual_embedding_configuration(),
         "GenerativeQnA" => registered_user_generative_qn_a_embedding_configuration(),
         "QSearchBar" => registered_user_q_search_bar_embedding_configuration(),
+        "QuickChat" => registered_user_quick_chat_embedding_configuration(),
         "QuickSightConsole" => registered_user_quick_sight_console_embedding_configuration()
       }
 
@@ -13465,6 +13828,7 @@ defmodule AWS.QuickSight do
         "ChartConfiguration" => filled_map_configuration(),
         "ColumnHierarchies" => list(column_hierarchy()),
         "ConditionalFormatting" => filled_map_conditional_formatting(),
+        "GeocodingPreferences" => list(geocode_preference()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t() | atom(),
@@ -13479,6 +13843,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_configuration() :: %{
+        "DashboardCustomizationVisualOptions" => dashboard_customization_visual_options(),
         "FieldOptions" => table_field_options(),
         "FieldWells" => table_field_wells(),
         "Interactions" => visual_interaction_options(),
@@ -14618,11 +14983,28 @@ defmodule AWS.QuickSight do
   ## Example:
 
       border_style() :: %{
-        "Show" => boolean()
+        "Color" => String.t() | atom(),
+        "Show" => boolean(),
+        "Width" => String.t() | atom()
       }
 
   """
   @type border_style() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      decal_settings() :: %{
+        "DecalColor" => String.t() | atom(),
+        "DecalPatternType" => list(any()),
+        "DecalStyleType" => list(any()),
+        "DecalVisibility" => list(any()),
+        "ElementValue" => String.t() | atom()
+      }
+
+  """
+  @type decal_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14814,6 +15196,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      combo_chart_default_series_settings() :: %{
+        "BorderSettings" => border_settings(),
+        "DecalSettings" => decal_settings(),
+        "LineStyleSettings" => line_chart_line_style_settings(),
+        "MarkerStyleSettings" => line_chart_marker_style_settings()
+      }
+
+  """
+  @type combo_chart_default_series_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_template_alias_response() :: %{
         "RequestId" => String.t() | atom(),
         "Status" => integer(),
@@ -14828,6 +15224,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       sheet_style() :: %{
+        "Background" => sheet_background_style(),
         "Tile" => tile_style(),
         "TileLayout" => tile_layout_style()
       }
@@ -15214,6 +15611,29 @@ defmodule AWS.QuickSight do
 
   """
   @type web_proxy_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      combo_series_item() :: %{
+        "DataFieldComboSeriesItem" => data_field_combo_series_item(),
+        "FieldComboSeriesItem" => field_combo_series_item()
+      }
+
+  """
+  @type combo_series_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_self_upgrade_configuration_request() :: %{
+        required("SelfUpgradeStatus") => list(any())
+      }
+
+  """
+  @type update_self_upgrade_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16774,7 +17194,14 @@ defmodule AWS.QuickSight do
   ## Example:
 
       typography() :: %{
-        "FontFamilies" => list(font())
+        "AxisLabelFontConfiguration" => font_configuration(),
+        "AxisTitleFontConfiguration" => font_configuration(),
+        "DataLabelFontConfiguration" => font_configuration(),
+        "FontFamilies" => list(font()),
+        "LegendTitleFontConfiguration" => font_configuration(),
+        "LegendValueFontConfiguration" => font_configuration(),
+        "VisualSubtitleFontConfiguration" => visual_subtitle_font_configuration(),
+        "VisualTitleFontConfiguration" => visual_title_font_configuration()
       }
 
   """
@@ -16795,6 +17222,19 @@ defmodule AWS.QuickSight do
 
   """
   @type template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_identity_context_request() :: %{
+        optional("Namespace") => String.t() | atom(),
+        optional("SessionExpiresAt") => [non_neg_integer()],
+        required("UserIdentifier") => list()
+      }
+
+  """
+  @type get_identity_context_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17100,6 +17540,19 @@ defmodule AWS.QuickSight do
 
   """
   @type dimension_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      visual_title_font_configuration() :: %{
+        "FontConfiguration" => font_configuration(),
+        "TextAlignment" => list(any()),
+        "TextTransform" => list(any())
+      }
+
+  """
+  @type visual_title_font_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17858,6 +18311,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_self_upgrade_configuration_response() :: %{
+        "RequestId" => String.t() | atom(),
+        "SelfUpgradeConfiguration" => self_upgrade_configuration(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_self_upgrade_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       body_section_dynamic_category_dimension_configuration() :: %{
         "Column" => column_identifier(),
         "Limit" => integer(),
@@ -18062,6 +18528,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pivot_table_configuration() :: %{
+        "DashboardCustomizationVisualOptions" => dashboard_customization_visual_options(),
         "FieldOptions" => pivot_table_field_options(),
         "FieldWells" => pivot_table_field_wells(),
         "Interactions" => visual_interaction_options(),
@@ -18105,6 +18572,25 @@ defmodule AWS.QuickSight do
 
   """
   @type create_refresh_schedule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      self_upgrade_request_detail() :: %{
+        "CreationTime" => float(),
+        "OriginalRole" => list(any()),
+        "RequestNote" => String.t() | atom(),
+        "RequestStatus" => list(any()),
+        "RequestedRole" => list(any()),
+        "UpgradeRequestId" => String.t() | atom(),
+        "UserName" => String.t() | atom(),
+        "lastUpdateAttemptTime" => float(),
+        "lastUpdateFailureReason" => String.t() | atom()
+      }
+
+  """
+  @type self_upgrade_request_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18191,6 +18677,17 @@ defmodule AWS.QuickSight do
 
   """
   @type scatter_plot_visual() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      decal_settings_configuration() :: %{
+        "CustomDecalSettings" => list(decal_settings())
+      }
+
+  """
+  @type decal_settings_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18399,11 +18896,13 @@ defmodule AWS.QuickSight do
 
       free_form_layout_element() :: %{
         "BackgroundStyle" => free_form_layout_element_background_style(),
+        "BorderRadius" => String.t() | atom(),
         "BorderStyle" => free_form_layout_element_border_style(),
         "ElementId" => String.t() | atom(),
         "ElementType" => list(any()),
         "Height" => String.t() | atom(),
         "LoadingAnimation" => loading_animation(),
+        "Padding" => String.t() | atom(),
         "RenderingRules" => list(sheet_element_rendering_rule()),
         "SelectedBorderStyle" => free_form_layout_element_border_style(),
         "Visibility" => list(any()),
@@ -18624,6 +19123,18 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_quick_sight_q_search_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      geocode_preference() :: %{
+        "Preference" => list(),
+        "RequestKey" => geocoder_hierarchy()
+      }
+
+  """
+  @type geocode_preference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18916,43 +19427,216 @@ defmodule AWS.QuickSight do
   ## Example:
 
       capabilities() :: %{
+        "BambooHRAction" => list(any()),
+        "ShareSAPMaterialStockAction" => list(any()),
         "ChatAgent" => list(any()),
+        "OpenAPIAction" => list(any()),
+        "CreateAndUpdateAmazonBedrockFSAction" => list(any()),
+        "ShareAmazonBedrockFSAction" => list(any()),
+        "UseHubspotAction" => list(any()),
         "ExportToExcel" => list(any()),
+        "ShareConfluenceAction" => list(any()),
+        "CreateAndUpdateMCPAction" => list(any()),
+        "CreateAndUpdateComprehendMedicalAction" => list(any()),
+        "CreateAndUpdateMSExchangeAction" => list(any()),
+        "AmazonBedrockARSAction" => list(any()),
+        "CreateAndUpdateMondayAction" => list(any()),
+        "CanvaAgentAction" => list(any()),
+        "UseComprehendAction" => list(any()),
+        "UseNewRelicAction" => list(any()),
+        "MSTeamsAction" => list(any()),
+        "HuggingFaceAction" => list(any()),
+        "ShareFactSetAction" => list(any()),
+        "UseOpenAPIAction" => list(any()),
+        "UseSlackAction" => list(any()),
+        "GenericHTTPAction" => list(any()),
+        "ShareHubspotAction" => list(any()),
+        "SAPProductMasterDataAction" => list(any()),
+        "ShareZendeskAction" => list(any()),
+        "CreateAndUpdateServiceNowAction" => list(any()),
+        "CreateAndUpdateAmazonBedrockARSAction" => list(any()),
+        "ShareMondayAction" => list(any()),
+        "CreateAndUpdateGenericHTTPAction" => list(any()),
         "KnowledgeBase" => list(any()),
+        "AsanaAction" => list(any()),
+        "CreateAndUpdateSlackAction" => list(any()),
+        "CreateAndUpdateSAPPhysicalInventoryAction" => list(any()),
+        "MCPAction" => list(any()),
+        "SlackAction" => list(any()),
+        "ShareMSExchangeAction" => list(any()),
+        "TextractAction" => list(any()),
+        "UseSharePointAction" => list(any()),
+        "CreateAndUpdateGoogleCalendarAction" => list(any()),
+        "ShareCanvaAgentAction" => list(any()),
+        "CreateAndUpdateLinearAction" => list(any()),
+        "CreateAndUpdateComprehendAction" => list(any()),
+        "CreateAndUpdateJiraAction" => list(any()),
+        "UseIntercomAction" => list(any()),
+        "UseLinearAction" => list(any()),
+        "ShareOpenAPIAction" => list(any()),
         "CreateSPICEDataset" => list(any()),
+        "ShareJiraAction" => list(any()),
+        "SandPGMIAction" => list(any()),
         "Automate" => list(any()),
+        "ShareGithubAction" => list(any()),
+        "UseMCPAction" => list(any()),
         "ExportToPdfInScheduledReports" => list(any()),
+        "CreateAndUpdateNewRelicAction" => list(any()),
+        "CreateAndUpdateSalesforceAction" => list(any()),
+        "UseNotionAction" => list(any()),
+        "UseCanvaAgentAction" => list(any()),
+        "ComprehendMedicalAction" => list(any()),
         "ExportToExcelInScheduledReports" => list(any()),
+        "ShareComprehendAction" => list(any()),
+        "CreateAndUpdateHuggingFaceAction" => list(any()),
         "ExportToCsv" => list(any()),
         "CreateAndUpdateDashboardEmailReports" => list(any()),
+        "UseAmazonBedrockFSAction" => list(any()),
+        "NewRelicAction" => list(any()),
+        "UseSandPGlobalEnergyAction" => list(any()),
+        "ShareGenericHTTPAction" => list(any()),
+        "ShareMCPAction" => list(any()),
+        "CreateAndUpdateSharePointAction" => list(any()),
+        "UseSalesforceAction" => list(any()),
+        "OneDriveAction" => list(any()),
+        "UseServiceNowAction" => list(any()),
+        "ShareNotionAction" => list(any()),
+        "UseMSTeamsAction" => list(any()),
         "AddOrRunAnomalyDetectionForAnalyses" => list(any()),
+        "CreateAndUpdateIntercomAction" => list(any()),
+        "CreateAndUpdateAsanaAction" => list(any()),
+        "UseAsanaAction" => list(any()),
+        "UseBambooHRAction" => list(any()),
         "IncludeContentInScheduledReportsEmail" => list(any()),
+        "PagerDutyAction" => list(any()),
+        "ZendeskAction" => list(any()),
+        "UseGithubAction" => list(any()),
+        "CreateAndUpdateTextractAction" => list(any()),
         "Analysis" => list(any()),
         "UseAgentWebSearch" => list(any()),
+        "CreateAndUpdateSAPMaterialStockAction" => list(any()),
+        "ShareComprehendMedicalAction" => list(any()),
+        "IntercomAction" => list(any()),
+        "CreateAndUpdateAmazonBedrockKRSAction" => list(any()),
+        "SharePagerDutyAction" => list(any()),
         "PublishWithoutApproval" => list(any()),
+        "AmazonBedrockFSAction" => list(any()),
         "ShareDataSources" => list(any()),
+        "UseAmazonBedrockKRSAction" => list(any()),
+        "BoxAgentAction" => list(any()),
+        "ShareBoxAgentAction" => list(any()),
+        "ShareSalesforceAction" => list(any()),
+        "UseOneDriveAction" => list(any()),
+        "UsePagerDutyAction" => list(any()),
         "PrintReports" => list(any()),
+        "UseFactSetAction" => list(any()),
+        "CreateAndUpdateBoxAgentAction" => list(any()),
+        "SAPBusinessPartnerAction" => list(any()),
+        "CreateAndUpdateSandPGlobalEnergyAction" => list(any()),
+        "UseGoogleCalendarAction" => list(any()),
+        "CreateAndUpdateOneDriveAction" => list(any()),
         "CreateAndUpdateDataSources" => list(any()),
         "UseBedrockModels" => list(any()),
+        "FactSetAction" => list(any()),
+        "ShareGoogleCalendarAction" => list(any()),
+        "UseZendeskAction" => list(any()),
+        "CreateAndUpdateHubspotAction" => list(any()),
         "CreateSharedFolders" => list(any()),
+        "JiraAction" => list(any()),
+        "UseSAPBillOfMaterialAction" => list(any()),
+        "SAPMaterialStockAction" => list(any()),
+        "ShareSandPGlobalEnergyAction" => list(any()),
         "ViewAccountSPICECapacity" => list(any()),
         "CreateAndUpdateDatasets" => list(any()),
+        "UseSAPMaterialStockAction" => list(any()),
+        "ShareSAPPhysicalInventoryAction" => list(any()),
+        "AmazonSThreeAction" => list(any()),
         "ShareDatasets" => list(any()),
+        "CreateAndUpdateConfluenceAction" => list(any()),
+        "ShareIntercomAction" => list(any()),
+        "AmazonBedrockKRSAction" => list(any()),
+        "SandPGlobalEnergyAction" => list(any()),
+        "ConfluenceAction" => list(any()),
+        "ShareHuggingFaceAction" => list(any()),
+        "CreateAndUpdateNotionAction" => list(any()),
+        "ShareAmazonBedrockKRSAction" => list(any()),
         "ExportToCsvInScheduledReports" => list(any()),
+        "CreateAndUpdateSAPBillOfMaterialAction" => list(any()),
+        "ShareSmartsheetAction" => list(any()),
+        "SharePointAction" => list(any()),
+        "ShareNewRelicAction" => list(any()),
+        "CreateAndUpdateSAPBusinessPartnerAction" => list(any()),
+        "UseJiraAction" => list(any()),
+        "CreateAndUpdateFactSetAction" => list(any()),
+        "UseComprehendMedicalAction" => list(any()),
+        "CreateAndUpdateSmartsheetAction" => list(any()),
+        "SAPBillOfMaterialAction" => list(any()),
         "Dashboard" => list(any()),
+        "MondayAction" => list(any()),
+        "ShareServiceNowAction" => list(any()),
+        "UseTextractAction" => list(any()),
         "CreateAndUpdateThresholdAlerts" => list(any()),
+        "ShareSAPProductMasterDataAction" => list(any()),
+        "CreateAndUpdateMSTeamsAction" => list(any()),
         "ShareAnalyses" => list(any()),
+        "ShareBambooHRAction" => list(any()),
+        "UseSmartsheetAction" => list(any()),
+        "UseSAPProductMasterDataAction" => list(any()),
+        "UseAmazonSThreeAction" => list(any()),
         "RenameSharedFolders" => list(any()),
+        "ComprehendAction" => list(any()),
+        "UseSandPGMIAction" => list(any()),
+        "NotionAction" => list(any()),
+        "CreateAndUpdateCanvaAgentAction" => list(any()),
         "PerformFlowUiTask" => list(any()),
         "Action" => list(any()),
+        "ServiceNowAction" => list(any()),
+        "UseGenericHTTPAction" => list(any()),
+        "UseMSExchangeAction" => list(any()),
+        "CreateAndUpdateOpenAPIAction" => list(any()),
         "ExportToPdf" => list(any()),
+        "UseAmazonBedrockARSAction" => list(any()),
+        "UseSAPBusinessPartnerAction" => list(any()),
+        "ShareSlackAction" => list(any()),
+        "ShareMSTeamsAction" => list(any()),
         "Research" => list(any()),
+        "SalesforceAction" => list(any()),
         "CreateChatAgents" => list(any()),
+        "ShareTextractAction" => list(any()),
+        "CreateAndUpdateSandPGMIAction" => list(any()),
         "Flow" => list(any()),
+        "UseSAPPhysicalInventoryAction" => list(any()),
+        "CreateAndUpdateZendeskAction" => list(any()),
+        "HubspotAction" => list(any()),
+        "SAPPhysicalInventoryAction" => list(any()),
+        "ShareAmazonSThreeAction" => list(any()),
+        "ShareLinearAction" => list(any()),
+        "CreateAndUpdateAmazonSThreeAction" => list(any()),
+        "UseBoxAgentAction" => list(any()),
+        "ShareSandPGMIAction" => list(any()),
+        "GithubAction" => list(any()),
+        "ShareAsanaAction" => list(any()),
+        "MSExchangeAction" => list(any()),
+        "UseConfluenceAction" => list(any()),
+        "CreateAndUpdateSAPProductMasterDataAction" => list(any()),
+        "ShareAmazonBedrockARSAction" => list(any()),
+        "ShareSAPBusinessPartnerAction" => list(any()),
+        "ShareSharePointAction" => list(any()),
+        "CreateAndUpdateBambooHRAction" => list(any()),
+        "SelfUpgradeUserRole" => list(any()),
+        "CreateAndUpdateGithubAction" => list(any()),
+        "UseHuggingFaceAction" => list(any()),
+        "UseMondayAction" => list(any()),
+        "ShareOneDriveAction" => list(any()),
         "CreateAndUpdateThemes" => list(any()),
+        "CreateAndUpdatePagerDutyAction" => list(any()),
         "Space" => list(any()),
+        "SmartsheetAction" => list(any()),
+        "GoogleCalendarAction" => list(any()),
         "SubscribeDashboardEmailReports" => list(any()),
-        "ShareDashboards" => list(any())
+        "ShareDashboards" => list(any()),
+        "LinearAction" => list(any()),
+        "ShareSAPBillOfMaterialAction" => list(any())
       }
 
   """
@@ -19172,6 +19856,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      sheet_layout_group_member() :: %{
+        "Id" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type sheet_layout_group_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       custom_values_configuration() :: %{
         "CustomValues" => custom_parameter_values(),
         "IncludeNullValue" => boolean()
@@ -19385,6 +20081,31 @@ defmodule AWS.QuickSight do
 
   """
   @type update_brand_published_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grid_layout_element_border_style() :: %{
+        "Color" => String.t() | atom(),
+        "Visibility" => list(any()),
+        "Width" => String.t() | atom()
+      }
+
+  """
+  @type grid_layout_element_border_style() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grid_layout_element_background_style() :: %{
+        "Color" => String.t() | atom(),
+        "Visibility" => list(any())
+      }
+
+  """
+  @type grid_layout_element_background_style() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -20309,6 +21030,16 @@ defmodule AWS.QuickSight do
           | resource_unavailable_exception()
           | internal_failure_exception()
 
+  @type describe_self_upgrade_configuration_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | resource_unavailable_exception()
+          | internal_failure_exception()
+
   @type describe_template_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -20472,6 +21203,14 @@ defmodule AWS.QuickSight do
           throttling_exception()
           | access_denied_exception()
           | invalid_parameter_value_exception()
+          | internal_failure_exception()
+
+  @type get_identity_context_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type get_session_embed_url_errors() ::
@@ -20660,6 +21399,17 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
 
   @type list_role_memberships_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type list_self_upgrades_errors() ::
           precondition_not_met_exception()
           | limit_exceeded_exception()
           | throttling_exception()
@@ -21242,6 +21992,27 @@ defmodule AWS.QuickSight do
           | access_denied_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type update_self_upgrade_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type update_self_upgrade_configuration_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | resource_unavailable_exception()
           | internal_failure_exception()
 
   @type update_template_errors() ::
@@ -24729,6 +25500,25 @@ defmodule AWS.QuickSight do
 
   Poll job descriptions after a job starts to know the status of the job. For
   information on available status codes, see `JobStatus`.
+
+  ## Registered user support
+
+  This API can be called as before to get status of a job started by the same
+  Quick Sight user.
+
+  ## Possible error scenarios
+
+  Request will fail with an Access Denied error in the following scenarios:
+
+    *
+  The credentials have expired.
+
+    *
+  Job has been started by a different user.
+
+    *
+  Impersonated Quick Sight user doesn't have access to the specified dashboard in
+  the job.
   """
   @spec describe_dashboard_snapshot_job(
           map(),
@@ -24767,6 +25557,60 @@ defmodule AWS.QuickSight do
 
   If the job has not finished running, this operation returns a message that says
   `Dashboard Snapshot Job with id has not reached a terminal state.`.
+
+  ## Registered user support
+
+  This API can be called as before to get the result of a job started by the same
+  Quick Sight user. The result for the user will be returned in `RegisteredUsers`
+  response attribute. The attribute will contain a list with at most one object in
+  it.
+
+  ## Possible error scenarios
+
+  The request fails with an Access Denied error in the following scenarios:
+
+    *
+  The credentials have expired.
+
+    *
+  The job was started by a different user.
+
+    *
+  The registered user doesn't have access to the specified dashboard.
+
+  The request succeeds but the job fails in the following scenarios:
+
+    *
+
+  `DASHBOARD_ACCESS_DENIED` - The registered user lost access to the dashboard.
+
+    *
+
+  `CAPABILITY_RESTRICTED` - The registered user is restricted from exporting data
+  in **all** selected formats.
+
+  The request succeeds but the response contains an error code in the following
+  scenarios:
+
+    *
+
+  `CAPABILITY_RESTRICTED` - The registered user is restricted from exporting data
+  in **some** selected formats.
+
+    *
+
+  `RLS_CHANGED` - Row-level security settings have changed. Re-run the job with
+  current settings.
+
+    *
+
+  `CLS_CHANGED` - Column-level security settings have changed. Re-run the job with
+  current settings.
+
+    *
+
+  `DATASET_DELETED` - The dataset has been deleted. Verify the dataset exists
+  before re-running the job.
   """
   @spec describe_dashboard_snapshot_job_result(
           map(),
@@ -25409,6 +26253,36 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/custom-permission"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the self-upgrade configuration for a Quick Suite account.
+  """
+  @spec describe_self_upgrade_configuration(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_self_upgrade_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_self_upgrade_configuration_errors()}
+  def describe_self_upgrade_configuration(
+        %Client{} = client,
+        aws_account_id,
+        namespace,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/self-upgrade-configuration"
 
     headers = []
     query_params = []
@@ -26228,6 +27102,84 @@ defmodule AWS.QuickSight do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the identity context for a Quick Sight user in a specified namespace,
+  allowing you to obtain identity tokens that can be used with identity-enhanced
+  IAM role sessions to call identity-aware APIs.
+
+  Currently, you can call the following APIs with identity-enhanced Credentials
+
+    *
+
+  [StartDashboardSnapshotJob](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StartDashboardSnapshotJob.html) 
+
+    *
+
+  [DescribeDashboardSnapshotJob](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardSnapshotJob.html)
+
+    *
+
+  [DescribeDashboardSnapshotJobResult](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardSnapshotJobResult.html) 
+
+  ## Supported Authentication Methods
+
+  This API supports Quick Sight native users, IAM federated users, and Active
+  Directory users. For Quick Sight users authenticated by Amazon Web Services
+  Identity Center, see [Identity Center documentation on identity-enhanced IAM
+  role
+  sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html).
+
+  ## Getting Identity-Enhanced Credentials
+
+  To obtain identity-enhanced credentials, follow these steps:
+
+    *
+  Call the GetIdentityContext API to retrieve an identity token for the specified
+  user.
+
+    *
+  Use the identity token with the [STS AssumeRole API](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) to
+  obtain identity-enhanced IAM role session credentials.
+
+  ## Usage with STS AssumeRole
+
+  The identity token returned by this API should be used with the STS AssumeRole
+  API to obtain credentials for an identity-enhanced IAM role session. When
+  calling AssumeRole, include the identity token in the `ProvidedContexts`
+  parameter with `ProviderArn` set to
+  `arn:aws:iam::aws:contextProvider/QuickSight` and `ContextAssertion` set to the
+  identity token received from this API.
+
+  The assumed role must allow the `sts:SetContext` action in addition to
+  `sts:AssumeRole` in its trust relationship policy. The trust policy should
+  include both actions for the principal that will be assuming the role.
+  """
+  @spec get_identity_context(map(), String.t() | atom(), get_identity_context_request(), list()) ::
+          {:ok, get_identity_context_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_identity_context_errors()}
+  def get_identity_context(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-context"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -27401,6 +28353,54 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Lists all self-upgrade requests for a Quick Suite account.
+  """
+  @spec list_self_upgrades(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_self_upgrades_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_self_upgrades_errors()}
+  def list_self_upgrades(
+        %Client{} = client,
+        aws_account_id,
+        namespace,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/self-upgrade-requests"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the tags assigned to a resource.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
@@ -28513,13 +29513,16 @@ defmodule AWS.QuickSight do
   API call.
 
     *
-  1 Paginated PDF
+  1 PDF
 
     *
   1 Excel workbook that includes up to 5 table or pivot table visuals
 
     *
   5 CSVs from table or pivot table visuals
+
+  Exporting CSV, Excel, or Pixel Perfect PDF reports requires Pixel Perfect Report
+  Add-on.
 
   The status of a submitted job can be polled with the
   `DescribeDashboardSnapshotJob` API. When you call the
@@ -28559,8 +29562,7 @@ defmodule AWS.QuickSight do
   one second, a `ThrottlingException` is returned.
 
   If your use case requires a higher throttling limit, contact your account admin
-  or [Amazon Web ServicesSupport](http://aws.amazon.com/contact-us/) to explore
-  options to tailor a more optimal expereince for your account.
+  or [Amazon Web ServicesSupport](http://aws.amazon.com/contact-us/) to explore options to tailor a more optimal expereince for your account.
 
   ## Best practices to handle throttling
 
@@ -28598,6 +29600,90 @@ defmodule AWS.QuickSight do
 
     *
   The size of the generated snapshots.
+
+  ## Registered user support
+
+  You can generate snapshots for registered Quick Sight users by using the
+  Snapshot Job APIs with [identity-enhanced IAM role session
+  credentials](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html).
+  This approach allows you to create snapshots on behalf of specific Quick Sight
+  users while respecting their row-level security (RLS), column-level security
+  (CLS), dynamic default parameters and dashboard parameter/filter settings.
+
+  To generate snapshots for registered Quick Sight users, you need to:
+
+    *
+  Obtain identity-enhanced IAM role session credentials from Amazon Web Services
+  Security Token Service (STS).
+
+    *
+  Use these credentials to call the Snapshot Job APIs.
+
+  Identity-enhanced credentials are credentials that contain information about the
+  end user (e.g., registered Quick Sight user).
+
+  If your Quick Sight users are backed by [Amazon Web Services Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html),
+  then you need to set up a [trusted token issuer](https://docs.aws.amazon.com/singlesignon/latest/userguide/setuptrustedtokenissuer.html).
+  Then, getting identity-enhanced IAM credentials for a Quick Sight user will look
+  like the following:
+
+    *
+  Authenticate user with your OIDC compliant Identity Provider. You should get
+  auth tokens back.
+
+    *
+  Use the OIDC API,
+  [CreateTokenWithIAM](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateTokenWithIAM.html), to exchange auth tokens to IAM tokens. One of the resulted tokens will be
+  identity token.
+
+    *
+  Call STS AssumeRole API as you normally would, but provide an extra
+  `ProvidedContexts` parameter in the API request. The list of contexts must have
+  a single trusted context assertion. The `ProviderArn` should be
+  `arn:aws:iam::aws:contextProvider/IdentityCenter` while `ContextAssertion` will
+  be the identity token you received in response from CreateTokenWithIAM
+
+  For more details, see [IdC documentation on Identity-enhanced IAM role
+  sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html).
+
+  To obtain Identity-enhanced credentials for Quick Sight native users, IAM
+  federated users, or Active Directory users, follow the steps below:
+
+    *
+  Call Quick Sight [GetIdentityContext API](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetIdentityContext.html)
+  to get identity token.
+
+    *
+  Call STS AssumeRole API as you normally would, but provide extra
+  `ProvidedContexts` parameter in the API request. The list of contexts must have
+  a single trusted context assertion. The `ProviderArn` should be
+  `arn:aws:iam::aws:contextProvider/QuickSight` while `ContextAssertion` will be
+  the identity token you received in response from GetIdentityContext
+
+  After obtaining the identity-enhanced IAM role session credentials, you can use
+  them to start a job, describe the job and describe job result. You can use the
+  same credentials as long as they haven't expired. All API requests made with
+  these credentials are considered to be made by the impersonated Quick Sight
+  user.
+
+  When using identity-enhanced session credentials, set the UserConfiguration
+  request attribute to null. Otherwise, the request will be invalid.
+
+  ## Possible error scenarios
+
+  The request fails with an Access Denied error in the following scenarios:
+
+    *
+  The credentials have expired.
+
+    *
+  The impersonated Quick Sight user doesn't have access to the specified
+  dashboard.
+
+    *
+  The impersonated Quick Sight user is restricted from exporting data in the
+  selected formats. For more information about export restrictions, see
+  [Customizing access to Amazon Quick Sight capabilities](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-custom-permisions-profile.html).
   """
   @spec start_dashboard_snapshot_job(
           map(),
@@ -30297,6 +31383,87 @@ defmodule AWS.QuickSight do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a self-upgrade request for a Quick Suite user by approving, denying, or
+  verifying the request.
+  """
+  @spec update_self_upgrade(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_self_upgrade_request(),
+          list()
+        ) ::
+          {:ok, update_self_upgrade_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_self_upgrade_errors()}
+  def update_self_upgrade(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/update-self-upgrade-request"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the self-upgrade configuration for a Quick Suite account.
+  """
+  @spec update_self_upgrade_configuration(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_self_upgrade_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_self_upgrade_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_self_upgrade_configuration_errors()}
+  def update_self_upgrade_configuration(
+        %Client{} = client,
+        aws_account_id,
+        namespace,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/self-upgrade-configuration"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -460,6 +460,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      router_destination() :: %{
+        "AvailabilityZoneName" => String.t() | atom(),
+        "RouterOutputArn" => String.t() | atom()
+      }
+
+  """
+  @type router_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multiplex_summary() :: %{
         "Arn" => String.t() | atom(),
         "AvailabilityZones" => list(String.t() | atom()),
@@ -570,6 +582,7 @@ defmodule AWS.MediaLive do
         "Id" => String.t() | atom(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "MaintenanceStatus" => String.t() | atom(),
@@ -967,6 +980,7 @@ defmodule AWS.MediaLive do
         "Id" => String.t() | atom(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t() | atom(),
@@ -1240,6 +1254,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      hlg2020_settings() :: %{}
+
+  """
+  @type hlg2020_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       input_loss_failover_settings() :: %{
         "InputLossThresholdMsec" => integer()
       }
@@ -1299,6 +1322,19 @@ defmodule AWS.MediaLive do
 
   """
   @type list_reservations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_settings() :: %{
+        "Destinations" => list(router_destination()),
+        "EncryptionType" => list(any()),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type router_input_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1589,6 +1625,7 @@ defmodule AWS.MediaLive do
         "ColorSpacePassthroughSettings" => color_space_passthrough_settings(),
         "DolbyVision81Settings" => dolby_vision81_settings(),
         "Hdr10Settings" => hdr10_settings(),
+        "Hlg2020Settings" => hlg2020_settings(),
         "Rec601Settings" => rec601_settings(),
         "Rec709Settings" => rec709_settings()
       }
@@ -1741,6 +1778,17 @@ defmodule AWS.MediaLive do
 
   """
   @type id3_segment_tagging_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disabled_locking_settings() :: %{
+        "CustomEpoch" => String.t() | atom()
+      }
+
+  """
+  @type disabled_locking_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2528,10 +2576,13 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      pipeline_locking_settings() :: %{}
+      pipeline_locking_settings() :: %{
+        "CustomEpoch" => String.t() | atom(),
+        "PipelineLockingMethod" => list(any())
+      }
 
   """
-  @type pipeline_locking_settings() :: %{}
+  @type pipeline_locking_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2797,6 +2848,7 @@ defmodule AWS.MediaLive do
         optional("Name") => String.t() | atom(),
         optional("RequestId") => String.t() | atom(),
         optional("RoleArn") => String.t() | atom(),
+        optional("RouterSettings") => router_settings(),
         optional("SdiSources") => list(String.t() | atom()),
         optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
         optional("Sources") => list(input_source_request()),
@@ -2851,6 +2903,7 @@ defmodule AWS.MediaLive do
         "Id" => String.t() | atom(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t() | atom(),
@@ -2907,6 +2960,7 @@ defmodule AWS.MediaLive do
         "Id" => String.t() | atom(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t() | atom(),
@@ -2929,6 +2983,17 @@ defmodule AWS.MediaLive do
 
   """
   @type start_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      router_destination_settings() :: %{
+        "AvailabilityZoneName" => String.t() | atom()
+      }
+
+  """
+  @type router_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3016,6 +3081,7 @@ defmodule AWS.MediaLive do
         "MulticastSettings" => multicast_settings(),
         "Name" => String.t() | atom(),
         "RoleArn" => String.t() | atom(),
+        "RouterSettings" => router_input_settings(),
         "SdiSources" => list(String.t() | atom()),
         "SecurityGroups" => list(String.t() | atom()),
         "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
@@ -3087,6 +3153,7 @@ defmodule AWS.MediaLive do
         optional("SdiSources") => list(String.t() | atom()),
         optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
         optional("Sources") => list(input_source_request()),
+        optional("SpecialRouterSettings") => special_router_settings(),
         optional("SrtSettings") => srt_settings_request()
       }
 
@@ -3478,6 +3545,7 @@ defmodule AWS.MediaLive do
         "Id" => String.t() | atom(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t() | atom(),
@@ -3584,6 +3652,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      media_package_additional_destinations() :: %{
+        "Destination" => output_location_ref()
+      }
+
+  """
+  @type media_package_additional_destinations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cluster_network_settings() :: %{
         "DefaultRoute" => String.t() | atom(),
         "InterfaceMappings" => list(interface_mapping())
@@ -3657,6 +3736,18 @@ defmodule AWS.MediaLive do
 
   """
   @type list_sdi_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_primary_channel_settings() :: %{
+        "FollowingChannelArns" => list(String.t() | atom()),
+        "LinkedChannelType" => list(any())
+      }
+
+  """
+  @type describe_primary_channel_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3837,6 +3928,7 @@ defmodule AWS.MediaLive do
         "MulticastSettings" => multicast_settings(),
         "Name" => String.t() | atom(),
         "RoleArn" => String.t() | atom(),
+        "RouterSettings" => router_input_settings(),
         "SdiSources" => list(String.t() | atom()),
         "SecurityGroups" => list(String.t() | atom()),
         "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
@@ -3876,6 +3968,7 @@ defmodule AWS.MediaLive do
         optional("EncoderSettings") => encoder_settings(),
         optional("InputAttachments") => list(input_attachment()),
         optional("InputSpecification") => input_specification(),
+        optional("LinkedChannelSettings") => linked_channel_settings(),
         optional("LogLevel") => list(any()),
         optional("Maintenance") => maintenance_create_settings(),
         optional("Name") => String.t() | atom(),
@@ -4006,6 +4099,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       output_locking_settings() :: %{
+        "DisabledLockingSettings" => disabled_locking_settings(),
         "EpochLockingSettings" => epoch_locking_settings(),
         "PipelineLockingSettings" => pipeline_locking_settings()
       }
@@ -4161,6 +4255,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      linked_channel_settings() :: %{
+        "FollowerChannelSettings" => follower_channel_settings(),
+        "PrimaryChannelSettings" => primary_channel_settings()
+      }
+
+  """
+  @type linked_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       feature_activations() :: %{
         "InputPrepareScheduleActions" => list(any()),
         "OutputStaticImageOverlayScheduleActions" => list(any())
@@ -4209,6 +4315,18 @@ defmodule AWS.MediaLive do
 
   """
   @type reservation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_follower_channel_settings() :: %{
+        "LinkedChannelType" => list(any()),
+        "PrimaryChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type describe_follower_channel_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4630,6 +4748,7 @@ defmodule AWS.MediaLive do
         optional("EncoderSettings") => encoder_settings(),
         optional("InputAttachments") => list(input_attachment()),
         optional("InputSpecification") => input_specification(),
+        optional("LinkedChannelSettings") => linked_channel_settings(),
         optional("LogLevel") => list(any()),
         optional("Maintenance") => maintenance_update_settings(),
         optional("Name") => String.t() | atom(),
@@ -4714,7 +4833,10 @@ defmodule AWS.MediaLive do
         "QvbrQualityLevel" => integer(),
         "RateControlMode" => list(any()),
         "SceneChangeDetect" => list(any()),
-        "TimecodeBurninSettings" => timecode_burnin_settings()
+        "SpatialAq" => list(any()),
+        "TemporalAq" => list(any()),
+        "TimecodeBurninSettings" => timecode_burnin_settings(),
+        "TimecodeInsertion" => list(any())
       }
 
   """
@@ -4991,6 +5113,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       media_package_v2_group_settings() :: %{
+        "AdditionalDestinations" => list(media_package_additional_destinations()),
         "CaptionLanguageMappings" => list(caption_language_mapping()),
         "Id3Behavior" => list(any()),
         "KlvBehavior" => list(any()),
@@ -5365,6 +5488,17 @@ defmodule AWS.MediaLive do
 
   """
   @type update_event_bridge_rule_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      special_router_settings() :: %{
+        "RouterArn" => String.t() | atom()
+      }
+
+  """
+  @type special_router_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6233,6 +6367,7 @@ defmodule AWS.MediaLive do
         "Id" => String.t() | atom(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t() | atom(),
@@ -6304,6 +6439,7 @@ defmodule AWS.MediaLive do
         "Id" => String.t() | atom(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t() | atom(),
@@ -6731,6 +6867,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      follower_channel_settings() :: %{
+        "LinkedChannelType" => list(any()),
+        "PrimaryChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type follower_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       wav_settings() :: %{
         "BitDepth" => float(),
         "CodingMode" => list(any()),
@@ -6818,6 +6966,18 @@ defmodule AWS.MediaLive do
 
   """
   @type reject_input_device_transfer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_linked_channel_settings() :: %{
+        "FollowerChannelSettings" => describe_follower_channel_settings(),
+        "PrimaryChannelSettings" => describe_primary_channel_settings()
+      }
+
+  """
+  @type describe_linked_channel_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7109,6 +7269,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      primary_channel_settings() :: %{
+        "LinkedChannelType" => list(any())
+      }
+
+  """
+  @type primary_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       mpeg2_filter_settings() :: %{
         "TemporalFilterSettings" => temporal_filter_settings()
       }
@@ -7263,6 +7434,19 @@ defmodule AWS.MediaLive do
 
   """
   @type ebu_tt_d_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_settings() :: %{
+        "Destinations" => list(router_destination_settings()),
+        "EncryptionType" => list(any()),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type router_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7722,9 +7906,11 @@ defmodule AWS.MediaLive do
   ## Example:
 
       media_package_output_destination_settings() :: %{
+        "ChannelEndpointId" => String.t() | atom(),
         "ChannelGroup" => String.t() | atom(),
         "ChannelId" => String.t() | atom(),
-        "ChannelName" => String.t() | atom()
+        "ChannelName" => String.t() | atom(),
+        "MediaPackageRegionName" => String.t() | atom()
       }
 
   """

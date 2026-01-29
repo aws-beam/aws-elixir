@@ -600,6 +600,17 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      reboot_db_cluster_output() :: %{
+        "dbClusterStatus" => list(any())
+      }
+      
+  """
+  @type reboot_db_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       internal_server_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -675,6 +686,49 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type update_db_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_db_instance_output() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => [String.t() | atom()],
+        "dbClusterId" => String.t() | atom(),
+        "dbInstanceType" => list(any()),
+        "dbParameterGroupIdentifier" => String.t() | atom(),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "instanceMode" => list(any()),
+        "instanceModes" => list(list(any())()),
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "name" => String.t() | atom(),
+        "networkType" => list(any()),
+        "port" => integer(),
+        "publiclyAccessible" => [boolean()],
+        "secondaryAvailabilityZone" => [String.t() | atom()],
+        "status" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t() | atom()),
+        "vpcSubnetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type reboot_db_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_db_instance_input() :: %{
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type reboot_db_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -870,6 +924,18 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      reboot_db_cluster_input() :: %{
+        optional("instanceIds") => list(String.t() | atom()),
+        required("dbClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type reboot_db_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_db_instance_input() :: %{
         optional("bucket") => String.t() | atom(),
         optional("dbParameterGroupIdentifier") => String.t() | atom(),
@@ -986,6 +1052,22 @@ defmodule AWS.TimestreamInfluxDB do
           | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
+
+  @type reboot_db_cluster_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type reboot_db_instance_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type tag_resource_errors() ::
           service_quota_exceeded_exception() | resource_not_found_exception()
@@ -1205,6 +1287,34 @@ defmodule AWS.TimestreamInfluxDB do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Reboots a Timestream for InfluxDB cluster.
+  """
+  @spec reboot_db_cluster(map(), reboot_db_cluster_input(), list()) ::
+          {:ok, reboot_db_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, reboot_db_cluster_errors()}
+  def reboot_db_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebootDbCluster", input, options)
+  end
+
+  @doc """
+  Reboots a Timestream for InfluxDB instance.
+  """
+  @spec reboot_db_instance(map(), reboot_db_instance_input(), list()) ::
+          {:ok, reboot_db_instance_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, reboot_db_instance_errors()}
+  def reboot_db_instance(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RebootDbInstance", input, options)
   end
 
   @doc """

@@ -154,6 +154,19 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      start_quota_utilization_report_response() :: %{
+        "Message" => String.t() | atom(),
+        "ReportId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type start_quota_utilization_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       dependency_access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -387,6 +400,7 @@ defmodule AWS.ServiceQuotas do
         "QuotaContext" => quota_context_info(),
         "QuotaName" => String.t() | atom(),
         "QuotaRequestedAtLevel" => list(any()),
+        "RequestType" => list(any()),
         "Requester" => String.t() | atom(),
         "ServiceCode" => String.t() | atom(),
         "ServiceName" => String.t() | atom(),
@@ -519,6 +533,19 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      get_quota_utilization_report_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ReportId") => String.t() | atom()
+      }
+      
+  """
+  @type get_quota_utilization_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -619,6 +646,24 @@ defmodule AWS.ServiceQuotas do
       
   """
   @type quota_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_quota_utilization_report_response() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "GeneratedAt" => non_neg_integer(),
+        "NextToken" => String.t() | atom(),
+        "Quotas" => list(quota_utilization_info()),
+        "ReportId" => String.t() | atom(),
+        "Status" => list(any()),
+        "TotalCount" => integer()
+      }
+      
+  """
+  @type get_quota_utilization_report_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -732,6 +777,15 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      start_quota_utilization_report_request() :: %{}
+      
+  """
+  @type start_quota_utilization_report_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       error_reason() :: %{
         "ErrorCode" => list(any()),
         "ErrorMessage" => String.t() | atom()
@@ -739,6 +793,25 @@ defmodule AWS.ServiceQuotas do
       
   """
   @type error_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      quota_utilization_info() :: %{
+        "Adjustable" => boolean(),
+        "AppliedValue" => float(),
+        "DefaultValue" => float(),
+        "Namespace" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "QuotaName" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "Utilization" => float()
+      }
+      
+  """
+  @type quota_utilization_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1003,6 +1076,13 @@ defmodule AWS.ServiceQuotas do
           | too_many_requests_exception()
           | illegal_argument_exception()
 
+  @type get_quota_utilization_report_errors() ::
+          access_denied_exception()
+          | no_such_resource_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | illegal_argument_exception()
+
   @type get_requested_service_quota_change_errors() ::
           access_denied_exception()
           | no_such_resource_exception()
@@ -1109,6 +1189,14 @@ defmodule AWS.ServiceQuotas do
 
   @type start_auto_management_errors() ::
           access_denied_exception()
+          | no_such_resource_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | illegal_argument_exception()
+
+  @type start_quota_utilization_report_errors() ::
+          invalid_pagination_token_exception()
+          | access_denied_exception()
           | no_such_resource_exception()
           | service_exception()
           | too_many_requests_exception()
@@ -1311,6 +1399,37 @@ defmodule AWS.ServiceQuotas do
     meta = metadata()
 
     Request.request_post(client, meta, "GetAWSDefaultServiceQuota", input, options)
+  end
+
+  @doc """
+  Retrieves the quota utilization report for your Amazon Web Services account.
+
+  This operation returns
+  paginated results showing your quota usage across all Amazon Web Services
+  services, sorted by utilization
+  percentage in descending order (highest utilization first).
+
+  You must first initiate a report using the `StartQuotaUtilizationReport`
+  operation. The report generation process is asynchronous and may take several
+  seconds to
+  complete. Poll this operation periodically to check the status and retrieve
+  results when
+  the report is ready.
+
+  Each report contains up to 1,000 quota records per page. Use the `NextToken`
+  parameter to retrieve additional pages of results. Reports are automatically
+  deleted after
+  15 minutes.
+  """
+  @spec get_quota_utilization_report(map(), get_quota_utilization_report_request(), list()) ::
+          {:ok, get_quota_utilization_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_quota_utilization_report_errors()}
+  def get_quota_utilization_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetQuotaUtilizationReport", input, options)
   end
 
   @doc """
@@ -1582,6 +1701,31 @@ defmodule AWS.ServiceQuotas do
     meta = metadata()
 
     Request.request_post(client, meta, "StartAutoManagement", input, options)
+  end
+
+  @doc """
+  Initiates the generation of a quota utilization report for your Amazon Web
+  Services account.
+
+  This
+  asynchronous operation analyzes your quota usage across all Amazon Web Services
+  services and returns
+  a unique report identifier that you can use to retrieve the results.
+
+  The report generation process may take several seconds to complete, depending on
+  the
+  number of quotas in your account. Use the `GetQuotaUtilizationReport` operation
+  to check the status and retrieve the results when the report is ready.
+  """
+  @spec start_quota_utilization_report(map(), start_quota_utilization_report_request(), list()) ::
+          {:ok, start_quota_utilization_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_quota_utilization_report_errors()}
+  def start_quota_utilization_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartQuotaUtilizationReport", input, options)
   end
 
   @doc """

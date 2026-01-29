@@ -39,6 +39,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_distributions_by_trust_store_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("TrustStoreIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_distributions_by_trust_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalidation_summary() :: %{
         "CreateTime" => non_neg_integer(),
         "Id" => String.t() | atom(),
@@ -322,6 +335,24 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      trust_store_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "NumberOfCaCertificates" => integer(),
+        "Reason" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type trust_store_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       no_such_continuous_deployment_policy() :: %{
         "Message" => String.t() | atom()
       }
@@ -360,6 +391,20 @@ defmodule AWS.CloudFront do
 
   """
   @type too_many_custom_headers_in_response_headers_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ipam_cidr_config() :: %{
+        "AnycastIp" => String.t() | atom(),
+        "Cidr" => String.t() | atom(),
+        "IpamPoolArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type ipam_cidr_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,6 +687,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_distributions_by_connection_function_result() :: %{
+        "DistributionList" => distribution_list()
+      }
+
+  """
+  @type list_distributions_by_connection_function_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_origin_request_policy_result() :: %{
         "ETag" => String.t() | atom(),
         "OriginRequestPolicy" => origin_request_policy()
@@ -730,6 +786,7 @@ defmodule AWS.CloudFront do
         "Id" => String.t() | atom(),
         "IpAddressType" => list(any()),
         "IpCount" => integer(),
+        "IpamConfig" => ipam_config(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
         "Status" => String.t() | atom()
@@ -933,6 +990,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      update_connection_function_result() :: %{
+        "ConnectionFunctionSummary" => connection_function_summary(),
+        "ETag" => String.t() | atom()
+      }
+
+  """
+  @type update_connection_function_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_protocol_settings() :: %{
         "Message" => String.t() | atom()
       }
@@ -1007,6 +1076,15 @@ defmodule AWS.CloudFront do
 
   """
   @type public_key_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trust_store_request() :: %{}
+
+  """
+  @type get_trust_store_request() :: %{}
 
   @typedoc """
 
@@ -1422,6 +1500,7 @@ defmodule AWS.CloudFront do
         "AnycastIpListId" => String.t() | atom(),
         "CacheBehaviors" => cache_behaviors(),
         "Comment" => String.t() | atom(),
+        "ConnectionFunctionAssociation" => connection_function_association(),
         "ConnectionMode" => list(any()),
         "CustomErrorResponses" => custom_error_responses(),
         "DefaultCacheBehavior" => default_cache_behavior(),
@@ -1439,6 +1518,7 @@ defmodule AWS.CloudFront do
         "Staging" => boolean(),
         "Status" => String.t() | atom(),
         "ViewerCertificate" => viewer_certificate(),
+        "ViewerMtlsConfig" => viewer_mtls_config(),
         "WebACLId" => String.t() | atom()
       }
 
@@ -1664,6 +1744,20 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      create_connection_function_request() :: %{
+        optional("Tags") => tags(),
+        required("ConnectionFunctionCode") => binary(),
+        required("ConnectionFunctionConfig") => function_config(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_connection_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_function_result() :: %{
         "ETag" => String.t() | atom(),
         "FunctionSummary" => function_summary()
@@ -1771,6 +1865,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      test_connection_function_result() :: %{
+        "ConnectionFunctionTestResult" => connection_function_test_result()
+      }
+
+  """
+  @type test_connection_function_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       monitoring_subscription() :: %{
         "RealtimeMetricsSubscriptionConfig" => realtime_metrics_subscription_config()
       }
@@ -1821,6 +1926,18 @@ defmodule AWS.CloudFront do
 
   """
   @type streaming_logging_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_trust_store_request() :: %{
+        required("CaCertificatesBundleSource") => list(),
+        required("IfMatch") => String.t() | atom()
+      }
+
+  """
+  @type update_trust_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1955,6 +2072,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_trust_stores_result() :: %{
+        "NextMarker" => String.t() | atom(),
+        "TrustStoreList" => list(trust_store_summary())
+      }
+
+  """
+  @type list_trust_stores_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       response_headers_policy_referrer_policy() :: %{
         "Override" => boolean(),
         "ReferrerPolicy" => list(any())
@@ -2076,6 +2205,20 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      ca_certificates_bundle_s3_location() :: %{
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type ca_certificates_bundle_s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       content_type_profile() :: %{
         "ContentType" => String.t() | atom(),
         "Format" => list(any()),
@@ -2184,12 +2327,25 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_trust_stores_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_trust_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       anycast_ip_list_summary() :: %{
         "Arn" => String.t() | atom(),
         "ETag" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "IpAddressType" => list(any()),
         "IpCount" => integer(),
+        "IpamConfig" => ipam_config(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
         "Status" => String.t() | atom()
@@ -2209,6 +2365,17 @@ defmodule AWS.CloudFront do
 
   """
   @type update_continuous_deployment_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_trust_store_request() :: %{
+        required("IfMatch") => String.t() | atom()
+      }
+
+  """
+  @type delete_trust_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2251,6 +2418,18 @@ defmodule AWS.CloudFront do
 
   """
   @type function_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_trust_store_result() :: %{
+        "ETag" => String.t() | atom(),
+        "TrustStore" => trust_store()
+      }
+
+  """
+  @type update_trust_store_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2455,6 +2634,17 @@ defmodule AWS.CloudFront do
 
   """
   @type list_key_value_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_distributions_by_trust_store_result() :: %{
+        "DistributionList" => distribution_list()
+      }
+
+  """
+  @type list_distributions_by_trust_store_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2820,6 +3010,7 @@ defmodule AWS.CloudFront do
         "CacheBehaviors" => cache_behaviors(),
         "CallerReference" => String.t() | atom(),
         "Comment" => String.t() | atom(),
+        "ConnectionFunctionAssociation" => connection_function_association(),
         "ConnectionMode" => list(any()),
         "ContinuousDeploymentPolicyId" => String.t() | atom(),
         "CustomErrorResponses" => custom_error_responses(),
@@ -2836,6 +3027,7 @@ defmodule AWS.CloudFront do
         "Staging" => boolean(),
         "TenantConfig" => tenant_config(),
         "ViewerCertificate" => viewer_certificate(),
+        "ViewerMtlsConfig" => viewer_mtls_config(),
         "WebACLId" => String.t() | atom()
       }
 
@@ -2875,6 +3067,19 @@ defmodule AWS.CloudFront do
 
   """
   @type get_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trust_store_request() :: %{
+        optional("Tags") => tags(),
+        required("CaCertificatesBundleSource") => list(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_trust_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3042,6 +3247,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_connection_function_request() :: %{
+        optional("Stage") => list(any())
+      }
+
+  """
+  @type get_connection_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_distributions_by_connection_mode_result() :: %{
         "DistributionList" => distribution_list()
       }
@@ -3082,6 +3298,17 @@ defmodule AWS.CloudFront do
 
   """
   @type no_such_origin_request_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connection_function_request() :: %{
+        optional("Stage") => list(any())
+      }
+
+  """
+  @type describe_connection_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3211,6 +3438,19 @@ defmodule AWS.CloudFront do
 
   """
   @type delete_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connection_function_request() :: %{
+        required("ConnectionFunctionCode") => binary(),
+        required("ConnectionFunctionConfig") => function_config(),
+        required("IfMatch") => String.t() | atom()
+      }
+
+  """
+  @type update_connection_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3804,6 +4044,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_distributions_by_connection_function_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("ConnectionFunctionIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_distributions_by_connection_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_forward_cookies() :: %{
         "Message" => String.t() | atom()
       }
@@ -4135,6 +4388,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      delete_connection_function_request() :: %{
+        required("IfMatch") => String.t() | atom()
+      }
+
+  """
+  @type delete_connection_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       public_key() :: %{
         "CreatedTime" => non_neg_integer(),
         "Id" => String.t() | atom(),
@@ -4185,6 +4449,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      test_connection_function_request() :: %{
+        optional("Stage") => list(any()),
+        required("ConnectionObject") => binary(),
+        required("IfMatch") => String.t() | atom()
+      }
+
+  """
+  @type test_connection_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       field_level_encryption_profile_summary() :: %{
         "Comment" => String.t() | atom(),
         "EncryptionEntities" => encryption_entities(),
@@ -4225,6 +4502,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_connection_functions_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("Stage") => list(any())
+      }
+
+  """
+  @type list_connection_functions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_cache_policy_result() :: %{
         "CachePolicy" => cache_policy(),
         "ETag" => String.t() | atom(),
@@ -4246,6 +4536,18 @@ defmodule AWS.CloudFront do
 
   """
   @type create_key_value_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      viewer_mtls_config() :: %{
+        "Mode" => list(any()),
+        "TrustStoreConfig" => trust_store_config()
+      }
+
+  """
+  @type viewer_mtls_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4635,6 +4937,21 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      connection_function_test_result() :: %{
+        "ComputeUtilization" => String.t() | atom(),
+        "ConnectionFunctionErrorMessage" => String.t() | atom(),
+        "ConnectionFunctionExecutionLogs" => list(String.t() | atom()),
+        "ConnectionFunctionOutput" => String.t() | atom(),
+        "ConnectionFunctionSummary" => connection_function_summary()
+      }
+
+  """
+  @type connection_function_test_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_functions_request() :: %{
         optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer(),
@@ -4672,6 +4989,7 @@ defmodule AWS.CloudFront do
 
       create_anycast_ip_list_request() :: %{
         optional("IpAddressType") => list(any()),
+        optional("IpamCidrConfigs") => list(ipam_cidr_config()),
         optional("Tags") => tags(),
         required("IpCount") => integer(),
         required("Name") => String.t() | atom()
@@ -4765,6 +5083,18 @@ defmodule AWS.CloudFront do
 
   """
   @type delete_cache_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connection_function_result() :: %{
+        "ConnectionFunctionSummary" => connection_function_summary(),
+        "ETag" => String.t() | atom()
+      }
+
+  """
+  @type describe_connection_function_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5259,6 +5589,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_trust_store_result() :: %{
+        "ETag" => String.t() | atom(),
+        "TrustStore" => trust_store()
+      }
+
+  """
+  @type get_trust_store_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_vpc_origin_result() :: %{
         "ETag" => String.t() | atom(),
         "VpcOrigin" => vpc_origin()
@@ -5396,6 +5738,18 @@ defmodule AWS.CloudFront do
 
   """
   @type get_distribution_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trust_store_result() :: %{
+        "ETag" => String.t() | atom(),
+        "TrustStore" => trust_store()
+      }
+
+  """
+  @type create_trust_store_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5756,6 +6110,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      ipam_config() :: %{
+        "IpamCidrConfigs" => list(ipam_cidr_config()),
+        "Quantity" => integer()
+      }
+
+  """
+  @type ipam_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       field_level_encryption_profile_size_exceeded() :: %{
         "Message" => String.t() | atom()
       }
@@ -6015,6 +6381,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      publish_connection_function_request() :: %{
+        required("IfMatch") => String.t() | atom()
+      }
+
+  """
+  @type publish_connection_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_viewer_certificate() :: %{
         "Message" => String.t() | atom()
       }
@@ -6033,6 +6410,24 @@ defmodule AWS.CloudFront do
 
   """
   @type update_distribution_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_function_summary() :: %{
+        "ConnectionFunctionArn" => String.t() | atom(),
+        "ConnectionFunctionConfig" => function_config(),
+        "CreatedTime" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Stage" => list(any()),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type connection_function_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6642,6 +7037,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      publish_connection_function_result() :: %{
+        "ConnectionFunctionSummary" => connection_function_summary()
+      }
+
+  """
+  @type publish_connection_function_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       public_key_config() :: %{
         "CallerReference" => String.t() | atom(),
         "Comment" => String.t() | atom(),
@@ -7131,6 +7537,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      trust_store_config() :: %{
+        "AdvertiseTrustStoreCaNames" => boolean(),
+        "IgnoreCertificateExpiry" => boolean(),
+        "TrustStoreId" => String.t() | atom()
+      }
+
+  """
+  @type trust_store_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       response_headers_policy_summary() :: %{
         "ResponseHeadersPolicy" => response_headers_policy(),
         "Type" => list(any())
@@ -7149,6 +7568,31 @@ defmodule AWS.CloudFront do
 
   """
   @type list_anycast_ip_lists_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connection_functions_result() :: %{
+        "ConnectionFunctions" => list(connection_function_summary()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_connection_functions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connection_function_result() :: %{
+        "ConnectionFunctionSummary" => connection_function_summary(),
+        "ETag" => String.t() | atom(),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type create_connection_function_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7575,6 +8019,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      connection_function_association() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type connection_function_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_streaming_distribution_with_tags_result() :: %{
         "ETag" => String.t() | atom(),
         "Location" => String.t() | atom(),
@@ -7620,6 +8075,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_connection_function_result() :: %{
+        "ConnectionFunctionCode" => binary(),
+        "ContentType" => String.t() | atom(),
+        "ETag" => String.t() | atom()
+      }
+
+  """
+  @type get_connection_function_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_distribution_with_staging_config_result() :: %{
         "Distribution" => distribution(),
         "ETag" => String.t() | atom()
@@ -7627,6 +8095,23 @@ defmodule AWS.CloudFront do
 
   """
   @type update_distribution_with_staging_config_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_store() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "NumberOfCaCertificates" => integer(),
+        "Reason" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type trust_store() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7673,14 +8158,16 @@ defmodule AWS.CloudFront do
           | illegal_update()
 
   @type associate_distribution_tenant_web_acl_errors() ::
-          precondition_failed()
+          entity_limit_exceeded()
+          | precondition_failed()
           | invalid_argument()
           | access_denied()
           | entity_not_found()
           | invalid_if_match_version()
 
   @type associate_distribution_web_acl_errors() ::
-          precondition_failed()
+          entity_limit_exceeded()
+          | precondition_failed()
           | invalid_argument()
           | access_denied()
           | entity_not_found()
@@ -7776,6 +8263,15 @@ defmodule AWS.CloudFront do
           | missing_body()
           | invalid_argument()
           | cloud_front_origin_access_identity_already_exists()
+
+  @type create_connection_function_errors() ::
+          entity_limit_exceeded()
+          | unsupported_operation()
+          | entity_size_limit_exceeded()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | invalid_tagging()
 
   @type create_connection_group_errors() ::
           entity_limit_exceeded()
@@ -8071,6 +8567,14 @@ defmodule AWS.CloudFront do
           | invalid_tagging()
           | invalid_origin_access_identity()
 
+  @type create_trust_store_errors() ::
+          entity_limit_exceeded()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_tagging()
+
   @type create_vpc_origin_errors() ::
           entity_limit_exceeded()
           | inconsistent_quantities()
@@ -8103,6 +8607,15 @@ defmodule AWS.CloudFront do
           | no_such_cloud_front_origin_access_identity()
           | access_denied()
           | cloud_front_origin_access_identity_in_use()
+          | invalid_if_match_version()
+
+  @type delete_connection_function_errors() ::
+          cannot_delete_entity_while_in_use()
+          | precondition_failed()
+          | unsupported_operation()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
           | invalid_if_match_version()
 
   @type delete_connection_group_errors() ::
@@ -8228,6 +8741,14 @@ defmodule AWS.CloudFront do
           | invalid_if_match_version()
           | streaming_distribution_not_disabled()
 
+  @type delete_trust_store_errors() ::
+          cannot_delete_entity_while_in_use()
+          | precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
   @type delete_vpc_origin_errors() ::
           illegal_delete()
           | cannot_delete_entity_while_in_use()
@@ -8237,6 +8758,9 @@ defmodule AWS.CloudFront do
           | access_denied()
           | entity_not_found()
           | invalid_if_match_version()
+
+  @type describe_connection_function_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
   @type describe_function_errors() :: no_such_function_exists() | unsupported_operation()
 
@@ -8269,6 +8793,9 @@ defmodule AWS.CloudFront do
 
   @type get_cloud_front_origin_access_identity_config_errors() ::
           no_such_cloud_front_origin_access_identity() | access_denied()
+
+  @type get_connection_function_errors() ::
+          unsupported_operation() | access_denied() | entity_not_found()
 
   @type get_connection_group_errors() :: access_denied() | entity_not_found()
 
@@ -8351,6 +8878,8 @@ defmodule AWS.CloudFront do
   @type get_streaming_distribution_config_errors() ::
           no_such_streaming_distribution() | access_denied()
 
+  @type get_trust_store_errors() :: invalid_argument() | access_denied() | entity_not_found()
+
   @type get_vpc_origin_errors() ::
           unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
@@ -8363,6 +8892,9 @@ defmodule AWS.CloudFront do
   @type list_cloud_front_origin_access_identities_errors() :: invalid_argument()
 
   @type list_conflicting_aliases_errors() :: no_such_distribution() | invalid_argument()
+
+  @type list_connection_functions_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied()
 
   @type list_connection_groups_errors() ::
           invalid_argument() | access_denied() | entity_not_found()
@@ -8384,6 +8916,9 @@ defmodule AWS.CloudFront do
   @type list_distributions_by_cache_policy_id_errors() ::
           no_such_cache_policy() | invalid_argument() | access_denied()
 
+  @type list_distributions_by_connection_function_errors() ::
+          invalid_argument() | access_denied() | entity_not_found()
+
   @type list_distributions_by_connection_mode_errors() :: invalid_argument() | access_denied()
 
   @type list_distributions_by_key_group_errors() :: no_such_resource() | invalid_argument()
@@ -8398,6 +8933,9 @@ defmodule AWS.CloudFront do
 
   @type list_distributions_by_response_headers_policy_id_errors() ::
           no_such_response_headers_policy() | invalid_argument() | access_denied()
+
+  @type list_distributions_by_trust_store_errors() ::
+          invalid_argument() | access_denied() | entity_not_found()
 
   @type list_distributions_by_vpc_origin_id_errors() ::
           unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
@@ -8442,8 +8980,18 @@ defmodule AWS.CloudFront do
   @type list_tags_for_resource_errors() ::
           no_such_resource() | invalid_argument() | access_denied() | invalid_tagging()
 
+  @type list_trust_stores_errors() :: invalid_argument() | access_denied() | entity_not_found()
+
   @type list_vpc_origins_errors() ::
           unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
+
+  @type publish_connection_function_errors() ::
+          precondition_failed()
+          | unsupported_operation()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
 
   @type publish_function_errors() ::
           no_such_function_exists()
@@ -8462,6 +9010,14 @@ defmodule AWS.CloudFront do
 
   @type tag_resource_errors() ::
           no_such_resource() | invalid_argument() | access_denied() | invalid_tagging()
+
+  @type test_connection_function_errors() ::
+          test_function_failed()
+          | precondition_failed()
+          | unsupported_operation()
+          | invalid_argument()
+          | entity_not_found()
+          | invalid_if_match_version()
 
   @type test_function_errors() ::
           test_function_failed()
@@ -8502,6 +9058,15 @@ defmodule AWS.CloudFront do
           | invalid_argument()
           | access_denied()
           | illegal_update()
+          | invalid_if_match_version()
+
+  @type update_connection_function_errors() ::
+          precondition_failed()
+          | unsupported_operation()
+          | entity_size_limit_exceeded()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
           | invalid_if_match_version()
 
   @type update_connection_group_errors() ::
@@ -8608,6 +9173,7 @@ defmodule AWS.CloudFront do
           | too_many_distributions_associated_to_field_level_encryption_config()
           | invalid_location_code()
           | invalid_response_code()
+          | entity_limit_exceeded()
           | no_such_realtime_log_config()
           | invalid_function_association()
           | illegal_field_level_encryption_config_association_with_cache_behavior()
@@ -8788,6 +9354,13 @@ defmodule AWS.CloudFront do
           | illegal_update()
           | invalid_if_match_version()
           | invalid_origin_access_identity()
+
+  @type update_trust_store_errors() ::
+          precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
 
   @type update_vpc_origin_errors() ::
           entity_limit_exceeded()
@@ -9151,6 +9724,42 @@ defmodule AWS.CloudFront do
           | {:error, create_cloud_front_origin_access_identity_errors()}
   def create_cloud_front_origin_access_identity(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a connection function.
+  """
+  @spec create_connection_function(map(), create_connection_function_request(), list()) ::
+          {:ok, create_connection_function_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_connection_function_errors()}
+  def create_connection_function(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/connection-function"
     headers = []
     custom_headers = []
     query_params = []
@@ -10031,6 +10640,42 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Creates a trust store.
+  """
+  @spec create_trust_store(map(), create_trust_store_request(), list()) ::
+          {:ok, create_trust_store_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_trust_store_errors()}
+  def create_trust_store(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/trust-store"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Create an Amazon CloudFront VPC origin.
   """
   @spec create_vpc_origin(map(), create_vpc_origin_request(), list()) ::
@@ -10163,6 +10808,46 @@ defmodule AWS.CloudFront do
           | {:error, delete_cloud_front_origin_access_identity_errors()}
   def delete_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a connection function.
+  """
+  @spec delete_connection_function(
+          map(),
+          String.t() | atom(),
+          delete_connection_function_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_connection_function_errors()}
+  def delete_connection_function(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/connection-function/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -10922,6 +11607,41 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Deletes a trust store.
+  """
+  @spec delete_trust_store(map(), String.t() | atom(), delete_trust_store_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_trust_store_errors()}
+  def delete_trust_store(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/trust-store/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Delete an Amazon CloudFront VPC origin.
   """
   @spec delete_vpc_origin(map(), String.t() | atom(), delete_vpc_origin_request(), list()) ::
@@ -10961,6 +11681,43 @@ defmodule AWS.CloudFront do
       options,
       202
     )
+  end
+
+  @doc """
+  Describes a connection function.
+  """
+  @spec describe_connection_function(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, describe_connection_function_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_connection_function_errors()}
+  def describe_connection_function(%Client{} = client, identifier, stage \\ nil, options \\ []) do
+    url_path = "/2020-05-31/connection-function/#{AWS.Util.encode_uri(identifier)}/describe"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(stage) do
+        [{"Stage", stage} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -11254,6 +12011,38 @@ defmodule AWS.CloudFront do
         options,
         :response_header_parameters,
         [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a connection function.
+  """
+  @spec get_connection_function(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+          {:ok, get_connection_function_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_connection_function_errors()}
+  def get_connection_function(%Client{} = client, identifier, stage \\ nil, options \\ []) do
+    url_path = "/2020-05-31/connection-function/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(stage) do
+        [{"Stage", stage} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Content-Type", "ContentType"}, {"ETag", "ETag"}]
       )
 
     meta = metadata()
@@ -12116,6 +12905,31 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets a trust store.
+  """
+  @spec get_trust_store(map(), String.t() | atom(), list()) ::
+          {:ok, get_trust_store_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_trust_store_errors()}
+  def get_trust_store(%Client{} = client, identifier, options \\ []) do
+    url_path = "/2020-05-31/trust-store/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Get the details of an Amazon CloudFront VPC origin.
   """
   @spec get_vpc_origin(map(), String.t() | atom(), list()) ::
@@ -12369,6 +13183,35 @@ defmodule AWS.CloudFront do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists connection functions.
+  """
+  @spec list_connection_functions(map(), list_connection_functions_request(), list()) ::
+          {:ok, list_connection_functions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_connection_functions_errors()}
+  def list_connection_functions(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/connection-functions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12635,6 +13478,57 @@ defmodule AWS.CloudFront do
     query_params =
       if !is_nil(marker) do
         [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists distributions by connection function.
+  """
+  @spec list_distributions_by_connection_function(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_distributions_by_connection_function_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_distributions_by_connection_function_errors()}
+  def list_distributions_by_connection_function(
+        %Client{} = client,
+        connection_function_identifier,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distributionsByConnectionFunction"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(connection_function_identifier) do
+        [{"ConnectionFunctionIdentifier", connection_function_identifier} | query_params]
       else
         query_params
       end
@@ -12915,6 +13809,57 @@ defmodule AWS.CloudFront do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists distributions by trust store.
+  """
+  @spec list_distributions_by_trust_store(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_distributions_by_trust_store_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_distributions_by_trust_store_errors()}
+  def list_distributions_by_trust_store(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        trust_store_identifier,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distributionsByTrustStore"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(trust_store_identifier) do
+        [{"TrustStoreIdentifier", trust_store_identifier} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(max_items) do
@@ -13738,6 +14683,35 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Lists trust stores.
+  """
+  @spec list_trust_stores(map(), list_trust_stores_request(), list()) ::
+          {:ok, list_trust_stores_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_trust_stores_errors()}
+  def list_trust_stores(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/trust-stores"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   List the CloudFront VPC origins in your account.
   """
   @spec list_vpc_origins(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
@@ -13767,6 +14741,46 @@ defmodule AWS.CloudFront do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Publishes a connection function.
+  """
+  @spec publish_connection_function(
+          map(),
+          String.t() | atom(),
+          publish_connection_function_request(),
+          list()
+        ) ::
+          {:ok, publish_connection_function_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, publish_connection_function_errors()}
+  def publish_connection_function(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/connection-function/#{AWS.Util.encode_uri(id)}/publish"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13878,6 +14892,46 @@ defmodule AWS.CloudFront do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Tests a connection function.
+  """
+  @spec test_connection_function(
+          map(),
+          String.t() | atom(),
+          test_connection_function_request(),
+          list()
+        ) ::
+          {:ok, test_connection_function_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, test_connection_function_errors()}
+  def test_connection_function(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/connection-function/#{AWS.Util.encode_uri(id)}/test"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -14086,6 +15140,53 @@ defmodule AWS.CloudFront do
           | {:error, update_cloud_front_origin_access_identity_errors()}
   def update_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a connection function.
+  """
+  @spec update_connection_function(
+          map(),
+          String.t() | atom(),
+          update_connection_function_request(),
+          list()
+        ) ::
+          {:ok, update_connection_function_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_connection_function_errors()}
+  def update_connection_function(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/connection-function/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -14994,6 +16095,48 @@ defmodule AWS.CloudFront do
           | {:error, update_streaming_distribution_errors()}
   def update_streaming_distribution(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}/config"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a trust store.
+  """
+  @spec update_trust_store(map(), String.t() | atom(), update_trust_store_request(), list()) ::
+          {:ok, update_trust_store_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_trust_store_errors()}
+  def update_trust_store(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/trust-store/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [

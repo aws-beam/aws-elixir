@@ -254,6 +254,7 @@ defmodule AWS.CleanRooms do
       create_membership_input() :: %{
         optional("defaultJobResultConfiguration") => membership_protected_job_result_configuration(),
         optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
+        optional("isMetricsEnabled") => [boolean()],
         optional("jobLogStatus") => list(any()),
         optional("paymentConfiguration") => membership_payment_configuration(),
         optional("tags") => map(),
@@ -390,6 +391,7 @@ defmodule AWS.CleanRooms do
         "schema" => analysis_schema(),
         "source" => list(),
         "sourceMetadata" => list(),
+        "syntheticDataParameters" => list(),
         "updateTime" => [non_neg_integer()],
         "validations" => list(analysis_template_validation_status_detail())
       }
@@ -921,6 +923,7 @@ defmodule AWS.CleanRooms do
         "dataEncryptionMetadata" => data_encryption_metadata(),
         "description" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "isMetricsEnabled" => [boolean()],
         "jobLogStatus" => list(any()),
         "memberStatus" => String.t() | atom(),
         "membershipArn" => String.t() | atom(),
@@ -1299,6 +1302,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      approval_status_details() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type approval_status_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_configured_table_analysis_rule_output() :: %{}
 
   """
@@ -1527,6 +1541,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      collaboration_change_specification() :: %{
+        "autoApprovedChangeTypes" => list(list(any())())
+      }
+
+  """
+  @type collaboration_change_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_configured_audience_model_association_output() :: %{
         "configuredAudienceModelAssociation" => configured_audience_model_association()
       }
@@ -1580,6 +1605,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       collaboration_change_request_summary() :: %{
+        "approvals" => map(),
         "changes" => list(change()),
         "collaborationId" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
@@ -2145,6 +2171,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      membership_synthetic_data_generation_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type membership_synthetic_data_generation_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       membership_protected_job_result_configuration() :: %{
         "outputConfiguration" => list(),
         "roleArn" => String.t() | atom()
@@ -2301,6 +2338,19 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      ml_synthetic_data_parameters() :: %{
+        "columnClassification" => column_classification_details(),
+        "epsilon" => [float()],
+        "maxMembershipInferenceAttackScore" => float()
+      }
+
+  """
+  @type ml_synthetic_data_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_id_namespace_association_input() :: %{
         optional("description") => String.t() | atom(),
         optional("idMappingConfig") => id_mapping_config(),
@@ -2391,6 +2441,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type protected_query_s3_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_collaboration_change_request_input() :: %{
+        required("action") => list(any())
+      }
+
+  """
+  @type update_collaboration_change_request_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2522,6 +2583,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      synthetic_data_generation_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type synthetic_data_generation_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analysis_parameter() :: %{
         "defaultValue" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -2574,6 +2646,7 @@ defmodule AWS.CleanRooms do
         optional("creatorMLMemberAbilities") => ml_member_abilities(),
         optional("creatorPaymentConfiguration") => payment_configuration(),
         optional("dataEncryptionMetadata") => data_encryption_metadata(),
+        optional("isMetricsEnabled") => [boolean()],
         optional("jobLogStatus") => list(any()),
         optional("tags") => map(),
         required("creatorDisplayName") => String.t() | atom(),
@@ -2697,6 +2770,19 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      synthetic_data_column_properties() :: %{
+        "columnName" => String.t() | atom(),
+        "columnType" => list(any()),
+        "isPredictiveValue" => [boolean()]
+      }
+
+  """
+  @type synthetic_data_column_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_collaboration_privacy_budgets_output() :: %{
         "collaborationPrivacyBudgetSummaries" => list(collaboration_privacy_budget_summary()),
         "nextToken" => String.t() | atom()
@@ -2753,6 +2839,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       collaboration_change_request() :: %{
+        "approvals" => map(),
         "changes" => list(change()),
         "collaborationId" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
@@ -2851,6 +2938,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type update_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_classification_details() :: %{
+        "columnMapping" => list(synthetic_data_column_properties())
+      }
+
+  """
+  @type column_classification_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2996,6 +3094,7 @@ defmodule AWS.CleanRooms do
         "schema" => analysis_schema(),
         "source" => list(),
         "sourceMetadata" => list(),
+        "syntheticDataParameters" => list(),
         "updateTime" => [non_neg_integer()],
         "validations" => list(analysis_template_validation_status_detail())
       }
@@ -3325,6 +3424,7 @@ defmodule AWS.CleanRooms do
         "creatorAccountId" => String.t() | atom(),
         "description" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "isSyntheticData" => [boolean()],
         "name" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
@@ -3449,6 +3549,7 @@ defmodule AWS.CleanRooms do
         "createTime" => [non_neg_integer()],
         "description" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "isSyntheticData" => [boolean()],
         "membershipArn" => String.t() | atom(),
         "membershipId" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -3641,7 +3742,8 @@ defmodule AWS.CleanRooms do
 
       membership_ml_payment_config() :: %{
         "modelInference" => membership_model_inference_payment_config(),
-        "modelTraining" => membership_model_training_payment_config()
+        "modelTraining" => membership_model_training_payment_config(),
+        "syntheticDataGeneration" => membership_synthetic_data_generation_payment_config()
       }
 
   """
@@ -3762,7 +3864,8 @@ defmodule AWS.CleanRooms do
 
       ml_payment_config() :: %{
         "modelInference" => model_inference_payment_config(),
-        "modelTraining" => model_training_payment_config()
+        "modelTraining" => model_training_payment_config(),
+        "syntheticDataGeneration" => synthetic_data_generation_payment_config()
       }
 
   """
@@ -3869,6 +3972,7 @@ defmodule AWS.CleanRooms do
         optional("description") => String.t() | atom(),
         optional("errorMessageConfiguration") => error_message_configuration(),
         optional("schema") => analysis_schema(),
+        optional("syntheticDataParameters") => list(),
         optional("tags") => map(),
         required("format") => list(any()),
         required("name") => String.t() | atom(),
@@ -3930,7 +4034,8 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       protected_job_parameters() :: %{
-        "analysisTemplateArn" => String.t() | atom()
+        "analysisTemplateArn" => String.t() | atom(),
+        "parameters" => map()
       }
 
   """
@@ -4084,6 +4189,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      update_collaboration_change_request_output() :: %{
+        "collaborationChangeRequest" => collaboration_change_request()
+      }
+
+  """
+  @type update_collaboration_change_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       id_mapping_table_input_reference_properties() :: %{
         "idMappingTableInputSource" => list(id_mapping_table_input_source())
       }
@@ -4106,6 +4222,7 @@ defmodule AWS.CleanRooms do
         "defaultJobResultConfiguration" => membership_protected_job_result_configuration(),
         "defaultResultConfiguration" => membership_protected_query_result_configuration(),
         "id" => String.t() | atom(),
+        "isMetricsEnabled" => [boolean()],
         "jobLogStatus" => list(any()),
         "memberAbilities" => list(list(any())()),
         "mlMemberAbilities" => ml_member_abilities(),
@@ -4822,6 +4939,14 @@ defmodule AWS.CleanRooms do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type update_collaboration_change_request_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_configured_audience_model_association_errors() ::
           throttling_exception()
@@ -7756,6 +7881,56 @@ defmodule AWS.CleanRooms do
           | {:error, update_collaboration_errors()}
   def update_collaboration(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing collaboration change request.
+
+  This operation allows approval actions for pending change requests in
+  collaborations (APPROVE, DENY, CANCEL, COMMIT).
+
+  For change requests without automatic approval, a member in the collaboration
+  can manually APPROVE or DENY a change request. The collaboration owner can
+  manually CANCEL or COMMIT a change request.
+  """
+  @spec update_collaboration_change_request(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_collaboration_change_request_input(),
+          list()
+        ) ::
+          {:ok, update_collaboration_change_request_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_collaboration_change_request_errors()}
+  def update_collaboration_change_request(
+        %Client{} = client,
+        change_request_identifier,
+        collaboration_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/changeRequests/#{AWS.Util.encode_uri(change_request_identifier)}"
+
     headers = []
     custom_headers = []
     query_params = []

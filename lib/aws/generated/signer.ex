@@ -33,7 +33,7 @@ defmodule AWS.Signer do
   and
   integrity.
 
-  For more information about Signer, see the [AWS Signer Developer Guide](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
+  For more information about Signer, see the [AWS Signer Developer Guide](http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
   """
 
   alias AWS.Client
@@ -1070,9 +1070,8 @@ defmodule AWS.Signer do
   Changes the state of an `ACTIVE` signing profile to `CANCELED`.
 
   A canceled profile is still viewable with the `ListSigningProfiles`
-  operation, but it cannot perform new signing jobs, and is deleted two years
-  after
-  cancelation.
+  operation, but it cannot perform new signing jobs. See [Data Retention](https://docs.aws.amazon.com/signer/latest/developerguide/retention.html)
+  for more information on scheduled deletion of a canceled signing profile.
   """
   @spec cancel_signing_profile(
           map(),
@@ -1193,7 +1192,7 @@ defmodule AWS.Signer do
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "verification.")
+    meta = metadata() |> Map.put_new(:host_prefix, "data-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1635,7 +1634,7 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Changes the state of a signing job to REVOKED.
+  Changes the state of a signing job to `REVOKED`.
 
   This indicates that the signature is no
   longer valid.
@@ -1667,11 +1666,13 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Changes the state of a signing profile to REVOKED.
+  Changes the state of a signing profile to `REVOKED`.
 
   This indicates that signatures
   generated using the signing profile after an effective start date are no longer
-  valid.
+  valid. A revoked profile is still viewable with the `ListSigningProfiles`
+  operation, but it cannot perform new signing jobs. See [Data Retention](https://docs.aws.amazon.com/signer/latest/developerguide/retention.html)
+  for more information on scheduled deletion of a revoked signing profile.
   """
   @spec revoke_signing_profile(
           map(),
@@ -1737,8 +1738,7 @@ defmodule AWS.Signer do
   Initiates a signing job to be performed on the code provided.
 
   Signing jobs are
-  viewable by the `ListSigningJobs` operation for two years after they are
-  performed. Note the following requirements:
+  viewable by the `ListSigningJobs` operation. Note the following requirements:
 
     *
   You must create an Amazon S3 source bucket. For more information, see [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)

@@ -112,7 +112,8 @@ defmodule AWS.Backup do
       backup_plan_input() :: %{
         "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlanName" => String.t() | atom(),
-        "Rules" => list(backup_rule_input())
+        "Rules" => list(backup_rule_input()),
+        "ScanSettings" => list(scan_setting())
       }
 
   """
@@ -217,6 +218,7 @@ defmodule AWS.Backup do
         optional("IdempotencyToken") => String.t() | atom(),
         optional("Index") => list(any()),
         optional("Lifecycle") => lifecycle(),
+        optional("LogicallyAirGappedBackupVaultArn") => String.t() | atom(),
         optional("RecoveryPointTags") => map(),
         optional("StartWindowMinutes") => float(),
         required("BackupVaultName") => String.t() | atom(),
@@ -239,6 +241,7 @@ defmodule AWS.Backup do
         "CompositeMemberIdentifier" => String.t() | atom(),
         "CopyJobId" => String.t() | atom(),
         "CreatedBy" => recovery_point_creator(),
+        "CreatedByBackupJobId" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
         "DestinationBackupVaultArn" => String.t() | atom(),
         "DestinationEncryptionKeyArn" => String.t() | atom(),
@@ -359,7 +362,8 @@ defmodule AWS.Backup do
       backup_plan() :: %{
         "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlanName" => String.t() | atom(),
-        "Rules" => list(backup_rule())
+        "Rules" => list(backup_rule()),
+        "ScanSettings" => list(scan_setting())
       }
 
   """
@@ -370,6 +374,7 @@ defmodule AWS.Backup do
   ## Example:
 
       recovery_point_by_backup_vault() :: %{
+        "AggregatedScanResult" => aggregated_scan_result(),
         "BackupSizeInBytes" => float(),
         "BackupVaultArn" => String.t() | atom(),
         "BackupVaultName" => String.t() | atom(),
@@ -614,6 +619,19 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      aggregated_scan_result() :: %{
+        "FailedScan" => boolean(),
+        "Findings" => list(list(any())()),
+        "LastComputed" => non_neg_integer()
+      }
+
+  """
+  @type aggregated_scan_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_backup_vault_input() :: %{
         optional("BackupVaultTags") => map(),
         optional("CreatorRequestId") => String.t() | atom(),
@@ -656,6 +674,25 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      scan_job_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "Count" => integer(),
+        "EndTime" => non_neg_integer(),
+        "MalwareScanner" => list(any()),
+        "Region" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ScanResultStatus" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type scan_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_backup_plans_output() :: %{
         "BackupPlansList" => list(backup_plans_list_member()),
         "NextToken" => String.t() | atom()
@@ -692,6 +729,19 @@ defmodule AWS.Backup do
 
   """
   @type restore_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tiering_configuration_input() :: %{
+        optional("CreatorRequestId") => String.t() | atom(),
+        optional("TieringConfigurationTags") => map(),
+        required("TieringConfiguration") => tiering_configuration_input_for_create()
+      }
+
+  """
+  @type create_tiering_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -743,6 +793,20 @@ defmodule AWS.Backup do
 
   """
   @type create_legal_hold_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_result() :: %{
+        "Findings" => list(list(any())()),
+        "LastScanTimestamp" => non_neg_integer(),
+        "MalwareScanner" => list(any()),
+        "ScanJobState" => list(any())
+      }
+
+  """
+  @type scan_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -818,6 +882,24 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      start_scan_job_input() :: %{
+        optional("IdempotencyToken") => [String.t() | atom()],
+        optional("ScanBaseRecoveryPointArn") => [String.t() | atom()],
+        required("BackupVaultName") => [String.t() | atom()],
+        required("IamRoleArn") => [String.t() | atom()],
+        required("MalwareScanner") => list(any()),
+        required("RecoveryPointArn") => [String.t() | atom()],
+        required("ScanMode") => list(any()),
+        required("ScannerRoleArn") => [String.t() | atom()]
+      }
+
+  """
+  @type start_scan_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_recovery_point_index_settings_output() :: %{
         "BackupVaultName" => String.t() | atom(),
         "Index" => list(any()),
@@ -854,6 +936,17 @@ defmodule AWS.Backup do
 
   """
   @type describe_backup_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tiering_configuration_output() :: %{
+        "TieringConfiguration" => tiering_configuration()
+      }
+
+  """
+  @type get_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -932,6 +1025,36 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      describe_scan_job_output() :: %{
+        "AccountId" => [String.t() | atom()],
+        "BackupVaultArn" => [String.t() | atom()],
+        "BackupVaultName" => [String.t() | atom()],
+        "CompletionDate" => [non_neg_integer()],
+        "CreatedBy" => scan_job_creator(),
+        "CreationDate" => [non_neg_integer()],
+        "IamRoleArn" => [String.t() | atom()],
+        "MalwareScanner" => list(any()),
+        "RecoveryPointArn" => [String.t() | atom()],
+        "ResourceArn" => [String.t() | atom()],
+        "ResourceName" => [String.t() | atom()],
+        "ResourceType" => list(any()),
+        "ScanBaseRecoveryPointArn" => [String.t() | atom()],
+        "ScanId" => [String.t() | atom()],
+        "ScanJobId" => [String.t() | atom()],
+        "ScanMode" => list(any()),
+        "ScanResult" => scan_result_info(),
+        "ScannerRoleArn" => [String.t() | atom()],
+        "State" => list(any()),
+        "StatusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_scan_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       control_scope() :: %{
         "ComplianceResourceIds" => list(String.t() | atom()),
         "ComplianceResourceTypes" => list(String.t() | atom()),
@@ -984,6 +1107,45 @@ defmodule AWS.Backup do
 
   """
   @type framework_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tiering_configuration_input() :: %{}
+
+  """
+  @type get_tiering_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_job() :: %{
+        "AccountId" => [String.t() | atom()],
+        "BackupVaultArn" => [String.t() | atom()],
+        "BackupVaultName" => [String.t() | atom()],
+        "CompletionDate" => [non_neg_integer()],
+        "CreatedBy" => scan_job_creator(),
+        "CreationDate" => [non_neg_integer()],
+        "IamRoleArn" => [String.t() | atom()],
+        "MalwareScanner" => list(any()),
+        "RecoveryPointArn" => [String.t() | atom()],
+        "ResourceArn" => [String.t() | atom()],
+        "ResourceName" => [String.t() | atom()],
+        "ResourceType" => list(any()),
+        "ScanBaseRecoveryPointArn" => [String.t() | atom()],
+        "ScanId" => [String.t() | atom()],
+        "ScanJobId" => [String.t() | atom()],
+        "ScanMode" => list(any()),
+        "ScanResult" => scan_result_info(),
+        "ScannerRoleArn" => [String.t() | atom()],
+        "State" => list(any()),
+        "StatusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type scan_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,6 +1218,19 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      resource_selection() :: %{
+        "ResourceType" => String.t() | atom(),
+        "Resources" => list(String.t() | atom()),
+        "TieringDownSettingsInDays" => integer()
+      }
+
+  """
+  @type resource_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       backup_selection() :: %{
         "Conditions" => conditions(),
         "IamRoleArn" => String.t() | atom(),
@@ -1107,6 +1282,7 @@ defmodule AWS.Backup do
 
       lifecycle() :: %{
         "DeleteAfterDays" => float(),
+        "DeleteAfterEvent" => list(any()),
         "MoveToColdStorageAfterDays" => float(),
         "OptInToArchiveForSupportedResources" => boolean()
       }
@@ -1256,6 +1432,32 @@ defmodule AWS.Backup do
 
   """
   @type get_backup_vault_access_policy_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tiering_configuration_input_for_create() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "ResourceSelection" => list(resource_selection()),
+        "TieringConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type tiering_configuration_input_for_create() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tiering_configuration_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "TieringConfigurationArn" => String.t() | atom(),
+        "TieringConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type create_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1522,6 +1724,17 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      scan_result_info() :: %{
+        "ScanResultStatus" => list(any())
+      }
+
+  """
+  @type scan_result_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_copy_job_output() :: %{
         "CopyJobId" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
@@ -1546,6 +1759,19 @@ defmodule AWS.Backup do
 
   """
   @type list_restore_job_summaries_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scan_job_summaries_output() :: %{
+        "AggregationPeriod" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "ScanJobSummaries" => list(scan_job_summary())
+      }
+
+  """
+  @type list_scan_job_summaries_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1695,6 +1921,24 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      list_scan_job_summaries_input() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("AggregationPeriod") => list(any()),
+        optional("MalwareScanner") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom(),
+        optional("ScanResultStatus") => list(any()),
+        optional("State") => list(any())
+      }
+
+  """
+  @type list_scan_job_summaries_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dependency_failure_exception() :: %{
         "Code" => String.t() | atom(),
         "Context" => String.t() | atom(),
@@ -1717,6 +1961,20 @@ defmodule AWS.Backup do
 
   """
   @type scheduled_plan_execution_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_tiering_configuration_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "TieringConfigurationArn" => String.t() | atom(),
+        "TieringConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type update_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1867,6 +2125,21 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      tiering_configurations_list_member() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "TieringConfigurationArn" => String.t() | atom(),
+        "TieringConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type tiering_configurations_list_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       report_delivery_channel() :: %{
         "Formats" => list(String.t() | atom()),
         "S3BucketName" => String.t() | atom(),
@@ -1951,6 +2224,18 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      scan_action() :: %{
+        "MalwareScanner" => list(any()),
+        "ScanMode" => list(any())
+      }
+
+  """
+  @type scan_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_input() :: %{
         required("Tags") => map()
       }
@@ -2014,10 +2299,30 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      update_tiering_configuration_input() :: %{
+        required("TieringConfiguration") => tiering_configuration_input_for_update()
+      }
+
+  """
+  @type update_tiering_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_backup_selection_input() :: %{}
 
   """
   @type get_backup_selection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tiering_configuration_input() :: %{}
+
+  """
+  @type delete_tiering_configuration_input() :: %{}
 
   @typedoc """
 
@@ -2039,6 +2344,7 @@ defmodule AWS.Backup do
   ## Example:
 
       recovery_point_by_resource() :: %{
+        "AggregatedScanResult" => aggregated_scan_result(),
         "BackupSizeBytes" => float(),
         "BackupVaultName" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
@@ -2132,6 +2438,18 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      list_tiering_configurations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_tiering_configurations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       restore_testing_selection_for_create() :: %{
         "IamRoleArn" => [String.t() | atom()],
         "ProtectedResourceArns" => list(String.t() | atom()),
@@ -2144,6 +2462,15 @@ defmodule AWS.Backup do
 
   """
   @type restore_testing_selection_for_create() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tiering_configuration_output() :: %{}
+
+  """
+  @type delete_tiering_configuration_output() :: %{}
 
   @typedoc """
 
@@ -2222,6 +2549,15 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      describe_scan_job_input() :: %{}
+
+  """
+  @type describe_scan_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_backup_vault_access_policy_input() :: %{}
 
   """
@@ -2240,10 +2576,12 @@ defmodule AWS.Backup do
         "RecoveryPointTags" => map(),
         "RuleId" => String.t() | atom(),
         "RuleName" => String.t() | atom(),
+        "ScanActions" => list(scan_action()),
         "ScheduleExpression" => String.t() | atom(),
         "ScheduleExpressionTimezone" => String.t() | atom(),
         "StartWindowMinutes" => float(),
-        "TargetBackupVaultName" => String.t() | atom()
+        "TargetBackupVaultName" => String.t() | atom(),
+        "TargetLogicallyAirGappedBackupVaultArn" => String.t() | atom()
       }
 
   """
@@ -2362,6 +2700,7 @@ defmodule AWS.Backup do
         optional("ByParentJobId") => String.t() | atom(),
         optional("ByResourceArn") => String.t() | atom(),
         optional("ByResourceType") => String.t() | atom(),
+        optional("BySourceRecoveryPointArn") => String.t() | atom(),
         optional("ByState") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -2419,6 +2758,28 @@ defmodule AWS.Backup do
 
   """
   @type start_copy_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scan_jobs_input() :: %{
+        optional("ByAccountId") => [String.t() | atom()],
+        optional("ByBackupVaultName") => [String.t() | atom()],
+        optional("ByCompleteAfter") => [non_neg_integer()],
+        optional("ByCompleteBefore") => [non_neg_integer()],
+        optional("ByMalwareScanner") => list(any()),
+        optional("ByRecoveryPointArn") => [String.t() | atom()],
+        optional("ByResourceArn") => [String.t() | atom()],
+        optional("ByResourceType") => list(any()),
+        optional("ByScanResultStatus") => list(any()),
+        optional("ByState") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_scan_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2503,6 +2864,18 @@ defmodule AWS.Backup do
 
   """
   @type create_backup_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tiering_configuration_input_for_update() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "ResourceSelection" => list(resource_selection())
+      }
+
+  """
+  @type tiering_configuration_input_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2602,6 +2975,18 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      list_scan_jobs_output() :: %{
+        "NextToken" => [String.t() | atom()],
+        "ScanJobs" => list(scan_job())
+      }
+
+  """
+  @type list_scan_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_protected_resource_output() :: %{
         "LastBackupTime" => non_neg_integer(),
         "LastBackupVaultArn" => String.t() | atom(),
@@ -2654,10 +3039,12 @@ defmodule AWS.Backup do
         "Lifecycle" => lifecycle(),
         "RecoveryPointTags" => map(),
         "RuleName" => String.t() | atom(),
+        "ScanActions" => list(scan_action()),
         "ScheduleExpression" => String.t() | atom(),
         "ScheduleExpressionTimezone" => String.t() | atom(),
         "StartWindowMinutes" => float(),
-        "TargetBackupVaultName" => String.t() | atom()
+        "TargetBackupVaultName" => String.t() | atom(),
+        "TargetLogicallyAirGappedBackupVaultArn" => String.t() | atom()
       }
 
   """
@@ -2677,6 +3064,20 @@ defmodule AWS.Backup do
 
   """
   @type restore_testing_plan_for_create() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_job_creator() :: %{
+        "BackupPlanArn" => [String.t() | atom()],
+        "BackupPlanId" => [String.t() | atom()],
+        "BackupPlanVersion" => [String.t() | atom()],
+        "BackupRuleId" => [String.t() | atom()]
+      }
+
+  """
+  @type scan_job_creator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2985,6 +3386,19 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      scan_setting() :: %{
+        "MalwareScanner" => list(any()),
+        "ResourceTypes" => list(String.t() | atom()),
+        "ScannerRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type scan_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_restore_testing_selections_output() :: %{
         "NextToken" => [String.t() | atom()],
         "RestoreTestingSelections" => list(restore_testing_selection_for_list())
@@ -3021,6 +3435,7 @@ defmodule AWS.Backup do
         "ResourceArn" => String.t() | atom(),
         "ResourceName" => String.t() | atom(),
         "ResourceType" => String.t() | atom(),
+        "ScanResults" => list(scan_result()),
         "SourceBackupVaultArn" => String.t() | atom(),
         "Status" => list(any()),
         "StatusMessage" => String.t() | atom(),
@@ -3117,6 +3532,23 @@ defmodule AWS.Backup do
 
   """
   @type create_restore_access_backup_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tiering_configuration() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CreatorRequestId" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ResourceSelection" => list(resource_selection()),
+        "TieringConfigurationArn" => String.t() | atom(),
+        "TieringConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type tiering_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3283,12 +3715,36 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      list_tiering_configurations_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "TieringConfigurations" => list(tiering_configurations_list_member())
+      }
+
+  """
+  @type list_tiering_configurations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_restore_testing_selection_input() :: %{
         required("RestoreTestingSelection") => restore_testing_selection_for_update()
       }
 
   """
   @type update_restore_testing_selection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_scan_job_output() :: %{
+        "CreationDate" => [non_neg_integer()],
+        "ScanJobId" => [String.t() | atom()]
+      }
+
+  """
+  @type start_scan_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3321,6 +3777,7 @@ defmodule AWS.Backup do
         "BackupPlanArn" => String.t() | atom(),
         "BackupPlanId" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
+        "ScanSettings" => list(scan_setting()),
         "VersionId" => String.t() | atom()
       }
 
@@ -3439,6 +3896,14 @@ defmodule AWS.Backup do
           | already_exists_exception()
           | missing_parameter_value_exception()
 
+  @type create_tiering_configuration_errors() ::
+          limit_exceeded_exception()
+          | service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | conflict_exception()
+          | already_exists_exception()
+          | missing_parameter_value_exception()
+
   @type delete_backup_plan_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
@@ -3506,6 +3971,12 @@ defmodule AWS.Backup do
   @type delete_restore_testing_selection_errors() ::
           service_unavailable_exception() | resource_not_found_exception()
 
+  @type delete_tiering_configuration_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+
   @type describe_backup_job_errors() ::
           service_unavailable_exception()
           | dependency_failure_exception()
@@ -3562,6 +4033,12 @@ defmodule AWS.Backup do
   @type describe_restore_job_errors() ::
           service_unavailable_exception()
           | dependency_failure_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+
+  @type describe_scan_job_errors() ::
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
@@ -3668,6 +4145,12 @@ defmodule AWS.Backup do
           service_unavailable_exception() | resource_not_found_exception()
 
   @type get_supported_resource_types_errors() :: service_unavailable_exception()
+
+  @type get_tiering_configuration_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
 
   @type list_backup_job_summaries_errors() ::
           service_unavailable_exception() | invalid_parameter_value_exception()
@@ -3784,11 +4267,20 @@ defmodule AWS.Backup do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
 
+  @type list_scan_job_summaries_errors() ::
+          service_unavailable_exception() | invalid_parameter_value_exception()
+
+  @type list_scan_jobs_errors() ::
+          service_unavailable_exception() | invalid_parameter_value_exception()
+
   @type list_tags_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
+
+  @type list_tiering_configurations_errors() ::
+          service_unavailable_exception() | invalid_parameter_value_exception()
 
   @type put_backup_vault_access_policy_errors() ::
           service_unavailable_exception()
@@ -3847,6 +4339,14 @@ defmodule AWS.Backup do
 
   @type start_restore_job_errors() ::
           service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+
+  @type start_scan_job_errors() ::
+          limit_exceeded_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -3931,6 +4431,15 @@ defmodule AWS.Backup do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | missing_parameter_value_exception()
+
+  @type update_tiering_configuration_errors() ::
+          limit_exceeded_exception()
+          | service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | already_exists_exception()
           | missing_parameter_value_exception()
 
   def metadata do
@@ -4425,6 +4934,42 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  Creates a tiering configuration.
+
+  A tiering configuration enables automatic movement of backup data to a
+  lower-cost storage tier based on the age of backed-up objects in the backup
+  vault.
+
+  Each vault can only have one vault-specific tiering configuration, in addition
+  to any global configuration that applies to all vaults.
+  """
+  @spec create_tiering_configuration(map(), create_tiering_configuration_input(), list()) ::
+          {:ok, create_tiering_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_tiering_configuration_errors()}
+  def create_tiering_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/tiering-configurations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a backup plan.
 
   A backup plan can only be deleted after all associated selections
@@ -4873,6 +5418,45 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  Deletes the tiering configuration specified by a tiering configuration name.
+  """
+  @spec delete_tiering_configuration(
+          map(),
+          String.t() | atom(),
+          delete_tiering_configuration_input(),
+          list()
+        ) ::
+          {:ok, delete_tiering_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_tiering_configuration_errors()}
+  def delete_tiering_configuration(
+        %Client{} = client,
+        tiering_configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/tiering-configurations/#{AWS.Util.encode_uri(tiering_configuration_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns backup job details for the specified `BackupJobId`.
   """
   @spec describe_backup_job(map(), String.t() | atom(), list()) ::
@@ -5115,6 +5699,24 @@ defmodule AWS.Backup do
           | {:error, describe_restore_job_errors()}
   def describe_restore_job(%Client{} = client, restore_job_id, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns scan job details for the specified ScanJobID.
+  """
+  @spec describe_scan_job(map(), String.t() | atom(), list()) ::
+          {:ok, describe_scan_job_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_scan_job_errors()}
+  def describe_scan_job(%Client{} = client, scan_job_id, options \\ []) do
+    url_path = "/scan/jobs/#{AWS.Util.encode_uri(scan_job_id)}"
     headers = []
     query_params = []
 
@@ -5650,6 +6252,28 @@ defmodule AWS.Backup do
           | {:error, get_supported_resource_types_errors()}
   def get_supported_resource_types(%Client{} = client, options \\ []) do
     url_path = "/supported-resource-types"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns `TieringConfiguration` details for the specified
+  `TieringConfigurationName`.
+
+  The details are the body of a tiering configuration
+  in JSON format, in addition to configuration metadata.
+  """
+  @spec get_tiering_configuration(map(), String.t() | atom(), list()) ::
+          {:ok, get_tiering_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_tiering_configuration_errors()}
+  def get_tiering_configuration(%Client{} = client, tiering_configuration_name, options \\ []) do
+    url_path = "/tiering-configurations/#{AWS.Util.encode_uri(tiering_configuration_name)}"
     headers = []
     query_params = []
 
@@ -6261,6 +6885,7 @@ defmodule AWS.Backup do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_copy_jobs_output(), any()}
@@ -6279,6 +6904,7 @@ defmodule AWS.Backup do
         by_parent_job_id \\ nil,
         by_resource_arn \\ nil,
         by_resource_type \\ nil,
+        by_source_recovery_point_arn \\ nil,
         by_state \\ nil,
         max_results \\ nil,
         next_token \\ nil,
@@ -6305,6 +6931,13 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(by_state) do
         [{"state", by_state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_source_recovery_point_arn) do
+        [{"sourceRecoveryPointArn", by_source_recovery_point_arn} | query_params]
       else
         query_params
       end
@@ -7391,6 +8024,236 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This is a request for a summary of scan jobs created or running within the most
+  recent 30 days.
+  """
+  @spec list_scan_job_summaries(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_scan_job_summaries_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_scan_job_summaries_errors()}
+  def list_scan_job_summaries(
+        %Client{} = client,
+        account_id \\ nil,
+        aggregation_period \\ nil,
+        malware_scanner \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_type \\ nil,
+        scan_result_status \\ nil,
+        state \\ nil,
+        options \\ []
+      ) do
+    url_path = "/audit/scan-job-summaries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(scan_result_status) do
+        [{"ScanResultStatus", scan_result_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"ResourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(malware_scanner) do
+        [{"MalwareScanner", malware_scanner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(aggregation_period) do
+        [{"AggregationPeriod", aggregation_period} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of existing scan jobs for an authenticated account for the last
+  30 days.
+  """
+  @spec list_scan_jobs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_scan_jobs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_scan_jobs_errors()}
+  def list_scan_jobs(
+        %Client{} = client,
+        by_account_id \\ nil,
+        by_backup_vault_name \\ nil,
+        by_complete_after \\ nil,
+        by_complete_before \\ nil,
+        by_malware_scanner \\ nil,
+        by_recovery_point_arn \\ nil,
+        by_resource_arn \\ nil,
+        by_resource_type \\ nil,
+        by_scan_result_status \\ nil,
+        by_state \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/scan/jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_state) do
+        [{"ByState", by_state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_scan_result_status) do
+        [{"ByScanResultStatus", by_scan_result_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_type) do
+        [{"ByResourceType", by_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_arn) do
+        [{"ByResourceArn", by_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_recovery_point_arn) do
+        [{"ByRecoveryPointArn", by_recovery_point_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_malware_scanner) do
+        [{"ByMalwareScanner", by_malware_scanner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_before) do
+        [{"ByCompleteBefore", by_complete_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_after) do
+        [{"ByCompleteAfter", by_complete_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_backup_vault_name) do
+        [{"ByBackupVaultName", by_backup_vault_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_account_id) do
+        [{"ByAccountId", by_account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the tags assigned to the resource, such as a target recovery point,
   backup plan,
   or backup vault.
@@ -7430,6 +8293,48 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of tiering configurations.
+  """
+  @spec list_tiering_configurations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_tiering_configurations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tiering_configurations_errors()}
+  def list_tiering_configurations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/tiering-configurations"
     headers = []
     query_params = []
 
@@ -7793,6 +8698,35 @@ defmodule AWS.Backup do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Starts scanning jobs for specific resources.
+  """
+  @spec start_scan_job(map(), start_scan_job_input(), list()) ::
+          {:ok, start_scan_job_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_scan_job_errors()}
+  def start_scan_job(%Client{} = client, input, options \\ []) do
+    url_path = "/scan/job"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -8284,6 +9218,63 @@ defmodule AWS.Backup do
     url_path =
       "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections/#{AWS.Util.encode_uri(restore_testing_selection_name)}"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This request will send changes to your specified tiering
+  configuration.
+
+  `TieringConfigurationName`
+  cannot be updated after it is created.
+
+  `ResourceSelection` can contain:
+
+    *
+
+  `Resources`
+
+    *
+
+  `TieringDownSettingsInDays`
+
+    *
+
+  `ResourceType`
+  """
+  @spec update_tiering_configuration(
+          map(),
+          String.t() | atom(),
+          update_tiering_configuration_input(),
+          list()
+        ) ::
+          {:ok, update_tiering_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_tiering_configuration_errors()}
+  def update_tiering_configuration(
+        %Client{} = client,
+        tiering_configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/tiering-configurations/#{AWS.Util.encode_uri(tiering_configuration_name)}"
     headers = []
     custom_headers = []
     query_params = []

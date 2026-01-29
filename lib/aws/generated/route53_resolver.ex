@@ -804,7 +804,9 @@ defmodule AWS.Route53Resolver do
         optional("PreferredInstanceType") => String.t() | atom(),
         optional("Protocols") => list(list(any())()),
         optional("ResolverEndpointType") => list(any()),
+        optional("RniEnhancedMetricsEnabled") => boolean(),
         optional("Tags") => list(tag()),
+        optional("TargetNameServerMetricsEnabled") => boolean(),
         required("CreatorRequestId") => String.t() | atom(),
         required("Direction") => list(any()),
         required("IpAddresses") => list(ip_address_request()),
@@ -1351,9 +1353,11 @@ defmodule AWS.Route53Resolver do
         "PreferredInstanceType" => String.t() | atom(),
         "Protocols" => list(list(any())()),
         "ResolverEndpointType" => list(any()),
+        "RniEnhancedMetricsEnabled" => boolean(),
         "SecurityGroupIds" => list(String.t() | atom()),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
+        "StatusMessage" => String.t() | atom(),
+        "TargetNameServerMetricsEnabled" => boolean()
       }
       
   """
@@ -1836,6 +1840,8 @@ defmodule AWS.Route53Resolver do
         optional("Name") => String.t() | atom(),
         optional("Protocols") => list(list(any())()),
         optional("ResolverEndpointType") => list(any()),
+        optional("RniEnhancedMetricsEnabled") => boolean(),
+        optional("TargetNameServerMetricsEnabled") => boolean(),
         optional("UpdateIpAddresses") => list(update_ip_address()),
         required("ResolverEndpointId") => String.t() | atom()
       }

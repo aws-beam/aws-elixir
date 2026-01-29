@@ -91,7 +91,8 @@ defmodule AWS.CostExplorer do
       list_cost_category_definitions_request() :: %{
         optional("EffectiveOn") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+        optional("NextToken") => String.t() | atom(),
+        optional("SupportedResourceTypes") => list(String.t() | atom())
       }
       
   """
@@ -228,6 +229,19 @@ defmodule AWS.CostExplorer do
       
   """
   @type resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_category_resource_association() :: %{
+        "CostCategoryArn" => String.t() | atom(),
+        "CostCategoryName" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type cost_category_resource_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -932,6 +946,19 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      list_cost_category_resource_associations_request() :: %{
+        optional("CostCategoryArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_cost_category_resource_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_commitment_purchase_analysis_response() :: %{
         "AnalysisId" => String.t() | atom(),
         "AnalysisStartedTime" => String.t() | atom(),
@@ -1414,6 +1441,7 @@ defmodule AWS.CostExplorer do
         "Name" => String.t() | atom(),
         "NumberOfRules" => integer(),
         "ProcessingStatus" => list(cost_category_processing_status()),
+        "SupportedResourceTypes" => list(String.t() | atom()),
         "Values" => list(String.t() | atom())
       }
       
@@ -1974,6 +2002,18 @@ defmodule AWS.CostExplorer do
       
   """
   @type cost_category_processing_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cost_category_resource_associations_response() :: %{
+        "CostCategoryResourceAssociations" => list(cost_category_resource_association()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_cost_category_resource_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2877,6 +2917,7 @@ defmodule AWS.CostExplorer do
         "CurrentGeneration" => boolean(),
         "DatabaseEdition" => String.t() | atom(),
         "DatabaseEngine" => String.t() | atom(),
+        "DeploymentModel" => String.t() | atom(),
         "DeploymentOption" => String.t() | atom(),
         "Family" => String.t() | atom(),
         "InstanceType" => String.t() | atom(),
@@ -3065,6 +3106,9 @@ defmodule AWS.CostExplorer do
 
   @type list_cost_category_definitions_errors() :: limit_exceeded_exception()
 
+  @type list_cost_category_resource_associations_errors() ::
+          limit_exceeded_exception() | resource_not_found_exception()
+
   @type list_savings_plans_purchase_recommendation_generation_errors() ::
           limit_exceeded_exception()
           | data_unavailable_exception()
@@ -3162,7 +3206,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Creates a new Cost Category with the requested name and rules.
+  Creates a new cost category with the requested name and rules.
   """
   @spec create_cost_category_definition(map(), create_cost_category_definition_request(), list()) ::
           {:ok, create_cost_category_definition_response(), any()}
@@ -3204,10 +3248,10 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Deletes a Cost Category.
+  Deletes a cost category.
 
   Expenses from this month going forward will no longer be
-  categorized with this Cost Category.
+  categorized with this cost category.
   """
   @spec delete_cost_category_definition(map(), delete_cost_category_definition_request(), list()) ::
           {:ok, delete_cost_category_definition_response(), any()}
@@ -3223,11 +3267,11 @@ defmodule AWS.CostExplorer do
   @doc """
   Returns the name, Amazon Resource Name (ARN), rules, definition, and effective
   dates of a
-  Cost Category that's defined in the account.
+  cost category that's defined in the account.
 
-  You have the option to use `EffectiveOn` to return a Cost Category that's
+  You have the option to use `EffectiveOn` to return a cost category that's
   active on a specific date. If there's no `EffectiveOn` specified, you see a Cost
-  Category that's effective on the current date. If Cost Category is still
+  Category that's effective on the current date. If cost category is still
   effective,
   `EffectiveEnd` is omitted in the response.
   """
@@ -3422,9 +3466,9 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Retrieves an array of Cost Category names and values incurred cost.
+  Retrieves an array of cost category names and values incurred cost.
 
-  If some Cost Category names and values are not associated with any cost, they
+  If some cost category names and values are not associated with any cost, they
   will not
   be returned by this API.
   """
@@ -3501,7 +3545,7 @@ defmodule AWS.CostExplorer do
 
   An organization's management account can
   see the coverage of the associated member accounts. This supports dimensions,
-  Cost Categories,
+  cost categories,
   and nested expressions. For any time period, you can filter data about
   reservation usage by
   the following dimensions:
@@ -3681,8 +3725,8 @@ defmodule AWS.CostExplorer do
   This enables you to see how much of
   your cost is covered by a Savings Plan. An organization’s management account can
   see the
-  coverage of the associated member accounts. This supports dimensions, Cost
-  Categories, and
+  coverage of the associated member accounts. This supports dimensions, cost
+  categories, and
   nested expressions. For any time period, you can filter data for Savings Plans
   usage with the
   following dimensions:
@@ -3882,13 +3926,14 @@ defmodule AWS.CostExplorer do
 
   @doc """
   Returns the name, Amazon Resource Name (ARN), `NumberOfRules` and effective
-  dates of all Cost Categories defined in the account.
+  dates of all cost categories defined in the account.
 
   You have the option to use
-  `EffectiveOn` to return a list of Cost Categories that were active on a specific
-  date. If there is no `EffectiveOn` specified, you’ll see Cost Categories that
+  `EffectiveOn` and `SupportedResourceTypes` to return a list of cost categories
+  that were active on a specific
+  date. If there is no `EffectiveOn` specified, you’ll see cost categories that
   are
-  effective on the current date. If Cost Category is still effective,
+  effective on the current date. If cost category is still effective,
   `EffectiveEnd`
   is omitted in the response. `ListCostCategoryDefinitions` supports pagination.
   The
@@ -3903,6 +3948,28 @@ defmodule AWS.CostExplorer do
     meta = metadata()
 
     Request.request_post(client, meta, "ListCostCategoryDefinitions", input, options)
+  end
+
+  @doc """
+  Returns resource associations of all cost categories defined in the account.
+
+  You have the option to use `CostCategoryArn` to get the association for a
+  specific cost category. `ListCostCategoryResourceAssociations` supports
+  pagination. The request can have a `MaxResults` range up to 100.
+  """
+  @spec list_cost_category_resource_associations(
+          map(),
+          list_cost_category_resource_associations_request(),
+          list()
+        ) ::
+          {:ok, list_cost_category_resource_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_cost_category_resource_associations_errors()}
+  def list_cost_category_resource_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCostCategoryResourceAssociations", input, options)
   end
 
   @doc """
@@ -4157,9 +4224,9 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Updates an existing Cost Category.
+  Updates an existing cost category.
 
-  Changes made to the Cost Category rules will be used to
+  Changes made to the cost category rules will be used to
   categorize the current month’s expenses and future expenses. This won’t change
   categorization
   for the previous months.

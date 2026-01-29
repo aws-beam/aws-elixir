@@ -164,6 +164,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      resources_trends_metrics_result() :: %{
+        "Timestamp" => non_neg_integer(),
+        "TrendsValues" => resources_trends_values()
+      }
+
+  """
+  @type resources_trends_metrics_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_standards_control_request() :: %{
         optional("ControlStatus") => list(any()),
         optional("DisabledReason") => String.t() | atom()
@@ -487,6 +499,18 @@ defmodule AWS.SecurityHub do
   """
   @type aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() ::
           %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_trends_string_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => string_filter()
+      }
+
+  """
+  @type resources_trends_string_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1185,6 +1209,17 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      trends_values() :: %{
+        "SeverityTrends" => severity_trends_count()
+      }
+
+  """
+  @type trends_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_msk_cluster_cluster_info_client_authentication_details() :: %{
         "Sasl" => aws_msk_cluster_cluster_info_client_authentication_sasl_details(),
         "Tls" => aws_msk_cluster_cluster_info_client_authentication_tls_details(),
@@ -1448,18 +1483,6 @@ defmodule AWS.SecurityHub do
 
   """
   @type severity_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_registrations_v2_response() :: %{
-        "ConnectorArn" => String.t() | atom(),
-        "ConnectorId" => String.t() | atom()
-      }
-
-  """
-  @type connector_registrations_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2777,6 +2800,21 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      get_resources_trends_v2_request() :: %{
+        optional("Filters") => resources_trends_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("StartTime") => non_neg_integer()
+      }
+
+  """
+  @type get_resources_trends_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       network_geo_location() :: %{
         "City" => String.t() | atom(),
         "Country" => String.t() | atom(),
@@ -3726,6 +3764,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      register_connector_v2_response() :: %{
+        "ConnectorArn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom()
+      }
+
+  """
+  @type register_connector_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       finding_history_update_source() :: %{
         "Identity" => String.t() | atom(),
         "Type" => list(any())
@@ -4212,6 +4262,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      trends_metrics_result() :: %{
+        "Timestamp" => non_neg_integer(),
+        "TrendsValues" => trends_values()
+      }
+
+  """
+  @type trends_metrics_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_s3_bucket_bucket_lifecycle_configuration_rules_details() :: %{
         "AbortIncompleteMultipartUpload" => aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details(),
         "ExpirationDate" => String.t() | atom(),
@@ -4530,18 +4592,6 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_elastic_beanstalk_environment_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_registrations_v2_request() :: %{
-        required("AuthCode") => String.t() | atom(),
-        required("AuthState") => String.t() | atom()
-      }
-
-  """
-  @type connector_registrations_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5497,6 +5547,7 @@ defmodule AWS.SecurityHub do
 
       create_ticket_v2_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("Mode") => list(any()),
         required("ConnectorId") => String.t() | atom(),
         required("FindingMetadataUid") => String.t() | atom()
       }
@@ -5828,6 +5879,18 @@ defmodule AWS.SecurityHub do
 
   """
   @type update_action_target_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6539,8 +6602,8 @@ defmodule AWS.SecurityHub do
 
       service_now_detail() :: %{
         "AuthStatus" => list(any()),
-        "ClientId" => String.t() | atom(),
-        "InstanceName" => String.t() | atom()
+        "InstanceName" => String.t() | atom(),
+        "SecretArn" => String.t() | atom()
       }
 
   """
@@ -6817,6 +6880,17 @@ defmodule AWS.SecurityHub do
 
   """
   @type get_configuration_policy_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_now_update_configuration() :: %{
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type service_now_update_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7393,6 +7467,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      resources_trends_filters() :: %{
+        "CompositeFilters" => list(resources_trends_composite_filter()),
+        "CompositeOperator" => list(any())
+      }
+
+  """
+  @type resources_trends_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       waf_override_action() :: %{
         "Type" => String.t() | atom()
       }
@@ -7540,6 +7626,19 @@ defmodule AWS.SecurityHub do
 
   """
   @type accept_invitation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_trends_composite_filter() :: %{
+        "NestedCompositeFilters" => list(resources_trends_composite_filter()),
+        "Operator" => list(any()),
+        "StringFilters" => list(resources_trends_string_filter())
+      }
+
+  """
+  @type resources_trends_composite_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8128,6 +8227,19 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      findings_trends_composite_filter() :: %{
+        "NestedCompositeFilters" => list(findings_trends_composite_filter()),
+        "Operator" => list(any()),
+        "StringFilters" => list(findings_trends_string_filter())
+      }
+
+  """
+  @type findings_trends_composite_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_waf_regional_rate_based_rule_match_predicate() :: %{
         "DataId" => String.t() | atom(),
         "Negated" => boolean(),
@@ -8405,6 +8517,17 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      resources_trends_values() :: %{
+        "ResourcesCount" => resources_count()
+      }
+
+  """
+  @type resources_trends_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_app_sync_graph_ql_api_additional_authentication_providers_details() :: %{
         "AuthenticationType" => String.t() | atom(),
         "LambdaAuthorizerConfig" => aws_app_sync_graph_ql_api_lambda_authorizer_config_details(),
@@ -8478,6 +8601,21 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      get_findings_trends_v2_request() :: %{
+        optional("Filters") => findings_trends_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("StartTime") => non_neg_integer()
+      }
+
+  """
+  @type get_findings_trends_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_elasticsearch_domain_service_software_options() :: %{
         "AutomatedUpdateDate" => String.t() | atom(),
         "Cancellable" => boolean(),
@@ -8530,6 +8668,18 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_backup_backup_vault_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      findings_trends_string_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => string_filter()
+      }
+
+  """
+  @type findings_trends_string_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9020,6 +9170,24 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_backup_backup_plan_lifecycle_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      severity_trends_count() :: %{
+        "Critical" => float(),
+        "Fatal" => float(),
+        "High" => float(),
+        "Informational" => float(),
+        "Low" => float(),
+        "Medium" => float(),
+        "Other" => float(),
+        "Unknown" => float()
+      }
+
+  """
+  @type severity_trends_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10197,6 +10365,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      register_connector_v2_request() :: %{
+        required("AuthCode") => String.t() | atom(),
+        required("AuthState") => String.t() | atom()
+      }
+
+  """
+  @type register_connector_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_wafv2_action_allow_details() :: %{
         "CustomRequestHandling" => aws_wafv2_custom_request_handling_details()
       }
@@ -10270,13 +10450,23 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       update_connector_v2_request() :: %{
-        optional("ClientSecret") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("Provider") => list()
       }
 
   """
   @type update_connector_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_count() :: %{
+        "AllResources" => float()
+      }
+
+  """
+  @type resources_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10564,6 +10754,19 @@ defmodule AWS.SecurityHub do
   @type aws_athena_work_group_configuration_result_configuration_details() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_trends_v2_response() :: %{
+        "Granularity" => list(any()),
+        "NextToken" => String.t() | atom(),
+        "TrendsMetrics" => list(trends_metrics_result())
+      }
+
+  """
+  @type get_findings_trends_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11009,9 +11212,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       service_now_provider_configuration() :: %{
-        "ClientId" => String.t() | atom(),
-        "ClientSecret" => String.t() | atom(),
-        "InstanceName" => String.t() | atom()
+        "InstanceName" => String.t() | atom(),
+        "SecretArn" => String.t() | atom()
       }
 
   """
@@ -12247,6 +12449,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      findings_trends_filters() :: %{
+        "CompositeFilters" => list(findings_trends_composite_filter()),
+        "CompositeOperator" => list(any())
+      }
+
+  """
+  @type findings_trends_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_redshift_cluster_logging_status() :: %{
         "BucketName" => String.t() | atom(),
         "LastFailureMessage" => String.t() | atom(),
@@ -13217,7 +13431,8 @@ defmodule AWS.SecurityHub do
       create_connector_v2_response() :: %{
         "AuthUrl" => String.t() | atom(),
         "ConnectorArn" => String.t() | atom(),
-        "ConnectorId" => String.t() | atom()
+        "ConnectorId" => String.t() | atom(),
+        "ConnectorStatus" => list(any())
       }
 
   """
@@ -13587,6 +13802,19 @@ defmodule AWS.SecurityHub do
           (String.t() | atom()) => any()
         }
 
+  @typedoc """
+
+  ## Example:
+
+      get_resources_trends_v2_response() :: %{
+        "Granularity" => list(any()),
+        "NextToken" => String.t() | atom(),
+        "TrendsMetrics" => list(resources_trends_metrics_result())
+      }
+
+  """
+  @type get_resources_trends_v2_response() :: %{(String.t() | atom()) => any()}
+
   @type accept_administrator_invitation_errors() ::
           limit_exceeded_exception()
           | internal_exception()
@@ -13683,14 +13911,6 @@ defmodule AWS.SecurityHub do
           | invalid_input_exception()
           | invalid_access_exception()
 
-  @type connector_registrations_v2_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-
   @type create_action_target_errors() ::
           resource_conflict_exception()
           | limit_exceeded_exception()
@@ -13703,6 +13923,7 @@ defmodule AWS.SecurityHub do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -13718,6 +13939,7 @@ defmodule AWS.SecurityHub do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
 
   @type create_configuration_policy_errors() ::
@@ -13733,6 +13955,7 @@ defmodule AWS.SecurityHub do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -14043,6 +14266,12 @@ defmodule AWS.SecurityHub do
           | invalid_input_exception()
           | invalid_access_exception()
 
+  @type get_findings_trends_v2_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type get_findings_v2_errors() ::
           throttling_exception()
           | validation_exception()
@@ -14091,6 +14320,12 @@ defmodule AWS.SecurityHub do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type get_resources_trends_v2_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type get_resources_v2_errors() ::
           throttling_exception()
@@ -14200,6 +14435,14 @@ defmodule AWS.SecurityHub do
 
   @type list_tags_for_resource_errors() ::
           internal_exception() | invalid_input_exception() | resource_not_found_exception()
+
+  @type register_connector_v2_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type start_configuration_policy_association_errors() ::
           limit_exceeded_exception()
@@ -14901,7 +15144,7 @@ defmodule AWS.SecurityHub do
   action.
   Updates from `BatchUpdateFindingsV2` don't affect the value of
   f`inding_info.modified_time`, `finding_info.modified_time_dt`, `time`, `time_dt
-  for a finding`. This API is in public preview and subject to change.
+  for a finding`.
   """
   @spec batch_update_findings_v2(map(), batch_update_findings_v2_request(), list()) ::
           {:ok, batch_update_findings_v2_response(), any()}
@@ -14965,37 +15208,6 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Grants permission to complete the authorization based on input parameters.
-
-  This API is in preview release and subject to change.
-  """
-  @spec connector_registrations_v2(map(), connector_registrations_v2_request(), list()) ::
-          {:ok, connector_registrations_v2_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, connector_registrations_v2_errors()}
-  def connector_registrations_v2(%Client{} = client, input, options \\ []) do
-    url_path = "/connectorsv2/registrations"
-    headers = []
-    custom_headers = []
-    query_params = []
-
-    meta = metadata()
-
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      custom_headers ++ headers,
-      input,
-      options,
-      200
-    )
-  end
-
-  @doc """
   Creates a custom action target in Security Hub.
 
   You can use custom actions on findings and insights in Security Hub to trigger
@@ -15030,8 +15242,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Enables aggregation across Amazon Web Services Regions.
-
-  This API is in public preview and subject to change.
   """
   @spec create_aggregator_v2(map(), create_aggregator_v2_request(), list()) ::
           {:ok, create_aggregator_v2_response(), any()}
@@ -15091,8 +15301,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Creates a V2 automation rule.
-
-  This API is in public preview and subject to change.
   """
   @spec create_automation_rule_v2(map(), create_automation_rule_v2_request(), list()) ::
           {:ok, create_automation_rule_v2_response(), any()}
@@ -15155,8 +15363,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Grants permission to create a connectorV2 based on input parameters.
-
-  This API is in preview release and subject to change.
   """
   @spec create_connector_v2(map(), create_connector_v2_request(), list()) ::
           {:ok, create_connector_v2_response(), any()}
@@ -15339,8 +15545,6 @@ defmodule AWS.SecurityHub do
   @doc """
   Grants permission to create a ticket in the chosen ITSM based on finding
   information for the provided finding metadata UID.
-
-  This API is in preview release and subject to change.
   """
   @spec create_ticket_v2(map(), create_ticket_v2_request(), list()) ::
           {:ok, create_ticket_v2_response(), any()}
@@ -15447,8 +15651,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Deletes the Aggregator V2.
-
-  This API is in public preview and subject to change.
   """
   @spec delete_aggregator_v2(map(), String.t() | atom(), delete_aggregator_v2_request(), list()) ::
           {:ok, delete_aggregator_v2_response(), any()}
@@ -15478,8 +15680,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Deletes a V2 automation rule.
-
-  This API is in public preview and subject to change.
   """
   @spec delete_automation_rule_v2(
           map(),
@@ -15555,8 +15755,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Grants permission to delete a connectorV2.
-
-  This API is in preview release and subject to change.
   """
   @spec delete_connector_v2(map(), String.t() | atom(), delete_connector_v2_request(), list()) ::
           {:ok, delete_connector_v2_response(), any()}
@@ -15874,8 +16072,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Gets information about the product integration.
-
-  This API is in public preview and subject to change.
   """
   @spec describe_products_v2(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, describe_products_v2_response(), any()}
@@ -15913,8 +16109,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns details about the service resource in your account.
-
-  This API is in public preview and subject to change.
   """
   @spec describe_security_hub_v2(map(), list()) ::
           {:ok, describe_security_hub_v2_response(), any()}
@@ -16150,8 +16344,6 @@ defmodule AWS.SecurityHub do
   @doc """
   Disable the service for the current Amazon Web Services Region or specified
   Amazon Web Services Region.
-
-  This API is in public preview and subject to change.
   """
   @spec disable_security_hub_v2(map(), disable_security_hub_v2_request(), list()) ::
           {:ok, disable_security_hub_v2_response(), any()}
@@ -16441,8 +16633,6 @@ defmodule AWS.SecurityHub do
   @doc """
   Enables the service in account for the current Amazon Web Services Region or
   specified Amazon Web Services Region.
-
-  This API is in public preview and subject to change.
   """
   @spec enable_security_hub_v2(map(), enable_security_hub_v2_request(), list()) ::
           {:ok, enable_security_hub_v2_response(), any()}
@@ -16495,8 +16685,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns the configuration of the specified Aggregator V2.
-
-  This API is in public preview and subject to change.
   """
   @spec get_aggregator_v2(map(), String.t() | atom(), list()) ::
           {:ok, get_aggregator_v2_response(), any()}
@@ -16515,8 +16703,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns an automation rule for the V2 service.
-
-  This API is in public preview and subject to change.
   """
   @spec get_automation_rule_v2(map(), String.t() | atom(), list()) ::
           {:ok, get_automation_rule_v2_response(), any()}
@@ -16597,8 +16783,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Grants permission to retrieve details for a connectorV2 based on connector id.
-
-  This API is in preview release and subject to change.
   """
   @spec get_connector_v2(map(), String.t() | atom(), list()) ::
           {:ok, get_connector_v2_response(), any()}
@@ -16719,8 +16903,7 @@ defmodule AWS.SecurityHub do
 
   `GetFindingStatisticsV2` use `securityhub:GetAdhocInsightResults` in the
   `Action` element of an IAM policy statement.
-  You must have permission to perform the `s` action. This API is in public
-  preview and subject to change.
+  You must have permission to perform the `s` action.
   """
   @spec get_finding_statistics_v2(map(), get_finding_statistics_v2_request(), list()) ::
           {:ok, get_finding_statistics_v2_response(), any()}
@@ -16782,12 +16965,42 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Returns findings trend data based on the specified criteria.
+
+  This operation helps you analyze patterns and changes in findings over time.
+  """
+  @spec get_findings_trends_v2(map(), get_findings_trends_v2_request(), list()) ::
+          {:ok, get_findings_trends_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_findings_trends_v2_errors()}
+  def get_findings_trends_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/findingsTrendsv2"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Return a list of findings that match the specified criteria.
 
   `GetFindings` and `GetFindingsV2` both use `securityhub:GetFindings` in the
   `Action` element of an IAM policy statement.
-  You must have permission to perform the `securityhub:GetFindings` action. This
-  API is in public preview and subject to change.
+  You must have permission to perform the `securityhub:GetFindings` action.
   """
   @spec get_findings_v2(map(), get_findings_v2_request(), list()) ::
           {:ok, get_findings_v2_response(), any()}
@@ -16965,8 +17178,6 @@ defmodule AWS.SecurityHub do
   @doc """
   Retrieves statistical information about Amazon Web Services resources and their
   associated security findings.
-
-  This API is in public preview and subject to change.
   """
   @spec get_resources_statistics_v2(map(), get_resources_statistics_v2_request(), list()) ::
           {:ok, get_resources_statistics_v2_response(), any()}
@@ -16995,9 +17206,39 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns a list of resources.
+  Returns resource trend data based on the specified criteria.
 
-  This API is in public preview and subject to change.
+  This operation helps you analyze patterns and changes in resource compliance
+  over time.
+  """
+  @spec get_resources_trends_v2(map(), get_resources_trends_v2_request(), list()) ::
+          {:ok, get_resources_trends_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resources_trends_v2_errors()}
+  def get_resources_trends_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/resourcesTrendsv2"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of resources.
   """
   @spec get_resources_v2(map(), get_resources_v2_request(), list()) ::
           {:ok, get_resources_v2_response(), any()}
@@ -17107,8 +17348,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Retrieves a list of V2 aggregators.
-
-  This API is in public preview and subject to change.
   """
   @spec list_aggregators_v2(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_aggregators_v2_response(), any()}
@@ -17184,8 +17423,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns a list of automation rules and metadata for the calling account.
-
-  This API is in public preview and subject to change.
   """
   @spec list_automation_rules_v2(
           map(),
@@ -17315,8 +17552,6 @@ defmodule AWS.SecurityHub do
   @doc """
   Grants permission to retrieve a list of connectorsV2 and their metadata for the
   calling account.
-
-  This API is in preview release and subject to change.
   """
   @spec list_connectors_v2(
           map(),
@@ -17748,6 +17983,35 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Grants permission to complete the authorization based on input parameters.
+  """
+  @spec register_connector_v2(map(), register_connector_v2_request(), list()) ::
+          {:ok, register_connector_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_connector_v2_errors()}
+  def register_connector_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/connectorsv2/register"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
 
   Associates a target account, organizational unit, or the root with a specified
   configuration.
@@ -17925,8 +18189,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Udpates the configuration for the Aggregator V2.
-
-  This API is in public preview and subject to change.
   """
   @spec update_aggregator_v2(map(), String.t() | atom(), update_aggregator_v2_request(), list()) ::
           {:ok, update_aggregator_v2_response(), any()}
@@ -17956,8 +18218,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Updates a V2 automation rule.
-
-  This API is in public preview and subject to change.
   """
   @spec update_automation_rule_v2(
           map(),
@@ -18030,8 +18290,6 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Grants permission to update a connectorV2 based on its id and input parameters.
-
-  This API is in preview release and subject to change.
   """
   @spec update_connector_v2(map(), String.t() | atom(), update_connector_v2_request(), list()) ::
           {:ok, update_connector_v2_response(), any()}

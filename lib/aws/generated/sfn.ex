@@ -625,6 +625,19 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      inspection_error_details() :: %{
+        "catchIndex" => integer(),
+        "retryBackoffIntervalSeconds" => integer(),
+        "retryIndex" => integer()
+      }
+      
+  """
+  @type inspection_error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       logging_configuration() :: %{
         "destinations" => list(log_destination()),
         "includeExecutionData" => boolean(),
@@ -792,6 +805,18 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      mock_error_output() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type mock_error_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       inspection_data_request() :: %{
         "body" => String.t() | atom(),
         "headers" => String.t() | atom(),
@@ -912,13 +937,21 @@ defmodule AWS.SFN do
       inspection_data() :: %{
         "afterArguments" => String.t() | atom(),
         "afterInputPath" => String.t() | atom(),
+        "afterItemBatcher" => String.t() | atom(),
+        "afterItemSelector" => String.t() | atom(),
+        "afterItemsPath" => String.t() | atom(),
+        "afterItemsPointer" => String.t() | atom(),
         "afterParameters" => String.t() | atom(),
         "afterResultPath" => String.t() | atom(),
         "afterResultSelector" => String.t() | atom(),
+        "errorDetails" => inspection_error_details(),
         "input" => String.t() | atom(),
+        "maxConcurrency" => integer(),
         "request" => inspection_data_request(),
         "response" => inspection_data_response(),
         "result" => String.t() | atom(),
+        "toleratedFailureCount" => integer(),
+        "toleratedFailurePercentage" => float(),
         "variables" => String.t() | atom()
       }
       
@@ -1109,6 +1142,20 @@ defmodule AWS.SFN do
       
   """
   @type execution_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_state_configuration() :: %{
+        "errorCausedByState" => String.t() | atom(),
+        "mapItemReaderData" => String.t() | atom(),
+        "mapIterationFailureCount" => integer(),
+        "retrierRetryCount" => integer()
+      }
+      
+  """
+  @type test_state_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1712,6 +1759,19 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      mock_input() :: %{
+        "errorOutput" => mock_error_output(),
+        "fieldValidationMode" => list(any()),
+        "result" => String.t() | atom()
+      }
+      
+  """
+  @type mock_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_sync_execution_input() :: %{
         optional("includedData") => list(any()),
         optional("input") => String.t() | atom(),
@@ -1869,10 +1929,14 @@ defmodule AWS.SFN do
   ## Example:
       
       test_state_input() :: %{
+        optional("context") => String.t() | atom(),
         optional("input") => String.t() | atom(),
         optional("inspectionLevel") => list(any()),
+        optional("mock") => mock_input(),
         optional("revealSecrets") => boolean(),
         optional("roleArn") => String.t() | atom(),
+        optional("stateConfiguration") => test_state_configuration(),
+        optional("stateName") => String.t() | atom(),
         optional("variables") => String.t() | atom(),
         required("definition") => String.t() | atom()
       }
@@ -3501,7 +3565,7 @@ defmodule AWS.SFN do
   The `TestState` API can run for up to five minutes. If the execution of a state
   exceeds this duration, it fails with the `States.Timeout` error.
 
-  `TestState` doesn't support [Activity tasks](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html),
+  `TestState` only supports the following when a mock is specified: [Activity tasks](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html),
   `.sync` or `.waitForTaskToken`
   [service integration patterns](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html),
   [Parallel](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html), or

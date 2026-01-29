@@ -556,7 +556,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       knowledge_base_query() :: %{
-        "text" => [String.t() | atom()]
+        "image" => input_image(),
+        "text" => [String.t() | atom()],
+        "type" => list(any())
       }
 
   """
@@ -961,10 +963,12 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       retrieval_result_content() :: %{
+        "audio" => audio_segment(),
         "byteContent" => [String.t() | atom()],
         "row" => list(retrieval_result_content_column()),
         "text" => [String.t() | atom()],
-        "type" => list(any())
+        "type" => list(any()),
+        "video" => video_segment()
       }
 
   """
@@ -1428,6 +1432,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      video_segment() :: %{
+        "s3Uri" => [String.t() | atom()],
+        "summary" => [String.t() | atom()]
+      }
+
+  """
+  @type video_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       flow_completion_event() :: %{
         "completionReason" => list(any())
       }
@@ -1600,6 +1616,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieve_and_generate_output_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_segment() :: %{
+        "s3Uri" => [String.t() | atom()],
+        "transcription" => [String.t() | atom()]
+      }
+
+  """
+  @type audio_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2002,6 +2030,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type list_invocations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_image() :: %{
+        "format" => list(any()),
+        "inlineContent" => binary()
+      }
+
+  """
+  @type input_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

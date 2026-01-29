@@ -95,7 +95,8 @@ defmodule AWS.ConnectCampaignsV2 do
         "name" => String.t() | atom(),
         "schedule" => schedule(),
         "source" => list(),
-        "tags" => map()
+        "tags" => map(),
+        "type" => String.t() | atom()
       }
 
   """
@@ -112,6 +113,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   """
   @type customer_profiles_integration_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_integration_summary() :: %{
+        "functionArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_integration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -471,6 +483,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      lambda_integration_config() :: %{
+        "functionArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_integration_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => [String.t() | atom()],
         "xAmzErrorType" => String.t() | atom()
@@ -604,6 +627,20 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      whats_app_channel_subtype_parameters() :: %{
+        "connectSourcePhoneNumberArn" => String.t() | atom(),
+        "destinationPhoneNumber" => String.t() | atom(),
+        "templateArn" => String.t() | atom(),
+        "templateParameters" => map()
+      }
+
+  """
+  @type whats_app_channel_subtype_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_campaign_communication_limits_request() :: %{
         required("communicationLimitsOverride") => communication_limits_config()
       }
@@ -662,7 +699,8 @@ defmodule AWS.ConnectCampaignsV2 do
         "answerMachineDetectionConfig" => answer_machine_detection_config(),
         "attributes" => map(),
         "connectSourcePhoneNumber" => String.t() | atom(),
-        "destinationPhoneNumber" => String.t() | atom()
+        "destinationPhoneNumber" => String.t() | atom(),
+        "ringTimeout" => integer()
       }
 
   """
@@ -769,7 +807,8 @@ defmodule AWS.ConnectCampaignsV2 do
       channel_subtype_config() :: %{
         "email" => email_channel_subtype_config(),
         "sms" => sms_channel_subtype_config(),
-        "telephony" => telephony_channel_subtype_config()
+        "telephony" => telephony_channel_subtype_config(),
+        "whatsApp" => whats_app_channel_subtype_config()
       }
 
   """
@@ -819,7 +858,8 @@ defmodule AWS.ConnectCampaignsV2 do
         "email" => time_window(),
         "localTimeZoneConfig" => local_time_zone_config(),
         "sms" => time_window(),
-        "telephony" => time_window()
+        "telephony" => time_window(),
+        "whatsApp" => time_window()
       }
 
   """
@@ -847,6 +887,18 @@ defmodule AWS.ConnectCampaignsV2 do
 
   """
   @type time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_outbound_config() :: %{
+        "connectSourcePhoneNumberArn" => String.t() | atom(),
+        "wisdomTemplateArn" => String.t() | atom()
+      }
+
+  """
+  @type whats_app_outbound_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -883,13 +935,14 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       create_campaign_request() :: %{
+        optional("channelSubtypeConfig") => channel_subtype_config(),
         optional("communicationLimitsOverride") => communication_limits_config(),
         optional("communicationTimeConfig") => communication_time_config(),
         optional("connectCampaignFlowArn") => String.t() | atom(),
         optional("schedule") => schedule(),
         optional("source") => list(),
         optional("tags") => map(),
-        required("channelSubtypeConfig") => channel_subtype_config(),
+        optional("type") => String.t() | atom(),
         required("connectInstanceId") => String.t() | atom(),
         required("name") => String.t() | atom()
       }
@@ -996,7 +1049,8 @@ defmodule AWS.ConnectCampaignsV2 do
       telephony_outbound_config() :: %{
         "answerMachineDetectionConfig" => answer_machine_detection_config(),
         "connectContactFlowId" => String.t() | atom(),
-        "connectSourcePhoneNumber" => String.t() | atom()
+        "connectSourcePhoneNumber" => String.t() | atom(),
+        "ringTimeout" => integer()
       }
 
   """
@@ -1023,6 +1077,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   """
   @type put_connect_instance_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_integration_identifier() :: %{
+        "functionArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_integration_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1162,6 +1227,19 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      whats_app_channel_subtype_config() :: %{
+        "capacity" => float(),
+        "defaultOutboundConfig" => whats_app_outbound_config(),
+        "outboundMode" => list()
+      }
+
+  """
+  @type whats_app_channel_subtype_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       campaign_summary() :: %{
         "arn" => String.t() | atom(),
         "channelSubtypes" => list(String.t() | atom()),
@@ -1169,7 +1247,8 @@ defmodule AWS.ConnectCampaignsV2 do
         "connectInstanceId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "schedule" => schedule()
+        "schedule" => schedule(),
+        "type" => String.t() | atom()
       }
 
   """

@@ -264,6 +264,18 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      list_outbound_responsibility_transfers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResponsibilityTransfers" => list(responsibility_transfer())
+      }
+      
+  """
+  @type list_outbound_responsibility_transfers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       finalizing_organization_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -512,6 +524,26 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      responsibility_transfer() :: %{
+        "ActiveHandshakeId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "EndTimestamp" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Source" => transfer_participant(),
+        "StartTimestamp" => non_neg_integer(),
+        "Status" => list(any()),
+        "Target" => transfer_participant(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type responsibility_transfer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       handshake_party() :: %{
         "Id" => String.t() | atom(),
         "Type" => list(any())
@@ -712,6 +744,17 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      describe_responsibility_transfer_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_responsibility_transfer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_organizational_unit_response() :: %{
         "OrganizationalUnit" => organizational_unit()
       }
@@ -772,6 +815,17 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      update_responsibility_transfer_response() :: %{
+        "ResponsibilityTransfer" => responsibility_transfer()
+      }
+      
+  """
+  @type update_responsibility_transfer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       organization_not_empty_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -790,6 +844,19 @@ defmodule AWS.Organizations do
       
   """
   @type list_targets_for_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invite_organization_to_transfer_responsibility_response() :: %{
+        "Handshake" => handshake()
+      }
+      
+  """
+  @type invite_organization_to_transfer_responsibility_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -911,6 +978,18 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      list_inbound_responsibility_transfers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResponsibilityTransfers" => list(responsibility_transfer())
+      }
+      
+  """
+  @type list_inbound_responsibility_transfers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       duplicate_policy_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -988,6 +1067,18 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      update_responsibility_transfer_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_responsibility_transfer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       account() :: %{
         "Arn" => String.t() | atom(),
         "Email" => String.t() | atom(),
@@ -1001,6 +1092,17 @@ defmodule AWS.Organizations do
       
   """
   @type account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_responsibility_transfer_response() :: %{
+        "ResponsibilityTransfer" => responsibility_transfer()
+      }
+      
+  """
+  @type describe_responsibility_transfer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,6 +1126,18 @@ defmodule AWS.Organizations do
       
   """
   @type list_handshakes_for_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_responsibility_transfer_request() :: %{
+        optional("EndTimestamp") => non_neg_integer(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type terminate_responsibility_transfer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1114,6 +1228,17 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      responsibility_transfer_already_in_status_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type responsibility_transfer_already_in_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_effective_policy_response() :: %{
         "EffectivePolicy" => effective_policy()
       }
@@ -1142,6 +1267,20 @@ defmodule AWS.Organizations do
       
   """
   @type parent_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inbound_responsibility_transfers_request() :: %{
+        optional("Id") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type list_inbound_responsibility_transfers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1322,6 +1461,35 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      responsibility_transfer_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type responsibility_transfer_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invite_organization_to_transfer_responsibility_request() :: %{
+        optional("Notes") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("SourceName") => String.t() | atom(),
+        required("StartTimestamp") => non_neg_integer(),
+        required("Target") => handshake_party(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type invite_organization_to_transfer_responsibility_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       handshake() :: %{
         "Action" => list(any()),
         "Arn" => String.t() | atom(),
@@ -1496,6 +1664,18 @@ defmodule AWS.Organizations do
       
   """
   @type close_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transfer_participant() :: %{
+        "ManagementAccountEmail" => String.t() | atom(),
+        "ManagementAccountId" => String.t() | atom()
+      }
+      
+  """
+  @type transfer_participant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1793,6 +1973,19 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      list_outbound_responsibility_transfers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type list_outbound_responsibility_transfers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       access_denied_for_dependency_exception() :: %{
         "Message" => String.t() | atom(),
         "Reason" => list(any())
@@ -1823,6 +2016,19 @@ defmodule AWS.Organizations do
       
   """
   @type create_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_responsibility_transfer_transition_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_responsibility_transfer_transition_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1947,6 +2153,17 @@ defmodule AWS.Organizations do
 
   ## Example:
       
+      terminate_responsibility_transfer_response() :: %{
+        "ResponsibilityTransfer" => responsibility_transfer()
+      }
+      
+  """
+  @type terminate_responsibility_transfer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_handshakes_for_account_request() :: %{
         optional("Filter") => handshake_filter(),
         optional("MaxResults") => integer(),
@@ -2046,9 +2263,11 @@ defmodule AWS.Organizations do
 
   @type accept_handshake_errors() ::
           access_denied_for_dependency_exception()
+          | constraint_violation_exception()
           | concurrent_modification_exception()
           | invalid_handshake_transition_exception()
           | access_denied_exception()
+          | master_cannot_leave_organization_exception()
           | invalid_input_exception()
           | service_exception()
           | handshake_already_in_state_exception()
@@ -2162,7 +2381,8 @@ defmodule AWS.Organizations do
           | too_many_requests_exception()
 
   @type delete_organization_errors() ::
-          concurrent_modification_exception()
+          constraint_violation_exception()
+          | concurrent_modification_exception()
           | access_denied_exception()
           | invalid_input_exception()
           | service_exception()
@@ -2282,6 +2502,15 @@ defmodule AWS.Organizations do
           | too_many_requests_exception()
           | aws_organizations_not_in_use_exception()
 
+  @type describe_responsibility_transfer_errors() ::
+          access_denied_exception()
+          | responsibility_transfer_not_found_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
   @type detach_policy_errors() ::
           policy_changes_in_progress_exception()
           | policy_not_attached_exception()
@@ -2363,6 +2592,18 @@ defmodule AWS.Organizations do
           | too_many_requests_exception()
           | aws_organizations_not_in_use_exception()
           | finalizing_organization_exception()
+          | duplicate_handshake_exception()
+          | handshake_constraint_violation_exception()
+
+  @type invite_organization_to_transfer_responsibility_errors() ::
+          constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
           | duplicate_handshake_exception()
           | handshake_constraint_violation_exception()
 
@@ -2473,9 +2714,28 @@ defmodule AWS.Organizations do
           | too_many_requests_exception()
           | aws_organizations_not_in_use_exception()
 
+  @type list_inbound_responsibility_transfers_errors() ::
+          constraint_violation_exception()
+          | access_denied_exception()
+          | responsibility_transfer_not_found_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
   @type list_organizational_units_for_parent_errors() ::
           access_denied_exception()
           | parent_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
+  @type list_outbound_responsibility_transfers_errors() ::
+          constraint_violation_exception()
+          | access_denied_exception()
+          | unsupported_api_endpoint_exception()
           | invalid_input_exception()
           | service_exception()
           | too_many_requests_exception()
@@ -2585,6 +2845,19 @@ defmodule AWS.Organizations do
           | too_many_requests_exception()
           | aws_organizations_not_in_use_exception()
 
+  @type terminate_responsibility_transfer_errors() ::
+          invalid_responsibility_transfer_transition_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | responsibility_transfer_not_found_exception()
+          | unsupported_api_endpoint_exception()
+          | responsibility_transfer_already_in_status_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
   @type untag_resource_errors() ::
           target_not_found_exception()
           | constraint_violation_exception()
@@ -2619,6 +2892,16 @@ defmodule AWS.Organizations do
           | too_many_requests_exception()
           | aws_organizations_not_in_use_exception()
 
+  @type update_responsibility_transfer_errors() ::
+          constraint_violation_exception()
+          | access_denied_exception()
+          | responsibility_transfer_not_found_exception()
+          | unsupported_api_endpoint_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | aws_organizations_not_in_use_exception()
+
   def metadata do
     %{
       api_version: "2016-11-28",
@@ -2636,46 +2919,39 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Sends a response to the originator of a handshake agreeing to the action
-  proposed by
-  the handshake request.
+  Accepts a handshake by sending an `ACCEPTED` response to the sender.
 
-  You can only call this operation by the following principals when they also have
-  the
-  relevant IAM permissions:
+  You
+  can view accepted handshakes in API responses for 30 days before they are
+  deleted.
+
+  **Only the management account can accept the following
+  handshakes**:
 
     *
+  Enable all features final confirmation
+  (`APPROVE_ALL_FEATURES`)
 
-  **Invitation to join** or **Approve all features request** handshakes: only a
-  principal from
-  the member account.
+    *
+  Billing transfer (`TRANSFER_RESPONSIBILITY`)
 
-  The user who calls the API for an invitation to join must have the
-  `organizations:AcceptHandshake` permission. If you enabled all
-  features in the organization, the user must also have the
-  `iam:CreateServiceLinkedRole` permission so that Organizations can
-  create the required service-linked role named `AWSServiceRoleForOrganizations`.
-  For
-  more information, see [Organizations and service-linked roles](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integrate_services-using_slrs)
+  For more information, see [Enabling all features](https://docs.aws.amazon.com/organizations/latest/userguide/manage-begin-all-features-standard-migration.html#manage-approve-all-features-invite)
+  and [Responding to a billing transfer invitation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_transfer_billing-respond-invitation.html)
   in the
   *Organizations User Guide*.
 
+  **Only a member account can accept the following
+  handshakes**:
+
     *
+  Invitation to join (`INVITE`)
 
-  ## Enable all features final confirmation
-  handshake: only a principal from the management account.
+    *
+  Approve all features request (`ENABLE_ALL_FEATURES`)
 
-  For more information about invitations, see [Inviting an Amazon Web Services account to join your
-  organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html)
-  in the
-  *Organizations User Guide*. For more information about requests to
-  enable all features in the organization, see [Enabling all features in your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
-  in
-  the *Organizations User Guide*.
-
-  After you accept a handshake, it continues to appear in the results of relevant
-  APIs
-  for only 30 days. After that, it's deleted.
+  For more information, see [Responding to invitations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_accept-decline-invite.html)
+  and [Enabling all features](https://docs.aws.amazon.com/organizations/latest/userguide/manage-begin-all-features-standard-migration.html#manage-approve-all-features-invite)
+  in the *Organizations User Guide*.
   """
   @spec accept_handshake(map(), accept_handshake_request(), list()) ::
           {:ok, accept_handshake_response(), any()}
@@ -2727,8 +3003,28 @@ defmodule AWS.Organizations do
 
   [SECURITYHUB_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html)
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+    *
+
+  [UPGRADE_ROLLOUT_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html) 
+
+    *
+
+  [INSPECTOR_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html)
+
+    *
+
+  [BEDROCK_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_bedrock.html) 
+
+    *
+
+  [S3_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_s3.html)
+
+    *
+
+  [NETWORK_SECURITY_DIRECTOR_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_network_security_director.html)
+
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec attach_policy(map(), attach_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -2742,19 +3038,15 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Cancels a handshake.
+  Cancels a `Handshake`.
 
-  Canceling a handshake sets the handshake state to
-  `CANCELED`.
+  Only the account that sent a handshake can call this operation. The recipient of
+  the handshake can't cancel it, but can use `DeclineHandshake` to decline. After
+  a handshake is canceled, the
+  recipient can no longer respond to the handshake.
 
-  This operation can be called only from the account that originated the
-  handshake. The recipient of the handshake can't cancel it, but can use
-  `DeclineHandshake` instead. After a handshake is canceled, the recipient
-  can no longer respond to that handshake.
-
-  After you cancel a handshake, it continues to appear in the results of relevant
-  APIs
-  for only 30 days. After that, it's deleted.
+  You can view canceled handshakes in API responses for 30 days before they are
+  deleted.
   """
   @spec cancel_handshake(map(), cancel_handshake_request(), list()) ::
           {:ok, cancel_handshake_response(), any()}
@@ -2879,7 +3171,7 @@ defmodule AWS.Organizations do
   name and address
   information for the new account from the organization's management account.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
 
   For more information about creating accounts, see [Creating a member account in your
   organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html)
@@ -3155,7 +3447,7 @@ defmodule AWS.Organizations do
   If the request includes tags, then the requester must have the
   `organizations:TagResource` permission.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec create_organizational_unit(map(), create_organizational_unit_request(), list()) ::
           {:ok, create_organizational_unit_response(), any()}
@@ -3179,8 +3471,8 @@ defmodule AWS.Organizations do
   If the request includes tags, then the requester must have the
   `organizations:TagResource` permission.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec create_policy(map(), create_policy_request(), list()) ::
           {:ok, create_policy_response(), any()}
@@ -3194,20 +3486,14 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Declines a handshake request.
+  Declines a `Handshake`.
 
-  This sets the handshake state to `DECLINED`
-  and effectively deactivates the request.
+  Only the account that receives a handshake can call this operation. The sender
+  of the handshake can use `CancelHandshake` to
+  cancel if the handshake hasn't yet been responded to.
 
-  This operation can be called only from the account that received the handshake.
-  The originator of the handshake can use `CancelHandshake`
-  instead. The originator can't reactivate a declined request, but can reinitiate
-  the
-  process with a new handshake request.
-
-  After you decline a handshake, it continues to appear in the results of relevant
-  APIs
-  for only 30 days. After that, it's deleted.
+  You can view canceled handshakes in API responses for 30 days before they are
+  deleted.
   """
   @spec decline_handshake(map(), decline_handshake_request(), list()) ::
           {:ok, decline_handshake_response(), any()}
@@ -3243,7 +3529,7 @@ defmodule AWS.Organizations do
   You must first remove
   all accounts and child OUs from the OU that you want to delete.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec delete_organizational_unit(map(), delete_organizational_unit_request(), list()) ::
           {:ok, nil, any()}
@@ -3264,8 +3550,8 @@ defmodule AWS.Organizations do
   roots,
   and accounts.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec delete_policy(map(), delete_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -3281,7 +3567,7 @@ defmodule AWS.Organizations do
   @doc """
   Deletes the resource policy from your organization.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec delete_resource_policy(map(), %{}, list()) ::
           {:ok, nil, any()}
@@ -3313,7 +3599,7 @@ defmodule AWS.Organizations do
   Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html)
   in the *Organizations User Guide.*
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec deregister_delegated_administrator(
           map(),
@@ -3333,8 +3619,8 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves Organizations-related information about the specified account.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec describe_account(map(), describe_account_request(), list()) ::
           {:ok, describe_account_response(), any()}
@@ -3350,8 +3636,8 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves the current status of an asynchronous request to create an account.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec describe_create_account_status(map(), describe_create_account_status_request(), list()) ::
           {:ok, describe_create_account_status_response(), any()}
@@ -3382,7 +3668,7 @@ defmodule AWS.Organizations do
   in the
   *Organizations User Guide*.
 
-  This operation can be called from any account in the organization.
+  You can call this operation from any account in a organization.
   """
   @spec describe_effective_policy(map(), describe_effective_policy_request(), list()) ::
           {:ok, describe_effective_policy_response(), any()}
@@ -3396,17 +3682,15 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Retrieves information about a previously requested handshake.
+  Returns details for a handshake.
 
-  The handshake ID comes
-  from the response to the original `InviteAccountToOrganization`
-  operation that generated the handshake.
+  A handshake is the secure exchange of information
+  between two Amazon Web Services accounts: a sender and a recipient.
 
-  You can access handshakes that are `ACCEPTED`, `DECLINED`, or
-  `CANCELED` for only 30 days after they change to that state. They're then
-  deleted and no longer accessible.
+  You can view `ACCEPTED`, `DECLINED`, or `CANCELED`
+  handshakes in API Responses for 30 days before they are deleted.
 
-  This operation can be called from any account in the organization.
+  You can call this operation from any account in a organization.
   """
   @spec describe_handshake(map(), describe_handshake_request(), list()) ::
           {:ok, describe_handshake_response(), any()}
@@ -3423,7 +3707,7 @@ defmodule AWS.Organizations do
   Retrieves information about the organization that the user's account belongs
   to.
 
-  This operation can be called from any account in the organization.
+  You can call this operation from any account in a organization.
 
   Even if a policy type is shown as available in the organization, you can disable
   it separately at the root level with `DisablePolicyType`. Use `ListRoots` to see
@@ -3444,8 +3728,8 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves information about an organizational unit (OU).
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec describe_organizational_unit(map(), describe_organizational_unit_request(), list()) ::
           {:ok, describe_organizational_unit_response(), any()}
@@ -3461,8 +3745,8 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves information about a policy.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec describe_policy(map(), describe_policy_request(), list()) ::
           {:ok, describe_policy_response(), any()}
@@ -3478,8 +3762,8 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves information about a resource policy.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec describe_resource_policy(map(), %{}, list()) ::
           {:ok, describe_resource_policy_response(), any()}
@@ -3490,6 +3774,29 @@ defmodule AWS.Organizations do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
+  end
+
+  @doc """
+  Returns details for a transfer.
+
+  A *transfer* is an arrangement
+  between two management accounts where one account designates the other with
+  specified
+  responsibilities for their organization.
+  """
+  @spec describe_responsibility_transfer(
+          map(),
+          describe_responsibility_transfer_request(),
+          list()
+        ) ::
+          {:ok, describe_responsibility_transfer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_responsibility_transfer_errors()}
+  def describe_responsibility_transfer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeResponsibilityTransfer", input, options)
   end
 
   @doc """
@@ -3517,8 +3824,8 @@ defmodule AWS.Organizations do
   the `FullAWSAccess` policy (or any other attached SCP), you're using the
   authorization strategy of a "[deny list](https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_denylist)".
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec detach_policy(map(), detach_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -3603,7 +3910,7 @@ defmodule AWS.Organizations do
   services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
   in the *Organizations User Guide*.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec disable_aws_service_access(map(), disable_aws_service_access_request(), list()) ::
           {:ok, nil, any()}
@@ -3635,8 +3942,8 @@ defmodule AWS.Organizations do
   first use `ListRoots` to see the status of policy types for a specified
   root, and then use this operation.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
 
   To view the status of available policy types in the organization, use
   `ListRoots`.
@@ -3702,7 +4009,7 @@ defmodule AWS.Organizations do
   account
   administrators are aware of this.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec enable_all_features(map(), enable_all_features_request(), list()) ::
           {:ok, enable_all_features_response(), any()}
@@ -3744,7 +4051,7 @@ defmodule AWS.Organizations do
   in the
   *Organizations User Guide*.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec enable_aws_service_access(map(), enable_aws_service_access_request(), list()) ::
           {:ok, nil, any()}
@@ -3771,8 +4078,8 @@ defmodule AWS.Organizations do
   recommends that you first use `ListRoots` to see the status of policy
   types for a specified root, and then use this operation.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
 
   You can enable a policy type in a root only if that policy type is available in
   the
@@ -3810,7 +4117,7 @@ defmodule AWS.Organizations do
   If the request includes tags, then the requester must have the
   `organizations:TagResource` permission.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec invite_account_to_organization(map(), invite_account_to_organization_request(), list()) ::
           {:ok, invite_account_to_organization_response(), any()}
@@ -3824,6 +4131,37 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+  Sends an invitation to another organization's management account to designate
+  your
+  account with the specified responsibilities for their organization.
+
+  The invitation is
+  implemented as a `Handshake` whose details are in the response.
+
+  You can only call this operation from the management account.
+  """
+  @spec invite_organization_to_transfer_responsibility(
+          map(),
+          invite_organization_to_transfer_responsibility_request(),
+          list()
+        ) ::
+          {:ok, invite_organization_to_transfer_responsibility_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invite_organization_to_transfer_responsibility_errors()}
+  def invite_organization_to_transfer_responsibility(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "InviteOrganizationToTransferResponsibility",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Removes a member account from its parent organization.
 
   This version of the operation
@@ -3832,7 +4170,7 @@ defmodule AWS.Organizations do
   the management account, use `RemoveAccountFromOrganization`
   instead.
 
-  This operation can be called only from a member account in the organization.
+  You can only call from operation from a member account.
 
     
   The management account in an organization with all features enabled can
@@ -3908,16 +4246,15 @@ defmodule AWS.Organizations do
   specified root or organizational unit (OU), use the `ListAccountsForParent`
   operation instead.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_accounts(map(), list_accounts_request(), list()) ::
           {:ok, list_accounts_response(), any()}
@@ -3942,16 +4279,15 @@ defmodule AWS.Organizations do
   organization, use
   the `ListAccounts` operation.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_accounts_for_parent(map(), list_accounts_for_parent_request(), list()) ::
           {:ok, list_accounts_for_parent_response(), any()}
@@ -3972,8 +4308,8 @@ defmodule AWS.Organizations do
   that fails validation checks, resulting in the effective policy not
   being fully enforced on all the intended accounts within an organization.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_accounts_with_invalid_effective_policy(
           map(),
@@ -4005,8 +4341,8 @@ defmodule AWS.Organizations do
   services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
   in the *Organizations User Guide*.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_aws_service_access_for_organization(
           map(),
@@ -4031,16 +4367,15 @@ defmodule AWS.Organizations do
   This operation, along with `ListParents`
   enables you to traverse the tree structure that makes up this root.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_children(map(), list_children_request(), list()) ::
           {:ok, list_children_response(), any()}
@@ -4058,16 +4393,15 @@ defmodule AWS.Organizations do
   currently
   being tracked for the organization.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_create_account_status(map(), list_create_account_status_request(), list()) ::
           {:ok, list_create_account_status_response(), any()}
@@ -4085,8 +4419,8 @@ defmodule AWS.Organizations do
   administrators in this
   organization.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_delegated_administrators(map(), list_delegated_administrators_request(), list()) ::
           {:ok, list_delegated_administrators_response(), any()}
@@ -4104,8 +4438,8 @@ defmodule AWS.Organizations do
   delegated
   administrator.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_delegated_services_for_account(
           map(),
@@ -4126,8 +4460,8 @@ defmodule AWS.Organizations do
   Lists all the validation errors on an [effective policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html)
   for a specified account and policy type.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_effective_policy_validation_errors(
           map(),
@@ -4145,25 +4479,20 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Lists the current handshakes that are associated with the account of the
-  requesting
-  user.
+  Lists the recent handshakes that you have received.
 
-  Handshakes that are `ACCEPTED`, `DECLINED`,
-  `CANCELED`, or `EXPIRED` appear in the results of this API for
-  only 30 days after changing to that state. After that, they're deleted and no
-  longer
-  accessible.
+  You can view `CANCELED`, `ACCEPTED`, `DECLINED`, or
+  `EXPIRED` handshakes in API responses for 30 days before they are
+  deleted.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  You can call this operation from any account in a organization.
 
-  This operation can be called from any account in the organization.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
   """
   @spec list_handshakes_for_account(map(), list_handshakes_for_account_request(), list()) ::
           {:ok, list_handshakes_for_account_response(), any()}
@@ -4177,30 +4506,21 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Lists the handshakes that are associated with the organization that the
-  requesting
-  user is part of.
+  Lists the recent handshakes that you have sent.
 
-  The `ListHandshakesForOrganization` operation returns a list
-  of handshake structures. Each structure contains details and status about a
-  handshake.
+  You can view `CANCELED`, `ACCEPTED`, `DECLINED`, or
+  `EXPIRED` handshakes in API responses for 30 days before they are
+  deleted.
 
-  Handshakes that are `ACCEPTED`, `DECLINED`,
-  `CANCELED`, or `EXPIRED` appear in the results of this API for
-  only 30 days after changing to that state. After that, they're deleted and no
-  longer
-  accessible.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
-
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
   """
   @spec list_handshakes_for_organization(
           map(),
@@ -4218,18 +4538,46 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+  Lists transfers that allow you to manage the specified responsibilities for
+  another
+  organization.
+
+  This operation returns both transfer invitations and transfers.
+
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
+  """
+  @spec list_inbound_responsibility_transfers(
+          map(),
+          list_inbound_responsibility_transfers_request(),
+          list()
+        ) ::
+          {:ok, list_inbound_responsibility_transfers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_inbound_responsibility_transfers_errors()}
+  def list_inbound_responsibility_transfers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInboundResponsibilityTransfers", input, options)
+  end
+
+  @doc """
   Lists the organizational units (OUs) in a parent organizational unit or root.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_organizational_units_for_parent(
           map(),
@@ -4247,6 +4595,35 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+  Lists transfers that allow an account outside your organization to manage the
+  specified responsibilities for your organization.
+
+  This operation returns both transfer
+  invitations and transfers.
+
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
+  """
+  @spec list_outbound_responsibility_transfers(
+          map(),
+          list_outbound_responsibility_transfers_request(),
+          list()
+        ) ::
+          {:ok, list_outbound_responsibility_transfers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_outbound_responsibility_transfers_errors()}
+  def list_outbound_responsibility_transfers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOutboundResponsibilityTransfers", input, options)
+  end
+
+  @doc """
   Lists the root or organizational units (OUs) that serve as the immediate parent
   of the
   specified child OU or account.
@@ -4254,16 +4631,15 @@ defmodule AWS.Organizations do
   This operation, along with `ListChildren`
   enables you to traverse the tree structure that makes up this root.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
 
   In the current release, a child can have only a single parent.
   """
@@ -4281,16 +4657,15 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves the list of all policies in an organization of a specified type.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_policies(map(), list_policies_request(), list()) ::
           {:ok, list_policies_response(), any()}
@@ -4310,16 +4685,15 @@ defmodule AWS.Organizations do
   You must specify the policy type that you want
   included in the returned list.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_policies_for_target(map(), list_policies_for_target_request(), list()) ::
           {:ok, list_policies_for_target_response(), any()}
@@ -4335,16 +4709,15 @@ defmodule AWS.Organizations do
   @doc """
   Lists the roots that are defined in the current organization.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
 
   Policy types can be enabled and disabled in roots. This is distinct from whether
   they're available in the organization. When you enable all features, you make
@@ -4382,8 +4755,8 @@ defmodule AWS.Organizations do
     *
   Policy (any type)
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4400,16 +4773,15 @@ defmodule AWS.Organizations do
   Lists all the roots, organizational units (OUs), and accounts that the specified
   policy is attached to.
 
-  Always check the `NextToken` response parameter
-  for a `null` value when calling a `List*` operation. These operations can
-  occasionally return an empty set of results even when there are more results
-  available. The
-  `NextToken` response parameter value is `null`
-  *only*
-  when there are no more results to display.
+  When calling List* operations, always check the `NextToken` response parameter
+  value, even if you receive an empty result set.
+  These operations can occasionally return an empty set of results even when more
+  results are available.
+  Continue making requests until `NextToken` returns null. A null `NextToken`
+  value indicates that you have retrieved all available results.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec list_targets_for_policy(map(), list_targets_for_policy_request(), list()) ::
           {:ok, list_targets_for_policy_response(), any()}
@@ -4427,7 +4799,7 @@ defmodule AWS.Organizations do
   to
   the specified destination parent root or OU.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec move_account(map(), move_account_request(), list()) ::
           {:ok, nil, any()}
@@ -4443,7 +4815,7 @@ defmodule AWS.Organizations do
   @doc """
   Creates or updates a resource policy.
 
-  This operation can be called only from the organization's management account..
+  You can only call this operation from the management account..
   """
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
@@ -4472,7 +4844,7 @@ defmodule AWS.Organizations do
   Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html)
   in the *Organizations User Guide.*
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec register_delegated_administrator(
           map(),
@@ -4499,8 +4871,8 @@ defmodule AWS.Organizations do
   expenses
   accrued by the member account after it's removed from the organization.
 
-  This operation can be called only from the organization's management account.
-  Member accounts can remove themselves with `LeaveOrganization` instead.
+  You can only call this operation from the management account. Member accounts
+  can remove themselves with `LeaveOrganization` instead.
 
     
   You can remove an account from your organization only if the account is
@@ -4557,8 +4929,8 @@ defmodule AWS.Organizations do
     *
   Policy (any type)
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -4569,6 +4941,28 @@ defmodule AWS.Organizations do
     meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Ends a transfer.
+
+  A *transfer* is an arrangement between two
+  management accounts where one account designates the other with specified
+  responsibilities for their organization.
+  """
+  @spec terminate_responsibility_transfer(
+          map(),
+          terminate_responsibility_transfer_request(),
+          list()
+        ) ::
+          {:ok, terminate_responsibility_transfer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, terminate_responsibility_transfer_errors()}
+  def terminate_responsibility_transfer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateResponsibilityTransfer", input, options)
   end
 
   @doc """
@@ -4588,8 +4982,8 @@ defmodule AWS.Organizations do
     *
   Policy (any type)
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -4609,7 +5003,7 @@ defmodule AWS.Organizations do
   OUs and accounts remain in place, and any attached policies of the OU remain
   attached.
 
-  This operation can be called only from the organization's management account.
+  You can only call this operation from the management account.
   """
   @spec update_organizational_unit(map(), update_organizational_unit_request(), list()) ::
           {:ok, update_organizational_unit_response(), any()}
@@ -4629,8 +5023,8 @@ defmodule AWS.Organizations do
   supply any parameter, that value remains unchanged. You can't change a policy's
   type.
 
-  This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator.
+  You can only call this operation from the management account or a member account
+  that is a delegated administrator.
   """
   @spec update_policy(map(), update_policy_request(), list()) ::
           {:ok, update_policy_response(), any()}
@@ -4641,5 +5035,25 @@ defmodule AWS.Organizations do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdatePolicy", input, options)
+  end
+
+  @doc """
+  Updates a transfer.
+
+  A *transfer* is the arrangement between two
+  management accounts where one account designates the other with specified
+  responsibilities for their organization.
+
+  You can update the name assigned to a transfer.
+  """
+  @spec update_responsibility_transfer(map(), update_responsibility_transfer_request(), list()) ::
+          {:ok, update_responsibility_transfer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_responsibility_transfer_errors()}
+  def update_responsibility_transfer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateResponsibilityTransfer", input, options)
   end
 end

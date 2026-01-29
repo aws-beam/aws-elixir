@@ -82,6 +82,7 @@ defmodule AWS.S3Vectors do
 
       create_vector_bucket_input() :: %{
         optional("encryptionConfiguration") => encryption_configuration(),
+        optional("tags") => map(),
         required("vectorBucketName") => String.t() | atom()
       }
 
@@ -133,6 +134,17 @@ defmodule AWS.S3Vectors do
 
   """
   @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -229,6 +241,7 @@ defmodule AWS.S3Vectors do
         "dataType" => list(any()),
         "dimension" => integer(),
         "distanceMetric" => list(any()),
+        "encryptionConfiguration" => encryption_configuration(),
         "indexArn" => String.t() | atom(),
         "indexName" => String.t() | atom(),
         "metadataConfiguration" => metadata_configuration(),
@@ -420,12 +433,32 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_vector_bucket_output() :: %{
         "vectorBucket" => vector_bucket()
       }
 
   """
   @type get_vector_bucket_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
@@ -529,6 +562,17 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_index_input() :: %{
         optional("indexArn") => String.t() | atom(),
         optional("indexName") => String.t() | atom(),
@@ -554,6 +598,15 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_index_input() :: %{
         optional("indexArn") => String.t() | atom(),
         optional("indexName") => String.t() | atom(),
@@ -562,6 +615,15 @@ defmodule AWS.S3Vectors do
 
   """
   @type delete_index_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
@@ -620,7 +682,9 @@ defmodule AWS.S3Vectors do
   ## Example:
 
       create_index_input() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
         optional("metadataConfiguration") => metadata_configuration(),
+        optional("tags") => map(),
         optional("vectorBucketArn") => String.t() | atom(),
         optional("vectorBucketName") => String.t() | atom(),
         required("dataType") => list(any()),
@@ -693,7 +757,6 @@ defmodule AWS.S3Vectors do
   ## Example:
 
       query_output_vector() :: %{
-        "data" => list(),
         "distance" => [float()],
         "key" => String.t() | atom(),
         "metadata" => any()
@@ -713,9 +776,10 @@ defmodule AWS.S3Vectors do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
-  @type delete_index_errors() :: service_unavailable_exception()
+  @type delete_index_errors() :: service_unavailable_exception() | not_found_exception()
 
-  @type delete_vector_bucket_errors() :: service_unavailable_exception() | conflict_exception()
+  @type delete_vector_bucket_errors() ::
+          service_unavailable_exception() | not_found_exception() | conflict_exception()
 
   @type delete_vector_bucket_policy_errors() ::
           service_unavailable_exception() | not_found_exception()
@@ -746,6 +810,8 @@ defmodule AWS.S3Vectors do
 
   @type list_indexes_errors() :: service_unavailable_exception() | not_found_exception()
 
+  @type list_tags_for_resource_errors() :: service_unavailable_exception() | not_found_exception()
+
   @type list_vector_buckets_errors() :: service_unavailable_exception()
 
   @type list_vectors_errors() ::
@@ -772,6 +838,12 @@ defmodule AWS.S3Vectors do
           | not_found_exception()
           | kms_disabled_exception()
 
+  @type tag_resource_errors() ::
+          service_unavailable_exception() | not_found_exception() | conflict_exception()
+
+  @type untag_resource_errors() ::
+          service_unavailable_exception() | not_found_exception() | conflict_exception()
+
   def metadata do
     %{
       api_version: "2025-07-15",
@@ -789,17 +861,19 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Creates a vector index within a vector bucket.
 
-  Creates a vector index within a vector bucket. To specify the vector bucket, you
-  must use either the vector bucket name or the vector bucket Amazon Resource Name
-  (ARN).
+  To specify the vector bucket, you must use either the vector bucket name or the
+  vector bucket Amazon Resource Name (ARN).
 
   ## Definitions
 
   ### Permissions
 
   You must have the `s3vectors:CreateIndex` permission to use this operation.
+
+  You must have the `s3vectors:TagResource` permission in addition to
+  `s3vectors:CreateIndex` permission to create a vector index with tags.
   """
   @spec create_index(map(), create_index_input(), list()) ::
           {:ok, create_index_output(), any()}
@@ -828,8 +902,6 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
-
   Creates a vector bucket in the Amazon Web Services Region that you want your
   bucket to be in.
 
@@ -839,6 +911,9 @@ defmodule AWS.S3Vectors do
 
   You must have the `s3vectors:CreateVectorBucket` permission to use this
   operation.
+
+  You must have the `s3vectors:TagResource` permission in addition to
+  `s3vectors:CreateVectorBucket` permission to create a vector bucket with tags.
   """
   @spec create_vector_bucket(map(), create_vector_bucket_input(), list()) ::
           {:ok, create_vector_bucket_output(), any()}
@@ -867,11 +942,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Deletes a vector index.
 
-  Deletes a vector index. To specify the vector index, you can either use both the
-  vector bucket name and vector index name, or use the vector index Amazon
-  Resource Name (ARN).
+  To specify the vector index, you can either use both the vector bucket name and
+  vector index name, or use the vector index Amazon Resource Name (ARN).
 
   ## Definitions
 
@@ -906,11 +980,11 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Deletes a vector bucket.
 
-  Deletes a vector bucket. All vector indexes in the vector bucket must be deleted
-  before the vector bucket can be deleted. To perform this operation, you must use
-  either the vector bucket name or the vector bucket Amazon Resource Name (ARN).
+  All vector indexes in the vector bucket must be deleted before the vector bucket
+  can be deleted. To perform this operation, you must use either the vector bucket
+  name or the vector bucket Amazon Resource Name (ARN).
 
   ## Definitions
 
@@ -946,10 +1020,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Deletes a vector bucket policy.
 
-  Deletes a vector bucket policy. To specify the bucket, you must use either the
-  vector bucket name or the vector bucket Amazon Resource Name (ARN).
+  To specify the bucket, you must use either the vector bucket name or the vector
+  bucket Amazon Resource Name (ARN).
 
   ## Definitions
 
@@ -985,11 +1059,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Deletes one or more vectors in a vector index.
 
-  Deletes one or more vectors in a vector index. To specify the vector index, you
-  can either use both the vector bucket name and vector index name, or use the
-  vector index Amazon Resource Name (ARN).
+  To specify the vector index, you can either use both the vector bucket name and
+  vector index name, or use the vector index Amazon Resource Name (ARN).
 
   ## Definitions
 
@@ -1024,11 +1097,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Returns vector index attributes.
 
-  Returns vector index attributes. To specify the vector index, you can either use
-  both the vector bucket name and the vector index name, or use the vector index
-  Amazon Resource Name (ARN).
+  To specify the vector index, you can either use both the vector bucket name and
+  the vector index name, or use the vector index Amazon Resource Name (ARN).
 
   ## Definitions
 
@@ -1063,10 +1135,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Returns vector bucket attributes.
 
-  Returns vector bucket attributes. To specify the bucket, you must use either the
-  vector bucket name or the vector bucket Amazon Resource Name (ARN).
+  To specify the bucket, you must use either the vector bucket name or the vector
+  bucket Amazon Resource Name (ARN).
 
   ## Definitions
 
@@ -1101,10 +1173,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Gets details about a vector bucket policy.
 
-  Gets details about a vector bucket policy. To specify the bucket, you must use
-  either the vector bucket name or the vector bucket Amazon Resource Name (ARN).
+  To specify the bucket, you must use either the vector bucket name or the vector
+  bucket Amazon Resource Name (ARN).
 
   ## Definitions
 
@@ -1140,11 +1212,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Returns vector attributes.
 
-  Returns vector attributes. To specify the vector index, you can either use both
-  the vector bucket name and the vector index name, or use the vector index Amazon
-  Resource Name (ARN).
+  To specify the vector index, you can either use both the vector bucket name and
+  the vector index name, or use the vector index Amazon Resource Name (ARN).
 
   ## Definitions
 
@@ -1179,10 +1250,9 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Returns a list of all the vector indexes within the specified vector bucket.
 
-  Returns a list of all the vector indexes within the specified vector bucket. To
-  specify the bucket, you must use either the vector bucket name or the vector
+  To specify the bucket, you must use either the vector bucket name or the vector
   bucket Amazon Resource Name (ARN).
 
   ## Definitions
@@ -1218,8 +1288,37 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Lists all of the tags applied to a specified Amazon S3 Vectors resource.
 
+  Each tag is a label consisting of a key and value pair. Tags can help you
+  organize, track costs for, and control access to resources.
+
+  For a list of S3 resources that support tagging, see [Managing tags for Amazon S3
+  resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+
+  ## Definitions
+
+  ### Permissions
+
+  For vector buckets and vector indexes, you must have the
+  `s3vectors:ListTagsForResource` permission to use this operation.
+  """
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of all the vector buckets that are owned by the authenticated
   sender of the request.
 
@@ -1257,11 +1356,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  List vectors in the specified vector index.
 
-  List vectors in the specified vector index. To specify the vector index, you can
-  either use both the vector bucket name and the vector index name, or use the
-  vector index Amazon Resource Name (ARN).
+  To specify the vector index, you can either use both the vector bucket name and
+  the vector index name, or use the vector index Amazon Resource Name (ARN).
 
   `ListVectors` operations proceed sequentially; however, for faster performance
   on a large number of vectors in a vector index, applications can request a
@@ -1311,10 +1409,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Creates a bucket policy for a vector bucket.
 
-  Creates a bucket policy for a vector bucket. To specify the bucket, you must use
-  either the vector bucket name or the vector bucket Amazon Resource Name (ARN).
+  To specify the bucket, you must use either the vector bucket name or the vector
+  bucket Amazon Resource Name (ARN).
 
   ## Definitions
 
@@ -1350,11 +1448,10 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
+  Adds one or more vectors to a vector index.
 
-  Adds one or more vectors to a vector index. To specify the vector index, you can
-  either use both the vector bucket name and the vector index name, or use the
-  vector index Amazon Resource Name (ARN).
+  To specify the vector index, you can either use both the vector bucket name and
+  the vector index name, or use the vector index Amazon Resource Name (ARN).
 
   For more information about limits, see [Limitations and restrictions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html)
   in the *Amazon S3 User Guide*.
@@ -1401,13 +1498,13 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.
-
   Performs an approximate nearest neighbor search query in a vector index using a
-  query vector. By default, it returns the keys of approximate nearest neighbors.
-  You can optionally include the computed distance (between the query vector and
-  each vector in the response), the vector data, and metadata of each vector in
-  the response.
+  query vector.
+
+  By default, it returns the keys of approximate nearest neighbors. You can
+  optionally include the computed distance (between the query vector and each
+  vector in the response), the vector data, and metadata of each vector in the
+  response.
 
   To specify the vector index, you can either use both the vector bucket name and
   the vector index name, or use the vector index Amazon Resource Name (ARN).
@@ -1448,6 +1545,96 @@ defmodule AWS.S3Vectors do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Applies one or more user-defined tags to an Amazon S3 Vectors resource or
+  updates existing tags.
+
+  Each tag is a label consisting of a key and value pair. Tags can help you
+  organize, track costs for, and control access to your resources. You can add up
+  to 50 tags for each resource.
+
+  For a list of S3 resources that support tagging, see [Managing tags for Amazon S3
+  resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+
+  ## Definitions
+
+  ### Permissions
+
+  For vector buckets and vector indexes, you must have the `s3vectors:TagResource`
+  permission to use this operation.
+  """
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
+          {:ok, tag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes the specified user-defined tags from an Amazon S3 Vectors resource.
+
+  You can pass one or more tag keys.
+
+  For a list of S3 resources that support tagging, see [Managing tags for Amazon S3
+  resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+
+  ## Definitions
+
+  ### Permissions
+
+  For vector buckets and vector indexes, you must have the
+  `s3vectors:UntagResource` permission to use this operation.
+  """
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
+          {:ok, untag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,

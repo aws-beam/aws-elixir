@@ -92,6 +92,17 @@ defmodule AWS.STS do
 
   ## Example:
       
+      j_w_t_payload_size_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type j_w_t_payload_size_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       packed_policy_too_large_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -112,6 +123,17 @@ defmodule AWS.STS do
       
   """
   @type credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      outbound_web_identity_federation_disabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type outbound_web_identity_federation_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -193,6 +215,18 @@ defmodule AWS.STS do
 
   ## Example:
       
+      get_web_identity_token_response() :: %{
+        "Expiration" => non_neg_integer(),
+        "WebIdentityToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_web_identity_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       decode_authorization_message_response() :: %{
         "DecodedMessage" => String.t() | atom()
       }
@@ -246,6 +280,17 @@ defmodule AWS.STS do
       
   """
   @type provided_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_duration_escalation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type session_duration_escalation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -439,6 +484,20 @@ defmodule AWS.STS do
 
   ## Example:
       
+      get_web_identity_token_request() :: %{
+        optional("DurationSeconds") => integer(),
+        optional("Tags") => list(tag()),
+        required("Audience") => list(String.t() | atom()),
+        required("SigningAlgorithm") => String.t() | atom()
+      }
+      
+  """
+  @type get_web_identity_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_caller_identity_response() :: %{
         "Account" => String.t() | atom(),
         "Arn" => String.t() | atom(),
@@ -487,7 +546,9 @@ defmodule AWS.STS do
   @type decode_authorization_message_errors() :: invalid_authorization_message_exception()
 
   @type get_delegated_access_token_errors() ::
-          expired_trade_in_token_exception() | region_disabled_exception()
+          expired_trade_in_token_exception()
+          | packed_policy_too_large_exception()
+          | region_disabled_exception()
 
   @type get_federation_token_errors() ::
           malformed_policy_document_exception()
@@ -495,6 +556,11 @@ defmodule AWS.STS do
           | region_disabled_exception()
 
   @type get_session_token_errors() :: region_disabled_exception()
+
+  @type get_web_identity_token_errors() ::
+          session_duration_escalation_exception()
+          | outbound_web_identity_federation_disabled_exception()
+          | j_w_t_payload_size_exceeded_exception()
 
   def metadata do
     %{
@@ -1207,7 +1273,14 @@ defmodule AWS.STS do
   end
 
   @doc """
-  This API is currently unavailable for general use.
+  Exchanges a trade-in token for temporary Amazon Web Services credentials with
+  the permissions
+  associated with the assumed principal.
+
+  This operation allows you to obtain credentials for
+  a specific principal based on a trade-in token, enabling delegation of access to
+  Amazon Web Services
+  resources.
   """
   @spec get_delegated_access_token(map(), get_delegated_access_token_request(), list()) ::
           {:ok, get_delegated_access_token_response(), any()}
@@ -1450,5 +1523,25 @@ defmodule AWS.STS do
     meta = metadata()
 
     Request.request_post(client, meta, "GetSessionToken", input, options)
+  end
+
+  @doc """
+  Returns a signed JSON Web Token (JWT) that represents the calling Amazon Web
+  Services identity.
+
+  The returned JWT can be used to authenticate with external services that support
+  OIDC discovery.
+  The token is signed by Amazon Web Services STS and can be publicly verified
+  using the verification keys published at the issuer's JWKS endpoint.
+  """
+  @spec get_web_identity_token(map(), get_web_identity_token_request(), list()) ::
+          {:ok, get_web_identity_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_web_identity_token_errors()}
+  def get_web_identity_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetWebIdentityToken", input, options)
   end
 end

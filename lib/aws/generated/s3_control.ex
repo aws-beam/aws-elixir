@@ -88,6 +88,18 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      s3_update_object_encryption_sse_kms() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "KMSKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type s3_update_object_encryption_sse_kms() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_multi_region_access_point_request() :: %{
         required("AccountId") => String.t() | atom(),
         required("ClientToken") => String.t() | atom(),
@@ -200,7 +212,8 @@ defmodule AWS.S3Control do
 
       storage_lens_data_export() :: %{
         "CloudWatchMetrics" => cloud_watch_metrics(),
-        "S3BucketDestination" => s3_bucket_destination()
+        "S3BucketDestination" => s3_bucket_destination(),
+        "StorageLensTableDestination" => storage_lens_table_destination()
       }
 
   """
@@ -633,6 +646,17 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      advanced_performance_metrics() :: %{
+        "IsEnabled" => boolean()
+      }
+
+  """
+  @type advanced_performance_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_access_grant_result() :: %{
         "AccessGrantArn" => String.t() | atom(),
         "AccessGrantId" => String.t() | atom(),
@@ -808,6 +832,17 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      s3_update_object_encryption_operation() :: %{
+        "ObjectEncryption" => object_encryption()
+      }
+
+  """
+  @type s3_update_object_encryption_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_access_grants_location_request() :: %{
         optional("Tags") => list(tag()),
         required("AccountId") => String.t() | atom(),
@@ -917,6 +952,7 @@ defmodule AWS.S3Control do
         "ActivityMetrics" => activity_metrics(),
         "AdvancedCostOptimizationMetrics" => advanced_cost_optimization_metrics(),
         "AdvancedDataProtectionMetrics" => advanced_data_protection_metrics(),
+        "AdvancedPerformanceMetrics" => advanced_performance_metrics(),
         "DetailedStatusCodesMetrics" => detailed_status_codes_metrics(),
         "PrefixLevel" => prefix_level()
       }
@@ -1273,6 +1309,18 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      storage_lens_expanded_prefixes_data_export() :: %{
+        "S3BucketDestination" => s3_bucket_destination(),
+        "StorageLensTableDestination" => storage_lens_table_destination()
+      }
+
+  """
+  @type storage_lens_expanded_prefixes_data_export() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_regional_buckets_result() :: %{
         "NextToken" => String.t() | atom(),
         "RegionalBucketList" => list(regional_bucket())
@@ -1368,7 +1416,8 @@ defmodule AWS.S3Control do
         "S3PutObjectLegalHold" => s3_set_object_legal_hold_operation(),
         "S3PutObjectRetention" => s3_set_object_retention_operation(),
         "S3PutObjectTagging" => s3_set_object_tagging_operation(),
-        "S3ReplicateObject" => s3_replicate_object_operation()
+        "S3ReplicateObject" => s3_replicate_object_operation(),
+        "S3UpdateObjectEncryption" => s3_update_object_encryption_operation()
       }
 
   """
@@ -1450,6 +1499,18 @@ defmodule AWS.S3Control do
 
   """
   @type dissociate_access_grants_identity_center_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_lens_table_destination() :: %{
+        "Encryption" => storage_lens_data_export_encryption(),
+        "IsEnabled" => boolean()
+      }
+
+  """
+  @type storage_lens_table_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3492,9 +3553,11 @@ defmodule AWS.S3Control do
         "AwsOrg" => storage_lens_aws_org(),
         "DataExport" => storage_lens_data_export(),
         "Exclude" => exclude(),
+        "ExpandedPrefixesDataExport" => storage_lens_expanded_prefixes_data_export(),
         "Id" => String.t() | atom(),
         "Include" => include(),
         "IsEnabled" => boolean(),
+        "PrefixDelimiter" => String.t() | atom(),
         "StorageLensArn" => String.t() | atom()
       }
 
@@ -3673,6 +3736,7 @@ defmodule AWS.S3Control do
         "ActivityMetrics" => activity_metrics(),
         "AdvancedCostOptimizationMetrics" => advanced_cost_optimization_metrics(),
         "AdvancedDataProtectionMetrics" => advanced_data_protection_metrics(),
+        "AdvancedPerformanceMetrics" => advanced_performance_metrics(),
         "BucketLevel" => bucket_level(),
         "DetailedStatusCodesMetrics" => detailed_status_codes_metrics(),
         "StorageLensGroupLevel" => storage_lens_group_level()
@@ -3848,6 +3912,17 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      object_encryption() :: %{
+        "SSEKMS" => s3_update_object_encryption_sse_kms()
+      }
+
+  """
+  @type object_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_access_grants_instance_request() :: %{
         required("AccountId") => String.t() | atom()
       }
@@ -3921,31 +3996,22 @@ defmodule AWS.S3Control do
   Associate your S3 Access Grants instance with an Amazon Web Services IAM
   Identity Center instance.
 
-  Use this
-  action if you want to create access grants for users or groups from your
-  corporate identity
-  directory. First, you must add your corporate identity directory to Amazon Web
-  Services IAM Identity
-  Center. Then, you can associate this IAM Identity Center instance with your S3
-  Access Grants
-  instance.
+  Use this action if you want to create access grants for users or groups from
+  your corporate identity directory. First, you must add your corporate identity
+  directory to Amazon Web Services IAM Identity Center. Then, you can associate
+  this IAM Identity Center instance with your S3 Access Grants instance.
 
   ## Definitions
 
   ### Permissions
 
-  You must have the `s3:AssociateAccessGrantsIdentityCenter`
-  permission to use this operation.
+  You must have the `s3:AssociateAccessGrantsIdentityCenter` permission to use
+  this operation.
 
   ### Additional Permissions
 
-  You must also have the following permissions:
-  `sso:CreateApplication`, `sso:PutApplicationGrant`, and
-  `sso:PutApplicationAuthenticationMethod`.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must also have the following permissions: `sso:CreateApplication`,
+  `sso:PutApplicationGrant`, and `sso:PutApplicationAuthenticationMethod`.
   """
   @spec associate_access_grants_identity_center(
           map(),
@@ -3985,22 +4051,18 @@ defmodule AWS.S3Control do
   @doc """
   Creates an access grant that gives a grantee access to your S3 data.
 
-  The grantee can be
-  an IAM user or role or a directory user, or group. Before you can create a
-  grant, you
-  must have an S3 Access Grants instance in the same Region as the S3 data. You
-  can create an S3 Access Grants
-  instance using the
-  [CreateAccessGrantsInstance](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsInstance.html). You must also have registered at least one S3 data
-  location in your S3 Access Grants instance using
+  The grantee can be an IAM user or role or a directory user, or group. Before you
+  can create a grant, you must have an S3 Access Grants instance in the same
+  Region as the S3 data. You can create an S3 Access Grants instance using the
+  [CreateAccessGrantsInstance](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsInstance.html). You must also have registered at least one S3 data location in your S3 Access
+  Grants instance using
   [CreateAccessGrantsLocation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsLocation.html).
 
   ## Definitions
 
   ### Permissions
 
-  You must have the `s3:CreateAccessGrant` permission to use this
-  operation.
+  You must have the `s3:CreateAccessGrant` permission to use this operation.
 
   ### Additional Permissions
 
@@ -4010,10 +4072,6 @@ defmodule AWS.S3Control do
   For directory users - `identitystore:DescribeUser`
 
   For directory groups - `identitystore:DescribeGroup`
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_access_grant(map(), create_access_grant_request(), list()) ::
           {:ok, create_access_grant_result(), any()}
@@ -4050,27 +4108,21 @@ defmodule AWS.S3Control do
   Creates an S3 Access Grants instance, which serves as a logical grouping for
   access grants.
 
-  You
-  can create one S3 Access Grants instance per Region per account.
+  You can create one S3 Access Grants instance per Region per account.
 
   ## Definitions
 
   ### Permissions
 
-  You must have the `s3:CreateAccessGrantsInstance` permission to use
-  this operation.
+  You must have the `s3:CreateAccessGrantsInstance` permission to use this
+  operation.
 
   ### Additional Permissions
 
   To associate an IAM Identity Center instance with your S3 Access Grants
-  instance, you
-  must also have the `sso:DescribeInstance`,
+  instance, you must also have the `sso:DescribeInstance`,
   `sso:CreateApplication`, `sso:PutApplicationGrant`, and
   `sso:PutApplicationAuthenticationMethod` permissions.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_access_grants_instance(map(), create_access_grants_instance_request(), list()) ::
           {:ok, create_access_grants_instance_result(), any()}
@@ -4107,10 +4159,8 @@ defmodule AWS.S3Control do
   The S3 data location that you would like to register in your S3 Access Grants
   instance.
 
-  Your S3
-  data must be in the same Region as your S3 Access Grants instance. The location
-  can be one of the
-  following:
+  Your S3 data must be in the same Region as your S3 Access Grants instance. The
+  location can be one of the following:
 
     *
   The default S3 location `s3://`
@@ -4122,28 +4172,22 @@ defmodule AWS.S3Control do
   A bucket and prefix - `S3:///`
 
   When you register a location, you must include the IAM role that has permission
-  to
-  manage the S3 location that you are registering. Give S3 Access Grants
-  permission to assume this role
-  [using a policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html).
-  S3 Access Grants assumes this role to manage access to the location and
-  to vend temporary credentials to grantees or client applications.
+  to manage the S3 location that you are registering. Give S3 Access Grants
+  permission to assume this role [using a policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html).
+  S3 Access Grants assumes this role to manage access to the location and to vend
+  temporary credentials to grantees or client applications.
 
   ## Definitions
 
   ### Permissions
 
-  You must have the `s3:CreateAccessGrantsLocation` permission to use
-  this operation.
+  You must have the `s3:CreateAccessGrantsLocation` permission to use this
+  operation.
 
   ### Additional Permissions
 
   You must also have the following permission for the specified IAM role:
   `iam:PassRole`
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_access_grants_location(map(), create_access_grants_location_request(), list()) ::
           {:ok, create_access_grants_location_result(), any()}
@@ -4225,10 +4269,6 @@ defmodule AWS.S3Control do
     *
 
   [ListAccessPointsForDirectoryBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForDirectoryBuckets.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_access_point(map(), String.t() | atom(), create_access_point_request(), list()) ::
           {:ok, create_access_point_result(), any()}
@@ -4284,10 +4324,6 @@ defmodule AWS.S3Control do
     *
 
   [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_access_point_for_object_lambda(
           map(),
@@ -4446,10 +4482,9 @@ defmodule AWS.S3Control do
   ### Permissions
 
   For information about permissions required to use the Batch Operations, see
-  [Granting permissions for S3 Batch
-  Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-iam-role-policies.html)
-  in the *Amazon S3 User
-  Guide*.
+  [Granting permissions for S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-iam-role-policies.html)
+  in the *Amazon S3
+  User Guide*.
 
   Related actions include:
 
@@ -4472,10 +4507,6 @@ defmodule AWS.S3Control do
     *
 
   [JobOperation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_job(map(), create_job_request(), list()) ::
           {:ok, create_job_result(), any()}
@@ -4515,8 +4546,7 @@ defmodule AWS.S3Control do
 
   Creates a Multi-Region Access Point and associates it with the specified
   buckets. For more information
-  about creating Multi-Region Access Points, see [Creating Multi-Region Access
-  Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html)
+  about creating Multi-Region Access Points, see [Creating Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html)
   in the *Amazon S3 User Guide*.
 
   This action will always be routed to the US West (Oregon) Region. For more
@@ -4550,10 +4580,6 @@ defmodule AWS.S3Control do
     *
 
   [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_multi_region_access_point(
           map(),
@@ -4612,10 +4638,6 @@ defmodule AWS.S3Control do
 
   For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec create_storage_lens_group(map(), create_storage_lens_group_request(), list()) ::
           {:ok, nil, any()}
@@ -4651,19 +4673,14 @@ defmodule AWS.S3Control do
   @doc """
   Deletes the access grant from the S3 Access Grants instance.
 
-  You cannot undo an access grant
-  deletion and the grantee will no longer have access to the S3 data.
+  You cannot undo an access grant deletion and the grantee will no longer have
+  access to the S3 data.
 
   ## Definitions
 
   ### Permissions
 
-  You must have the `s3:DeleteAccessGrant` permission to use this
-  operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:DeleteAccessGrant` permission to use this operation.
   """
   @spec delete_access_grant(map(), String.t() | atom(), delete_access_grant_request(), list()) ::
           {:ok, nil, any()}
@@ -4699,15 +4716,14 @@ defmodule AWS.S3Control do
   @doc """
   Deletes your S3 Access Grants instance.
 
-  You must first delete the access grants and locations
-  before S3 Access Grants can delete the instance. See
+  You must first delete the access grants and locations before S3 Access Grants
+  can delete the instance. See
   [DeleteAccessGrant](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html) and
   [DeleteAccessGrantsLocation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrantsLocation.html).
-  If you have associated an IAM Identity Center
-  instance with your S3 Access Grants instance, you must first dissassociate the
-  Identity Center
-  instance from the S3 Access Grants instance before you can delete the S3 Access
-  Grants instance. See
+  If you have associated an IAM Identity Center instance with your S3 Access
+  Grants instance, you must first dissassociate the Identity Center instance from
+  the S3 Access Grants instance before you can delete the S3 Access Grants
+  instance. See
   [AssociateAccessGrantsIdentityCenter](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AssociateAccessGrantsIdentityCenter.html) and
   [DissociateAccessGrantsIdentityCenter](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DissociateAccessGrantsIdentityCenter.html).
 
@@ -4715,12 +4731,8 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:DeleteAccessGrantsInstance` permission to use
-  this operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:DeleteAccessGrantsInstance` permission to use this
+  operation.
   """
   @spec delete_access_grants_instance(map(), delete_access_grants_instance_request(), list()) ::
           {:ok, nil, any()}
@@ -4756,21 +4768,16 @@ defmodule AWS.S3Control do
   @doc """
   Deletes the resource policy of the S3 Access Grants instance.
 
-  The resource policy is used to
-  manage cross-account access to your S3 Access Grants instance. By deleting the
-  resource policy, you
-  delete any cross-account permissions to your S3 Access Grants instance.
+  The resource policy is used to manage cross-account access to your S3 Access
+  Grants instance. By deleting the resource policy, you delete any cross-account
+  permissions to your S3 Access Grants instance.
 
   ## Definitions
 
   ### Permissions
 
-  You must have the `s3:DeleteAccessGrantsInstanceResourcePolicy`
-  permission to use this operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:DeleteAccessGrantsInstanceResourcePolicy` permission to
+  use this operation.
   """
   @spec delete_access_grants_instance_resource_policy(
           map(),
@@ -4810,25 +4817,18 @@ defmodule AWS.S3Control do
   @doc """
   Deregisters a location from your S3 Access Grants instance.
 
-  You can only delete a location
-  registration from an S3 Access Grants instance if there are no grants associated
-  with this location.
-  See [Delete a grant](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html)
-  for
-  information on how to delete grants. You need to have at least one registered
-  location in
-  your S3 Access Grants instance in order to create access grants.
+  You can only delete a location registration from an S3 Access Grants instance if
+  there are no grants associated with this location. See [Delete a grant](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html)
+  for information on how to delete grants. You need to have at least one
+  registered location in your S3 Access Grants instance in order to create access
+  grants.
 
   ## Definitions
 
   ### Permissions
 
-  You must have the `s3:DeleteAccessGrantsLocation` permission to use
-  this operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:DeleteAccessGrantsLocation` permission to use this
+  operation.
   """
   @spec delete_access_grants_location(
           map(),
@@ -4896,10 +4896,6 @@ defmodule AWS.S3Control do
     *
 
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_access_point(map(), String.t() | atom(), delete_access_point_request(), list()) ::
           {:ok, nil, any()}
@@ -4952,10 +4948,6 @@ defmodule AWS.S3Control do
     *
 
   [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_access_point_for_object_lambda(
           map(),
@@ -5013,10 +5005,6 @@ defmodule AWS.S3Control do
     *
 
   [GetAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_access_point_policy(
           map(),
@@ -5070,10 +5058,6 @@ defmodule AWS.S3Control do
     *
 
   [PutAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicyForObjectLambda.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_access_point_policy_for_object_lambda(
           map(),
@@ -5112,20 +5096,16 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+
   Deletes an existing access point scope for a directory bucket.
 
   When you delete the scope of an access point, all prefixes and permissions are
   deleted.
 
   To use this operation, you must have the permission to perform the
-  `s3express:DeleteAccessPointScope`
-  action.
+  `s3express:DeleteAccessPointScope` action.
 
   For information about REST API errors, see [REST error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_access_point_scope(
           map(),
@@ -5278,10 +5258,6 @@ defmodule AWS.S3Control do
     *
 
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_lifecycle_configuration(
           map(),
@@ -5383,10 +5359,6 @@ defmodule AWS.S3Control do
     *
 
   [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_policy(map(), String.t() | atom(), delete_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -5472,10 +5444,6 @@ defmodule AWS.S3Control do
     *
 
   [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketReplication.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_replication(
           map(),
@@ -5547,10 +5515,6 @@ defmodule AWS.S3Control do
     *
 
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_bucket_tagging(map(), String.t() | atom(), delete_bucket_tagging_request(), list()) ::
           {:ok, nil, any()}
@@ -5590,9 +5554,10 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  To use the `DeleteJobTagging` operation, you must have permission to
-  perform the `s3:DeleteJobTagging` action. For more information, see
-  [Controlling access and labeling jobs using tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
+  To use the
+  `DeleteJobTagging` operation, you must have permission to
+  perform the `s3:DeleteJobTagging` action. For more information, see [Controlling access and labeling jobs using
+  tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
   in the
   *Amazon S3 User Guide*.
 
@@ -5609,10 +5574,6 @@ defmodule AWS.S3Control do
     *
 
   [PutJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_job_tagging(map(), String.t() | atom(), delete_job_tagging_request(), list()) ::
           {:ok, delete_job_tagging_result(), any()}
@@ -5685,10 +5646,6 @@ defmodule AWS.S3Control do
     *
 
   [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_multi_region_access_point(
           map(),
@@ -5730,7 +5687,14 @@ defmodule AWS.S3Control do
   This operation is not supported by directory buckets.
 
   Removes the `PublicAccessBlock` configuration for an Amazon Web Services
-  account. For more
+  account. This
+  operation might be restricted when the account is managed by organization-level
+  Block
+  Public Access policies. You’ll get an Access Denied (403) error when the account
+  is managed
+  by organization-level Block Public Access policies. Organization-level policies
+  override
+  account-level settings, preventing direct account-level modifications. For more
   information, see [ Using Amazon S3 block public
   access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
@@ -5743,10 +5707,6 @@ defmodule AWS.S3Control do
     *
 
   [PutPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_public_access_block(map(), delete_public_access_block_request(), list()) ::
           {:ok, nil, any()}
@@ -5793,10 +5753,6 @@ defmodule AWS.S3Control do
   [Setting permissions to use Amazon S3 Storage
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon S3 User Guide*.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_storage_lens_configuration(
           map(),
@@ -5849,10 +5805,6 @@ defmodule AWS.S3Control do
   see [Setting permissions to use Amazon S3 Storage
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon S3 User Guide*.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_storage_lens_configuration_tagging(
           map(),
@@ -5906,10 +5858,6 @@ defmodule AWS.S3Control do
 
   For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec delete_storage_lens_group(
           map(),
@@ -5958,8 +5906,8 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  To use the `DescribeJob` operation, you must have permission to
-  perform the `s3:DescribeJob` action.
+  To use the `DescribeJob` operation, you must have permission to perform the
+  `s3:DescribeJob` action.
 
   Related actions include:
 
@@ -5978,10 +5926,6 @@ defmodule AWS.S3Control do
     *
 
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec describe_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_job_result(), any()}
@@ -6014,8 +5958,7 @@ defmodule AWS.S3Control do
   Point. For more information
   about managing Multi-Region Access Points and how asynchronous requests work,
   see [Using Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MrapOperations.html)
-  in the
-  *Amazon S3 User Guide*.
+  in the *Amazon S3 User Guide*.
 
   The following actions are related to `GetMultiRegionAccessPoint`:
 
@@ -6034,10 +5977,6 @@ defmodule AWS.S3Control do
     *
 
   [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec describe_multi_region_access_point_operation(
           map(),
@@ -6081,17 +6020,12 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:DissociateAccessGrantsIdentityCenter`
-  permission to use this operation.
+  You must have the `s3:DissociateAccessGrantsIdentityCenter` permission to use
+  this operation.
 
   ### Additional Permissions
 
-  You must have the `sso:DeleteApplication` permission to use this
-  operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `sso:DeleteApplication` permission to use this operation.
   """
   @spec dissociate_access_grants_identity_center(
           map(),
@@ -6135,12 +6069,7 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:GetAccessGrant` permission to use this
-  operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:GetAccessGrant` permission to use this operation.
   """
   @spec get_access_grant(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_grant_result(), any()}
@@ -6171,15 +6100,10 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:GetAccessGrantsInstance` permission to use
-  this operation.
+  You must have the `s3:GetAccessGrantsInstance` permission to use this operation.
 
   `GetAccessGrantsInstance` is not supported for cross-account access. You can
   only call the API from the account that owns the S3 Access Grants instance.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_access_grants_instance(map(), String.t() | atom(), list()) ::
           {:ok, get_access_grants_instance_result(), any()}
@@ -6210,17 +6134,13 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:GetAccessGrantsInstanceForPrefix` permission
-  for the caller account to use this operation.
+  You must have the `s3:GetAccessGrantsInstanceForPrefix` permission for the
+  caller account to use this operation.
 
   ### Additional Permissions
 
-  The prefix owner account must grant you the following permissions to their
-  S3 Access Grants instance: `s3:GetAccessGrantsInstanceForPrefix`.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  The prefix owner account must grant you the following permissions to their S3
+  Access Grants instance: `s3:GetAccessGrantsInstanceForPrefix`.
   """
   @spec get_access_grants_instance_for_prefix(
           map(),
@@ -6268,12 +6188,8 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:GetAccessGrantsInstanceResourcePolicy`
-  permission to use this operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:GetAccessGrantsInstanceResourcePolicy` permission to use
+  this operation.
   """
   @spec get_access_grants_instance_resource_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_access_grants_instance_resource_policy_result(), any()}
@@ -6305,12 +6221,7 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:GetAccessGrantsLocation` permission to use
-  this operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:GetAccessGrantsLocation` permission to use this operation.
   """
   @spec get_access_grants_location(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_grants_location_result(), any()}
@@ -6365,10 +6276,6 @@ defmodule AWS.S3Control do
     *
 
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_access_point(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_point_result(), any()}
@@ -6404,10 +6311,6 @@ defmodule AWS.S3Control do
     *
 
   [PutAccessPointConfigurationForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointConfigurationForObjectLambda.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_access_point_configuration_for_object_lambda(
           map(),
@@ -6460,10 +6363,6 @@ defmodule AWS.S3Control do
     *
 
   [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_access_point_for_object_lambda(
           map(),
@@ -6504,10 +6403,6 @@ defmodule AWS.S3Control do
     *
 
   [DeleteAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_access_point_policy(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_point_policy_result(), any()}
@@ -6547,10 +6442,6 @@ defmodule AWS.S3Control do
     *
 
   [PutAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicyForObjectLambda.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_access_point_policy_for_object_lambda(
           map(),
@@ -6594,10 +6485,6 @@ defmodule AWS.S3Control do
   access
   points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
   in the *Amazon S3 User Guide*.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_access_point_policy_status(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_point_policy_status_result(), any()}
@@ -6627,10 +6514,6 @@ defmodule AWS.S3Control do
 
   Returns the status of the resource policy associated with an Object Lambda
   Access Point.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_access_point_policy_status_for_object_lambda(
           map(),
@@ -6665,17 +6548,13 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+
   Returns the access point scope for a directory bucket.
 
   To use this operation, you must have the permission to perform the
-  `s3express:GetAccessPointScope`
-  action.
+  `s3express:GetAccessPointScope` action.
 
   For information about REST API errors, see [REST error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_access_point_scope(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_point_scope_result(), any()}
@@ -6746,10 +6625,6 @@ defmodule AWS.S3Control do
     *
 
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bucket_result(), any()}
@@ -6830,10 +6705,6 @@ defmodule AWS.S3Control do
     *
 
   [DeleteBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_lifecycle_configuration(
           map(),
@@ -6919,10 +6790,6 @@ defmodule AWS.S3Control do
     *
 
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_bucket_policy(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bucket_policy_result(), any()}
@@ -7181,20 +7048,14 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:GetDataAccess` permission to use this
-  operation.
+  You must have the `s3:GetDataAccess` permission to use this operation.
 
   ### Additional Permissions
 
   The IAM role that S3 Access Grants assumes must have the following permissions
-  specified in the trust policy when registering the location:
-  `sts:AssumeRole`, for directory users or groups
-  `sts:SetContext`, and for IAM users or roles
+  specified in the trust policy when registering the location: `sts:AssumeRole`,
+  for directory users or groups `sts:SetContext`, and for IAM users or roles
   `sts:SetSourceIdentity`.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_data_access(
           map(),
@@ -7278,7 +7139,8 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  To use the `GetJobTagging` operation, you must have permission to
+  To use the
+  `GetJobTagging` operation, you must have permission to
   perform the `s3:GetJobTagging` action. For more information, see [Controlling access and labeling jobs using
   tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
   in the
@@ -7297,10 +7159,6 @@ defmodule AWS.S3Control do
     *
 
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_job_tagging(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_job_tagging_result(), any()}
@@ -7355,10 +7213,6 @@ defmodule AWS.S3Control do
     *
 
   [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_multi_region_access_point(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_multi_region_access_point_result(), any()}
@@ -7405,10 +7259,6 @@ defmodule AWS.S3Control do
     *
 
   [PutMultiRegionAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPointPolicy.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_multi_region_access_point_policy(
           map(),
@@ -7462,10 +7312,6 @@ defmodule AWS.S3Control do
     *
 
   [PutMultiRegionAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPointPolicy.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_multi_region_access_point_policy_status(
           map(),
@@ -7530,10 +7376,6 @@ defmodule AWS.S3Control do
     *
 
   `eu-west-1`
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_multi_region_access_point_routes(
           map(),
@@ -7567,8 +7409,10 @@ defmodule AWS.S3Control do
   This operation is not supported by directory buckets.
 
   Retrieves the `PublicAccessBlock` configuration for an Amazon Web Services
-  account. For
-  more information, see [ Using Amazon S3 block public
+  account. This
+  operation returns the effective account-level configuration, which may inherit
+  from
+  organization-level policies. For more information, see [ Using Amazon S3 block public
   access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
   Related actions include:
@@ -7580,10 +7424,6 @@ defmodule AWS.S3Control do
     *
 
   [PutPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_public_access_block(map(), String.t() | atom(), list()) ::
           {:ok, get_public_access_block_output(), any()}
@@ -7624,10 +7464,6 @@ defmodule AWS.S3Control do
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the
   *Amazon S3 User Guide*.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_storage_lens_configuration(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_storage_lens_configuration_result(), any()}
@@ -7666,10 +7502,6 @@ defmodule AWS.S3Control do
   [Setting permissions to use Amazon S3 Storage
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon S3 User Guide*.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_storage_lens_configuration_tagging(
           map(),
@@ -7714,10 +7546,6 @@ defmodule AWS.S3Control do
 
   For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec get_storage_lens_group(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_storage_lens_group_result(), any()}
@@ -7748,12 +7576,7 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:ListAccessGrants` permission to use this
-  operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:ListAccessGrants` permission to use this operation.
   """
   @spec list_access_grants(
           map(),
@@ -7851,21 +7674,16 @@ defmodule AWS.S3Control do
   @doc """
   Returns a list of S3 Access Grants instances.
 
-  An S3 Access Grants instance serves as a logical grouping for
-  your individual access grants. You can only have one S3 Access Grants instance
-  per Region per
+  An S3 Access Grants instance serves as a logical grouping for your individual
+  access grants. You can only have one S3 Access Grants instance per Region per
   account.
 
   ## Definitions
 
   ### Permissions
 
-  You must have the `s3:ListAccessGrantsInstances` permission to use
-  this operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:ListAccessGrantsInstances` permission to use this
+  operation.
   """
   @spec list_access_grants_instances(
           map(),
@@ -7922,12 +7740,8 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:ListAccessGrantsLocations` permission to use
-  this operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:ListAccessGrantsLocations` permission to use this
+  operation.
   """
   @spec list_access_grants_locations(
           map(),
@@ -8022,10 +7836,6 @@ defmodule AWS.S3Control do
     *
 
   [GetAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_access_points(
           map(),
@@ -8104,20 +7914,14 @@ defmodule AWS.S3Control do
 
   @doc """
   Returns a list of the access points that are owned by the Amazon Web Services
-  account and that are associated
-  with the specified directory bucket.
+  account and that are associated with the specified directory bucket.
 
   To list access points for general purpose buckets, see
   [ListAccesspoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html).   To use this operation, you must have the permission to perform the
-  `s3express:ListAccessPointsForDirectoryBuckets`
-  action.
+  `s3express:ListAccessPointsForDirectoryBuckets` action.
 
   For information about REST API errors, see [REST error
   responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_access_points_for_directory_buckets(
           map(),
@@ -8200,10 +8004,6 @@ defmodule AWS.S3Control do
     *
 
   [GetAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_access_points_for_object_lambda(
           map(),
@@ -8255,21 +8055,16 @@ defmodule AWS.S3Control do
 
   @doc """
   Use this API to list the access grants that grant the caller access to Amazon S3
-  data through
-  S3 Access Grants.
+  data through S3 Access Grants.
 
   The caller (grantee) can be an Identity and Access Management (IAM) identity or
-  Amazon Web Services Identity Center
-  corporate directory identity. You must pass the Amazon Web Services account of
-  the S3 data owner
-  (grantor) in the request. You can, optionally, narrow the results by
-  `GrantScope`, using a fragment of the data's S3 path, and S3 Access Grants will
-  return
-  only the grants with a path that contains the path fragment. You can also pass
-  the
-  `AllowedByApplication` filter in the request, which returns only the grants
-  authorized for applications, whether the application is the caller's Identity
-  Center
+  Amazon Web Services Identity Center corporate directory identity. You must pass
+  the Amazon Web Services account of the S3 data owner (grantor) in the request.
+  You can, optionally, narrow the results by `GrantScope`, using a fragment of the
+  data's S3 path, and S3 Access Grants will return only the grants with a path
+  that contains the path fragment. You can also pass the `AllowedByApplication`
+  filter in the request, which returns only the grants authorized for
+  applications, whether the application is the caller's Identity Center
   application or any other application (`ALL`). For more information, see [List the caller's access
   grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-list-grants.html)
   in the *Amazon S3 User Guide*.
@@ -8278,12 +8073,7 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:ListCallerAccessGrants` permission to use this
-  operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:ListCallerAccessGrants` permission to use this operation.
   """
   @spec list_caller_access_grants(
           map(),
@@ -8363,8 +8153,9 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  To use the `ListJobs` operation, you must have permission to perform
-  the `s3:ListJobs` action.
+  To use the
+  `ListJobs` operation, you must have permission to
+  perform the `s3:ListJobs` action.
 
   Related actions include:
 
@@ -8383,10 +8174,6 @@ defmodule AWS.S3Control do
     *
 
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_jobs(
           map(),
@@ -8480,10 +8267,6 @@ defmodule AWS.S3Control do
     *
 
   [GetMultiRegionAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPoint.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_multi_region_access_points(
           map(),
@@ -8548,10 +8331,6 @@ defmodule AWS.S3Control do
   endpoint hostname prefix and `x-amz-outpost-id` in your request, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples)
   section.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_regional_buckets(
           map(),
@@ -8625,10 +8404,6 @@ defmodule AWS.S3Control do
   [Setting permissions to use Amazon S3 Storage
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon S3 User Guide*.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_storage_lens_configurations(
           map(),
@@ -8680,10 +8455,6 @@ defmodule AWS.S3Control do
 
   For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec list_storage_lens_groups(map(), String.t() | atom() | nil, String.t() | atom(), list()) ::
           {:ok, list_storage_lens_groups_result(), any()}
@@ -8717,12 +8488,14 @@ defmodule AWS.S3Control do
   @doc """
   This operation allows you to list all of the tags for a specified resource.
 
-  Each tag is
-  a label consisting of a key and value. Tags can help you organize, track costs
-  for, and
-  control access to resources.
+  Each tag is a label consisting of a key and value. Tags can help you organize,
+  track costs for, and control access to resources.
 
   This operation is only supported for the following Amazon S3 resources:
+
+    
+
+  [General purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html)
 
     
 
@@ -8738,7 +8511,7 @@ defmodule AWS.S3Control do
 
     
 
-  [Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html)
+  [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html)
 
     
 
@@ -8748,17 +8521,15 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  For Storage Lens groups and S3 Access Grants, you must have the
-  `s3:ListTagsForResource` permission to use this operation.
-
-  For more information about the required Storage Lens Groups permissions, see
-  [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+  For general purpose buckets, access points for general purpose buckets, Storage
+  Lens groups, and S3 Access Grants, you must have the `s3:ListTagsForResource`
+  permission to use this operation.
 
   ### Directory bucket permissions
 
-  For directory buckets and access points for directory buckets, you must have the
-  `s3express:ListTagsForResource` permission to use this operation. For more
-  information about directory buckets policies and permissions, see [Identity and Access Management (IAM) for S3 Express One
+  For directory buckets, you must have the `s3express:ListTagsForResource`
+  permission to use this operation. For more information about directory buckets
+  policies and permissions, see [Identity and Access Management (IAM) for S3 Express One
   Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-permissions.html)
   in the *Amazon S3 User Guide*.
 
@@ -8767,12 +8538,7 @@ defmodule AWS.S3Control do
   **Directory buckets ** - The HTTP Host header syntax is
   `s3express-control.*region*.amazonaws.com`.
 
-  For information about S3 Tagging errors, see [List of Amazon S3 Tagging error
-  codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
@@ -8803,12 +8569,8 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:PutAccessGrantsInstanceResourcePolicy`
-  permission to use this operation.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
+  You must have the `s3:PutAccessGrantsInstanceResourcePolicy` permission to use
+  this operation.
   """
   @spec put_access_grants_instance_resource_policy(
           map(),
@@ -8857,10 +8619,6 @@ defmodule AWS.S3Control do
     *
 
   [GetAccessPointConfigurationForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointConfigurationForObjectLambda.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_access_point_configuration_for_object_lambda(
           map(),
@@ -8928,10 +8686,6 @@ defmodule AWS.S3Control do
     *
 
   [DeleteAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_access_point_policy(
           map(),
@@ -8987,10 +8741,6 @@ defmodule AWS.S3Control do
     *
 
   [GetAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicyForObjectLambda.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_access_point_policy_for_object_lambda(
           map(),
@@ -9031,24 +8781,16 @@ defmodule AWS.S3Control do
   @doc """
   Creates or replaces the access point scope for a directory bucket.
 
-  You can use the access point
-  scope to restrict access to specific prefixes, API operations, or a combination
-  of
-  both.
+  You can use the access point scope to restrict access to specific prefixes, API
+  operations, or a combination of both.
 
   You can specify any amount of prefixes, but the total length of characters of
-  all
-  prefixes must be less than 256 bytes in size.
+  all prefixes must be less than 256 bytes in size.
 
   To use this operation, you must have the permission to perform the
-  `s3express:PutAccessPointScope`
-  action.
+  `s3express:PutAccessPointScope` action.
 
   For information about REST API errors, see [REST error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_access_point_scope(
           map(),
@@ -9612,10 +9354,6 @@ defmodule AWS.S3Control do
     *
 
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_bucket_versioning(map(), String.t() | atom(), put_bucket_versioning_request(), list()) ::
           {:ok, nil, any()}
@@ -9659,8 +9397,8 @@ defmodule AWS.S3Control do
   the existing tag set, you can either replace the existing tag set entirely, or
   make changes
   within the existing tag set by retrieving the existing tag set using
-  [GetJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html), modify that tag set, and use this operation to replace the tag
-  set with the one you modified. For more information, see [Controlling
+  [GetJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html), modify that tag set, and use this operation to replace the tag set
+  with the one you modified. For more information, see [Controlling
   access and labeling jobs using
   tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
   in the *Amazon S3 User Guide*.
@@ -9703,7 +9441,8 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  To use the `PutJobTagging` operation, you must have permission to
+  To use the
+  `PutJobTagging` operation, you must have permission to
   perform the `s3:PutJobTagging` action.
 
   Related actions include:
@@ -9719,10 +9458,6 @@ defmodule AWS.S3Control do
     *
 
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_job_tagging(map(), String.t() | atom(), put_job_tagging_request(), list()) ::
           {:ok, put_job_tagging_result(), any()}
@@ -9783,10 +9518,6 @@ defmodule AWS.S3Control do
     *
 
   [GetMultiRegionAccessPointPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicyStatus.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_multi_region_access_point_policy(
           map(),
@@ -9828,7 +9559,13 @@ defmodule AWS.S3Control do
   This operation is not supported by directory buckets.
 
   Creates or modifies the `PublicAccessBlock` configuration for an
-  Amazon Web Services account. For this operation, users must have the
+  Amazon Web Services account. This operation may be restricted when the account
+  is managed by
+  organization-level Block Public Access policies. You might get an Access Denied
+  (403) error
+  when the account is managed by organization-level Block Public Access policies.
+  Organization-level policies override account-level settings, preventing direct
+  account-level modifications. For this operation, users must have the
   `s3:PutAccountPublicAccessBlock` permission. For more information, see [
   Using Amazon S3 block public
   access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
@@ -9842,10 +9579,6 @@ defmodule AWS.S3Control do
     *
 
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_public_access_block(map(), put_public_access_block_request(), list()) ::
           {:ok, nil, any()}
@@ -9894,10 +9627,6 @@ defmodule AWS.S3Control do
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the
   *Amazon S3 User Guide*.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_storage_lens_configuration(
           map(),
@@ -9950,10 +9679,6 @@ defmodule AWS.S3Control do
   [Setting permissions to use Amazon S3 Storage
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon S3 User Guide*.
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec put_storage_lens_configuration_tagging(
           map(),
@@ -10040,10 +9765,6 @@ defmodule AWS.S3Control do
     *
 
   `eu-west-1`
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec submit_multi_region_access_point_routes(
           map(),
@@ -10093,6 +9814,10 @@ defmodule AWS.S3Control do
 
     
 
+  [General purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html)
+
+    
+
   [Access Points for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-db-tagging.html)
 
     
@@ -10111,37 +9836,19 @@ defmodule AWS.S3Control do
 
   [S3 Access Grants instances, registered locations, or grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html).
 
-  This operation is only supported for the following Amazon S3 resource:
-
-    
-
-  [Directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html)
-
-    
-
-  [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html)
-
-    
-
-  [S3 Access Grants instances, registered locations, or
-  grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html).
-
   ## Definitions
 
   ### Permissions
 
-  For Storage Lens groups and S3 Access Grants, you must have the
-  `s3:TagResource` permission to use this operation.
-
-  For more information about the required Storage Lens Groups permissions, see
-  [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+  For general purpose buckets, access points for general purpose buckets, Storage
+  Lens groups, and S3 Access Grants, you must have the `s3:TagResource` permission
+  to use this operation.
 
   ### Directory bucket permissions
 
-  For directory buckets and access points for directory buckets, you must have the
-  `s3express:TagResource` permission to use this operation. For more information
-  about directory buckets policies and permissions, see [Identity and Access Management (IAM) for S3 Express One
-  Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-permissions.html)
+  For directory buckets, you must have the `s3express:TagResource` permission to
+  use this operation. For more information about directory buckets policies and
+  permissions, see [Identity and Access Management (IAM) for S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-permissions.html)
   in the *Amazon S3 User Guide*.
 
   ### HTTP Host header syntax
@@ -10150,10 +9857,6 @@ defmodule AWS.S3Control do
   `s3express-control.*region*.amazonaws.com`.
 
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
@@ -10189,10 +9892,13 @@ defmodule AWS.S3Control do
   @doc """
   This operation removes the specified user-defined tags from an S3 resource.
 
-  You can pass
-  one or more tag keys.
+  You can pass one or more tag keys.
 
   This operation is only supported for the following Amazon S3 resources:
+
+    
+
+  [General purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html)
 
     
 
@@ -10208,7 +9914,7 @@ defmodule AWS.S3Control do
 
     
 
-  [Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html)
+  [S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html)
 
     
 
@@ -10218,18 +9924,15 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  For Storage Lens groups and S3 Access Grants, you must have the
-  `s3:UntagResource` permission to use this operation.
-
-  For more information about the required Storage Lens Groups permissions, see
-  [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+  For general purpose buckets, access points for general purpose buckets, Storage
+  Lens groups, and S3 Access Grants, you must have the `s3:UntagResource`
+  permission to use this operation.
 
   ### Directory bucket permissions
 
-  For directory buckets and access points for directory buckets, you must have
-  the `s3express:UntagResource` permission to use this operation.
-  For more information about directory buckets policies and permissions, see
-  [Identity and Access Management (IAM) for S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-permissions.html)
+  For directory buckets, you must have the `s3express:UntagResource` permission to
+  use this operation. For more information about directory buckets policies and
+  permissions, see [Identity and Access Management (IAM) for S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-permissions.html)
   in the *Amazon S3 User Guide*.
 
   ### HTTP Host header syntax
@@ -10239,10 +9942,6 @@ defmodule AWS.S3Control do
 
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
@@ -10287,16 +9986,12 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  You must have the `s3:UpdateAccessGrantsLocation` permission to use
-  this operation.
+  You must have the `s3:UpdateAccessGrantsLocation` permission to use this
+  operation.
 
   ### Additional Permissions
 
   You must also have the following permission: `iam:PassRole`
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec update_access_grants_location(
           map(),
@@ -10350,8 +10045,9 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  To use the `UpdateJobPriority` operation, you must have permission
-  to perform the `s3:UpdateJobPriority` action.
+  To use the
+  `UpdateJobPriority` operation, you must have permission to
+  perform the `s3:UpdateJobPriority` action.
 
   Related actions include:
 
@@ -10370,10 +10066,6 @@ defmodule AWS.S3Control do
     *
 
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec update_job_priority(map(), String.t() | atom(), update_job_priority_request(), list()) ::
           {:ok, update_job_priority_result(), any()}
@@ -10423,7 +10115,8 @@ defmodule AWS.S3Control do
 
   ### Permissions
 
-  To use the `UpdateJobStatus` operation, you must have permission to
+  To use the
+  `UpdateJobStatus` operation, you must have permission to
   perform the `s3:UpdateJobStatus` action.
 
   Related actions include:
@@ -10443,10 +10136,6 @@ defmodule AWS.S3Control do
     *
 
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec update_job_status(map(), String.t() | atom(), update_job_status_request(), list()) ::
           {:ok, update_job_status_result(), any()}
@@ -10497,10 +10186,6 @@ defmodule AWS.S3Control do
 
   For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
-
-  You must URL encode any signed header values that contain spaces. For example,
-  if your header value is `my file.txt`, containing two spaces after `my`, you
-  must URL encode this value to `my%20%20file.txt`.
   """
   @spec update_storage_lens_group(
           map(),

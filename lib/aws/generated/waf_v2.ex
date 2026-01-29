@@ -401,6 +401,18 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      disallowed_feature() :: %{
+        "Feature" => String.t() | atom(),
+        "RequiredPricingPlan" => String.t() | atom()
+      }
+      
+  """
+  @type disallowed_feature() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       rate_based_statement_managed_keys_ip_set() :: %{
         "Addresses" => list(String.t() | atom()),
         "IPAddressVersion" => list(any())
@@ -1104,6 +1116,20 @@ defmodule AWS.WAFV2 do
       
   """
   @type challenge_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_feature_not_included_in_pricing_plan_exception() :: %{
+        "DisallowedFeatures" => list(disallowed_feature()),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_feature_not_included_in_pricing_plan_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3407,6 +3433,7 @@ defmodule AWS.WAFV2 do
           | w_a_f_invalid_operation_exception()
           | w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_feature_not_included_in_pricing_plan_exception()
           | w_a_f_unavailable_entity_exception()
           | w_a_f_nonexistent_item_exception()
 
@@ -3718,6 +3745,7 @@ defmodule AWS.WAFV2 do
           | w_a_f_invalid_operation_exception()
           | w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_feature_not_included_in_pricing_plan_exception()
           | w_a_f_service_linked_role_error_exception()
           | w_a_f_nonexistent_item_exception()
 
@@ -3798,6 +3826,7 @@ defmodule AWS.WAFV2 do
           | w_a_f_invalid_operation_exception()
           | w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_feature_not_included_in_pricing_plan_exception()
           | w_a_f_unavailable_entity_exception()
           | w_a_f_nonexistent_item_exception()
           | w_a_f_expired_managed_rule_group_version_exception()

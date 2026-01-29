@@ -148,6 +148,17 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
+      message_processing_metadata() :: %{
+        "MessageProcessingStatus" => list(any())
+      }
+
+  """
+  @type message_processing_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       complete_attachment_upload_request() :: %{
         required("AttachmentIds") => list(String.t() | atom()),
         required("ClientToken") => String.t() | atom(),
@@ -369,6 +380,7 @@ defmodule AWS.ConnectParticipant do
 
       message_metadata() :: %{
         "MessageId" => String.t() | atom(),
+        "MessageProcessingStatus" => list(any()),
         "Receipts" => list(receipt())
       }
 
@@ -562,7 +574,8 @@ defmodule AWS.ConnectParticipant do
 
       send_message_response() :: %{
         "AbsoluteTime" => String.t() | atom(),
-        "Id" => String.t() | atom()
+        "Id" => String.t() | atom(),
+        "MessageMetadata" => message_processing_metadata()
       }
 
   """

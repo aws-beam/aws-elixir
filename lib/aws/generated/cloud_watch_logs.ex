@@ -100,6 +100,34 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      update_scheduled_query_response() :: %{
+        "creationTime" => float(),
+        "description" => String.t() | atom(),
+        "destinationConfiguration" => destination_configuration(),
+        "executionRoleArn" => String.t() | atom(),
+        "lastExecutionStatus" => list(any()),
+        "lastTriggeredTime" => float(),
+        "lastUpdatedTime" => float(),
+        "logGroupIdentifiers" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "queryLanguage" => list(any()),
+        "queryString" => String.t() | atom(),
+        "scheduleEndTime" => float(),
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleStartTime" => float(),
+        "scheduledQueryArn" => String.t() | atom(),
+        "startTimeOffset" => float(),
+        "state" => list(any()),
+        "timezone" => String.t() | atom()
+      }
+      
+  """
+  @type update_scheduled_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       trim_string() :: %{
         "withKeys" => list(String.t() | atom())
       }
@@ -120,6 +148,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type describe_resource_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_source_to_s3_table_integration_request() :: %{
+        required("dataSource") => data_source(),
+        required("integrationArn") => String.t() | atom()
+      }
+      
+  """
+  @type associate_source_to_s3_table_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,6 +273,21 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type get_log_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trigger_history_record() :: %{
+        "destinations" => list(scheduled_query_destination()),
+        "errorMessage" => String.t() | atom(),
+        "executionStatus" => list(any()),
+        "queryId" => String.t() | atom(),
+        "triggeredTimestamp" => float()
+      }
+      
+  """
+  @type trigger_history_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -418,6 +473,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      log_field_type() :: %{
+        "element" => log_field_type(),
+        "fields" => list(log_fields_list_item()),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type log_field_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_query_results_response() :: %{
         "encryptionKey" => String.t() | atom(),
         "queryLanguage" => list(any()),
@@ -495,6 +563,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      list_sources_for_s3_table_integration_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sources" => list(s3_table_integration_source())
+      }
+      
+  """
+  @type list_sources_for_s3_table_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       type_converter_entry() :: %{
         "key" => String.t() | atom(),
         "type" => list(any())
@@ -532,6 +612,24 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      list_aggregate_log_group_summaries_request() :: %{
+        optional("accountIdentifiers") => list(String.t() | atom()),
+        optional("dataSources") => list(data_source_filter()),
+        optional("includeLinkedAccounts") => boolean(),
+        optional("limit") => integer(),
+        optional("logGroupClass") => list(any()),
+        optional("logGroupNamePattern") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("groupBy") => list(any())
+      }
+      
+  """
+  @type list_aggregate_log_group_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_queries_response() :: %{
         "nextToken" => String.t() | atom(),
         "queries" => list(query_info())
@@ -539,6 +637,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type describe_queries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_query_request() :: %{
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_scheduled_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -581,6 +690,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type data_already_accepted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_scheduled_query_response() :: %{
+        "scheduledQueryArn" => String.t() | atom(),
+        "state" => list(any())
+      }
+      
+  """
+  @type create_scheduled_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -643,6 +764,15 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      delete_scheduled_query_response() :: %{}
+      
+  """
+  @type delete_scheduled_query_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       live_tail_session_metadata() :: %{
         "sampled" => boolean()
       }
@@ -655,6 +785,7 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       create_log_group_request() :: %{
+        optional("deletionProtectionEnabled") => boolean(),
         optional("kmsKeyId") => String.t() | atom(),
         optional("logGroupClass") => list(any()),
         optional("tags") => map(),
@@ -668,12 +799,40 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      disassociate_source_from_s3_table_integration_response() :: %{
+        "identifier" => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_source_from_s3_table_integration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       fields_data() :: %{
         "data" => binary()
       }
       
   """
   @type fields_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_query_destination() :: %{
+        "destinationIdentifier" => String.t() | atom(),
+        "destinationType" => list(any()),
+        "errorMessage" => String.t() | atom(),
+        "processedIdentifier" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type scheduled_query_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -777,6 +936,20 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      describe_import_task_batches_response() :: %{
+        "importBatches" => list(import_batch()),
+        "importId" => String.t() | atom(),
+        "importSourceArn" => String.t() | atom(),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_import_task_batches_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_log_record_response() :: %{
         "logRecord" => map()
       }
@@ -856,6 +1029,44 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      put_log_group_deletion_protection_request() :: %{
+        required("deletionProtectionEnabled") => boolean(),
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type put_log_group_deletion_protection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sources_for_s3_table_integration_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("integrationArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_sources_for_s3_table_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_queries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("state") => list(any())
+      }
+      
+  """
+  @type list_scheduled_queries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_anomaly_request() :: %{
         optional("anomalyId") => String.t() | atom(),
         optional("baseline") => boolean(),
@@ -867,6 +1078,30 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type update_anomaly_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_scheduled_query_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("destinationConfiguration") => destination_configuration(),
+        optional("logGroupIdentifiers") => list(String.t() | atom()),
+        optional("scheduleEndTime") => float(),
+        optional("scheduleStartTime") => float(),
+        optional("startTimeOffset") => float(),
+        optional("state") => list(any()),
+        optional("tags") => map(),
+        optional("timezone") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("queryLanguage") => list(any()),
+        required("queryString") => String.t() | atom(),
+        required("scheduleExpression") => String.t() | atom()
+      }
+      
+  """
+  @type create_scheduled_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,6 +1166,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type session_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_statistics() :: %{
+        "bytesImported" => float()
+      }
+      
+  """
+  @type import_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1020,7 +1266,8 @@ defmodule AWS.CloudWatchLogs do
         "firstEventTime" => float(),
         "lastEventTime" => float(),
         "lastScanTime" => float(),
-        "logGroupIdentifier" => String.t() | atom()
+        "logGroupIdentifier" => String.t() | atom(),
+        "type" => list(any())
       }
       
   """
@@ -1183,6 +1430,8 @@ defmodule AWS.CloudWatchLogs do
       
       list_log_groups_request() :: %{
         optional("accountIdentifiers") => list(String.t() | atom()),
+        optional("dataSources") => list(data_source_filter()),
+        optional("fieldIndexNames") => list(String.t() | atom()),
         optional("includeLinkedAccounts") => boolean(),
         optional("limit") => integer(),
         optional("logGroupClass") => list(any()),
@@ -1221,6 +1470,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      create_import_task_response() :: %{
+        "creationTime" => float(),
+        "importDestinationArn" => String.t() | atom(),
+        "importId" => String.t() | atom()
+      }
+      
+  """
+  @type create_import_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_query_definitions_response() :: %{
         "nextToken" => String.t() | atom(),
         "queryDefinitions" => list(query_definition())
@@ -1239,6 +1501,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type get_delivery_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_fields_request() :: %{
+        required("dataSourceName") => String.t() | atom(),
+        required("dataSourceType") => String.t() | atom()
+      }
+      
+  """
+  @type get_log_fields_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1308,6 +1582,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      get_scheduled_query_request() :: %{
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_retention_policy_request() :: %{
         required("logGroupName") => String.t() | atom()
       }
@@ -1341,6 +1626,30 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type live_tail_session_log_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_log_group_summary() :: %{
+        "groupingIdentifiers" => list(grouping_identifier()),
+        "logGroupCount" => integer()
+      }
+      
+  """
+  @type aggregate_log_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aggregate_log_group_summaries_response() :: %{
+        "aggregateLogGroupSummaries" => list(aggregate_log_group_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_aggregate_log_group_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1410,6 +1719,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type describe_index_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_import_task_request() :: %{
+        required("importId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_import_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1698,6 +2018,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      disassociate_source_from_s3_table_integration_request() :: %{
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_source_from_s3_table_integration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       associate_kms_key_request() :: %{
         optional("logGroupName") => String.t() | atom(),
         optional("resourceIdentifier") => String.t() | atom(),
@@ -1801,6 +2134,34 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type put_delivery_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_query_response() :: %{
+        "creationTime" => float(),
+        "description" => String.t() | atom(),
+        "destinationConfiguration" => destination_configuration(),
+        "executionRoleArn" => String.t() | atom(),
+        "lastExecutionStatus" => list(any()),
+        "lastTriggeredTime" => float(),
+        "lastUpdatedTime" => float(),
+        "logGroupIdentifiers" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "queryLanguage" => list(any()),
+        "queryString" => String.t() | atom(),
+        "scheduleEndTime" => float(),
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleStartTime" => float(),
+        "scheduledQueryArn" => String.t() | atom(),
+        "startTimeOffset" => float(),
+        "state" => list(any()),
+        "timezone" => String.t() | atom()
+      }
+      
+  """
+  @type get_scheduled_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1923,6 +2284,21 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      cancel_import_task_response() :: %{
+        "creationTime" => float(),
+        "importId" => String.t() | atom(),
+        "importStatistics" => import_statistics(),
+        "importStatus" => list(any()),
+        "lastUpdatedTime" => float()
+      }
+      
+  """
+  @type cancel_import_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       filter_log_events_request() :: %{
         optional("endTime") => float(),
         optional("filterPattern") => String.t() | atom(),
@@ -2015,6 +2391,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type parse_key_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_fields_list_item() :: %{
+        "logFieldName" => String.t() | atom(),
+        "logFieldType" => log_field_type()
+      }
+      
+  """
+  @type log_fields_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2122,6 +2510,26 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      scheduled_query_summary() :: %{
+        "creationTime" => float(),
+        "destinationConfiguration" => destination_configuration(),
+        "lastExecutionStatus" => list(any()),
+        "lastTriggeredTime" => float(),
+        "lastUpdatedTime" => float(),
+        "name" => String.t() | atom(),
+        "scheduleExpression" => String.t() | atom(),
+        "scheduledQueryArn" => String.t() | atom(),
+        "state" => list(any()),
+        "timezone" => String.t() | atom()
+      }
+      
+  """
+  @type scheduled_query_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       open_search_lifecycle_policy() :: %{
         "policyName" => String.t() | atom(),
         "status" => open_search_resource_status()
@@ -2217,6 +2625,36 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      describe_import_task_batches_request() :: %{
+        optional("batchImportStatus") => list(list(any())()),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("importId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_import_task_batches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_query_history_request() :: %{
+        optional("executionStatuses") => list(list(any())()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("endTime") => float(),
+        required("identifier") => String.t() | atom(),
+        required("startTime") => float()
+      }
+      
+  """
+  @type get_scheduled_query_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_delivery_configuration_request() :: %{
         optional("fieldDelimiter") => String.t() | atom(),
         optional("recordFields") => list(String.t() | atom()),
@@ -2290,6 +2728,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type metric_transformation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2399,6 +2848,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      create_import_task_request() :: %{
+        optional("importFilter") => import_filter(),
+        required("importRoleArn") => String.t() | atom(),
+        required("importSourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_import_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_query_response() :: %{
         "queryId" => String.t() | atom()
       }
@@ -2430,6 +2892,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type start_live_tail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_fields_response() :: %{
+        "logFields" => list(log_fields_list_item())
+      }
+      
+  """
+  @type get_log_fields_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2472,6 +2945,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      associate_source_to_s3_table_integration_response() :: %{
+        "identifier" => String.t() | atom()
+      }
+      
+  """
+  @type associate_source_to_s3_table_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_resource_policy_request() :: %{
         optional("expectedRevisionId") => String.t() | atom(),
         optional("policyDocument") => String.t() | atom(),
@@ -2486,12 +2970,47 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      update_scheduled_query_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("destinationConfiguration") => destination_configuration(),
+        optional("logGroupIdentifiers") => list(String.t() | atom()),
+        optional("scheduleEndTime") => float(),
+        optional("scheduleStartTime") => float(),
+        optional("startTimeOffset") => float(),
+        optional("state") => list(any()),
+        optional("timezone") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("identifier") => String.t() | atom(),
+        required("queryLanguage") => list(any()),
+        required("queryString") => String.t() | atom(),
+        required("scheduleExpression") => String.t() | atom()
+      }
+      
+  """
+  @type update_scheduled_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_delivery_source_request() :: %{
         required("name") => String.t() | atom()
       }
       
   """
   @type delete_delivery_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source_filter() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type data_source_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2514,6 +3033,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_filter() :: %{
+        "endEventTime" => float(),
+        "startEventTime" => float()
+      }
+      
+  """
+  @type import_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2571,6 +3102,7 @@ defmodule AWS.CloudWatchLogs do
       
       parse_to_o_c_s_f() :: %{
         "eventSource" => list(any()),
+        "mappingVersion" => String.t() | atom(),
         "ocsfVersion" => list(any()),
         "source" => String.t() | atom()
       }
@@ -2606,12 +3138,39 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      list_scheduled_queries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "scheduledQueries" => list(scheduled_query_summary())
+      }
+      
+  """
+  @type list_scheduled_queries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_data_protection_policy_request() :: %{
         required("logGroupIdentifier") => String.t() | atom()
       }
       
   """
   @type get_data_protection_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_table_integration_source() :: %{
+        "createdTimeStamp" => float(),
+        "dataSource" => data_source(),
+        "identifier" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom()
+      }
+      
+  """
+  @type s3_table_integration_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2775,6 +3334,7 @@ defmodule AWS.CloudWatchLogs do
         "arn" => String.t() | atom(),
         "creationTime" => float(),
         "dataProtectionStatus" => list(any()),
+        "deletionProtectionEnabled" => boolean(),
         "inheritedProperties" => list(list(any())()),
         "kmsKeyId" => String.t() | atom(),
         "logGroupArn" => String.t() | atom(),
@@ -2817,6 +3377,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type describe_log_streams_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_configuration() :: %{
+        "destinationIdentifier" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+      
+  """
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3102,6 +3674,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      data_source() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_configuration_templates_response() :: %{
         "configurationTemplates" => list(configuration_template()),
         "nextToken" => String.t() | atom()
@@ -3109,6 +3693,21 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type describe_configuration_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_import_tasks_request() :: %{
+        optional("importId") => String.t() | atom(),
+        optional("importSourceArn") => String.t() | atom(),
+        optional("importStatus") => list(any()),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_import_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3237,6 +3836,25 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      import() :: %{
+        "creationTime" => float(),
+        "errorMessage" => String.t() | atom(),
+        "importDestinationArn" => String.t() | atom(),
+        "importFilter" => import_filter(),
+        "importId" => String.t() | atom(),
+        "importSourceArn" => String.t() | atom(),
+        "importStatistics" => import_statistics(),
+        "importStatus" => list(any()),
+        "lastUpdatedTime" => float()
+      }
+      
+  """
+  @type import() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_delivery_request() :: %{
         optional("fieldDelimiter") => String.t() | atom(),
         optional("recordFields") => list(String.t() | atom()),
@@ -3283,6 +3901,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type test_metric_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      grouping_identifier() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type grouping_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3373,6 +4003,20 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      get_scheduled_query_history_response() :: %{
+        "name" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "scheduledQueryArn" => String.t() | atom(),
+        "triggerHistory" => list(trigger_history_record())
+      }
+      
+  """
+  @type get_scheduled_query_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       too_many_tags_exception() :: %{
         "message" => String.t() | atom(),
         "resourceName" => String.t() | atom()
@@ -3380,6 +4024,42 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_batch() :: %{
+        "batchId" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type import_batch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_import_tasks_response() :: %{
+        "imports" => list(import()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_import_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_configuration() :: %{
+        "s3Configuration" => s3_configuration()
+      }
+      
+  """
+  @type destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3464,9 +4144,23 @@ defmodule AWS.CloudWatchLogs do
           | resource_not_found_exception()
           | operation_aborted_exception()
 
+  @type associate_source_to_s3_table_integration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type cancel_export_task_errors() ::
           invalid_parameter_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
+  @type cancel_import_task_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | resource_not_found_exception()
           | invalid_operation_exception()
 
@@ -3487,6 +4181,15 @@ defmodule AWS.CloudWatchLogs do
           | resource_not_found_exception()
           | operation_aborted_exception()
 
+  @type create_import_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | invalid_operation_exception()
+
   @type create_log_anomaly_detector_errors() ::
           limit_exceeded_exception()
           | invalid_parameter_exception()
@@ -3506,6 +4209,15 @@ defmodule AWS.CloudWatchLogs do
           | invalid_parameter_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
+
+  @type create_scheduled_query_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_account_policy_errors() ::
           invalid_parameter_exception()
@@ -3575,13 +4287,15 @@ defmodule AWS.CloudWatchLogs do
           | operation_aborted_exception()
 
   @type delete_log_group_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
+          | invalid_parameter_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
 
   @type delete_log_stream_errors() ::
-          invalid_parameter_exception()
+          validation_exception()
+          | invalid_parameter_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
@@ -3608,6 +4322,13 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type delete_scheduled_query_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type delete_subscription_filter_errors() ::
           invalid_parameter_exception()
@@ -3665,6 +4386,20 @@ defmodule AWS.CloudWatchLogs do
           | resource_not_found_exception()
           | operation_aborted_exception()
 
+  @type describe_import_task_batches_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
+  @type describe_import_tasks_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
   @type describe_index_policies_errors() ::
           limit_exceeded_exception()
           | invalid_parameter_exception()
@@ -3706,6 +4441,13 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type disassociate_source_from_s3_table_integration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type filter_log_events_errors() ::
           invalid_parameter_exception()
@@ -3760,6 +4502,12 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
 
+  @type get_log_fields_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
   @type get_log_group_fields_errors() ::
           limit_exceeded_exception()
           | invalid_parameter_exception()
@@ -3784,11 +4532,28 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
 
+  @type get_scheduled_query_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_scheduled_query_history_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_transformer_errors() ::
           invalid_parameter_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
           | invalid_operation_exception()
+
+  @type list_aggregate_log_group_summaries_errors() ::
+          validation_exception() | invalid_parameter_exception() | service_unavailable_exception()
 
   @type list_anomalies_errors() ::
           invalid_parameter_exception()
@@ -3812,6 +4577,19 @@ defmodule AWS.CloudWatchLogs do
           invalid_parameter_exception()
           | access_denied_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type list_scheduled_queries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_sources_for_s3_table_integration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
@@ -3887,6 +4665,14 @@ defmodule AWS.CloudWatchLogs do
           | resource_not_found_exception()
           | data_already_accepted_exception()
           | invalid_sequence_token_exception()
+
+  @type put_log_group_deletion_protection_errors() ::
+          invalid_parameter_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_operation_exception()
 
   @type put_metric_filter_errors() ::
           limit_exceeded_exception()
@@ -3993,6 +4779,13 @@ defmodule AWS.CloudWatchLogs do
           | resource_not_found_exception()
           | operation_aborted_exception()
 
+  @type update_scheduled_query_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   def metadata do
     %{
       api_version: "2014-03-28",
@@ -4082,6 +4875,30 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Associates a data source with an S3 Table Integration for query access in the
+  'logs'
+  namespace.
+
+  This enables querying log data using analytics engines that support Iceberg such
+  as
+  Amazon Athena, Amazon Redshift, and Apache Spark.
+  """
+  @spec associate_source_to_s3_table_integration(
+          map(),
+          associate_source_to_s3_table_integration_request(),
+          list()
+        ) ::
+          {:ok, associate_source_to_s3_table_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_source_to_s3_table_integration_errors()}
+  def associate_source_to_s3_table_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateSourceToS3TableIntegration", input, options)
+  end
+
+  @doc """
   Cancels the specified export task.
 
   The task must be in the `PENDING` or `RUNNING` state.
@@ -4095,6 +4912,21 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "CancelExportTask", input, options)
+  end
+
+  @doc """
+  Cancels an active import task and stops importing data from the CloudTrail Lake
+  Event Data Store.
+  """
+  @spec cancel_import_task(map(), cancel_import_task_request(), list()) ::
+          {:ok, cancel_import_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_import_task_errors()}
+  def cancel_import_task(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelImportTask", input, options)
   end
 
   @doc """
@@ -4206,6 +5038,83 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateExportTask", input, options)
+  end
+
+  @doc """
+  Starts an import from a data source to CloudWatch Log and creates a managed log
+  group as the destination for the imported data.
+
+  Currently, [CloudTrail Event Data Store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html)
+  is the only supported data source.
+
+  The import task must satisfy the following constraints:
+
+    *
+  The specified source must be in an ACTIVE state.
+
+    *
+  The API caller must have permissions to access the data in the provided source
+  and to perform iam:PassRole on the
+  provided import role which has the same permissions, as described below.
+
+    *
+  The provided IAM role must trust the "cloudtrail.amazonaws.com" principal and
+  have the following permissions:
+
+      *
+  cloudtrail:GetEventDataStoreData
+
+      *
+  logs:CreateLogGroup
+
+      *
+  logs:CreateLogStream
+
+      *
+  logs:PutResourcePolicy
+
+      *
+  (If source has an associated AWS KMS Key) kms:Decrypt
+
+      *
+  (If source has an associated AWS KMS Key) kms:GenerateDataKey
+
+  Example IAM policy for provided import role:
+
+  `[ { "Effect": "Allow", "Action": "iam:PassRole", "Resource": "arn:aws:iam::123456789012:role/apiCallerCredentials", "Condition": {
+  "StringLike": { "iam:AssociatedResourceARN":
+  "arn:aws:logs:us-east-1:123456789012:log-group:aws/cloudtrail/f1d45bff-d0e3-4868-b5d9-2eb678aa32fb:*"
+  } } }, { "Effect": "Allow", "Action": [ "cloudtrail:GetEventDataStoreData" ],
+  "Resource": [
+  "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/f1d45bff-d0e3-4868-b5d9-2eb678aa32fb"
+  ] }, { "Effect": "Allow", "Action": [ "logs:CreateImportTask", "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutResourcePolicy" ],
+  "Resource": [ "arn:aws:logs:us-east-1:123456789012:log-group:/aws/cloudtrail/*"
+  ] }, { "Effect": "Allow", "Action": [ "kms:Decrypt", "kms:GenerateDataKey" ], "Resource": [
+  "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012" ]
+  } ]`
+
+    *
+  If the import source has a customer managed key, the "cloudtrail.amazonaws.com"
+  principal needs permissions to perform kms:Decrypt and kms:GenerateDataKey.
+
+    *
+  There can be no more than 3 active imports per account at a given time.
+
+    *
+  The startEventTime must be less than or equal to endEventTime.
+
+    *
+  The data being imported must be within the specified source's retention period.
+  """
+  @spec create_import_task(map(), create_import_task_request(), list()) ::
+          {:ok, create_import_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_import_task_errors()}
+  def create_import_task(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateImportTask", input, options)
   end
 
   @doc """
@@ -4344,12 +5253,37 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Creates a scheduled query that runs CloudWatch Logs Insights queries at regular
+  intervals.
+
+  Scheduled queries enable proactive monitoring by automatically executing queries
+  to detect
+  patterns and anomalies in your log data. Query results can be delivered to
+  Amazon S3 for analysis
+  or further processing.
+  """
+  @spec create_scheduled_query(map(), create_scheduled_query_request(), list()) ::
+          {:ok, create_scheduled_query_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_scheduled_query_errors()}
+  def create_scheduled_query(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateScheduledQuery", input, options)
+  end
+
+  @doc """
   Deletes a CloudWatch Logs account policy.
 
   This stops the account-wide policy from
-  applying to log groups in the account. If you delete a data protection policy or
-  subscription
-  filter policy, any log-group level policies of those types remain in effect.
+  applying to log groups or data sources in the account. If you delete a data
+  protection policy
+  or subscription filter policy, any log-group level policies of those types
+  remain in effect.
+  This operation supports deletion of data source-based field index policies,
+  including facet
+  configurations, in addition to log group-based policies.
 
   To use this operation, you must be signed on with the correct permissions
   depending on the
@@ -4372,6 +5306,12 @@ defmodule AWS.CloudWatchLogs do
     *
   To delete a field index policy, you must have the `logs:DeleteIndexPolicy`
   and `logs:DeleteAccountPolicy` permissions.
+
+  If you delete a field index policy that included facet configurations, those
+  facets
+  will no longer be available for interactive exploration in the CloudWatch Logs
+  Insights
+  console. However, facet data is retained for up to 30 days.
 
   If you delete a field index policy, the indexing of the log events that happened
   before
@@ -4529,15 +5469,25 @@ defmodule AWS.CloudWatchLogs do
   be used for
   as many as 30 days to improve CloudWatch Logs Insights queries.
 
+  If the deleted policy included facet configurations, those facets will no longer
+  be
+  available for interactive exploration in the CloudWatch Logs Insights console
+  for this log
+  group. However, facet data is retained for up to 30 days.
+
   You can't use this operation to delete an account-level index policy. Instead,
   use
-  [DeletAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html).
+  [DeleteAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html).
 
   If you delete a log-group level field index policy and there is an account-level
   field
   index policy, in a few minutes the log group begins using that account-wide
   policy to index
-  new incoming log events.
+  new incoming log events. This operation only affects log group-level policies,
+  including any
+  facet configurations, and preserves any data source-based account policies that
+  may apply to
+  the log group.
   """
   @spec delete_index_policy(map(), delete_index_policy_request(), list()) ::
           {:ok, delete_index_policy_response(), any()}
@@ -4686,6 +5636,23 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteRetentionPolicy", input, options)
+  end
+
+  @doc """
+  Deletes a scheduled query and stops all future executions.
+
+  This operation also removes any
+  configured actions and associated resources.
+  """
+  @spec delete_scheduled_query(map(), delete_scheduled_query_request(), list()) ::
+          {:ok, delete_scheduled_query_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_scheduled_query_errors()}
+  def delete_scheduled_query(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScheduledQuery", input, options)
   end
 
   @doc """
@@ -4900,6 +5867,39 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Gets detailed information about the individual batches within an import task,
+  including their status and any error messages.
+
+  For CloudTrail Event Data Store sources, a batch refers to a subset of stored
+  events grouped by their eventTime.
+  """
+  @spec describe_import_task_batches(map(), describe_import_task_batches_request(), list()) ::
+          {:ok, describe_import_task_batches_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_import_task_batches_errors()}
+  def describe_import_task_batches(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImportTaskBatches", input, options)
+  end
+
+  @doc """
+  Lists and describes import tasks, with optional filtering by import status and
+  source ARN.
+  """
+  @spec describe_import_tasks(map(), describe_import_tasks_request(), list()) ::
+          {:ok, describe_import_tasks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_import_tasks_errors()}
+  def describe_import_tasks(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeImportTasks", input, options)
+  end
+
+  @doc """
   Returns the field index policies of the specified log group.
 
   For more information about
@@ -4929,10 +5929,13 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Returns information about log groups.
+  Returns information about log groups, including data sources that ingest into
+  each log
+  group.
 
-  You can return all your log groups or filter the
-  results by prefix. The results are ASCII-sorted by log group name.
+  You can return all your log groups or filter the results by prefix. The results
+  are
+  ASCII-sorted by log group name.
 
   CloudWatch Logs doesn't support IAM policies that control access to the
   `DescribeLogGroups` action by using the
@@ -5029,6 +6032,14 @@ defmodule AWS.CloudWatchLogs do
 
   You can request all queries or limit it to queries of a
   specific log group or queries with a certain status.
+
+  This operation includes both interactive queries started directly by users and
+  automated
+  queries executed by scheduled query configurations. Scheduled query executions
+  appear in the
+  results alongside manually initiated queries, providing visibility into all
+  query activity in
+  your account.
   """
   @spec describe_queries(map(), describe_queries_request(), list()) ::
           {:ok, describe_queries_response(), any()}
@@ -5138,6 +6149,26 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "DisassociateKmsKey", input, options)
+  end
+
+  @doc """
+  Disassociates a data source from an S3 Table Integration, removing query access
+  and
+  deleting all associated data from the integration.
+  """
+  @spec disassociate_source_from_s3_table_integration(
+          map(),
+          disassociate_source_from_s3_table_integration_request(),
+          list()
+        ) ::
+          {:ok, disassociate_source_from_s3_table_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_source_from_s3_table_integration_errors()}
+  def disassociate_source_from_s3_table_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateSourceFromS3TableIntegration", input, options)
   end
 
   @doc """
@@ -5396,12 +6427,34 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Discovers available fields for a specific data source and type.
+
+  The response includes any
+  field modifications introduced through pipelines, such as new fields or changed
+  field types.
+  """
+  @spec get_log_fields(map(), get_log_fields_request(), list()) ::
+          {:ok, get_log_fields_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_log_fields_errors()}
+  def get_log_fields(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLogFields", input, options)
+  end
+
+  @doc """
   Returns a list of the fields that are included in log events in the specified
   log group.
 
   Includes the percentage of log events that contain each field. The search is
   limited to a time
   period that you specify.
+
+  This operation is used for discovering fields within log group events. For
+  discovering
+  fields across data sources, use the GetLogFields operation.
 
   You can specify the log group to search by using either `logGroupIdentifier` or
   `logGroupName`. You must specify one of these parameters, but you can't specify
@@ -5500,6 +6553,12 @@ defmodule AWS.CloudWatchLogs do
   `Running` for the status, you can retry the operation later to see the final
   results.
 
+  This operation is used both for retrieving results from interactive queries and
+  from
+  automated scheduled query executions. Scheduled queries use `GetQueryResults`
+  internally to retrieve query results for processing and delivery to configured
+  destinations.
+
   If you are using CloudWatch cross-account observability, you can use this
   operation
   in a monitoring account to start queries in linked source accounts. For more
@@ -5515,6 +6574,38 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "GetQueryResults", input, options)
+  end
+
+  @doc """
+  Retrieves details about a specific scheduled query, including its configuration,
+  execution
+  status, and metadata.
+  """
+  @spec get_scheduled_query(map(), get_scheduled_query_request(), list()) ::
+          {:ok, get_scheduled_query_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_scheduled_query_errors()}
+  def get_scheduled_query(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetScheduledQuery", input, options)
+  end
+
+  @doc """
+  Retrieves the execution history of a scheduled query within a specified time
+  range,
+  including query results and destination processing status.
+  """
+  @spec get_scheduled_query_history(map(), get_scheduled_query_history_request(), list()) ::
+          {:ok, get_scheduled_query_history_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_scheduled_query_history_errors()}
+  def get_scheduled_query_history(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetScheduledQueryHistory", input, options)
   end
 
   @doc """
@@ -5535,6 +6626,44 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "GetTransformer", input, options)
+  end
+
+  @doc """
+  Returns an aggregate summary of all log groups in the Region grouped by
+  specified data
+  source characteristics.
+
+  Supports optional filtering by log group class, name patterns, and
+  data sources. If you perform this action in a monitoring account, you can also
+  return
+  aggregated summaries of log groups from source accounts that are linked to the
+  monitoring
+  account. For more information about using cross-account observability to set up
+  monitoring
+  accounts and source accounts, see [CloudWatch cross-account
+  observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+
+  The operation aggregates log groups by data source name and type and optionally
+  format,
+  providing counts of log groups that share these characteristics. The operation
+  paginates
+  results. By default, it returns up to 50 results and includes a token to
+  retrieve more
+  results.
+  """
+  @spec list_aggregate_log_group_summaries(
+          map(),
+          list_aggregate_log_group_summaries_request(),
+          list()
+        ) ::
+          {:ok, list_aggregate_log_group_summaries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_aggregate_log_group_summaries_errors()}
+  def list_aggregate_log_group_summaries(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAggregateLogGroupSummaries", input, options)
   end
 
   @doc """
@@ -5602,9 +6731,15 @@ defmodule AWS.CloudWatchLogs do
   CloudWatch cross-account
   observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 
-  You can optionally filter the list by log group class and by using regular
+  You can optionally filter the list by log group class, by using regular
   expressions in
-  your request to match strings in the log group names.
+  your request to match strings in the log group names, by using the fieldIndexes
+  parameter to
+  filter log groups based on which field indexes are configured, by using the
+  dataSources
+  parameter to filter log groups by data source types, and by using the
+  fieldIndexNames
+  parameter to filter by specific field index names.
 
   This operation is paginated. By default, your first use of this operation
   returns 50
@@ -5643,6 +6778,43 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "ListLogGroupsForQuery", input, options)
+  end
+
+  @doc """
+  Lists all scheduled queries in your account and region.
+
+  You can filter results by state to
+  show only enabled or disabled queries.
+  """
+  @spec list_scheduled_queries(map(), list_scheduled_queries_request(), list()) ::
+          {:ok, list_scheduled_queries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_scheduled_queries_errors()}
+  def list_scheduled_queries(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListScheduledQueries", input, options)
+  end
+
+  @doc """
+  Returns a list of data source associations for a specified S3 Table Integration,
+  showing
+  which data sources are currently associated for query access.
+  """
+  @spec list_sources_for_s3_table_integration(
+          map(),
+          list_sources_for_s3_table_integration_request(),
+          list()
+        ) ::
+          {:ok, list_sources_for_s3_table_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sources_for_s3_table_integration_errors()}
+  def list_sources_for_s3_table_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSourcesForS3TableIntegration", input, options)
   end
 
   @doc """
@@ -5687,8 +6859,16 @@ defmodule AWS.CloudWatchLogs do
   Creates an account-level data protection policy, subscription filter policy,
   field index
   policy, transformer policy, or metric extraction policy that applies to all log
-  groups or a
-  subset of log groups in the account.
+  groups, a
+  subset of log groups, or a data source name and type combination in the account.
+
+  For field index policies, you can configure indexed fields as *facets*
+  to enable interactive exploration of your logs. Facets provide value
+  distributions and counts
+  for indexed fields in the CloudWatch Logs Insights console without requiring
+  query
+  execution. For more information, see [Use facets to group and explore
+  logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Facets.html).
 
   To use this operation, you must be signed on with the correct permissions
   depending on the
@@ -5711,6 +6891,11 @@ defmodule AWS.CloudWatchLogs do
     *
   To create a field index policy, you must have the `logs:PutIndexPolicy` and
   `logs:PutAccountPolicy` permissions.
+
+    *
+  To configure facets for field index policies, you must have the
+  `logs:PutIndexPolicy` and `logs:PutAccountPolicy`
+  permissions.
 
     *
   To create a metric extraction policy, you must have the
@@ -5858,14 +7043,98 @@ defmodule AWS.CloudWatchLogs do
   of them can
   use the same or overlapping log group name prefixes. For example, if you have
   one policy
-  filtered to log groups that start with `my-log`, you can't have another field
-  index
+  filtered to log groups that start with `my-log`, you can't have another
+  transformer
   policy filtered to `my-logpprod` or `my-logging`.
+
+  You can also set up a transformer at the log-group level. For more information,
+  see
+  [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html). If there is both a log-group level transformer created with
+  `PutTransformer` and an account-level transformer that could apply to the same
+  log group, the log group uses only the log-group level transformer. It ignores
+  the
+  account-level transformer.
+
+  ## Field index policy
+
+  You can use field index policies to create indexes on fields found in log events
+  for a log
+  group or data source name and type combination. Creating field indexes can help
+  lower the scan
+  volume for CloudWatch Logs Insights queries that reference those fields, because
+  these
+  queries attempt to skip the processing of log events that are known to not match
+  the indexed
+  field. Good fields to index are fields that you often need to query for and
+  fields or values
+  that match only a small fraction of the total log events. Common examples of
+  indexes include
+  request ID, session ID, user IDs, or instance IDs. For more information, see
+  [Create field indexes to improve query performance and reduce
+  costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html)
+
+  To find the fields that are in your log group events, use the
+  [GetLogGroupFields](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html) operation. To find the fields for a data source use the
+  [GetLogFields](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogFields.html)
+  operation.
+
+  For example, suppose you have created a field index for `requestId`. Then, any
+  CloudWatch Logs Insights query on that log group that includes
+
+  ```
+  requestId =
+  *value*
+
+  ```
+
+  or
+
+  ```
+  requestId in [*value*, *value*, ...]
+  ```
+
+  will attempt to process only the log events where
+  the indexed field matches the specified value.
+
+  Matches of log events to the names of indexed fields are case-sensitive. For
+  example, an
+  indexed field of `RequestId` won't match a log event containing
+  `requestId`.
+
+  You can have one account-level field index policy that applies to all log groups
+  in the
+  account. Or you can create as many as 20 account-level field index policies that
+  are each
+  scoped to a subset of log groups using `LogGroupNamePrefix` with the
+  `selectionCriteria` parameter. You can have another 20 account-level field index
+  policies using `DataSourceName` and `DataSourceType` for the
+  `selectionCriteria` parameter. If you have multiple account-level index policies
+  with `LogGroupNamePrefix` selection criteria, no two of them can use the same or
+  overlapping log group name prefixes. For example, if you have one policy
+  filtered to log
+  groups that start with *my-log*, you can't have another field index policy
+  filtered to *my-logpprod* or *my-logging*. Similarly, if
+  you have multiple account-level index policies with `DataSourceName` and
+  `DataSourceType` selection criteria, no two of them can use the same data source
+  name and type combination. For example, if you have one policy filtered to the
+  data source
+  name `amazon_vpc` and data source type `flow` you cannot create another
+  policy with this combination.
+
+  If you create an account-level field index policy in a monitoring account in
+  cross-account
+  observability, the policy is applied only to the monitoring account and not to
+  any source
+  accounts.
 
   CloudWatch Logs provides default field indexes for all log groups in the
   Standard log
   class. Default field indexes are automatically available for the following
   fields:
+
+    *
+
+  `@logStream`
 
     *
 
@@ -5881,89 +7150,130 @@ defmodule AWS.CloudWatchLogs do
 
     *
 
+  `@data_source_name`
+
+    *
+
+  `@data_source_type`
+
+    *
+
+  `@data_format`
+
+    *
+
   `traceId`
+
+    *
+
+  `severityText`
+
+    *
+
+  `attributes.session.id`
+
+  CloudWatch Logs provides default field indexes for certain data source name and
+  type
+  combinations as well. Default field indexes are automatically available for the
+  following data
+  source name and type combinations as identified in the following list:
+
+  `amazon_vpc.flow`
+
+    *
+
+  `action`
+
+    *
+
+  `logStatus`
+
+    *
+
+  `region`
+
+    *
+
+  `flowDirection`
+
+    *
+
+  `type`
+
+  `amazon_route53.resolver_query`
+
+    *
+
+  `transport`
+
+    *
+
+  `rcode`
+
+  `aws_waf.access`
+
+    *
+
+  `action`
+
+    *
+
+  `httpRequest.country`
+
+  `aws_cloudtrail.data`, `aws_cloudtrail.management`
+
+    *
+
+  `eventSource`
+
+    *
+
+  `eventName`
+
+    *
+
+  `awsRegion`
+
+    *
+
+  `userAgent`
+
+    *
+
+  `errorCode`
+
+    *
+
+  `eventType`
+
+    *
+
+  `managementEvent`
+
+    *
+
+  `readOnly`
+
+    *
+
+  `eventCategory`
+
+    *
+
+  `requestId`
 
   Default field indexes are in addition to any custom field indexes you define
   within your
-  policy. Default field indexes are not counted towards your field index quota.
-
-  You can also set up a transformer at the log-group level. For more information,
-  see
-  [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html). If there is both a log-group level transformer created with
-  `PutTransformer` and an account-level transformer that could apply to the same
-  log group, the log group uses only the log-group level transformer. It ignores
-  the
-  account-level transformer.
-
-  ## Field index policy
-
-  You can use field index policies to create indexes on fields found in log events
-  in the
-  log group. Creating field indexes can help lower the scan volume for CloudWatch
-  Logs
-  Insights queries that reference those fields, because these queries attempt to
-  skip the
-  processing of log events that are known to not match the indexed field. Good
-  fields to index
-  are fields that you often need to query for and fields or values that match only
-  a small
-  fraction of the total log events. Common examples of indexes include request ID,
-  session ID,
-  user IDs, or instance IDs. For more information, see [Create field indexes
-  to improve query performance and reduce
-  costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html)
-
-  To find the fields that are in your log group events, use the
-  [GetLogGroupFields](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html) operation.
-
-  For example, suppose you have created a field index for `requestId`. Then, any
-  CloudWatch Logs Insights query on that log group that includes
-
-  ```
-  requestId =
-  *value*
-
-  ```
-
-  or
-
-  ```
-  requestId in [*value*,
-  *value*, ...]
-  ```
-
-  will attempt to process only the log events where
-  the indexed field matches the specified value.
-
-  Matches of log events to the names of indexed fields are case-sensitive. For
-  example, an
-  indexed field of `RequestId` won't match a log event containing
-  `requestId`.
-
-  You can have one account-level field index policy that applies to all log groups
-  in the
-  account. Or you can create as many as 20 account-level field index policies that
-  are each
-  scoped to a subset of log groups with the `selectionCriteria` parameter. If you
-  have multiple account-level index policies with selection criteria, no two of
-  them can use the
-  same or overlapping log group name prefixes. For example, if you have one policy
-  filtered to
-  log groups that start with `my-log`, you can't have another field index policy
-  filtered to `my-logpprod` or `my-logging`.
-
-  If you create an account-level field index policy in a monitoring account in
-  cross-account
-  observability, the policy is applied only to the monitoring account and not to
-  any source
-  accounts.
+  policy. Default field indexes are not counted towards your [field index quota](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax).
 
   If you want to create a field index policy for a single log group, you can use
   [PutIndexPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html) instead of `PutAccountPolicy`. If you do so, that log
-  group will use only that log-group level policy, and will ignore the
-  account-level policy that
-  you create with
-  [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html).
+  group will use that log-group level policy and any account-level policies that
+  match at the
+  data source level; any account-level policy that matches at the log group level
+  (for example,
+  no selection criteria or log group name prefix selection criteria) will be
+  ignored.
 
   ## Metric extraction policy
 
@@ -5988,7 +7298,8 @@ defmodule AWS.CloudWatchLogs do
   a selection-criteria such as
 
   ```
-  LogGroupNamePrefix NOT IN ["/aws/containerinsights", "/aws/ecs/containerinsights", "/aws/application-signals/data"]
+  LogGroupNamePrefix NOT IN ["/aws/containerinsights",
+  "/aws/ecs/containerinsights", "/aws/application-signals/data"]
   ```
 
   .
@@ -6372,6 +7683,16 @@ defmodule AWS.CloudWatchLogs do
   request ID, session ID, userID, and instance IDs. For more information, see
   [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html).
 
+  You can configure indexed fields as *facets* to enable interactive
+  exploration and filtering of your logs in the CloudWatch Logs Insights console.
+  Facets
+  allow you to view value distributions and counts for indexed fields without
+  running queries.
+  When you create a field index, you can optionally set it as a facet to enable
+  this interactive
+  analysis capability. For more information, see [Use facets to group and explore
+  logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Facets.html).
+
   To find the fields that are in your log group events, use the
   [GetLogGroupFields](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html) operation.
 
@@ -6398,6 +7719,10 @@ defmodule AWS.CloudWatchLogs do
   Standard log
   class. Default field indexes are automatically available for the following
   fields:
+
+    *
+
+  `@logStream`
 
     *
 
@@ -6434,11 +7759,15 @@ defmodule AWS.CloudWatchLogs do
 
   Log group-level field index policies created with `PutIndexPolicy` override
   account-level field index policies created with
-  [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html).
-  If you use `PutIndexPolicy` to create a field index
-  policy for a log group, that log group uses only that policy. The log group
-  ignores any
-  account-wide field index policy that you might have created.
+  [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html)
+  that apply to log groups. If you use `PutIndexPolicy`
+  to create a field index policy for a log group, that log group uses only that
+  policy for log
+  group-level indexing, including any facet configurations. The log group ignores
+  any
+  account-wide field index policy that applies to log groups, but data
+  source-based account
+  policies may still apply.
   """
   @spec put_index_policy(map(), put_index_policy_request(), list()) ::
           {:ok, put_index_policy_response(), any()}
@@ -6548,6 +7877,31 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Enables or disables deletion protection for the specified log group.
+
+  When enabled on a
+  log group, deletion protection blocks all deletion operations until it is
+  explicitly
+  disabled.
+
+  For information about the parameters that are common to all actions, see [Common Parameters](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonParameters.html).
+  """
+  @spec put_log_group_deletion_protection(
+          map(),
+          put_log_group_deletion_protection_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_log_group_deletion_protection_errors()}
+  def put_log_group_deletion_protection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutLogGroupDeletionProtection", input, options)
+  end
+
+  @doc """
   Creates or updates a metric filter and associates it with the specified log
   group.
 
@@ -6633,8 +7987,30 @@ defmodule AWS.CloudWatchLogs do
   to put
   log events to this account, such as Amazon Route 53.
 
-  An account can have up to 10 resource
-  policies per Amazon Web Services Region.
+  This API has the following
+  restrictions:
+
+    *
+
+  **Supported actions** - Policy only supports
+  `logs:PutLogEvents` and `logs:CreateLogStream ` actions
+
+    *
+
+  **Supported principals** - Policy only applies when
+  operations are invoked by Amazon Web Services service principals (not IAM
+  users, roles, or cross-account principals
+
+    *
+
+  **Policy limits** - An account can have a maximum of 10
+  policies without resourceARN and one per LogGroup resourceARN
+
+  Resource policies with actions invoked by non-Amazon Web Services service
+  principals
+  (such as IAM users, roles, or other Amazon Web Services accounts) will not be
+  enforced. For access control involving these principals, use the IAM
+  policies.
   """
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
@@ -6893,10 +8269,11 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Starts a query of one or more log groups using CloudWatch Logs Insights.
+  Starts a query of one or more log groups or data sources using CloudWatch Logs
+  Insights.
 
-  You specify
-  the log groups and time range to query and the query string to use.
+  You specify the log groups or data sources and time range to query and the query
+  string to use. You can query up to 10 data sources in a single query.
 
   For more information, see [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 
@@ -6904,6 +8281,13 @@ defmodule AWS.CloudWatchLogs do
   CloudWatch Logs. You can use
   [GetQueryResults](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html) to retrieve the results of a query, using the `queryId`
   that `StartQuery` returns.
+
+  Interactive queries started with `StartQuery` share concurrency limits with
+  automated scheduled query executions. Both types of queries count toward the
+  same regional
+  concurrent query quota, so high scheduled query activity may affect the
+  availability of
+  concurrent slots for interactive queries.
 
   To specify the log groups to query, a `StartQuery` operation must include one
   of the following:
@@ -6915,7 +8299,8 @@ defmodule AWS.CloudWatchLogs do
     
   Or the `queryString` must include a `SOURCE` command to select
   log groups for the query. The `SOURCE` command can select log groups based on
-  log group name prefix, account ID, and log class.
+  log group name prefix, account ID, and log class, or select data sources using
+  dataSource syntax in LogsQL, PPL, and SQL.
 
   For more information about the `SOURCE` command, see
   [SOURCE](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Source.html).
@@ -6963,6 +8348,13 @@ defmodule AWS.CloudWatchLogs do
   If the query has already
   ended, the operation returns an error indicating that the specified query is not
   running.
+
+  This operation can be used to cancel both interactive queries and individual
+  scheduled
+  query executions. When used with scheduled queries, `StopQuery` cancels only the
+  specific execution identified by the query ID, not the scheduled query
+  configuration
+  itself.
   """
   @spec stop_query(map(), stop_query_request(), list()) ::
           {:ok, stop_query_response(), any()}
@@ -7197,5 +8589,23 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateLogAnomalyDetector", input, options)
+  end
+
+  @doc """
+  Updates an existing scheduled query with new configuration.
+
+  This operation uses PUT
+  semantics, allowing modification of query parameters, schedule, and
+  destinations.
+  """
+  @spec update_scheduled_query(map(), update_scheduled_query_request(), list()) ::
+          {:ok, update_scheduled_query_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_scheduled_query_errors()}
+  def update_scheduled_query(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateScheduledQuery", input, options)
   end
 end

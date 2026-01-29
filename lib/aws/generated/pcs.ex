@@ -110,6 +110,26 @@ defmodule AWS.PCS do
 
   ## Example:
       
+      slurm_rest_request() :: %{
+        "mode" => list(any())
+      }
+      
+  """
+  @type slurm_rest_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       create_cluster_response() :: %{
         "cluster" => cluster()
       }
@@ -124,7 +144,8 @@ defmodule AWS.PCS do
       update_cluster_slurm_configuration_request() :: %{
         "accounting" => update_accounting_request(),
         "scaleDownIdleTimeInSeconds" => [integer()],
-        "slurmCustomSettings" => list(slurm_custom_setting())
+        "slurmCustomSettings" => list(slurm_custom_setting()),
+        "slurmRest" => update_slurm_rest_request()
       }
       
   """
@@ -242,8 +263,10 @@ defmodule AWS.PCS do
       cluster_slurm_configuration() :: %{
         "accounting" => accounting(),
         "authKey" => slurm_auth_key(),
+        "jwtAuth" => jwt_auth(),
         "scaleDownIdleTimeInSeconds" => [integer()],
-        "slurmCustomSettings" => list(slurm_custom_setting())
+        "slurmCustomSettings" => list(slurm_custom_setting()),
+        "slurmRest" => slurm_rest()
       }
       
   """
@@ -490,6 +513,17 @@ defmodule AWS.PCS do
 
   ## Example:
       
+      jwt_auth() :: %{
+        "jwtKey" => jwt_key()
+      }
+      
+  """
+  @type jwt_auth() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       register_compute_node_group_instance_request() :: %{
         required("bootstrapId") => String.t() | atom(),
         required("clusterIdentifier") => String.t() | atom()
@@ -701,12 +735,43 @@ defmodule AWS.PCS do
 
   ## Example:
       
+      slurm_rest() :: %{
+        "mode" => list(any())
+      }
+      
+  """
+  @type slurm_rest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       access_denied_exception() :: %{
         "message" => [String.t() | atom()]
       }
       
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_slurm_rest_request() :: %{
+        "mode" => list(any())
+      }
+      
+  """
+  @type update_slurm_rest_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -739,7 +804,8 @@ defmodule AWS.PCS do
       cluster_slurm_configuration_request() :: %{
         "accounting" => accounting_request(),
         "scaleDownIdleTimeInSeconds" => [integer()],
-        "slurmCustomSettings" => list(slurm_custom_setting())
+        "slurmCustomSettings" => list(slurm_custom_setting()),
+        "slurmRest" => slurm_rest_request()
       }
       
   """
@@ -756,6 +822,18 @@ defmodule AWS.PCS do
       
   """
   @type scheduler() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      jwt_key() :: %{
+        "secretArn" => [String.t() | atom()],
+        "secretVersion" => [String.t() | atom()]
+      }
+      
+  """
+  @type jwt_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1417,7 +1495,7 @@ defmodule AWS.PCS do
   tag key and a new tag value.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
-          {:ok, nil, any()}
+          {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, tag_resource_errors()}
@@ -1434,7 +1512,7 @@ defmodule AWS.PCS do
   PCS resource.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
-          {:ok, nil, any()}
+          {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, untag_resource_errors()}

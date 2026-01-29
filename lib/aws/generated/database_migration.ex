@@ -494,6 +494,17 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      lakehouse_settings() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type lakehouse_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       default_error_details() :: %{
         "Message" => String.t() | atom()
       }
@@ -1527,6 +1538,20 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      progress() :: %{
+        "ProcessedObject" => processed_object(),
+        "ProgressPercent" => float(),
+        "ProgressStep" => String.t() | atom(),
+        "TotalObjects" => float()
+      }
+      
+  """
+  @type progress() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_fleet_advisor_collectors_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
@@ -1878,6 +1903,7 @@ defmodule AWS.DatabaseMigration do
         "Error" => list(),
         "ExportSqlDetails" => export_sql_details(),
         "MigrationProjectArn" => String.t() | atom(),
+        "Progress" => progress(),
         "RequestIdentifier" => String.t() | atom(),
         "Status" => String.t() | atom()
       }
@@ -2216,6 +2242,7 @@ defmodule AWS.DatabaseMigration do
         "CdcStartTime" => non_neg_integer(),
         "CdcStopPosition" => String.t() | atom(),
         "FailureMessages" => list(String.t() | atom()),
+        "IsReadOnly" => boolean(),
         "PremigrationAssessmentStatuses" => list(premigration_assessment_status()),
         "ProvisionData" => provision_data(),
         "RecoveryCheckpoint" => String.t() | atom(),
@@ -2719,6 +2746,19 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      processed_object() :: %{
+        "EndpointType" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type processed_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       kerberos_authentication_settings() :: %{
         "KeyCacheSecretIamArn" => String.t() | atom(),
         "KeyCacheSecretId" => String.t() | atom(),
@@ -2738,6 +2778,22 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type move_replication_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sybase_ase_data_provider_settings() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "EncryptPassword" => boolean(),
+        "Port" => integer(),
+        "ServerName" => String.t() | atom(),
+        "SslMode" => list(any())
+      }
+      
+  """
+  @type sybase_ase_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3236,6 +3292,7 @@ defmodule AWS.DatabaseMigration do
         "KmsKeyId" => String.t() | atom(),
         "OracleSettings" => oracle_settings(),
         "ExtraConnectionAttributes" => String.t() | atom(),
+        "LakehouseSettings" => lakehouse_settings(),
         "ElasticsearchSettings" => elasticsearch_settings(),
         "IBMDb2Settings" => i_b_m_db2_settings(),
         "SybaseSettings" => sybase_settings(),
@@ -3250,6 +3307,7 @@ defmodule AWS.DatabaseMigration do
         "EngineDisplayName" => String.t() | atom(),
         "Username" => String.t() | atom(),
         "ExternalTableDefinition" => String.t() | atom(),
+        "IsReadOnly" => boolean(),
         "KafkaSettings" => kafka_settings(),
         "PostgreSQLSettings" => postgre_s_q_l_settings(),
         "S3Settings" => s3_settings(),
@@ -3469,6 +3527,7 @@ defmodule AWS.DatabaseMigration do
         "CertificatePem" => String.t() | atom(),
         "CertificateWallet" => binary(),
         "KeyLength" => integer(),
+        "KmsKeyId" => String.t() | atom(),
         "SigningAlgorithm" => String.t() | atom(),
         "ValidFromDate" => non_neg_integer(),
         "ValidToDate" => non_neg_integer()
@@ -4145,6 +4204,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       replication_subnet_group() :: %{
+        "IsReadOnly" => boolean(),
         "ReplicationSubnetGroupDescription" => String.t() | atom(),
         "ReplicationSubnetGroupIdentifier" => String.t() | atom(),
         "SubnetGroupStatus" => String.t() | atom(),
@@ -4397,6 +4457,7 @@ defmodule AWS.DatabaseMigration do
       import_certificate_message() :: %{
         optional("CertificatePem") => String.t() | atom(),
         optional("CertificateWallet") => binary(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("CertificateIdentifier") => String.t() | atom()
       }
@@ -4973,6 +5034,7 @@ defmodule AWS.DatabaseMigration do
       
       replication_config() :: %{
         "ComputeConfig" => compute_config(),
+        "IsReadOnly" => boolean(),
         "ReplicationConfigArn" => String.t() | atom(),
         "ReplicationConfigCreateTime" => non_neg_integer(),
         "ReplicationConfigIdentifier" => String.t() | atom(),
@@ -5548,6 +5610,7 @@ defmodule AWS.DatabaseMigration do
   @type import_certificate_errors() ::
           resource_quota_exceeded_fault()
           | resource_already_exists_fault()
+          | kms_key_not_accessible_fault()
           | invalid_certificate_fault()
 
   @type list_tags_for_resource_errors() ::

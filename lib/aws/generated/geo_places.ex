@@ -123,6 +123,7 @@ defmodule AWS.GeoPlaces do
       reverse_geocode_request() :: %{
         optional("AdditionalFeatures") => list(String.t() | atom()),
         optional("Filter") => reverse_geocode_filter(),
+        optional("Heading") => float(),
         optional("IntendedUse") => String.t() | atom(),
         optional("Key") => String.t() | atom(),
         optional("Language") => String.t() | atom(),
@@ -731,6 +732,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       secondary_address_component() :: %{
+        "Designator" => String.t() | atom(),
         "Number" => String.t() | atom()
       }
 
@@ -1268,6 +1270,10 @@ defmodule AWS.GeoPlaces do
   with valid address completion. Also, the API supports the filtering of results
   based on geographic location, country, or specific place types, and can be
   tailored using optional parameters like language and political views.
+
+  For more information, see
+  [Autocomplete](https://docs.aws.amazon.com/location/latest/developerguide/autocomplete.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec autocomplete(map(), autocomplete_request(), list()) ::
           {:ok, autocomplete_response(), any()}
@@ -1315,6 +1321,10 @@ defmodule AWS.GeoPlaces do
   structured queries with components like street names, postal codes, and regions.
   The Geocode API can also provide additional features such as time zone
   information and the inclusion of political views.
+
+  For more information, see
+  [Geocode](https://docs.aws.amazon.com/location/latest/developerguide/geocode.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec geocode(map(), geocode_request(), list()) ::
           {:ok, geocode_response(), any()}
@@ -1358,6 +1368,10 @@ defmodule AWS.GeoPlaces do
   `GetPlace` finds a place by its unique ID.
 
   A `PlaceId` is returned by other place operations.
+
+  For more information, see
+  [GetPlace](https://docs.aws.amazon.com/location/latest/developerguide/get-place.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec get_place(
           map(),
@@ -1443,6 +1457,9 @@ defmodule AWS.GeoPlaces do
   to on place type so that you can refine result based on your need. Also, The
   Reverse Geocode API can also provide additional features such as time zone
   information and the inclusion of political views.
+
+  For more information, see [Reverse Geocode](https://docs.aws.amazon.com/location/latest/developerguide/reverse-geocode.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec reverse_geocode(map(), reverse_geocode_request(), list()) ::
           {:ok, reverse_geocode_response(), any()}
@@ -1490,6 +1507,9 @@ defmodule AWS.GeoPlaces do
   The API returns details such as a place name, address, phone, category, food
   type, contact, opening hours. Also, the API can return phonemes, time zones and
   more based on requested parameters.
+
+  For more information, see [Search Nearby](https://docs.aws.amazon.com/location/latest/developerguide/search-nearby.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec search_nearby(map(), search_nearby_request(), list()) ::
           {:ok, search_nearby_response(), any()}
@@ -1534,6 +1554,9 @@ defmodule AWS.GeoPlaces do
 
   You can then complete a follow-up query suggested from the `Suggest` API via a
   query id.
+
+  For more information, see [Search Text](https://docs.aws.amazon.com/location/latest/developerguide/search-text.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec search_text(map(), search_text_request(), list()) ::
           {:ok, search_text_response(), any()}
@@ -1586,6 +1609,10 @@ defmodule AWS.GeoPlaces do
   and other attributes, and allows for additional features like phonemes and
   timezones. The response includes refined query terms and detailed place
   information.
+
+  For more information, see
+  [Suggest](https://docs.aws.amazon.com/location/latest/developerguide/suggest.html)
+  in the *Amazon Location Service Developer Guide*.
   """
   @spec suggest(map(), suggest_request(), list()) ::
           {:ok, suggest_response(), any()}

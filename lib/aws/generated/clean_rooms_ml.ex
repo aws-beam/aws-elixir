@@ -467,6 +467,7 @@ defmodule AWS.CleanRoomsML do
         "sizeInGb" => [float()],
         "status" => list(any()),
         "statusDetails" => status_details(),
+        "syntheticDataConfiguration" => synthetic_data_configuration(),
         "tags" => map(),
         "updateTime" => [non_neg_integer()]
       }
@@ -870,6 +871,17 @@ defmodule AWS.CleanRoomsML do
 
   """
   @type metrics_configuration_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_privacy_scores() :: %{
+        "membershipInferenceAttackScores" => list(membership_inference_attack_score())
+      }
+
+  """
+  @type data_privacy_scores() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1303,6 +1315,19 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      ml_synthetic_data_parameters() :: %{
+        "columnClassification" => column_classification_details(),
+        "epsilon" => [float()],
+        "maxMembershipInferenceAttackScore" => [float()]
+      }
+
+  """
+  @type ml_synthetic_data_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       configured_model_algorithm_association_summary() :: %{
         "collaborationIdentifier" => String.t() | atom(),
         "configuredModelAlgorithmArn" => String.t() | atom(),
@@ -1459,6 +1484,19 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      synthetic_data_column_properties() :: %{
+        "columnName" => String.t() | atom(),
+        "columnType" => list(any()),
+        "isPredictiveValue" => [boolean()]
+      }
+
+  """
+  @type synthetic_data_column_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       collaboration_configured_model_algorithm_association_summary() :: %{
         "collaborationIdentifier" => String.t() | atom(),
         "configuredModelAlgorithmArn" => String.t() | atom(),
@@ -1507,6 +1545,17 @@ defmodule AWS.CleanRoomsML do
 
   """
   @type list_configured_audience_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_classification_details() :: %{
+        "columnMapping" => list(synthetic_data_column_properties())
+      }
+
+  """
+  @type column_classification_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1624,6 +1673,17 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      synthetic_data_evaluation_scores() :: %{
+        "dataPrivacyScores" => data_privacy_scores()
+      }
+
+  """
+  @type synthetic_data_evaluation_scores() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       logs_configuration_policy() :: %{
         "allowedAccountIds" => list([String.t() | atom()]()),
         "filterPattern" => [String.t() | atom()],
@@ -1666,6 +1726,7 @@ defmodule AWS.CleanRoomsML do
 
       worker_compute_configuration() :: %{
         "number" => [integer()],
+        "properties" => list(),
         "type" => list(any())
       }
 
@@ -1926,6 +1987,18 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      membership_inference_attack_score() :: %{
+        "attackVersion" => list(any()),
+        "score" => [float()]
+      }
+
+  """
+  @type membership_inference_attack_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_collaboration_ml_input_channel_response() :: %{
         "collaborationIdentifier" => String.t() | atom(),
         "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
@@ -1940,6 +2013,7 @@ defmodule AWS.CleanRoomsML do
         "retentionInDays" => [integer()],
         "status" => list(any()),
         "statusDetails" => status_details(),
+        "syntheticDataConfiguration" => synthetic_data_configuration(),
         "updateTime" => [non_neg_integer()]
       }
 
@@ -2393,6 +2467,18 @@ defmodule AWS.CleanRoomsML do
   @type list_collaboration_trained_model_inference_jobs_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      synthetic_data_configuration() :: %{
+        "syntheticDataEvaluationScores" => synthetic_data_evaluation_scores(),
+        "syntheticDataParameters" => ml_synthetic_data_parameters()
+      }
+
+  """
+  @type synthetic_data_configuration() :: %{(String.t() | atom()) => any()}
 
   @type cancel_trained_model_errors() ::
           throttling_exception()

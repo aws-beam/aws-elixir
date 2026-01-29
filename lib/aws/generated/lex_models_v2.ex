@@ -2,6 +2,11 @@
 # See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.LexModelsV2 do
+  @moduledoc """
+  Amazon Lex Model Building Service provides APIs for creating, managing, and
+  deploying conversational bots and their components.
+  """
+
   alias AWS.Client
   alias AWS.Request
 
@@ -122,6 +127,9 @@ defmodule AWS.LexModelsV2 do
         "botVersion" => String.t() | atom(),
         "localeId" => String.t() | atom(),
         "nluIntentConfidenceThreshold" => float(),
+        "speechDetectionSensitivity" => list(any()),
+        "speechRecognitionSettings" => speech_recognition_settings(),
+        "unifiedSpeechSettings" => unified_speech_settings(),
         "voiceSettings" => voice_settings()
       }
 
@@ -139,6 +147,19 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type bedrock_guardrail_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent_disambiguation_settings() :: %{
+        "customDisambiguationMessage" => String.t() | atom(),
+        "enabled" => boolean(),
+        "maxDisambiguationIntents" => integer()
+      }
+
+  """
+  @type intent_disambiguation_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -464,6 +485,7 @@ defmodule AWS.LexModelsV2 do
         optional("inputContexts") => list(input_context()),
         optional("intentClosingSetting") => intent_closing_setting(),
         optional("intentConfirmationSetting") => intent_confirmation_setting(),
+        optional("intentDisplayName") => String.t() | atom(),
         optional("kendraConfiguration") => kendra_configuration(),
         optional("outputContexts") => list(output_context()),
         optional("parentIntentSignature") => String.t() | atom(),
@@ -1576,6 +1598,7 @@ defmodule AWS.LexModelsV2 do
       intent_summary() :: %{
         "description" => String.t() | atom(),
         "inputContexts" => list(input_context()),
+        "intentDisplayName" => String.t() | atom(),
         "intentId" => String.t() | atom(),
         "intentName" => String.t() | atom(),
         "lastUpdatedDateTime" => non_neg_integer(),
@@ -2119,6 +2142,7 @@ defmodule AWS.LexModelsV2 do
         "inputContexts" => list(input_context()),
         "intentClosingSetting" => intent_closing_setting(),
         "intentConfirmationSetting" => intent_confirmation_setting(),
+        "intentDisplayName" => String.t() | atom(),
         "intentId" => String.t() | atom(),
         "intentName" => String.t() | atom(),
         "kendraConfiguration" => kendra_configuration(),
@@ -2905,6 +2929,7 @@ defmodule AWS.LexModelsV2 do
         optional("inputContexts") => list(input_context()),
         optional("intentClosingSetting") => intent_closing_setting(),
         optional("intentConfirmationSetting") => intent_confirmation_setting(),
+        optional("intentDisplayName") => String.t() | atom(),
         optional("kendraConfiguration") => kendra_configuration(),
         optional("outputContexts") => list(output_context()),
         optional("parentIntentSignature") => String.t() | atom(),
@@ -3702,6 +3727,17 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type list_bot_aliases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unified_speech_settings() :: %{
+        "speechFoundationModel" => speech_foundation_model()
+      }
+
+  """
+  @type unified_speech_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4810,6 +4846,18 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      deepgram_speech_model_config() :: %{
+        "apiTokenSecretArn" => String.t() | atom(),
+        "modelId" => String.t() | atom()
+      }
+
+  """
+  @type deepgram_speech_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_bot_alias_response() :: %{
         "botAliasHistoryEvents" => list(bot_alias_history_event()),
         "botAliasId" => String.t() | atom(),
@@ -4881,6 +4929,18 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      speech_recognition_settings() :: %{
+        "speechModelConfig" => speech_model_config(),
+        "speechModelPreference" => list(any())
+      }
+
+  """
+  @type speech_recognition_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_resource_policy_request() :: %{
         optional("expectedRevisionId") => String.t() | atom(),
         required("policy") => String.t() | atom()
@@ -4888,6 +4948,17 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type update_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      speech_model_config() :: %{
+        "deepgramConfig" => deepgram_speech_model_config()
+      }
+
+  """
+  @type speech_model_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4946,6 +5017,9 @@ defmodule AWS.LexModelsV2 do
         "nluIntentConfidenceThreshold" => float(),
         "recommendedActions" => list(String.t() | atom()),
         "slotTypesCount" => integer(),
+        "speechDetectionSensitivity" => list(any()),
+        "speechRecognitionSettings" => speech_recognition_settings(),
+        "unifiedSpeechSettings" => unified_speech_settings(),
         "voiceSettings" => voice_settings()
       }
 
@@ -4992,6 +5066,7 @@ defmodule AWS.LexModelsV2 do
         "inputContexts" => list(input_context()),
         "intentClosingSetting" => intent_closing_setting(),
         "intentConfirmationSetting" => intent_confirmation_setting(),
+        "intentDisplayName" => String.t() | atom(),
         "intentId" => String.t() | atom(),
         "intentName" => String.t() | atom(),
         "kendraConfiguration" => kendra_configuration(),
@@ -5120,7 +5195,9 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       nlu_improvement_specification() :: %{
-        "enabled" => boolean()
+        "assistedNluMode" => list(any()),
+        "enabled" => boolean(),
+        "intentDisambiguationSettings" => intent_disambiguation_settings()
       }
 
   """
@@ -5496,6 +5573,9 @@ defmodule AWS.LexModelsV2 do
         "localeId" => String.t() | atom(),
         "localeName" => String.t() | atom(),
         "nluIntentConfidenceThreshold" => float(),
+        "speechDetectionSensitivity" => list(any()),
+        "speechRecognitionSettings" => speech_recognition_settings(),
+        "unifiedSpeechSettings" => unified_speech_settings(),
         "voiceSettings" => voice_settings()
       }
 
@@ -5524,6 +5604,9 @@ defmodule AWS.LexModelsV2 do
       update_bot_locale_request() :: %{
         optional("description") => String.t() | atom(),
         optional("generativeAISettings") => generative_a_i_settings(),
+        optional("speechDetectionSensitivity") => list(any()),
+        optional("speechRecognitionSettings") => speech_recognition_settings(),
+        optional("unifiedSpeechSettings") => unified_speech_settings(),
         optional("voiceSettings") => voice_settings(),
         required("nluIntentConfidenceThreshold") => float()
       }
@@ -5645,6 +5728,18 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type transcript_source_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      speech_foundation_model() :: %{
+        "modelArn" => String.t() | atom(),
+        "voiceId" => String.t() | atom()
+      }
+
+  """
+  @type speech_foundation_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5788,6 +5883,9 @@ defmodule AWS.LexModelsV2 do
         "localeName" => String.t() | atom(),
         "nluIntentConfidenceThreshold" => float(),
         "recommendedActions" => list(String.t() | atom()),
+        "speechDetectionSensitivity" => list(any()),
+        "speechRecognitionSettings" => speech_recognition_settings(),
+        "unifiedSpeechSettings" => unified_speech_settings(),
         "voiceSettings" => voice_settings()
       }
 
@@ -6088,6 +6186,7 @@ defmodule AWS.LexModelsV2 do
         "inputContexts" => list(input_context()),
         "intentClosingSetting" => intent_closing_setting(),
         "intentConfirmationSetting" => intent_confirmation_setting(),
+        "intentDisplayName" => String.t() | atom(),
         "intentId" => String.t() | atom(),
         "intentName" => String.t() | atom(),
         "kendraConfiguration" => kendra_configuration(),
@@ -6134,6 +6233,9 @@ defmodule AWS.LexModelsV2 do
       create_bot_locale_request() :: %{
         optional("description") => String.t() | atom(),
         optional("generativeAISettings") => generative_a_i_settings(),
+        optional("speechDetectionSensitivity") => list(any()),
+        optional("speechRecognitionSettings") => speech_recognition_settings(),
+        optional("unifiedSpeechSettings") => unified_speech_settings(),
         optional("voiceSettings") => voice_settings(),
         required("localeId") => String.t() | atom(),
         required("nluIntentConfidenceThreshold") => float()

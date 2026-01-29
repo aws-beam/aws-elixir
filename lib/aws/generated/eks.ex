@@ -94,6 +94,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      describe_capability_response() :: %{
+        "capability" => capability()
+      }
+
+  """
+  @type describe_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_policy() :: %{
         "arn" => String.t() | atom(),
         "name" => String.t() | atom()
@@ -114,6 +125,18 @@ defmodule AWS.EKS do
 
   """
   @type addon_issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_role_mapping() :: %{
+        "identities" => list(sso_identity()),
+        "role" => list(any())
+      }
+
+  """
+  @type argo_cd_role_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,6 +273,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      capability_configuration_request() :: %{
+        "argoCd" => argo_cd_config_request()
+      }
+
+  """
+  @type capability_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_nodegroup_request() :: %{
         optional("amiType") => list(any()),
         optional("capacityType") => list(any()),
@@ -284,6 +318,23 @@ defmodule AWS.EKS do
 
   """
   @type delete_addon_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_capability_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("configuration") => capability_configuration_request(),
+        optional("tags") => map(),
+        required("capabilityName") => String.t() | atom(),
+        required("deletePropagationPolicy") => list(any()),
+        required("roleArn") => String.t() | atom(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_capability_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,6 +470,18 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      update_argo_cd_config() :: %{
+        "networkAccess" => argo_cd_network_access_config_request(),
+        "rbacRoleMappings" => update_role_mappings()
+      }
+
+  """
+  @type update_argo_cd_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pod_identity_association() :: %{
         "associationArn" => String.t() | atom(),
         "associationId" => String.t() | atom(),
@@ -476,6 +539,18 @@ defmodule AWS.EKS do
 
   """
   @type describe_addon_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_role_mappings() :: %{
+        "addOrUpdateRoleMappings" => list(argo_cd_role_mapping()),
+        "removeRoleMappings" => list(argo_cd_role_mapping())
+      }
+
+  """
+  @type update_role_mappings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -693,6 +768,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      delete_capability_response() :: %{
+        "capability" => capability()
+      }
+
+  """
+  @type delete_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       addon_pod_identity_associations() :: %{
         "roleArn" => String.t() | atom(),
         "serviceAccount" => String.t() | atom()
@@ -716,6 +802,15 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      describe_capability_request() :: %{}
+
+  """
+  @type describe_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_access_config_request() :: %{
         "authenticationMode" => list(any()),
         "bootstrapClusterCreatorAdminPermissions" => boolean()
@@ -732,6 +827,17 @@ defmodule AWS.EKS do
 
   """
   @type delete_eks_anywhere_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      control_plane_scaling_config() :: %{
+        "tier" => list(any())
+      }
+
+  """
+  @type control_plane_scaling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,6 +926,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      create_capability_response() :: %{
+        "capability" => capability()
+      }
+
+  """
+  @type create_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_pod_identity_associations_response() :: %{
         "associations" => list(pod_identity_association_summary()),
         "nextToken" => String.t() | atom()
@@ -827,6 +944,29 @@ defmodule AWS.EKS do
 
   """
   @type list_pod_identity_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability() :: %{
+        "arn" => String.t() | atom(),
+        "capabilityName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "configuration" => capability_configuration_response(),
+        "createdAt" => non_neg_integer(),
+        "deletePropagationPolicy" => list(any()),
+        "health" => capability_health(),
+        "modifiedAt" => non_neg_integer(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "type" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type capability() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -870,6 +1010,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      update_capability_response() :: %{
+        "update" => update()
+      }
+
+  """
+  @type update_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_addon_versions_request() :: %{
         optional("addonName") => String.t() | atom(),
         optional("kubernetesVersion") => String.t() | atom(),
@@ -908,6 +1059,23 @@ defmodule AWS.EKS do
 
   """
   @type addon() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_summary() :: %{
+        "arn" => String.t() | atom(),
+        "capabilityName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "modifiedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "type" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type capability_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1031,6 +1199,7 @@ defmodule AWS.EKS do
         optional("bootstrapSelfManagedAddons") => boolean(),
         optional("clientRequestToken") => String.t() | atom(),
         optional("computeConfig") => compute_config_request(),
+        optional("controlPlaneScalingConfig") => control_plane_scaling_config(),
         optional("deletionProtection") => boolean(),
         optional("encryptionConfig") => list(encryption_config()),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
@@ -1147,6 +1316,21 @@ defmodule AWS.EKS do
 
   """
   @type update_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_config_response() :: %{
+        "awsIdc" => argo_cd_aws_idc_config_response(),
+        "namespace" => String.t() | atom(),
+        "networkAccess" => argo_cd_network_access_config_response(),
+        "rbacRoleMappings" => list(argo_cd_role_mapping()),
+        "serverUrl" => String.t() | atom()
+      }
+
+  """
+  @type argo_cd_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1289,6 +1473,7 @@ defmodule AWS.EKS do
         "clientRequestToken" => String.t() | atom(),
         "computeConfig" => compute_config_response(),
         "connectorConfig" => connector_config_response(),
+        "controlPlaneScalingConfig" => control_plane_scaling_config(),
         "createdAt" => non_neg_integer(),
         "deletionProtection" => boolean(),
         "encryptionConfig" => list(encryption_config()),
@@ -1356,6 +1541,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      capability_configuration_response() :: %{
+        "argoCd" => argo_cd_config_response()
+      }
+
+  """
+  @type capability_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_addon_versions_response() :: %{
         "addons" => list(addon_info()),
         "nextToken" => String.t() | atom()
@@ -1380,6 +1576,18 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      list_capabilities_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_capabilities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_limit_exceeded_exception() :: %{
         "clusterName" => String.t() | atom(),
         "message" => String.t() | atom(),
@@ -1396,6 +1604,7 @@ defmodule AWS.EKS do
 
       list_updates_request() :: %{
         optional("addonName") => String.t() | atom(),
+        optional("capabilityName") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("nodegroupName") => String.t() | atom()
@@ -1403,6 +1612,19 @@ defmodule AWS.EKS do
 
   """
   @type list_updates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_aws_idc_config_response() :: %{
+        "idcInstanceArn" => String.t() | atom(),
+        "idcManagedApplicationArn" => String.t() | atom(),
+        "idcRegion" => String.t() | atom()
+      }
+
+  """
+  @type argo_cd_aws_idc_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1503,6 +1725,17 @@ defmodule AWS.EKS do
 
   """
   @type describe_nodegroup_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_network_access_config_response() :: %{
+        "vpceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type argo_cd_network_access_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1628,6 +1861,20 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      update_capability_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("configuration") => update_capability_configuration(),
+        optional("deletePropagationPolicy") => list(any()),
+        optional("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_capability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_identity_provider_config_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         required("identityProviderConfig") => identity_provider_config()
@@ -1697,6 +1944,17 @@ defmodule AWS.EKS do
 
   """
   @type node_repair_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_network_access_config_request() :: %{
+        "vpceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type argo_cd_network_access_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1877,6 +2135,42 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      capability_issue() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type capability_issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_aws_idc_config_request() :: %{
+        "idcInstanceArn" => String.t() | atom(),
+        "idcRegion" => String.t() | atom()
+      }
+
+  """
+  @type argo_cd_aws_idc_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sso_identity() :: %{
+        "id" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type sso_identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_cluster_request() :: %{}
 
   """
@@ -1901,6 +2195,18 @@ defmodule AWS.EKS do
 
   """
   @type start_insights_refresh_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_capabilities_response() :: %{
+        "capabilities" => list(capability_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_capabilities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2163,8 +2469,18 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      delete_capability_request() :: %{}
+
+  """
+  @type delete_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_update_request() :: %{
         optional("addonName") => String.t() | atom(),
+        optional("capabilityName") => String.t() | atom(),
         optional("nodegroupName") => String.t() | atom()
       }
 
@@ -2387,6 +2703,20 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      argo_cd_config_request() :: %{
+        "awsIdc" => argo_cd_aws_idc_config_request(),
+        "namespace" => String.t() | atom(),
+        "networkAccess" => argo_cd_network_access_config_request(),
+        "rbacRoleMappings" => list(argo_cd_role_mapping())
+      }
+
+  """
+  @type argo_cd_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_insights_refresh_response() :: %{
         "message" => String.t() | atom(),
         "status" => list(any())
@@ -2569,6 +2899,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      update_capability_configuration() :: %{
+        "argoCd" => update_argo_cd_config()
+      }
+
+  """
+  @type update_capability_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       insight() :: %{
         "additionalInfo" => map(),
         "category" => list(any()),
@@ -2595,6 +2936,7 @@ defmodule AWS.EKS do
         optional("accessConfig") => update_access_config_request(),
         optional("clientRequestToken") => String.t() | atom(),
         optional("computeConfig") => compute_config_request(),
+        optional("controlPlaneScalingConfig") => control_plane_scaling_config(),
         optional("deletionProtection") => boolean(),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
         optional("logging") => logging(),
@@ -2698,6 +3040,17 @@ defmodule AWS.EKS do
 
   """
   @type register_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_health() :: %{
+        "issues" => list(capability_issue())
+      }
+
+  """
+  @type capability_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2958,6 +3311,15 @@ defmodule AWS.EKS do
           | client_exception()
           | resource_in_use_exception()
 
+  @type create_capability_errors() ::
+          server_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_limit_exceeded_exception()
+          | invalid_request_exception()
+          | resource_in_use_exception()
+
   @type create_cluster_errors() ::
           server_exception()
           | invalid_parameter_exception()
@@ -3008,6 +3370,13 @@ defmodule AWS.EKS do
           | invalid_request_exception()
           | resource_not_found_exception()
           | client_exception()
+
+  @type delete_capability_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
 
   @type delete_cluster_errors() ::
           server_exception()
@@ -3066,6 +3435,12 @@ defmodule AWS.EKS do
 
   @type describe_addon_versions_errors() ::
           server_exception() | invalid_parameter_exception() | resource_not_found_exception()
+
+  @type describe_capability_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type describe_cluster_errors() ::
           server_exception()
@@ -3156,6 +3531,8 @@ defmodule AWS.EKS do
   @type list_associated_access_policies_errors() ::
           server_exception() | invalid_request_exception() | resource_not_found_exception()
 
+  @type list_capabilities_errors() :: server_exception() | invalid_parameter_exception()
+
   @type list_clusters_errors() ::
           server_exception()
           | invalid_parameter_exception()
@@ -3240,6 +3617,13 @@ defmodule AWS.EKS do
           | invalid_request_exception()
           | resource_not_found_exception()
           | client_exception()
+          | resource_in_use_exception()
+
+  @type update_capability_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
 
   @type update_cluster_config_errors() ::
@@ -3522,6 +3906,48 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Creates a managed capability resource for an Amazon EKS cluster.
+
+  Capabilities provide fully managed capabilities to build and scale with
+  Kubernetes. When you create a capability, Amazon EKSprovisions and manages the
+  infrastructure required to run the capability outside of your cluster. This
+  approach reduces operational overhead and preserves cluster resources.
+
+  You can only create one Capability of each type on a given Amazon EKS cluster.
+  Valid types are Argo CD for declarative GitOps deployment, Amazon Web Services
+  Controllers for Kubernetes (ACK) for resource management, and Kube Resource
+  Orchestrator (KRO) for Kubernetes custom resource orchestration.
+
+  For more information, see [EKS Capabilities](https://docs.aws.amazon.com/eks/latest/userguide/capabilities.html)
+  in the *Amazon EKS User Guide*.
+  """
+  @spec create_capability(map(), String.t() | atom(), create_capability_request(), list()) ::
+          {:ok, create_capability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_capability_errors()}
+  def create_capability(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/capabilities"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an Amazon EKS control plane.
 
   The Amazon EKS control plane consists of control plane instances that run the
@@ -3534,7 +3960,7 @@ defmodule AWS.EKS do
   Amazon EC2 instances.
 
   The cluster control plane is provisioned across multiple Availability Zones and
-  fronted by an Elastic Load Balancing
+  fronted by an ELB
   Network Load Balancer. Amazon EKS also provisions elastic network interfaces in
   your VPC subnets to provide
   connectivity from the control plane instances to the nodes (for example, to
@@ -3934,6 +4360,52 @@ defmodule AWS.EKS do
         {"preserve", "preserve"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a managed capability from your Amazon EKS cluster.
+
+  When you delete a capability, Amazon EKS removes the capability infrastructure
+  but retains all resources that were managed by the capability.
+
+  Before deleting a capability, you should delete all Kubernetes resources that
+  were created by the capability. After the capability is deleted, these resources
+  become difficult to manage because the controller that managed them is no longer
+  available. To delete resources before removing the capability, use `kubectl
+  delete` or remove them through your GitOps workflow.
+  """
+  @spec delete_capability(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_capability_request(),
+          list()
+        ) ::
+          {:ok, delete_capability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_capability_errors()}
+  def delete_capability(%Client{} = client, capability_name, cluster_name, input, options \\ []) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/capabilities/#{AWS.Util.encode_uri(capability_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -4372,6 +4844,28 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Returns detailed information about a specific managed capability in your Amazon
+  EKS cluster, including its current status, configuration, health information,
+  and any issues that may be affecting its operation.
+  """
+  @spec describe_capability(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_capability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_capability_errors()}
+  def describe_capability(%Client{} = client, capability_name, cluster_name, options \\ []) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/capabilities/#{AWS.Util.encode_uri(capability_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Describes an Amazon EKS cluster.
 
   The API server endpoint and certificate authority data returned by this
@@ -4674,6 +5168,7 @@ defmodule AWS.EKS do
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_update_response(), any()}
@@ -4685,6 +5180,7 @@ defmodule AWS.EKS do
         name,
         update_id,
         addon_name \\ nil,
+        capability_name \\ nil,
         nodegroup_name \\ nil,
         options \\ []
       ) do
@@ -4695,6 +5191,13 @@ defmodule AWS.EKS do
     query_params =
       if !is_nil(nodegroup_name) do
         [{"nodegroupName", nodegroup_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(capability_name) do
+        [{"capabilityName", capability_name} | query_params]
       else
         query_params
       end
@@ -4963,6 +5466,53 @@ defmodule AWS.EKS do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}/access-policies"
 
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all managed capabilities in your Amazon EKS cluster.
+
+  You can use this operation to get an overview of all capabilities and their
+  current status.
+  """
+  @spec list_capabilities(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_capabilities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_capabilities_errors()}
+  def list_capabilities(
+        %Client{} = client,
+        cluster_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/capabilities"
     headers = []
     query_params = []
 
@@ -5369,6 +5919,7 @@ defmodule AWS.EKS do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_updates_response(), any()}
@@ -5379,6 +5930,7 @@ defmodule AWS.EKS do
         %Client{} = client,
         name,
         addon_name \\ nil,
+        capability_name \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         nodegroup_name \\ nil,
@@ -5405,6 +5957,13 @@ defmodule AWS.EKS do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(capability_name) do
+        [{"capabilityName", capability_name} | query_params]
       else
         query_params
       end
@@ -5637,6 +6196,50 @@ defmodule AWS.EKS do
   def update_addon(%Client{} = client, addon_name, cluster_name, input, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}/update"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the configuration of a managed capability in your Amazon EKS cluster.
+
+  You can update the IAM role, configuration settings, and delete propagation
+  policy for a capability.
+
+  When you update a capability, Amazon EKS applies the changes and may restart
+  capability components as needed. The capability remains available during the
+  update process, but some operations may be temporarily unavailable.
+  """
+  @spec update_capability(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_capability_request(),
+          list()
+        ) ::
+          {:ok, update_capability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_capability_errors()}
+  def update_capability(%Client{} = client, capability_name, cluster_name, input, options \\ []) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/capabilities/#{AWS.Util.encode_uri(capability_name)}"
 
     headers = []
     custom_headers = []

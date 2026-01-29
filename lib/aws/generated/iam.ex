@@ -22,6 +22,18 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      reject_delegation_request_request() :: %{
+        optional("Notes") => String.t() | atom(),
+        required("DelegationRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type reject_delegation_request_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_user_policy_request() :: %{
         required("PolicyDocument") => String.t() | atom(),
         required("PolicyName") => String.t() | atom(),
@@ -50,6 +62,17 @@ defmodule AWS.IAM do
       
   """
   @type list_saml_providers_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_delegation_request_request() :: %{
+        required("DelegationRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_delegation_request_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -769,6 +792,17 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      send_delegation_token_request() :: %{
+        required("DelegationRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type send_delegation_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       upload_ssh_public_key_response() :: %{
         "SSHPublicKey" => ssh_public_key()
       }
@@ -826,6 +860,17 @@ defmodule AWS.IAM do
       
   """
   @type create_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      feature_disabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type feature_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1100,6 +1145,17 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      enable_outbound_web_identity_federation_response() :: %{
+        "IssuerIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type enable_outbound_web_identity_federation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_account_authorization_details_request() :: %{
         optional("Filter") => list(list(any())()),
         optional("Marker") => String.t() | atom(),
@@ -1155,6 +1211,19 @@ defmodule AWS.IAM do
       
   """
   @type list_instance_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_delegation_requests_response() :: %{
+        "DelegationRequests" => list(delegation_request()),
+        "Marker" => String.t() | atom(),
+        "isTruncated" => boolean()
+      }
+      
+  """
+  @type list_delegation_requests_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1873,6 +1942,19 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      list_delegation_requests_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("OwnerId") => String.t() | atom()
+      }
+      
+  """
+  @type list_delegation_requests_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_role_policy_request() :: %{
         required("PolicyName") => String.t() | atom(),
         required("RoleName") => String.t() | atom()
@@ -2273,6 +2355,19 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      get_human_readable_summary_response() :: %{
+        "Locale" => String.t() | atom(),
+        "SummaryContent" => String.t() | atom(),
+        "SummaryState" => list(any())
+      }
+      
+  """
+  @type get_human_readable_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       generate_organizations_access_report_response() :: %{
         "JobId" => String.t() | atom()
       }
@@ -2631,6 +2726,18 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      get_human_readable_summary_request() :: %{
+        optional("Locale") => String.t() | atom(),
+        required("EntityArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_human_readable_summary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_authentication_code_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -2900,6 +3007,18 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      update_delegation_request_request() :: %{
+        optional("Notes") => String.t() | atom(),
+        required("DelegationRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type update_delegation_request_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ssh_public_key() :: %{
         "Fingerprint" => String.t() | atom(),
         "SSHPublicKeyBody" => String.t() | atom(),
@@ -2965,6 +3084,49 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      delegation_request() :: %{
+        "ApproverId" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "DelegationRequestId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ExpirationTime" => non_neg_integer(),
+        "Notes" => String.t() | atom(),
+        "OnlySendByOwner" => boolean(),
+        "OwnerAccountId" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "PermissionPolicy" => String.t() | atom(),
+        "Permissions" => delegation_permission(),
+        "RedirectUrl" => String.t() | atom(),
+        "RejectionReason" => String.t() | atom(),
+        "RequestMessage" => String.t() | atom(),
+        "RequestorId" => String.t() | atom(),
+        "RequestorName" => String.t() | atom(),
+        "RolePermissionRestrictionArns" => list(String.t() | atom()),
+        "SessionDuration" => integer(),
+        "State" => list(any()),
+        "UpdatedTime" => non_neg_integer()
+      }
+      
+  """
+  @type delegation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_delegation_request_response() :: %{
+        "DelegationRequest" => delegation_request(),
+        "PermissionCheckResult" => list(any()),
+        "PermissionCheckStatus" => list(any())
+      }
+      
+  """
+  @type get_delegation_request_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_ssh_public_key_response() :: %{
         "SSHPublicKey" => ssh_public_key()
       }
@@ -2991,6 +3153,17 @@ defmodule AWS.IAM do
       
   """
   @type user_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      feature_enabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type feature_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3251,6 +3424,18 @@ defmodule AWS.IAM do
       
   """
   @type list_user_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_delegation_request_request() :: %{
+        optional("DelegationPermissionCheck") => boolean(),
+        required("DelegationRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type get_delegation_request_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3777,6 +3962,17 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      accept_delegation_request_request() :: %{
+        required("DelegationRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type accept_delegation_request_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_account_aliases_request() :: %{
         optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
@@ -4296,6 +4492,18 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      get_outbound_web_identity_federation_info_response() :: %{
+        "IssuerIdentifier" => String.t() | atom(),
+        "JwtVendingEnabled" => boolean()
+      }
+      
+  """
+  @type get_outbound_web_identity_federation_info_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_instance_profile_request() :: %{
         required("InstanceProfileName") => String.t() | atom(),
         required("TagKeys") => list(String.t() | atom())
@@ -4303,6 +4511,11 @@ defmodule AWS.IAM do
       
   """
   @type untag_instance_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @type accept_delegation_request_errors() ::
+          concurrent_modification_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
 
   @type add_client_id_to_open_id_connect_provider_errors() ::
           limit_exceeded_exception()
@@ -4320,6 +4533,12 @@ defmodule AWS.IAM do
 
   @type add_user_to_group_errors() ::
           limit_exceeded_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type associate_delegation_request_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
 
   @type attach_group_policy_errors() ::
           limit_exceeded_exception()
@@ -4603,6 +4822,8 @@ defmodule AWS.IAM do
           | service_access_not_enabled_exception()
           | account_not_management_or_delegated_administrator_exception()
 
+  @type disable_outbound_web_identity_federation_errors() :: feature_disabled_exception()
+
   @type enable_mfa_device_errors() ::
           limit_exceeded_exception()
           | concurrent_modification_exception()
@@ -4625,6 +4846,8 @@ defmodule AWS.IAM do
           | organization_not_in_all_features_mode_exception()
           | service_access_not_enabled_exception()
           | account_not_management_or_delegated_administrator_exception()
+
+  @type enable_outbound_web_identity_federation_errors() :: feature_enabled_exception()
 
   @type generate_credential_report_errors() ::
           limit_exceeded_exception() | service_failure_exception()
@@ -4653,9 +4876,15 @@ defmodule AWS.IAM do
           | credential_report_not_ready_exception()
           | service_failure_exception()
 
+  @type get_delegation_request_errors() ::
+          service_failure_exception() | no_such_entity_exception()
+
   @type get_group_errors() :: service_failure_exception() | no_such_entity_exception()
 
   @type get_group_policy_errors() :: service_failure_exception() | no_such_entity_exception()
+
+  @type get_human_readable_summary_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
 
   @type get_instance_profile_errors() :: service_failure_exception() | no_such_entity_exception()
 
@@ -4667,6 +4896,8 @@ defmodule AWS.IAM do
           invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
 
   @type get_organizations_access_report_errors() :: no_such_entity_exception()
+
+  @type get_outbound_web_identity_federation_info_errors() :: feature_disabled_exception()
 
   @type get_policy_errors() ::
           invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
@@ -4711,6 +4942,9 @@ defmodule AWS.IAM do
           invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
 
   @type list_attached_user_policies_errors() ::
+          invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
+
+  @type list_delegation_requests_errors() ::
           invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
 
   @type list_entities_for_policy_errors() ::
@@ -4819,6 +5053,12 @@ defmodule AWS.IAM do
           | service_failure_exception()
           | no_such_entity_exception()
 
+  @type reject_delegation_request_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
   @type remove_client_id_from_open_id_connect_provider_errors() ::
           concurrent_modification_exception()
           | invalid_input_exception()
@@ -4840,6 +5080,12 @@ defmodule AWS.IAM do
           limit_exceeded_exception()
           | concurrent_modification_exception()
           | invalid_authentication_code_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
+  @type send_delegation_token_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
           | service_failure_exception()
           | no_such_entity_exception()
 
@@ -4978,6 +5224,12 @@ defmodule AWS.IAM do
           | service_failure_exception()
           | no_such_entity_exception()
 
+  @type update_delegation_request_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | service_failure_exception()
+          | no_such_entity_exception()
+
   @type update_group_errors() ::
           limit_exceeded_exception()
           | service_failure_exception()
@@ -5081,6 +5333,33 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Accepts a delegation request, granting the requested temporary access.
+
+  Once the delegation request is accepted, it is eligible to send the exchange
+  token to the partner.
+  The
+  [SendDelegationToken](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html)
+  API has to be explicitly called to send the delegation token.
+
+  At the time of acceptance, IAM records the details and the state of the identity
+  that called this API.
+  This is the identity that gets mapped to the delegated credential.
+
+  An accepted request may be rejected before the exchange token is sent to the
+  partner.
+  """
+  @spec accept_delegation_request(map(), accept_delegation_request_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, accept_delegation_request_errors()}
+  def accept_delegation_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptDelegationRequest", input, options)
+  end
+
+  @doc """
   Adds a new client ID (also known as audience) to the list of client IDs already
   registered for the specified IAM OpenID Connect (OIDC) provider resource.
 
@@ -5158,6 +5437,46 @@ defmodule AWS.IAM do
     meta = metadata()
 
     Request.request_post(client, meta, "AddUserToGroup", input, options)
+  end
+
+  @doc """
+  Associates a delegation request with the current identity.
+
+  If the partner that created the delegation request has specified the owner
+  account during creation,
+  only an identity from that owner account can call the
+  `AssociateDelegationRequest` API for
+  the specified delegation request. Once the `AssociateDelegationRequest` API call
+  is successful,
+  the ARN of the current calling identity will be stored as the
+  `ownerId`
+  of the request.
+
+  If the partner that created the delegation request has not specified the owner
+  account during creation,
+  any caller from any account can call the `AssociateDelegationRequest` API for
+  the delegation request. Once this API call is successful, the ARN of the current
+  calling identity will be stored as the
+  `ownerId`
+  and the Amazon Web Services account ID of the current calling identity will be
+  stored as the
+  `ownerAccount`
+  of the request.
+
+  For more details, see
+  [
+  Managing Permissions for Delegation
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+  """
+  @spec associate_delegation_request(map(), associate_delegation_request_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_delegation_request_errors()}
+  def associate_delegation_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateDelegationRequest", input, options)
   end
 
   @doc """
@@ -5341,7 +5660,12 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  This API is currently unavailable for general use.
+  Creates an IAM delegation request for temporary access delegation.
+
+  This API is not available for general use. In order to use this API, a caller
+  first need to
+  go through an onboarding process described in the
+  [partner onboarding documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html).
   """
   @spec create_delegation_request(map(), create_delegation_request_request(), list()) ::
           {:ok, create_delegation_request_response(), any()}
@@ -6500,6 +6824,26 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Disables the outbound identity federation feature for your Amazon Web Services
+  account.
+
+  When disabled, IAM principals in the account cannot
+  use the `GetWebIdentityToken` API to obtain JSON Web Tokens (JWTs) for
+  authentication with external services. This operation
+  does not affect tokens that were issued before the feature was disabled.
+  """
+  @spec disable_outbound_web_identity_federation(map(), %{}, list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disable_outbound_web_identity_federation_errors()}
+  def disable_outbound_web_identity_federation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableOutboundWebIdentityFederation", input, options)
+  end
+
+  @doc """
   Enables the specified MFA device and associates it with the specified IAM user.
 
   When
@@ -6606,6 +6950,27 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Enables the outbound identity federation feature for your Amazon Web Services
+  account.
+
+  When enabled, IAM principals in your account
+  can use the `GetWebIdentityToken` API to obtain JSON Web Tokens (JWTs) for
+  secure authentication with external services.
+  This operation also generates a unique issuer URL for your Amazon Web Services
+  account.
+  """
+  @spec enable_outbound_web_identity_federation(map(), %{}, list()) ::
+          {:ok, enable_outbound_web_identity_federation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, enable_outbound_web_identity_federation_errors()}
+  def enable_outbound_web_identity_federation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableOutboundWebIdentityFederation", input, options)
+  end
+
+  @doc """
   Generates a credential report for the Amazon Web Services account.
 
   For more information about the
@@ -6666,7 +7031,7 @@ defmodule AWS.IAM do
   in the
   *IAM User Guide*.
 
-  The data includes all attempts to access Amazon Web Services, not just the
+  The data includes all attempts to access Amazon Web Services, not just the
   successful ones. This
   includes all attempts that were made using the Amazon Web Services Management
   Console, the Amazon Web Services API through any
@@ -6677,7 +7042,7 @@ defmodule AWS.IAM do
   request might have been denied. Refer to your CloudTrail logs as the
   authoritative
   source for information about all API calls and whether they were successful or
-  denied access. For more information, see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
+  denied access. For more information, see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
   in the *IAM User Guide*.
 
   This operation returns a `JobId`. Use this parameter in the
@@ -6830,7 +7195,7 @@ defmodule AWS.IAM do
   actions for which action last accessed information is displayed, see [IAM action last accessed information services and
   actions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-action-last-accessed.html).
 
-  The service last accessed data includes all attempts to access an Amazon Web
+  The service last accessed data includes all attempts to access an Amazon Web
   Services API, not
   just the successful ones. This includes all attempts that were made using the
   Amazon Web Services Management Console, the Amazon Web Services API through any
@@ -6840,8 +7205,8 @@ defmodule AWS.IAM do
   to
   your CloudTrail logs as the authoritative source for information about all API
   calls
-  and whether they were successful or denied access. For more information,
-  see [Logging IAM events with
+  and whether they were successful or denied access. For more information, see
+  [Logging IAM events with
   CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
   in the
   *IAM User Guide*.
@@ -7105,6 +7470,32 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Retrieves information about a specific delegation request.
+
+  If a delegation request has no owner or owner account, `GetDelegationRequest`
+  for that delegation request can be called by any account.
+  If the owner account is assigned but there is
+  no owner id, only identities within that owner account can call
+  `GetDelegationRequest`
+  for the delegation request. Once the delegation request is fully owned, the
+  owner of the request gets
+  a default permission to get that delegation request. For more details, see
+  [
+  Managing Permissions for Delegation
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+  """
+  @spec get_delegation_request(map(), get_delegation_request_request(), list()) ::
+          {:ok, get_delegation_request_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_delegation_request_errors()}
+  def get_delegation_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDelegationRequest", input, options)
+  end
+
+  @doc """
   Returns a list of IAM users that are in the specified IAM group.
 
   You can paginate
@@ -7156,6 +7547,42 @@ defmodule AWS.IAM do
     meta = metadata()
 
     Request.request_post(client, meta, "GetGroupPolicy", input, options)
+  end
+
+  @doc """
+  Retrieves a human readable summary for a given entity.
+
+  At this time, the only supported
+  entity type is `delegation-request`
+
+  This method uses a Large Language Model (LLM) to generate the summary.
+
+  If a delegation request has no owner or owner account, `GetHumanReadableSummary`
+  for that delegation request can be called by any account.
+  If the owner account is assigned but there is
+  no owner id, only identities within that owner account can call
+  `GetHumanReadableSummary`
+  for the delegation request to retrieve a summary of that request.
+  Once the delegation request is fully owned, the owner of the request gets
+  a default permission to get that delegation request. For more details, read
+  [default permissions granted to delegation requests](). These rules are identical to
+  [GetDelegationRequest](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html)
+
+  API behavior, such that a party who has permissions to call
+  [GetDelegationRequest](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html)
+
+  for a given delegation request will always be able to retrieve the human
+  readable summary for that request.
+  """
+  @spec get_human_readable_summary(map(), get_human_readable_summary_request(), list()) ::
+          {:ok, get_human_readable_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_human_readable_summary_errors()}
+  def get_human_readable_summary(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetHumanReadableSummary", input, options)
   end
 
   @doc """
@@ -7289,6 +7716,26 @@ defmodule AWS.IAM do
     meta = metadata()
 
     Request.request_post(client, meta, "GetOrganizationsAccessReport", input, options)
+  end
+
+  @doc """
+  Retrieves the configuration information for the outbound identity federation
+  feature in your Amazon Web Services account.
+
+  The response includes the unique issuer URL for your
+  Amazon Web Services account and the current enabled/disabled status of the
+  feature. Use this operation to obtain the issuer URL that you need to configure
+  trust relationships with external services.
+  """
+  @spec get_outbound_web_identity_federation_info(map(), %{}, list()) ::
+          {:ok, get_outbound_web_identity_federation_info_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_outbound_web_identity_federation_info_errors()}
+  def get_outbound_web_identity_federation_info(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOutboundWebIdentityFederationInfo", input, options)
   end
 
   @doc """
@@ -7855,6 +8302,29 @@ defmodule AWS.IAM do
     meta = metadata()
 
     Request.request_post(client, meta, "ListAttachedUserPolicies", input, options)
+  end
+
+  @doc """
+  Lists delegation requests based on the specified criteria.
+
+  If a delegation request has no owner, even if it is assigned to a specific
+  account, it will not be part of the
+  `ListDelegationRequests` output for that account.
+
+  For more details, see
+  [
+  Managing Permissions for Delegation
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+  """
+  @spec list_delegation_requests(map(), list_delegation_requests_request(), list()) ::
+          {:ok, list_delegation_requests_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_delegation_requests_errors()}
+  def list_delegation_requests(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDelegationRequests", input, options)
   end
 
   @doc """
@@ -8848,6 +9318,31 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Rejects a delegation request, denying the requested temporary access.
+
+  Once a request is rejected, it cannot be accepted or updated later. Rejected
+  requests expire after 7 days.
+
+  When rejecting a request, an optional explanation can be added using the `Notes`
+  request parameter.
+
+  For more details, see
+  [
+  Managing Permissions for Delegation
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+  """
+  @spec reject_delegation_request(map(), reject_delegation_request_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, reject_delegation_request_errors()}
+  def reject_delegation_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RejectDelegationRequest", input, options)
+  end
+
+  @doc """
   Removes the specified client ID (also known as audience) from the list of client
   IDs
   registered for the specified IAM OpenID Connect (OIDC) provider resource
@@ -8960,6 +9455,35 @@ defmodule AWS.IAM do
     meta = metadata()
 
     Request.request_post(client, meta, "ResyncMFADevice", input, options)
+  end
+
+  @doc """
+  Sends the exchange token for an accepted delegation request.
+
+  The exchange token is sent to the partner via an asynchronous notification
+  channel, established by the partner.
+
+  The delegation request must be in the `ACCEPTED` state when calling this API.
+  After the
+  `SendDelegationToken` API
+  call is successful, the request transitions to a `FINALIZED` state and cannot be
+  rolled back. However, a user may reject
+  an accepted request before the `SendDelegationToken` API is called.
+
+  For more details, see
+  [
+  Managing Permissions for Delegation
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+  """
+  @spec send_delegation_token(map(), send_delegation_token_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_delegation_token_errors()}
+  def send_delegation_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendDelegationToken", input, options)
   end
 
   @doc """
@@ -9849,6 +10373,30 @@ defmodule AWS.IAM do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateAssumeRolePolicy", input, options)
+  end
+
+  @doc """
+  Updates an existing delegation request with additional information.
+
+  When the delegation
+  request is updated, it reaches the `PENDING_APPROVAL` state.
+
+  Once a delegation request has an owner, that owner gets a default permission to
+  update the
+  delegation request. For more details, see
+  [
+  Managing Permissions for Delegation
+  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+  """
+  @spec update_delegation_request(map(), update_delegation_request_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_delegation_request_errors()}
+  def update_delegation_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDelegationRequest", input, options)
   end
 
   @doc """

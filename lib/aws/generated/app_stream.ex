@@ -3,31 +3,31 @@
 
 defmodule AWS.AppStream do
   @moduledoc """
-  Amazon AppStream 2.0
+  Amazon WorkSpaces Applications
 
-  This is the *Amazon AppStream 2.0 API Reference*.
+  This is the *Amazon WorkSpaces Applications API Reference*.
 
   This documentation provides descriptions and syntax for each of the actions and
-  data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure
-  application streaming service that lets you stream desktop applications to users
-  without rewriting applications. AppStream 2.0 manages the AWS resources that are
-  required to host and run your applications, scales automatically, and provides
-  access to your users on demand.
+  data types in WorkSpaces Applications. WorkSpaces Applications is a fully
+  managed, secure application streaming service that lets you stream desktop
+  applications to users without rewriting applications. WorkSpaces Applications
+  manages the AWS resources that are required to host and run your applications,
+  scales automatically, and provides access to your users on demand.
 
-  You can call the AppStream 2.0 API operations by using an interface VPC endpoint
-  (interface endpoint). For more information, see [Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC
+  You can call the WorkSpaces Applications API operations by using an interface
+  VPC endpoint (interface endpoint). For more information, see [Access WorkSpaces Applications API Operations and CLI Commands Through an Interface VPC
   Endpoint](https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html)
-  in the *Amazon AppStream 2.0 Administration Guide*.
+  in the *Amazon WorkSpaces Applications Administration Guide*.
 
-  To learn more about AppStream 2.0, see the following resources:
-
-    *
-
-  [Amazon AppStream 2.0 product page](http://aws.amazon.com/appstream2) 
+  To learn more about WorkSpaces Applications, see the following resources:
 
     *
 
-  [Amazon AppStream 2.0
+  [Amazon WorkSpaces Applications product page](http://aws.amazon.com/appstream2) 
+
+    *
+
+  [Amazon WorkSpaces Applications
   documentation](http://aws.amazon.com/documentation/appstream2)
   """
 
@@ -97,6 +97,7 @@ defmodule AWS.AppStream do
         "Name" => String.t() | atom(),
         "NetworkAccessConfiguration" => network_access_configuration(),
         "Platform" => list(any()),
+        "RootVolumeConfig" => volume_config(),
         "State" => list(any()),
         "StateChangeReason" => image_builder_state_change_reason(),
         "VpcConfig" => vpc_config()
@@ -207,6 +208,17 @@ defmodule AWS.AppStream do
       
   """
   @type create_application_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dry_run_operation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type dry_run_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -459,6 +471,7 @@ defmodule AWS.AppStream do
         optional("MaxSessionsPerInstance") => integer(),
         optional("MaxUserDurationInSeconds") => integer(),
         optional("Platform") => list(any()),
+        optional("RootVolumeConfig") => volume_config(),
         optional("SessionScriptS3Location") => s3_location(),
         optional("StreamView") => list(any()),
         optional("Tags") => map(),
@@ -838,6 +851,21 @@ defmodule AWS.AppStream do
       
   """
   @type update_directory_config_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_export_image_task_request() :: %{
+        optional("AmiDescription") => String.t() | atom(),
+        optional("TagSpecifications") => map(),
+        required("AmiName") => String.t() | atom(),
+        required("IamRoleArn") => String.t() | atom(),
+        required("ImageName") => String.t() | atom()
+      }
+      
+  """
+  @type create_export_image_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1302,6 +1330,19 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      list_export_image_tasks_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_export_image_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_fleet_request() :: %{
         optional("AttributesToDelete") => list(list(any())()),
         optional("ComputeCapacity") => compute_capacity(),
@@ -1321,6 +1362,7 @@ defmodule AWS.AppStream do
         optional("MaxUserDurationInSeconds") => integer(),
         optional("Name") => String.t() | atom(),
         optional("Platform") => list(any()),
+        optional("RootVolumeConfig") => volume_config(),
         optional("SessionScriptS3Location") => s3_location(),
         optional("StreamView") => list(any()),
         optional("UsbDeviceFilterStrings") => list(String.t() | atom()),
@@ -1343,6 +1385,18 @@ defmodule AWS.AppStream do
       
   """
   @type usage_report_subscription() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_export_image_tasks_result() :: %{
+        "ExportImageTasks" => list(export_image_task()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_export_image_tasks_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1385,6 +1439,7 @@ defmodule AWS.AppStream do
         optional("IamRoleArn") => String.t() | atom(),
         optional("ImageArn") => String.t() | atom(),
         optional("ImageName") => String.t() | atom(),
+        optional("RootVolumeConfig") => volume_config(),
         optional("SoftwaresToInstall") => list(String.t() | atom()),
         optional("SoftwaresToUninstall") => list(String.t() | atom()),
         optional("Tags") => map(),
@@ -1794,6 +1849,17 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      get_export_image_task_result() :: %{
+        "ExportImageTask" => export_image_task()
+      }
+      
+  """
+  @type get_export_image_task_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       streaming_experience_settings() :: %{
         "PreferredProtocol" => list(any())
       }
@@ -1830,6 +1896,18 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entitlement_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -1845,6 +1923,17 @@ defmodule AWS.AppStream do
       
   """
   @type delete_directory_config_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_export_image_task_request() :: %{
+        optional("TaskId") => String.t() | atom()
+      }
+      
+  """
+  @type get_export_image_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1997,6 +2086,17 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      create_export_image_task_result() :: %{
+        "ExportImageTask" => export_image_task()
+      }
+      
+  """
+  @type create_export_image_task_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_associate_user_stack_request() :: %{
         required("UserStackAssociations") => list(user_stack_association())
       }
@@ -2067,6 +2167,25 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      export_image_task() :: %{
+        "AmiDescription" => String.t() | atom(),
+        "AmiId" => String.t() | atom(),
+        "AmiName" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "ErrorDetails" => list(error_details()),
+        "ImageArn" => String.t() | atom(),
+        "State" => list(any()),
+        "TagSpecifications" => map(),
+        "TaskId" => String.t() | atom()
+      }
+      
+  """
+  @type export_image_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entitlement() :: %{
         "AppVisibility" => list(any()),
         "Attributes" => list(entitlement_attribute()),
@@ -2098,6 +2217,7 @@ defmodule AWS.AppStream do
         "ImageErrors" => list(resource_error()),
         "ImagePermissions" => image_permissions(),
         "ImageSharedWithOthers" => list(any()),
+        "ImageType" => list(any()),
         "LatestAppstreamAgentVersion" => list(any()),
         "ManagedSoftwareIncluded" => boolean(),
         "Name" => String.t() | atom(),
@@ -2395,6 +2515,17 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      runtime_validation_config() :: %{
+        "IntendedInstanceType" => String.t() | atom()
+      }
+      
+  """
+  @type runtime_validation_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_stack_result() :: %{}
       
   """
@@ -2417,6 +2548,17 @@ defmodule AWS.AppStream do
       
   """
   @type user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      volume_config() :: %{
+        "VolumeSizeInGb" => integer()
+      }
+      
+  """
+  @type volume_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2457,6 +2599,26 @@ defmodule AWS.AppStream do
       
   """
   @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_imported_image_request() :: %{
+        optional("AgentSoftwareVersion") => list(any()),
+        optional("AppCatalogConfig") => list(application_config()),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("RuntimeValidationConfig") => runtime_validation_config(),
+        optional("Tags") => map(),
+        required("IamRoleArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("SourceAmiId") => String.t() | atom()
+      }
+      
+  """
+  @type create_imported_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2561,6 +2723,23 @@ defmodule AWS.AppStream do
       
   """
   @type describe_app_block_builders_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      application_config() :: %{
+        "AbsoluteAppPath" => String.t() | atom(),
+        "AbsoluteIconPath" => String.t() | atom(),
+        "AbsoluteManifestPath" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "LaunchParameters" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "WorkingDirectory" => String.t() | atom()
+      }
+      
+  """
+  @type application_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2818,6 +2997,7 @@ defmodule AWS.AppStream do
         "MaxUserDurationInSeconds" => integer(),
         "Name" => String.t() | atom(),
         "Platform" => list(any()),
+        "RootVolumeConfig" => volume_config(),
         "SessionScriptS3Location" => s3_location(),
         "State" => list(any()),
         "StreamView" => list(any()),
@@ -2889,6 +3069,17 @@ defmodule AWS.AppStream do
       
   """
   @type user_stack_association_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_imported_image_result() :: %{
+        "Image" => image()
+      }
+      
+  """
+  @type create_imported_image_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3059,6 +3250,15 @@ defmodule AWS.AppStream do
           | operation_not_permitted_exception()
           | resource_not_found_exception()
 
+  @type create_export_image_task_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | resource_not_available_exception()
+
   @type create_fleet_errors() ::
           resource_already_exists_exception()
           | limit_exceeded_exception()
@@ -3087,6 +3287,16 @@ defmodule AWS.AppStream do
 
   @type create_image_builder_streaming_url_errors() ::
           operation_not_permitted_exception() | resource_not_found_exception()
+
+  @type create_imported_image_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | incompatible_image_exception()
+          | invalid_account_status_exception()
+          | invalid_role_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | dry_run_operation_exception()
 
   @type create_stack_errors() ::
           resource_already_exists_exception()
@@ -3284,10 +3494,15 @@ defmodule AWS.AppStream do
   @type enable_user_errors() ::
           invalid_account_status_exception() | resource_not_found_exception()
 
+  @type get_export_image_task_errors() ::
+          operation_not_permitted_exception() | resource_not_found_exception()
+
   @type list_entitled_applications_errors() ::
           entitlement_not_found_exception()
           | operation_not_permitted_exception()
           | resource_not_found_exception()
+
+  @type list_export_image_tasks_errors() :: operation_not_permitted_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
@@ -3562,7 +3777,7 @@ defmodule AWS.AppStream do
   @doc """
   Creates an app block.
 
-  App blocks are an Amazon AppStream 2.0 resource that stores the details about
+  App blocks are a WorkSpaces Applications resource that stores the details about
   the
   virtual hard disk in an S3 bucket. It also stores the setup script with details
   about
@@ -3620,8 +3835,8 @@ defmodule AWS.AppStream do
   @doc """
   Creates an application.
 
-  Applications are an Amazon AppStream 2.0 resource that stores the details about
-  how to
+  Applications are a WorkSpaces Applications resource that stores the details
+  about how to
   launch applications on Elastic fleet streaming instances. An application
   consists of the
   launch details, icon, and display name. Applications are associated with an app
@@ -3644,7 +3859,7 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Creates a Directory Config object in AppStream 2.0.
+  Creates a Directory Config object in WorkSpaces Applications.
 
   This object includes the configuration information required to join fleets and
   image builders to Microsoft Active Directory domains.
@@ -3665,8 +3880,8 @@ defmodule AWS.AppStream do
 
   Entitlements control access to specific applications within
   a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
-  identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled
-  to all
+  identities. WorkSpaces Applications user pool and streaming URL users are
+  entitled to all
   applications in a stack. Entitlements don't apply to the desktop stream view
   application, or to applications managed by a dynamic app provider using the
   Dynamic
@@ -3681,6 +3896,23 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateEntitlement", input, options)
+  end
+
+  @doc """
+  Creates a task to export a WorkSpaces Applications image to an EC2 AMI.
+
+  This allows you to use your customized WorkSpaces Applications images with other
+  AWS services or for backup purposes.
+  """
+  @spec create_export_image_task(map(), create_export_image_task_request(), list()) ::
+          {:ok, create_export_image_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_export_image_task_errors()}
+  def create_export_image_task(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateExportImageTask", input, options)
   end
 
   @doc """
@@ -3738,6 +3970,24 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Creates a custom WorkSpaces Applications image by importing an EC2 AMI.
+
+  This allows you to use your own customized AMI to create WorkSpaces Applications
+  images that support additional instance types beyond the standard stream.*
+  instances.
+  """
+  @spec create_imported_image(map(), create_imported_image_request(), list()) ::
+          {:ok, create_imported_image_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_imported_image_errors()}
+  def create_imported_image(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateImportedImage", input, options)
+  end
+
+  @doc """
   Creates a stack to start streaming applications to users.
 
   A stack consists of an associated fleet, user access policies, and storage
@@ -3755,8 +4005,8 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Creates a temporary URL to start an AppStream 2.0 streaming session for the
-  specified user.
+  Creates a temporary URL to start an WorkSpaces Applications streaming session
+  for the specified user.
 
   A streaming URL enables application streaming to be tested without user setup.
   """
@@ -3788,11 +4038,12 @@ defmodule AWS.AppStream do
 
   @doc """
   Creates a new image with the latest Windows operating system updates, driver
-  updates, and AppStream 2.0 agent software.
+  updates, and WorkSpaces Applications agent software.
 
   For more information, see the "Update an Image by Using
-  Managed AppStream 2.0 Image Updates" section in [Administer Your AppStream 2.0 Images](https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html),
-  in the *Amazon AppStream 2.0 Administration Guide*.
+  Managed WorkSpaces Applications Image Updates" section in [Administer Your WorkSpaces Applications
+  Images](https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html),
+  in the *Amazon WorkSpaces Applications Administration Guide*.
   """
   @spec create_updated_image(map(), create_updated_image_request(), list()) ::
           {:ok, create_updated_image_result(), any()}
@@ -3885,7 +4136,7 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Deletes the specified Directory Config object from AppStream 2.0.
+  Deletes the specified Directory Config object from WorkSpaces Applications.
 
   This object includes the information required to join streaming instances to an
   Active Directory domain.
@@ -4144,7 +4395,7 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves a list that describes one or more specified Directory Config objects
-  for AppStream 2.0, if the names for these objects are provided.
+  for WorkSpaces Applications, if the names for these objects are provided.
 
   Otherwise, all Directory Config objects in the account are described. These
   objects include the configuration information required to join fleets and image
@@ -4374,8 +4625,8 @@ defmodule AWS.AppStream do
   @doc """
   Disables the specified user in the user pool.
 
-  Users can't sign in to AppStream 2.0 until they are re-enabled. This action does
-  not delete the user.
+  Users can't sign in to WorkSpaces Applications until they are re-enabled. This
+  action does not delete the user.
   """
   @spec disable_user(map(), disable_user_request(), list()) ::
           {:ok, disable_user_result(), any()}
@@ -4474,8 +4725,8 @@ defmodule AWS.AppStream do
   @doc """
   Enables a user in the user pool.
 
-  After being enabled, users can sign in to AppStream 2.0 and open applications
-  from the stacks to which they are assigned.
+  After being enabled, users can sign in to WorkSpaces Applications and open
+  applications from the stacks to which they are assigned.
   """
   @spec enable_user(map(), enable_user_request(), list()) ::
           {:ok, enable_user_result(), any()}
@@ -4499,6 +4750,21 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "ExpireSession", input, options)
+  end
+
+  @doc """
+  Retrieves information about an export image task, including its current state,
+  progress, and any error details.
+  """
+  @spec get_export_image_task(map(), get_export_image_task_request(), list()) ::
+          {:ok, get_export_image_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_export_image_task_errors()}
+  def get_export_image_task(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetExportImageTask", input, options)
   end
 
   @doc """
@@ -4542,12 +4808,28 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Retrieves a list of all tags for the specified AppStream 2.0 resource.
+  Lists export image tasks, with optional filtering and pagination.
 
-  You can tag AppStream 2.0 image builders, images, fleets, and stacks.
+  Use this operation to monitor the status of multiple export operations.
+  """
+  @spec list_export_image_tasks(map(), list_export_image_tasks_request(), list()) ::
+          {:ok, list_export_image_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_export_image_tasks_errors()}
+  def list_export_image_tasks(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListExportImageTasks", input, options)
+  end
+
+  @doc """
+  Retrieves a list of all tags for the specified WorkSpaces Applications resource.
+
+  You can tag WorkSpaces Applications image builders, images, fleets, and stacks.
 
   For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
-  in the *Amazon AppStream 2.0 Administration Guide*.
+  in the *Amazon WorkSpaces Applications Administration Guide*.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4674,9 +4956,10 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Adds or overwrites one or more tags for the specified AppStream 2.0 resource.
+  Adds or overwrites one or more tags for the specified WorkSpaces Applications
+  resource.
 
-  You can tag AppStream 2.0 image builders, images, fleets, and stacks.
+  You can tag WorkSpaces Applications image builders, images, fleets, and stacks.
 
   Each tag consists of a key and an optional value. If a resource already has a
   tag with the same key,
@@ -4686,7 +4969,7 @@ defmodule AWS.AppStream do
   To disassociate tags from your resources, use `UntagResource`.
 
   For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
-  in the *Amazon AppStream 2.0 Administration Guide*.
+  in the *Amazon WorkSpaces Applications Administration Guide*.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -4700,13 +4983,13 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Disassociates one or more specified tags from the specified AppStream 2.0
-  resource.
+  Disassociates one or more specified tags from the specified WorkSpaces
+  Applications resource.
 
   To list the current tags for your resources, use `ListTagsForResource`.
 
   For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
-  in the *Amazon AppStream 2.0 Administration Guide*.
+  in the *Amazon WorkSpaces Applications Administration Guide*.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -4754,7 +5037,7 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Updates the specified Directory Config object in AppStream 2.0.
+  Updates the specified Directory Config object in WorkSpaces Applications.
 
   This object includes the configuration information required to join fleets and
   image builders to Microsoft Active Directory domains.

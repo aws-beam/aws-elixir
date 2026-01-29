@@ -236,7 +236,8 @@ defmodule AWS.SESv2 do
   ## Example:
 
       suppression_attributes() :: %{
-        "SuppressedReasons" => list(list(any())())
+        "SuppressedReasons" => list(list(any())()),
+        "ValidationAttributes" => suppression_validation_attributes()
       }
 
   """
@@ -570,6 +571,18 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      suppression_condition_threshold() :: %{
+        "ConditionThresholdEnabled" => list(any()),
+        "OverallConfidenceThreshold" => suppression_confidence_threshold()
+      }
+
+  """
+  @type suppression_condition_threshold() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kinesis_firehose_destination() :: %{
         "DeliveryStreamArn" => String.t() | atom(),
         "IamRoleArn" => String.t() | atom()
@@ -736,6 +749,7 @@ defmodule AWS.SESv2 do
         "FailureRedirectionURL" => String.t() | atom(),
         "FromEmailAddress" => String.t() | atom(),
         "SuccessRedirectionURL" => String.t() | atom(),
+        "Tags" => list(tag()),
         "TemplateContent" => String.t() | atom(),
         "TemplateName" => String.t() | atom(),
         "TemplateSubject" => String.t() | atom()
@@ -754,6 +768,7 @@ defmodule AWS.SESv2 do
         "NextSigningKeyLength" => list(any()),
         "SigningAttributesOrigin" => list(any()),
         "SigningEnabled" => boolean(),
+        "SigningHostedZone" => String.t() | atom(),
         "Status" => list(any()),
         "Tokens" => list(String.t() | atom())
       }
@@ -991,6 +1006,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      email_address_insights_verdict() :: %{
+        "ConfidenceVerdict" => list(any())
+      }
+
+  """
+  @type email_address_insights_verdict() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_account_vdm_attributes_response() :: %{}
 
   """
@@ -1176,7 +1202,8 @@ defmodule AWS.SESv2 do
   ## Example:
 
       put_account_suppression_attributes_request() :: %{
-        optional("SuppressedReasons") => list(list(any())())
+        optional("SuppressedReasons") => list(list(any())()),
+        optional("ValidationAttributes") => suppression_validation_attributes()
       }
 
   """
@@ -1266,7 +1293,8 @@ defmodule AWS.SESv2 do
   ## Example:
 
       put_configuration_set_suppression_options_request() :: %{
-        optional("SuppressedReasons") => list(list(any())())
+        optional("SuppressedReasons") => list(list(any())()),
+        optional("ValidationOptions") => suppression_validation_options()
       }
 
   """
@@ -1325,6 +1353,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       create_email_template_request() :: %{
+        optional("Tags") => list(tag()),
         required("TemplateContent") => email_template_content(),
         required("TemplateName") => String.t() | atom()
       }
@@ -1404,6 +1433,22 @@ defmodule AWS.SESv2 do
 
   """
   @type get_blacklist_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_address_insights_mailbox_evaluations() :: %{
+        "HasValidDnsRecords" => email_address_insights_verdict(),
+        "HasValidSyntax" => email_address_insights_verdict(),
+        "IsDisposable" => email_address_insights_verdict(),
+        "IsRandomInput" => email_address_insights_verdict(),
+        "IsRoleAddress" => email_address_insights_verdict(),
+        "MailboxExists" => email_address_insights_verdict()
+      }
+
+  """
+  @type email_address_insights_mailbox_evaluations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1513,6 +1558,17 @@ defmodule AWS.SESv2 do
 
   """
   @type list_resource_tenants_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suppression_confidence_threshold() :: %{
+        "ConfidenceVerdictThreshold" => list(any())
+      }
+
+  """
+  @type suppression_confidence_threshold() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2074,6 +2130,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       create_custom_verification_email_template_request() :: %{
+        optional("Tags") => list(tag()),
         required("FailureRedirectionURL") => String.t() | atom(),
         required("FromEmailAddress") => String.t() | atom(),
         required("SuccessRedirectionURL") => String.t() | atom(),
@@ -2267,6 +2324,17 @@ defmodule AWS.SESv2 do
 
   """
   @type get_message_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_email_address_insights_response() :: %{
+        "MailboxValidation" => mailbox_validation()
+      }
+
+  """
+  @type get_email_address_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2877,7 +2945,8 @@ defmodule AWS.SESv2 do
   ## Example:
 
       suppression_options() :: %{
-        "SuppressedReasons" => list(list(any())())
+        "SuppressedReasons" => list(list(any())()),
+        "ValidationOptions" => suppression_validation_options()
       }
 
   """
@@ -3046,7 +3115,8 @@ defmodule AWS.SESv2 do
 
       put_email_identity_dkim_signing_attributes_response() :: %{
         "DkimStatus" => list(any()),
-        "DkimTokens" => list(String.t() | atom())
+        "DkimTokens" => list(String.t() | atom()),
+        "SigningHostedZone" => String.t() | atom()
       }
 
   """
@@ -3273,6 +3343,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      suppression_validation_attributes() :: %{
+        "ConditionThreshold" => suppression_condition_threshold()
+      }
+
+  """
+  @type suppression_validation_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_configuration_set_sending_options_request() :: %{
         optional("SendingEnabled") => boolean()
       }
@@ -3341,6 +3422,18 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      mailbox_validation() :: %{
+        "Evaluations" => email_address_insights_mailbox_evaluations(),
+        "IsValid" => email_address_insights_verdict()
+      }
+
+  """
+  @type mailbox_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_tenant_request() :: %{
         required("TenantName") => String.t() | atom()
       }
@@ -3364,6 +3457,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       get_email_template_response() :: %{
+        "Tags" => list(tag()),
         "TemplateContent" => email_template_content(),
         "TemplateName" => String.t() | atom()
       }
@@ -3591,6 +3685,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      get_email_address_insights_request() :: %{
+        required("EmailAddress") => String.t() | atom()
+      }
+
+  """
+  @type get_email_address_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_deliverability_campaign() :: %{
         "CampaignId" => String.t() | atom(),
         "DeleteRate" => float(),
@@ -3718,6 +3823,17 @@ defmodule AWS.SESv2 do
 
   """
   @type list_email_identities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suppression_validation_options() :: %{
+        "ConditionThreshold" => suppression_condition_threshold()
+      }
+
+  """
+  @type suppression_validation_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4196,6 +4312,9 @@ defmodule AWS.SESv2 do
 
   @type get_domain_statistics_report_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_email_address_insights_errors() ::
+          bad_request_exception() | too_many_requests_exception()
 
   @type get_email_identity_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
@@ -6002,6 +6121,37 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Provides validation insights about a specific email address, including syntax
+  validation, DNS record checks, mailbox existence, and other deliverability
+  factors.
+  """
+  @spec get_email_address_insights(map(), get_email_address_insights_request(), list()) ::
+          {:ok, get_email_address_insights_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_email_address_insights_errors()}
+  def get_email_address_insights(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/email-address-insights"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Provides information about a specific identity, including the identity's
   verification
   status, sending authorization policies, its DKIM authentication status, and its
@@ -7761,7 +7911,7 @@ defmodule AWS.SESv2 do
         input,
         options \\ []
       ) do
-    url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim/signing"
+    url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim/signing"
     headers = []
     custom_headers = []
     query_params = []

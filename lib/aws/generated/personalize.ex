@@ -107,6 +107,7 @@ defmodule AWS.Personalize do
       
       update_solution_request() :: %{
         optional("performAutoTraining") => boolean(),
+        optional("performIncrementalUpdate") => boolean(),
         optional("solutionUpdateConfig") => solution_update_config(),
         required("solutionArn") => String.t() | atom()
       }
@@ -426,6 +427,7 @@ defmodule AWS.Personalize do
         optional("performAutoML") => boolean(),
         optional("performAutoTraining") => boolean(),
         optional("performHPO") => boolean(),
+        optional("performIncrementalUpdate") => boolean(),
         optional("recipeArn") => String.t() | atom(),
         optional("solutionConfig") => solution_config(),
         optional("tags") => list(tag()),
@@ -543,6 +545,7 @@ defmodule AWS.Personalize do
         "performAutoML" => boolean(),
         "performAutoTraining" => boolean(),
         "performHPO" => boolean(),
+        "performIncrementalUpdate" => boolean(),
         "recipeArn" => String.t() | atom(),
         "solutionArn" => String.t() | atom(),
         "solutionConfig" => solution_config(),
@@ -808,7 +811,8 @@ defmodule AWS.Personalize do
   ## Example:
       
       batch_inference_job_config() :: %{
-        "itemExplorationConfig" => map()
+        "itemExplorationConfig" => map(),
+        "rankingInfluence" => map()
       }
       
   """
@@ -832,6 +836,7 @@ defmodule AWS.Personalize do
       campaign_config() :: %{
         "enableMetadataWithRecommendations" => boolean(),
         "itemExplorationConfig" => map(),
+        "rankingInfluence" => map(),
         "syncWithLatestSolutionVersion" => boolean()
       }
       
@@ -1166,6 +1171,7 @@ defmodule AWS.Personalize do
         "name" => String.t() | atom(),
         "performAutoML" => boolean(),
         "performHPO" => boolean(),
+        "performIncrementalUpdate" => boolean(),
         "recipeArn" => String.t() | atom(),
         "solutionArn" => String.t() | atom(),
         "solutionConfig" => solution_config(),
@@ -2261,11 +2267,11 @@ defmodule AWS.Personalize do
       create_dataset_import_job_request() :: %{
         optional("importMode") => list(any()),
         optional("publishAttributionMetricsToS3") => boolean(),
+        optional("roleArn") => String.t() | atom(),
         optional("tags") => list(tag()),
         required("dataSource") => data_source(),
         required("datasetArn") => String.t() | atom(),
-        required("jobName") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
+        required("jobName") => String.t() | atom()
       }
       
   """
@@ -2445,6 +2451,7 @@ defmodule AWS.Personalize do
         "failureReason" => String.t() | atom(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "performAutoTraining" => boolean(),
+        "performIncrementalUpdate" => boolean(),
         "solutionUpdateConfig" => solution_update_config(),
         "status" => String.t() | atom()
       }
@@ -2648,7 +2655,8 @@ defmodule AWS.Personalize do
   ## Example:
       
       training_data_config() :: %{
-        "excludedDatasetColumns" => map()
+        "excludedDatasetColumns" => map(),
+        "includedDatasetColumns" => map()
       }
       
   """

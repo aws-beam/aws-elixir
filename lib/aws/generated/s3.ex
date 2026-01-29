@@ -478,6 +478,22 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      update_object_encryption_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom(),
+        required("ObjectEncryption") => list()
+      }
+
+  """
+  @type update_object_encryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_public_access_block_request() :: %{
         optional("ExpectedBucketOwner") => String.t() | atom()
       }
@@ -626,6 +642,17 @@ defmodule AWS.S3 do
 
   """
   @type queue_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_abac_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom()
+      }
+
+  """
+  @type get_bucket_abac_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1150,12 +1177,33 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      access_denied() :: %{}
+
+  """
+  @type access_denied() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_bucket_inventory_configuration_output() :: %{
         "InventoryConfiguration" => inventory_configuration()
       }
 
   """
   @type get_bucket_inventory_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sse_kms_encryption() :: %{
+        "BucketKeyEnabled" => boolean(),
+        "KMSKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type sse_kms_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1338,6 +1386,17 @@ defmodule AWS.S3 do
 
   """
   @type object_lock_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blocked_encryption_types() :: %{
+        "EncryptionType" => list(list(any())())
+      }
+
+  """
+  @type blocked_encryption_types() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2295,6 +2354,7 @@ defmodule AWS.S3 do
 
       server_side_encryption_rule() :: %{
         "ApplyServerSideEncryptionByDefault" => server_side_encryption_by_default(),
+        "BlockedEncryptionTypes" => blocked_encryption_types(),
         "BucketKeyEnabled" => boolean()
       }
 
@@ -2858,6 +2918,17 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      abac_status() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type abac_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       default_retention() :: %{
         "Days" => integer(),
         "Mode" => list(any()),
@@ -2903,6 +2974,20 @@ defmodule AWS.S3 do
 
   """
   @type object_lock_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_abac_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("AbacStatus") => abac_status()
+      }
+
+  """
+  @type put_bucket_abac_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3697,6 +3782,17 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      get_bucket_abac_output() :: %{
+        "AbacStatus" => abac_status()
+      }
+
+  """
+  @type get_bucket_abac_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       head_bucket_request() :: %{
         optional("ExpectedBucketOwner") => String.t() | atom()
       }
@@ -4017,6 +4113,17 @@ defmodule AWS.S3 do
 
   """
   @type get_object_retention_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_object_encryption_response() :: %{
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type update_object_encryption_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4691,6 +4798,8 @@ defmodule AWS.S3 do
 
   @type restore_object_errors() :: object_already_in_active_tier_error()
 
+  @type update_object_encryption_errors() :: invalid_request() | access_denied() | no_such_key()
+
   def metadata do
     %{
       api_version: "2006-03-01",
@@ -5169,13 +5278,12 @@ defmodule AWS.S3 do
   Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America
   (São Paulo).
 
-  You can store individual objects of up to 5 TB in Amazon S3. You create a copy
-  of your object up to 5
-  GB in size in a single atomic action using this API. However, to copy an object
-  greater than 5 GB, you
-  must use the multipart upload Upload Part - Copy (UploadPartCopy) API. For more
-  information, see
-  [Copy Object Using the REST Multipart Upload
+  You can store individual objects of up to 50 TB in Amazon S3. You create a copy
+  of your
+  object up to 5 GB in size in a single atomic action using this API. However, to
+  copy an
+  object greater than 5 GB, you must use the multipart upload Upload Part - Copy
+  (UploadPartCopy) API. For more information, see [Copy Object Using the REST Multipart Upload
   API](https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html).
 
   You can copy individual objects between general purpose buckets, between
@@ -5518,19 +5626,9 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: As of October 1, 2025, Amazon S3 has discontinued support
-  for Email Grantee Access Control Lists (ACLs).
+  This action creates an Amazon S3 bucket.
 
-  If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
-  the request will receive an `HTTP 405` (Method Not Allowed) error.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore),
-  Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America
-  (São Paulo).
-
-  This action creates an Amazon S3 bucket. To create an Amazon S3 on Outposts
-  bucket, see [
+  To create an Amazon S3 on Outposts bucket, see [
   `CreateBucket`
   ](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html).
 
@@ -7846,7 +7944,17 @@ defmodule AWS.S3 do
 
   This operation is not supported for directory buckets.
 
-  Deletes the tags from the bucket.
+  Deletes tags from the general purpose bucket if attribute based access control
+  (ABAC) is not enabled for the bucket. When you [enable ABAC for a general purpose
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html),
+  you can no longer use this operation for that bucket and must use
+  [UntagResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html) instead.
+
+  if ABAC is not enabled for the bucket. When you [enable ABAC for a general
+  purpose
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html),
+  you can no longer use this operation for that bucket and must use
+  [UntagResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html) instead.
 
   To use this operation, you must have permission to perform the
   `s3:PutBucketTagging`
@@ -7857,7 +7965,7 @@ defmodule AWS.S3 do
 
     *
 
-  [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html) 
+  [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html)
 
     *
 
@@ -8069,9 +8177,9 @@ defmodule AWS.S3 do
 
 
   `s3:DeleteObject`
-  ##  - To delete an
-  object from a bucket, you must always have the `s3:DeleteObject`
-  permission.
+  ##  - To
+  delete an object from a bucket, you must always have the
+  `s3:DeleteObject` permission.
 
       
 
@@ -8079,6 +8187,10 @@ defmodule AWS.S3 do
   `s3:DeleteObjectVersion`
   ** - To delete a specific version of an object from a versioning-enabled
   bucket, you must have the `s3:DeleteObjectVersion` permission.
+
+  If the `s3:DeleteObject` or `s3:DeleteObjectVersion` permissions are explicitly
+  denied in your bucket policy, attempts to delete any unversioned objects
+  result in a `403 Access Denied` error.
 
     
 
@@ -8357,6 +8469,10 @@ defmodule AWS.S3 do
   ** - To delete a specific version of an object from a versioning-enabled
   bucket, you must specify the `s3:DeleteObjectVersion` permission.
 
+  If the `s3:DeleteObject` or `s3:DeleteObjectVersion` permissions are explicitly
+  denied in your bucket policy, attempts to delete any unversioned objects
+  result in a `403 Access Denied` error.
+
     
 
   **Directory bucket permissions** - To grant access to this API operation on a
@@ -8482,12 +8598,17 @@ defmodule AWS.S3 do
 
   This operation is not supported for directory buckets.
 
-  Removes the `PublicAccessBlock` configuration for an Amazon S3 bucket. To use
-  this operation,
-  you must have the `s3:PutBucketPublicAccessBlock` permission. For more
-  information about
-  permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
+  Removes the `PublicAccessBlock` configuration for an Amazon S3 bucket. This
+  operation removes the bucket-level configuration only. The effective public
+  access behavior
+  will still be governed by account-level settings (which may inherit from
+  organization-level
+  policies). To use this operation, you must have the
+  `s3:PutBucketPublicAccessBlock`
+  permission. For more information about permissions, see [Permissions Related to Bucket Subresource
+  Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3
+  Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   The following operations are related to `DeletePublicAccessBlock`:
 
@@ -8546,6 +8667,35 @@ defmodule AWS.S3 do
       options,
       204
     )
+  end
+
+  @doc """
+  Returns the attribute-based access control (ABAC) property of the general
+  purpose bucket.
+
+  If ABAC is enabled on your bucket, you can use tags on the bucket for access
+  control. For more information, see [Enabling ABAC in general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html).
+  """
+  @spec get_bucket_abac(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+          {:ok, get_bucket_abac_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_bucket_abac(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?abac"
+    headers = []
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -8642,20 +8792,6 @@ defmodule AWS.S3 do
   end
 
   @doc """
-
-  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
-  returning `DisplayName`.
-
-  Update your applications to use canonical IDs (unique identifier for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
 
   This operation is not supported for directory buckets.
 
@@ -8865,12 +9001,15 @@ defmodule AWS.S3 do
 
   By default, all buckets have a
   default encryption configuration that uses server-side encryption with Amazon S3
-  managed keys (SSE-S3).
+  managed keys (SSE-S3). This operation also returns the
+  [BucketKeyEnabled](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ServerSideEncryptionRule.html#AmazonS3-Type-ServerSideEncryptionRule-BucketKeyEnabled) and
+  [BlockedEncryptionTypes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ServerSideEncryptionRule.html#AmazonS3-Type-ServerSideEncryptionRule-BlockedEncryptionTypes)
+  statuses.
 
     
 
   **General purpose buckets** - For information about the bucket
-  default encryption feature, see [Amazon S3 Bucket Default Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)
+  default encryption feature, see [Amazon S3 Bucket Default Encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -9344,20 +9483,6 @@ defmodule AWS.S3 do
   end
 
   @doc """
-
-  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
-  returning `DisplayName`.
-
-  Update your applications to use canonical IDs (unique identifier for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
 
   This operation is not supported for directory buckets.
 
@@ -10097,7 +10222,12 @@ defmodule AWS.S3 do
 
   This operation is not supported for directory buckets.
 
-  Returns the tag set associated with the bucket.
+  Returns the tag set associated with the general purpose bucket.
+
+  if ABAC is not enabled for the bucket. When you [enable ABAC for a general purpose
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html),
+  you can no longer use this operation for that bucket and must use
+  [ListTagsForResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html) instead.
 
   To use this operation, you must have permission to perform the
   `s3:GetBucketTagging`
@@ -10116,7 +10246,7 @@ defmodule AWS.S3 do
 
     *
 
-  [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html) 
+  [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)
 
     *
 
@@ -10727,20 +10857,6 @@ defmodule AWS.S3 do
   end
 
   @doc """
-
-  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
-  returning `DisplayName`.
-
-  Update your applications to use canonical IDs (unique identifier for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
 
   This operation is not supported for directory buckets.
 
@@ -11596,21 +11712,25 @@ defmodule AWS.S3 do
 
   This operation is not supported for directory buckets.
 
-  Retrieves the `PublicAccessBlock` configuration for an Amazon S3 bucket. To use
-  this
-  operation, you must have the `s3:GetBucketPublicAccessBlock` permission. For
-  more information
-  about Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+  Retrieves the `PublicAccessBlock` configuration for an Amazon S3 bucket. This
+  operation returns the bucket-level configuration only. To understand the
+  effective public
+  access behavior, you must also consider account-level settings (which may
+  inherit from
+  organization-level policies). To use this operation, you must have the
+  `s3:GetBucketPublicAccessBlock` permission. For more information about Amazon S3
+  permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
   When Amazon S3 evaluates the `PublicAccessBlock` configuration for a bucket or
-  an object, it
-  checks the `PublicAccessBlock` configuration for both the bucket (or the bucket
-  that
-  contains the object) and the bucket owner's account. If the `PublicAccessBlock`
-  settings
-  are different between the bucket and the account, Amazon S3 uses the most
-  restrictive combination of the
-  bucket-level and account-level settings.
+  an
+  object, it checks the `PublicAccessBlock` configuration for both the bucket (or
+  the bucket that contains the object) and the bucket owner's account.
+  Account-level settings
+  automatically inherit from organization-level policies when present. If the
+  `PublicAccessBlock` settings are different between the bucket and the account,
+  Amazon S3 uses the most restrictive combination of the bucket-level and
+  account-level
+  settings.
 
   For more information about when Amazon S3 considers a bucket or an object
   public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status).
@@ -12465,20 +12585,6 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
-  returning `DisplayName`.
-
-  Update your applications to use canonical IDs (unique identifier for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
-
   This operation is not supported for directory buckets.
 
   Returns a list of all buckets owned by the authenticated sender of the request.
@@ -12650,23 +12756,9 @@ defmodule AWS.S3 do
   end
 
   @doc """
+  This operation lists in-progress multipart uploads in a bucket.
 
-  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
-  returning `DisplayName`.
-
-  Update your applications to use canonical IDs (unique identifier for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
-
-  This operation lists in-progress multipart uploads in a bucket. An in-progress
-  multipart upload is a
+  An in-progress multipart upload is a
   multipart upload that has been initiated by the `CreateMultipartUpload` request,
   but has not
   yet been completed or aborted.
@@ -12928,20 +13020,6 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
-  returning `DisplayName`.
-
-  Update your applications to use canonical IDs (unique identifier for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
-
   This operation is not supported for directory buckets.
 
   Returns metadata about all versions of the objects in a bucket. You can also use
@@ -13093,20 +13171,6 @@ defmodule AWS.S3 do
 
   @doc """
 
-  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
-  returning `DisplayName`.
-
-  Update your applications to use canonical IDs (unique identifier for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
-
   This operation is not supported for directory buckets.
 
   Returns some or all (up to 1,000) of the objects in a bucket. You can use the
@@ -13253,22 +13317,8 @@ defmodule AWS.S3 do
   end
 
   @doc """
-
-  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
-  returning `DisplayName`.
-
-  Update your applications to use canonical IDs (unique identifier for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
-
   Returns some or all (up to 1,000) of the objects in a bucket with each request.
+
   You can use the
   request parameters as selection criteria to return a subset of the objects in a
   bucket. A
@@ -13529,21 +13579,6 @@ defmodule AWS.S3 do
   end
 
   @doc """
-
-  End of support notice: Beginning November 21, 2025, Amazon S3 will stop
-  returning `DisplayName`.
-
-  Update your applications to use canonical IDs (unique identifier for
-  Amazon Web Services accounts), Amazon Web Services account ID (12 digit
-  identifier) or IAM ARNs (full resource naming) as a direct replacement of
-  `DisplayName`.
-
-  This change affects the following Amazon Web Services Regions: US East (N.
-  Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia
-  Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
-  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São
-  Paulo) Region.
-
   Lists the parts that have been uploaded for a specific multipart upload.
 
   To use this operation, you must provide the `upload ID` in the request. You
@@ -13772,6 +13807,54 @@ defmodule AWS.S3 do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Sets the attribute-based access control (ABAC) property of the general purpose
+  bucket.
+
+  You must have `s3:PutBucketABAC` permission to perform this action. When you
+  enable ABAC, you can use tags for access control on your buckets. Additionally,
+  when ABAC is enabled, you must use the
+  [TagResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html) and
+  [UntagResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html)
+  actions to manage tags on your buckets. You can nolonger use the
+  [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html) and
+  [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
+  actions to tag your bucket. For more information, see [Enabling ABAC in general purpose
+  buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html).
+  """
+  @spec put_bucket_abac(map(), String.t() | atom(), put_bucket_abac_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def put_bucket_abac(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?abac"
+
+    {headers, input} =
+      [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
+        {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14380,6 +14463,9 @@ defmodule AWS.S3 do
   This operation configures default encryption and Amazon S3 Bucket Keys for an
   existing bucket.
 
+  You can also [block encryption types](https://docs.aws.amazon.com/AmazonS3/latest/API/API_BlockedEncryptionTypes.html)
+  using this operation.
+
   **Directory buckets ** - For directory buckets, you must make requests for this
   API operation to the Regional endpoint. These endpoints support path-style
   requests in the format
@@ -14851,10 +14937,6 @@ defmodule AWS.S3 do
 
   ### Rules
 
-  ### Permissions
-
-  ### HTTP Host header syntax
-
   You specify the lifecycle configuration in your request body. The lifecycle
   configuration is
   specified as XML consisting of one or more rules. An Amazon S3 Lifecycle
@@ -14904,6 +14986,8 @@ defmodule AWS.S3 do
   and
   [Lifecycle Configuration
   Elements](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html).
+
+  ### Permissions
 
     
 
@@ -14971,6 +15055,8 @@ defmodule AWS.S3 do
   [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
+
+  ### HTTP Host header syntax
 
   **Directory buckets ** - The HTTP Host header syntax is
   `s3express-control.*region*.amazonaws.com`.
@@ -15780,7 +15866,13 @@ defmodule AWS.S3 do
 
   This operation is not supported for directory buckets.
 
-  Sets the tags for a bucket.
+  Sets the tags for a general purpose bucket if attribute based access control
+  (ABAC) is not enabled for the bucket. When you [enable ABAC for a general purpose
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html),
+  you can no longer use this operation for that bucket and must use the
+  [TagResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html) or
+  [UntagResource](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html)
+  operations instead.
 
   Use tags to organize your Amazon Web Services bill to reflect your own cost
   structure. To do this, sign up to get
@@ -16337,6 +16429,27 @@ defmodule AWS.S3 do
   ```
 
   .
+
+  ## Definitions
+
+  ### Errors
+
+    
+  You might receive an `InvalidRequest` error for several reasons. Depending on
+  the reason for the error, you might receive one of the following messages:
+
+      
+  Cannot specify both a write offset value and user-defined object metadata for
+  existing
+  objects.
+
+      
+  Checksum Type mismatch occurred, expected checksum Type: sha1, actual checksum
+  Type:
+  crc32c.
+
+      
+  Request body cannot be empty when 'write offset' is specified.
 
   For more information about related Amazon S3 APIs, see the following:
 
@@ -17073,13 +17186,15 @@ defmodule AWS.S3 do
   about Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
   When Amazon S3 evaluates the `PublicAccessBlock` configuration for a bucket or
-  an object, it
-  checks the `PublicAccessBlock` configuration for both the bucket (or the bucket
-  that
-  contains the object) and the bucket owner's account. If the `PublicAccessBlock`
-  configurations are different between the bucket and the account, Amazon S3 uses
-  the most restrictive
-  combination of the bucket-level and account-level settings.
+  an
+  object, it checks the `PublicAccessBlock` configuration for both the bucket (or
+  the bucket that contains the object) and the bucket owner's account.
+  Account-level settings
+  automatically inherit from organization-level policies when present. If the
+  `PublicAccessBlock` configurations are different between the bucket and the
+  account, Amazon S3 uses the most restrictive combination of the bucket-level and
+  account-level
+  settings.
 
   For more information about when Amazon S3 considers a bucket or an object
   public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status).
@@ -17958,6 +18073,245 @@ defmodule AWS.S3 do
   end
 
   @doc """
+
+  This operation is not supported for directory buckets or Amazon S3 on Outposts
+  buckets.
+
+  Updates the server-side encryption type of an existing encrypted object in a
+  general purpose bucket.
+  You can use the `UpdateObjectEncryption` operation to change encrypted objects
+  from
+  server-side encryption with Amazon S3 managed keys (SSE-S3) to server-side
+  encryption with Key Management Service (KMS)
+  keys (SSE-KMS), or to apply S3 Bucket Keys. You can also use the
+  `UpdateObjectEncryption` operation
+  to change the customer-managed KMS key used to encrypt your data so that you can
+  comply with custom
+  key-rotation standards.
+
+  Using the `UpdateObjectEncryption` operation, you can atomically update the
+  server-side
+  encryption type of an existing object in a general purpose bucket without any
+  data movement. The
+  `UpdateObjectEncryption` operation uses envelope encryption to re-encrypt the
+  data key used to
+  encrypt and decrypt your object with your newly specified server-side encryption
+  type. In other words,
+  when you use the `UpdateObjectEncryption` operation, your data isn't copied,
+  archived
+  objects in the S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage
+  classes aren't
+  restored, and objects in the S3 Intelligent-Tiering storage class aren't moved
+  between tiers.
+  Additionally, the `UpdateObjectEncryption` operation preserves all object
+  metadata
+  properties, including the storage class, creation date, last modified date,
+  ETag, and checksum
+  properties. For more information, see
+  [
+  Updating server-side encryption for existing
+  objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/update-sse-encryption.html)
+  in the
+  *Amazon S3 User Guide*.
+
+  By default, all `UpdateObjectEncryption` requests that specify a
+  customer-managed
+  KMS key are restricted to KMS keys that are owned by the bucket owner's Amazon
+  Web Services account. If you're
+  using Organizations, you can request the ability to use KMS keys owned by other
+  member
+  accounts within your organization by contacting Amazon Web Services Support.
+
+  Source objects that are unencrypted, or encrypted with either dual-layer
+  server-side encryption
+  with KMS keys (DSSE-KMS) or server-side encryption with customer-provided keys
+  (SSE-C) aren't
+  supported by this operation. Additionally, you cannot specify SSE-S3 encryption
+  as the requested
+  new encryption type `UpdateObjectEncryption` request.
+
+  ## Definitions
+
+  ### Permissions
+
+    
+  To use the `UpdateObjectEncryption` operation, you must have the following
+  permissions:
+
+      
+
+  `s3:PutObject`
+
+      
+
+  `s3:UpdateObjectEncryption`
+
+      
+
+  `kms:Encrypt`
+
+      
+
+  `kms:Decrypt`
+
+      
+
+  `kms:GenerateDataKey`
+
+      
+
+  `kms:ReEncrypt*`
+
+    
+  If you're using Organizations, to use this operation with customer-managed
+  KMS keys from other Amazon Web Services accounts within your organization, you
+  must have the
+  `organizations:DescribeAccount` permission.
+
+  ## Definitions
+
+  ### Errors
+
+    
+  You might receive an `InvalidRequest` error for several reasons. Depending
+  on the reason for the error, you might receive one of the following messages:
+
+      
+  The `UpdateObjectEncryption` operation doesn't supported unencrypted
+  source objects. Only source objects encrypted with SSE-S3 or SSE-KMS are
+  supported.
+
+      
+  The `UpdateObjectEncryption` operation doesn't support source objects
+  with the encryption type DSSE-KMS or SSE-C. Only source objects encrypted with
+  SSE-S3
+  or SSE-KMS are supported.
+
+      
+  The `UpdateObjectEncryption` operation doesn't support updating the
+  encryption type to DSSE-KMS or SSE-C. Modify the request to specify SSE-KMS
+  for the updated encryption type, and then try again.
+
+      
+  Requests that modify an object encryption configuration require Amazon Web
+  Services Signature
+  Version 4. Modify the request to use Amazon Web Services Signature Version 4,
+  and then try again.
+
+      
+  Requests that modify an object encryption configuration require a valid new
+  encryption type. Valid values are `SSEKMS`. Modify the request to specify
+  SSE-KMS for the updated encryption type, and then try again.
+
+      
+  Requests that modify an object's encryption type to SSE-KMS require an Amazon
+  Web Services KMS key
+  Amazon Resource Name (ARN). Modify the request to specify a KMS key ARN, and
+  then
+  try again.
+
+      
+  Requests that modify an object's encryption type to SSE-KMS require a valid
+  Amazon Web Services KMS key Amazon Resource Name (ARN). Confirm that you have a
+  correctly formatted
+  KMS key ARN in your request, and then try again.
+
+      
+  The `BucketKeyEnabled` value isn't valid. Valid values are
+  `true` or `false`. Modify the request to specify a valid value,
+  and then try again.
+
+    
+  You might receive an `AccessDenied` error for several reasons. Depending on
+  the reason for the error, you might receive one of the following messages:
+
+      
+  The Amazon Web Services KMS key in the request must be owned by the same account
+  as the bucket. Modify
+  the request to specify a KMS key from the same account, and then try again.
+
+      
+  The bucket owner's account was approved to make `UpdateObjectEncryption`
+  requests
+  that use any Amazon Web Services KMS key in their organization, but the bucket
+  owner's account isn't part of
+  an organization in Organizations. Make sure that the bucket owner's account and
+  the
+  specified KMS key belong to the same organization, and then try again.
+
+      
+  The specified Amazon Web Services KMS key must be from the same organization in
+  Organizations as
+  the bucket. Specify a KMS key that belongs to the same organization as the
+  bucket, and then
+  try again.
+
+      
+  The encryption type for the specified object can’t be updated because that
+  object is
+  protected by S3 Object Lock. If the object has a governance-mode retention
+  period or a legal
+  hold, you must first remove the Object Lock status on the object before you
+  issue your
+  `UpdateObjectEncryption` request. You can't use the `UpdateObjectEncryption`
+  operation with objects that have an Object Lock compliance mode retention period
+  applied to them.
+  """
+  @spec update_object_encryption(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_object_encryption_request(),
+          list()
+        ) ::
+          {:ok, update_object_encryption_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_object_encryption_errors()}
+  def update_object_encryption(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?encryption"
+
+    {headers, input} =
+      [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
+        {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"RequestPayer", "x-amz-request-payer"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"VersionId", "versionId"}
+      ]
+      |> Request.build_params(input)
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-request-charged", "RequestCharged"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Uploads a part in a multipart upload.
 
   In this operation, you provide new data as a part of an object in your request.
@@ -18114,6 +18468,14 @@ defmodule AWS.S3 do
   encryption parameters in the initial Initiate Multipart request. For more
   information, see
   [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html). 
+
+  If you have server-side encryption with customer-provided keys (SSE-C) blocked
+  for your general purpose bucket, you will get an HTTP 403 Access Denied error
+  when you specify the SSE-C request headers while writing new data to your
+  bucket. For more information, see [Blocking or unblocking SSE-C for a general
+  purpose
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+
   If you request server-side encryption using a customer-provided encryption key
   (SSE-C) in
   your initiate multipart upload request, you must provide identical encryption
@@ -18129,8 +18491,7 @@ defmodule AWS.S3 do
       
   x-amz-server-side-encryption-customer-key-MD5
 
-  For more information, see [Using Server-Side
-  Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html)
+  For more information, see [Using Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html)
   in the *Amazon S3 User Guide*.
 
     
@@ -18436,6 +18797,12 @@ defmodule AWS.S3 do
   customer-provided encryption keys with the `UploadPartCopy` operation, see
   [CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) and
   [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html).
+
+  If you have server-side encryption with customer-provided keys (SSE-C) blocked
+  for your general purpose bucket, you will get an HTTP 403 Access Denied error
+  when you specify the SSE-C request headers while writing new data to your
+  bucket. For more information, see [Blocking or unblocking SSE-C for a general purpose
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
 
     
 

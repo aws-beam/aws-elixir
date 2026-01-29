@@ -172,7 +172,9 @@ defmodule AWS.IoT do
         "mandatoryParameters" => list(command_parameter()),
         "namespace" => list(any()),
         "payload" => command_payload(),
+        "payloadTemplate" => String.t() | atom(),
         "pendingDeletion" => boolean(),
+        "preprocessor" => command_preprocessor(),
         "roleArn" => String.t() | atom()
       }
 
@@ -1964,6 +1966,19 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      log_event_configuration() :: %{
+        "eventType" => String.t() | atom(),
+        "logDestination" => String.t() | atom(),
+        "logLevel" => list(any())
+      }
+
+  """
+  @type log_event_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_topic_rule_destination_response() :: %{
         "topicRuleDestination" => topic_rule_destination()
       }
@@ -2183,6 +2198,17 @@ defmodule AWS.IoT do
 
   """
   @type list_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_json_substitution_command_preprocessor_config() :: %{
+        "outputFormat" => list(any())
+      }
+
+  """
+  @type aws_json_substitution_command_preprocessor_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2738,6 +2764,17 @@ defmodule AWS.IoT do
 
   """
   @type create_certificate_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_preprocessor() :: %{
+        "awsJsonSubstitution" => aws_json_substitution_command_preprocessor_config()
+      }
+
+  """
+  @type command_preprocessor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3458,6 +3495,8 @@ defmodule AWS.IoT do
         optional("mandatoryParameters") => list(command_parameter()),
         optional("namespace") => list(any()),
         optional("payload") => command_payload(),
+        optional("payloadTemplate") => String.t() | atom(),
+        optional("preprocessor") => command_preprocessor(),
         optional("roleArn") => String.t() | atom(),
         optional("tags") => list(tag())
       }
@@ -3825,7 +3864,9 @@ defmodule AWS.IoT do
         "defaultValue" => command_parameter_value(),
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "value" => command_parameter_value()
+        "type" => list(any()),
+        "value" => command_parameter_value(),
+        "valueConditions" => list(command_parameter_value_condition())
       }
 
   """
@@ -4845,10 +4886,12 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      get_v2_logging_options_request() :: %{}
+      get_v2_logging_options_request() :: %{
+        optional("verbose") => boolean()
+      }
 
   """
-  @type get_v2_logging_options_request() :: %{}
+  @type get_v2_logging_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5460,6 +5503,21 @@ defmodule AWS.IoT do
 
   """
   @type disassociate_sbom_from_package_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter_value_comparison_operand() :: %{
+        "number" => String.t() | atom(),
+        "numberRange" => command_parameter_value_number_range(),
+        "numbers" => list(String.t() | atom()),
+        "string" => String.t() | atom(),
+        "strings" => list(String.t() | atom())
+      }
+
+  """
+  @type command_parameter_value_comparison_operand() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6462,6 +6520,19 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      batch_config() :: %{
+        "maxBatchOpenMs" => integer(),
+        "maxBatchSize" => integer(),
+        "maxBatchSizeBytes" => integer()
+      }
+
+  """
+  @type batch_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_job_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -7085,6 +7156,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      command_parameter_value_number_range() :: %{
+        "max" => String.t() | atom(),
+        "min" => String.t() | atom()
+      }
+
+  """
+  @type command_parameter_value_number_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_fleet_metric_request() :: %{
         optional("aggregationField") => String.t() | atom(),
         optional("aggregationType") => aggregation_type(),
@@ -7297,7 +7380,9 @@ defmodule AWS.IoT do
 
       http_action() :: %{
         "auth" => http_authorization(),
+        "batchConfig" => batch_config(),
         "confirmationUrl" => String.t() | atom(),
+        "enableBatching" => boolean(),
         "headers" => list(http_action_header()),
         "url" => String.t() | atom()
       }
@@ -7360,6 +7445,7 @@ defmodule AWS.IoT do
       set_v2_logging_options_request() :: %{
         optional("defaultLogLevel") => list(any()),
         optional("disableAllLogs") => boolean(),
+        optional("eventConfigurations") => list(log_event_configuration()),
         optional("roleArn") => String.t() | atom()
       }
 
@@ -7536,6 +7622,18 @@ defmodule AWS.IoT do
 
   """
   @type list_package_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter_value_condition() :: %{
+        "comparisonOperator" => list(any()),
+        "operand" => command_parameter_value_comparison_operand()
+      }
+
+  """
+  @type command_parameter_value_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8877,6 +8975,7 @@ defmodule AWS.IoT do
       get_v2_logging_options_response() :: %{
         "defaultLogLevel" => list(any()),
         "disableAllLogs" => boolean(),
+        "eventConfigurations" => list(log_event_configuration()),
         "roleArn" => String.t() | atom()
       }
 
@@ -15559,8 +15658,8 @@ defmodule AWS.IoT do
   Services account in
   Amazon Web Services IoT Core.
 
-  For more information, see [Key management in IoT](https://docs.aws.amazon.com/iot/latest/developerguide/key-management.html)
-  from
+  For more information, see [Data encryption at rest](https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html)
+  in
   the *Amazon Web Services IoT Core Developer Guide*.
   """
   @spec describe_encryption_configuration(map(), list()) ::
@@ -16990,15 +17089,22 @@ defmodule AWS.IoT do
   [GetV2LoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_v2_logging_options(map(), list()) ::
+  @spec get_v2_logging_options(map(), String.t() | atom() | nil, list()) ::
           {:ok, get_v2_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_v2_logging_options_errors()}
-  def get_v2_logging_options(%Client{} = client, options \\ []) do
+  def get_v2_logging_options(%Client{} = client, verbose \\ nil, options \\ []) do
     url_path = "/v2LoggingOptions"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(verbose) do
+        [{"verbose", verbose} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -21736,11 +21842,10 @@ defmodule AWS.IoT do
   [TransferCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  You can cancel the transfer until it is acknowledged by the recipient.
+  You can cancel the transfer until it is accepted by the recipient.
 
-  No notification is sent to the transfer destination's account. It's up to the
-  caller
-  to notify the transfer target.
+  No notification is sent to the transfer destination's account. The caller is
+  responsible for notifying the transfer target.
 
   The certificate being transferred must not be in the `ACTIVE` state. You can use
   the
@@ -21749,16 +21854,17 @@ defmodule AWS.IoT do
   The certificate must not have any policies attached to it. You can use the
   `DetachPolicy` action to detach them.
 
-  **Customer managed key behavior:** When you use a customer managed key to secure
-  your data and then transfer
-  the key to a customer in a different account using the `TransferCertificate`
-  operation, the certificates will no longer be protected by their
+  **Customer managed key behavior:** When you use a customer managed key to
+  encrypt your data and then transfer
+  the certificate to a customer in a different account using the
+  `TransferCertificate` operation, the certificates will no longer be encrypted by
+  their
   customer managed key configuration. During the transfer process, certificates
-  are encrypted using IoT owned keys.
+  are encrypted using Amazon Web Services IoT Core owned keys.
 
   While a certificate is in the **PENDING_TRANSFER** state, it's always protected
-  by IoT owned keys, regardless of the customer managed key configuration of
-  either the source or destination account.
+  by Amazon Web Services IoT Core owned keys, regardless of the customer managed
+  key configuration of either the source or destination account.
 
   Once the transfer is completed through `AcceptCertificateTransfer`,
   `RejectCertificateTransfer`, or
@@ -21767,7 +21873,7 @@ defmodule AWS.IoT do
   the certificate after the transfer operation:
 
     *
-  If the transfer is accepted: The certificate is protected by the destination
+  If the transfer is accepted: The certificate is encrypted by the target
   account's customer managed key configuration.
 
     *
@@ -22296,13 +22402,15 @@ defmodule AWS.IoT do
   @doc """
   Updates the encryption configuration.
 
-  By default, all Amazon Web Services IoT Core data at rest is
-  encrypted using Amazon Web Services owned keys. Amazon Web Services IoT Core
-  also supports symmetric customer managed keys
-  from Amazon Web Services Key Management Service (KMS). With customer managed
-  keys, you create, own, and
-  manage the KMS keys in your Amazon Web Services account. For more information,
-  see [Data encryption](https://docs.aws.amazon.com/iot/latest/developerguide/data-encryption.html)
+  By default, Amazon Web Services IoT Core encrypts your data at rest using Amazon
+  Web Services owned keys. Amazon Web Services IoT Core also supports symmetric
+  customer managed keys
+  from Key Management Service (KMS). With customer managed keys, you create, own,
+  and
+  manage the KMS keys in your Amazon Web Services account.
+
+  Before using this API, you must set up permissions for Amazon Web Services IoT
+  Core to access KMS. For more information, see [Data encryption at rest](https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html)
   in the *Amazon Web Services IoT Core Developer Guide*.
   """
   @spec update_encryption_configuration(map(), update_encryption_configuration_request(), list()) ::

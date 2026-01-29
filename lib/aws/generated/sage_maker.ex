@@ -491,6 +491,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      model_speculative_decoding_config() :: %{
+        "Technique" => list(any()),
+        "TrainingDataSource" => model_speculative_decoding_training_data_source()
+      }
+      
+  """
+  @type model_speculative_decoding_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_hub_content_request() :: %{
         optional("HubContentDescription") => String.t() | atom(),
         optional("HubContentDisplayName") => String.t() | atom(),
@@ -729,6 +741,7 @@ defmodule AWS.SageMaker do
         "ExecutionRoleArn" => String.t() | atom(),
         "ExplainerConfig" => explainer_config(),
         "KmsKeyId" => String.t() | atom(),
+        "MetricsConfig" => metrics_config(),
         "ProductionVariants" => list(production_variant()),
         "ShadowProductionVariants" => list(production_variant()),
         "VpcConfig" => vpc_config()
@@ -755,6 +768,31 @@ defmodule AWS.SageMaker do
       
   """
   @type update_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_mlflow_app_response() :: %{
+        "AccountDefaultStatus" => list(any()),
+        "Arn" => String.t() | atom(),
+        "ArtifactStoreUri" => String.t() | atom(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "DefaultDomainIdList" => list(String.t() | atom()),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MaintenanceStatus" => list(any()),
+        "MlflowVersion" => String.t() | atom(),
+        "ModelRegistrationMode" => list(any()),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "WeeklyMaintenanceWindowStart" => String.t() | atom()
+      }
+      
+  """
+  @type describe_mlflow_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,6 +1084,17 @@ defmodule AWS.SageMaker do
       
   """
   @type create_presigned_mlflow_tracking_server_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_mlflow_app_response() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_mlflow_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1469,6 +1518,10 @@ defmodule AWS.SageMaker do
       
       pipeline_execution_step_metadata() :: %{
         "AutoMLJob" => auto_ml_job_step_metadata(),
+        "BedrockCustomModel" => bedrock_custom_model_metadata(),
+        "BedrockCustomModelDeployment" => bedrock_custom_model_deployment_metadata(),
+        "BedrockModelImport" => bedrock_model_import_metadata(),
+        "BedrockProvisionedModelThroughput" => bedrock_provisioned_model_throughput_metadata(),
         "Callback" => callback_step_metadata(),
         "ClarifyCheck" => clarify_check_step_metadata(),
         "Condition" => condition_step_metadata(),
@@ -1476,7 +1529,9 @@ defmodule AWS.SageMaker do
         "Endpoint" => endpoint_step_metadata(),
         "EndpointConfig" => endpoint_config_step_metadata(),
         "Fail" => fail_step_metadata(),
+        "InferenceComponent" => inference_component_metadata(),
         "Lambda" => lambda_step_metadata(),
+        "Lineage" => lineage_metadata(),
         "Model" => model_step_metadata(),
         "ProcessingJob" => processing_job_step_metadata(),
         "QualityCheck" => quality_check_step_metadata(),
@@ -1669,14 +1724,14 @@ defmodule AWS.SageMaker do
   ## Example:
       
       search_training_plan_offerings_request() :: %{
+        optional("DurationHours") => float(),
         optional("EndTimeBefore") => non_neg_integer(),
         optional("InstanceCount") => integer(),
         optional("InstanceType") => list(any()),
         optional("StartTimeAfter") => non_neg_integer(),
+        optional("TargetResources") => list(list(any())()),
         optional("UltraServerCount") => integer(),
-        optional("UltraServerType") => String.t() | atom(),
-        required("DurationHours") => float(),
-        required("TargetResources") => list(list(any())())
+        optional("UltraServerType") => String.t() | atom()
       }
       
   """
@@ -1722,6 +1777,17 @@ defmodule AWS.SageMaker do
       
   """
   @type studio_lifecycle_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dataset_source() :: %{
+        "DatasetArn" => String.t() | atom()
+      }
+      
+  """
+  @type dataset_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2019,7 +2085,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       optimization_job_model_source() :: %{
-        "S3" => optimization_job_model_source_s3()
+        "S3" => optimization_job_model_source_s3(),
+        "SageMakerModel" => optimization_sage_maker_model()
       }
       
   """
@@ -2768,6 +2835,31 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      model_speculative_decoding_training_data_source() :: %{
+        "S3DataType" => list(any()),
+        "S3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type model_speculative_decoding_training_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_presigned_mlflow_app_url_request() :: %{
+        optional("ExpiresInSeconds") => integer(),
+        optional("SessionExpirationDurationInSeconds") => integer(),
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type create_presigned_mlflow_app_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_stage_devices_request() :: %{
         optional("ExcludeDevicesDeployedInOtherStage") => boolean(),
         optional("MaxResults") => integer(),
@@ -3058,6 +3150,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_mlflow_apps_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Summaries" => list(mlflow_app_summary())
+      }
+      
+  """
+  @type list_mlflow_apps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       auto_ml_container_definition() :: %{
         "Environment" => map(),
         "Image" => String.t() | atom(),
@@ -3066,6 +3170,20 @@ defmodule AWS.SageMaker do
       
   """
   @type auto_ml_container_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lineage_metadata() :: %{
+        "ActionArns" => map(),
+        "ArtifactArns" => map(),
+        "Associations" => list(association_info()),
+        "ContextArns" => map()
+      }
+      
+  """
+  @type lineage_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3401,6 +3519,30 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      bedrock_custom_model_deployment_metadata() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type bedrock_custom_model_deployment_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_replace_cluster_nodes_request() :: %{
+        optional("NodeIds") => list(String.t() | atom()),
+        optional("NodeLogicalIds") => list(String.t() | atom()),
+        required("ClusterName") => String.t() | atom()
+      }
+      
+  """
+  @type batch_replace_cluster_nodes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pipeline_execution() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
@@ -3609,6 +3751,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      batch_reboot_cluster_node_logical_ids_error() :: %{
+        "ErrorCode" => list(any()),
+        "Message" => String.t() | atom(),
+        "NodeLogicalId" => String.t() | atom()
+      }
+      
+  """
+  @type batch_reboot_cluster_node_logical_ids_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_data_quality_job_definition_request() :: %{
         required("JobDefinitionName") => String.t() | atom()
       }
@@ -3648,7 +3803,8 @@ defmodule AWS.SageMaker do
       
       optimization_job_output_config() :: %{
         "KmsKeyId" => String.t() | atom(),
-        "S3OutputLocation" => String.t() | atom()
+        "S3OutputLocation" => String.t() | atom(),
+        "SageMakerModel" => optimization_sage_maker_model()
       }
       
   """
@@ -4183,6 +4339,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      model_package_config() :: %{
+        "ModelPackageGroupArn" => String.t() | atom(),
+        "SourceModelPackageArn" => String.t() | atom()
+      }
+      
+  """
+  @type model_package_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_sagemaker_servicecatalog_portfolio_status_output() :: %{
         "Status" => list(any())
       }
@@ -4249,6 +4417,7 @@ defmodule AWS.SageMaker do
         optional("ExecutionRoleArn") => String.t() | atom(),
         optional("ExplainerConfig") => explainer_config(),
         optional("KmsKeyId") => String.t() | atom(),
+        optional("MetricsConfig") => metrics_config(),
         optional("ShadowProductionVariants") => list(production_variant()),
         optional("Tags") => list(tag()),
         optional("VpcConfig") => vpc_config(),
@@ -4761,6 +4930,24 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_mlflow_app_request() :: %{
+        optional("AccountDefaultStatus") => list(any()),
+        optional("DefaultDomainIdList") => list(String.t() | atom()),
+        optional("ModelRegistrationMode") => list(any()),
+        optional("Tags") => list(tag()),
+        optional("WeeklyMaintenanceWindowStart") => String.t() | atom(),
+        required("ArtifactStoreUri") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_mlflow_app_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       auto_ml_data_source() :: %{
         "S3DataSource" => auto_ml_s3_data_source()
       }
@@ -5117,6 +5304,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      batch_reboot_cluster_nodes_error() :: %{
+        "ErrorCode" => list(any()),
+        "Message" => String.t() | atom(),
+        "NodeId" => String.t() | atom()
+      }
+      
+  """
+  @type batch_reboot_cluster_nodes_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_hub_content_request() :: %{
         optional("HubContentDescription") => String.t() | atom(),
         optional("HubContentDisplayName") => String.t() | atom(),
@@ -5343,6 +5543,7 @@ defmodule AWS.SageMaker do
         "FailureReason" => String.t() | atom(),
         "LastDeploymentConfig" => deployment_config(),
         "LastModifiedTime" => non_neg_integer(),
+        "MetricsConfig" => metrics_config(),
         "PendingDeploymentSummary" => pending_deployment_summary(),
         "ProductionVariants" => list(production_variant_summary()),
         "ShadowProductionVariants" => list(production_variant_summary())
@@ -6254,6 +6455,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      batch_replace_cluster_node_logical_ids_error() :: %{
+        "ErrorCode" => list(any()),
+        "Message" => String.t() | atom(),
+        "NodeLogicalId" => String.t() | atom()
+      }
+      
+  """
+  @type batch_replace_cluster_node_logical_ids_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       member_definition() :: %{
         "CognitoMemberDefinition" => cognito_member_definition(),
         "OidcMemberDefinition" => oidc_member_definition()
@@ -6355,6 +6569,7 @@ defmodule AWS.SageMaker do
         "ModelPackageDescription" => String.t() | atom(),
         "ModelPackageGroupName" => String.t() | atom(),
         "ModelPackageName" => String.t() | atom(),
+        "ModelPackageRegistrationType" => list(any()),
         "ModelPackageStatus" => list(any()),
         "ModelPackageStatusDetails" => model_package_status_details(),
         "ModelPackageVersion" => integer(),
@@ -6458,6 +6673,17 @@ defmodule AWS.SageMaker do
       
   """
   @type edge_packaging_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_component_metadata() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type inference_component_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7456,6 +7682,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      bedrock_model_import_metadata() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type bedrock_model_import_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_card_version_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
@@ -7484,6 +7721,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_optimization_job_request() :: %{
+        optional("MaxInstanceCount") => integer(),
         optional("OptimizationEnvironment") => map(),
         optional("Tags") => list(tag()),
         optional("VpcConfig") => optimization_vpc_config(),
@@ -7979,6 +8217,18 @@ defmodule AWS.SageMaker do
       
   """
   @type update_pipeline_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_kubernetes_config() :: %{
+        "Labels" => map(),
+        "Taints" => list(cluster_kubernetes_taint())
+      }
+      
+  """
+  @type cluster_kubernetes_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8591,6 +8841,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_kubernetes_taint() :: %{
+        "Effect" => list(any()),
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_kubernetes_taint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_projects_output() :: %{
         "NextToken" => String.t() | atom(),
         "ProjectSummaryList" => list(project_summary())
@@ -8780,6 +9043,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_capacity_requirements() :: %{
+        "OnDemand" => cluster_on_demand_options(),
+        "Spot" => cluster_spot_options()
+      }
+      
+  """
+  @type cluster_capacity_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_package_status_item() :: %{
         "FailureReason" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -8930,6 +9205,20 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_pipeline_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_kubernetes_config_node_details() :: %{
+        "CurrentLabels" => map(),
+        "CurrentTaints" => list(cluster_kubernetes_taint()),
+        "DesiredLabels" => map(),
+        "DesiredTaints" => list(cluster_kubernetes_taint())
+      }
+      
+  """
+  @type cluster_kubernetes_config_node_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9249,7 +9538,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       ultra_server_info() :: %{
-        "Id" => [String.t() | atom()]
+        "Id" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
       }
       
   """
@@ -9396,6 +9686,19 @@ defmodule AWS.SageMaker do
       
   """
   @type code_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_reboot_cluster_nodes_request() :: %{
+        optional("NodeIds") => list(String.t() | atom()),
+        optional("NodeLogicalIds") => list(String.t() | atom()),
+        required("ClusterName") => String.t() | atom()
+      }
+      
+  """
+  @type batch_reboot_cluster_nodes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9576,6 +9879,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_kubernetes_config_details() :: %{
+        "CurrentLabels" => map(),
+        "CurrentTaints" => list(cluster_kubernetes_taint()),
+        "DesiredLabels" => map(),
+        "DesiredTaints" => list(cluster_kubernetes_taint())
+      }
+      
+  """
+  @type cluster_kubernetes_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_notebook_instance_input() :: %{
         required("NotebookInstanceName") => String.t() | atom()
       }
@@ -9592,6 +9909,7 @@ defmodule AWS.SageMaker do
         "DeploymentInstanceType" => list(any()),
         "FailureReason" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
+        "MaxInstanceCount" => integer(),
         "ModelSource" => optimization_job_model_source(),
         "OptimizationConfigs" => list(list()),
         "OptimizationEndTime" => non_neg_integer(),
@@ -9796,6 +10114,18 @@ defmodule AWS.SageMaker do
       
   """
   @type pipeline_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mlflow_details() :: %{
+        "MlflowExperimentId" => String.t() | atom(),
+        "MlflowRunId" => String.t() | atom()
+      }
+      
+  """
+  @type mlflow_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10448,11 +10778,14 @@ defmodule AWS.SageMaker do
         optional("HyperParameters") => map(),
         optional("InfraCheckConfig") => infra_check_config(),
         optional("InputDataConfig") => list(channel()),
+        optional("MlflowConfig") => mlflow_config(),
+        optional("ModelPackageConfig") => model_package_config(),
         optional("ProfilerConfig") => profiler_config(),
         optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()),
         optional("RemoteDebugConfig") => remote_debug_config(),
         optional("ResourceConfig") => resource_config(),
         optional("RetryStrategy") => retry_strategy(),
+        optional("ServerlessJobConfig") => serverless_job_config(),
         optional("SessionChainingConfig") => session_chaining_config(),
         optional("StoppingCondition") => stopping_condition(),
         optional("Tags") => list(tag()),
@@ -10581,6 +10914,7 @@ defmodule AWS.SageMaker do
         "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
         "NodeLogicalId" => [String.t() | atom()],
+        "PrivateDnsHostname" => String.t() | atom(),
         "UltraServerInfo" => ultra_server_info()
       }
       
@@ -10641,6 +10975,15 @@ defmodule AWS.SageMaker do
       
   """
   @type create_cluster_scheduler_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_spot_options() :: %{}
+      
+  """
+  @type cluster_spot_options() :: %{}
 
   @typedoc """
 
@@ -10832,6 +11175,7 @@ defmodule AWS.SageMaker do
         optional("ModelApprovalStatus") => list(any()),
         optional("ModelCard") => model_package_model_card(),
         optional("ModelLifeCycle") => model_life_cycle(),
+        optional("ModelPackageRegistrationType") => list(any()),
         optional("SourceUri") => String.t() | atom(),
         required("ModelPackageArn") => String.t() | atom()
       }
@@ -11025,6 +11369,18 @@ defmodule AWS.SageMaker do
       
   """
   @type create_template_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accelerator_partition_config() :: %{
+        "Count" => integer(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type accelerator_partition_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11395,6 +11751,7 @@ defmodule AWS.SageMaker do
         optional("ModelPackageDescription") => String.t() | atom(),
         optional("ModelPackageGroupName") => String.t() | atom(),
         optional("ModelPackageName") => String.t() | atom(),
+        optional("ModelPackageRegistrationType") => list(any()),
         optional("SamplePayloadUrl") => String.t() | atom(),
         optional("SecurityConfig") => model_package_security_config(),
         optional("SkipModelValidation") => list(any()),
@@ -11407,6 +11764,18 @@ defmodule AWS.SageMaker do
       
   """
   @type create_model_package_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      association_info() :: %{
+        "DestinationArn" => String.t() | atom(),
+        "SourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type association_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11432,6 +11801,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_presigned_mlflow_app_url_response() :: %{
+        "AuthorizedUrl" => String.t() | atom()
+      }
+      
+  """
+  @type create_presigned_mlflow_app_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_training_jobs_for_hyper_parameter_tuning_job_response() :: %{
         "NextToken" => String.t() | atom(),
         "TrainingJobSummaries" => list(hyper_parameter_training_job_summary())
@@ -11449,6 +11829,7 @@ defmodule AWS.SageMaker do
       instance_group_scaling_metadata() :: %{
         "FailureMessage" => [String.t() | atom()],
         "InstanceCount" => integer(),
+        "MinCount" => integer(),
         "TargetCount" => integer()
       }
       
@@ -11900,6 +12281,22 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      mlflow_app_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MlflowVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type mlflow_app_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_image_response() :: %{
         "ImageArn" => String.t() | atom()
       }
@@ -12032,9 +12429,11 @@ defmodule AWS.SageMaker do
       
       describe_training_job_response() :: %{
         "CreationTime" => non_neg_integer(),
+        "BillableTokenCount" => float(),
         "TrainingJobArn" => String.t() | atom(),
         "OutputDataConfig" => output_data_config(),
         "EnableManagedSpotTraining" => boolean(),
+        "MlflowConfig" => mlflow_config(),
         "TrainingStartTime" => non_neg_integer(),
         "VpcConfig" => vpc_config(),
         "LastModifiedTime" => non_neg_integer(),
@@ -12045,6 +12444,7 @@ defmodule AWS.SageMaker do
         "BillableTimeInSeconds" => integer(),
         "LabelingJobArn" => String.t() | atom(),
         "TensorBoardOutputConfig" => tensor_board_output_config(),
+        "ModelPackageConfig" => model_package_config(),
         "TrainingTimeInSeconds" => integer(),
         "ProfilingStatus" => list(any()),
         "EnableInterContainerTrafficEncryption" => boolean(),
@@ -12061,8 +12461,12 @@ defmodule AWS.SageMaker do
         "RetryStrategy" => retry_strategy(),
         "Environment" => map(),
         "AlgorithmSpecification" => algorithm_specification(),
+        "ProgressInfo" => training_progress_info(),
         "SecondaryStatusTransitions" => list(secondary_status_transition()),
+        "ServerlessJobConfig" => serverless_job_config(),
+        "MlflowDetails" => mlflow_details(),
         "TuningJobArn" => String.t() | atom(),
+        "OutputModelPackageArn" => String.t() | atom(),
         "InputDataConfig" => list(channel()),
         "ModelArtifacts" => model_artifacts(),
         "FinalMetricDataList" => list(metric_data()),
@@ -12184,12 +12588,45 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_mlflow_apps_request() :: %{
+        optional("AccountDefaultStatus") => list(any()),
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("DefaultForDomainId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("MlflowVersion") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("Status") => list(any())
+      }
+      
+  """
+  @type list_mlflow_apps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_hub_response() :: %{
         "HubArn" => String.t() | atom()
       }
       
   """
   @type update_hub_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mlflow_config() :: %{
+        "MlflowExperimentName" => String.t() | atom(),
+        "MlflowResourceArn" => String.t() | atom(),
+        "MlflowRunName" => String.t() | atom()
+      }
+      
+  """
+  @type mlflow_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12203,6 +12640,20 @@ defmodule AWS.SageMaker do
       
   """
   @type context_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_reboot_cluster_nodes_response() :: %{
+        "Failed" => list(batch_reboot_cluster_nodes_error()),
+        "FailedNodeLogicalIds" => list(batch_reboot_cluster_node_logical_ids_error()),
+        "Successful" => list(String.t() | atom()),
+        "SuccessfulNodeLogicalIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_reboot_cluster_nodes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12348,6 +12799,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       resource_sharing_config() :: %{
+        "AbsoluteBorrowLimits" => list(compute_quota_resource_config()),
         "BorrowLimit" => integer(),
         "Strategy" => list(any())
       }
@@ -12480,12 +12932,40 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_mlflow_app_request() :: %{
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_mlflow_app_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image_classification_job_config() :: %{
         "CompletionCriteria" => auto_ml_job_completion_criteria()
       }
       
   """
   @type image_classification_job_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_mlflow_app_request() :: %{
+        optional("AccountDefaultStatus") => list(any()),
+        optional("ArtifactStoreUri") => String.t() | atom(),
+        optional("DefaultDomainIdList") => list(String.t() | atom()),
+        optional("ModelRegistrationMode") => list(any()),
+        optional("Name") => String.t() | atom(),
+        optional("WeeklyMaintenanceWindowStart") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type update_mlflow_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12786,6 +13266,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      base_model() :: %{
+        "HubContentName" => String.t() | atom(),
+        "HubContentVersion" => String.t() | atom(),
+        "RecipeName" => String.t() | atom()
+      }
+      
+  """
+  @type base_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_auto_ml_job_v2_response() :: %{
         "AutoMLComputeConfig" => auto_ml_compute_config(),
         "AutoMLJobArn" => String.t() | atom(),
@@ -12912,6 +13405,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       compute_quota_resource_config() :: %{
+        "AcceleratorPartition" => accelerator_partition_config(),
         "Accelerators" => integer(),
         "Count" => integer(),
         "InstanceType" => list(any()),
@@ -13122,6 +13616,17 @@ defmodule AWS.SageMaker do
       
   """
   @type real_time_inference_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      optimization_sage_maker_model() :: %{
+        "ModelName" => String.t() | atom()
+      }
+      
+  """
+  @type optimization_sage_maker_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13822,6 +14327,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_mlflow_app_response() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type create_mlflow_app_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tensor_board_output_config() :: %{
         "LocalPath" => String.t() | atom(),
         "S3OutputPath" => String.t() | atom()
@@ -14299,6 +14815,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_mlflow_app_response() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type update_mlflow_app_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_device_fleet_report_request() :: %{
         required("DeviceFleetName") => String.t() | atom()
       }
@@ -14514,6 +15041,7 @@ defmodule AWS.SageMaker do
         "BillableTimeInSeconds" => integer(),
         "LabelingJobArn" => String.t() | atom(),
         "TensorBoardOutputConfig" => tensor_board_output_config(),
+        "ModelPackageConfig" => model_package_config(),
         "TrainingTimeInSeconds" => integer(),
         "EnableInterContainerTrafficEncryption" => boolean(),
         "ResourceConfig" => resource_config(),
@@ -14530,6 +15058,7 @@ defmodule AWS.SageMaker do
         "AlgorithmSpecification" => algorithm_specification(),
         "SecondaryStatusTransitions" => list(secondary_status_transition()),
         "TuningJobArn" => String.t() | atom(),
+        "OutputModelPackageArn" => String.t() | atom(),
         "InputDataConfig" => list(channel()),
         "ModelArtifacts" => model_artifacts(),
         "FinalMetricDataList" => list(metric_data()),
@@ -14633,6 +15162,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       start_pipeline_execution_request() :: %{
+        optional("MlflowExperimentName") => String.t() | atom(),
         optional("ParallelismConfiguration") => parallelism_configuration(),
         optional("PipelineExecutionDescription") => String.t() | atom(),
         optional("PipelineExecutionDisplayName") => String.t() | atom(),
@@ -14668,6 +15198,7 @@ defmodule AWS.SageMaker do
         "FailureReason" => String.t() | atom(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
+        "MLflowConfig" => mlflow_configuration(),
         "ParallelismConfiguration" => parallelism_configuration(),
         "PipelineArn" => String.t() | atom(),
         "PipelineExecutionArn" => String.t() | atom(),
@@ -14887,6 +15418,17 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_model_bias_job_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_mlflow_app_request() :: %{
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_mlflow_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15692,6 +16234,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      metrics_config() :: %{
+        "EnableEnhancedMetrics" => boolean(),
+        "MetricPublishFrequencyInSeconds" => list(integer())
+      }
+      
+  """
+  @type metrics_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_processing_job_response() :: %{
         "ProcessingJobArn" => String.t() | atom()
       }
@@ -15963,13 +16517,16 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_instance_group_specification() :: %{
+        "CapacityRequirements" => cluster_capacity_requirements(),
         "ExecutionRole" => String.t() | atom(),
         "ImageId" => String.t() | atom(),
         "InstanceCount" => integer(),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
+        "KubernetesConfig" => cluster_kubernetes_config(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
+        "MinInstanceCount" => integer(),
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
         "ScheduledUpdateConfig" => scheduled_update_config(),
@@ -16434,12 +16991,32 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      bedrock_provisioned_model_throughput_metadata() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type bedrock_provisioned_model_throughput_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_labeling_job_request() :: %{
         required("LabelingJobName") => String.t() | atom()
       }
       
   """
   @type stop_labeling_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_on_demand_options() :: %{}
+      
+  """
+  @type cluster_on_demand_options() :: %{}
 
   @typedoc """
 
@@ -16551,6 +17128,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      batch_replace_cluster_nodes_response() :: %{
+        "Failed" => list(batch_replace_cluster_nodes_error()),
+        "FailedNodeLogicalIds" => list(batch_replace_cluster_node_logical_ids_error()),
+        "Successful" => list(String.t() | atom()),
+        "SuccessfulNodeLogicalIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_replace_cluster_nodes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tracking_server_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "IsActive" => list(any()),
@@ -16581,6 +17172,20 @@ defmodule AWS.SageMaker do
       
   """
   @type get_device_fleet_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_progress_info() :: %{
+        "CurrentEpoch" => float(),
+        "CurrentStep" => float(),
+        "MaxEpoch" => float(),
+        "TotalStepCountPerEpoch" => float()
+      }
+      
+  """
+  @type training_progress_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16795,8 +17400,22 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      batch_replace_cluster_nodes_error() :: %{
+        "ErrorCode" => list(any()),
+        "Message" => String.t() | atom(),
+        "NodeId" => String.t() | atom()
+      }
+      
+  """
+  @type batch_replace_cluster_nodes_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       scheduler_config() :: %{
         "FairShare" => list(any()),
+        "IdleResourceSharing" => list(any()),
         "PriorityClasses" => list(priority_class())
       }
       
@@ -17189,7 +17808,8 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
         "SchedulerConfig" => scheduler_config(),
-        "Status" => list(any())
+        "Status" => list(any()),
+        "StatusDetails" => map()
       }
       
   """
@@ -17212,6 +17832,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       data_source() :: %{
+        "DatasetSource" => dataset_source(),
         "FileSystemDataSource" => file_system_data_source(),
         "S3DataSource" => s3_data_source()
       }
@@ -17387,12 +18008,14 @@ defmodule AWS.SageMaker do
       
       model_package_container_definition() :: %{
         "AdditionalS3DataSource" => additional_s3_data_source(),
+        "BaseModel" => base_model(),
         "ContainerHostname" => String.t() | atom(),
         "Environment" => map(),
         "Framework" => String.t() | atom(),
         "FrameworkVersion" => String.t() | atom(),
         "Image" => String.t() | atom(),
         "ImageDigest" => String.t() | atom(),
+        "IsCheckpoint" => boolean(),
         "ModelDataETag" => String.t() | atom(),
         "ModelDataSource" => model_data_source(),
         "ModelDataUrl" => String.t() | atom(),
@@ -18034,6 +18657,23 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      serverless_job_config() :: %{
+        "AcceptEula" => boolean(),
+        "BaseModelArn" => String.t() | atom(),
+        "CustomizationTechnique" => list(any()),
+        "EvaluationType" => list(any()),
+        "EvaluatorArn" => String.t() | atom(),
+        "JobType" => list(any()),
+        "Peft" => list(any())
+      }
+      
+  """
+  @type serverless_job_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_pipeline_versions_response() :: %{
         "NextToken" => String.t() | atom(),
         "PipelineVersionSummaries" => list(pipeline_version_summary())
@@ -18177,6 +18817,7 @@ defmodule AWS.SageMaker do
         "ModelPackageDescription" => String.t() | atom(),
         "ModelPackageGroupName" => String.t() | atom(),
         "ModelPackageName" => String.t() | atom(),
+        "ModelPackageRegistrationType" => list(any()),
         "ModelPackageStatus" => list(any()),
         "ModelPackageStatusDetails" => model_package_status_details(),
         "ModelPackageVersion" => integer(),
@@ -18191,6 +18832,18 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_model_package_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mlflow_configuration() :: %{
+        "MlflowExperimentName" => String.t() | atom(),
+        "MlflowResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type mlflow_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18274,6 +18927,7 @@ defmodule AWS.SageMaker do
         "ModelPackageArn" => String.t() | atom(),
         "ModelPackageDescription" => String.t() | atom(),
         "ModelPackageGroupName" => String.t() | atom(),
+        "ModelPackageRegistrationType" => list(any()),
         "ModelPackageStatus" => list(any()),
         "ModelPackageVersion" => integer()
       }
@@ -18488,7 +19142,9 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_instance_group_details() :: %{
+        "ActiveOperations" => map(),
         "ActiveSoftwareUpdateConfig" => deployment_configuration(),
+        "CapacityRequirements" => cluster_capacity_requirements(),
         "CurrentCount" => integer(),
         "CurrentImageId" => String.t() | atom(),
         "DesiredImageId" => String.t() | atom(),
@@ -18496,7 +19152,9 @@ defmodule AWS.SageMaker do
         "InstanceGroupName" => String.t() | atom(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
+        "KubernetesConfig" => cluster_kubernetes_config_details(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
+        "MinCount" => integer(),
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
         "ScheduledUpdateConfig" => scheduled_update_config(),
@@ -18769,6 +19427,7 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "DeploymentInstanceType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
+        "MaxInstanceCount" => integer(),
         "OptimizationEndTime" => non_neg_integer(),
         "OptimizationJobArn" => String.t() | atom(),
         "OptimizationJobName" => String.t() | atom(),
@@ -18940,6 +19599,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_node_details() :: %{
+        "CapacityType" => list(any()),
         "CurrentImageId" => String.t() | atom(),
         "DesiredImageId" => String.t() | atom(),
         "InstanceGroupName" => String.t() | atom(),
@@ -18947,6 +19607,7 @@ defmodule AWS.SageMaker do
         "InstanceStatus" => cluster_instance_status_details(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
+        "KubernetesConfig" => cluster_kubernetes_config_node_details(),
         "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
@@ -19023,6 +19684,7 @@ defmodule AWS.SageMaker do
         "ModelPackageDescription" => String.t() | atom(),
         "ModelPackageGroupName" => String.t() | atom(),
         "ModelPackageName" => String.t() | atom(),
+        "ModelPackageRegistrationType" => list(any()),
         "ModelPackageStatus" => list(any()),
         "ModelPackageVersion" => integer()
       }
@@ -19281,6 +19943,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      bedrock_custom_model_metadata() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type bedrock_custom_model_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_device_response() :: %{
         "AgentVersion" => String.t() | atom(),
         "Description" => String.t() | atom(),
@@ -19384,6 +20057,10 @@ defmodule AWS.SageMaker do
 
   @type batch_delete_cluster_nodes_errors() :: resource_not_found()
 
+  @type batch_reboot_cluster_nodes_errors() :: resource_not_found()
+
+  @type batch_replace_cluster_nodes_errors() :: resource_not_found()
+
   @type create_action_errors() :: resource_limit_exceeded()
 
   @type create_app_errors() :: resource_limit_exceeded() | resource_in_use()
@@ -19454,6 +20131,8 @@ defmodule AWS.SageMaker do
 
   @type create_labeling_job_errors() :: resource_limit_exceeded() | resource_in_use()
 
+  @type create_mlflow_app_errors() :: resource_limit_exceeded()
+
   @type create_mlflow_tracking_server_errors() :: resource_limit_exceeded()
 
   @type create_model_errors() :: resource_limit_exceeded()
@@ -19491,6 +20170,8 @@ defmodule AWS.SageMaker do
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
   @type create_presigned_domain_url_errors() :: resource_not_found()
+
+  @type create_presigned_mlflow_app_url_errors() :: resource_not_found()
 
   @type create_presigned_mlflow_tracking_server_url_errors() :: resource_not_found()
 
@@ -19571,6 +20252,8 @@ defmodule AWS.SageMaker do
   @type delete_image_version_errors() :: resource_in_use() | resource_not_found()
 
   @type delete_inference_experiment_errors() :: conflict_exception() | resource_not_found()
+
+  @type delete_mlflow_app_errors() :: resource_not_found()
 
   @type delete_mlflow_tracking_server_errors() :: resource_not_found()
 
@@ -19677,6 +20360,8 @@ defmodule AWS.SageMaker do
   @type describe_labeling_job_errors() :: resource_not_found()
 
   @type describe_lineage_group_errors() :: resource_not_found()
+
+  @type describe_mlflow_app_errors() :: resource_not_found()
 
   @type describe_mlflow_tracking_server_errors() :: resource_not_found()
 
@@ -19892,6 +20577,8 @@ defmodule AWS.SageMaker do
   @type update_inference_component_runtime_config_errors() :: resource_limit_exceeded()
 
   @type update_inference_experiment_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_mlflow_app_errors() :: conflict_exception() | resource_not_found()
 
   @type update_mlflow_tracking_server_errors() ::
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
@@ -20110,6 +20797,74 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Reboots specific nodes within a SageMaker HyperPod cluster using a soft recovery
+  mechanism.
+
+  `BatchRebootClusterNodes` performs a graceful reboot of the specified nodes by
+  calling the Amazon Elastic Compute Cloud `RebootInstances` API, which attempts
+  to cleanly shut down the operating system before restarting the instance.
+
+  This operation is useful for recovering from transient issues or applying
+  certain configuration changes that require a restart.
+
+     Rebooting a node may cause temporary service interruption for
+  workloads running on that node. Ensure your workloads can handle node restarts
+  or use appropriate scheduling to minimize impact.
+
+     You can reboot up to 25 nodes in a single request.
+
+     For SageMaker HyperPod clusters using the Slurm workload manager,
+  ensure rebooting nodes will not disrupt critical cluster operations.
+  """
+  @spec batch_reboot_cluster_nodes(map(), batch_reboot_cluster_nodes_request(), list()) ::
+          {:ok, batch_reboot_cluster_nodes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_reboot_cluster_nodes_errors()}
+  def batch_reboot_cluster_nodes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchRebootClusterNodes", input, options)
+  end
+
+  @doc """
+  Replaces specific nodes within a SageMaker HyperPod cluster with new hardware.
+
+  `BatchReplaceClusterNodes` terminates the specified instances and provisions new
+  replacement instances with the same configuration but fresh hardware. The Amazon
+  Machine Image (AMI) and instance configuration remain the same.
+
+  This operation is useful for recovering from hardware failures or persistent
+  issues that cannot be resolved through a reboot.
+
+     **Data Loss Warning:** Replacing nodes destroys all instance
+  volumes, including both root and secondary volumes. All data stored on these
+  volumes will be permanently lost and cannot be recovered.
+
+     To safeguard your work, back up your data to Amazon S3 or an FSx
+  for Lustre file system before invoking the API on a worker node group. This will
+  help prevent any potential data loss from the instance root volume. For more
+  information about backup, see [Use the backup script provided by SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software-backup).
+
+     If you want to invoke this API on an existing cluster, you'll first
+  need to patch the cluster by running the [UpdateClusterSoftware API](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSoftware.html).
+  For more information about patching a cluster, see [Update the SageMaker HyperPod platform software of a
+  cluster](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software).
+
+     You can replace up to 25 nodes in a single request.
+  """
+  @spec batch_replace_cluster_nodes(map(), batch_replace_cluster_nodes_request(), list()) ::
+          {:ok, batch_replace_cluster_nodes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_replace_cluster_nodes_errors()}
+  def batch_replace_cluster_nodes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchReplaceClusterNodes", input, options)
+  end
+
+  @doc """
   Creates an *action*.
 
   An action is a lineage tracking entity that represents an action or activity.
@@ -20300,7 +21055,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates a SageMaker HyperPod cluster.
+  Creates an Amazon SageMaker HyperPod cluster.
 
   SageMaker HyperPod is a capability of SageMaker for creating and managing
   persistent clusters for developing large machine learning models, such as large
@@ -21064,6 +21819,21 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as
   the artifact store.
+  """
+  @spec create_mlflow_app(map(), create_mlflow_app_request(), list()) ::
+          {:ok, create_mlflow_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_mlflow_app_errors()}
+  def create_mlflow_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMlflowApp", input, options)
+  end
+
+  @doc """
+  Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as
+  the artifact store.
 
   For more information, see [Create an MLflow Tracking Server](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server.html).
   """
@@ -21339,6 +22109,11 @@ defmodule AWS.SageMaker do
   For information about notebook instance lifestyle configurations, see [Step 2.1:
   (Optional) Customize a Notebook
   Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html).
+
+  Lifecycle configuration scripts execute with root access and the notebook
+  instance's IAM execution role privileges. Grant this permission only to trusted
+  principals. See [Customize a Notebook Instance Using a Lifecycle Configuration Script](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html)
+  for security best practices.
   """
   @spec create_notebook_instance_lifecycle_config(
           map(),
@@ -21458,6 +22233,23 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreatePresignedDomainUrl", input, options)
+  end
+
+  @doc """
+  Returns a presigned URL that you can use to connect to the MLflow UI attached to
+  your MLflow App.
+
+  For more information, see [Launch the MLflow UI using a presigned URL](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html).
+  """
+  @spec create_presigned_mlflow_app_url(map(), create_presigned_mlflow_app_url_request(), list()) ::
+          {:ok, create_presigned_mlflow_app_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_presigned_mlflow_app_url_errors()}
+  def create_presigned_mlflow_app_url(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePresignedMlflowAppUrl", input, options)
   end
 
   @doc """
@@ -22401,6 +23193,20 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteInferenceExperiment", input, options)
+  end
+
+  @doc """
+  Deletes an MLflow App.
+  """
+  @spec delete_mlflow_app(map(), delete_mlflow_app_request(), list()) ::
+          {:ok, delete_mlflow_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_mlflow_app_errors()}
+  def delete_mlflow_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMlflowApp", input, options)
   end
 
   @doc """
@@ -23447,6 +24253,20 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeLineageGroup", input, options)
+  end
+
+  @doc """
+  Returns information about an MLflow App.
+  """
+  @spec describe_mlflow_app(map(), describe_mlflow_app_request(), list()) ::
+          {:ok, describe_mlflow_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_mlflow_app_errors()}
+  def describe_mlflow_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMlflowApp", input, options)
   end
 
   @doc """
@@ -24736,6 +25556,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "ListLineageGroups", input, options)
+  end
+
+  @doc """
+  Lists all MLflow Apps
+  """
+  @spec list_mlflow_apps(map(), list_mlflow_apps_request(), list()) ::
+          {:ok, list_mlflow_apps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_mlflow_apps(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMlflowApps", input, options)
   end
 
   @doc """
@@ -26404,6 +27237,20 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Updates an MLflow App.
+  """
+  @spec update_mlflow_app(map(), update_mlflow_app_request(), list()) ::
+          {:ok, update_mlflow_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_mlflow_app_errors()}
+  def update_mlflow_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMlflowApp", input, options)
+  end
+
+  @doc """
   Updates properties of an existing MLflow Tracking Server.
   """
   @spec update_mlflow_tracking_server(map(), update_mlflow_tracking_server_request(), list()) ::
@@ -26482,6 +27329,13 @@ defmodule AWS.SageMaker do
   NotebookInstance updates include upgrading or downgrading the ML compute
   instance used for your notebook instance to accommodate changes in your workload
   requirements.
+
+  This API can attach lifecycle configurations to notebook instances. Lifecycle
+  configuration scripts execute with root access and the notebook instance's IAM
+  execution role privileges. Principals with this permission and access to
+  lifecycle configurations can execute code with the execution role's credentials.
+  See [Customize a Notebook Instance Using a Lifecycle Configuration Script](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html)
+  for security best practices.
   """
   @spec update_notebook_instance(map(), update_notebook_instance_input(), list()) ::
           {:ok, update_notebook_instance_output(), any()}
@@ -26496,8 +27350,15 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a notebook instance lifecycle configuration created with the
-  [CreateNotebookInstanceLifecycleConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html)
-  API.
+  [CreateNotebookInstanceLifecycleConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html) API.
+
+  Updates to lifecycle configurations affect all notebook instances using that
+  configuration upon their next start. Lifecycle configuration scripts execute
+  with root access and the notebook instance's IAM execution role privileges.
+  Grant this permission only to trusted principals. See [Customize a Notebook
+  Instance Using a Lifecycle Configuration
+  Script](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html)
+  for security best practices.
   """
   @spec update_notebook_instance_lifecycle_config(
           map(),

@@ -169,6 +169,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      image_block_start() :: %{
+        "format" => list(any())
+      }
+
+  """
+  @type image_block_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       content_block_stop_event() :: %{
         "contentBlockIndex" => integer()
       }
@@ -190,8 +201,10 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       converse_tokens_request() :: %{
+        "additionalModelRequestFields" => [any()],
         "messages" => list(message()),
-        "system" => list(list())
+        "system" => list(list()),
+        "toolConfig" => tool_configuration()
       }
 
   """
@@ -255,12 +268,26 @@ defmodule AWS.BedrockRuntime do
         optional("performanceConfig") => performance_configuration(),
         optional("promptVariables") => map(),
         optional("requestMetadata") => map(),
+        optional("serviceTier") => service_tier(),
         optional("system") => list(list()),
         optional("toolConfig") => tool_configuration()
       }
 
   """
   @type converse_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_result_location() :: %{
+        "end" => [integer()],
+        "searchResultIndex" => [integer()],
+        "start" => [integer()]
+      }
+
+  """
+  @type search_result_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,6 +303,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_automated_reasoning_translation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_tier() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type service_tier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,6 +335,7 @@ defmodule AWS.BedrockRuntime do
 
       citation() :: %{
         "location" => list(),
+        "source" => [String.t() | atom()],
         "sourceContent" => list(list()),
         "title" => [String.t() | atom()]
       }
@@ -368,10 +407,23 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      image_block_delta() :: %{
+        "error" => error_block(),
+        "source" => list()
+      }
+
+  """
+  @type image_block_delta() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_model_with_response_stream_response() :: %{
         "body" => list(),
         "contentType" => String.t() | atom(),
-        "performanceConfigLatency" => list(any())
+        "performanceConfigLatency" => list(any()),
+        "serviceTier" => list(any())
       }
 
   """
@@ -394,6 +446,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       image_block() :: %{
+        "error" => error_block(),
         "format" => list(any()),
         "source" => list()
       }
@@ -549,12 +602,41 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      applied_guardrail_details() :: %{
+        "guardrailArn" => String.t() | atom(),
+        "guardrailId" => String.t() | atom(),
+        "guardrailOrigin" => list(list(any())()),
+        "guardrailOwnership" => list(any()),
+        "guardrailVersion" => String.t() | atom()
+      }
+
+  """
+  @type applied_guardrail_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_model_with_bidirectional_stream_request() :: %{
         required("body") => list()
       }
 
   """
   @type invoke_model_with_bidirectional_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_result_block() :: %{
+        "citations" => citations_config(),
+        "content" => list(search_result_content_block()),
+        "source" => [String.t() | atom()],
+        "title" => [String.t() | atom()]
+      }
+
+  """
+  @type search_result_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,6 +732,7 @@ defmodule AWS.BedrockRuntime do
         optional("guardrailIdentifier") => String.t() | atom(),
         optional("guardrailVersion") => String.t() | atom(),
         optional("performanceConfigLatency") => list(any()),
+        optional("serviceTier") => list(any()),
         optional("trace") => list(any())
       }
 
@@ -701,6 +784,7 @@ defmodule AWS.BedrockRuntime do
         optional("guardrailIdentifier") => String.t() | atom(),
         optional("guardrailVersion") => String.t() | atom(),
         optional("performanceConfigLatency") => list(any()),
+        optional("serviceTier") => list(any()),
         optional("trace") => list(any())
       }
 
@@ -762,7 +846,8 @@ defmodule AWS.BedrockRuntime do
       invoke_model_response() :: %{
         "body" => binary(),
         "contentType" => String.t() | atom(),
-        "performanceConfigLatency" => list(any())
+        "performanceConfigLatency" => list(any()),
+        "serviceTier" => list(any())
       }
 
   """
@@ -862,6 +947,28 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      error_block() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type error_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_result_content_block() :: %{
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type search_result_content_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_automated_reasoning_translation_option() :: %{
         "translations" => list(guardrail_automated_reasoning_translation())
       }
@@ -885,6 +992,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       cache_point_block() :: %{
+        "ttl" => list(any()),
         "type" => list(any())
       }
 
@@ -964,6 +1072,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      cache_detail() :: %{
+        "inputTokens" => [integer()],
+        "ttl" => list(any())
+      }
+
+  """
+  @type cache_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_contextual_grounding_policy_assessment() :: %{
         "filters" => list(guardrail_contextual_grounding_filter())
       }
@@ -990,12 +1110,26 @@ defmodule AWS.BedrockRuntime do
       converse_stream_metadata_event() :: %{
         "metrics" => converse_stream_metrics(),
         "performanceConfig" => performance_configuration(),
+        "serviceTier" => service_tier(),
         "trace" => converse_stream_trace(),
         "usage" => token_usage()
       }
 
   """
   @type converse_stream_metadata_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_block() :: %{
+        "error" => error_block(),
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type audio_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1041,6 +1175,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_assessment() :: %{
+        "appliedGuardrailDetails" => applied_guardrail_details(),
         "automatedReasoningPolicy" => guardrail_automated_reasoning_policy_assessment(),
         "contentPolicy" => guardrail_content_policy_assessment(),
         "contextualGroundingPolicy" => guardrail_contextual_grounding_policy_assessment(),
@@ -1126,6 +1261,7 @@ defmodule AWS.BedrockRuntime do
         optional("performanceConfig") => performance_configuration(),
         optional("promptVariables") => map(),
         optional("requestMetadata") => map(),
+        optional("serviceTier") => service_tier(),
         optional("system") => list(list()),
         optional("toolConfig") => tool_configuration()
       }
@@ -1177,6 +1313,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       token_usage() :: %{
+        "cacheDetails" => list(cache_detail()),
         "cacheReadInputTokens" => [integer()],
         "cacheWriteInputTokens" => [integer()],
         "inputTokens" => [integer()],
@@ -1513,6 +1650,7 @@ defmodule AWS.BedrockRuntime do
 
       citations_delta() :: %{
         "location" => list(),
+        "source" => [String.t() | atom()],
         "sourceContent" => list(citation_source_content_delta()),
         "title" => [String.t() | atom()]
       }
@@ -1541,6 +1679,7 @@ defmodule AWS.BedrockRuntime do
         "metrics" => converse_metrics(),
         "output" => list(),
         "performanceConfig" => performance_configuration(),
+        "serviceTier" => service_tier(),
         "stopReason" => list(any()),
         "trace" => converse_trace(),
         "usage" => token_usage()
@@ -1979,6 +2118,7 @@ defmodule AWS.BedrockRuntime do
         {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
         {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
         {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"serviceTier", "X-Amzn-Bedrock-Service-Tier"},
         {"trace", "X-Amzn-Bedrock-Trace"}
       ]
       |> Request.build_params(input)
@@ -1992,7 +2132,8 @@ defmodule AWS.BedrockRuntime do
         :response_header_parameters,
         [
           {"Content-Type", "contentType"},
-          {"X-Amzn-Bedrock-PerformanceConfig-Latency", "performanceConfigLatency"}
+          {"X-Amzn-Bedrock-PerformanceConfig-Latency", "performanceConfigLatency"},
+          {"X-Amzn-Bedrock-Service-Tier", "serviceTier"}
         ]
       )
 
@@ -2107,6 +2248,7 @@ defmodule AWS.BedrockRuntime do
         {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
         {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
         {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"serviceTier", "X-Amzn-Bedrock-Service-Tier"},
         {"trace", "X-Amzn-Bedrock-Trace"}
       ]
       |> Request.build_params(input)
@@ -2120,7 +2262,8 @@ defmodule AWS.BedrockRuntime do
         :response_header_parameters,
         [
           {"X-Amzn-Bedrock-Content-Type", "contentType"},
-          {"X-Amzn-Bedrock-PerformanceConfig-Latency", "performanceConfigLatency"}
+          {"X-Amzn-Bedrock-PerformanceConfig-Latency", "performanceConfigLatency"},
+          {"X-Amzn-Bedrock-Service-Tier", "serviceTier"}
         ]
       )
 

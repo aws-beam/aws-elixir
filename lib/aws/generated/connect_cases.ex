@@ -221,6 +221,7 @@ defmodule AWS.ConnectCases do
       create_case_request() :: %{
         optional("clientToken") => [String.t() | atom()],
         optional("performedBy") => list(),
+        optional("tags") => map(),
         required("fields") => list(field_value()),
         required("templateId") => String.t() | atom()
       }
@@ -289,6 +290,7 @@ defmodule AWS.ConnectCases do
         optional("requiredFields") => list(required_field()),
         optional("rules") => list(template_rule()),
         optional("status") => String.t() | atom(),
+        optional("tagPropagationConfigurations") => list(tag_propagation_configuration()),
         required("name") => String.t() | atom()
       }
 
@@ -307,6 +309,7 @@ defmodule AWS.ConnectCases do
         optional("layoutConfiguration") => layout_configuration(),
         optional("requiredFields") => list(required_field()),
         optional("rules") => list(template_rule()),
+        optional("tagPropagationConfigurations") => list(tag_propagation_configuration()),
         optional("tags") => map(),
         required("name") => String.t() | atom(),
         required("status") => String.t() | atom(),
@@ -413,7 +416,8 @@ defmodule AWS.ConnectCases do
         optional("name") => String.t() | atom(),
         optional("requiredFields") => list(required_field()),
         optional("rules") => list(template_rule()),
-        optional("status") => String.t() | atom()
+        optional("status") => String.t() | atom(),
+        optional("tagPropagationConfigurations") => list(tag_propagation_configuration())
       }
 
   """
@@ -622,6 +626,18 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      tag_value() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_all_related_items_request() :: %{
         optional("filters") => list(list()),
         optional("maxResults") => [integer()],
@@ -792,6 +808,7 @@ defmodule AWS.ConnectCases do
       template_summary() :: %{
         "name" => String.t() | atom(),
         "status" => String.t() | atom(),
+        "tagPropagationConfigurations" => list(tag_propagation_configuration()),
         "templateArn" => String.t() | atom(),
         "templateId" => String.t() | atom()
       }
@@ -1718,6 +1735,18 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      tag_propagation_configuration() :: %{
+        "resourceType" => String.t() | atom(),
+        "tagMap" => map()
+      }
+
+  """
+  @type tag_propagation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       layout_configuration() :: %{
         "defaultLayout" => String.t() | atom()
       }
@@ -2215,6 +2244,9 @@ defmodule AWS.ConnectCases do
 
   Case system and custom fields are taken as an array id/value pairs with a
   declared data types.
+
+  When creating a case from a template that has tag propagation configurations,
+  the specified tags are automatically applied to the case.
 
   The following fields are required when creating a case:
 

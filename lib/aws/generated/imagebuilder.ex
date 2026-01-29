@@ -72,6 +72,7 @@ defmodule AWS.Imagebuilder do
         optional("changeDescription") => String.t() | atom(),
         optional("data") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("dryRun") => boolean(),
         optional("kmsKeyId") => String.t() | atom(),
         optional("tags") => map(),
         optional("uri") => String.t() | atom(),
@@ -265,6 +266,18 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      retry_image_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type retry_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_distribution_configuration_response() :: %{
         "clientToken" => String.t() | atom(),
         "distributionConfigurationArn" => String.t() | atom(),
@@ -329,6 +342,17 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      dry_run_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type dry_run_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_image_pipelines_response() :: %{
         "imagePipelineList" => list(image_pipeline()),
         "nextToken" => String.t() | atom(),
@@ -345,6 +369,7 @@ defmodule AWS.Imagebuilder do
       create_image_response() :: %{
         "clientToken" => String.t() | atom(),
         "imageBuildVersionArn" => String.t() | atom(),
+        "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
@@ -654,11 +679,24 @@ defmodule AWS.Imagebuilder do
 
       get_container_recipe_response() :: %{
         "containerRecipe" => container_recipe(),
+        "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
   """
   @type get_container_recipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      distribute_image_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type distribute_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -716,6 +754,7 @@ defmodule AWS.Imagebuilder do
 
       get_image_response() :: %{
         "image" => image(),
+        "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
@@ -864,6 +903,7 @@ defmodule AWS.Imagebuilder do
 
       get_component_response() :: %{
         "component" => component(),
+        "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
@@ -979,6 +1019,17 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      too_many_requests_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       import_component_request() :: %{
         optional("changeDescription") => String.t() | atom(),
         optional("data") => String.t() | atom(),
@@ -1079,6 +1130,7 @@ defmodule AWS.Imagebuilder do
         "endTime" => String.t() | atom(),
         "message" => String.t() | atom(),
         "parallelGroup" => String.t() | atom(),
+        "retried" => boolean(),
         "startTime" => String.t() | atom(),
         "status" => list(any()),
         "totalStepCount" => integer(),
@@ -1292,6 +1344,7 @@ defmodule AWS.Imagebuilder do
       create_component_response() :: %{
         "clientToken" => String.t() | atom(),
         "componentBuildVersionArn" => String.t() | atom(),
+        "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
@@ -1379,6 +1432,7 @@ defmodule AWS.Imagebuilder do
       create_image_recipe_response() :: %{
         "clientToken" => String.t() | atom(),
         "imageRecipeArn" => String.t() | atom(),
+        "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
@@ -1981,6 +2035,7 @@ defmodule AWS.Imagebuilder do
         optional("changeDescription") => String.t() | atom(),
         optional("data") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("dryRun") => boolean(),
         optional("kmsKeyId") => String.t() | atom(),
         optional("supportedOsVersions") => list(String.t() | atom()),
         optional("tags") => map(),
@@ -2416,6 +2471,22 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      distribute_image_request() :: %{
+        optional("loggingConfiguration") => image_logging_configuration(),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("distributionConfigurationArn") => String.t() | atom(),
+        required("executionRole") => String.t() | atom(),
+        required("sourceImage") => String.t() | atom()
+      }
+
+  """
+  @type distribute_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_component_response() :: %{
         "componentBuildVersionArn" => String.t() | atom(),
         "requestId" => String.t() | atom()
@@ -2789,6 +2860,7 @@ defmodule AWS.Imagebuilder do
 
       create_workflow_response() :: %{
         "clientToken" => String.t() | atom(),
+        "latestVersionReferences" => latest_version_references(),
         "workflowBuildVersionArn" => String.t() | atom()
       }
 
@@ -2865,6 +2937,17 @@ defmodule AWS.Imagebuilder do
 
   """
   @type update_infrastructure_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3112,6 +3195,7 @@ defmodule AWS.Imagebuilder do
       create_container_recipe_response() :: %{
         "clientToken" => String.t() | atom(),
         "containerRecipeArn" => String.t() | atom(),
+        "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
@@ -3400,6 +3484,20 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      latest_version_references() :: %{
+        "latestMajorVersionArn" => String.t() | atom(),
+        "latestMinorVersionArn" => String.t() | atom(),
+        "latestPatchVersionArn" => String.t() | atom(),
+        "latestVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type latest_version_references() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_infrastructure_configurations_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
@@ -3470,6 +3568,18 @@ defmodule AWS.Imagebuilder do
 
   """
   @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_image_request() :: %{
+        required("clientToken") => String.t() | atom(),
+        required("imageBuildVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type retry_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3630,6 +3740,7 @@ defmodule AWS.Imagebuilder do
 
       get_image_recipe_response() :: %{
         "imageRecipe" => image_recipe(),
+        "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
@@ -3754,6 +3865,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       get_workflow_response() :: %{
+        "latestVersionReferences" => latest_version_references(),
         "workflow" => workflow()
       }
 
@@ -3792,6 +3904,7 @@ defmodule AWS.Imagebuilder do
           | forbidden_exception()
           | resource_in_use_exception()
           | invalid_version_number_exception()
+          | dry_run_operation_exception()
 
   @type create_container_recipe_errors() ::
           resource_already_exists_exception()
@@ -3891,6 +4004,7 @@ defmodule AWS.Imagebuilder do
           | forbidden_exception()
           | resource_in_use_exception()
           | invalid_version_number_exception()
+          | dry_run_operation_exception()
 
   @type delete_component_errors() ::
           resource_dependency_exception()
@@ -3972,6 +4086,20 @@ defmodule AWS.Imagebuilder do
           | client_exception()
           | call_rate_limit_exceeded_exception()
           | forbidden_exception()
+
+  @type distribute_image_errors() ::
+          access_denied_exception()
+          | service_unavailable_exception()
+          | service_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | client_exception()
+          | call_rate_limit_exceeded_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | resource_in_use_exception()
 
   @type get_component_errors() ::
           service_unavailable_exception()
@@ -4360,6 +4488,16 @@ defmodule AWS.Imagebuilder do
           | client_exception()
           | call_rate_limit_exceeded_exception()
           | forbidden_exception()
+
+  @type retry_image_errors() ::
+          service_unavailable_exception()
+          | service_exception()
+          | idempotent_parameter_mismatch_exception()
+          | invalid_request_exception()
+          | client_exception()
+          | call_rate_limit_exceeded_exception()
+          | forbidden_exception()
+          | resource_in_use_exception()
 
   @type send_workflow_step_action_errors() ::
           service_unavailable_exception()
@@ -5152,6 +5290,36 @@ defmodule AWS.Imagebuilder do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  DistributeImage distributes existing AMIs to additional regions and accounts
+  without rebuilding the image.
+  """
+  @spec distribute_image(map(), distribute_image_request(), list()) ::
+          {:ok, distribute_image_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, distribute_image_errors()}
+  def distribute_image(%Client{} = client, input, options \\ []) do
+    url_path = "/DistributeImage"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -6540,6 +6708,35 @@ defmodule AWS.Imagebuilder do
           | {:error, put_image_recipe_policy_errors()}
   def put_image_recipe_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutImageRecipePolicy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  RetryImage retries an image distribution without rebuilding the image.
+  """
+  @spec retry_image(map(), retry_image_request(), list()) ::
+          {:ok, retry_image_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, retry_image_errors()}
+  def retry_image(%Client{} = client, input, options \\ []) do
+    url_path = "/RetryImage"
     headers = []
     custom_headers = []
     query_params = []

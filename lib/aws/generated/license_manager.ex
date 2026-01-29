@@ -45,6 +45,17 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      get_license_asset_ruleset_response() :: %{
+        "LicenseAssetRuleset" => license_asset_ruleset()
+      }
+      
+  """
+  @type get_license_asset_ruleset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       report_frequency() :: %{
         "period" => list(any()),
         "value" => integer()
@@ -57,12 +68,67 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      script_rule_statement() :: %{
+        "KeyToMatch" => String.t() | atom(),
+        "Script" => String.t() | atom()
+      }
+      
+  """
+  @type script_rule_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cross_region_discovery_status() :: %{
+        "Message" => map()
+      }
+      
+  """
+  @type cross_region_discovery_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_access_token_response() :: %{
         "AccessToken" => String.t() | atom()
       }
       
   """
   @type get_access_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      license_asset_group() :: %{
+        "AssociatedLicenseAssetRulesetARNs" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
+        "LatestResourceDiscoveryTime" => non_neg_integer(),
+        "LatestUsageAnalysisTime" => non_neg_integer(),
+        "LicenseAssetGroupArn" => String.t() | atom(),
+        "LicenseAssetGroupConfigurations" => list(license_asset_group_configuration()),
+        "Name" => String.t() | atom(),
+        "Properties" => list(license_asset_group_property()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type license_asset_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_status() :: %{
+        "CrossAccountDiscovery" => cross_account_discovery_service_status(),
+        "CrossRegionDiscovery" => cross_region_discovery_status()
+      }
+      
+  """
+  @type service_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -97,6 +163,7 @@ defmodule AWS.LicenseManager do
         "LicenseCount" => float(),
         "LicenseCountHardLimit" => boolean(),
         "LicenseCountingType" => list(any()),
+        "LicenseExpiry" => float(),
         "LicenseRules" => list(String.t() | atom()),
         "ManagedResourceSummaryList" => list(managed_resource_summary()),
         "Name" => String.t() | atom(),
@@ -138,6 +205,20 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      license_asset_ruleset() :: %{
+        "Description" => String.t() | atom(),
+        "LicenseAssetRulesetArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Rules" => list(license_asset_rule())
+      }
+      
+  """
+  @type license_asset_ruleset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_usage_for_license_configuration_response() :: %{
         "LicenseConfigurationUsageList" => list(license_configuration_usage()),
         "NextToken" => String.t() | atom()
@@ -161,6 +242,20 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      list_license_asset_rulesets_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ShowAWSManagedLicenseAssetRulesets") => boolean()
+      }
+      
+  """
+  @type list_license_asset_rulesets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       filter_limit_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -179,6 +274,17 @@ defmodule AWS.LicenseManager do
       
   """
   @type get_license_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_license_asset_ruleset_request() :: %{
+        required("LicenseAssetRulesetArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_license_asset_ruleset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -246,6 +352,17 @@ defmodule AWS.LicenseManager do
       
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_license_asset_group_request() :: %{
+        required("LicenseAssetGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_license_asset_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,6 +463,22 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      list_license_configurations_for_organization_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("LicenseConfigurationArns") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_license_configurations_for_organization_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       get_license_conversion_task_response() :: %{
         "DestinationLicenseContext" => license_conversion_context(),
         "EndTime" => non_neg_integer(),
@@ -435,6 +568,42 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      update_license_asset_group_response() :: %{
+        "LicenseAssetGroupArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type update_license_asset_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_license_asset_group_response() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type delete_license_asset_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      license_configuration_rule_statement() :: %{
+        "AndRuleStatement" => and_rule_statement(),
+        "MatchingRuleStatement" => matching_rule_statement(),
+        "OrRuleStatement" => or_rule_statement()
+      }
+      
+  """
+  @type license_configuration_rule_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_license_versions_response() :: %{
         "Licenses" => list(license()),
         "NextToken" => String.t() | atom()
@@ -455,6 +624,18 @@ defmodule AWS.LicenseManager do
       
   """
   @type list_license_manager_report_generators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_license_asset_groups_response() :: %{
+        "LicenseAssetGroups" => list(license_asset_group()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_license_asset_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -518,6 +699,15 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      delete_license_asset_ruleset_response() :: %{}
+      
+  """
+  @type delete_license_asset_ruleset_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       get_license_usage_request() :: %{
         required("LicenseArn") => String.t() | atom()
       }
@@ -541,10 +731,34 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      update_license_asset_ruleset_response() :: %{
+        "LicenseAssetRulesetArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_license_asset_ruleset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_license_configuration_response() :: %{}
       
   """
   @type update_license_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      matching_rule_statement() :: %{
+        "Constraint" => String.t() | atom(),
+        "KeyToMatch" => String.t() | atom(),
+        "ValueToMatch" => list(String.t() | atom())
+      }
+      
+  """
+  @type matching_rule_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -595,6 +809,21 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      update_license_asset_ruleset_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("LicenseAssetRulesetArn") => String.t() | atom(),
+        required("Rules") => list(license_asset_rule())
+      }
+      
+  """
+  @type update_license_asset_ruleset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       consumption_configuration() :: %{
         "BorrowConfiguration" => borrow_configuration(),
         "ProvisionalConfiguration" => provisional_configuration(),
@@ -637,6 +866,18 @@ defmodule AWS.LicenseManager do
       
   """
   @type update_license_specifications_for_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_license_asset_group_response() :: %{
+        "LicenseAssetGroupArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type create_license_asset_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -783,6 +1024,18 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      asset() :: %{
+        "AssetArn" => String.t() | atom(),
+        "LatestAssetDiscoveryTime" => non_neg_integer()
+      }
+      
+  """
+  @type asset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       redirect_exception() :: %{
         "Location" => String.t() | atom(),
         "Message" => String.t() | atom()
@@ -839,6 +1092,17 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      license_asset_group_configuration() :: %{
+        "UsageDimension" => String.t() | atom()
+      }
+      
+  """
+  @type license_asset_group_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_service_settings_response() :: %{}
       
   """
@@ -856,6 +1120,30 @@ defmodule AWS.LicenseManager do
       
   """
   @type create_license_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      and_rule_statement() :: %{
+        "MatchingRuleStatements" => list(matching_rule_statement()),
+        "ScriptRuleStatements" => list(script_rule_statement())
+      }
+      
+  """
+  @type and_rule_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_assets_for_license_asset_group_response() :: %{
+        "Assets" => list(asset()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_assets_for_license_asset_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -892,6 +1180,7 @@ defmodule AWS.LicenseManager do
         optional("LicenseConfigurationStatus") => list(any()),
         optional("LicenseCount") => float(),
         optional("LicenseCountHardLimit") => boolean(),
+        optional("LicenseExpiry") => float(),
         optional("LicenseRules") => list(String.t() | atom()),
         optional("Name") => String.t() | atom(),
         optional("ProductInformationList") => list(product_information()),
@@ -966,6 +1255,20 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      list_assets_for_license_asset_group_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AssetType") => String.t() | atom(),
+        required("LicenseAssetGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_assets_for_license_asset_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       automated_discovery_information() :: %{
         "LastRunTime" => non_neg_integer()
       }
@@ -1015,6 +1318,18 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      list_license_asset_rulesets_response() :: %{
+        "LicenseAssetRulesets" => list(license_asset_ruleset()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_license_asset_rulesets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_failures_for_license_configuration_operations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -1042,12 +1357,38 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      create_license_asset_ruleset_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ClientToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Rules") => list(license_asset_rule())
+      }
+      
+  """
+  @type create_license_asset_ruleset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_token_request() :: %{
         required("TokenId") => String.t() | atom()
       }
       
   """
   @type delete_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_license_asset_group_response() :: %{
+        "LicenseAssetGroup" => license_asset_group()
+      }
+      
+  """
+  @type get_license_asset_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1125,6 +1466,17 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      region_status() :: %{
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type region_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_license_manager_report_generator_response() :: %{
         "LicenseManagerReportGeneratorArn" => String.t() | atom()
       }
@@ -1179,6 +1531,20 @@ defmodule AWS.LicenseManager do
       
   """
   @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_license_configurations_for_organization_response() :: %{
+        "LicenseConfigurations" => list(license_configuration()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_license_configurations_for_organization_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1250,6 +1616,7 @@ defmodule AWS.LicenseManager do
         optional("DisassociateWhenNotFound") => boolean(),
         optional("LicenseCount") => float(),
         optional("LicenseCountHardLimit") => boolean(),
+        optional("LicenseExpiry") => float(),
         optional("LicenseRules") => list(String.t() | atom()),
         optional("ProductInformationList") => list(product_information()),
         optional("Tags") => list(tag()),
@@ -1259,6 +1626,24 @@ defmodule AWS.LicenseManager do
       
   """
   @type create_license_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_license_asset_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("LicenseAssetGroupConfigurations") => list(license_asset_group_configuration()),
+        optional("Name") => String.t() | atom(),
+        optional("Properties") => list(license_asset_group_property()),
+        optional("Status") => list(any()),
+        required("AssociatedLicenseAssetRulesetARNs") => list(String.t() | atom()),
+        required("ClientToken") => String.t() | atom(),
+        required("LicenseAssetGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_license_asset_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1362,6 +1747,7 @@ defmodule AWS.LicenseManager do
         "LicenseCount" => float(),
         "LicenseCountHardLimit" => boolean(),
         "LicenseCountingType" => list(any()),
+        "LicenseExpiry" => float(),
         "LicenseRules" => list(String.t() | atom()),
         "ManagedResourceSummaryList" => list(managed_resource_summary()),
         "Name" => String.t() | atom(),
@@ -1373,6 +1759,17 @@ defmodule AWS.LicenseManager do
       
   """
   @type get_license_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_license_asset_group_request() :: %{
+        required("LicenseAssetGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_license_asset_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1468,7 +1865,10 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       report_context() :: %{
-        "licenseConfigurationArns" => list(String.t() | atom())
+        "licenseAssetGroupArns" => list(String.t() | atom()),
+        "licenseConfigurationArns" => list(String.t() | atom()),
+        "reportEndDate" => non_neg_integer(),
+        "reportStartDate" => non_neg_integer()
       }
       
   """
@@ -1640,6 +2040,20 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      instance_rule_statement() :: %{
+        "AndRuleStatement" => and_rule_statement(),
+        "MatchingRuleStatement" => matching_rule_statement(),
+        "OrRuleStatement" => or_rule_statement(),
+        "ScriptRuleStatement" => script_rule_statement()
+      }
+      
+  """
+  @type instance_rule_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_grant_version_response() :: %{
         "GrantArn" => String.t() | atom(),
         "Status" => list(any()),
@@ -1685,10 +2099,13 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       get_service_settings_response() :: %{
+        "CrossRegionDiscoveryHomeRegion" => String.t() | atom(),
+        "CrossRegionDiscoverySourceRegions" => list(String.t() | atom()),
         "EnableCrossAccountsDiscovery" => boolean(),
         "LicenseManagerResourceShareArn" => String.t() | atom(),
         "OrganizationConfiguration" => organization_configuration(),
         "S3BucketArn" => String.t() | atom(),
+        "ServiceStatus" => service_status(),
         "SnsTopicArn" => String.t() | atom()
       }
       
@@ -1768,16 +2185,39 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       resource_inventory() :: %{
+        "AmiId" => String.t() | atom(),
+        "HostId" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "MarketplaceProductCodes" => list(String.t() | atom()),
         "Platform" => String.t() | atom(),
         "PlatformVersion" => String.t() | atom(),
+        "Region" => String.t() | atom(),
         "ResourceArn" => String.t() | atom(),
         "ResourceId" => String.t() | atom(),
         "ResourceOwningAccountId" => String.t() | atom(),
-        "ResourceType" => list(any())
+        "ResourceType" => list(any()),
+        "UsageOperation" => String.t() | atom()
       }
       
   """
   @type resource_inventory() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_license_asset_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Properties") => list(license_asset_group_property()),
+        optional("Tags") => list(tag()),
+        required("AssociatedLicenseAssetRulesetARNs") => list(String.t() | atom()),
+        required("ClientToken") => String.t() | atom(),
+        required("LicenseAssetGroupConfigurations") => list(license_asset_group_configuration()),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_license_asset_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1872,6 +2312,28 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      cross_account_discovery_service_status() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cross_account_discovery_service_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_license_asset_ruleset_request() :: %{
+        required("LicenseAssetRulesetArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_license_asset_ruleset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       issuer_details() :: %{
         "KeyFingerprint" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -1896,6 +2358,30 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      create_license_asset_ruleset_response() :: %{
+        "LicenseAssetRulesetArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_license_asset_ruleset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_license_asset_groups_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_license_asset_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tokens_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
@@ -1905,6 +2391,31 @@ defmodule AWS.LicenseManager do
       
   """
   @type list_tokens_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      or_rule_statement() :: %{
+        "MatchingRuleStatements" => list(matching_rule_statement()),
+        "ScriptRuleStatements" => list(script_rule_statement())
+      }
+      
+  """
+  @type or_rule_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      license_rule_statement() :: %{
+        "AndRuleStatement" => and_rule_statement(),
+        "MatchingRuleStatement" => matching_rule_statement(),
+        "OrRuleStatement" => or_rule_statement()
+      }
+      
+  """
+  @type license_rule_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1921,6 +2432,18 @@ defmodule AWS.LicenseManager do
       
   """
   @type checkout_borrow_license_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      license_asset_group_property() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type license_asset_group_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1966,6 +2489,30 @@ defmodule AWS.LicenseManager do
 
   ## Example:
       
+      license_asset_rule() :: %{
+        "RuleStatement" => rule_statement()
+      }
+      
+  """
+  @type license_asset_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_statement() :: %{
+        "InstanceRuleStatement" => instance_rule_statement(),
+        "LicenseConfigurationRuleStatement" => license_configuration_rule_statement(),
+        "LicenseRuleStatement" => license_rule_statement()
+      }
+      
+  """
+  @type rule_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       provisional_configuration() :: %{
         "MaxTimeToLiveInMinutes" => integer()
       }
@@ -1999,6 +2546,7 @@ defmodule AWS.LicenseManager do
       
       update_service_settings_request() :: %{
         optional("EnableCrossAccountsDiscovery") => boolean(),
+        optional("EnabledDiscoverySourceRegions") => list(String.t() | atom()),
         optional("OrganizationConfiguration") => organization_configuration(),
         optional("S3BucketArn") => String.t() | atom(),
         optional("SnsTopicArn") => String.t() | atom()
@@ -2130,6 +2678,22 @@ defmodule AWS.LicenseManager do
           | redirect_exception()
           | rate_limit_exceeded_exception()
 
+  @type create_license_asset_group_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
+  @type create_license_asset_ruleset_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
   @type create_license_configuration_errors() ::
           server_internal_exception()
           | access_denied_exception()
@@ -2195,6 +2759,22 @@ defmodule AWS.LicenseManager do
           | conflict_exception()
           | rate_limit_exceeded_exception()
 
+  @type delete_license_asset_group_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
+  @type delete_license_asset_ruleset_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
   @type delete_license_configuration_errors() ::
           server_internal_exception()
           | access_denied_exception()
@@ -2254,6 +2834,22 @@ defmodule AWS.LicenseManager do
           | invalid_parameter_value_exception()
           | rate_limit_exceeded_exception()
 
+  @type get_license_asset_group_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
+  @type get_license_asset_ruleset_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
   @type get_license_configuration_errors() ::
           server_internal_exception()
           | access_denied_exception()
@@ -2292,6 +2888,14 @@ defmodule AWS.LicenseManager do
           | authorization_exception()
           | rate_limit_exceeded_exception()
 
+  @type list_assets_for_license_asset_group_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
   @type list_associations_for_license_configuration_errors() ::
           server_internal_exception()
           | access_denied_exception()
@@ -2316,7 +2920,31 @@ defmodule AWS.LicenseManager do
           | invalid_parameter_value_exception()
           | rate_limit_exceeded_exception()
 
+  @type list_license_asset_groups_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
+  @type list_license_asset_rulesets_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
   @type list_license_configurations_errors() ::
+          server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+          | filter_limit_exceeded_exception()
+
+  @type list_license_configurations_for_organization_errors() ::
           server_internal_exception()
           | access_denied_exception()
           | authorization_exception()
@@ -2409,7 +3037,8 @@ defmodule AWS.LicenseManager do
           | filter_limit_exceeded_exception()
 
   @type list_tags_for_resource_errors() ::
-          server_internal_exception()
+          validation_exception()
+          | server_internal_exception()
           | access_denied_exception()
           | authorization_exception()
           | invalid_parameter_value_exception()
@@ -2440,14 +3069,32 @@ defmodule AWS.LicenseManager do
           | rate_limit_exceeded_exception()
 
   @type tag_resource_errors() ::
-          server_internal_exception()
+          validation_exception()
+          | server_internal_exception()
           | access_denied_exception()
           | authorization_exception()
           | invalid_parameter_value_exception()
           | rate_limit_exceeded_exception()
 
   @type untag_resource_errors() ::
-          server_internal_exception()
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
+  @type update_license_asset_group_errors() ::
+          validation_exception()
+          | server_internal_exception()
+          | access_denied_exception()
+          | authorization_exception()
+          | invalid_parameter_value_exception()
+          | rate_limit_exceeded_exception()
+
+  @type update_license_asset_ruleset_errors() ::
+          validation_exception()
+          | server_internal_exception()
           | access_denied_exception()
           | authorization_exception()
           | invalid_parameter_value_exception()
@@ -2483,10 +3130,12 @@ defmodule AWS.LicenseManager do
           | rate_limit_exceeded_exception()
 
   @type update_service_settings_errors() ::
-          server_internal_exception()
+          validation_exception()
+          | server_internal_exception()
           | access_denied_exception()
           | authorization_exception()
           | invalid_parameter_value_exception()
+          | conflict_exception()
           | rate_limit_exceeded_exception()
 
   def metadata do
@@ -2619,6 +3268,34 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Creates a license asset group.
+  """
+  @spec create_license_asset_group(map(), create_license_asset_group_request(), list()) ::
+          {:ok, create_license_asset_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_license_asset_group_errors()}
+  def create_license_asset_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLicenseAssetGroup", input, options)
+  end
+
+  @doc """
+  Creates a license asset ruleset.
+  """
+  @spec create_license_asset_ruleset(map(), create_license_asset_ruleset_request(), list()) ::
+          {:ok, create_license_asset_ruleset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_license_asset_ruleset_errors()}
+  def create_license_asset_ruleset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLicenseAssetRuleset", input, options)
+  end
+
+  @doc """
   Creates a license configuration.
 
   A license configuration is an abstraction of a customer license agreement that
@@ -2742,6 +3419,34 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Deletes a license asset group.
+  """
+  @spec delete_license_asset_group(map(), delete_license_asset_group_request(), list()) ::
+          {:ok, delete_license_asset_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_license_asset_group_errors()}
+  def delete_license_asset_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLicenseAssetGroup", input, options)
+  end
+
+  @doc """
+  Deletes a license asset ruleset.
+  """
+  @spec delete_license_asset_ruleset(map(), delete_license_asset_ruleset_request(), list()) ::
+          {:ok, delete_license_asset_ruleset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_license_asset_ruleset_errors()}
+  def delete_license_asset_ruleset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLicenseAssetRuleset", input, options)
+  end
+
+  @doc """
   Deletes the specified license configuration.
 
   You cannot delete a license configuration that is in use.
@@ -2856,6 +3561,34 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Gets a license asset group.
+  """
+  @spec get_license_asset_group(map(), get_license_asset_group_request(), list()) ::
+          {:ok, get_license_asset_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_license_asset_group_errors()}
+  def get_license_asset_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLicenseAssetGroup", input, options)
+  end
+
+  @doc """
+  Gets a license asset ruleset.
+  """
+  @spec get_license_asset_ruleset(map(), get_license_asset_ruleset_request(), list()) ::
+          {:ok, get_license_asset_ruleset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_license_asset_ruleset_errors()}
+  def get_license_asset_ruleset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLicenseAssetRuleset", input, options)
+  end
+
+  @doc """
   Gets detailed information about the specified license configuration.
   """
   @spec get_license_configuration(map(), get_license_configuration_request(), list()) ::
@@ -2930,6 +3663,24 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Lists assets for a license asset group.
+  """
+  @spec list_assets_for_license_asset_group(
+          map(),
+          list_assets_for_license_asset_group_request(),
+          list()
+        ) ::
+          {:ok, list_assets_for_license_asset_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_assets_for_license_asset_group_errors()}
+  def list_assets_for_license_asset_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAssetsForLicenseAssetGroup", input, options)
+  end
+
+  @doc """
   Lists the resource associations for the specified license configuration.
 
   Resource associations need not consume licenses from a license configuration.
@@ -2991,6 +3742,34 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Lists license asset groups.
+  """
+  @spec list_license_asset_groups(map(), list_license_asset_groups_request(), list()) ::
+          {:ok, list_license_asset_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_license_asset_groups_errors()}
+  def list_license_asset_groups(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLicenseAssetGroups", input, options)
+  end
+
+  @doc """
+  Lists license asset rulesets.
+  """
+  @spec list_license_asset_rulesets(map(), list_license_asset_rulesets_request(), list()) ::
+          {:ok, list_license_asset_rulesets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_license_asset_rulesets_errors()}
+  def list_license_asset_rulesets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLicenseAssetRulesets", input, options)
+  end
+
+  @doc """
   Lists the license configurations for your account.
   """
   @spec list_license_configurations(map(), list_license_configurations_request(), list()) ::
@@ -3002,6 +3781,24 @@ defmodule AWS.LicenseManager do
     meta = metadata()
 
     Request.request_post(client, meta, "ListLicenseConfigurations", input, options)
+  end
+
+  @doc """
+  Lists license configurations for an organization.
+  """
+  @spec list_license_configurations_for_organization(
+          map(),
+          list_license_configurations_for_organization_request(),
+          list()
+        ) ::
+          {:ok, list_license_configurations_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_license_configurations_for_organization_errors()}
+  def list_license_configurations_for_organization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLicenseConfigurationsForOrganization", input, options)
   end
 
   @doc """
@@ -3275,6 +4072,34 @@ defmodule AWS.LicenseManager do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates a license asset group.
+  """
+  @spec update_license_asset_group(map(), update_license_asset_group_request(), list()) ::
+          {:ok, update_license_asset_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_license_asset_group_errors()}
+  def update_license_asset_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLicenseAssetGroup", input, options)
+  end
+
+  @doc """
+  Updates a license asset ruleset.
+  """
+  @spec update_license_asset_ruleset(map(), update_license_asset_ruleset_request(), list()) ::
+          {:ok, update_license_asset_ruleset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_license_asset_ruleset_errors()}
+  def update_license_asset_ruleset(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLicenseAssetRuleset", input, options)
   end
 
   @doc """

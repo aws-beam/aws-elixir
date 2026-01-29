@@ -242,6 +242,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       update_resource_request() :: %{
+        optional("ExpectedResourceOwnerAccount") => String.t() | atom(),
         optional("HybridAccessEnabled") => boolean(),
         optional("WithFederation") => boolean(),
         required("ResourceArn") => String.t() | atom(),
@@ -396,6 +397,7 @@ defmodule AWS.LakeFormation do
         optional("ApplicationStatus") => list(any()),
         optional("CatalogId") => String.t() | atom(),
         optional("ExternalFiltering") => external_filtering_configuration(),
+        optional("ServiceIntegrations") => list(list()),
         optional("ShareRecipients") => list(data_lake_principal())
       }
 
@@ -434,6 +436,7 @@ defmodule AWS.LakeFormation do
         optional("CatalogId") => String.t() | atom(),
         optional("ExternalFiltering") => external_filtering_configuration(),
         optional("InstanceArn") => String.t() | atom(),
+        optional("ServiceIntegrations") => list(list()),
         optional("ShareRecipients") => list(data_lake_principal())
       }
 
@@ -621,6 +624,19 @@ defmodule AWS.LakeFormation do
 
   """
   @type get_query_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_temporary_data_location_credentials_response() :: %{
+        "AccessibleDataLocations" => list(String.t() | atom()),
+        "Credentials" => temporary_credentials(),
+        "CredentialsScope" => list(any())
+      }
+
+  """
+  @type get_temporary_data_location_credentials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -971,6 +987,17 @@ defmodule AWS.LakeFormation do
 
   """
   @type get_work_unit_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1360,6 +1387,7 @@ defmodule AWS.LakeFormation do
         "ExternalFiltering" => external_filtering_configuration(),
         "InstanceArn" => String.t() | atom(),
         "ResourceShare" => String.t() | atom(),
+        "ServiceIntegrations" => list(list()),
         "ShareRecipients" => list(data_lake_principal())
       }
 
@@ -1379,6 +1407,20 @@ defmodule AWS.LakeFormation do
 
   """
   @type get_query_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      temporary_credentials() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "Expiration" => non_neg_integer(),
+        "SecretAccessKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom()
+      }
+
+  """
+  @type temporary_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1529,6 +1571,20 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      get_temporary_data_location_credentials_request() :: %{
+        optional("AuditContext") => audit_context(),
+        optional("CredentialsScope") => list(any()),
+        optional("DataLocations") => list(String.t() | atom()),
+        optional("DurationSeconds") => integer()
+      }
+
+  """
+  @type get_temporary_data_location_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_permissions_failure_entry() :: %{
         "Error" => error_detail(),
         "RequestEntry" => batch_permissions_request_entry()
@@ -1611,6 +1667,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       register_resource_request() :: %{
+        optional("ExpectedResourceOwnerAccount") => String.t() | atom(),
         optional("HybridAccessEnabled") => boolean(),
         optional("RoleArn") => String.t() | atom(),
         optional("UseServiceLinkedRole") => boolean(),
@@ -1915,10 +1972,12 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       resource_info() :: %{
+        "ExpectedResourceOwnerAccount" => String.t() | atom(),
         "HybridAccessEnabled" => boolean(),
         "LastModified" => non_neg_integer(),
         "ResourceArn" => String.t() | atom(),
         "RoleArn" => String.t() | atom(),
+        "VerificationStatus" => list(any()),
         "WithFederation" => boolean(),
         "WithPrivilegedAccess" => boolean()
       }
@@ -2042,6 +2101,17 @@ defmodule AWS.LakeFormation do
   @type delete_lake_formation_identity_center_configuration_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_connect() :: %{
+        "Authorization" => list(any())
+      }
+
+  """
+  @type redshift_connect() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2544,6 +2614,15 @@ defmodule AWS.LakeFormation do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type get_temporary_data_location_credentials_errors() ::
+          glue_encryption_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type get_temporary_glue_partition_credentials_errors() ::
           permission_type_mismatch_exception()
           | access_denied_exception()
@@ -2783,10 +2862,26 @@ defmodule AWS.LakeFormation do
 
   This decorated role is expected to access data in Amazon S3 by getting temporary
   access from Lake Formation which is authorized via the virtual API
-  `GetDataAccess`. Therefore, all SAML roles that can be assumed via
-  `AssumeDecoratedRoleWithSAML` must at a minimum include
-  `lakeformation:GetDataAccess` in their role policies. A typical IAM policy
-  attached to such a role would look as follows:
+  `GetDataAccess`.
+  Therefore, all SAML roles that can be assumed via `AssumeDecoratedRoleWithSAML`
+  must at a minimum include `lakeformation:GetDataAccess` in their role policies.
+  A typical IAM policy attached to such a role would include the following
+  actions:
+
+    *
+  glue:*Database*
+
+    *
+  glue:*Table*
+
+    *
+  glue:*Partition*
+
+    *
+  glue:*UserDefinedFunction*
+
+    *
+  lakeformation:GetDataAccess
   """
   @spec assume_decorated_role_with_saml(map(), assume_decorated_role_with_saml_request(), list()) ::
           {:ok, assume_decorated_role_with_saml_response(), any()}
@@ -3133,13 +3228,19 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
-  Deletes the specified LF-tag given a key name.
+  Deletes an LF-tag by its key name.
 
-  If the input parameter tag key was not found, then the operation will throw an
-  exception. When you delete an LF-tag, the `LFTagPolicy` attached to the LF-tag
-  becomes invalid. If the deleted LF-tag was still assigned to any resource, the
-  tag policy attach to the deleted LF-tag will no longer be applied to the
-  resource.
+  The operation fails if the specified tag key doesn't
+  exist. When you delete an LF-Tag:
+
+    *
+  The associated LF-Tag policy becomes invalid.
+
+    *
+
+  Resources that had this tag assigned will no longer have the tag policy applied
+  to
+  them.
   """
   @spec delete_l_f_tag(map(), delete_l_f_tag_request(), list()) ::
           {:ok, delete_l_f_tag_response(), any()}
@@ -3778,6 +3879,67 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Allows a user or application in a secure environment to access data in a
+  specific Amazon S3 location registered with Lake Formation by providing
+  temporary scoped credentials that are limited to the requested data location and
+  the caller's authorized access level.
+
+  The API operation returns an error in the following scenarios:
+
+    *
+  The data location is not registered with Lake Formation.
+
+    *
+  No Glue table is associated with the data location.
+
+    *
+  The caller doesn't have required permissions on the associated table. The caller
+  must have
+  `SELECT` or `SUPER` permissions on the associated table, and
+  credential vending for full table access must be enabled in the data lake
+  settings.
+
+  For more information, see [Application integration for full table access](https://docs.aws.amazon.com/lake-formation/latest/dg/full-table-credential-vending.html).
+
+    *
+  The data location is in a different Amazon Web Services Region. Lake Formation
+  doesn't
+  support cross-Region access when vending credentials for a data location. Lake
+  Formation only supports Amazon S3 paths registered within the same Region as the
+  API
+  call.
+  """
+  @spec get_temporary_data_location_credentials(
+          map(),
+          get_temporary_data_location_credentials_request(),
+          list()
+        ) ::
+          {:ok, get_temporary_data_location_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_temporary_data_location_credentials_errors()}
+  def get_temporary_data_location_credentials(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTemporaryDataLocationCredentials"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This API is identical to `GetTemporaryTableCredentials` except that this is used
   when the target Data Catalog resource is of type Partition.
 
@@ -4077,6 +4239,9 @@ defmodule AWS.LakeFormation do
   the principal permissions for ALTER.
 
   This operation returns only those permissions that have been explicitly granted.
+  If both
+  `Principal` and `Resource` parameters are provided, the response
+  returns effective permissions rather than the explicitly granted permissions.
 
   For information about permissions, see [Security and Access Control to Metadata and
   Data](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).

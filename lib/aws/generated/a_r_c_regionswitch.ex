@@ -43,6 +43,35 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      s3_report_output_configuration() :: %{
+        "bucketOwner" => String.t() | atom(),
+        "bucketPath" => [String.t() | atom()]
+      }
+      
+  """
+  @type s3_report_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_db_configuration() :: %{
+        "behavior" => list(any()),
+        "crossAccountRole" => String.t() | atom(),
+        "databaseClusterArns" => list(String.t() | atom()),
+        "externalId" => [String.t() | atom()],
+        "globalClusterIdentifier" => String.t() | atom(),
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => document_db_ungraceful()
+      }
+      
+  """
+  @type document_db_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       lambda_ungraceful() :: %{
         "behavior" => list(any())
       }
@@ -73,6 +102,18 @@ defmodule AWS.ARCRegionswitch do
       
   """
   @type arc_routing_control_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_route53_health_checks_in_region_response() :: %{
+        "healthChecks" => list(route53_health_check()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_route53_health_checks_in_region_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -182,6 +223,18 @@ defmodule AWS.ARCRegionswitch do
       
   """
   @type ecs_ungraceful() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failed_report_output() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => [String.t() | atom()]
+      }
+      
+  """
+  @type failed_report_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -394,6 +447,21 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      list_route53_health_checks_in_region_request() :: %{
+        optional("hostedZoneId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("recordName") => String.t() | atom(),
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type list_route53_health_checks_in_region_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_plan_execution_events_response() :: %{
         "items" => list(execution_event()),
         "nextToken" => [String.t() | atom()]
@@ -476,6 +544,17 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      report_configuration() :: %{
+        "reportOutput" => list(list())
+      }
+      
+  """
+  @type report_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       workflow() :: %{
         "steps" => list(step()),
         "workflowDescription" => [String.t() | atom()],
@@ -542,6 +621,7 @@ defmodule AWS.ARCRegionswitch do
         optional("associatedAlarms") => map(),
         optional("description") => [String.t() | atom()],
         optional("recoveryTimeObjectiveMinutes") => [integer()],
+        optional("reportConfiguration") => report_configuration(),
         optional("triggers") => list(trigger()),
         required("arn") => String.t() | atom(),
         required("executionRole") => String.t() | atom(),
@@ -582,6 +662,17 @@ defmodule AWS.ARCRegionswitch do
       
   """
   @type ecs_capacity_increase_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_db_ungraceful() :: %{
+        "ungraceful" => list(any())
+      }
+      
+  """
+  @type document_db_ungraceful() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -643,6 +734,7 @@ defmodule AWS.ARCRegionswitch do
         "executionId" => String.t() | atom(),
         "executionRegion" => [String.t() | atom()],
         "executionState" => list(any()),
+        "generatedReportDetails" => list(generated_report()),
         "mode" => list(any()),
         "nextToken" => [String.t() | atom()],
         "plan" => plan(),
@@ -721,7 +813,8 @@ defmodule AWS.ARCRegionswitch do
         "healthCheckId" => String.t() | atom(),
         "hostedZoneId" => String.t() | atom(),
         "recordName" => String.t() | atom(),
-        "region" => String.t() | atom()
+        "region" => String.t() | atom(),
+        "status" => list(any())
       }
       
   """
@@ -737,6 +830,18 @@ defmodule AWS.ARCRegionswitch do
       
   """
   @type get_plan_in_region_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generated_report() :: %{
+        "reportGenerationTime" => [non_neg_integer()],
+        "reportOutput" => list()
+      }
+      
+  """
+  @type generated_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -788,6 +893,17 @@ defmodule AWS.ARCRegionswitch do
       
   """
   @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_report_output() :: %{
+        "s3ObjectKey" => [String.t() | atom()]
+      }
+      
+  """
+  @type s3_report_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -873,6 +989,7 @@ defmodule AWS.ARCRegionswitch do
         optional("description") => [String.t() | atom()],
         optional("primaryRegion") => String.t() | atom(),
         optional("recoveryTimeObjectiveMinutes") => [integer()],
+        optional("reportConfiguration") => report_configuration(),
         optional("tags") => map(),
         optional("triggers") => list(trigger()),
         required("executionRole") => String.t() | atom(),
@@ -1093,6 +1210,7 @@ defmodule AWS.ARCRegionswitch do
         "recoveryApproach" => list(any()),
         "recoveryTimeObjectiveMinutes" => [integer()],
         "regions" => list(String.t() | atom()),
+        "reportConfiguration" => report_configuration(),
         "triggers" => list(trigger()),
         "updatedAt" => [non_neg_integer()],
         "version" => [String.t() | atom()],
@@ -1129,6 +1247,12 @@ defmodule AWS.ARCRegionswitch do
 
   @type list_route53_health_checks_errors() ::
           access_denied_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type list_route53_health_checks_in_region_errors() ::
+          access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | illegal_argument_exception()
 
   @type list_tags_for_resource_errors() ::
           internal_server_exception() | resource_not_found_exception()
@@ -1385,6 +1509,24 @@ defmodule AWS.ARCRegionswitch do
     meta = metadata()
 
     Request.request_post(client, meta, "ListRoute53HealthChecks", input, options)
+  end
+
+  @doc """
+  List the Amazon Route 53 health checks in a specific Amazon Web Services Region.
+  """
+  @spec list_route53_health_checks_in_region(
+          map(),
+          list_route53_health_checks_in_region_request(),
+          list()
+        ) ::
+          {:ok, list_route53_health_checks_in_region_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_route53_health_checks_in_region_errors()}
+  def list_route53_health_checks_in_region(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRoute53HealthChecksInRegion", input, options)
   end
 
   @doc """

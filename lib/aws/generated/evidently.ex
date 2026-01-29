@@ -4,24 +4,18 @@
 defmodule AWS.Evidently do
   @moduledoc """
   You can use Amazon CloudWatch Evidently to safely validate new features by
-  serving
-  them to a specified percentage
-  of your users while you roll out the feature.
-
-  You can monitor the performance of the new feature
-  to help you decide when to ramp up traffic to your users. This helps you
-  reduce risk and identify unintended consequences before you fully launch the
+  serving them to a specified percentage of your users while you roll out the
   feature.
 
+  You can monitor the performance of the new feature to help you decide when to
+  ramp up traffic to your users. This helps you reduce risk and identify
+  unintended consequences before you fully launch the feature.
+
   You can also conduct A/B experiments to make feature design decisions based on
-  evidence
-  and data. An experiment can test as many as five variations at once. Evidently
-  collects
-  experiment data and analyzes it using statistical methods. It also provides
-  clear
-  recommendations about which variations perform better. You can test both
-  user-facing features
-  and backend features.
+  evidence and data. An experiment can test as many as five variations at once.
+  Evidently collects experiment data and analyzes it using statistical methods. It
+  also provides clear recommendations about which variations perform better. You
+  can test both user-facing features and backend features.
   """
 
   alias AWS.Client
@@ -1901,29 +1895,25 @@ defmodule AWS.Evidently do
   @doc """
   This operation assigns feature variation to user sessions.
 
-  For each user session, you pass
-  in an `entityID` that represents the user. Evidently then checks the evaluation
-  rules and assigns the variation.
+  For each user session, you pass in an `entityID` that represents the user.
+  Evidently then checks the evaluation rules and assigns the variation.
 
   The first rules that are evaluated are the override rules. If the user's
   `entityID` matches an override rule, the user is served the variation specified
   by that rule.
 
   Next, if there is a launch of the feature, the user might be assigned to a
-  variation in
-  the launch. The chance of this depends on the percentage of users that are
-  allocated to that
-  launch. If the user is enrolled in the launch, the variation they are served
-  depends on the
-  allocation of the various feature variations used for the launch.
+  variation in the launch. The chance of this depends on the percentage of users
+  that are allocated to that launch. If the user is enrolled in the launch, the
+  variation they are served depends on the allocation of the various feature
+  variations used for the launch.
 
   If the user is not assigned to a launch, and there is an ongoing experiment for
-  this feature, the user might
-  be assigned to a variation in the experiment. The chance of this
-  depends on the percentage of users that are allocated to that experiment. If the
-  user is enrolled in the experiment,
-  the variation they are served depends on the allocation of the various feature
-  variations used for the experiment.
+  this feature, the user might be assigned to a variation in the experiment. The
+  chance of this depends on the percentage of users that are allocated to that
+  experiment. If the user is enrolled in the experiment, the variation they are
+  served depends on the allocation of the various feature variations used for the
+  experiment.
 
   If the user is not assigned to a launch or experiment, they are served the
   default variation.
@@ -1962,19 +1952,17 @@ defmodule AWS.Evidently do
   @doc """
   Creates an Evidently *experiment*.
 
-  Before you create an experiment,
-  you must create the feature to use for the experiment.
+  Before you create an experiment, you must create the feature to use for the
+  experiment.
 
-  An experiment helps you make feature design
-  decisions based on evidence and data. An experiment can test as
-  many as five variations at once. Evidently collects experiment data and analyzes
-  it by statistical methods, and provides
+  An experiment helps you make feature design decisions based on evidence and
+  data. An experiment can test as many as five variations at once. Evidently
+  collects experiment data and analyzes it by statistical methods, and provides
   clear recommendations about which variations perform better.
 
   You can optionally specify a `segment` to have the experiment consider only
-  certain audience
-  types in the experiment, such as using only user sessions from a certain
-  location or who use a certain internet browser.
+  certain audience types in the experiment, such as using only user sessions from
+  a certain location or who use a certain internet browser.
 
   Don't use this operation to update an existing experiment. Instead, use
   [UpdateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateExperiment.html).
@@ -2008,11 +1996,10 @@ defmodule AWS.Evidently do
   @doc """
   Creates an Evidently *feature* that you want to launch or test.
 
-  You can define up to
-  five variations of a feature, and use these variations in your launches and
-  experiments. A feature must be created in
-  a project. For information about creating a project, see
-  [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).   Don't use this operation to update an existing feature. Instead, use
+  You can define up to five variations of a feature, and use these variations in
+  your launches and experiments. A feature must be created in a project. For
+  information about creating a project, see
+  [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).  Don't use this operation to update an existing feature. Instead, use
   [UpdateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateFeature.html).
   """
   @spec create_feature(map(), String.t() | atom(), create_feature_request(), list()) ::
@@ -2044,17 +2031,13 @@ defmodule AWS.Evidently do
   @doc """
   Creates a *launch* of a given feature.
 
-  Before you create a launch, you
-  must create the feature to use for the launch.
+  Before you create a launch, you must create the feature to use for the launch.
 
   You can use a launch to safely validate new features by serving them to a
-  specified
-  percentage of your users while you roll out the feature. You can monitor the
-  performance of
-  the new feature to help you decide when to ramp up traffic to more users. This
-  helps you
-  reduce risk and identify unintended consequences before you fully launch the
-  feature.
+  specified percentage of your users while you roll out the feature. You can
+  monitor the performance of the new feature to help you decide when to ramp up
+  traffic to more users. This helps you reduce risk and identify unintended
+  consequences before you fully launch the feature.
 
   Don't use this operation to update an existing launch. Instead, use
   [UpdateLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateLaunch.html).
@@ -2087,8 +2070,7 @@ defmodule AWS.Evidently do
 
   @doc """
   Creates a project, which is the logical object in Evidently that can contain
-  features, launches, and
-  experiments.
+  features, launches, and experiments.
 
   Use projects to group similar features together.
 
@@ -2124,30 +2106,22 @@ defmodule AWS.Evidently do
   @doc """
   Use this operation to define a *segment* of your audience.
 
-  A segment
-  is a portion of your audience that share one or more characteristics. Examples
-  could be Chrome browser users,
-  users in Europe, or Firefox browser users in Europe who also fit other criteria
-  that your application collects,
-  such as age.
+  A segment is a portion of your audience that share one or more characteristics.
+  Examples could be Chrome browser users, users in Europe, or Firefox browser
+  users in Europe who also fit other criteria that your application collects, such
+  as age.
 
   Using a segment in an experiment limits that experiment to evaluate only the
-  users who match the segment
-  criteria. Using one or more segments in a launch allows you to define different
-  traffic splits for the different
-  audience segments.
+  users who match the segment criteria. Using one or more segments in a launch
+  allows you to define different traffic splits for the different audience
+  segments.
 
-  For more information about segment pattern syntax, see
-  [
-  Segment rule pattern
-  syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
+  For more information about segment pattern syntax, see [ Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
 
   The pattern that you define for a segment is matched against the value of
-  `evaluationContext`, which
-  is passed into Evidently in the
+  `evaluationContext`, which is passed into Evidently in the
   [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html)
-  operation,
-  when Evidently assigns a feature variation to a user.
+  operation, when Evidently assigns a feature variation to a user.
   """
   @spec create_segment(map(), create_segment_request(), list()) ::
           {:ok, create_segment_response(), any()}
@@ -2297,8 +2271,8 @@ defmodule AWS.Evidently do
   @doc """
   Deletes an Evidently project.
 
-  Before you can delete a project, you must delete all the
-  features that the project contains. To delete a feature, use
+  Before you can delete a project, you must delete all the features that the
+  project contains. To delete a feature, use
   [DeleteFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteFeature.html).
   """
   @spec delete_project(map(), String.t() | atom(), delete_project_request(), list()) ::
@@ -2331,8 +2305,7 @@ defmodule AWS.Evidently do
   Deletes a segment.
 
   You can't delete a segment that is being used in a launch or experiment, even if
-  that
-  launch or experiment is not currently running.
+  that launch or experiment is not currently running.
   """
   @spec delete_segment(map(), String.t() | atom(), delete_segment_request(), list()) ::
           {:ok, delete_segment_response(), any()}
@@ -2363,9 +2336,8 @@ defmodule AWS.Evidently do
   @doc """
   This operation assigns a feature variation to one given user session.
 
-  You pass in an
-  `entityID` that represents the user. Evidently then checks the evaluation rules
-  and assigns the variation.
+  You pass in an `entityID` that represents the user. Evidently then checks the
+  evaluation rules and assigns the variation.
 
   The first rules that are evaluated are the override rules. If the user's
   `entityID` matches an override rule, the user is served the variation specified
@@ -2374,32 +2346,27 @@ defmodule AWS.Evidently do
   If there is a current launch with this feature that uses segment overrides, and
   if the user session's `evaluationContext` matches a segment rule defined in a
   segment override, the configuration in the segment overrides is used. For more
-  information
-  about segments, see
-  [CreateSegment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html) and
-  [Use segments to focus your
+  information about segments, see
+  [CreateSegment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html) and [Use segments to focus your
   audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html).
 
   If there is a launch with no segment overrides, the user might be assigned to a
-  variation in
-  the launch. The chance of this depends on the percentage of users that are
-  allocated to that
-  launch. If the user is enrolled in the launch, the variation they are served
-  depends on the
-  allocation of the various feature variations used for the launch.
+  variation in the launch. The chance of this depends on the percentage of users
+  that are allocated to that launch. If the user is enrolled in the launch, the
+  variation they are served depends on the allocation of the various feature
+  variations used for the launch.
 
   If the user is not assigned to a launch, and there is an ongoing experiment for
-  this feature, the user might
-  be assigned to a variation in the experiment. The chance of this
-  depends on the percentage of users that are allocated to that experiment.
+  this feature, the user might be assigned to a variation in the experiment. The
+  chance of this depends on the percentage of users that are allocated to that
+  experiment.
 
-  If the experiment uses a segment, then only
-  user sessions with `evaluationContext` values that match the segment rule are
-  used in the experiment.
+  If the experiment uses a segment, then only user sessions with
+  `evaluationContext` values that match the segment rule are used in the
+  experiment.
 
-  If the user is enrolled in the experiment,
-  the variation they are served depends on the allocation of the various feature
-  variations used for the experiment.
+  If the user is enrolled in the experiment, the variation they are served depends
+  on the allocation of the various feature variations used for the experiment.
 
   If the user is not assigned to a launch or experiment, they are served the
   default variation.
@@ -2441,8 +2408,8 @@ defmodule AWS.Evidently do
   @doc """
   Returns the details about one experiment.
 
-  You must already know the
-  experiment name. To retrieve a list of experiments in your account, use
+  You must already know the experiment name. To retrieve a list of experiments in
+  your account, use
   [ListExperiments](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html).
   """
   @spec get_experiment(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -2465,19 +2432,16 @@ defmodule AWS.Evidently do
   @doc """
   Retrieves the results of a running or completed experiment.
 
-  No results are available until
-  there have been 100 events for each variation and at least 10 minutes have
-  passed since the start of the experiment.
-  To increase the statistical power, Evidently performs an additional offline
-  p-value analysis at the end of the experiment.
-  Offline p-value analysis can detect statistical significance in some cases where
-  the anytime p-values used during
-  the experiment do not find statistical significance.
+  No results are available until there have been 100 events for each variation and
+  at least 10 minutes have passed since the start of the experiment. To increase
+  the statistical power, Evidently performs an additional offline p-value analysis
+  at the end of the experiment. Offline p-value analysis can detect statistical
+  significance in some cases where the anytime p-values used during the experiment
+  do not find statistical significance.
 
-  Experiment
-  results are available up to 63 days after the start of the experiment. They are
-  not available after that because
-  of CloudWatch data retention policies.
+  Experiment results are available up to 63 days after the start of the
+  experiment. They are not available after that because of CloudWatch data
+  retention policies.
   """
   @spec get_experiment_results(
           map(),
@@ -2516,8 +2480,8 @@ defmodule AWS.Evidently do
   @doc """
   Returns the details about one feature.
 
-  You must already know the feature name. To
-  retrieve a list of features in your account, use
+  You must already know the feature name. To retrieve a list of features in your
+  account, use
   [ListFeatures](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html).
   """
   @spec get_feature(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -2540,8 +2504,8 @@ defmodule AWS.Evidently do
   @doc """
   Returns the details about one launch.
 
-  You must already know the
-  launch name. To retrieve a list of launches in your account, use
+  You must already know the launch name. To retrieve a list of launches in your
+  account, use
   [ListLaunches](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html).
   """
   @spec get_launch(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -2562,8 +2526,8 @@ defmodule AWS.Evidently do
   @doc """
   Returns the details about one launch.
 
-  You must already know the
-  project name. To retrieve a list of projects in your account, use
+  You must already know the project name. To retrieve a list of projects in your
+  account, use
   [ListProjects](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html).
   """
   @spec get_project(map(), String.t() | atom(), list()) ::
@@ -2584,8 +2548,7 @@ defmodule AWS.Evidently do
   @doc """
   Returns information about the specified segment.
 
-  Specify the segment you want to view
-  by specifying its ARN.
+  Specify the segment you want to view by specifying its ARN.
   """
   @spec get_segment(map(), String.t() | atom(), list()) ::
           {:ok, get_segment_response(), any()}
@@ -2755,8 +2718,7 @@ defmodule AWS.Evidently do
 
   @doc """
   Returns configuration details about all the projects in the current Region in
-  your
-  account.
+  your account.
   """
   @spec list_projects(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_projects_response(), any()}
@@ -2895,8 +2857,7 @@ defmodule AWS.Evidently do
   @doc """
   Sends performance events to Evidently.
 
-  These events can be used to evaluate a launch or
-  an experiment.
+  These events can be used to evaluate a launch or an experiment.
   """
   @spec put_project_events(map(), String.t() | atom(), put_project_events_request(), list()) ::
           {:ok, put_project_events_response(), any()}
@@ -2927,8 +2888,7 @@ defmodule AWS.Evidently do
   @doc """
   Starts an existing experiment.
 
-  To create an experiment,
-  use
+  To create an experiment, use
   [CreateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html).
   """
   @spec start_experiment(
@@ -2968,8 +2928,7 @@ defmodule AWS.Evidently do
   @doc """
   Starts an existing launch.
 
-  To create a launch,
-  use
+  To create a launch, use
   [CreateLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html).
   """
   @spec start_launch(
@@ -3009,8 +2968,7 @@ defmodule AWS.Evidently do
   @doc """
   Stops an experiment that is currently running.
 
-  If you stop an experiment, you can't
-  resume it or restart it.
+  If you stop an experiment, you can't resume it or restart it.
   """
   @spec stop_experiment(
           map(),
@@ -3049,13 +3007,11 @@ defmodule AWS.Evidently do
   @doc """
   Stops a launch that is currently running.
 
-  After you stop a launch, you will not be able to resume it or restart it.
-  Also, it
-  will not be evaluated as a rule for traffic allocation, and the traffic that was
-  allocated to the launch
-  will instead be available to the feature's experiment, if there is one.
-  Otherwise, all traffic
-  will be served the default variation after the launch is stopped.
+  After you stop a launch, you will not be able to resume it or restart it. Also,
+  it will not be evaluated as a rule for traffic allocation, and the traffic that
+  was allocated to the launch will instead be available to the feature's
+  experiment, if there is one. Otherwise, all traffic will be served the default
+  variation after the launch is stopped.
   """
   @spec stop_launch(
           map(),
@@ -3095,23 +3051,20 @@ defmodule AWS.Evidently do
   Assigns one or more tags (key-value pairs) to the specified CloudWatch Evidently
   resource.
 
-  Projects,
-  features, launches, and experiments can be tagged.
+  Projects, features, launches, and experiments can be tagged.
 
   Tags can help you organize and categorize your resources. You can also use them
-  to scope user
-  permissions by granting a user
-  permission to access or change only resources with certain tag values.
+  to scope user permissions by granting a user permission to access or change only
+  resources with certain tag values.
 
   Tags don't have any semantic meaning to Amazon Web Services and are interpreted
   strictly as strings of characters.
 
-  You can use the `TagResource` action with a resource that already has tags.
-  If you specify a new tag key for the resource,
-  this tag is appended to the list of tags associated
-  with the alarm. If you specify a tag key that is already associated with the
-  resource, the new tag value that you specify replaces
-  the previous value for that tag.
+  You can use the `TagResource` action with a resource that already has tags. If
+  you specify a new tag key for the resource, this tag is appended to the list of
+  tags associated with the alarm. If you specify a tag key that is already
+  associated with the resource, the new tag value that you specify replaces the
+  previous value for that tag.
 
   You can associate as many as 50 tags with a resource.
 
@@ -3333,7 +3286,7 @@ defmodule AWS.Evidently do
   Updates the description of an existing project.
 
   To create a new project, use
-  [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).   Don't use this operation to update the data storage options of a project.
+  [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).  Don't use this operation to update the data storage options of a project.
   Instead, use
   [UpdateProjectDataDelivery](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateProjectDataDelivery.html).
 
@@ -3369,12 +3322,9 @@ defmodule AWS.Evidently do
   @doc """
   Updates the data storage options for this project.
 
-  If you store evaluation events, you an
-  keep them and analyze them on your own. If you choose not to store evaluation
-  events,
-  Evidently deletes them after using them to produce metrics and other experiment
-  results that
-  you can view.
+  If you store evaluation events, you an keep them and analyze them on your own.
+  If you choose not to store evaluation events, Evidently deletes them after using
+  them to produce metrics and other experiment results that you can view.
 
   You can't specify both `cloudWatchLogs` and `s3Destination` in the same
   operation.

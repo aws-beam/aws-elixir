@@ -145,7 +145,8 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       create_segment_estimate_request() :: %{
-        required("SegmentQuery") => segment_group_structure()
+        optional("SegmentQuery") => segment_group_structure(),
+        optional("SegmentSqlQuery") => String.t() | atom()
       }
 
   """
@@ -298,6 +299,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       update_domain_request() :: %{
+        optional("DataStore") => data_store_request(),
         optional("DeadLetterQueueUrl") => String.t() | atom(),
         optional("DefaultEncryptionKey") => String.t() | atom(),
         optional("DefaultExpirationDays") => integer(),
@@ -336,6 +338,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type scheduled_trigger_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_type_attribute_values_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_object_type_attribute_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -405,6 +419,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      delete_domain_object_type_request() :: %{}
+
+  """
+  @type delete_domain_object_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       detect_profile_object_type_response() :: %{
         "DetectedProfileObjectTypes" => list(detected_profile_object_type())
       }
@@ -423,6 +446,17 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_identity_resolution_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_recommendations_response() :: %{
+        "Recommendations" => list(recommendation())
+      }
+
+  """
+  @type get_profile_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -497,12 +531,37 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      create_recommender_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RecommenderConfig") => recommender_config(),
+        optional("Tags") => map(),
+        required("RecommenderRecipeName") => list(any())
+      }
+
+  """
+  @type create_recommender_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       attribute_item() :: %{
         "Name" => String.t() | atom()
       }
 
   """
   @type attribute_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_request() :: %{
+        optional("TrainingMetricsCount") => integer()
+      }
+
+  """
+  @type get_recommender_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -524,6 +583,17 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type conflict_resolution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recommender_response() :: %{
+        "RecommenderName" => String.t() | atom()
+      }
+
+  """
+  @type update_recommender_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,6 +717,21 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_object_type_attribute_statistics_stats() :: %{
+        "Average" => float(),
+        "Maximum" => float(),
+        "Minimum" => float(),
+        "Percentiles" => get_object_type_attribute_statistics_percentiles(),
+        "StandardDeviation" => float()
+      }
+
+  """
+  @type get_object_type_attribute_statistics_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_source_properties() :: %{
         "BucketName" => String.t() | atom(),
         "BucketPrefix" => String.t() | atom()
@@ -665,6 +750,7 @@ defmodule AWS.CustomerProfiles do
         "DisplayName" => String.t() | atom(),
         "SegmentDefinitionArn" => String.t() | atom(),
         "SegmentDefinitionName" => String.t() | atom(),
+        "SegmentType" => list(any()),
         "Tags" => map()
       }
 
@@ -689,6 +775,7 @@ defmodule AWS.CustomerProfiles do
 
       update_domain_response() :: %{
         "CreatedAt" => non_neg_integer(),
+        "DataStore" => data_store_response(),
         "DeadLetterQueueUrl" => String.t() | atom(),
         "DefaultEncryptionKey" => String.t() | atom(),
         "DefaultExpirationDays" => integer(),
@@ -749,6 +836,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      start_recommender_response() :: %{}
+
+  """
+  @type start_recommender_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       appflow_integration_workflow_step() :: %{
         "BatchRecordsEndTime" => String.t() | atom(),
         "BatchRecordsStartTime" => String.t() | atom(),
@@ -794,6 +890,23 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_domain_object_type_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EncryptionKey" => String.t() | atom(),
+        "Fields" => map(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_domain_object_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_domain_layout_response() :: %{
         "Message" => String.t() | atom()
       }
@@ -821,12 +934,33 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_object_type_attribute_statistics_request() :: %{}
+
+  """
+  @type get_object_type_attribute_statistics_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       exporting_location() :: %{
         "S3Exporting" => s3_exporting_location()
       }
 
   """
   @type exporting_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_type_attribute_values_response() :: %{
+        "Items" => list(list_object_type_attribute_values_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_object_type_attribute_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -866,6 +1000,7 @@ defmodule AWS.CustomerProfiles do
         optional("ObjectTypeName") => String.t() | atom(),
         optional("ObjectTypeNames") => map(),
         optional("RoleArn") => String.t() | atom(),
+        optional("Scope") => list(any()),
         optional("Tags") => map(),
         optional("Uri") => String.t() | atom()
       }
@@ -892,6 +1027,30 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_upload_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_object_types_response() :: %{
+        "Items" => list(domain_object_types_list_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_object_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_parameters() :: %{
+        "EventType" => String.t() | atom(),
+        "EventValueThreshold" => float()
+      }
+
+  """
+  @type event_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -928,6 +1087,21 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type flow_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_type_attribute_statistics_percentiles() :: %{
+        "P25" => float(),
+        "P5" => float(),
+        "P50" => float(),
+        "P75" => float(),
+        "P95" => float()
+      }
+
+  """
+  @type get_object_type_attribute_statistics_percentiles() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1041,6 +1215,29 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      catalog_item() :: %{
+        "AdditionalInformation" => String.t() | atom(),
+        "Attributes" => map(),
+        "Category" => String.t() | atom(),
+        "Code" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ImageLink" => String.t() | atom(),
+        "Link" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Price" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type catalog_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       matching_rule() :: %{
         "Rule" => list(String.t() | atom())
       }
@@ -1072,6 +1269,7 @@ defmodule AWS.CustomerProfiles do
         "ObjectTypeName" => String.t() | atom(),
         "ObjectTypeNames" => map(),
         "RoleArn" => String.t() | atom(),
+        "Scope" => list(any()),
         "Tags" => map(),
         "Uri" => String.t() | atom(),
         "WorkflowId" => String.t() | atom()
@@ -1276,6 +1474,26 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      recommender_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FailureReason" => [String.t() | atom()],
+        "LastUpdatedAt" => non_neg_integer(),
+        "LatestRecommenderUpdate" => recommender_update(),
+        "RecipeName" => list(any()),
+        "RecommenderConfig" => recommender_config(),
+        "RecommenderName" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type recommender_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       workflow_step_item() :: %{
         "AppflowIntegration" => appflow_integration_workflow_step()
       }
@@ -1295,6 +1513,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type object_type_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recommender_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RecommenderConfig") => recommender_config()
+      }
+
+  """
+  @type update_recommender_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1367,6 +1597,7 @@ defmodule AWS.CustomerProfiles do
         "ObjectTypeName" => String.t() | atom(),
         "ObjectTypeNames" => map(),
         "RoleArn" => String.t() | atom(),
+        "Scope" => list(any()),
         "Tags" => map(),
         "Uri" => String.t() | atom(),
         "WorkflowId" => String.t() | atom()
@@ -1493,6 +1724,19 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_profile_recommendations_request() :: %{
+        optional("Context") => map(),
+        optional("MaxResults") => integer(),
+        required("RecommenderName") => String.t() | atom()
+      }
+
+  """
+  @type get_profile_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_segment_definition_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
@@ -1500,6 +1744,8 @@ defmodule AWS.CustomerProfiles do
         "SegmentDefinitionArn" => String.t() | atom(),
         "SegmentDefinitionName" => String.t() | atom(),
         "SegmentGroups" => segment_group(),
+        "SegmentSqlQuery" => String.t() | atom(),
+        "SegmentType" => list(any()),
         "Tags" => map()
       }
 
@@ -1523,6 +1769,20 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type rule_based_matching_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_object_type_field() :: %{
+        "ContentType" => list(any()),
+        "FeatureType" => list(any()),
+        "Source" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+
+  """
+  @type domain_object_type_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1619,6 +1879,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       create_domain_request() :: %{
+        optional("DataStore") => data_store_request(),
         optional("DeadLetterQueueUrl") => String.t() | atom(),
         optional("DefaultEncryptionKey") => String.t() | atom(),
         optional("Matching") => matching_request(),
@@ -1786,6 +2047,36 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      delete_recommender_request() :: %{}
+
+  """
+  @type delete_recommender_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_object_type_response() :: %{}
+
+  """
+  @type delete_domain_object_type_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation() :: %{
+        "CatalogItem" => catalog_item(),
+        "Score" => float()
+      }
+
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_workflows_item() :: %{
         "CreatedAt" => non_neg_integer(),
         "LastUpdatedAt" => non_neg_integer(),
@@ -1887,6 +2178,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_object_type_attribute_values_item() :: %{
+        "LastUpdatedAt" => non_neg_integer(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type list_object_type_attribute_values_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_profile_response() :: %{
         "ProfileId" => String.t() | atom()
       }
@@ -1950,12 +2253,48 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_object_type_attribute_statistics_response() :: %{
+        "CalculatedAt" => non_neg_integer(),
+        "Statistics" => get_object_type_attribute_statistics_stats()
+      }
+
+  """
+  @type get_object_type_attribute_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommender_recipes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recommender_recipes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       exporting_config() :: %{
         "S3Exporting" => s3_exporting_config()
       }
 
   """
   @type exporting_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_store_response() :: %{
+        "Enabled" => boolean(),
+        "Readiness" => readiness()
+      }
+
+  """
+  @type data_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1969,6 +2308,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type destination_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recommender_response() :: %{}
+
+  """
+  @type delete_recommender_response() :: %{}
 
   @typedoc """
 
@@ -2077,6 +2425,36 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      start_recommender_request() :: %{}
+
+  """
+  @type start_recommender_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_recommender_response() :: %{}
+
+  """
+  @type stop_recommender_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_object_types_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domain_object_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_auto_merging_preview_request() :: %{
         optional("MinAllowedConfidenceScoreForMerging") => float(),
         required("ConflictResolution") => conflict_resolution(),
@@ -2085,6 +2463,21 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_auto_merging_preview_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender_update() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "FailureReason" => [String.t() | atom()],
+        "LastUpdatedAt" => non_neg_integer(),
+        "RecommenderConfig" => recommender_config(),
+        "Status" => list(any())
+      }
+
+  """
+  @type recommender_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2120,6 +2513,29 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type start_upload_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      training_metrics() :: %{
+        "Metrics" => map(),
+        "Time" => non_neg_integer()
+      }
+
+  """
+  @type training_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      events_config() :: %{
+        "EventParametersList" => list(event_parameters())
+      }
+
+  """
+  @type events_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2323,6 +2739,7 @@ defmodule AWS.CustomerProfiles do
 
       get_domain_response() :: %{
         "CreatedAt" => non_neg_integer(),
+        "DataStore" => data_store_response(),
         "DeadLetterQueueUrl" => String.t() | atom(),
         "DefaultEncryptionKey" => String.t() | atom(),
         "DefaultExpirationDays" => integer(),
@@ -2555,6 +2972,39 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      recommender_recipe() :: %{
+        "description" => [String.t() | atom()],
+        "name" => list(any())
+      }
+
+  """
+  @type recommender_recipe() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_response() :: %{
+        "RecommenderArn" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_recommender_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_object_type_request() :: %{}
+
+  """
+  @type get_domain_object_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       object_attribute() :: %{
         "ComparisonOperator" => list(any()),
         "FieldName" => String.t() | atom(),
@@ -2590,6 +3040,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      stop_recommender_request() :: %{}
+
+  """
+  @type stop_recommender_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       salesforce_source_properties() :: %{
         "EnableDynamicFieldUpdate" => boolean(),
         "IncludeDeletedRecords" => boolean(),
@@ -2612,6 +3071,20 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_workflow_steps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_domain_object_type_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EncryptionKey") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Fields") => map()
+      }
+
+  """
+  @type put_domain_object_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2752,9 +3225,10 @@ defmodule AWS.CustomerProfiles do
 
       create_segment_definition_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("SegmentGroups") => segment_group(),
+        optional("SegmentSqlQuery") => String.t() | atom(),
         optional("Tags") => map(),
-        required("DisplayName") => String.t() | atom(),
-        required("SegmentGroups") => segment_group()
+        required("DisplayName") => String.t() | atom()
       }
 
   """
@@ -2843,6 +3317,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_recommenders_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Recommenders" => list(recommender_summary())
+      }
+
+  """
+  @type list_recommenders_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_profile_response() :: %{
         "ProfileId" => String.t() | atom()
       }
@@ -2887,6 +3373,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      recommender_config() :: %{
+        "EventsConfig" => events_config(),
+        "TrainingFrequency" => integer()
+      }
+
+  """
+  @type recommender_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch() :: %{
         "EndTime" => non_neg_integer(),
         "StartTime" => non_neg_integer()
@@ -2910,6 +3408,7 @@ defmodule AWS.CustomerProfiles do
 
       get_segment_membership_response() :: %{
         "Failures" => list(profile_query_failures()),
+        "LastComputedAt" => non_neg_integer(),
         "Profiles" => list(profile_query_result()),
         "SegmentDefinitionName" => String.t() | atom()
       }
@@ -2986,6 +3485,7 @@ defmodule AWS.CustomerProfiles do
 
       create_domain_response() :: %{
         "CreatedAt" => non_neg_integer(),
+        "DataStore" => data_store_response(),
         "DeadLetterQueueUrl" => String.t() | atom(),
         "DefaultEncryptionKey" => String.t() | atom(),
         "DefaultExpirationDays" => integer(),
@@ -3072,6 +3572,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_recommender_recipes_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecommenderRecipes" => list(recommender_recipe())
+      }
+
+  """
+  @type list_recommender_recipes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       threshold() :: %{
         "Operator" => list(any()),
         "Value" => String.t() | atom()
@@ -3097,6 +3609,17 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_profile_history_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_store_request() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type data_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3437,6 +3960,21 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      domain_object_types_list_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type domain_object_types_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       results_summary() :: %{
         "CreatedRecords" => float(),
         "FailedRecords" => float(),
@@ -3505,6 +4043,27 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_recommender_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FailureReason" => [String.t() | atom()],
+        "LastUpdatedAt" => non_neg_integer(),
+        "LatestRecommenderUpdate" => recommender_update(),
+        "RecommenderConfig" => recommender_config(),
+        "RecommenderName" => String.t() | atom(),
+        "RecommenderRecipeName" => list(any()),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "TrainingMetrics" => list(training_metrics())
+      }
+
+  """
+  @type get_recommender_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_integration_item() :: %{
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t() | atom(),
@@ -3514,6 +4073,7 @@ defmodule AWS.CustomerProfiles do
         "ObjectTypeName" => String.t() | atom(),
         "ObjectTypeNames" => map(),
         "RoleArn" => String.t() | atom(),
+        "Scope" => list(any()),
         "Tags" => map(),
         "Uri" => String.t() | atom(),
         "WorkflowId" => String.t() | atom()
@@ -3683,6 +4243,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_recommenders_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recommenders_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_calculated_attribute_definition_response() :: %{
         "AttributeDetails" => attribute_details(),
         "CalculatedAttributeName" => String.t() | atom(),
@@ -3726,6 +4298,23 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_profile_object_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_domain_object_type_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EncryptionKey" => String.t() | atom(),
+        "Fields" => map(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type put_domain_object_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3853,6 +4442,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type create_recommender_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type create_segment_definition_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -3902,6 +4498,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type delete_domain_object_type_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_event_stream_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -3945,6 +4548,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type delete_profile_object_type_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_recommender_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -4007,6 +4617,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_domain_object_type_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_event_stream_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -4042,6 +4659,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_object_type_attribute_statistics_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_profile_history_record_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -4057,6 +4681,20 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type get_profile_object_type_template_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_profile_recommendations_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_recommender_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -4154,6 +4792,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_domain_object_types_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_domains_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -4183,6 +4828,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type list_integrations_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_object_type_attribute_values_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -4231,6 +4883,19 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_recommender_recipes_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_recommenders_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_rule_based_matches_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -4268,6 +4933,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type put_domain_object_type_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type put_integration_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -4296,7 +4968,21 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type start_recommender_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type start_upload_job_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type stop_recommender_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -4345,6 +5031,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type update_profile_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_recommender_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -4801,6 +5494,43 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Creates a recommender
+  """
+  @spec create_recommender(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_recommender_request(),
+          list()
+        ) ::
+          {:ok, create_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_recommender_errors()}
+  def create_recommender(%Client{} = client, domain_name, recommender_name, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/recommenders/#{AWS.Util.encode_uri(recommender_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a segment definition associated to the given domain.
   """
   @spec create_segment_definition(
@@ -5078,6 +5808,49 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Delete a DomainObjectType for the given Domain and ObjectType name.
+  """
+  @spec delete_domain_object_type(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_domain_object_type_request(),
+          list()
+        ) ::
+          {:ok, delete_domain_object_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_domain_object_type_errors()}
+  def delete_domain_object_type(
+        %Client{} = client,
+        domain_name,
+        object_type_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/domain-object-types/#{AWS.Util.encode_uri(object_type_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Disables and deletes the specified event stream.
   """
   @spec delete_event_stream(
@@ -5310,6 +6083,43 @@ defmodule AWS.CustomerProfiles do
       ) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a recommender.
+  """
+  @spec delete_recommender(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_recommender_request(),
+          list()
+        ) ::
+          {:ok, delete_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_recommender_errors()}
+  def delete_recommender(%Client{} = client, domain_name, recommender_name, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/recommenders/#{AWS.Util.encode_uri(recommender_name)}"
 
     headers = []
     custom_headers = []
@@ -5607,6 +6417,26 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Return a DomainObjectType for the input Domain and ObjectType names.
+  """
+  @spec get_domain_object_type(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_domain_object_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_domain_object_type_errors()}
+  def get_domain_object_type(%Client{} = client, domain_name, object_type_name, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/domain-object-types/#{AWS.Util.encode_uri(object_type_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns information about the specified event stream in a specific domain.
   """
   @spec get_event_stream(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -5798,6 +6628,65 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  The GetObjectTypeAttributeValues API delivers statistical insights about
+  attributes within a specific object type, but is exclusively available for
+  domains with data store enabled.
+
+  This API performs daily calculations to provide statistical information about
+  your attribute values, helping you understand patterns and trends in your data.
+  The statistical calculations are performed once per day, providing a consistent
+  snapshot of your attribute data characteristics.
+
+  You'll receive null values in two scenarios:
+
+  During the first period after enabling data vault (unless a calculation cycle
+  occurs, which happens once daily).
+
+  For attributes that don't contain numeric values.
+  """
+  @spec get_object_type_attribute_statistics(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          get_object_type_attribute_statistics_request(),
+          list()
+        ) ::
+          {:ok, get_object_type_attribute_statistics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_object_type_attribute_statistics_errors()}
+  def get_object_type_attribute_statistics(
+        %Client{} = client,
+        attribute_name,
+        domain_name,
+        object_type_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}/attributes/#{AWS.Util.encode_uri(attribute_name)}/statistics"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a history record for a specific profile, for a specific domain.
   """
   @spec get_profile_history_record(
@@ -5862,6 +6751,90 @@ defmodule AWS.CustomerProfiles do
     url_path = "/templates/#{AWS.Util.encode_uri(template_id)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Fetches the recommendations for a profile in the input Customer Profiles domain.
+
+  Fetches all the profile recommendations
+  """
+  @spec get_profile_recommendations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          get_profile_recommendations_request(),
+          list()
+        ) ::
+          {:ok, get_profile_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_profile_recommendations_errors()}
+  def get_profile_recommendations(
+        %Client{} = client,
+        domain_name,
+        profile_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/#{AWS.Util.encode_uri(profile_id)}/recommendations"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a recommender.
+  """
+  @spec get_recommender(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_recommender_errors()}
+  def get_recommender(
+        %Client{} = client,
+        domain_name,
+        recommender_name,
+        training_metrics_count \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/recommenders/#{AWS.Util.encode_uri(recommender_name)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(training_metrics_count) do
+        [{"training-metrics-count", training_metrics_count} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -6314,6 +7287,50 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  List all DomainObjectType(s) in a Customer Profiles domain.
+  """
+  @spec list_domain_object_types(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_domain_object_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_domain_object_types_errors()}
+  def list_domain_object_types(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/domain-object-types"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of all the domains for an AWS account that have been created.
   """
   @spec list_domains(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
@@ -6524,6 +7541,62 @@ defmodule AWS.CustomerProfiles do
     query_params =
       if !is_nil(include_hidden) do
         [{"include-hidden", include_hidden} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  The ListObjectTypeAttributeValues API provides access to the most recent
+  distinct values for any specified attribute, making it valuable for real-time
+  data validation and consistency checks within your object types.
+
+  This API works across domain, supporting both custom and standard object types.
+  The API accepts the object type name, attribute name, and domain name as input
+  parameters and returns values up to the storage limit of approximately 350KB.
+  """
+  @spec list_object_type_attribute_values(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_object_type_attribute_values_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_object_type_attribute_values_errors()}
+  def list_object_type_attribute_values(
+        %Client{} = client,
+        attribute_name,
+        domain_name,
+        object_type_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}/attributes/#{AWS.Util.encode_uri(attribute_name)}/values"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
@@ -6766,6 +7839,93 @@ defmodule AWS.CustomerProfiles do
       options,
       200
     )
+  end
+
+  @doc """
+  Returns a list of available recommender recipes that can be used to create
+  recommenders.
+  """
+  @spec list_recommender_recipes(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_recommender_recipes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_recommender_recipes_errors()}
+  def list_recommender_recipes(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/recommender-recipes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of recommenders in the specified domain.
+  """
+  @spec list_recommenders(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_recommenders_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_recommenders_errors()}
+  def list_recommenders(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/recommenders"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -7028,6 +8188,51 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Create/Update a DomainObjectType in a Customer Profiles domain.
+
+  To create a new DomainObjectType, Data Store needs to be enabled on the Domain.
+  """
+  @spec put_domain_object_type(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_domain_object_type_request(),
+          list()
+        ) ::
+          {:ok, put_domain_object_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_domain_object_type_errors()}
+  def put_domain_object_type(
+        %Client{} = client,
+        domain_name,
+        object_type_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/domain-object-types/#{AWS.Util.encode_uri(object_type_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Adds an integration between the service and a third-party service, which
   includes
   Amazon AppFlow and Amazon Connect.
@@ -7203,6 +8408,45 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Starts a recommender that was previously stopped.
+
+  Starting a recommender resumes its ability to generate recommendations.
+  """
+  @spec start_recommender(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          start_recommender_request(),
+          list()
+        ) ::
+          {:ok, start_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_recommender_errors()}
+  def start_recommender(%Client{} = client, domain_name, recommender_name, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/recommenders/#{AWS.Util.encode_uri(recommender_name)}/start"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This API starts the processing of an upload job to ingest profile data.
   """
   @spec start_upload_job(
@@ -7219,6 +8463,45 @@ defmodule AWS.CustomerProfiles do
   def start_upload_job(%Client{} = client, domain_name, job_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/upload-jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops a recommender, suspending its ability to generate recommendations.
+
+  The recommender can be restarted later using StartRecommender.
+  """
+  @spec stop_recommender(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          stop_recommender_request(),
+          list()
+        ) ::
+          {:ok, stop_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_recommender_errors()}
+  def stop_recommender(%Client{} = client, domain_name, recommender_name, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/recommenders/#{AWS.Util.encode_uri(recommender_name)}/stop"
 
     headers = []
     custom_headers = []
@@ -7580,6 +8863,44 @@ defmodule AWS.CustomerProfiles do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the properties of an existing recommender, allowing you to modify its
+  configuration and description.
+  """
+  @spec update_recommender(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_recommender_request(),
+          list()
+        ) ::
+          {:ok, update_recommender_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_recommender_errors()}
+  def update_recommender(%Client{} = client, domain_name, recommender_name, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/recommenders/#{AWS.Util.encode_uri(recommender_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -212,12 +212,49 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   ## Example:
       
+      list_required_tags_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_required_tags_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_required_tags_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RequiredTags" => list(required_tag())
+      }
+      
+  """
+  @type list_required_tags_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pagination_token_expired_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
   @type pagination_token_expired_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      required_tag() :: %{
+        "CloudFormationResourceTypes" => list(String.t() | atom()),
+        "ReportingTagKeys" => list(String.t() | atom()),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type required_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -379,6 +416,12 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | invalid_parameter_exception()
           | internal_service_exception()
 
+  @type list_required_tags_errors() ::
+          throttled_exception()
+          | pagination_token_expired_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+
   @type start_report_creation_errors() ::
           throttled_exception()
           | invalid_parameter_exception()
@@ -485,6 +528,13 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   you
   recieve a `null` value. A null value for `PaginationToken` indicates that
   there are no more results waiting to be returned.
+
+  `GetResources` does not return untagged resources.
+
+  To find untagged resources in your account, use Amazon Web Services Resource
+  Explorer with a
+  query that uses `tag:none`. For more information, see [ Search query syntax reference for Resource
+  Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
   """
   @spec get_resources(map(), get_resources_input(), list()) ::
           {:ok, get_resources_output(), any()}
@@ -550,6 +600,21 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
+  Lists the required tags for supported resource types in an Amazon Web Services
+  account.
+  """
+  @spec list_required_tags(map(), list_required_tags_input(), list()) ::
+          {:ok, list_required_tags_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_required_tags_errors()}
+  def list_required_tags(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRequiredTags", input, options)
+  end
+
+  @doc """
   Generates a report that lists all tagged resources in the accounts across your
   organization and tells whether each resource is compliant with the effective tag
   policy.
@@ -558,10 +623,25 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   The generated report is saved to the following location:
 
-  `s3://example-bucket/AwsTagPolicies/o-exampleorgid/YYYY-MM-ddTHH:mm:ssZ/report.csv`
+  `s3://amzn-s3-demo-bucket/AwsTagPolicies/o-exampleorgid/YYYY-MM-ddTHH:mm:ssZ/report.csv`
+
+  For more information about evaluating resource compliance with tag policies,
+  including
+  the required permissions, review [Permissions for evaluating organization-wide compliance](https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#tag-policies-permissions-org)
+  in the
+  *Tagging Amazon Web Services Resources and Tag Editor* user guide.
 
   You can call this operation only from the organization's
   management account and from the us-east-1 Region.
+
+  If the account associated with the identity used to call
+  `StartReportCreation` is different from the account that owns the Amazon S3
+  bucket, there must be a bucket policy attached to the bucket to provide access.
+  For more
+  information, review [Amazon S3 bucket policy for report
+  storage](https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy)
+  in the *Tagging Amazon Web Services Resources and Tag
+  Editor* user guide.
   """
   @spec start_report_creation(map(), start_report_creation_input(), list()) ::
           {:ok, start_report_creation_output(), any()}
@@ -604,6 +684,19 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   that the resource belongs to as well as permissions for adding tags. For more
   information, see the documentation for each service.
 
+    *
+  When you use the [Amazon Web Services Resource Groups Tagging
+  API](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html)
+  to update tags for Amazon Web Services CloudFormation stack
+  sets, Amazon Web Services calls the [Amazon Web Services CloudFormation `UpdateStack`
+  ](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html)
+  operation. This operation
+  may initiate additional resource property updates in addition to the desired tag
+  updates. To avoid unexpected resource updates, Amazon Web Services recommends
+  that you only
+  apply or update tags to your CloudFormation stack sets using Amazon Web Services
+  CloudFormation.
+
   Do not store personally identifiable information (PII) or other confidential or
   sensitive information in tags. We use tags to provide you with billing and
   administration services. Tags are not intended to be used for private or
@@ -621,11 +714,18 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
     *
 
-  `tag:TagResource`
+  `tag:TagResources`
 
     *
 
   `ec2:CreateTags`
+
+  In addition, some services might have specific requirements for tagging some
+  types
+  of resources. For example, to tag an Amazon S3 bucket, you must also have the
+  `s3:GetBucketTagging` permission. If the expected minimum permissions
+  don't work, check the documentation for that service's tagging APIs for more
+  information.
   """
   @spec tag_resources(map(), tag_resources_input(), list()) ::
           {:ok, tag_resources_output(), any()}
@@ -671,11 +771,18 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
     *
 
-  `tag:UntagResource`
+  `tag:UntagResources`
 
     *
 
   `ec2:DeleteTags`
+
+  In addition, some services might have specific requirements for untagging some
+  types of resources. For example, to untag Amazon Web Services Glue Connection,
+  you must also have the
+  `glue:GetConnection` permission. If the expected minimum permissions
+  don't work, check the documentation for that service's tagging APIs for more
+  information.
   """
   @spec untag_resources(map(), untag_resources_input(), list()) ::
           {:ok, untag_resources_output(), any()}

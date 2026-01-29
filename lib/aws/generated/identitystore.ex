@@ -124,6 +124,19 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
+      role() :: %{
+        "Primary" => boolean(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type role() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       phone_number() :: %{
         "Primary" => boolean(),
         "Type" => String.t() | atom(),
@@ -387,6 +400,7 @@ defmodule AWS.Identitystore do
         optional("CreatedBy") => String.t() | atom(),
         optional("DisplayName") => String.t() | atom(),
         optional("Emails") => list(email()),
+        optional("Extensions") => map(),
         optional("ExternalIds") => list(external_id()),
         optional("Locale") => String.t() | atom(),
         optional("Name") => name(),
@@ -395,6 +409,7 @@ defmodule AWS.Identitystore do
         optional("Photos") => list(photo()),
         optional("PreferredLanguage") => String.t() | atom(),
         optional("ProfileUrl") => String.t() | atom(),
+        optional("Roles") => list(role()),
         optional("Timezone") => String.t() | atom(),
         optional("Title") => String.t() | atom(),
         optional("UpdatedAt") => non_neg_integer(),
@@ -464,6 +479,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       describe_user_request() :: %{
+        optional("Extensions") => list(String.t() | atom()),
         required("IdentityStoreId") => String.t() | atom(),
         required("UserId") => String.t() | atom()
       }
@@ -566,6 +582,7 @@ defmodule AWS.Identitystore do
         "CreatedBy" => String.t() | atom(),
         "DisplayName" => String.t() | atom(),
         "Emails" => list(email()),
+        "Extensions" => map(),
         "ExternalIds" => list(external_id()),
         "IdentityStoreId" => String.t() | atom(),
         "Locale" => String.t() | atom(),
@@ -575,6 +592,7 @@ defmodule AWS.Identitystore do
         "Photos" => list(photo()),
         "PreferredLanguage" => String.t() | atom(),
         "ProfileUrl" => String.t() | atom(),
+        "Roles" => list(role()),
         "Timezone" => String.t() | atom(),
         "Title" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer(),
@@ -618,6 +636,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       list_users_request() :: %{
+        optional("Extensions") => list(String.t() | atom()),
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -792,6 +811,7 @@ defmodule AWS.Identitystore do
         optional("Birthdate") => String.t() | atom(),
         optional("DisplayName") => String.t() | atom(),
         optional("Emails") => list(email()),
+        optional("Extensions") => map(),
         optional("Locale") => String.t() | atom(),
         optional("Name") => name(),
         optional("NickName") => String.t() | atom(),
@@ -799,6 +819,7 @@ defmodule AWS.Identitystore do
         optional("Photos") => list(photo()),
         optional("PreferredLanguage") => String.t() | atom(),
         optional("ProfileUrl") => String.t() | atom(),
+        optional("Roles") => list(role()),
         optional("Timezone") => String.t() | atom(),
         optional("Title") => String.t() | atom(),
         optional("UserName") => String.t() | atom(),

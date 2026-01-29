@@ -534,6 +534,19 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      described_web_app_vpc_config() :: %{
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type described_web_app_vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_web_app_customization_request() :: %{
         required("WebAppId") => String.t() | atom()
       }
@@ -883,6 +896,7 @@ defmodule AWS.Transfer do
       
       create_web_app_request() :: %{
         optional("AccessEndpoint") => String.t() | atom(),
+        optional("EndpointDetails") => list(),
         optional("Tags") => list(tag()),
         optional("WebAppEndpointPolicy") => list(any()),
         optional("WebAppUnits") => list(),
@@ -1398,9 +1412,21 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      update_web_app_vpc_config() :: %{
+        "SubnetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type update_web_app_vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       listed_web_app() :: %{
         "AccessEndpoint" => String.t() | atom(),
         "Arn" => String.t() | atom(),
+        "EndpointType" => list(any()),
         "WebAppEndpoint" => String.t() | atom(),
         "WebAppId" => String.t() | atom()
       }
@@ -1730,6 +1756,7 @@ defmodule AWS.Transfer do
       
       update_web_app_request() :: %{
         optional("AccessEndpoint") => String.t() | atom(),
+        optional("EndpointDetails") => list(),
         optional("IdentityProviderDetails") => list(),
         optional("WebAppUnits") => list(),
         required("WebAppId") => String.t() | atom()
@@ -2022,6 +2049,19 @@ defmodule AWS.Transfer do
       
   """
   @type s3_storage_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_app_vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type web_app_vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2411,7 +2451,9 @@ defmodule AWS.Transfer do
       described_web_app() :: %{
         "AccessEndpoint" => String.t() | atom(),
         "Arn" => String.t() | atom(),
+        "DescribedEndpointDetails" => list(),
         "DescribedIdentityProviderDetails" => list(),
+        "EndpointType" => list(any()),
         "Tags" => list(tag()),
         "WebAppEndpoint" => String.t() | atom(),
         "WebAppEndpointPolicy" => list(any()),
@@ -3304,6 +3346,11 @@ defmodule AWS.Transfer do
   @doc """
   Creates a web app based on specified parameters, and returns the ID for the new
   web app.
+
+  You can configure the web app to be publicly accessible or hosted within a VPC.
+
+  For more information about using VPC endpoints with Transfer Family, see [Create a Transfer Family web app in a
+  VPC](https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html).
   """
   @spec create_web_app(map(), create_web_app_request(), list()) ::
           {:ok, create_web_app_response(), any()}
@@ -3686,6 +3733,12 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the web app that's identified by `WebAppId`.
+
+  The response includes endpoint configuration details such as whether the web app
+  is publicly accessible or VPC hosted.
+
+  For more information about using VPC endpoints with Transfer Family, see [Create a Transfer Family web app in a
+  VPC](https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html).
   """
   @spec describe_web_app(map(), describe_web_app_request(), list()) ::
           {:ok, describe_web_app_response(), any()}
@@ -4010,6 +4063,12 @@ defmodule AWS.Transfer do
   @doc """
   Lists all web apps associated with your Amazon Web Services account for your
   current region.
+
+  The response includes the endpoint type for each web app, showing whether it is
+  publicly accessible or VPC hosted.
+
+  For more information about using VPC endpoints with Transfer Family, see [Create a Transfer Family web app in a
+  VPC](https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html).
   """
   @spec list_web_apps(map(), list_web_apps_request(), list()) ::
           {:ok, list_web_apps_response(), any()}
@@ -4481,8 +4540,11 @@ defmodule AWS.Transfer do
   @doc """
   Assigns new properties to a web app.
 
-  You can modify the access point, identity provider details, and the web app
-  units.
+  You can modify the access point, identity provider details, endpoint
+  configuration, and the web app units.
+
+  For more information about using VPC endpoints with Transfer Family, see [Create a Transfer Family web app in a
+  VPC](https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html).
   """
   @spec update_web_app(map(), update_web_app_request(), list()) ::
           {:ok, update_web_app_response(), any()}

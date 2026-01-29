@@ -523,6 +523,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      video_segmentation_configuration() :: %{
+        "fixedLengthDuration" => [integer()]
+      }
+
+  """
+  @type video_segmentation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       loop_flow_node_configuration() :: %{
         "definition" => flow_definition()
       }
@@ -961,6 +972,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type curated_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_segmentation_configuration() :: %{
+        "fixedLengthDuration" => [integer()]
+      }
+
+  """
+  @type audio_segmentation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3515,6 +3537,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      audio_configuration() :: %{
+        "segmentationConfiguration" => audio_segmentation_configuration()
+      }
+
+  """
+  @type audio_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -4402,6 +4435,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      video_configuration() :: %{
+        "segmentationConfiguration" => video_segmentation_configuration()
+      }
+
+  """
+  @type video_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       vector_ingestion_configuration() :: %{
         "chunkingConfiguration" => chunking_configuration(),
         "contextEnrichmentConfiguration" => context_enrichment_configuration(),
@@ -4557,8 +4601,10 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       bedrock_embedding_model_configuration() :: %{
+        "audio" => list(audio_configuration()),
         "dimensions" => integer(),
-        "embeddingDataType" => list(any())
+        "embeddingDataType" => list(any()),
+        "video" => list(video_configuration())
       }
 
   """
@@ -6617,7 +6663,7 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Gets information about a knoweldge base.
+  Gets information about a knowledge base.
   """
   @spec get_knowledge_base(map(), String.t() | atom(), list()) ::
           {:ok, get_knowledge_base_response(), any()}

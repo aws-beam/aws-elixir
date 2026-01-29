@@ -11,8 +11,8 @@ defmodule AWS.CloudFormation do
 
   You can use CloudFormation to leverage Amazon Web Services products, such as
   Amazon Elastic Compute Cloud, Amazon Elastic Block Store,
-  Amazon Simple Notification Service, Elastic Load Balancing, and Amazon EC2 Auto
-  Scaling to build highly reliable, highly scalable, cost-effective
+  Amazon Simple Notification Service, ELB, and Amazon EC2 Auto Scaling to build
+  highly reliable, highly scalable, cost-effective
   applications without creating or configuring the underlying Amazon Web Services
   infrastructure.
 
@@ -496,6 +496,7 @@ defmodule AWS.CloudFormation do
         "HookStatusReason" => String.t() | atom(),
         "HookType" => String.t() | atom(),
         "LogicalResourceId" => String.t() | atom(),
+        "OperationId" => String.t() | atom(),
         "PhysicalResourceId" => String.t() | atom(),
         "ResourceProperties" => String.t() | atom(),
         "ResourceStatus" => list(any()),
@@ -612,6 +613,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       update_stack_output() :: %{
+        "OperationId" => String.t() | atom(),
         "StackId" => String.t() | atom()
       }
       
@@ -796,9 +798,12 @@ defmodule AWS.CloudFormation do
       
       resource_target_definition() :: %{
         "AfterValue" => String.t() | atom(),
+        "AfterValueFrom" => list(any()),
         "Attribute" => list(any()),
         "AttributeChangeType" => list(any()),
         "BeforeValue" => String.t() | atom(),
+        "BeforeValueFrom" => list(any()),
+        "Drift" => live_resource_drift(),
         "Name" => String.t() | atom(),
         "Path" => String.t() | atom(),
         "RequiresRecreation" => list(any())
@@ -919,6 +924,19 @@ defmodule AWS.CloudFormation do
       
   """
   @type stack_instance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      live_resource_drift() :: %{
+        "ActualValue" => String.t() | atom(),
+        "DriftDetectionTimestamp" => non_neg_integer(),
+        "PreviousValue" => String.t() | atom()
+      }
+      
+  """
+  @type live_resource_drift() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1071,6 +1089,21 @@ defmodule AWS.CloudFormation do
       
   """
   @type describe_resource_scan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_events_input() :: %{
+        optional("ChangeSetName") => String.t() | atom(),
+        optional("Filters") => event_filter(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OperationId") => String.t() | atom(),
+        optional("StackName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_events_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1323,6 +1356,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       create_stack_output() :: %{
+        "OperationId" => String.t() | atom(),
         "StackId" => String.t() | atom()
       }
       
@@ -1344,6 +1378,7 @@ defmodule AWS.CloudFormation do
         "DisableRollback" => boolean(),
         "DriftInformation" => stack_drift_information(),
         "EnableTerminationProtection" => boolean(),
+        "LastOperations" => list(operation_entry()),
         "LastUpdatedTime" => non_neg_integer(),
         "NotificationARNs" => list(String.t() | atom()),
         "Outputs" => list(output()),
@@ -1586,6 +1621,7 @@ defmodule AWS.CloudFormation do
         "CreationTime" => non_neg_integer(),
         "DeletionTime" => non_neg_integer(),
         "DriftInformation" => stack_drift_information_summary(),
+        "LastOperations" => list(operation_entry()),
         "LastUpdatedTime" => non_neg_integer(),
         "ParentId" => String.t() | atom(),
         "RootId" => String.t() | atom(),
@@ -1675,6 +1711,18 @@ defmodule AWS.CloudFormation do
       
   """
   @type delete_change_set_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_drift_ignored_attribute() :: %{
+        "Path" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+      
+  """
+  @type resource_drift_ignored_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1828,6 +1876,7 @@ defmodule AWS.CloudFormation do
         optional("Capabilities") => list(list(any())()),
         optional("ChangeSetType") => list(any()),
         optional("ClientToken") => String.t() | atom(),
+        optional("DeploymentMode") => list(any()),
         optional("Description") => String.t() | atom(),
         optional("ImportExistingResources") => boolean(),
         optional("IncludeNestedStacks") => boolean(),
@@ -2168,6 +2217,43 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      operation_event() :: %{
+        "ClientRequestToken" => String.t() | atom(),
+        "DetailedStatus" => list(any()),
+        "EndTime" => non_neg_integer(),
+        "EventId" => String.t() | atom(),
+        "EventType" => list(any()),
+        "HookFailureMode" => list(any()),
+        "HookInvocationPoint" => list(any()),
+        "HookStatus" => list(any()),
+        "HookStatusReason" => String.t() | atom(),
+        "HookType" => String.t() | atom(),
+        "LogicalResourceId" => String.t() | atom(),
+        "OperationId" => String.t() | atom(),
+        "OperationStatus" => list(any()),
+        "OperationType" => list(any()),
+        "PhysicalResourceId" => String.t() | atom(),
+        "ResourceProperties" => String.t() | atom(),
+        "ResourceStatus" => list(any()),
+        "ResourceStatusReason" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Timestamp" => non_neg_integer(),
+        "ValidationFailureMode" => list(any()),
+        "ValidationName" => String.t() | atom(),
+        "ValidationPath" => String.t() | atom(),
+        "ValidationStatus" => list(any()),
+        "ValidationStatusReason" => String.t() | atom()
+      }
+      
+  """
+  @type operation_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       estimate_template_cost_input() :: %{
         optional("Parameters") => list(parameter()),
         optional("TemplateBody") => String.t() | atom(),
@@ -2195,6 +2281,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       rollback_stack_output() :: %{
+        "OperationId" => String.t() | atom(),
         "StackId" => String.t() | atom()
       }
       
@@ -2228,6 +2315,7 @@ defmodule AWS.CloudFormation do
         "ChangeSetName" => String.t() | atom(),
         "Changes" => list(change()),
         "CreationTime" => non_neg_integer(),
+        "DeploymentMode" => list(any()),
         "Description" => String.t() | atom(),
         "ExecutionStatus" => list(any()),
         "ImportExistingResources" => boolean(),
@@ -2239,6 +2327,7 @@ defmodule AWS.CloudFormation do
         "ParentChangeSetId" => String.t() | atom(),
         "RollbackConfiguration" => rollback_configuration(),
         "RootChangeSetId" => String.t() | atom(),
+        "StackDriftStatus" => list(any()),
         "StackId" => String.t() | atom(),
         "StackName" => String.t() | atom(),
         "Status" => list(any()),
@@ -2260,6 +2349,17 @@ defmodule AWS.CloudFormation do
       
   """
   @type describe_stack_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_filter() :: %{
+        "FailedEvents" => boolean()
+      }
+      
+  """
+  @type event_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2542,6 +2642,18 @@ defmodule AWS.CloudFormation do
       
   """
   @type describe_organizations_access_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_entry() :: %{
+        "OperationId" => String.t() | atom(),
+        "OperationType" => list(any())
+      }
+      
+  """
+  @type operation_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3126,6 +3238,18 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      describe_events_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "OperationEvents" => list(operation_event())
+      }
+      
+  """
+  @type describe_events_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_stack_instances_input() :: %{
         optional("Accounts") => list(String.t() | atom()),
         optional("CallAs") => list(any()),
@@ -3662,7 +3786,10 @@ defmodule AWS.CloudFormation do
         "ModuleInfo" => module_info(),
         "PhysicalResourceId" => String.t() | atom(),
         "PolicyAction" => list(any()),
+        "PreviousDeploymentContext" => String.t() | atom(),
         "Replacement" => list(any()),
+        "ResourceDriftIgnoredAttributes" => list(resource_drift_ignored_attribute()),
+        "ResourceDriftStatus" => list(any()),
         "ResourceType" => String.t() | atom(),
         "Scope" => list(list(any())())
       }
@@ -3912,6 +4039,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       auto_deployment() :: %{
+        "DependsOn" => list(String.t() | atom()),
         "Enabled" => boolean(),
         "RetainStacksOnAccountRemoval" => boolean()
       }
@@ -4690,6 +4818,55 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Returns CloudFormation events based on flexible query criteria.
+
+  Groups events by operation ID,
+  enabling you to focus on individual stack operations during deployment.
+
+  An operation is any action performed on a stack, including stack lifecycle
+  actions
+  (Create, Update, Delete, Rollback), change set creation, nested stack creation,
+  and automatic
+  rollbacks triggered by failures. Each operation has a unique identifier
+  (Operation ID) and
+  represents a discrete change attempt on the stack.
+
+  Returns different types of events including:
+
+    *
+
+  **Progress events** - Status updates during stack operation
+  execution.
+
+    *
+
+  **Validation errors** - Failures from CloudFormation Early
+  Validations.
+
+    *
+
+  **Provisioning errors** - Resource creation and update
+  failures.
+
+    *
+
+  **Hook invocation errors** - Failures from CloudFormation
+  Hook during stack operations.
+
+  One of `ChangeSetName`, `OperationId` or `StackName`
+  must be specified as input.
+  """
+  @spec describe_events(map(), describe_events_input(), list()) ::
+          {:ok, describe_events_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_events(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEvents", input, options)
+  end
+
+  @doc """
   Describes a generated template.
 
   The output includes details about the progress of the
@@ -5273,6 +5450,13 @@ defmodule AWS.CloudFormation do
   @doc """
   Retrieves detailed information and remediation guidance for a Hook invocation
   result.
+
+  If the Hook uses a KMS key to encrypt annotations, callers of the
+  `GetHookResult` operation must have `kms:Decrypt` permissions. For
+  more information, see [KMS key policy and permissions for encrypting CloudFormation Hooks results at
+  rest](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-kms-key-policy.html)
+  in the
+  *CloudFormation Hooks User Guide*.
   """
   @spec get_hook_result(map(), get_hook_result_input(), list()) ::
           {:ok, get_hook_result_output(), any()}

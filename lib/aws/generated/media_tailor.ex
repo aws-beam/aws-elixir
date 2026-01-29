@@ -249,6 +249,7 @@ defmodule AWS.MediaTailor do
 
       playback_configuration() :: %{
         "AdConditioningConfiguration" => ad_conditioning_configuration(),
+        "AdDecisionServerConfiguration" => ad_decision_server_configuration(),
         "AdDecisionServerUrl" => String.t() | atom(),
         "AvailSuppression" => avail_suppression(),
         "Bumper" => bumper(),
@@ -357,6 +358,20 @@ defmodule AWS.MediaTailor do
 
   """
   @type list_vod_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_request() :: %{
+        "Body" => String.t() | atom(),
+        "CompressRequest" => list(any()),
+        "Headers" => map(),
+        "Method" => list(any())
+      }
+
+  """
+  @type http_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1221,6 +1236,17 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      ad_decision_server_configuration() :: %{
+        "HttpRequest" => http_request()
+      }
+
+  """
+  @type ad_decision_server_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       transition() :: %{
         "DurationMillis" => float(),
         "RelativePosition" => list(any()),
@@ -1251,6 +1277,7 @@ defmodule AWS.MediaTailor do
 
       get_playback_configuration_response() :: %{
         optional("AdConditioningConfiguration") => ad_conditioning_configuration(),
+        optional("AdDecisionServerConfiguration") => ad_decision_server_configuration(),
         optional("AdDecisionServerUrl") => String.t() | atom(),
         optional("AvailSuppression") => avail_suppression(),
         optional("Bumper") => bumper(),
@@ -1487,6 +1514,7 @@ defmodule AWS.MediaTailor do
 
       put_playback_configuration_request() :: %{
         optional("AdConditioningConfiguration") => ad_conditioning_configuration(),
+        optional("AdDecisionServerConfiguration") => ad_decision_server_configuration(),
         optional("AdDecisionServerUrl") => String.t() | atom(),
         optional("AvailSuppression") => avail_suppression(),
         optional("Bumper") => bumper(),
@@ -1686,6 +1714,7 @@ defmodule AWS.MediaTailor do
 
       put_playback_configuration_response() :: %{
         optional("AdConditioningConfiguration") => ad_conditioning_configuration(),
+        optional("AdDecisionServerConfiguration") => ad_decision_server_configuration(),
         optional("AdDecisionServerUrl") => String.t() | atom(),
         optional("AvailSuppression") => avail_suppression(),
         optional("Bumper") => bumper(),

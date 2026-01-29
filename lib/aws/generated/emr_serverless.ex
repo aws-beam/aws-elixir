@@ -253,6 +253,17 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      job_level_cost_allocation_configuration() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type job_level_cost_allocation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       configuration() :: %{
         "classification" => String.t() | atom(),
         "configurations" => list(configuration()),
@@ -261,6 +272,18 @@ defmodule AWS.EMRServerless do
 
   """
   @type configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disk_encryption_configuration() :: %{
+        "encryptionContext" => map(),
+        "encryptionKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type disk_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -495,10 +518,12 @@ defmodule AWS.EMRServerless do
         "autoStartConfiguration" => auto_start_config(),
         "autoStopConfiguration" => auto_stop_config(),
         "createdAt" => non_neg_integer(),
+        "diskEncryptionConfiguration" => disk_encryption_configuration(),
         "identityCenterConfiguration" => identity_center_configuration(),
         "imageConfiguration" => image_configuration(),
         "initialCapacity" => map(),
         "interactiveConfiguration" => interactive_configuration(),
+        "jobLevelCostAllocationConfiguration" => job_level_cost_allocation_configuration(),
         "maximumCapacity" => maximum_allowed_resources(),
         "monitoringConfiguration" => monitoring_configuration(),
         "name" => String.t() | atom(),
@@ -536,10 +561,12 @@ defmodule AWS.EMRServerless do
         optional("architecture") => String.t() | atom(),
         optional("autoStartConfiguration") => auto_start_config(),
         optional("autoStopConfiguration") => auto_stop_config(),
+        optional("diskEncryptionConfiguration") => disk_encryption_configuration(),
         optional("identityCenterConfiguration") => identity_center_configuration_input(),
         optional("imageConfiguration") => image_configuration_input(),
         optional("initialCapacity") => map(),
         optional("interactiveConfiguration") => interactive_configuration(),
+        optional("jobLevelCostAllocationConfiguration") => job_level_cost_allocation_configuration(),
         optional("maximumCapacity") => maximum_allowed_resources(),
         optional("monitoringConfiguration") => monitoring_configuration(),
         optional("name") => String.t() | atom(),
@@ -631,10 +658,12 @@ defmodule AWS.EMRServerless do
         optional("architecture") => String.t() | atom(),
         optional("autoStartConfiguration") => auto_start_config(),
         optional("autoStopConfiguration") => auto_stop_config(),
+        optional("diskEncryptionConfiguration") => disk_encryption_configuration(),
         optional("identityCenterConfiguration") => identity_center_configuration_input(),
         optional("imageConfiguration") => image_configuration_input(),
         optional("initialCapacity") => map(),
         optional("interactiveConfiguration") => interactive_configuration(),
+        optional("jobLevelCostAllocationConfiguration") => job_level_cost_allocation_configuration(),
         optional("maximumCapacity") => maximum_allowed_resources(),
         optional("monitoringConfiguration") => monitoring_configuration(),
         optional("networkConfiguration") => network_configuration(),
@@ -829,6 +858,7 @@ defmodule AWS.EMRServerless do
 
       configuration_overrides() :: %{
         "applicationConfiguration" => list(configuration()),
+        "diskEncryptionConfiguration" => disk_encryption_configuration(),
         "monitoringConfiguration" => monitoring_configuration()
       }
 

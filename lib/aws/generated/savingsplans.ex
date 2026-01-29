@@ -516,7 +516,7 @@ defmodule AWS.Savingsplans do
           | resource_not_found_exception()
 
   @type describe_savings_plan_rates_errors() ::
-          validation_exception() | resource_not_found_exception()
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type describe_savings_plans_errors() :: validation_exception() | internal_server_exception()
 
@@ -619,7 +619,7 @@ defmodule AWS.Savingsplans do
   end
 
   @doc """
-  Describes the rates for the specified Savings Plan.
+  Describes the rates for a specific, existing Savings Plan.
   """
   @spec describe_savings_plan_rates(map(), describe_savings_plan_rates_request(), list()) ::
           {:ok, describe_savings_plan_rates_response(), any()}
@@ -677,7 +677,7 @@ defmodule AWS.Savingsplans do
   end
 
   @doc """
-  Describes the offering rates for the specified Savings Plans.
+  Describes the offering rates for Savings Plans you might want to purchase.
   """
   @spec describe_savings_plans_offering_rates(
           map(),

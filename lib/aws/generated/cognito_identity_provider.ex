@@ -2036,6 +2036,7 @@ defmodule AWS.CognitoIdentityProvider do
         "CustomMessage" => String.t() | atom(),
         "CustomSMSSender" => custom_sms_lambda_version_config_type(),
         "DefineAuthChallenge" => String.t() | atom(),
+        "InboundFederation" => inbound_federation_lambda_type(),
         "KMSKeyID" => String.t() | atom(),
         "PostAuthentication" => String.t() | atom(),
         "PostConfirmation" => String.t() | atom(),
@@ -3036,6 +3037,18 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type user_lambda_validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inbound_federation_lambda_type() :: %{
+        "LambdaArn" => String.t() | atom(),
+        "LambdaVersion" => list(any())
+      }
+      
+  """
+  @type inbound_federation_lambda_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7881,7 +7894,7 @@ defmodule AWS.CognitoIdentityProvider do
   inactive state for 14
   days, then begins a cleanup process that fully removes them from Amazon Web
   Services systems. In case
-  of accidental deletion, contact Amazon Web ServicesSupport within 14 days for
+  of accidental deletion, contact Amazon Web Services Support within 14 days for
   restoration
   assistance.
 

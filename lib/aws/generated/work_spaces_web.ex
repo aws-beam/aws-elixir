@@ -6,16 +6,12 @@ defmodule AWS.WorkSpacesWeb do
   Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built
   specifically to facilitate secure, web-based workloads.
 
-  WorkSpaces Secure Browser makes it
-  easy for customers to safely provide their employees with access to internal
-  websites and
-  SaaS web applications without the administrative burden of appliances or
-  specialized client
-  software. WorkSpaces Secure Browser provides simple policy tools tailored for
-  user
-  interactions, while offloading common tasks like capacity management, scaling,
-  and
-  maintaining browser images.
+  WorkSpaces Secure Browser makes it easy for customers to safely provide their
+  employees with access to internal websites and SaaS web applications without the
+  administrative burden of appliances or specialized client software. WorkSpaces
+  Secure Browser provides simple policy tools tailored for user interactions,
+  while offloading common tasks like capacity management, scaling, and maintaining
+  browser images.
   """
 
   alias AWS.Client
@@ -510,6 +506,22 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      branding_configuration() :: %{
+        "colorTheme" => list(any()),
+        "favicon" => image_metadata(),
+        "localizedStrings" => map(),
+        "logo" => image_metadata(),
+        "termsOfService" => String.t() | atom(),
+        "wallpaper" => image_metadata()
+      }
+
+  """
+  @type branding_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_trust_store_response() :: %{
         "trustStore" => trust_store()
       }
@@ -662,6 +674,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       user_settings_summary() :: %{
+        "brandingConfiguration" => branding_configuration(),
         "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
         "copyAllowed" => String.t() | atom(),
         "deepLinkAllowed" => String.t() | atom(),
@@ -672,7 +685,8 @@ defmodule AWS.WorkSpacesWeb do
         "printAllowed" => String.t() | atom(),
         "toolbarConfiguration" => toolbar_configuration(),
         "uploadAllowed" => String.t() | atom(),
-        "userSettingsArn" => String.t() | atom()
+        "userSettingsArn" => String.t() | atom(),
+        "webAuthnAllowed" => String.t() | atom()
       }
 
   """
@@ -720,6 +734,22 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type associate_network_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      branding_configuration_create_input() :: %{
+        "colorTheme" => list(any()),
+        "favicon" => list(),
+        "localizedStrings" => map(),
+        "logo" => list(),
+        "termsOfService" => String.t() | atom(),
+        "wallpaper" => list()
+      }
+
+  """
+  @type branding_configuration_create_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1423,6 +1453,19 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      image_metadata() :: %{
+        "fileExtension" => String.t() | atom(),
+        "lastUploadTimestamp" => non_neg_integer(),
+        "mimeType" => list(any())
+      }
+
+  """
+  @type image_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       session() :: %{
         "clientIpAddresses" => list(String.t() | atom()),
         "endTime" => non_neg_integer(),
@@ -1453,6 +1496,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       update_user_settings_request() :: %{
+        optional("brandingConfigurationInput") => branding_configuration_update_input(),
         optional("clientToken") => String.t() | atom(),
         optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
         optional("copyAllowed") => String.t() | atom(),
@@ -1463,7 +1507,8 @@ defmodule AWS.WorkSpacesWeb do
         optional("pasteAllowed") => String.t() | atom(),
         optional("printAllowed") => String.t() | atom(),
         optional("toolbarConfiguration") => toolbar_configuration(),
-        optional("uploadAllowed") => String.t() | atom()
+        optional("uploadAllowed") => String.t() | atom(),
+        optional("webAuthnAllowed") => String.t() | atom()
       }
 
   """
@@ -1569,6 +1614,22 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type delete_data_protection_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      branding_configuration_update_input() :: %{
+        "colorTheme" => list(any()),
+        "favicon" => list(),
+        "localizedStrings" => map(),
+        "logo" => list(),
+        "termsOfService" => String.t() | atom(),
+        "wallpaper" => list()
+      }
+
+  """
+  @type branding_configuration_update_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1712,6 +1773,7 @@ defmodule AWS.WorkSpacesWeb do
 
       create_user_settings_request() :: %{
         optional("additionalEncryptionContext") => map(),
+        optional("brandingConfigurationInput") => branding_configuration_create_input(),
         optional("clientToken") => String.t() | atom(),
         optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
         optional("customerManagedKey") => String.t() | atom(),
@@ -1720,6 +1782,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("idleDisconnectTimeoutInMinutes") => integer(),
         optional("tags") => list(tag()),
         optional("toolbarConfiguration") => toolbar_configuration(),
+        optional("webAuthnAllowed") => String.t() | atom(),
         required("copyAllowed") => String.t() | atom(),
         required("downloadAllowed") => String.t() | atom(),
         required("pasteAllowed") => String.t() | atom(),
@@ -1792,6 +1855,24 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type create_data_protection_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      localized_branding_strings() :: %{
+        "browserTabTitle" => String.t() | atom(),
+        "contactButtonText" => String.t() | atom(),
+        "contactLink" => String.t() | atom(),
+        "loadingText" => String.t() | atom(),
+        "loginButtonText" => String.t() | atom(),
+        "loginDescription" => String.t() | atom(),
+        "loginTitle" => String.t() | atom(),
+        "welcomeText" => String.t() | atom()
+      }
+
+  """
+  @type localized_branding_strings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2021,6 +2102,7 @@ defmodule AWS.WorkSpacesWeb do
       user_settings() :: %{
         "additionalEncryptionContext" => map(),
         "associatedPortalArns" => list(String.t() | atom()),
+        "brandingConfiguration" => branding_configuration(),
         "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
         "copyAllowed" => String.t() | atom(),
         "customerManagedKey" => String.t() | atom(),
@@ -2032,7 +2114,8 @@ defmodule AWS.WorkSpacesWeb do
         "printAllowed" => String.t() | atom(),
         "toolbarConfiguration" => toolbar_configuration(),
         "uploadAllowed" => String.t() | atom(),
-        "userSettingsArn" => String.t() | atom()
+        "userSettingsArn" => String.t() | atom(),
+        "webAuthnAllowed" => String.t() | atom()
       }
 
   """
@@ -2506,6 +2589,7 @@ defmodule AWS.WorkSpacesWeb do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type delete_browser_settings_errors() ::
@@ -3236,10 +3320,8 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a browser settings resource that can be associated with a web portal.
 
-  Once
-  associated with a web portal, browser settings control how the browser will
-  behave once a
-  user starts a streaming session for the web portal.
+  Once associated with a web portal, browser settings control how the browser will
+  behave once a user starts a streaming session for the web portal.
   """
   @spec create_browser_settings(map(), create_browser_settings_request(), list()) ::
           {:ok, create_browser_settings_response(), any()}
@@ -3358,10 +3440,8 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a network settings resource that can be associated with a web portal.
 
-  Once
-  associated with a web portal, network settings define how streaming instances
-  will connect
-  with your specified VPC.
+  Once associated with a web portal, network settings define how streaming
+  instances will connect with your specified VPC.
   """
   @spec create_network_settings(map(), create_network_settings_request(), list()) ::
           {:ok, create_network_settings_response(), any()}
@@ -3450,14 +3530,11 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a trust store that can be associated with a web portal.
 
-  A trust store contains
-  certificate authority (CA) certificates. Once associated with a web portal, the
-  browser in
-  a streaming session will recognize certificates that have been issued using any
-  of the CAs
-  in the trust store. If your organization has internal websites that use
-  certificates issued
-  by private CAs, you should add the private CA certificate to the trust store.
+  A trust store contains certificate authority (CA) certificates. Once associated
+  with a web portal, the browser in a streaming session will recognize
+  certificates that have been issued using any of the CAs in the trust store. If
+  your organization has internal websites that use certificates issued by private
+  CAs, you should add the private CA certificate to the trust store.
   """
   @spec create_trust_store(map(), create_trust_store_request(), list()) ::
           {:ok, create_trust_store_response(), any()}
@@ -3487,8 +3564,7 @@ defmodule AWS.WorkSpacesWeb do
 
   @doc """
   Creates a user access logging settings resource that can be associated with a
-  web
-  portal.
+  web portal.
   """
   @spec create_user_access_logging_settings(
           map(),
@@ -3523,10 +3599,8 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a user settings resource that can be associated with a web portal.
 
-  Once
-  associated with a web portal, user settings control how users can transfer data
-  between a
-  streaming session and the their local devices.
+  Once associated with a web portal, user settings control how users can transfer
+  data between a streaming session and the their local devices.
   """
   @spec create_user_settings(map(), create_user_settings_request(), list()) ::
           {:ok, create_user_settings_response(), any()}

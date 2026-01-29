@@ -84,6 +84,19 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      wi_fi_simple_setup_configuration() :: %{
+        "EnableAsProvisionee" => boolean(),
+        "EnableAsProvisioner" => boolean(),
+        "TimeoutInMinutes" => integer()
+      }
+
+  """
+  @type wi_fi_simple_setup_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_hub_configuration_response() :: %{
         "HubTokenTimerExpirySettingInSeconds" => float(),
         "UpdatedAt" => non_neg_integer()
@@ -1510,7 +1523,8 @@ defmodule AWS.IoTManagedIntegrations do
         optional("Model") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
         optional("Owner") => String.t() | atom(),
-        optional("SerialNumber") => String.t() | atom()
+        optional("SerialNumber") => String.t() | atom(),
+        optional("WiFiSimpleSetupConfiguration") => wi_fi_simple_setup_configuration()
       }
 
   """
@@ -1787,6 +1801,8 @@ defmodule AWS.IoTManagedIntegrations do
         optional("ConnectorAssociationIdentifier") => String.t() | atom(),
         optional("ControllerIdentifier") => String.t() | atom(),
         optional("CustomProtocolDetail") => map(),
+        optional("EndDeviceIdentifier") => String.t() | atom(),
+        optional("Protocol") => list(any()),
         optional("Tags") => map(),
         required("DiscoveryType") => list(any())
       }
@@ -2443,7 +2459,8 @@ defmodule AWS.IoTManagedIntegrations do
         "SerialNumber" => String.t() | atom(),
         "Tags" => map(),
         "UniversalProductCode" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
+        "UpdatedAt" => non_neg_integer(),
+        "WiFiSimpleSetupConfiguration" => wi_fi_simple_setup_configuration()
       }
 
   """
@@ -2616,6 +2633,7 @@ defmodule AWS.IoTManagedIntegrations do
         optional("Owner") => String.t() | atom(),
         optional("SerialNumber") => String.t() | atom(),
         optional("Tags") => map(),
+        optional("WiFiSimpleSetupConfiguration") => wi_fi_simple_setup_configuration(),
         required("AuthenticationMaterial") => String.t() | atom(),
         required("AuthenticationMaterialType") => list(any()),
         required("Role") => list(any())
@@ -2933,6 +2951,7 @@ defmodule AWS.IoTManagedIntegrations do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_account_association_errors() ::
           throttling_exception()
@@ -5602,8 +5621,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Set the runtime log configuration for a specific managed thing or for all
-  managed things as a group.
+  Set the runtime log configuration for a specific managed thing.
   """
   @spec put_runtime_log_configuration(
           map(),

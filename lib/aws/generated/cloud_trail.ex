@@ -595,7 +595,8 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       get_event_configuration_request() :: %{
-        optional("EventDataStore") => String.t() | atom()
+        optional("EventDataStore") => String.t() | atom(),
+        optional("TrailName") => String.t() | atom()
       }
       
   """
@@ -893,6 +894,7 @@ defmodule AWS.CloudTrail do
         "InsightType" => list(any()),
         "NextToken" => String.t() | atom(),
         "Timestamps" => list(non_neg_integer()),
+        "TrailARN" => String.t() | atom(),
         "Values" => list(float())
       }
       
@@ -1054,9 +1056,11 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       put_event_configuration_response() :: %{
+        "AggregationConfigurations" => list(aggregation_configuration()),
         "ContextKeySelectors" => list(context_key_selector()),
         "EventDataStoreArn" => String.t() | atom(),
-        "MaxEventSize" => list(any())
+        "MaxEventSize" => list(any()),
+        "TrailARN" => String.t() | atom()
       }
       
   """
@@ -1112,9 +1116,11 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       put_event_configuration_request() :: %{
+        optional("AggregationConfigurations") => list(aggregation_configuration()),
+        optional("ContextKeySelectors") => list(context_key_selector()),
         optional("EventDataStore") => String.t() | atom(),
-        required("ContextKeySelectors") => list(context_key_selector()),
-        required("MaxEventSize") => list(any())
+        optional("MaxEventSize") => list(any()),
+        optional("TrailName") => String.t() | atom()
       }
       
   """
@@ -1436,6 +1442,7 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       insight_selector() :: %{
+        "EventCategories" => list(list(any())()),
         "InsightType" => list(any())
       }
       
@@ -1522,6 +1529,18 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      list_insights_data_response() :: %{
+        "Events" => list(event()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_insights_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_channel_request() :: %{
         optional("Tags") => list(tag()),
         required("Destinations") => list(destination()),
@@ -1542,6 +1561,23 @@ defmodule AWS.CloudTrail do
       
   """
   @type get_import_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_insights_data_request() :: %{
+        optional("Dimensions") => map(),
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer(),
+        required("DataType") => list(any()),
+        required("InsightSource") => String.t() | atom()
+      }
+      
+  """
+  @type list_insights_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1657,6 +1693,7 @@ defmodule AWS.CloudTrail do
         optional("NextToken") => String.t() | atom(),
         optional("Period") => integer(),
         optional("StartTime") => non_neg_integer(),
+        optional("TrailName") => String.t() | atom(),
         required("EventName") => String.t() | atom(),
         required("EventSource") => String.t() | atom(),
         required("InsightType") => list(any())
@@ -2026,9 +2063,11 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       get_event_configuration_response() :: %{
+        "AggregationConfigurations" => list(aggregation_configuration()),
         "ContextKeySelectors" => list(context_key_selector()),
         "EventDataStoreArn" => String.t() | atom(),
-        "MaxEventSize" => list(any())
+        "MaxEventSize" => list(any()),
+        "TrailARN" => String.t() | atom()
       }
       
   """
@@ -2133,6 +2172,18 @@ defmodule AWS.CloudTrail do
       
   """
   @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregation_configuration() :: %{
+        "EventCategory" => list(any()),
+        "Templates" => list(list(any())())
+      }
+      
+  """
+  @type aggregation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3102,6 +3153,7 @@ defmodule AWS.CloudTrail do
           cloud_trail_access_not_enabled_exception()
           | event_data_store_max_limit_exceeded_exception()
           | invalid_kms_key_id_exception()
+          | throttling_exception()
           | kms_exception()
           | invalid_parameter_exception()
           | not_organization_master_account_exception()
@@ -3289,7 +3341,9 @@ defmodule AWS.CloudTrail do
           | invalid_event_data_store_status_exception()
           | event_data_store_not_found_exception()
           | invalid_parameter_exception()
+          | invalid_trail_name_exception()
           | operation_not_permitted_exception()
+          | trail_not_found_exception()
           | invalid_event_data_store_category_exception()
           | invalid_parameter_combination_exception()
           | no_management_account_s_l_r_exists_exception()
@@ -3392,8 +3446,14 @@ defmodule AWS.CloudTrail do
           | event_data_store_arn_invalid_exception()
           | unsupported_operation_exception()
 
+  @type list_insights_data_errors() ::
+          invalid_parameter_exception()
+          | operation_not_permitted_exception()
+          | unsupported_operation_exception()
+
   @type list_insights_metric_data_errors() ::
           invalid_parameter_exception()
+          | invalid_trail_name_exception()
           | operation_not_permitted_exception()
           | unsupported_operation_exception()
 
@@ -3449,14 +3509,17 @@ defmodule AWS.CloudTrail do
           | throttling_exception()
           | invalid_parameter_exception()
           | inactive_event_data_store_exception()
+          | invalid_trail_name_exception()
           | not_organization_master_account_exception()
           | operation_not_permitted_exception()
+          | trail_not_found_exception()
           | invalid_event_data_store_category_exception()
           | insufficient_iam_access_permission_exception()
           | insufficient_dependency_service_access_permission_exception()
           | conflict_exception()
           | invalid_parameter_combination_exception()
           | no_management_account_s_l_r_exists_exception()
+          | invalid_home_region_exception()
           | event_data_store_arn_invalid_exception()
           | unsupported_operation_exception()
 
@@ -3677,6 +3740,7 @@ defmodule AWS.CloudTrail do
           | event_data_store_has_ongoing_import_exception()
           | event_data_store_not_found_exception()
           | invalid_kms_key_id_exception()
+          | throttling_exception()
           | kms_exception()
           | invalid_parameter_exception()
           | inactive_event_data_store_exception()
@@ -3685,6 +3749,7 @@ defmodule AWS.CloudTrail do
           | organizations_not_in_use_exception()
           | insufficient_dependency_service_access_permission_exception()
           | organization_not_in_all_features_mode_exception()
+          | conflict_exception()
           | invalid_event_selectors_exception()
           | no_management_account_s_l_r_exists_exception()
           | event_data_store_arn_invalid_exception()
@@ -3970,6 +4035,22 @@ defmodule AWS.CloudTrail do
   This operation must be called from the Region in which the trail was
   created. `DeleteTrail` cannot be called on the shadow trails (replicated trails
   in other Regions) of a trail that is enabled in all Regions.
+
+  While deleting a CloudTrail trail is an irreversible action, CloudTrail does not
+  delete log files in the Amazon S3 bucket for that trail, the Amazon S3 bucket
+  itself, or the
+  CloudWatchlog group to which the trail delivers events. Deleting a multi-Region
+  trail
+  will stop logging of events in all Amazon Web Services Regions enabled in your
+  Amazon Web Services account. Deleting a
+  single-Region trail will stop logging of events in that Region only. It will not
+  stop
+  logging of events in other Regions even if the trails in those other Regions
+  have
+  identical names to the deleted trail.
+
+  For information about account closure and deletion of CloudTrail trails, see
+  [https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-account-closure.html](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-account-closure.html).
   """
   @spec delete_trail(map(), delete_trail_request(), list()) ::
           {:ok, delete_trail_response(), any()}
@@ -4166,9 +4247,11 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Retrieves the current event configuration settings for the specified event data
-  store, including details
-  about maximum event size and context key selectors configured for the event data
-  store.
+  store or trail.
+
+  The response includes maximum event size configuration, the context key
+  selectors configured for the event data store, and any aggregation settings
+  configured for the trail.
   """
   @spec get_event_configuration(map(), get_event_configuration_request(), list()) ::
           {:ok, get_event_configuration_response(), any()}
@@ -4266,9 +4349,9 @@ defmodule AWS.CloudTrail do
   your
   trail or event data store.
 
-  `GetInsightSelectors` shows if CloudTrail Insights event logging
-  is enabled on the trail or event data store, and if it is, which Insights types
-  are enabled. If you run
+  `GetInsightSelectors` shows if CloudTrail Insights logging is enabled
+  and which Insights types are configured with corresponding event categories. If
+  you run
   `GetInsightSelectors` on a trail or event data store that does not have Insights
   events enabled,
   the operation throws the exception `InsightNotEnabledException`
@@ -4435,6 +4518,43 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Returns Insights events generated on a trail that logs data events.
+
+  You can list Insights events that occurred in a Region within the last 90 days.
+
+  ListInsightsData supports the following Dimensions for Insights events:
+
+    *
+  Event ID
+
+    *
+  Event name
+
+    *
+  Event source
+
+  All dimensions are optional. The default number of results returned is 50, with
+  a
+  maximum of 50 possible. The response includes a token that you can use to get
+  the next page
+  of results.
+
+  The rate of ListInsightsData requests is limited to two per second, per account,
+  per Region. If
+  this limit is exceeded, a throttling error occurs.
+  """
+  @spec list_insights_data(map(), list_insights_data_request(), list()) ::
+          {:ok, list_insights_data_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_insights_data_errors()}
+  def list_insights_data(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInsightsData", input, options)
+  end
+
+  @doc """
   Returns Insights metrics data for trails that have enabled Insights.
 
   The request must include the `EventSource`,
@@ -4455,8 +4575,21 @@ defmodule AWS.CloudTrail do
     *
   Data points with a period of 3600 seconds (1 hour) are available for 90 days.
 
-  Access to the `ListInsightsMetricData` API operation is linked to the
-  `cloudtrail:LookupEvents` action. To use this operation,
+  To use `ListInsightsMetricData` operation, you must have the following
+  permissions:
+
+    *
+  If `ListInsightsMetricData` is invoked with `TrailName` parameter, access to the
+  `ListInsightsMetricData` API operation is linked to the
+  `cloudtrail:LookupEvents` action and `cloudtrail:ListInsightsData`. To use this
+  operation,
+  you must have permissions to perform the `cloudtrail:LookupEvents` and
+  `cloudtrail:ListInsightsData` action on the specific trail.
+
+    *
+  If `ListInsightsMetricData` is invoked without `TrailName` parameter, access to
+  the `ListInsightsMetricData` API operation is linked to the
+  `cloudtrail:LookupEvents` action only. To use this operation,
   you must have permissions to perform the `cloudtrail:LookupEvents` action.
   """
   @spec list_insights_metric_data(map(), list_insights_metric_data_request(), list()) ::
@@ -4618,9 +4751,12 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Updates the event configuration settings for the specified event data store.
+  Updates the event configuration settings for the specified event data store or
+  trail.
 
-  You can update the maximum event size and context key selectors.
+  This operation supports updating the maximum event size, adding or modifying
+  context key selectors for event data store, and configuring aggregation settings
+  for the trail.
   """
   @spec put_event_configuration(map(), put_event_configuration_request(), list()) ::
           {:ok, put_event_configuration_response(), any()}
@@ -4733,15 +4869,18 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Lets you enable Insights event logging by specifying the Insights selectors that
-  you
+  Lets you enable Insights event logging on specific event categories by
+  specifying the Insights selectors that you
   want to enable on an existing trail or event data store.
 
   You also use `PutInsightSelectors` to turn
   off Insights event logging, by passing an empty list of Insights types. The
   valid Insights
   event types are `ApiErrorRateInsight` and
-  `ApiCallRateInsight`.
+  `ApiCallRateInsight`, and valid EventCategories are `Management` and `Data`.
+
+  Insights on data events are not supported on event data stores. For event data
+  stores, you can only enable Insights on management events.
 
   To enable Insights on an event data store, you must specify the ARNs (or ID
   suffix of the ARNs) for the source event data store (`EventDataStore`) and the
@@ -4754,6 +4893,19 @@ defmodule AWS.CloudTrail do
   To log Insights events for a trail, you must specify the name (`TrailName`) of
   the CloudTrail trail for which you want to change or add Insights
   selectors.
+
+    *
+
+  For Management events Insights: To log CloudTrail Insights on the API call rate,
+  the trail or event data store must log `write` management events.
+  To log CloudTrail Insights on the API error rate, the trail or event data store
+  must log `read` or `write` management events.
+
+    *
+
+  For Data events Insights: To log CloudTrail Insights on the API call rate or API
+  error rate, the trail must log `read` or `write` data events. Data events
+  Insights are not supported on event data store.
 
   To log CloudTrail Insights events on API call volume, the trail or event data
   store

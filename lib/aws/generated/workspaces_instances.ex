@@ -133,6 +133,7 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       create_workspace_instance_request() :: %{
+        optional("BillingConfiguration") => billing_configuration(),
         optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("ManagedInstance") => managed_instance_request()
@@ -421,6 +422,7 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       get_workspace_instance_response() :: %{
+        "BillingConfiguration" => billing_configuration(),
         "EC2InstanceErrors" => list(ec2_instance_error()),
         "EC2ManagedInstance" => ec2_managed_instance(),
         "ProvisionState" => list(any()),
@@ -504,6 +506,17 @@ defmodule AWS.WorkspacesInstances do
       
   """
   @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_configuration() :: %{
+        "BillingMode" => list(any())
+      }
+      
+  """
+  @type billing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -688,12 +701,26 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       list_instance_types_request() :: %{
+        optional("InstanceConfigurationFilter") => instance_configuration_filter(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
   @type list_instance_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      supported_instance_configuration() :: %{
+        "BillingMode" => list(any()),
+        "PlatformType" => list(any()),
+        "Tenancy" => list(any())
+      }
+      
+  """
+  @type supported_instance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,7 +738,8 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       instance_type_info() :: %{
-        "InstanceType" => String.t() | atom()
+        "InstanceType" => String.t() | atom(),
+        "SupportedInstanceConfigurations" => list(supported_instance_configuration())
       }
       
   """
@@ -807,6 +835,19 @@ defmodule AWS.WorkspacesInstances do
       
   """
   @type ec2_instance_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_configuration_filter() :: %{
+        "BillingMode" => list(any()),
+        "PlatformType" => list(any()),
+        "Tenancy" => list(any())
+      }
+      
+  """
+  @type instance_configuration_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1066,6 +1107,8 @@ defmodule AWS.WorkspacesInstances do
 
   @doc """
   Deletes the specified WorkSpace
+
+  Usage of this API will result in deletion of the resource in question.
   """
   @spec delete_workspace_instance(map(), delete_workspace_instance_request(), list()) ::
           {:ok, delete_workspace_instance_response(), any()}

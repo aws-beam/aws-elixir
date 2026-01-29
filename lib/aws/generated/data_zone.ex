@@ -105,6 +105,7 @@ defmodule AWS.DataZone do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("status") => list(any()),
+        optional("targetIdentifier") => String.t() | atom(),
         optional("type") => list(any())
       }
 
@@ -297,6 +298,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      encryption_configuration() :: %{
+        "kmsKeyArn" => [String.t() | atom()],
+        "sseAlgorithm" => [String.t() | atom()]
+      }
+
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_glossary_term_output() :: %{
         "domainId" => String.t() | atom(),
         "glossaryId" => String.t() | atom(),
@@ -410,6 +423,19 @@ defmodule AWS.DataZone do
 
   """
   @type list_data_source_runs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_generation_run_type_stat() :: %{
+        "errorMessage" => [String.t() | atom()],
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_generation_run_type_stat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -531,6 +557,7 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "projectId" => String.t() | atom(),
         "provider" => [String.t() | atom()],
+        "subscriptionGrantCreationMode" => list(any()),
         "subscriptionTargetConfig" => list(subscription_target_form()),
         "type" => [String.t() | atom()],
         "updatedAt" => non_neg_integer(),
@@ -753,6 +780,15 @@ defmodule AWS.DataZone do
 
   """
   @type lineage_sync_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_root_domain_unit_owner_output() :: %{}
+
+  """
+  @type update_root_domain_unit_owner_output() :: %{}
 
   @typedoc """
 
@@ -1272,6 +1308,7 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "projectId" => String.t() | atom(),
         "provider" => [String.t() | atom()],
+        "subscriptionGrantCreationMode" => list(any()),
         "subscriptionTargetConfig" => list(subscription_target_form()),
         "type" => [String.t() | atom()],
         "updatedAt" => non_neg_integer(),
@@ -2020,6 +2057,7 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "projectId" => String.t() | atom(),
         "provider" => [String.t() | atom()],
+        "subscriptionGrantCreationMode" => list(any()),
         "subscriptionTargetConfig" => list(subscription_target_form()),
         "type" => [String.t() | atom()],
         "updatedAt" => non_neg_integer(),
@@ -2358,6 +2396,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      subscribed_iam_principal() :: %{
+        "principalArn" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_iam_principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       redshift_serverless_storage() :: %{
         "workgroupName" => [String.t() | atom()]
       }
@@ -2374,6 +2423,7 @@ defmodule AWS.DataZone do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("owningGroupId") => String.t() | atom(),
+        optional("owningIamPrincipalArn") => String.t() | atom(),
         optional("owningProjectId") => String.t() | atom(),
         optional("owningUserId") => String.t() | atom(),
         optional("sortBy") => list(any()),
@@ -2497,9 +2547,10 @@ defmodule AWS.DataZone do
 
       start_metadata_generation_run_input() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("type") => list(any()),
+        optional("types") => list(list(any())()),
         required("owningProjectIdentifier") => String.t() | atom(),
-        required("target") => metadata_generation_run_target(),
-        required("type") => list(any())
+        required("target") => metadata_generation_run_target()
       }
 
   """
@@ -2779,6 +2830,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      put_data_export_configuration_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        required("enableExport") => [boolean()]
+      }
+
+  """
+  @type put_data_export_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_subscription_target_input() :: %{}
 
   """
@@ -2844,6 +2908,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_data_export_configuration_input() :: %{}
+
+  """
+  @type delete_data_export_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_metadata_generation_run_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
@@ -2852,7 +2925,9 @@ defmodule AWS.DataZone do
         "owningProjectId" => String.t() | atom(),
         "status" => list(any()),
         "target" => metadata_generation_run_target(),
-        "type" => list(any())
+        "type" => list(any()),
+        "typeStats" => list(metadata_generation_run_type_stat()),
+        "types" => list(list(any())())
       }
 
   """
@@ -3106,6 +3181,18 @@ defmodule AWS.DataZone do
 
   """
   @type create_environment_profile_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_attributes_metadata_input() :: %{
+        optional("entityRevision") => String.t() | atom(),
+        required("attributeIdentifiers") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_attributes_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3369,7 +3456,8 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "owningProjectId" => String.t() | atom(),
         "status" => list(any()),
-        "type" => list(any())
+        "type" => list(any()),
+        "types" => list(list(any())())
       }
 
   """
@@ -3382,6 +3470,7 @@ defmodule AWS.DataZone do
       create_subscription_target_input() :: %{
         optional("clientToken") => [String.t() | atom()],
         optional("provider") => [String.t() | atom()],
+        optional("subscriptionGrantCreationMode") => list(any()),
         required("applicableAssetTypes") => list(String.t() | atom()),
         required("authorizedPrincipals") => list(String.t() | atom()),
         required("manageAccessRole") => String.t() | atom(),
@@ -3476,6 +3565,15 @@ defmodule AWS.DataZone do
 
   """
   @type delete_environment_blueprint_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_export_configuration_output() :: %{}
+
+  """
+  @type delete_data_export_configuration_output() :: %{}
 
   @typedoc """
 
@@ -3822,6 +3920,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      batch_put_attribute_output() :: %{
+        "attributeIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_attribute_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       accept_rule() :: %{
         "rule" => list(any()),
         "threshold" => [float()]
@@ -3941,6 +4050,19 @@ defmodule AWS.DataZone do
 
   """
   @type get_glossary_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_root_domain_unit_owner_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("currentOwner") => String.t() | atom(),
+        required("newOwner") => [String.t() | atom()]
+      }
+
+  """
+  @type update_root_domain_unit_owner_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4212,6 +4334,19 @@ defmodule AWS.DataZone do
 
   """
   @type prediction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_error() :: %{
+        "attributeIdentifier" => String.t() | atom(),
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type attribute_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4731,6 +4866,7 @@ defmodule AWS.DataZone do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("owningGroupId") => String.t() | atom(),
+        optional("owningIamPrincipalArn") => String.t() | atom(),
         optional("owningProjectId") => String.t() | atom(),
         optional("owningUserId") => String.t() | atom(),
         optional("sortBy") => list(any()),
@@ -4991,6 +5127,7 @@ defmodule AWS.DataZone do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("owningGroupId") => String.t() | atom(),
+        optional("owningIamPrincipalArn") => String.t() | atom(),
         optional("owningProjectId") => String.t() | atom(),
         optional("owningUserId") => String.t() | atom(),
         optional("sortBy") => list(any()),
@@ -5009,6 +5146,8 @@ defmodule AWS.DataZone do
 
       filter() :: %{
         "attribute" => String.t() | atom(),
+        "intValue" => [float()],
+        "operator" => list(any()),
         "value" => [String.t() | atom()]
       }
 
@@ -5092,6 +5231,7 @@ defmodule AWS.DataZone do
         "name" => String.t() | atom(),
         "projectId" => String.t() | atom(),
         "provider" => [String.t() | atom()],
+        "subscriptionGrantCreationMode" => list(any()),
         "subscriptionTargetConfig" => list(subscription_target_form()),
         "type" => [String.t() | atom()],
         "updatedAt" => non_neg_integer(),
@@ -5727,6 +5867,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      put_data_export_configuration_output() :: %{}
+
+  """
+  @type put_data_export_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_metadata_generation_run_input() :: %{}
 
   """
@@ -5765,6 +5914,15 @@ defmodule AWS.DataZone do
 
   """
   @type delete_asset_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_export_configuration_input() :: %{}
+
+  """
+  @type get_data_export_configuration_input() :: %{}
 
   @typedoc """
 
@@ -6120,6 +6278,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      glossary_term_enforcement_detail() :: %{
+        "requiredGlossaryTermIds" => list(String.t() | atom())
+      }
+
+  """
+  @type glossary_term_enforcement_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_governed_terms_input() :: %{
         required("governedGlossaryTerms") => list(String.t() | atom())
       }
@@ -6242,6 +6411,18 @@ defmodule AWS.DataZone do
 
   """
   @type get_data_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_input() :: %{
+        "attributeIdentifier" => String.t() | atom(),
+        "forms" => list(form_input())
+      }
+
+  """
+  @type attribute_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6472,6 +6653,17 @@ defmodule AWS.DataZone do
 
   """
   @type relational_filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_iam_principal_input() :: %{
+        "identifier" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_iam_principal_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7036,7 +7228,8 @@ defmodule AWS.DataZone do
         "owningProjectId" => String.t() | atom(),
         "status" => list(any()),
         "target" => metadata_generation_run_target(),
-        "type" => list(any())
+        "type" => list(any()),
+        "types" => list(list(any())())
       }
 
   """
@@ -7521,6 +7714,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      batch_put_attributes_metadata_output() :: %{
+        "attributes" => list(batch_put_attribute_output()),
+        "errors" => list(attribute_error())
+      }
+
+  """
+  @type batch_put_attributes_metadata_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_location() :: %{
         "accessRole" => [String.t() | atom()],
         "awsAccountId" => String.t() | atom(),
@@ -7796,6 +8001,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      batch_get_attribute_output() :: %{
+        "attributeIdentifier" => String.t() | atom(),
+        "forms" => list(form_output())
+      }
+
+  """
+  @type batch_get_attribute_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       redshift_lineage_sync_configuration_input() :: %{
         "enabled" => [boolean()],
         "schedule" => lineage_sync_schedule()
@@ -8001,6 +8218,22 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_data_export_configuration_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "encryptionConfiguration" => encryption_configuration(),
+        "isExportEnabled" => [boolean()],
+        "s3TableBucketArn" => [String.t() | atom()],
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_data_export_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_unit_group_properties() :: %{
         "groupId" => [String.t() | atom()]
       }
@@ -8077,10 +8310,12 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      get_metadata_generation_run_input() :: %{}
+      get_metadata_generation_run_input() :: %{
+        optional("type") => list(any())
+      }
 
   """
-  @type get_metadata_generation_run_input() :: %{}
+  @type get_metadata_generation_run_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8126,6 +8361,30 @@ defmodule AWS.DataZone do
 
   """
   @type delete_project_profile_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_attributes_metadata_output() :: %{
+        "attributes" => list(batch_get_attribute_output()),
+        "errors" => list(attribute_error())
+      }
+
+  """
+  @type batch_get_attributes_metadata_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_attributes_metadata_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("attributes") => list(attribute_input())
+      }
+
+  """
+  @type batch_put_attributes_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8193,6 +8452,7 @@ defmodule AWS.DataZone do
         optional("manageAccessRole") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("provider") => [String.t() | atom()],
+        optional("subscriptionGrantCreationMode") => list(any()),
         optional("subscriptionTargetConfig") => list(subscription_target_form())
       }
 
@@ -8494,6 +8754,21 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type batch_get_attributes_metadata_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_put_attributes_metadata_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type cancel_metadata_generation_run_errors() ::
           throttling_exception()
           | validation_exception()
@@ -8781,6 +9056,14 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type delete_data_export_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_data_product_errors() ::
           throttling_exception()
           | validation_exception()
@@ -8985,6 +9268,13 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
 
   @type get_connection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_data_export_configuration_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -9444,6 +9734,15 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type put_data_export_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type put_environment_blueprint_configuration_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -9664,6 +9963,14 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_root_domain_unit_owner_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -9980,6 +10287,101 @@ defmodule AWS.DataZone do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the attribute metadata.
+  """
+  @spec batch_get_attributes_metadata(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, batch_get_attributes_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_attributes_metadata_errors()}
+  def batch_get_attributes_metadata(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        attribute_identifiers,
+        entity_revision \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/attributes-metadata"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(entity_revision) do
+        [{"entityRevision", entity_revision} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(attribute_identifiers) do
+        [{"attributeIdentifier", attribute_identifiers} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Writes the attribute metadata.
+  """
+  @spec batch_put_attributes_metadata(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          batch_put_attributes_metadata_input(),
+          list()
+        ) ::
+          {:ok, batch_put_attributes_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_put_attributes_metadata_errors()}
+  def batch_put_attributes_metadata(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/attributes-metadata"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -11416,6 +11818,53 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Deletes data export configuration for a domain.
+
+  This operation does not delete the S3 table created by the
+  PutDataExportConfiguration operation.
+
+  To temporarily disable export without deleting the configuration, use the
+  PutDataExportConfiguration operation with the `--no-enable-export` flag instead.
+  This allows you to re-enable export for the same domain using the
+  `--enable-export` flag without deleting S3 table.
+  """
+  @spec delete_data_export_configuration(
+          map(),
+          String.t() | atom(),
+          delete_data_export_configuration_input(),
+          list()
+        ) ::
+          {:ok, delete_data_export_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_data_export_configuration_errors()}
+  def delete_data_export_configuration(
+        %Client{} = client,
+        domain_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-export-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a data product in Amazon DataZone.
 
   Prerequisites:
@@ -12633,6 +13082,24 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Gets data export configuration details.
+  """
+  @spec get_data_export_configuration(map(), String.t() | atom(), list()) ::
+          {:ok, get_data_export_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_export_configuration_errors()}
+  def get_data_export_configuration(%Client{} = client, domain_identifier, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-export-configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets the data product.
 
   Prerequisites:
@@ -13229,7 +13696,13 @@ defmodule AWS.DataZone do
 
     * User must have read access to the metadata run.
   """
-  @spec get_metadata_generation_run(map(), String.t() | atom(), String.t() | atom(), list()) ::
+  @spec get_metadata_generation_run(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13238,6 +13711,7 @@ defmodule AWS.DataZone do
         %Client{} = client,
         domain_identifier,
         identifier,
+        type \\ nil,
         options \\ []
       ) do
     url_path =
@@ -13245,6 +13719,13 @@ defmodule AWS.DataZone do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -14899,6 +15380,7 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_metadata_generation_runs_output(), any()}
@@ -14911,6 +15393,7 @@ defmodule AWS.DataZone do
         max_results \\ nil,
         next_token \\ nil,
         status \\ nil,
+        target_identifier \\ nil,
         type \\ nil,
         options \\ []
       ) do
@@ -14921,6 +15404,13 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(type) do
         [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_identifier) do
+        [{"targetIdentifier", target_identifier} | query_params]
       else
         query_params
       end
@@ -15437,6 +15927,7 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_subscription_grants_output(), any()}
@@ -15450,6 +15941,7 @@ defmodule AWS.DataZone do
         max_results \\ nil,
         next_token \\ nil,
         owning_group_id \\ nil,
+        owning_iam_principal_arn \\ nil,
         owning_project_id \\ nil,
         owning_user_id \\ nil,
         sort_by \\ nil,
@@ -15513,6 +16005,13 @@ defmodule AWS.DataZone do
       end
 
     query_params =
+      if !is_nil(owning_iam_principal_arn) do
+        [{"owningIamPrincipalArn", owning_iam_principal_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(owning_group_id) do
         [{"owningGroupId", owning_group_id} | query_params]
       else
@@ -15561,6 +16060,7 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_subscription_requests_output(), any()}
@@ -15574,6 +16074,7 @@ defmodule AWS.DataZone do
         max_results \\ nil,
         next_token \\ nil,
         owning_group_id \\ nil,
+        owning_iam_principal_arn \\ nil,
         owning_project_id \\ nil,
         owning_user_id \\ nil,
         sort_by \\ nil,
@@ -15624,6 +16125,13 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(owning_project_id) do
         [{"owningProjectId", owning_project_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owning_iam_principal_arn) do
+        [{"owningIamPrincipalArn", owning_iam_principal_arn} | query_params]
       else
         query_params
       end
@@ -15744,6 +16252,7 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_subscriptions_output(), any()}
@@ -15757,6 +16266,7 @@ defmodule AWS.DataZone do
         max_results \\ nil,
         next_token \\ nil,
         owning_group_id \\ nil,
+        owning_iam_principal_arn \\ nil,
         owning_project_id \\ nil,
         owning_user_id \\ nil,
         sort_by \\ nil,
@@ -15815,6 +16325,13 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(owning_project_id) do
         [{"owningProjectId", owning_project_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owning_iam_principal_arn) do
+        [{"owningIamPrincipalArn", owning_iam_principal_arn} | query_params]
       else
         query_params
       end
@@ -16024,6 +16541,57 @@ defmodule AWS.DataZone do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates data export configuration details.
+
+  If you want to temporarily disable export and later re-enable it for the same
+  domain, use the `--no-enable-export` flag to disable and the `--enable-export`
+  flag to re-enable. This preserves the configuration and allows you to re-enable
+  export without deleting S3 table.
+
+  You can enable asset metadata export for only one domain per account per Region.
+  To enable export for a different domain, complete the following steps:
+
+     Delete the export configuration for the currently enabled domain
+  using the DeleteDataExportConfiguration operation.
+
+     Delete the asset S3 table under the aws-sagemaker-catalog S3 table
+  bucket. We recommend backing up the S3 table before deletion.
+
+     Call the PutDataExportConfiguration API to enable export for the
+  new domain.
+  """
+  @spec put_data_export_configuration(
+          map(),
+          String.t() | atom(),
+          put_data_export_configuration_input(),
+          list()
+        ) ::
+          {:ok, put_data_export_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_data_export_configuration_errors()}
+  def put_data_export_configuration(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-export-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -16318,6 +16886,31 @@ defmodule AWS.DataZone do
 
     * For paginated results, be prepared to use --next-token to fetch
   additional pages.
+
+  To run a standard free-text search, the `searchText` parameter must be supplied.
+  By default, all searchable fields are indexed for semantic search and will
+  return semantic matches for SearchListings queries. To prevent semantic search
+  indexing for a custom form attribute, see the [CreateFormType API documentation](https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html).
+  To run a lexical search query, enclose the query with double quotes (""). This
+  will disable semantic search even for fields that have semantic search enabled
+  and will only return results that contain the keywords wrapped by double quotes
+  (order of tokens in the query is not enforced). Free-text search is supported
+  for all attributes annotated with @amazon.datazone#searchable.
+
+  To run a filtered search, provide filter clause using the `filters` parameter.
+  To filter on glossary terms, use the special attribute
+  `__DataZoneGlossaryTerms`. To filter on an indexed numeric attribute (i.e., a
+  numeric attribute annotated with `@amazon.datazone#sortable`), provide a filter
+  using the `intValue` parameter. The filters parameter can also be used to run
+  more advanced free-text searches that target specific attributes (attributes
+  must be annotated with `@amazon.datazone#searchable` for free-text search).
+  Create/update timestamp filtering is supported using the special
+  `creationTime`/`lastUpdatedTime` attributes. Filter types can be mixed and
+  matched to power complex queries.
+
+  To find out whether an attribute has been annotated and indexed for a given
+  search type, use the GetFormType API to retrieve the form containing the
+  attribute.
   """
   @spec search(map(), String.t() | atom(), search_input(), list()) ::
           {:ok, search_output(), any()}
@@ -16393,18 +16986,26 @@ defmodule AWS.DataZone do
   The SearchListings API gives users flexibility in specifying what kind of search
   is run.
 
-  To run a free-text search, the `searchText` parameter must be supplied. By
-  default, all searchable fields are indexed for semantic search and will return
-  semantic matches for SearchListings queries. To prevent semantic search indexing
-  for a custom form attribute, see the [CreateFormType API documentation](https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html).
+  To run a standard free-text search, the `searchText` parameter must be supplied.
+  By default, all searchable fields are indexed for semantic search and will
+  return semantic matches for SearchListings queries. To prevent semantic search
+  indexing for a custom form attribute, see the [CreateFormType API documentation](https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html).
   To run a lexical search query, enclose the query with double quotes (""). This
   will disable semantic search even for fields that have semantic search enabled
   and will only return results that contain the keywords wrapped by double quotes
   (order of tokens in the query is not enforced). Free-text search is supported
   for all attributes annotated with @amazon.datazone#searchable.
 
-  To run a filtered search, provide filter clause using the filters parameter. To
-  filter on glossary terms, use the special attribute `__DataZoneGlossaryTerms`.
+  To run a filtered search, provide filter clause using the `filters` parameter.
+  To filter on glossary terms, use the special attribute
+  `__DataZoneGlossaryTerms`. To filter on an indexed numeric attribute (i.e., a
+  numeric attribute annotated with `@amazon.datazone#sortable`), provide a filter
+  using the `intValue` parameter. The filters parameter can also be used to run
+  more advanced free-text searches that target specific attributes (attributes
+  must be annotated with `@amazon.datazone#searchable` for free-text search).
+  Create/update timestamp filtering is supported using the special
+  `creationTime`/`lastUpdatedTime` attributes. Filter types can be mixed and
+  matched to power complex queries.
 
   To find out whether an attribute has been annotated and indexed for a given
   search type, use the GetFormType API to retrieve the form containing the
@@ -16567,7 +17168,8 @@ defmodule AWS.DataZone do
 
     * Asset must have a structured schema with valid rows and columns.
 
-    * Valid values for --type: BUSINESS_DESCRIPTIONS, BUSINESS_NAMES.
+    * Valid values for --type: BUSINESS_DESCRIPTIONS, BUSINESS_NAMES,
+  BUSINESS_GLOSSARY_ASSOCIATIONS.
 
     * The user must have permission to run metadata generation in the
   domain/project.
@@ -17296,6 +17898,40 @@ defmodule AWS.DataZone do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Updates the owner of the root domain unit.
+  """
+  @spec update_root_domain_unit_owner(
+          map(),
+          String.t() | atom(),
+          update_root_domain_unit_owner_input(),
+          list()
+        ) ::
+          {:ok, update_root_domain_unit_owner_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_root_domain_unit_owner_errors()}
+  def update_root_domain_unit_owner(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/root-domain-unit-owner"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 

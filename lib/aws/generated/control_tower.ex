@@ -622,9 +622,9 @@ defmodule AWS.ControlTower do
   ## Example:
 
       create_landing_zone_input() :: %{
+        optional("manifest") => any(),
         optional("remediationTypes") => list(list(any())()),
         optional("tags") => map(),
-        required("manifest") => any(),
         required("version") => String.t() | atom()
       }
 
@@ -687,9 +687,9 @@ defmodule AWS.ControlTower do
   ## Example:
 
       update_landing_zone_input() :: %{
+        optional("manifest") => any(),
         optional("remediationTypes") => list(list(any())()),
         required("landingZoneIdentifier") => [String.t() | atom()],
-        required("manifest") => any(),
         required("version") => String.t() | atom()
       }
 

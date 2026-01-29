@@ -133,6 +133,18 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      customer_profiles_integration_config() :: %{
+        "domainArn" => String.t() | atom(),
+        "objectTypeArn" => String.t() | atom()
+      }
+
+  """
+  @type customer_profiles_integration_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_schema_mapping_output() :: %{
         "description" => String.t() | atom(),
         "mappedInputFields" => list(schema_input_attribute()),
@@ -1349,6 +1361,7 @@ defmodule AWS.EntityResolution do
       output_source() :: %{
         "KMSArn" => String.t() | atom(),
         "applyNormalization" => [boolean()],
+        "customerProfilesIntegrationConfig" => customer_profiles_integration_config(),
         "output" => list(output_attribute()),
         "outputS3Path" => String.t() | atom()
       }

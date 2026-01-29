@@ -34,6 +34,56 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      router_input_thumbnail_details() :: %{
+        "Thumbnail" => [binary()],
+        "ThumbnailMessages" => list(router_input_message()),
+        "Timecode" => [String.t() | atom()],
+        "Timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type router_input_thumbnail_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      merge_router_input_stream_details() :: %{
+        "SourceIndexOneStreamDetails" => merge_router_input_indexed_stream_details(),
+        "SourceIndexZeroStreamDetails" => merge_router_input_indexed_stream_details()
+      }
+
+  """
+  @type merge_router_input_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_router_network_interface_configuration() :: %{
+        "SecurityGroupIds" => list([String.t() | atom()]()),
+        "SubnetId" => [String.t() | atom()]
+      }
+
+  """
+  @type vpc_router_network_interface_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_network_interface_response() :: %{
+        "Errors" => list(batch_get_router_network_interface_error()),
+        "RouterNetworkInterfaces" => list(router_network_interface())
+      }
+
+  """
+  @type batch_get_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       deregister_gateway_instance_response() :: %{
         "GatewayInstanceArn" => [String.t() | atom()],
         "InstanceState" => list(any())
@@ -47,6 +97,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_flow_request() :: %{
+        optional("EncodingConfig") => encoding_config(),
         optional("FlowSize") => list(any()),
         optional("Maintenance") => update_maintenance(),
         optional("NdiConfig") => ndi_config(),
@@ -56,6 +107,21 @@ defmodule AWS.MediaConnect do
 
   """
   @type update_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      take_router_input_response() :: %{
+        "RoutedState" => list(any()),
+        "RouterInputArn" => String.t() | atom(),
+        "RouterInputName" => [String.t() | atom()],
+        "RouterOutputArn" => String.t() | atom(),
+        "RouterOutputName" => [String.t() | atom()]
+      }
+
+  """
+  @type take_router_input_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -94,6 +160,15 @@ defmodule AWS.MediaConnect do
 
   """
   @type media_stream_output_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_router_input_request() :: %{}
+
+  """
+  @type stop_router_input_request() :: %{}
 
   @typedoc """
 
@@ -150,9 +225,30 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      create_router_output_request() :: %{
+        optional("AvailabilityZone") => [String.t() | atom()],
+        optional("ClientToken") => [String.t() | atom()],
+        optional("MaintenanceConfiguration") => list(),
+        optional("RegionName") => [String.t() | atom()],
+        optional("Tags") => map(),
+        required("Configuration") => list(),
+        required("MaximumBitrate") => [float()],
+        required("Name") => [String.t() | atom()],
+        required("RoutingScope") => list(any()),
+        required("Tier") => list(any())
+      }
+
+  """
+  @type create_router_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_flow_source_metadata_response() :: %{
         "FlowArn" => [String.t() | atom()],
         "Messages" => list(message_detail()),
+        "NdiInfo" => ndi_source_metadata_info(),
         "Timestamp" => [non_neg_integer()],
         "TransportMediaInfo" => transport_media_info()
       }
@@ -164,12 +260,50 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      delete_router_output_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type delete_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       grant_flow_entitlements_request() :: %{
         required("Entitlements") => list(grant_entitlement_request())
       }
 
   """
   @type grant_flow_entitlements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_network_interface_request() :: %{
+        optional("Configuration") => list(),
+        optional("Name") => [String.t() | atom()]
+      }
+
+  """
+  @type update_router_network_interface_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_network_interfaces_request() :: %{
+        optional("Filters") => list(list()),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_router_network_interfaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -193,6 +327,19 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      srt_listener_router_output_configuration() :: %{
+        "EncryptionConfiguration" => srt_encryption_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "Port" => [integer()]
+      }
+
+  """
+  @type srt_listener_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       fmtp_request() :: %{
         "ChannelOrder" => [String.t() | atom()],
         "Colorimetry" => list(any()),
@@ -210,8 +357,105 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      batch_get_router_input_error() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_router_input_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_router_network_interface_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type delete_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager_encryption_key_configuration() :: %{
+        "RoleArn" => String.t() | atom(),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type secrets_manager_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => [String.t() | atom()],
+        "Configuration" => list(),
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "InputType" => list(any()),
+        "IpAddress" => [String.t() | atom()],
+        "MaintenanceConfiguration" => list(),
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "MaintenanceType" => list(any()),
+        "MaximumBitrate" => [float()],
+        "MaximumRoutedOutputs" => [integer()],
+        "Messages" => list(router_input_message()),
+        "Name" => [String.t() | atom()],
+        "RegionName" => [String.t() | atom()],
+        "RoutedOutputs" => [integer()],
+        "RoutingScope" => list(any()),
+        "State" => list(any()),
+        "StreamDetails" => list(),
+        "Tags" => map(),
+        "Tier" => list(any()),
+        "TransitEncryption" => router_input_transit_encryption(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restart_router_output_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type restart_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_media_info() :: %{
+        "Streams" => list(ndi_media_stream_info())
+      }
+
+  """
+  @type ndi_media_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_flow_request() :: %{
         optional("AvailabilityZone") => [String.t() | atom()],
+        optional("EncodingConfig") => encoding_config(),
         optional("Entitlements") => list(grant_entitlement_request()),
         optional("FlowSize") => list(any()),
         optional("FlowTags") => map(),
@@ -245,6 +489,61 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      start_router_output_request() :: %{}
+
+  """
+  @type start_router_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_router_input_request() :: %{}
+
+  """
+  @type start_router_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      rtp_router_output_configuration() :: %{
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationPort" => [integer()],
+        "ForwardErrorCorrection" => list(any())
+      }
+
+  """
+  @type rtp_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_router_output_response() :: %{
+        "Arn" => String.t() | atom(),
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type start_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_global_resource_request() :: %{}
+
+  """
+  @type list_tags_for_global_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_gateway_instances_response() :: %{
         "Instances" => list(listed_gateway_instance()),
         "NextToken" => [String.t() | atom()]
@@ -252,6 +551,33 @@ defmodule AWS.MediaConnect do
 
   """
   @type list_gateway_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_router_output() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => [String.t() | atom()],
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "MaximumBitrate" => [float()],
+        "MessageCount" => [integer()],
+        "Name" => [String.t() | atom()],
+        "NetworkInterfaceArn" => String.t() | atom(),
+        "OutputType" => list(any()),
+        "RegionName" => [String.t() | atom()],
+        "RoutedInputArn" => String.t() | atom(),
+        "RoutedState" => list(any()),
+        "RoutingScope" => list(any()),
+        "State" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type listed_router_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -316,6 +642,17 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      create_router_input_response() :: %{
+        "RouterInput" => router_input()
+      }
+
+  """
+  @type create_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       add_flow_media_streams_response() :: %{
         "FlowArn" => [String.t() | atom()],
         "MediaStreams" => list(media_stream())
@@ -323,6 +660,19 @@ defmodule AWS.MediaConnect do
 
   """
   @type add_flow_media_streams_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_source_metadata_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "SourceMetadataDetails" => router_input_source_metadata_details()
+      }
+
+  """
+  @type get_router_input_source_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -375,6 +725,53 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      media_live_transit_encryption() :: %{
+        "EncryptionKeyConfiguration" => list(),
+        "EncryptionKeyType" => list(any())
+      }
+
+  """
+  @type media_live_transit_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_live_input_router_output_configuration() :: %{
+        "DestinationTransitEncryption" => media_live_transit_encryption(),
+        "MediaLiveInputArn" => String.t() | atom(),
+        "MediaLivePipelineId" => list(any())
+      }
+
+  """
+  @type media_live_input_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_encryption_configuration() :: %{
+        "EncryptionKey" => secrets_manager_encryption_key_configuration()
+      }
+
+  """
+  @type srt_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_response() :: %{
+        "RouterInput" => router_input()
+      }
+
+  """
+  @type get_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_bridge_output_request() :: %{
         optional("NetworkOutput") => update_bridge_network_output_request()
       }
@@ -393,6 +790,15 @@ defmodule AWS.MediaConnect do
 
   """
   @type list_offerings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automatic_encryption_key_configuration() :: %{}
+
+  """
+  @type automatic_encryption_key_configuration() :: %{}
 
   @typedoc """
 
@@ -537,12 +943,56 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      router_output_message() :: %{
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type router_output_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_output_request() :: %{}
+
+  """
+  @type get_router_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_flow420_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
   @type create_flow420_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_router_input_indexed_stream_details() :: %{
+        "SourceIndex" => [integer()],
+        "SourceIpAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type failover_router_input_indexed_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_source_info() :: %{
+        "SourceName" => [String.t() | atom()]
+      }
+
+  """
+  @type ndi_source_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,6 +1010,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type listed_flow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      merge_router_input_indexed_stream_details() :: %{
+        "SourceIndex" => [integer()],
+        "SourceIpAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type merge_router_input_indexed_stream_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -586,6 +1048,19 @@ defmodule AWS.MediaConnect do
 
   """
   @type update_gateway_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_router_input_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type stop_router_input_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -632,6 +1107,18 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      failover_router_input_stream_details() :: %{
+        "SourceIndexOneStreamDetails" => failover_router_input_indexed_stream_details(),
+        "SourceIndexZeroStreamDetails" => failover_router_input_indexed_stream_details()
+      }
+
+  """
+  @type failover_router_input_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_flow_media_stream_response() :: %{
         "FlowArn" => [String.t() | atom()],
         "MediaStreamName" => [String.t() | atom()]
@@ -655,12 +1142,32 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      create_router_network_interface_response() :: %{
+        "RouterNetworkInterface" => router_network_interface()
+      }
+
+  """
+  @type create_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_requests_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
   @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_router_network_interface_request() :: %{}
+
+  """
+  @type delete_router_network_interface_request() :: %{}
 
   @typedoc """
 
@@ -673,6 +1180,15 @@ defmodule AWS.MediaConnect do
 
   """
   @type remove_bridge_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_maintenance_configuration() :: %{}
+
+  """
+  @type default_maintenance_configuration() :: %{}
 
   @typedoc """
 
@@ -697,6 +1213,21 @@ defmodule AWS.MediaConnect do
 
   """
   @type encoding_parameters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_router_input_configuration() :: %{
+        "DecryptionConfiguration" => srt_decryption_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "SourceAddress" => [String.t() | atom()],
+        "SourcePort" => [integer()],
+        "StreamId" => [String.t() | atom()]
+      }
+
+  """
+  @type srt_caller_router_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,6 +1322,29 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      list_router_network_interfaces_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "RouterNetworkInterfaces" => list(listed_router_network_interface())
+      }
+
+  """
+  @type list_router_network_interfaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_network_interface_response() :: %{
+        "RouterNetworkInterface" => router_network_interface()
+      }
+
+  """
+  @type update_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       message_detail() :: %{
         "Code" => [String.t() | atom()],
         "Message" => [String.t() | atom()],
@@ -811,6 +1365,28 @@ defmodule AWS.MediaConnect do
 
   """
   @type media_stream_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_global_resource_request() :: %{
+        required("TagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_global_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_input_response() :: %{
+        "RouterInput" => router_input()
+      }
+
+  """
+  @type update_router_input_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -852,6 +1428,17 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      list_tags_for_global_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_global_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       egress_gateway_bridge() :: %{
         "InstanceId" => [String.t() | atom()],
         "MaxBitrate" => [integer()]
@@ -859,6 +1446,26 @@ defmodule AWS.MediaConnect do
 
   """
   @type egress_gateway_bridge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_request() :: %{}
+
+  """
+  @type get_router_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      public_router_network_interface_configuration() :: %{
+        "AllowRules" => list(public_router_network_interface_rule())
+      }
+
+  """
+  @type public_router_network_interface_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -875,7 +1482,10 @@ defmodule AWS.MediaConnect do
         optional("MaxSyncBuffer") => [integer()],
         optional("MediaStreamSourceConfigurations") => list(media_stream_source_configuration_request()),
         optional("MinLatency") => [integer()],
+        optional("NdiSourceSettings") => ndi_source_settings(),
         optional("Protocol") => list(any()),
+        optional("RouterIntegrationState") => list(any()),
+        optional("RouterIntegrationTransitDecryption") => flow_transit_encryption(),
         optional("SenderControlPort") => [integer()],
         optional("SenderIpAddress") => [String.t() | atom()],
         optional("SourceListenerAddress") => [String.t() | atom()],
@@ -899,6 +1509,43 @@ defmodule AWS.MediaConnect do
 
   """
   @type list_flows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_flow_router_output_configuration() :: %{
+        "DestinationTransitEncryption" => flow_transit_encryption(),
+        "FlowArn" => String.t() | atom(),
+        "FlowSourceArn" => String.t() | atom()
+      }
+
+  """
+  @type media_connect_flow_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_transit_encryption() :: %{
+        "EncryptionKeyConfiguration" => list(),
+        "EncryptionKeyType" => list(any())
+      }
+
+  """
+  @type router_input_transit_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rist_router_input_configuration() :: %{
+        "Port" => [integer()],
+        "RecoveryLatencyMilliseconds" => [float()]
+      }
+
+  """
+  @type rist_router_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -948,6 +1595,18 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      rist_router_output_configuration() :: %{
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationPort" => [integer()]
+      }
+
+  """
+  @type rist_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bridge_output() :: %{
         "FlowOutput" => bridge_flow_output(),
         "NetworkOutput" => bridge_network_output()
@@ -989,6 +1648,7 @@ defmodule AWS.MediaConnect do
         "MaxSyncBuffer" => [integer()],
         "MinLatency" => [integer()],
         "NdiProgramName" => [String.t() | atom()],
+        "NdiSourceSettings" => ndi_source_settings(),
         "NdiSpeedHqQuality" => [integer()],
         "Protocol" => list(any()),
         "RemoteId" => [String.t() | atom()],
@@ -1039,6 +1699,19 @@ defmodule AWS.MediaConnect do
 
   """
   @type add_flow_vpc_interfaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_thumbnail_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "ThumbnailDetails" => router_input_thumbnail_details()
+      }
+
+  """
+  @type get_router_input_thumbnail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1095,6 +1768,35 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      delete_router_output_request() :: %{}
+
+  """
+  @type delete_router_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_flow_router_output_stream_details() :: %{}
+
+  """
+  @type media_connect_flow_router_output_stream_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      take_router_input_request() :: %{
+        optional("RouterInputArn") => String.t() | atom()
+      }
+
+  """
+  @type take_router_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       fmtp() :: %{
         "ChannelOrder" => [String.t() | atom()],
         "Colorimetry" => list(any()),
@@ -1107,6 +1809,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type fmtp() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_global_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_global_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1141,6 +1854,15 @@ defmodule AWS.MediaConnect do
 
   """
   @type set_gateway_bridge_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_network_interface_request() :: %{}
+
+  """
+  @type get_router_network_interface_request() :: %{}
 
   @typedoc """
 
@@ -1229,6 +1951,15 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      media_connect_flow_router_input_stream_details() :: %{}
+
+  """
+  @type media_connect_flow_router_input_stream_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       encryption() :: %{
         "Algorithm" => list(any()),
         "ConstantInitializationVector" => [String.t() | atom()],
@@ -1283,6 +2014,26 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      get_router_output_response() :: %{
+        "RouterOutput" => router_output()
+      }
+
+  """
+  @type get_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_source_metadata_request() :: %{}
+
+  """
+  @type get_router_input_source_metadata_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       grant_flow_entitlements420_exception() :: %{
         "Message" => [String.t() | atom()]
       }
@@ -1328,6 +2079,15 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      media_live_input_router_output_stream_details() :: %{}
+
+  """
+  @type media_live_input_router_output_stream_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       resource_specification() :: %{
         "ReservedBitrate" => [integer()],
         "ResourceType" => list(any())
@@ -1335,6 +2095,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type resource_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_output_response() :: %{
+        "RouterOutput" => router_output()
+      }
+
+  """
+  @type update_router_output_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1379,6 +2150,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type reservation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encoding_config() :: %{
+        "EncodingProfile" => list(any()),
+        "VideoMaxBitrate" => [integer()]
+      }
+
+  """
+  @type encoding_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1479,6 +2262,26 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      listed_router_network_interface() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedInputCount" => [integer()],
+        "AssociatedOutputCount" => [integer()],
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "NetworkInterfaceType" => list(any()),
+        "RegionName" => [String.t() | atom()],
+        "State" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type listed_router_network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_flow_source_request() :: %{}
 
   """
@@ -1497,6 +2300,18 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      list_router_outputs_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "RouterOutputs" => list(listed_router_output())
+      }
+
+  """
+  @type list_router_outputs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_flow_source_response() :: %{
         "FlowArn" => [String.t() | atom()],
         "SourceArn" => [String.t() | atom()]
@@ -1504,6 +2319,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type remove_flow_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_output_service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type router_output_service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1551,7 +2377,30 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      router_network_interface() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedInputCount" => [integer()],
+        "AssociatedOutputCount" => [integer()],
+        "Configuration" => list(),
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "NetworkInterfaceType" => list(any()),
+        "RegionName" => [String.t() | atom()],
+        "State" => list(any()),
+        "Tags" => map(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type router_network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       source() :: %{
+        "ConnectedRouterOutputArn" => [String.t() | atom()],
         "DataTransferSubscriberFeePercent" => [integer()],
         "Decryption" => encryption(),
         "Description" => [String.t() | atom()],
@@ -1562,6 +2411,8 @@ defmodule AWS.MediaConnect do
         "MediaStreamSourceConfigurations" => list(media_stream_source_configuration()),
         "Name" => [String.t() | atom()],
         "PeerIpAddress" => [String.t() | atom()],
+        "RouterIntegrationState" => list(any()),
+        "RouterIntegrationTransitDecryption" => flow_transit_encryption(),
         "SenderControlPort" => [integer()],
         "SenderIpAddress" => [String.t() | atom()],
         "SourceArn" => [String.t() | atom()],
@@ -1602,6 +2453,64 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      restart_router_output_request() :: %{}
+
+  """
+  @type restart_router_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_output_request() :: %{
+        optional("Configuration") => list(),
+        optional("MaintenanceConfiguration") => list(),
+        optional("MaximumBitrate") => [float()],
+        optional("Name") => [String.t() | atom()],
+        optional("RoutingScope") => list(any()),
+        optional("Tier") => list(any())
+      }
+
+  """
+  @type update_router_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_inputs_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "RouterInputs" => list(listed_router_input())
+      }
+
+  """
+  @type list_router_inputs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_router_input_request() :: %{
+        optional("AvailabilityZone") => [String.t() | atom()],
+        optional("ClientToken") => [String.t() | atom()],
+        optional("MaintenanceConfiguration") => list(),
+        optional("RegionName") => [String.t() | atom()],
+        optional("Tags") => map(),
+        optional("TransitEncryption") => router_input_transit_encryption(),
+        required("Configuration") => list(),
+        required("MaximumBitrate") => [float()],
+        required("Name") => [String.t() | atom()],
+        required("RoutingScope") => list(any()),
+        required("Tier") => list(any())
+      }
+
+  """
+  @type create_router_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_failover_config() :: %{
         "FailoverMode" => list(any()),
         "RecoveryWindow" => [integer()],
@@ -1634,6 +2543,19 @@ defmodule AWS.MediaConnect do
 
   """
   @type update_bridge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      merge_router_input_configuration() :: %{
+        "MergeRecoveryWindowMilliseconds" => [float()],
+        "NetworkInterfaceArn" => String.t() | atom(),
+        "ProtocolConfigurations" => list(list())
+      }
+
+  """
+  @type merge_router_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1687,6 +2609,21 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      start_router_input_response() :: %{
+        "Arn" => String.t() | atom(),
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type start_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       entitlement() :: %{
         "DataTransferSubscriberFeePercent" => [integer()],
         "Description" => [String.t() | atom()],
@@ -1699,6 +2636,15 @@ defmodule AWS.MediaConnect do
 
   """
   @type entitlement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restart_router_input_request() :: %{}
+
+  """
+  @type restart_router_input_request() :: %{}
 
   @typedoc """
 
@@ -1751,6 +2697,50 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      standard_router_output_stream_details() :: %{
+        "DestinationIpAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type standard_router_output_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_inputs_request() :: %{
+        optional("Filters") => list(list()),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_router_inputs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_network_interface_request() :: %{
+        required("Arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_router_network_interface_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_thumbnail_request() :: %{}
+
+  """
+  @type get_router_input_thumbnail_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_reservations_response() :: %{
         "NextToken" => [String.t() | atom()],
         "Reservations" => list(reservation())
@@ -1775,12 +2765,63 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      srt_decryption_configuration() :: %{
+        "EncryptionKey" => secrets_manager_encryption_key_configuration()
+      }
+
+  """
+  @type srt_decryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_source_metadata_info() :: %{
+        "ActiveSource" => ndi_source_info(),
+        "DiscoveredSources" => list(ndi_source_info()),
+        "MediaInfo" => ndi_media_info(),
+        "Messages" => list(message_detail())
+      }
+
+  """
+  @type ndi_source_metadata_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       messages() :: %{
         "Errors" => list([String.t() | atom()]())
       }
 
   """
   @type messages() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      window_maintenance_schedule() :: %{
+        "End" => [non_neg_integer()],
+        "ScheduledTime" => [non_neg_integer()],
+        "Start" => [non_neg_integer()]
+      }
+
+  """
+  @type window_maintenance_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_router_input_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type delete_router_input_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1816,6 +2857,19 @@ defmodule AWS.MediaConnect do
 
   """
   @type interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_router_output_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type stop_router_output_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1866,6 +2920,44 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      srt_caller_router_output_configuration() :: %{
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationPort" => [integer()],
+        "EncryptionConfiguration" => srt_encryption_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "StreamId" => [String.t() | atom()]
+      }
+
+  """
+  @type srt_caller_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_output_request() :: %{
+        required("Arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_router_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_output_response() :: %{
+        "Errors" => list(batch_get_router_output_error()),
+        "RouterOutputs" => list(router_output())
+      }
+
+  """
+  @type batch_get_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_entitlements_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t() | atom()]
@@ -1873,6 +2965,53 @@ defmodule AWS.MediaConnect do
 
   """
   @type list_entitlements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_router_network_interface_rule() :: %{
+        "Cidr" => [String.t() | atom()]
+      }
+
+  """
+  @type public_router_network_interface_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restart_router_input_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type restart_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_input_request() :: %{
+        required("Arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_router_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtp_router_input_configuration() :: %{
+        "ForwardErrorCorrection" => list(any()),
+        "Port" => [integer()]
+      }
+
+  """
+  @type rtp_router_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1891,6 +3030,19 @@ defmodule AWS.MediaConnect do
 
   """
   @type describe_reservation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_listener_router_input_configuration() :: %{
+        "DecryptionConfiguration" => srt_decryption_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "Port" => [integer()]
+      }
+
+  """
+  @type srt_listener_router_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1916,6 +3068,19 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      standard_router_input_configuration() :: %{
+        "NetworkInterfaceArn" => String.t() | atom(),
+        "Protocol" => list(any()),
+        "ProtocolConfiguration" => list()
+      }
+
+  """
+  @type standard_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       frame_resolution() :: %{
         "FrameHeight" => [integer()],
         "FrameWidth" => [integer()]
@@ -1923,6 +3088,28 @@ defmodule AWS.MediaConnect do
 
   """
   @type frame_resolution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_router_input_request() :: %{}
+
+  """
+  @type delete_router_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_output_error() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_router_output_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1974,6 +3161,19 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      router_input_source_metadata_details() :: %{
+        "RouterInputMetadata" => list(),
+        "SourceMetadataMessages" => list(router_input_message()),
+        "Timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type router_input_source_metadata_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       add_bridge_output_request() :: %{
         "NetworkOutput" => add_bridge_network_output_request()
       }
@@ -1993,6 +3193,26 @@ defmodule AWS.MediaConnect do
 
   """
   @type list_gateway_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_router_input_stream_details() :: %{
+        "SourceIpAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type standard_router_input_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_router_output_request() :: %{}
+
+  """
+  @type stop_router_output_request() :: %{}
 
   @typedoc """
 
@@ -2036,6 +3256,30 @@ defmodule AWS.MediaConnect do
 
   """
   @type ndi_discovery_server_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_router_output_response() :: %{
+        "RouterOutput" => router_output()
+      }
+
+  """
+  @type create_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_network_interface_error() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_router_network_interface_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2104,6 +3348,8 @@ defmodule AWS.MediaConnect do
         optional("Port") => [integer()],
         optional("Protocol") => list(any()),
         optional("RemoteId") => [String.t() | atom()],
+        optional("RouterIntegrationState") => list(any()),
+        optional("RouterIntegrationTransitEncryption") => flow_transit_encryption(),
         optional("SenderControlPort") => [integer()],
         optional("SenderIpAddress") => [String.t() | atom()],
         optional("SmoothingLatency") => [integer()],
@@ -2131,6 +3377,62 @@ defmodule AWS.MediaConnect do
 
   """
   @type gateway_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_router_input() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => [String.t() | atom()],
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "InputType" => list(any()),
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "MaximumBitrate" => [float()],
+        "MessageCount" => [integer()],
+        "Name" => [String.t() | atom()],
+        "NetworkInterfaceArn" => String.t() | atom(),
+        "RegionName" => [String.t() | atom()],
+        "RoutedOutputs" => [integer()],
+        "RoutingScope" => list(any()),
+        "State" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type listed_router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_input_request() :: %{
+        optional("Configuration") => list(),
+        optional("MaintenanceConfiguration") => list(),
+        optional("MaximumBitrate") => [float()],
+        optional("Name") => [String.t() | atom()],
+        optional("RoutingScope") => list(any()),
+        optional("Tier") => list(any()),
+        optional("TransitEncryption") => router_input_transit_encryption()
+      }
+
+  """
+  @type update_router_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_network_interface_service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type router_network_interface_service_quota_exceeded_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2165,6 +3467,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type add_bridge_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_transit_encryption() :: %{
+        "EncryptionKeyConfiguration" => list(),
+        "EncryptionKeyType" => list(any())
+      }
+
+  """
+  @type flow_transit_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2215,6 +3529,39 @@ defmodule AWS.MediaConnect do
 
   """
   @type update_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_output() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => [String.t() | atom()],
+        "Configuration" => list(),
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "IpAddress" => [String.t() | atom()],
+        "MaintenanceConfiguration" => list(),
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "MaintenanceType" => list(any()),
+        "MaximumBitrate" => [float()],
+        "Messages" => list(router_output_message()),
+        "Name" => [String.t() | atom()],
+        "OutputType" => list(any()),
+        "RegionName" => [String.t() | atom()],
+        "RoutedInputArn" => String.t() | atom(),
+        "RoutedState" => list(any()),
+        "RoutingScope" => list(any()),
+        "State" => list(any()),
+        "StreamDetails" => list(),
+        "Tags" => map(),
+        "Tier" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type router_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2302,6 +3649,7 @@ defmodule AWS.MediaConnect do
         "AvailabilityZone" => [String.t() | atom()],
         "Description" => [String.t() | atom()],
         "EgressIp" => [String.t() | atom()],
+        "EncodingConfig" => encoding_config(),
         "Entitlements" => list(entitlement()),
         "FlowArn" => [String.t() | atom()],
         "FlowSize" => list(any()),
@@ -2325,6 +3673,31 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      get_router_network_interface_response() :: %{
+        "RouterNetworkInterface" => router_network_interface()
+      }
+
+  """
+  @type get_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_router_input_configuration() :: %{
+        "NetworkInterfaceArn" => String.t() | atom(),
+        "PrimarySourceIndex" => [integer()],
+        "ProtocolConfigurations" => list(list()),
+        "SourcePriorityMode" => list(any())
+      }
+
+  """
+  @type failover_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       set_source_request() :: %{
         "Decryption" => encryption(),
         "Description" => [String.t() | atom()],
@@ -2337,7 +3710,10 @@ defmodule AWS.MediaConnect do
         "MediaStreamSourceConfigurations" => list(media_stream_source_configuration_request()),
         "MinLatency" => [integer()],
         "Name" => [String.t() | atom()],
+        "NdiSourceSettings" => ndi_source_settings(),
         "Protocol" => list(any()),
+        "RouterIntegrationState" => list(any()),
+        "RouterIntegrationTransitDecryption" => flow_transit_encryption(),
         "SenderControlPort" => [integer()],
         "SenderIpAddress" => [String.t() | atom()],
         "SourceListenerAddress" => [String.t() | atom()],
@@ -2422,6 +3798,19 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      media_connect_flow_router_input_configuration() :: %{
+        "FlowArn" => String.t() | atom(),
+        "FlowOutputArn" => String.t() | atom(),
+        "SourceTransitDecryption" => flow_transit_encryption()
+      }
+
+  """
+  @type media_connect_flow_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       black_frames() :: %{
         "State" => list(any()),
         "ThresholdSeconds" => [integer()]
@@ -2429,6 +3818,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type black_frames() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type router_input_service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2521,6 +3921,32 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      create_router_network_interface_request() :: %{
+        optional("ClientToken") => [String.t() | atom()],
+        optional("RegionName") => [String.t() | atom()],
+        optional("Tags") => map(),
+        required("Configuration") => list(),
+        required("Name") => [String.t() | atom()]
+      }
+
+  """
+  @type create_router_network_interface_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_source_settings() :: %{
+        "SourceName" => [String.t() | atom()]
+      }
+
+  """
+  @type ndi_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       vpc_interface_attachment() :: %{
         "VpcInterfaceName" => [String.t() | atom()]
       }
@@ -2535,6 +3961,7 @@ defmodule AWS.MediaConnect do
       output() :: %{
         "BridgeArn" => [String.t() | atom()],
         "BridgePorts" => list([integer()]()),
+        "ConnectedRouterInputArn" => [String.t() | atom()],
         "DataTransferSubscriberFeePercent" => [integer()],
         "Description" => [String.t() | atom()],
         "Destination" => [String.t() | atom()],
@@ -2548,6 +3975,8 @@ defmodule AWS.MediaConnect do
         "OutputStatus" => list(any()),
         "PeerIpAddress" => [String.t() | atom()],
         "Port" => [integer()],
+        "RouterIntegrationState" => list(any()),
+        "RouterIntegrationTransitEncryption" => flow_transit_encryption(),
         "Transport" => transport(),
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
@@ -2608,6 +4037,61 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      router_input_message() :: %{
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type router_input_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_outputs_request() :: %{
+        optional("Filters") => list(list()),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_router_outputs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_media_stream_info() :: %{
+        "Channels" => [integer()],
+        "Codec" => [String.t() | atom()],
+        "FrameRate" => [String.t() | atom()],
+        "FrameResolution" => frame_resolution(),
+        "SampleRate" => [integer()],
+        "ScanMode" => list(any()),
+        "StreamId" => [integer()],
+        "StreamType" => [String.t() | atom()]
+      }
+
+  """
+  @type ndi_media_stream_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_input_response() :: %{
+        "Errors" => list(batch_get_router_input_error()),
+        "RouterInputs" => list(router_input())
+      }
+
+  """
+  @type batch_get_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       media_stream_source_configuration() :: %{
         "EncodingName" => list(any()),
         "InputConfigurations" => list(input_configuration()),
@@ -2633,6 +4117,31 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      standard_router_output_configuration() :: %{
+        "NetworkInterfaceArn" => String.t() | atom(),
+        "Protocol" => list(any()),
+        "ProtocolConfiguration" => list()
+      }
+
+  """
+  @type standard_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preferred_day_time_maintenance_configuration() :: %{
+        "Day" => list(any()),
+        "Time" => [String.t() | atom()]
+      }
+
+  """
+  @type preferred_day_time_maintenance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       add_output_request() :: %{
         "CidrAllowList" => list([String.t() | atom()]()),
         "Description" => [String.t() | atom()],
@@ -2649,6 +4158,8 @@ defmodule AWS.MediaConnect do
         "Port" => [integer()],
         "Protocol" => list(any()),
         "RemoteId" => [String.t() | atom()],
+        "RouterIntegrationState" => list(any()),
+        "RouterIntegrationTransitEncryption" => flow_transit_encryption(),
         "SenderControlPort" => [integer()],
         "SmoothingLatency" => [integer()],
         "StreamId" => [String.t() | atom()],
@@ -2709,6 +4220,27 @@ defmodule AWS.MediaConnect do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type batch_get_router_input_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type batch_get_router_network_interface_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type batch_get_router_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
   @type create_bridge_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -2735,6 +4267,33 @@ defmodule AWS.MediaConnect do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type create_router_input_errors() ::
+          router_input_service_quota_exceeded_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_router_network_interface_errors() ::
+          bad_request_exception()
+          | router_network_interface_service_quota_exceeded_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_router_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | router_output_service_quota_exceeded_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type delete_bridge_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -2753,6 +4312,33 @@ defmodule AWS.MediaConnect do
           | forbidden_exception()
 
   @type delete_gateway_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_router_input_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_router_network_interface_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_router_output_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | service_unavailable_exception()
@@ -2835,6 +4421,49 @@ defmodule AWS.MediaConnect do
           | not_found_exception()
           | too_many_requests_exception()
 
+  @type get_router_input_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_router_input_source_metadata_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_router_input_thumbnail_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_router_network_interface_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_router_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type grant_flow_entitlements_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -2888,6 +4517,30 @@ defmodule AWS.MediaConnect do
           | internal_server_error_exception()
           | service_unavailable_exception()
           | too_many_requests_exception()
+
+  @type list_router_inputs_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type list_router_network_interfaces_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type list_router_outputs_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type list_tags_for_global_resource_errors() ::
+          bad_request_exception() | internal_server_error_exception() | not_found_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception() | internal_server_error_exception() | not_found_exception()
@@ -2950,6 +4603,24 @@ defmodule AWS.MediaConnect do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type restart_router_input_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type restart_router_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type revoke_flow_entitlement_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -2966,6 +4637,24 @@ defmodule AWS.MediaConnect do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type start_router_input_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type start_router_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type stop_flow_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -2974,7 +4663,40 @@ defmodule AWS.MediaConnect do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type stop_router_input_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type stop_router_output_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type tag_global_resource_errors() ::
+          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+
   @type tag_resource_errors() ::
+          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+
+  @type take_router_input_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type untag_global_resource_errors() ::
           bad_request_exception() | internal_server_error_exception() | not_found_exception()
 
   @type untag_resource_errors() ::
@@ -3057,6 +4779,32 @@ defmodule AWS.MediaConnect do
           | forbidden_exception()
 
   @type update_gateway_instance_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_router_input_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_router_network_interface_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_router_output_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | service_unavailable_exception()
@@ -3271,6 +5019,84 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Retrieves information about multiple router inputs in AWS Elemental
+  MediaConnect.
+  """
+  @spec batch_get_router_input(map(), String.t() | atom(), list()) ::
+          {:ok, batch_get_router_input_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_router_input_errors()}
+  def batch_get_router_input(%Client{} = client, arns, options \\ []) do
+    url_path = "/v1/routerInputs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(arns) do
+        [{"arns", arns} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about multiple router network interfaces in AWS Elemental
+  MediaConnect.
+  """
+  @spec batch_get_router_network_interface(map(), String.t() | atom(), list()) ::
+          {:ok, batch_get_router_network_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_router_network_interface_errors()}
+  def batch_get_router_network_interface(%Client{} = client, arns, options \\ []) do
+    url_path = "/v1/routerNetworkInterfaces"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(arns) do
+        [{"arns", arns} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about multiple router outputs in AWS Elemental
+  MediaConnect.
+  """
+  @spec batch_get_router_output(map(), String.t() | atom(), list()) ::
+          {:ok, batch_get_router_output_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_router_output_errors()}
+  def batch_get_router_output(%Client{} = client, arns, options \\ []) do
+    url_path = "/v1/routerOutputs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(arns) do
+        [{"arns", arns} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Creates a new bridge.
 
   The request must include one source.
@@ -3365,6 +5191,93 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Creates a new router input in AWS Elemental MediaConnect.
+  """
+  @spec create_router_input(map(), create_router_input_request(), list()) ::
+          {:ok, create_router_input_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_router_input_errors()}
+  def create_router_input(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/routerInput"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new router network interface in AWS Elemental MediaConnect.
+  """
+  @spec create_router_network_interface(map(), create_router_network_interface_request(), list()) ::
+          {:ok, create_router_network_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_router_network_interface_errors()}
+  def create_router_network_interface(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/routerNetworkInterface"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new router output in AWS Elemental MediaConnect.
+  """
+  @spec create_router_output(map(), create_router_output_request(), list()) ::
+          {:ok, create_router_output_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_router_output_errors()}
+  def create_router_output(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/routerOutput"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Deletes a bridge.
 
   Before you can delete a bridge, you must stop the bridge.
@@ -3439,6 +5352,98 @@ defmodule AWS.MediaConnect do
           | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, gateway_arn, input, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a router input from AWS Elemental MediaConnect.
+  """
+  @spec delete_router_input(map(), String.t() | atom(), delete_router_input_request(), list()) ::
+          {:ok, delete_router_input_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_router_input_errors()}
+  def delete_router_input(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerInput/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a router network interface from AWS Elemental MediaConnect.
+  """
+  @spec delete_router_network_interface(
+          map(),
+          String.t() | atom(),
+          delete_router_network_interface_request(),
+          list()
+        ) ::
+          {:ok, delete_router_network_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_router_network_interface_errors()}
+  def delete_router_network_interface(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerNetworkInterface/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a router output from AWS Elemental MediaConnect.
+  """
+  @spec delete_router_output(map(), String.t() | atom(), delete_router_output_request(), list()) ::
+          {:ok, delete_router_output_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_router_output_errors()}
+  def delete_router_output(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerOutput/#{AWS.Util.encode_uri(arn)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -3655,6 +5660,100 @@ defmodule AWS.MediaConnect do
           | {:error, describe_reservation_errors()}
   def describe_reservation(%Client{} = client, reservation_arn, options \\ []) do
     url_path = "/v1/reservations/#{AWS.Util.encode_uri(reservation_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a specific router input in AWS Elemental
+  MediaConnect.
+  """
+  @spec get_router_input(map(), String.t() | atom(), list()) ::
+          {:ok, get_router_input_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_router_input_errors()}
+  def get_router_input(%Client{} = client, arn, options \\ []) do
+    url_path = "/v1/routerInput/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves detailed metadata information about a specific router input source,
+  including stream details and connection state.
+  """
+  @spec get_router_input_source_metadata(map(), String.t() | atom(), list()) ::
+          {:ok, get_router_input_source_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_router_input_source_metadata_errors()}
+  def get_router_input_source_metadata(%Client{} = client, arn, options \\ []) do
+    url_path = "/v1/routerInput/#{AWS.Util.encode_uri(arn)}/source-metadata"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the thumbnail for a router input in AWS Elemental MediaConnect.
+  """
+  @spec get_router_input_thumbnail(map(), String.t() | atom(), list()) ::
+          {:ok, get_router_input_thumbnail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_router_input_thumbnail_errors()}
+  def get_router_input_thumbnail(%Client{} = client, arn, options \\ []) do
+    url_path = "/v1/routerInput/#{AWS.Util.encode_uri(arn)}/thumbnail"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a specific router network interface in AWS Elemental
+  MediaConnect.
+  """
+  @spec get_router_network_interface(map(), String.t() | atom(), list()) ::
+          {:ok, get_router_network_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_router_network_interface_errors()}
+  def get_router_network_interface(%Client{} = client, arn, options \\ []) do
+    url_path = "/v1/routerNetworkInterface/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a specific router output in AWS Elemental
+  MediaConnect.
+  """
+  @spec get_router_output(map(), String.t() | atom(), list()) ::
+          {:ok, get_router_output_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_router_output_errors()}
+  def get_router_output(%Client{} = client, arn, options \\ []) do
+    url_path = "/v1/routerOutput/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -3981,7 +6080,133 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  List all tags on a MediaConnect resource.
+  Retrieves a list of router inputs in AWS Elemental MediaConnect.
+  """
+  @spec list_router_inputs(map(), list_router_inputs_request(), list()) ::
+          {:ok, list_router_inputs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_router_inputs_errors()}
+  def list_router_inputs(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/routerInputs"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a list of router network interfaces in AWS Elemental MediaConnect.
+  """
+  @spec list_router_network_interfaces(map(), list_router_network_interfaces_request(), list()) ::
+          {:ok, list_router_network_interfaces_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_router_network_interfaces_errors()}
+  def list_router_network_interfaces(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/routerNetworkInterfaces"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a list of router outputs in AWS Elemental MediaConnect.
+  """
+  @spec list_router_outputs(map(), list_router_outputs_request(), list()) ::
+          {:ok, list_router_outputs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_router_outputs_errors()}
+  def list_router_outputs(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/routerOutputs"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the tags associated with a global resource in AWS Elemental MediaConnect.
+
+  The API supports the following global resources: router inputs, router outputs
+  and router network interfaces.
+  """
+  @spec list_tags_for_global_resource(map(), String.t() | atom(), list()) ::
+          {:ok, list_tags_for_global_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tags_for_global_resource_errors()}
+  def list_tags_for_global_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/global/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List all tags on a MediaConnect resource in the current region.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4279,6 +6504,68 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Restarts a router input.
+
+  This operation can be used to recover from errors or refresh the input state.
+  """
+  @spec restart_router_input(map(), String.t() | atom(), restart_router_input_request(), list()) ::
+          {:ok, restart_router_input_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, restart_router_input_errors()}
+  def restart_router_input(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerInput/restart/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Restarts a router output.
+
+  This operation can be used to recover from errors or refresh the output state.
+  """
+  @spec restart_router_output(map(), String.t() | atom(), restart_router_output_request(), list()) ::
+          {:ok, restart_router_output_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, restart_router_output_errors()}
+  def restart_router_output(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerOutput/restart/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Revokes an entitlement from a flow.
 
   Once an entitlement is revoked, the content becomes unavailable to the
@@ -4348,6 +6635,64 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Starts a router input in AWS Elemental MediaConnect.
+  """
+  @spec start_router_input(map(), String.t() | atom(), start_router_input_request(), list()) ::
+          {:ok, start_router_input_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_router_input_errors()}
+  def start_router_input(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerInput/start/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Starts a router output in AWS Elemental MediaConnect.
+  """
+  @spec start_router_output(map(), String.t() | atom(), start_router_output_request(), list()) ::
+          {:ok, start_router_output_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_router_output_errors()}
+  def start_router_output(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerOutput/start/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Stops a flow.
   """
   @spec stop_flow(map(), String.t() | atom(), stop_flow_request(), list()) ::
@@ -4377,7 +6722,98 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified `resourceArn`.
+  Stops a router input in AWS Elemental MediaConnect.
+  """
+  @spec stop_router_input(map(), String.t() | atom(), stop_router_input_request(), list()) ::
+          {:ok, stop_router_input_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_router_input_errors()}
+  def stop_router_input(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerInput/stop/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Stops a router output in AWS Elemental MediaConnect.
+  """
+  @spec stop_router_output(map(), String.t() | atom(), stop_router_output_request(), list()) ::
+          {:ok, stop_router_output_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_router_output_errors()}
+  def stop_router_output(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerOutput/stop/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Adds tags to a global resource in AWS Elemental MediaConnect.
+
+  The API supports the following global resources: router inputs, router outputs
+  and router network interfaces.
+  """
+  @spec tag_global_resource(map(), String.t() | atom(), tag_global_resource_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, tag_global_resource_errors()}
+  def tag_global_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/global/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Associates the specified tags to a resource with the specified `resourceArn` in
+  the current region.
 
   If existing tags on a resource are not specified in the request parameters, they
   are not changed. When a resource is deleted, the tags associated with that
@@ -4410,7 +6846,73 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deletes specified tags from a resource.
+  Associates a router input with a router output in AWS Elemental MediaConnect.
+  """
+  @spec take_router_input(map(), String.t() | atom(), take_router_input_request(), list()) ::
+          {:ok, take_router_input_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, take_router_input_errors()}
+  def take_router_input(%Client{} = client, router_output_arn, input, options \\ []) do
+    url_path = "/v1/routerOutput/takeRouterInput/#{AWS.Util.encode_uri(router_output_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Removes tags from a global resource in AWS Elemental MediaConnect.
+
+  The API supports the following global resources: router inputs, router outputs
+  and router network interfaces.
+  """
+  @spec untag_global_resource(map(), String.t() | atom(), untag_global_resource_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, untag_global_resource_errors()}
+  def untag_global_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/global/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes specified tags from a resource in the current region.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -4577,6 +7079,27 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Updates an existing flow.
+
+  Because `UpdateFlowSources` and `UpdateFlow` are separate operations, you can't
+  change both the source type AND the flow size in a single request.
+
+     If you have a `MEDIUM` flow and you want to change the flow source
+  to NDI®:
+
+       First, use the `UpdateFlow` operation to upgrade the
+  flow size to `LARGE`.
+
+       After that, you can then use the `UpdateFlowSource`
+  operation to configure the NDI source.
+
+     If you're switching from an NDI source to a transport stream (TS)
+  source and want to downgrade the flow size:
+
+       First, use the `UpdateFlowSource` operation to change
+  the flow source type.
+
+       After that, you can then use the `UpdateFlow` operation
+  to downgrade the flow size to `MEDIUM`.
   """
   @spec update_flow(map(), String.t() | atom(), update_flow_request(), list()) ::
           {:ok, update_flow_response(), any()}
@@ -4727,6 +7250,27 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Updates the source of a flow.
+
+  Because `UpdateFlowSources` and `UpdateFlow` are separate operations, you can't
+  change both the source type AND the flow size in a single request.
+
+     If you have a `MEDIUM` flow and you want to change the flow source
+  to NDI®:
+
+       First, use the `UpdateFlow` operation to upgrade the
+  flow size to `LARGE`.
+
+       After that, you can then use the `UpdateFlowSource`
+  operation to configure the NDI source.
+
+     If you're switching from an NDI source to a transport stream (TS)
+  source and want to downgrade the flow size:
+
+       First, use the `UpdateFlowSource` operation to change
+  the flow source type.
+
+       After that, you can then use the `UpdateFlow` operation
+  to downgrade the flow size to `MEDIUM`.
   """
   @spec update_flow_source(
           map(),
@@ -4793,6 +7337,101 @@ defmodule AWS.MediaConnect do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Updates the configuration of an existing router input in AWS Elemental
+  MediaConnect.
+  """
+  @spec update_router_input(map(), String.t() | atom(), update_router_input_request(), list()) ::
+          {:ok, update_router_input_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_router_input_errors()}
+  def update_router_input(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerInput/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates the configuration of an existing router network interface in AWS
+  Elemental MediaConnect.
+  """
+  @spec update_router_network_interface(
+          map(),
+          String.t() | atom(),
+          update_router_network_interface_request(),
+          list()
+        ) ::
+          {:ok, update_router_network_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_router_network_interface_errors()}
+  def update_router_network_interface(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerNetworkInterface/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates the configuration of an existing router output in AWS Elemental
+  MediaConnect.
+  """
+  @spec update_router_output(map(), String.t() | atom(), update_router_output_request(), list()) ::
+          {:ok, update_router_output_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_router_output_errors()}
+  def update_router_output(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/routerOutput/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 end

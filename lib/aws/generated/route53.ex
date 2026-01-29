@@ -559,6 +559,15 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      update_hosted_zone_features_response() :: %{}
+
+  """
+  @type update_hosted_zone_features_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_hosted_zone_count_response() :: %{
         "HostedZoneCount" => float()
       }
@@ -1346,6 +1355,17 @@ defmodule AWS.Route53 do
 
   """
   @type traffic_policy_instance_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_zone_failure_reasons() :: %{
+        "AcceleratedRecovery" => String.t() | atom()
+      }
+
+  """
+  @type hosted_zone_failure_reasons() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2398,6 +2418,7 @@ defmodule AWS.Route53 do
       hosted_zone() :: %{
         "CallerReference" => String.t() | atom(),
         "Config" => hosted_zone_config(),
+        "Features" => hosted_zone_features(),
         "Id" => String.t() | atom(),
         "LinkedService" => linked_service(),
         "Name" => String.t() | atom(),
@@ -2921,6 +2942,18 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      hosted_zone_features() :: %{
+        "AcceleratedRecoveryStatus" => list(any()),
+        "FailureReasons" => hosted_zone_failure_reasons()
+      }
+
+  """
+  @type hosted_zone_features() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       test_dns_answer_response() :: %{
         "Nameserver" => String.t() | atom(),
         "Protocol" => String.t() | atom(),
@@ -2999,6 +3032,17 @@ defmodule AWS.Route53 do
 
   """
   @type change_cidr_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_hosted_zone_features_request() :: %{
+        optional("EnableAcceleratedRecovery") => boolean()
+      }
+
+  """
+  @type update_hosted_zone_features_request() :: %{(String.t() | atom()) => any()}
 
   @type activate_key_signing_key_errors() ::
           no_such_key_signing_key()
@@ -3300,6 +3344,12 @@ defmodule AWS.Route53 do
 
   @type update_hosted_zone_comment_errors() ::
           prior_request_not_complete() | no_such_hosted_zone() | invalid_input()
+
+  @type update_hosted_zone_features_errors() ::
+          prior_request_not_complete()
+          | limits_exceeded()
+          | no_such_hosted_zone()
+          | invalid_input()
 
   @type update_traffic_policy_comment_errors() ::
           no_such_traffic_policy() | concurrent_modification() | invalid_input()
@@ -6969,6 +7019,46 @@ defmodule AWS.Route53 do
           | {:error, update_hosted_zone_comment_errors()}
   def update_hosted_zone_comment(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the features configuration for a hosted zone.
+
+  This operation allows you to enable or disable specific features for your hosted
+  zone, such as accelerated recovery.
+
+  Accelerated recovery enables you to update DNS records in your public hosted
+  zone even when the us-east-1 region is unavailable.
+  """
+  @spec update_hosted_zone_features(
+          map(),
+          String.t() | atom(),
+          update_hosted_zone_features_request(),
+          list()
+        ) ::
+          {:ok, update_hosted_zone_features_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_hosted_zone_features_errors()}
+  def update_hosted_zone_features(%Client{} = client, hosted_zone_id, input, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/features"
     headers = []
     custom_headers = []
     query_params = []

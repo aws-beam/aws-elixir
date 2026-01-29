@@ -1860,8 +1860,8 @@ defmodule AWS.AppSync do
   ## Example:
 
       update_api_request() :: %{
-        optional("eventConfig") => event_config(),
         optional("ownerContact") => String.t() | atom(),
+        required("eventConfig") => event_config(),
         required("name") => String.t() | atom()
       }
 
@@ -2087,9 +2087,9 @@ defmodule AWS.AppSync do
   ## Example:
 
       create_api_request() :: %{
-        optional("eventConfig") => event_config(),
         optional("ownerContact") => String.t() | atom(),
         optional("tags") => map(),
+        required("eventConfig") => event_config(),
         required("name") => String.t() | atom()
       }
 

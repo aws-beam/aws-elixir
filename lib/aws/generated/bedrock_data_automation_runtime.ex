@@ -95,6 +95,9 @@ defmodule AWS.BedrockDataAutomationRuntime do
       get_data_automation_status_response() :: %{
         "errorMessage" => [String.t() | atom()],
         "errorType" => [String.t() | atom()],
+        "jobCompletionTime" => [non_neg_integer()],
+        "jobDurationInSeconds" => [integer()],
+        "jobSubmissionTime" => [non_neg_integer()],
         "outputConfiguration" => output_configuration(),
         "status" => list(any())
       }
@@ -159,6 +162,33 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
+      invoke_data_automation_request() :: %{
+        optional("blueprints") => list(blueprint()),
+        optional("dataAutomationConfiguration") => data_automation_configuration(),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        required("dataAutomationProfileArn") => String.t() | atom(),
+        required("inputConfiguration") => sync_input_configuration()
+      }
+      
+  """
+  @type invoke_data_automation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoke_data_automation_response() :: %{
+        "outputSegments" => list(output_segment()),
+        "semanticModality" => list(any())
+      }
+      
+  """
+  @type invoke_data_automation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_request() :: %{
         required("resourceARN") => String.t() | atom()
       }
@@ -203,6 +233,19 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
+      output_segment() :: %{
+        "customOutput" => [String.t() | atom()],
+        "customOutputStatus" => list(any()),
+        "standardOutput" => [String.t() | atom()]
+      }
+      
+  """
+  @type output_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -220,6 +263,29 @@ defmodule AWS.BedrockDataAutomationRuntime do
       
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sync_input_configuration() :: %{
+        "bytes" => [binary()],
+        "s3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type sync_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -327,6 +393,13 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type invoke_data_automation_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type invoke_data_automation_async_errors() ::
           validation_exception()
           | throttling_exception()
@@ -384,6 +457,20 @@ defmodule AWS.BedrockDataAutomationRuntime do
     meta = metadata()
 
     Request.request_post(client, meta, "GetDataAutomationStatus", input, options)
+  end
+
+  @doc """
+  Sync API: Invoke data automation.
+  """
+  @spec invoke_data_automation(map(), invoke_data_automation_request(), list()) ::
+          {:ok, invoke_data_automation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_data_automation_errors()}
+  def invoke_data_automation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "InvokeDataAutomation", input, options)
   end
 
   @doc """

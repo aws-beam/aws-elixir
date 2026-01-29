@@ -132,6 +132,18 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      telemetry_sink_config() :: %{
+        "telemetrySinkData" => list(),
+        "telemetrySinkType" => list(any())
+      }
+
+  """
+  @type telemetry_sink_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -1113,6 +1125,18 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      kinesis_data_stream_data() :: %{
+        "kinesisDataStreamArn" => String.t() | atom(),
+        "kinesisRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type kinesis_data_stream_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_contacts_request() :: %{
         optional("ephemeris") => list(),
         optional("groundStation") => String.t() | atom(),
@@ -1512,6 +1536,7 @@ defmodule AWS.GroundStation do
         "streamsKmsKey" => list(),
         "streamsKmsRole" => String.t() | atom(),
         "tags" => map(),
+        "telemetrySinkConfigArn" => String.t() | atom(),
         "trackingConfigArn" => String.t() | atom()
       }
 
@@ -1667,6 +1692,7 @@ defmodule AWS.GroundStation do
         optional("streamsKmsKey") => list(),
         optional("streamsKmsRole") => String.t() | atom(),
         optional("tags") => map(),
+        optional("telemetrySinkConfigArn") => String.t() | atom(),
         required("dataflowEdges") => list(list(String.t() | atom())()),
         required("minimumViableContactDurationSeconds") => integer(),
         required("name") => String.t() | atom(),
@@ -1688,6 +1714,7 @@ defmodule AWS.GroundStation do
         optional("name") => String.t() | atom(),
         optional("streamsKmsKey") => list(),
         optional("streamsKmsRole") => String.t() | atom(),
+        optional("telemetrySinkConfigArn") => String.t() | atom(),
         optional("trackingConfigArn") => String.t() | atom()
       }
 
@@ -1828,7 +1855,14 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  Cancels a contact with a specified contact ID.
+  Cancels or stops a contact with a specified contact ID based on its position in
+  the [contact lifecycle](https://docs.aws.amazon.com/ground-station/latest/ug/contacts.lifecycle.html).
+
+  For contacts that:
+
+    * Have yet to start, the contact will be cancelled.
+
+    * Have started but have yet to finish, the contact will be stopped.
   """
   @spec cancel_contact(map(), String.t() | atom(), cancel_contact_request(), list()) ::
           {:ok, contact_id_response(), any()}
@@ -1888,13 +1922,13 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  Creates a `DataflowEndpoint` group containing the specified list of
-  `DataflowEndpoint` objects.
+  Creates a `DataflowEndpoint` group containing the specified list of `
+  DataflowEndpoint` objects.
 
-  The `name` field in each endpoint is used in your mission profile
-  `DataflowEndpointConfig` to specify which endpoints to use during a contact.
+  The `name` field in each endpoint is used in your mission profile `
+  DataflowEndpointConfig` to specify which endpoints to use during a contact.
 
-  When a contact uses multiple `DataflowEndpointConfig` objects, each `Config`
+  When a contact uses multiple `DataflowEndpointConfig` objects, each ` Config`
   must match a `DataflowEndpoint` in the same group.
   """
   @spec create_dataflow_endpoint_group(map(), create_dataflow_endpoint_group_request(), list()) ::
@@ -1924,13 +1958,13 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-  Creates a `DataflowEndpointGroupV2` containing the specified list of
-  `DataflowEndpoint` objects.
+  Creates a `DataflowEndpoint` group containing the specified list of Ground
+  Station Agent based endpoints.
 
-  The `name` field in each endpoint is used in your mission profile
-  `DataflowEndpointConfig` to specify which endpoints to use during a contact.
+  The `name` field in each endpoint is used in your mission profile `
+  DataflowEndpointConfig` to specify which endpoints to use during a contact.
 
-  When a contact uses multiple `DataflowEndpointConfig` objects, each `Config`
+  When a contact uses multiple `DataflowEndpointConfig` objects, each ` Config`
   must match a `DataflowEndpoint` in the same group.
   """
   @spec create_dataflow_endpoint_group_v2(
@@ -2377,7 +2411,7 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of contacts.
 
-  If `statusList` contains AVAILABLE, the request must include `groundStation`,
+  If `statusList` contains AVAILABLE, the request must include ` groundStation`,
   `missionprofileArn`, and `satelliteArn`.
   """
   @spec list_contacts(map(), list_contacts_request(), list()) ::

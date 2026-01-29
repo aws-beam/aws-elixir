@@ -62,10 +62,18 @@ defmodule AWS.GuardDuty do
 
       resource_data() :: %{
         "AccessKey" => access_key(),
+        "AutoscalingAutoScalingGroup" => autoscaling_auto_scaling_group(),
+        "CloudformationStack" => cloudformation_stack(),
         "Container" => container_finding_resource(),
+        "Ec2Image" => ec2_image(),
         "Ec2Instance" => ec2_instance(),
+        "Ec2LaunchTemplate" => ec2_launch_template(),
         "Ec2NetworkInterface" => ec2_network_interface(),
+        "Ec2Vpc" => ec2_vpc(),
+        "EcsCluster" => ecs_cluster(),
+        "EcsTask" => ecs_task(),
         "EksCluster" => eks_cluster(),
+        "IamInstanceProfile" => iam_instance_profile_v2(),
         "KubernetesWorkload" => kubernetes_workload(),
         "S3Bucket" => s3_bucket(),
         "S3Object" => s3_object()
@@ -130,6 +138,46 @@ defmodule AWS.GuardDuty do
 
   """
   @type instance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ebs_snapshot_details() :: %{
+        "SnapshotArn" => String.t() | atom()
+      }
+
+  """
+  @type ebs_snapshot_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_image_details() :: %{
+        "ImageArn" => String.t() | atom()
+      }
+
+  """
+  @type ec2_image_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malware_scan() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => list(any()),
+        "ScanCompletedAt" => non_neg_integer(),
+        "ScanId" => String.t() | atom(),
+        "ScanResultStatus" => list(any()),
+        "ScanStartedAt" => non_neg_integer(),
+        "ScanStatus" => list(any()),
+        "ScanType" => list(any())
+      }
+
+  """
+  @type malware_scan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -269,6 +317,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      recovery_point_details() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom()
+      }
+
+  """
+  @type recovery_point_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disable_organization_admin_account_response() :: %{}
 
   """
@@ -338,6 +398,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type filter_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_info() :: %{
+        "DeviceName" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -484,6 +556,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      ec2_launch_template() :: %{
+        "Ec2InstanceUids" => list(String.t() | atom()),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type ec2_launch_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sequence() :: %{
         "Actors" => list(actor()),
         "AdditionalSequenceTypes" => list(String.t() | atom()),
@@ -574,6 +658,17 @@ defmodule AWS.GuardDuty do
 
   """
   @type kubernetes_audit_logs_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloudformation_stack() :: %{
+        "Ec2InstanceUids" => list(String.t() | atom())
+      }
+
+  """
+  @type cloudformation_stack() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -792,6 +887,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      scan_configuration_recovery_point() :: %{
+        "BackupVaultName" => String.t() | atom()
+      }
+
+  """
+  @type scan_configuration_recovery_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kubernetes_api_call_action() :: %{
         "Namespace" => String.t() | atom(),
         "Parameters" => String.t() | atom(),
@@ -896,6 +1002,28 @@ defmodule AWS.GuardDuty do
 
   """
   @type delete_threat_entity_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      autoscaling_auto_scaling_group() :: %{
+        "Ec2InstanceUids" => list(String.t() | atom())
+      }
+
+  """
+  @type autoscaling_auto_scaling_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_vpc() :: %{
+        "Ec2InstanceUids" => list(String.t() | atom())
+      }
+
+  """
+  @type ec2_vpc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1450,6 +1578,21 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      scanned_resource() :: %{
+        "ResourceDetails" => scanned_resource_details(),
+        "ScanStatusReason" => list(any()),
+        "ScannedResourceArn" => String.t() | atom(),
+        "ScannedResourceStatus" => list(any()),
+        "ScannedResourceType" => list(any())
+      }
+
+  """
+  @type scanned_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disable_organization_admin_account_request() :: %{
         required("AdminAccountId") => String.t() | atom()
       }
@@ -1537,6 +1680,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      ebs_snapshot() :: %{
+        "DeviceName" => String.t() | atom()
+      }
+
+  """
+  @type ebs_snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       permission_configuration() :: %{
         "AccountLevelPermissions" => account_level_permissions(),
         "BucketLevelPermissions" => bucket_level_permissions()
@@ -1544,6 +1698,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type permission_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_malware_scans_filter_criterion() :: %{
+        "FilterCondition" => filter_condition(),
+        "ListMalwareScansCriterionKey" => list(any())
+      }
+
+  """
+  @type list_malware_scans_filter_criterion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1564,6 +1730,33 @@ defmodule AWS.GuardDuty do
 
   """
   @type network_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_malware_scan_response() :: %{
+        "AdminDetectorId" => String.t() | atom(),
+        "DetectorId" => String.t() | atom(),
+        "FailedResourcesCount" => integer(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => list(any()),
+        "ScanCategory" => list(any()),
+        "ScanCompletedAt" => non_neg_integer(),
+        "ScanConfiguration" => scan_configuration(),
+        "ScanId" => String.t() | atom(),
+        "ScanResultDetails" => get_malware_scan_result_details(),
+        "ScanStartedAt" => non_neg_integer(),
+        "ScanStatus" => list(any()),
+        "ScanStatusReason" => list(any()),
+        "ScanType" => list(any()),
+        "ScannedResources" => list(scanned_resource()),
+        "ScannedResourcesCount" => integer(),
+        "SkippedResourcesCount" => integer()
+      }
+
+  """
+  @type get_malware_scan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1821,7 +2014,20 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      list_malware_scans_filter_criteria() :: %{
+        "ListMalwareScansFilterCriterion" => list(list_malware_scans_filter_criterion())
+      }
+
+  """
+  @type list_malware_scans_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_malware_scan_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ScanConfiguration") => start_malware_scan_configuration(),
         required("ResourceArn") => String.t() | atom()
       }
 
@@ -2405,6 +2611,24 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      get_malware_scan_result_details() :: %{
+        "FailedFileCount" => float(),
+        "ScanResultStatus" => list(any()),
+        "SkippedFileCount" => float(),
+        "ThreatFoundFileCount" => float(),
+        "Threats" => list(scan_result_threat()),
+        "TotalBytes" => float(),
+        "TotalFileCount" => float(),
+        "UniqueThreatCount" => float()
+      }
+
+  """
+  @type get_malware_scan_result_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_malware_protection_plan_request() :: %{
         optional("Actions") => malware_protection_plan_actions(),
         optional("ClientToken") => String.t() | atom(),
@@ -2519,6 +2743,33 @@ defmodule AWS.GuardDuty do
 
   """
   @type coverage_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_configuration() :: %{
+        "IncrementalScanDetails" => incremental_scan_details(),
+        "RecoveryPoint" => scan_configuration_recovery_point(),
+        "Role" => String.t() | atom(),
+        "TriggerDetails" => trigger_details()
+      }
+
+  """
+  @type scan_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_malware_scan_configuration() :: %{
+        "IncrementalScanDetails" => incremental_scan_details(),
+        "RecoveryPoint" => recovery_point(),
+        "Role" => String.t() | atom()
+      }
+
+  """
+  @type start_malware_scan_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2699,7 +2950,8 @@ defmodule AWS.GuardDuty do
 
       trigger_details() :: %{
         "Description" => String.t() | atom(),
-        "GuardDutyFindingId" => String.t() | atom()
+        "GuardDutyFindingId" => String.t() | atom(),
+        "TriggerType" => list(any())
       }
 
   """
@@ -2753,6 +3005,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      incremental_scan_details() :: %{
+        "BaselineResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type incremental_scan_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       security_group() :: %{
         "GroupId" => String.t() | atom(),
         "GroupName" => String.t() | atom()
@@ -2788,8 +3051,10 @@ defmodule AWS.GuardDuty do
         "LessThanOrEqual" => float(),
         "Lt" => integer(),
         "Lte" => integer(),
+        "Matches" => list(String.t() | atom()),
         "Neq" => list(String.t() | atom()),
-        "NotEquals" => list(String.t() | atom())
+        "NotEquals" => list(String.t() | atom()),
+        "NotMatches" => list(String.t() | atom())
       }
 
   """
@@ -2879,6 +3144,20 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      list_malware_scans_request() :: %{
+        optional("FilterCriteria") => list_malware_scans_filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortCriteria") => sort_criteria()
+      }
+
+  """
+  @type list_malware_scans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       detection() :: %{
         "Anomaly" => anomaly(),
         "Sequence" => sequence()
@@ -2939,7 +3218,12 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       malware_scan_details() :: %{
-        "Threats" => list(threat())
+        "ScanCategory" => list(any()),
+        "ScanConfiguration" => malware_protection_findings_scan_configuration(),
+        "ScanId" => String.t() | atom(),
+        "ScanType" => list(any()),
+        "Threats" => list(threat()),
+        "UniqueThreatCount" => integer()
       }
 
   """
@@ -3252,6 +3536,15 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      get_malware_scan_request() :: %{}
+
+  """
+  @type get_malware_scan_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       organization_kubernetes_configuration_result() :: %{
         "AuditLogs" => organization_kubernetes_audit_logs_configuration_result()
       }
@@ -3488,6 +3781,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      list_malware_scans_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Scans" => list(malware_scan())
+      }
+
+  """
+  @type list_malware_scans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       actor_process() :: %{
         "Name" => String.t() | atom(),
         "Path" => String.t() | atom(),
@@ -3537,7 +3842,22 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      malware_protection_findings_scan_configuration() :: %{
+        "IncrementalScanDetails" => incremental_scan_details(),
+        "TriggerType" => list(any())
+      }
+
+  """
+  @type malware_protection_findings_scan_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       threat() :: %{
+        "Count" => float(),
+        "Hash" => String.t() | atom(),
+        "ItemDetails" => list(item_details()),
         "ItemPaths" => list(item_path()),
         "Name" => String.t() | atom(),
         "Source" => String.t() | atom()
@@ -3686,6 +4006,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      ecs_cluster() :: %{
+        "Ec2InstanceUids" => list(String.t() | atom()),
+        "Status" => list(any())
+      }
+
+  """
+  @type ecs_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -3806,6 +4138,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      send_object_malware_scan_request() :: %{
+        optional("S3Object") => s3_object_for_send_object_malware_scan()
+      }
+
+  """
+  @type send_object_malware_scan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       organization_feature_statistics() :: %{
         "AdditionalConfiguration" => list(organization_feature_statistics_additional_configuration()),
         "EnabledAccountsCount" => integer(),
@@ -3832,7 +4175,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_remaining_free_trial_days_request() :: %{
-        optional("AccountIds") => list(String.t() | atom())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
@@ -4178,6 +4521,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      iam_instance_profile_v2() :: %{
+        "Ec2InstanceUids" => list(String.t() | atom())
+      }
+
+  """
+  @type iam_instance_profile_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rds_login_attempt_action() :: %{
         "LoginAttributes" => list(login_attribute()),
         "RemoteIpDetails" => remote_ip_details()
@@ -4185,6 +4539,15 @@ defmodule AWS.GuardDuty do
 
   """
   @type rds_login_attempt_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_object_malware_scan_response() :: %{}
+
+  """
+  @type send_object_malware_scan_response() :: %{}
 
   @typedoc """
 
@@ -4322,6 +4685,19 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      s3_object_for_send_object_malware_scan() :: %{
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type s3_object_for_send_object_malware_scan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bad_request_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
@@ -4350,6 +4726,21 @@ defmodule AWS.GuardDuty do
 
   """
   @type get_malware_scan_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_result_threat() :: %{
+        "Count" => float(),
+        "Hash" => String.t() | atom(),
+        "ItemDetails" => list(item_details()),
+        "Name" => String.t() | atom(),
+        "Source" => list(any())
+      }
+
+  """
+  @type scan_result_threat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4502,6 +4893,20 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      ecs_task() :: %{
+        "ContainerUids" => list(String.t() | atom()),
+        "CreatedAt" => non_neg_integer(),
+        "LaunchType" => list(any()),
+        "TaskDefinitionArn" => String.t() | atom()
+      }
+
+  """
+  @type ecs_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_ip_set_response() :: %{
         "IpSetId" => String.t() | atom()
       }
@@ -4551,6 +4956,7 @@ defmodule AWS.GuardDuty do
         "DbClusterIdentifier" => String.t() | atom(),
         "DbInstanceArn" => String.t() | atom(),
         "DbInstanceIdentifier" => String.t() | atom(),
+        "DbiResourceId" => String.t() | atom(),
         "Engine" => String.t() | atom(),
         "EngineVersion" => String.t() | atom(),
         "Tags" => list(tag())
@@ -4769,6 +5175,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      scanned_resource_details() :: %{
+        "EbsSnapshot" => ebs_snapshot(),
+        "EbsVolume" => volume_detail()
+      }
+
+  """
+  @type scanned_resource_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       detector_additional_configuration() :: %{
         "Name" => list(any()),
         "Status" => list(any())
@@ -4862,6 +5280,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      ec2_image() :: %{
+        "Ec2InstanceUids" => list(String.t() | atom())
+      }
+
+  """
+  @type ec2_image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_filter_request() :: %{}
 
   """
@@ -4929,6 +5358,31 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      item_details() :: %{
+        "AdditionalInfo" => additional_info(),
+        "Hash" => String.t() | atom(),
+        "ItemPath" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type item_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_point() :: %{
+        "BackupVaultName" => String.t() | atom()
+      }
+
+  """
+  @type recovery_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_usage_statistics_response() :: %{
         "NextToken" => String.t() | atom(),
         "UsageStatistics" => usage_statistics()
@@ -4988,7 +5442,9 @@ defmodule AWS.GuardDuty do
       resource() :: %{
         "AccessKeyDetails" => access_key_details(),
         "ContainerDetails" => container(),
+        "EbsSnapshotDetails" => ebs_snapshot_details(),
         "EbsVolumeDetails" => ebs_volume_details(),
+        "Ec2ImageDetails" => ec2_image_details(),
         "EcsClusterDetails" => ecs_cluster_details(),
         "EksClusterDetails" => eks_cluster_details(),
         "InstanceDetails" => instance_details(),
@@ -4997,6 +5453,7 @@ defmodule AWS.GuardDuty do
         "RdsDbInstanceDetails" => rds_db_instance_details(),
         "RdsDbUserDetails" => rds_db_user_details(),
         "RdsLimitlessDbDetails" => rds_limitless_db_details(),
+        "RecoveryPointDetails" => recovery_point_details(),
         "ResourceType" => String.t() | atom(),
         "S3BucketDetails" => list(s3_bucket_detail())
       }
@@ -5147,6 +5604,11 @@ defmodule AWS.GuardDuty do
           | access_denied_exception()
           | resource_not_found_exception()
 
+  @type get_malware_scan_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | resource_not_found_exception()
+
   @type get_malware_scan_settings_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
@@ -5192,6 +5654,8 @@ defmodule AWS.GuardDuty do
   @type list_malware_protection_plans_errors() ::
           bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
+  @type list_malware_scans_errors() :: bad_request_exception() | internal_server_error_exception()
+
   @type list_members_errors() :: bad_request_exception() | internal_server_error_exception()
 
   @type list_organization_admin_accounts_errors() ::
@@ -5211,6 +5675,9 @@ defmodule AWS.GuardDuty do
 
   @type list_trusted_entity_sets_errors() ::
           bad_request_exception() | internal_server_error_exception()
+
+  @type send_object_malware_scan_errors() ::
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
   @type start_malware_scan_errors() ::
           bad_request_exception() | internal_server_error_exception() | conflict_exception()
@@ -6847,6 +7314,33 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Retrieves the detailed information for a specific malware scan.
+
+  Each member account can view the malware scan details for their
+  own account. An administrator can view malware scan details for all accounts in
+  the organization.
+
+  There might be regional differences because some data sources might not be
+  available in all the Amazon Web Services Regions where GuardDuty is presently
+  supported. For more
+  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  """
+  @spec get_malware_scan(map(), String.t() | atom(), list()) ::
+          {:ok, get_malware_scan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_malware_scan_errors()}
+  def get_malware_scan(%Client{} = client, scan_id, options \\ []) do
+    url_path = "/malware-scan/#{AWS.Util.encode_uri(scan_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the details of the malware scan settings.
 
   There might be regional differences because some data sources might not be
@@ -7450,6 +7944,45 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Returns a list of malware scans.
+
+  Each member account can view the malware scans for their
+  own accounts. An administrator can view the malware scans for all of its
+  members' accounts.
+  """
+  @spec list_malware_scans(map(), list_malware_scans_request(), list()) ::
+          {:ok, list_malware_scans_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_malware_scans_errors()}
+  def list_malware_scans(%Client{} = client, input, options \\ []) do
+    url_path = "/malware-scan"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists details about all member accounts for the current GuardDuty administrator
   account.
   """
@@ -7767,16 +8300,59 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Initiates a malware scan for a specific S3 object.
+
+  This API allows you to perform on-demand malware scanning of individual objects
+  in S3 buckets that have Malware Protection for S3 enabled.
+
+  When you use this API, the Amazon Web Services service terms for GuardDuty
+  Malware
+  Protection apply. For more information, see [Amazon Web Services service terms for GuardDuty Malware
+  Protection](http://aws.amazon.com/service-terms/#87._Amazon_GuardDuty).
+  """
+  @spec send_object_malware_scan(map(), send_object_malware_scan_request(), list()) ::
+          {:ok, send_object_malware_scan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_object_malware_scan_errors()}
+  def send_object_malware_scan(%Client{} = client, input, options \\ []) do
+    url_path = "/object-malware-scan/send"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Initiates the malware scan.
 
   Invoking this API will automatically create the [Service-linked role](https://docs.aws.amazon.com/guardduty/latest/ug/slr-permissions-malware-protection.html)
   in
-  the corresponding account.
+  the corresponding account if the resourceArn belongs to an EC2 instance.
 
   When the malware scan starts, you can use the associated scan ID to track the
   status of the scan. For more information,
   see
-  [DescribeMalwareScans](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeMalwareScans.html).
+  [ListMalwareScans](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListMalwareScans.html) and
+  [GetMalwareScan](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMalwareScan.html).
+
+  When you use this API, the Amazon Web Services service terms for GuardDuty
+  Malware
+  Protection apply. For more information, see [Amazon Web Services service terms for GuardDuty Malware
+  Protection](http://aws.amazon.com/service-terms/#87._Amazon_GuardDuty).
   """
   @spec start_malware_scan(map(), start_malware_scan_request(), list()) ::
           {:ok, start_malware_scan_response(), any()}

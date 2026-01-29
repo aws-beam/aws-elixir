@@ -765,7 +765,8 @@ defmodule AWS.Billingconductor do
 
       account_grouping() :: %{
         "AutoAssociate" => [boolean()],
-        "LinkedAccountIds" => list(String.t() | atom())
+        "LinkedAccountIds" => list(String.t() | atom()),
+        "ResponsibilityTransferArn" => String.t() | atom()
       }
 
   """
@@ -995,6 +996,7 @@ defmodule AWS.Billingconductor do
 
       line_item_filter() :: %{
         "Attribute" => list(any()),
+        "AttributeValues" => list(String.t() | atom()),
         "MatchOption" => list(any()),
         "Values" => list(list(any())())
       }
@@ -1033,7 +1035,11 @@ defmodule AWS.Billingconductor do
       list_billing_groups_filter() :: %{
         "Arns" => list(String.t() | atom()),
         "AutoAssociate" => [boolean()],
+        "BillingGroupTypes" => list(list(any())()),
+        "Names" => list(string_search()),
         "PricingPlan" => String.t() | atom(),
+        "PrimaryAccountIds" => list(String.t() | atom()),
+        "ResponsibilityTransferArns" => list(String.t() | atom()),
         "Statuses" => list(list(any())())
       }
 
@@ -1057,7 +1063,8 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_billing_group_account_grouping() :: %{
-        "AutoAssociate" => [boolean()]
+        "AutoAssociate" => [boolean()],
+        "ResponsibilityTransferArn" => String.t() | atom()
       }
 
   """
@@ -1125,7 +1132,8 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       update_billing_group_account_grouping() :: %{
-        "AutoAssociate" => [boolean()]
+        "AutoAssociate" => [boolean()],
+        "ResponsibilityTransferArn" => String.t() | atom()
       }
 
   """
@@ -1304,6 +1312,7 @@ defmodule AWS.Billingconductor do
       billing_group_list_element() :: %{
         "AccountGrouping" => list_billing_group_account_grouping(),
         "Arn" => String.t() | atom(),
+        "BillingGroupType" => list(any()),
         "ComputationPreference" => computation_preference(),
         "CreationTime" => float(),
         "Description" => String.t() | atom(),
@@ -1513,6 +1522,18 @@ defmodule AWS.Billingconductor do
   @type batch_associate_resources_to_custom_line_item_output() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      string_search() :: %{
+        "SearchOption" => list(any()),
+        "SearchValue" => String.t() | atom()
+      }
+
+  """
+  @type string_search() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

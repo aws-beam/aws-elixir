@@ -426,6 +426,15 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      delete_index_request() :: %{}
+
+  """
+  @type delete_index_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       package_configuration() :: %{
         "ConfigurationRequirement" => list(any()),
         "LicenseFilepath" => String.t() | atom(),
@@ -1037,6 +1046,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      delete_index_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type delete_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_domain_config_change_request() :: %{
         optional("DryRun") => boolean()
       }
@@ -1188,7 +1208,8 @@ defmodule AWS.OpenSearch do
 
       a_i_ml_options_output() :: %{
         "NaturalLanguageQueryGenerationOptions" => natural_language_query_generation_options_output(),
-        "S3VectorsEngine" => s3_vectors_engine()
+        "S3VectorsEngine" => s3_vectors_engine(),
+        "ServerlessVectorAcceleration" => serverless_vector_acceleration()
       }
 
   """
@@ -1845,6 +1866,7 @@ defmodule AWS.OpenSearch do
         optional("clientToken") => String.t() | atom(),
         optional("dataSources") => list(data_source()),
         optional("iamIdentityCenterOptions") => iam_identity_center_options_input(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("tagList") => list(tag()),
         required("name") => String.t() | atom()
       }
@@ -1979,6 +2001,7 @@ defmodule AWS.OpenSearch do
         "dataSources" => list(data_source()),
         "iamIdentityCenterOptions" => iam_identity_center_options(),
         "id" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "tagList" => list(tag())
       }
@@ -2367,6 +2390,7 @@ defmodule AWS.OpenSearch do
         "endpoint" => String.t() | atom(),
         "iamIdentityCenterOptions" => iam_identity_center_options(),
         "id" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "status" => list(any())
@@ -2544,6 +2568,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      create_index_request() :: %{
+        required("IndexName") => String.t() | atom(),
+        required("IndexSchema") => any()
+      }
+
+  """
+  @type create_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       key_store_access_option() :: %{
         "KeyAccessRoleArn" => String.t() | atom(),
         "KeyStoreAccessEnabled" => boolean()
@@ -2562,6 +2598,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type dissociate_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_index_request() :: %{
+        required("IndexSchema") => any()
+      }
+
+  """
+  @type update_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2946,7 +2993,8 @@ defmodule AWS.OpenSearch do
 
       a_i_ml_options_input() :: %{
         "NaturalLanguageQueryGenerationOptions" => natural_language_query_generation_options_input(),
-        "S3VectorsEngine" => s3_vectors_engine()
+        "S3VectorsEngine" => s3_vectors_engine(),
+        "ServerlessVectorAcceleration" => serverless_vector_acceleration()
       }
 
   """
@@ -2976,6 +3024,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type upgrade_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3320,6 +3379,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      create_index_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type create_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_policies_status() :: %{
         "Options" => String.t() | atom(),
         "Status" => option_status()
@@ -3510,6 +3580,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      update_index_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type update_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_packages_request() :: %{
         optional("Filters") => list(describe_packages_filter()),
         optional("MaxResults") => integer(),
@@ -3618,6 +3699,15 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      get_index_request() :: %{}
+
+  """
+  @type get_index_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       vpc_endpoint_error() :: %{
         "ErrorCode" => list(any()),
         "ErrorMessage" => String.t() | atom(),
@@ -3676,6 +3766,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type associate_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      serverless_vector_acceleration() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type serverless_vector_acceleration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3775,6 +3876,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type list_domains_for_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_index_response() :: %{
+        "IndexSchema" => any()
+      }
+
+  """
+  @type get_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3905,6 +4017,16 @@ defmodule AWS.OpenSearch do
           | invalid_type_exception()
           | disabled_operation_exception()
 
+  @type create_index_errors() ::
+          resource_already_exists_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | dependency_failure_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
   @type create_outbound_connection_errors() ::
           resource_already_exists_exception()
           | limit_exceeded_exception()
@@ -3960,6 +4082,15 @@ defmodule AWS.OpenSearch do
 
   @type delete_inbound_connection_errors() ::
           resource_not_found_exception() | disabled_operation_exception()
+
+  @type delete_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | dependency_failure_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type delete_outbound_connection_errors() ::
           resource_not_found_exception() | disabled_operation_exception()
@@ -4122,6 +4253,15 @@ defmodule AWS.OpenSearch do
           base_exception()
           | validation_exception()
           | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type get_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | dependency_failure_exception()
           | resource_not_found_exception()
           | disabled_operation_exception()
 
@@ -4302,6 +4442,15 @@ defmodule AWS.OpenSearch do
           | internal_exception()
           | invalid_type_exception()
           | resource_not_found_exception()
+
+  @type update_index_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | dependency_failure_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type update_package_errors() ::
           limit_exceeded_exception()
@@ -4740,11 +4889,49 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Creates a new cross-cluster search connection from a source Amazon OpenSearch
-  Service
-  domain to a destination domain.
+  Creates an OpenSearch index with optional automatic semantic enrichment for
+  specified text fields.
 
-  For more information, see [Cross-cluster search for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
+  Automatic semantic enrichment enables semantic search capabilities without
+  requiring machine learning expertise, improving search relevance by up to 20% by
+  understanding search intent and contextual meaning beyond keyword matching. The
+  semantic enrichment process has zero impact on search latency as sparse
+  encodings are stored directly within the index during indexing. For more
+  information, see [Automatic semantic enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-semantic-enrichment.html).
+  """
+  @spec create_index(map(), String.t() | atom(), create_index_request(), list()) ::
+          {:ok, create_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_index_errors()}
+  def create_index(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/index"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new cross-cluster search connection from a source Amazon OpenSearch
+  Service domain
+  to a destination domain.
+
+  For more information, see [Cross-cluster search for Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
   @spec create_outbound_connection(map(), create_outbound_connection_request(), list()) ::
           {:ok, create_outbound_connection_response(), any()}
@@ -4991,6 +5178,45 @@ defmodule AWS.OpenSearch do
           | {:error, delete_inbound_connection_errors()}
   def delete_inbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/inboundConnection/#{AWS.Util.encode_uri(connection_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an OpenSearch index.
+
+  This operation permanently removes the index and cannot be undone.
+  """
+  @spec delete_index(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_index_request(),
+          list()
+        ) ::
+          {:ok, delete_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_index_errors()}
+  def delete_index(%Client{} = client, domain_name, index_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/index/#{AWS.Util.encode_uri(index_name)}"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -5654,7 +5880,7 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Dissociates multiple packages from a domain simulatneously.
+  Dissociates multiple packages from a domain simultaneously.
   """
   @spec dissociate_packages(map(), dissociate_packages_request(), list()) ::
           {:ok, dissociate_packages_response(), any()}
@@ -5823,12 +6049,37 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Retrieves information about an OpenSearch index including its schema and
+  semantic enrichment configuration.
+
+  Use this operation to view the current index structure and semantic search
+  settings.
+  """
+  @spec get_index(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_index_errors()}
+  def get_index(%Client{} = client, domain_name, index_name, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/index/#{AWS.Util.encode_uri(index_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of Amazon OpenSearch Service package versions, along with their
-  creation time, commit message, and plugin properties (if the package is a zip
-  plugin
+  creation
+  time, commit message, and plugin properties (if the package is a zip plugin
   package).
 
-  For more information, see [Custom packages for Amazon OpenSearch
+  For more
+  information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
   @spec get_package_version_history(
@@ -5874,7 +6125,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Retrieves the complete history of the last 10 upgrades performed on an Amazon
-  OpenSearch Service domain.
+  OpenSearch
+  Service domain.
   """
   @spec get_upgrade_history(
           map(),
@@ -5919,7 +6171,8 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns the most recent status of the last upgrade or upgrade eligibility check
-  performed on an Amazon OpenSearch Service domain.
+  performed on
+  an Amazon OpenSearch Service domain.
   """
   @spec get_upgrade_status(map(), String.t() | atom(), list()) ::
           {:ok, get_upgrade_status_response(), any()}
@@ -6877,6 +7130,48 @@ defmodule AWS.OpenSearch do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing OpenSearch index schema and semantic enrichment
+  configuration.
+
+  This operation allows modification of field mappings and semantic search
+  settings for text fields. Changes to semantic enrichment configuration will
+  apply to newly ingested documents.
+  """
+  @spec update_index(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_index_request(),
+          list()
+        ) ::
+          {:ok, update_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_index_errors()}
+  def update_index(%Client{} = client, domain_name, index_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/index/#{AWS.Util.encode_uri(index_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

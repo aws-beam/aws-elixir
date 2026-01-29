@@ -99,6 +99,7 @@ defmodule AWS.DSQL do
   ## Example:
 
       get_vpc_endpoint_service_name_output() :: %{
+        "clusterVpcEndpoint" => String.t() | atom(),
         "serviceName" => String.t() | atom()
       }
 

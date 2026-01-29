@@ -4,12 +4,9 @@
 defmodule AWS.LaunchWizard do
   @moduledoc """
   Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon
-  Web Services resources for
-  third party applications, such as Microsoft SQL Server Always On and HANA based
-  SAP
-  systems, without the need to manually identify and provision individual Amazon
-  Web Services
-  resources.
+  Web Services resources for third party applications, such as Microsoft SQL
+  Server Always On and HANA based SAP systems, without the need to manually
+  identify and provision individual Amazon Web Services resources.
   """
 
   alias AWS.Client
@@ -58,6 +55,21 @@ defmodule AWS.LaunchWizard do
 
   ## Example:
 
+      deployment_pattern_version_data_summary() :: %{
+        "deploymentPatternName" => [String.t() | atom()],
+        "deploymentPatternVersionName" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "documentationUrl" => [String.t() | atom()],
+        "workloadName" => [String.t() | atom()]
+      }
+
+  """
+  @type deployment_pattern_version_data_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_workloads_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -72,6 +84,7 @@ defmodule AWS.LaunchWizard do
 
       workload_data_summary() :: %{
         "displayName" => [String.t() | atom()],
+        "status" => list(any()),
         "workloadName" => String.t() | atom()
       }
 
@@ -109,6 +122,19 @@ defmodule AWS.LaunchWizard do
 
   ## Example:
 
+      get_deployment_pattern_version_input() :: %{
+        required("deploymentPatternName") => String.t() | atom(),
+        required("deploymentPatternVersionName") => String.t() | atom(),
+        required("workloadName") => String.t() | atom()
+      }
+
+  """
+  @type get_deployment_pattern_version_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_deployment_input() :: %{
         required("deploymentId") => String.t() | atom()
       }
@@ -122,7 +148,7 @@ defmodule AWS.LaunchWizard do
 
       deployment_filter() :: %{
         "name" => list(any()),
-        "values" => list([String.t() | atom()]())
+        "values" => list(String.t() | atom())
       }
 
   """
@@ -149,6 +175,21 @@ defmodule AWS.LaunchWizard do
 
   """
   @type get_workload_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployment_pattern_versions_input() :: %{
+        optional("filters") => list(deployment_pattern_version_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("deploymentPatternName") => String.t() | atom(),
+        required("workloadName") => String.t() | atom()
+      }
+
+  """
+  @type list_deployment_pattern_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -181,12 +222,46 @@ defmodule AWS.LaunchWizard do
 
   ## Example:
 
+      get_deployment_pattern_version_output() :: %{
+        "deploymentPatternVersion" => deployment_pattern_version_data_summary()
+      }
+
+  """
+  @type get_deployment_pattern_version_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_deployment_output() :: %{
+        "deployment" => deployment_data_summary()
+      }
+
+  """
+  @type update_deployment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_pattern_version_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type deployment_pattern_version_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -248,6 +323,7 @@ defmodule AWS.LaunchWizard do
 
       workload_deployment_pattern_data_summary() :: %{
         "deploymentPatternName" => String.t() | atom(),
+        "deploymentPatternVersionName" => String.t() | atom(),
         "description" => [String.t() | atom()],
         "displayName" => [String.t() | atom()],
         "status" => list(any()),
@@ -277,6 +353,7 @@ defmodule AWS.LaunchWizard do
       deployment_data_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "id" => String.t() | atom(),
+        "modifiedAt" => [non_neg_integer()],
         "name" => [String.t() | atom()],
         "patternName" => String.t() | atom(),
         "status" => list(any()),
@@ -450,6 +527,7 @@ defmodule AWS.LaunchWizard do
         "deletedAt" => [non_neg_integer()],
         "deploymentArn" => [String.t() | atom()],
         "id" => String.t() | atom(),
+        "modifiedAt" => [non_neg_integer()],
         "name" => [String.t() | atom()],
         "patternName" => String.t() | atom(),
         "resourceGroup" => [String.t() | atom()],
@@ -468,6 +546,7 @@ defmodule AWS.LaunchWizard do
 
       workload_deployment_pattern_data() :: %{
         "deploymentPatternName" => String.t() | atom(),
+        "deploymentPatternVersionName" => String.t() | atom(),
         "description" => [String.t() | atom()],
         "displayName" => [String.t() | atom()],
         "specifications" => list(deployment_specifications_field()),
@@ -484,12 +563,40 @@ defmodule AWS.LaunchWizard do
 
   ## Example:
 
+      update_deployment_input() :: %{
+        optional("deploymentPatternVersionName") => String.t() | atom(),
+        optional("dryRun") => [boolean()],
+        optional("force") => [boolean()],
+        optional("workloadVersionName") => String.t() | atom(),
+        required("deploymentId") => String.t() | atom(),
+        required("specifications") => map()
+      }
+
+  """
+  @type update_deployment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_workload_deployment_pattern_output() :: %{
         "workloadDeploymentPattern" => workload_deployment_pattern_data()
       }
 
   """
   @type get_workload_deployment_pattern_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployment_pattern_versions_output() :: %{
+        "deploymentPatternVersions" => list(deployment_pattern_version_data_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_deployment_pattern_versions_output() :: %{(String.t() | atom()) => any()}
 
   @type create_deployment_errors() ::
           validation_exception()
@@ -506,6 +613,9 @@ defmodule AWS.LaunchWizard do
   @type get_deployment_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type get_deployment_pattern_version_errors() ::
+          internal_server_exception() | resource_not_found_exception()
+
   @type get_workload_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
@@ -513,6 +623,9 @@ defmodule AWS.LaunchWizard do
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_deployment_events_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type list_deployment_pattern_versions_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_deployments_errors() :: validation_exception() | internal_server_exception()
@@ -530,6 +643,12 @@ defmodule AWS.LaunchWizard do
 
   @type untag_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_deployment_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | resource_limit_exception()
 
   def metadata do
     %{
@@ -550,9 +669,8 @@ defmodule AWS.LaunchWizard do
   @doc """
   Creates a deployment for the given workload.
 
-  Deployments created by this operation are
-  not available in the Launch Wizard console to use the `Clone deployment` action
-  on.
+  Deployments created by this operation are not available in the Launch Wizard
+  console to use the `Clone deployment` action on.
   """
   @spec create_deployment(map(), create_deployment_input(), list()) ::
           {:ok, create_deployment_output(), any()}
@@ -639,6 +757,35 @@ defmodule AWS.LaunchWizard do
   end
 
   @doc """
+  Returns information about a deployment pattern version.
+  """
+  @spec get_deployment_pattern_version(map(), get_deployment_pattern_version_input(), list()) ::
+          {:ok, get_deployment_pattern_version_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_deployment_pattern_version_errors()}
+  def get_deployment_pattern_version(%Client{} = client, input, options \\ []) do
+    url_path = "/getDeploymentPatternVersion"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns information about a workload.
   """
   @spec get_workload(map(), get_workload_input(), list()) ::
@@ -669,14 +816,13 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Returns details for a given workload and deployment pattern, including the
-  available
-  specifications.
+  available specifications.
 
   You can use the
   [ListWorkloads](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html) operation to discover the available workload names and the
   [ListWorkloadDeploymentPatterns](https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html)
-  operation to discover the available deployment
-  pattern names of a given workload.
+  operation to discover the available deployment pattern names of a given
+  workload.
   """
   @spec get_workload_deployment_pattern(map(), get_workload_deployment_pattern_input(), list()) ::
           {:ok, get_workload_deployment_pattern_output(), any()}
@@ -714,6 +860,35 @@ defmodule AWS.LaunchWizard do
           | {:error, list_deployment_events_errors()}
   def list_deployment_events(%Client{} = client, input, options \\ []) do
     url_path = "/listDeploymentEvents"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the deployment pattern versions.
+  """
+  @spec list_deployment_pattern_versions(map(), list_deployment_pattern_versions_input(), list()) ::
+          {:ok, list_deployment_pattern_versions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_deployment_pattern_versions_errors()}
+  def list_deployment_pattern_versions(%Client{} = client, input, options \\ []) do
+    url_path = "/listDeploymentPatternVersions"
     headers = []
     custom_headers = []
     query_params = []
@@ -904,6 +1079,35 @@ defmodule AWS.LaunchWizard do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a deployment.
+  """
+  @spec update_deployment(map(), update_deployment_input(), list()) ::
+          {:ok, update_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_deployment_errors()}
+  def update_deployment(%Client{} = client, input, options \\ []) do
+    url_path = "/updateDeployment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -290,6 +290,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      ingress_path_summary() :: %{
+        "accessType" => list(any()),
+        "endpoint" => String.t() | atom()
+      }
+      
+  """
+  @type ingress_path_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_container_instances_request() :: %{
         optional("cluster") => String.t() | atom(),
         optional("include") => list(list(any())()),
@@ -367,6 +379,20 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      managed_metric_alarm() :: %{
+        "arn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_metric_alarm() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       run_task_response() :: %{
         "failures" => list(failure()),
         "tasks" => list(task())
@@ -374,6 +400,24 @@ defmodule AWS.ECS do
       
   """
   @type run_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_ingress_path() :: %{
+        "accessType" => list(any()),
+        "certificate" => managed_certificate(),
+        "endpoint" => String.t() | atom(),
+        "listener" => managed_listener(),
+        "loadBalancer" => managed_load_balancer(),
+        "loadBalancerSecurityGroups" => list(managed_security_group()),
+        "rule" => managed_listener_rule(),
+        "targetGroups" => list(managed_target_group())
+      }
+      
+  """
+  @type managed_ingress_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,6 +431,18 @@ defmodule AWS.ECS do
       
   """
   @type proxy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      express_gateway_service_network_configuration() :: %{
+        "securityGroups" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom())
+      }
+      
+  """
+  @type express_gateway_service_network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -461,6 +517,20 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      service_current_revision_summary() :: %{
+        "arn" => String.t() | atom(),
+        "pendingTaskCount" => integer(),
+        "requestedTaskCount" => integer(),
+        "runningTaskCount" => integer()
+      }
+      
+  """
+  @type service_current_revision_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_services_request() :: %{
         optional("cluster") => String.t() | atom(),
         optional("include") => list(list(any())()),
@@ -525,6 +595,7 @@ defmodule AWS.ECS do
   ## Example:
       
       create_managed_instances_provider_configuration() :: %{
+        "infrastructureOptimization" => infrastructure_optimization(),
         "infrastructureRoleArn" => String.t() | atom(),
         "instanceLaunchTemplate" => instance_launch_template(),
         "propagateTags" => list(any())
@@ -863,38 +934,41 @@ defmodule AWS.ECS do
   ## Example:
       
       service() :: %{
-        "availabilityZoneRebalancing" => list(any()),
-        "capacityProviderStrategy" => list(capacity_provider_strategy_item()),
-        "clusterArn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "deploymentConfiguration" => deployment_configuration(),
-        "deploymentController" => deployment_controller(),
-        "deployments" => list(deployment()),
-        "desiredCount" => integer(),
-        "enableECSManagedTags" => boolean(),
-        "enableExecuteCommand" => boolean(),
-        "events" => list(service_event()),
-        "healthCheckGracePeriodSeconds" => integer(),
         "launchType" => list(any()),
-        "loadBalancers" => list(load_balancer()),
-        "networkConfiguration" => network_configuration(),
+        "taskDefinition" => String.t() | atom(),
+        "capacityProviderStrategy" => list(capacity_provider_strategy_item()),
+        "deploymentConfiguration" => deployment_configuration(),
         "pendingCount" => integer(),
-        "placementConstraints" => list(placement_constraint()),
-        "placementStrategy" => list(placement_strategy()),
-        "platformFamily" => String.t() | atom(),
-        "platformVersion" => String.t() | atom(),
-        "propagateTags" => list(any()),
+        "networkConfiguration" => network_configuration(),
         "roleArn" => String.t() | atom(),
-        "runningCount" => integer(),
-        "schedulingStrategy" => list(any()),
+        "platformVersion" => String.t() | atom(),
+        "enableExecuteCommand" => boolean(),
+        "placementStrategy" => list(placement_strategy()),
+        "propagateTags" => list(any()),
         "serviceArn" => String.t() | atom(),
         "serviceName" => String.t() | atom(),
-        "serviceRegistries" => list(service_registry()),
-        "status" => String.t() | atom(),
+        "schedulingStrategy" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "events" => list(service_event()),
+        "deploymentController" => deployment_controller(),
         "tags" => list(tag()),
-        "taskDefinition" => String.t() | atom(),
-        "taskSets" => list(task_set())
+        "currentServiceRevisions" => list(service_current_revision_summary()),
+        "platformFamily" => String.t() | atom(),
+        "desiredCount" => integer(),
+        "enableECSManagedTags" => boolean(),
+        "status" => String.t() | atom(),
+        "serviceRegistries" => list(service_registry()),
+        "clusterArn" => String.t() | atom(),
+        "placementConstraints" => list(placement_constraint()),
+        "availabilityZoneRebalancing" => list(any()),
+        "resourceManagementType" => list(any()),
+        "loadBalancers" => list(load_balancer()),
+        "healthCheckGracePeriodSeconds" => integer(),
+        "deployments" => list(deployment()),
+        "taskSets" => list(task_set()),
+        "currentServiceDeployment" => String.t() | atom(),
+        "runningCount" => integer()
       }
       
   """
@@ -911,6 +985,18 @@ defmodule AWS.ECS do
       
   """
   @type host_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_express_gateway_service_request() :: %{
+        optional("include") => list(list(any())()),
+        required("serviceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_express_gateway_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -994,6 +1080,18 @@ defmodule AWS.ECS do
       
   """
   @type delete_task_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      express_gateway_service_status() :: %{
+        "statusCode" => list(any()),
+        "statusReason" => String.t() | atom()
+      }
+      
+  """
+  @type express_gateway_service_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1152,6 +1250,7 @@ defmodule AWS.ECS do
   ## Example:
       
       managed_instances_provider() :: %{
+        "infrastructureOptimization" => infrastructure_optimization(),
         "infrastructureRoleArn" => String.t() | atom(),
         "instanceLaunchTemplate" => instance_launch_template(),
         "propagateTags" => list(any())
@@ -1169,6 +1268,7 @@ defmodule AWS.ECS do
         optional("launchType") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        optional("resourceManagementType") => list(any()),
         optional("schedulingStrategy") => list(any())
       }
       
@@ -1224,6 +1324,17 @@ defmodule AWS.ECS do
       
   """
   @type deregister_task_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_express_gateway_service_request() :: %{
+        required("serviceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_express_gateway_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1371,6 +1482,18 @@ defmodule AWS.ECS do
       
   """
   @type list_service_deployments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      express_gateway_service_aws_logs_configuration() :: %{
+        "logGroup" => String.t() | atom(),
+        "logStreamPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type express_gateway_service_aws_logs_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1650,6 +1773,23 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      managed_load_balancer() :: %{
+        "arn" => String.t() | atom(),
+        "scheme" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_load_balancer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       attachment_state_change() :: %{
         "attachmentArn" => String.t() | atom(),
         "status" => String.t() | atom()
@@ -1722,6 +1862,21 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      managed_certificate() :: %{
+        "arn" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       accelerator_count_request() :: %{
         "max" => integer(),
         "min" => integer()
@@ -1754,6 +1909,17 @@ defmodule AWS.ECS do
       
   """
   @type describe_task_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_express_gateway_service_response() :: %{
+        "service" => updated_express_gateway_service()
+      }
+      
+  """
+  @type update_express_gateway_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2091,7 +2257,23 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      managed_log_group() :: %{
+        "arn" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_log_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_managed_instances_provider_configuration() :: %{
+        "infrastructureOptimization" => infrastructure_optimization(),
         "infrastructureRoleArn" => String.t() | atom(),
         "instanceLaunchTemplate" => instance_launch_template_update(),
         "propagateTags" => list(any())
@@ -2099,6 +2281,21 @@ defmodule AWS.ECS do
       
   """
   @type update_managed_instances_provider_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_managed_resources() :: %{
+        "autoScaling" => managed_auto_scaling(),
+        "ingressPaths" => list(managed_ingress_path()),
+        "logGroups" => list(managed_log_group()),
+        "metricAlarms" => list(managed_metric_alarm()),
+        "serviceSecurityGroups" => list(managed_security_group())
+      }
+      
+  """
+  @type e_c_s_managed_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2176,6 +2373,25 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      update_express_gateway_service_request() :: %{
+        optional("cpu") => String.t() | atom(),
+        optional("executionRoleArn") => String.t() | atom(),
+        optional("healthCheckPath") => String.t() | atom(),
+        optional("memory") => String.t() | atom(),
+        optional("networkConfiguration") => express_gateway_service_network_configuration(),
+        optional("primaryContainer") => express_gateway_container(),
+        optional("scalingTarget") => express_gateway_scaling_target(),
+        optional("taskRoleArn") => String.t() | atom(),
+        required("serviceArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_express_gateway_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       session() :: %{
         "sessionId" => String.t() | atom(),
         "streamUrl" => String.t() | atom(),
@@ -2200,6 +2416,28 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      create_express_gateway_service_request() :: %{
+        optional("cluster") => String.t() | atom(),
+        optional("cpu") => String.t() | atom(),
+        optional("healthCheckPath") => String.t() | atom(),
+        optional("memory") => String.t() | atom(),
+        optional("networkConfiguration") => express_gateway_service_network_configuration(),
+        optional("scalingTarget") => express_gateway_scaling_target(),
+        optional("serviceName") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("taskRoleArn") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("infrastructureRoleArn") => String.t() | atom(),
+        required("primaryContainer") => express_gateway_container()
+      }
+      
+  """
+  @type create_express_gateway_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_capacity_provider_response() :: %{
         "capacityProvider" => capacity_provider()
       }
@@ -2217,6 +2455,17 @@ defmodule AWS.ECS do
       
   """
   @type update_container_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      express_gateway_repository_credentials() :: %{
+        "credentialsParameter" => String.t() | atom()
+      }
+      
+  """
+  @type express_gateway_repository_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2411,6 +2660,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      describe_express_gateway_service_response() :: %{
+        "service" => e_c_s_express_gateway_service()
+      }
+      
+  """
+  @type describe_express_gateway_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_task_definition_request() :: %{
         optional("include") => list(list(any())()),
         required("taskDefinition") => String.t() | atom()
@@ -2457,6 +2717,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      managed_auto_scaling() :: %{
+        "applicationAutoScalingPolicies" => list(managed_application_auto_scaling_policy()),
+        "scalableTarget" => managed_scalable_target()
+      }
+      
+  """
+  @type managed_auto_scaling() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_attributes_request() :: %{
         optional("cluster") => String.t() | atom(),
         required("attributes") => list(attribute())
@@ -2464,6 +2736,20 @@ defmodule AWS.ECS do
       
   """
   @type delete_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      express_gateway_scaling_target() :: %{
+        "autoScalingMetric" => list(any()),
+        "autoScalingTargetValue" => integer(),
+        "maxTaskCount" => integer(),
+        "minTaskCount" => integer()
+      }
+      
+  """
+  @type express_gateway_scaling_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2690,6 +2976,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      delete_express_gateway_service_response() :: %{
+        "service" => e_c_s_express_gateway_service()
+      }
+      
+  """
+  @type delete_express_gateway_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       created_at() :: %{
         "after" => non_neg_integer(),
         "before" => non_neg_integer()
@@ -2833,6 +3130,26 @@ defmodule AWS.ECS do
       
   """
   @type auto_scaling_group_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_s_express_gateway_service() :: %{
+        "activeConfigurations" => list(express_gateway_service_configuration()),
+        "cluster" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "currentDeployment" => String.t() | atom(),
+        "infrastructureRoleArn" => String.t() | atom(),
+        "serviceArn" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "status" => express_gateway_service_status(),
+        "tags" => list(tag()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type e_c_s_express_gateway_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3067,6 +3384,39 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      managed_scalable_target() :: %{
+        "arn" => String.t() | atom(),
+        "maxCapacity" => integer(),
+        "minCapacity" => integer(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_scalable_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_target_group() :: %{
+        "arn" => String.t() | atom(),
+        "healthCheckPath" => String.t() | atom(),
+        "healthCheckPort" => integer(),
+        "port" => integer(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_target_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_connect_service() :: %{
         "clientAliases" => list(service_connect_client_alias()),
         "discoveryName" => String.t() | atom(),
@@ -3268,6 +3618,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      infrastructure_optimization() :: %{
+        "scaleInAfter" => integer()
+      }
+      
+  """
+  @type infrastructure_optimization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_services_by_namespace_response() :: %{
         "nextToken" => String.t() | atom(),
         "serviceArns" => list(String.t() | atom())
@@ -3377,6 +3738,41 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      express_gateway_service_configuration() :: %{
+        "cpu" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "executionRoleArn" => String.t() | atom(),
+        "healthCheckPath" => String.t() | atom(),
+        "ingressPaths" => list(ingress_path_summary()),
+        "memory" => String.t() | atom(),
+        "networkConfiguration" => express_gateway_service_network_configuration(),
+        "primaryContainer" => express_gateway_container(),
+        "scalingTarget" => express_gateway_scaling_target(),
+        "serviceRevisionArn" => String.t() | atom(),
+        "taskRoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type express_gateway_service_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_listener() :: %{
+        "arn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_listener() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_connect_tls_configuration() :: %{
         "issuerCertificateAuthority" => service_connect_tls_certificate_authority(),
         "kmsKey" => String.t() | atom(),
@@ -3395,6 +3791,7 @@ defmodule AWS.ECS do
         "clusterArn" => String.t() | atom(),
         "containerImages" => list(container_image()),
         "createdAt" => non_neg_integer(),
+        "ecsManagedResources" => e_c_s_managed_resources(),
         "fargateEphemeralStorage" => deployment_ephemeral_storage(),
         "guardDutyEnabled" => boolean(),
         "launchType" => list(any()),
@@ -3419,6 +3816,23 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      managed_application_auto_scaling_policy() :: %{
+        "arn" => String.t() | atom(),
+        "metric" => String.t() | atom(),
+        "policyType" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "targetValue" => float(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_application_auto_scaling_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       memory_mi_b_request() :: %{
         "max" => integer(),
         "min" => integer()
@@ -3438,6 +3852,20 @@ defmodule AWS.ECS do
       
   """
   @type network_interface_count_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_security_group() :: %{
+        "arn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3530,6 +3958,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      create_express_gateway_service_response() :: %{
+        "service" => e_c_s_express_gateway_service()
+      }
+      
+  """
+  @type create_express_gateway_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_account_setting_request() :: %{
         optional("principalArn") => String.t() | atom(),
         required("name") => list(any())
@@ -3554,7 +3993,9 @@ defmodule AWS.ECS do
   ## Example:
       
       instance_launch_template() :: %{
+        "capacityOptionType" => list(any()),
         "ec2InstanceProfileArn" => String.t() | atom(),
+        "fipsEnabled" => boolean(),
         "instanceRequirements" => instance_requirements_request(),
         "monitoring" => list(any()),
         "networkConfiguration" => managed_instances_network_configuration(),
@@ -3591,6 +4032,20 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      managed_listener_rule() :: %{
+        "arn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type managed_listener_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tasks_response() :: %{
         "nextToken" => String.t() | atom(),
         "taskArns" => list(String.t() | atom())
@@ -3598,6 +4053,23 @@ defmodule AWS.ECS do
       
   """
   @type list_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      express_gateway_container() :: %{
+        "awsLogsConfiguration" => express_gateway_service_aws_logs_configuration(),
+        "command" => list(String.t() | atom()),
+        "containerPort" => integer(),
+        "environment" => list(key_value_pair()),
+        "image" => String.t() | atom(),
+        "repositoryCredentials" => express_gateway_repository_credentials(),
+        "secrets" => list(secret())
+      }
+      
+  """
+  @type express_gateway_container() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3754,6 +4226,23 @@ defmodule AWS.ECS do
       
   """
   @type version_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      updated_express_gateway_service() :: %{
+        "cluster" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "serviceArn" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "status" => express_gateway_service_status(),
+        "targetConfiguration" => express_gateway_service_configuration(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type updated_express_gateway_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4023,6 +4512,16 @@ defmodule AWS.ECS do
           | client_exception()
           | namespace_not_found_exception()
 
+  @type create_express_gateway_service_errors() ::
+          server_exception()
+          | platform_task_definition_incompatibility_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | platform_unknown_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | cluster_not_found_exception()
+
   @type create_service_errors() ::
           server_exception()
           | platform_task_definition_incompatibility_exception()
@@ -4073,6 +4572,16 @@ defmodule AWS.ECS do
           | cluster_not_found_exception()
           | update_in_progress_exception()
 
+  @type delete_express_gateway_service_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_not_active_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | service_not_found_exception()
+          | cluster_not_found_exception()
+
   @type delete_service_errors() ::
           server_exception()
           | invalid_parameter_exception()
@@ -4120,6 +4629,15 @@ defmodule AWS.ECS do
           server_exception()
           | invalid_parameter_exception()
           | client_exception()
+          | cluster_not_found_exception()
+
+  @type describe_express_gateway_service_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | client_exception()
+          | unsupported_feature_exception()
           | cluster_not_found_exception()
 
   @type describe_service_deployments_errors() ::
@@ -4361,6 +4879,16 @@ defmodule AWS.ECS do
           | client_exception()
           | cluster_not_found_exception()
 
+  @type update_express_gateway_service_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_not_active_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | service_not_found_exception()
+          | cluster_not_found_exception()
+
   @type update_service_errors() ::
           server_exception()
           | platform_task_definition_incompatibility_exception()
@@ -4472,6 +5000,36 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
+  end
+
+  @doc """
+  Creates an Express service that simplifies deploying containerized web
+  applications on
+  Amazon ECS with managed Amazon Web Services infrastructure.
+
+  This operation provisions and configures
+  Application Load Balancers, target groups, security groups, and auto-scaling
+  policies
+  automatically.
+
+  Specify a primary container configuration with your application image and basic
+  settings. Amazon ECS creates the necessary Amazon Web Services resources for
+  traffic distribution, health
+  monitoring, network access control, and capacity management.
+
+  Provide an execution role for task operations and an infrastructure role for
+  managing
+  Amazon Web Services resources on your behalf.
+  """
+  @spec create_express_gateway_service(map(), create_express_gateway_service_request(), list()) ::
+          {:ok, create_express_gateway_service_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_express_gateway_service_errors()}
+  def create_express_gateway_service(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateExpressGatewayService", input, options)
   end
 
   @doc """
@@ -4856,6 +5414,35 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Deletes an Express service and removes all associated Amazon Web Services
+  resources.
+
+  This operation
+  stops service tasks, removes the Application Load Balancer, target groups,
+  security groups,
+  auto-scaling policies, and other managed infrastructure components.
+
+  The service enters a `DRAINING` state where existing tasks complete current
+  requests without starting new tasks. After all tasks stop, the service and
+  infrastructure
+  are permanently removed.
+
+  This operation cannot be reversed. Back up important data and verify the service
+  is no
+  longer needed before deletion.
+  """
+  @spec delete_express_gateway_service(map(), delete_express_gateway_service_request(), list()) ::
+          {:ok, delete_express_gateway_service_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_express_gateway_service_errors()}
+  def delete_express_gateway_service(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteExpressGatewayService", input, options)
+  end
+
+  @doc """
   Deletes a specified service within a cluster.
 
   You can delete a service if you have no
@@ -5080,6 +5667,35 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeContainerInstances", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information about an Express service, including current
+  status,
+  configuration, managed infrastructure, and service revisions.
+
+  Returns comprehensive service details, active service revisions, ingress paths
+  with
+  endpoints, and managed Amazon Web Services resource status including load
+  balancers and auto-scaling
+  policies.
+
+  Use the `include` parameter to retrieve additional information such as
+  resource tags.
+  """
+  @spec describe_express_gateway_service(
+          map(),
+          describe_express_gateway_service_request(),
+          list()
+        ) ::
+          {:ok, describe_express_gateway_service_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_express_gateway_service_errors()}
+  def describe_express_gateway_service(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeExpressGatewayService", input, options)
   end
 
   @doc """
@@ -5797,10 +6413,13 @@ defmodule AWS.ECS do
   ```
 
   is issued to the containers running in the task. This results in a
-  `SIGTERM` value and a default 30-second timeout, after which the
-  `SIGKILL` value is sent and the containers are forcibly stopped. If the
-  container handles the `SIGTERM` value gracefully and exits within 30 seconds
-  from receiving it, no `SIGKILL` value is sent.
+  stop signal value and a default 30-second timeout, after which the
+  `SIGKILL` value is sent and the containers are forcibly stopped. This
+  signal can be defined in your container image with the `STOPSIGNAL` instruction
+  and will default to `SIGTERM`. If the container handles the `SIGTERM`
+  value gracefully and exits within 30 seconds from receiving it, no `SIGKILL`
+  value
+  is sent.
 
   For Windows containers, POSIX signals do not work and runtime stops the
   container by
@@ -6074,6 +6693,35 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateContainerInstancesState", input, options)
+  end
+
+  @doc """
+  Updates an existing Express service configuration.
+
+  Modifies container settings, resource
+  allocation, auto-scaling configuration, and other service parameters without
+  recreating the
+  service.
+
+  Amazon ECS creates a new service revision with updated configuration and
+  performs a rolling
+  deployment to replace existing tasks. The service remains available during
+  updates,
+  ensuring zero-downtime deployments.
+
+  Some parameters like the infrastructure role cannot be modified after service
+  creation
+  and require creating a new service.
+  """
+  @spec update_express_gateway_service(map(), update_express_gateway_service_request(), list()) ::
+          {:ok, update_express_gateway_service_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_express_gateway_service_errors()}
+  def update_express_gateway_service(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateExpressGatewayService", input, options)
   end
 
   @doc """

@@ -262,6 +262,7 @@ defmodule AWS.Athena do
         "Description" => String.t() | atom(),
         "EngineConfiguration" => engine_configuration(),
         "EngineVersion" => String.t() | atom(),
+        "MonitoringConfiguration" => monitoring_configuration(),
         "NotebookVersion" => String.t() | atom(),
         "SessionConfiguration" => session_configuration(),
         "SessionId" => String.t() | atom(),
@@ -337,9 +338,13 @@ defmodule AWS.Athena do
       
       start_session_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("CopyWorkGroupTags") => boolean(),
         optional("Description") => String.t() | atom(),
+        optional("ExecutionRole") => String.t() | atom(),
+        optional("MonitoringConfiguration") => monitoring_configuration(),
         optional("NotebookVersion") => String.t() | atom(),
         optional("SessionIdleTimeoutInMinutes") => integer(),
+        optional("Tags") => list(tag()),
         required("EngineConfiguration") => engine_configuration(),
         required("WorkGroup") => String.t() | atom()
       }
@@ -366,6 +371,19 @@ defmodule AWS.Athena do
       
   """
   @type get_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_session_endpoint_response() :: %{
+        "AuthToken" => String.t() | atom(),
+        "AuthTokenExpirationTime" => non_neg_integer(),
+        "EndpointUrl" => String.t() | atom()
+      }
+      
+  """
+  @type get_session_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -412,6 +430,7 @@ defmodule AWS.Athena do
       
       engine_configuration() :: %{
         "AdditionalConfigs" => map(),
+        "Classifications" => list(classification()),
         "CoordinatorDpuSize" => integer(),
         "DefaultExecutorDpuSize" => integer(),
         "MaxConcurrentDpus" => integer(),
@@ -605,6 +624,17 @@ defmodule AWS.Athena do
 
   ## Example:
       
+      get_session_endpoint_request() :: %{
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type get_session_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_capacity_assignment_configuration_input() :: %{
         required("CapacityAssignments") => list(capacity_assignment()),
         required("CapacityReservationName") => String.t() | atom()
@@ -706,6 +736,19 @@ defmodule AWS.Athena do
       
   """
   @type notebook_session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitoring_configuration() :: %{
+        "CloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
+        "ManagedLoggingConfiguration" => managed_logging_configuration(),
+        "S3LoggingConfiguration" => s3_logging_configuration()
+      }
+      
+  """
+  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -819,6 +862,7 @@ defmodule AWS.Athena do
         "EncryptionConfiguration" => encryption_configuration(),
         "ExecutionRole" => String.t() | atom(),
         "IdleTimeoutSeconds" => float(),
+        "SessionIdleTimeoutInMinutes" => integer(),
         "WorkingDirectory" => String.t() | atom()
       }
       
@@ -1198,6 +1242,19 @@ defmodule AWS.Athena do
       
   """
   @type capacity_assignment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_logging_configuration() :: %{
+        "Enabled" => boolean(),
+        "KmsKey" => String.t() | atom(),
+        "LogLocation" => String.t() | atom()
+      }
+      
+  """
+  @type s3_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1707,10 +1764,12 @@ defmodule AWS.Athena do
         "CustomerContentEncryptionConfiguration" => customer_content_encryption_configuration(),
         "EnableMinimumEncryptionConfiguration" => boolean(),
         "EnforceWorkGroupConfiguration" => boolean(),
+        "EngineConfiguration" => engine_configuration(),
         "EngineVersion" => engine_version(),
         "ExecutionRole" => String.t() | atom(),
         "IdentityCenterConfiguration" => identity_center_configuration(),
         "ManagedQueryResultsConfiguration" => managed_query_results_configuration(),
+        "MonitoringConfiguration" => monitoring_configuration(),
         "PublishCloudWatchMetricsEnabled" => boolean(),
         "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
         "RequesterPaysEnabled" => boolean(),
@@ -1741,9 +1800,11 @@ defmodule AWS.Athena do
         "CustomerContentEncryptionConfiguration" => customer_content_encryption_configuration(),
         "EnableMinimumEncryptionConfiguration" => boolean(),
         "EnforceWorkGroupConfiguration" => boolean(),
+        "EngineConfiguration" => engine_configuration(),
         "EngineVersion" => engine_version(),
         "ExecutionRole" => String.t() | atom(),
         "ManagedQueryResultsConfigurationUpdates" => managed_query_results_configuration_updates(),
+        "MonitoringConfiguration" => monitoring_configuration(),
         "PublishCloudWatchMetricsEnabled" => boolean(),
         "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
         "RemoveBytesScannedCutoffPerQuery" => boolean(),
@@ -1772,6 +1833,7 @@ defmodule AWS.Athena do
       
       start_query_execution_input() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("EngineConfiguration") => engine_configuration(),
         optional("ExecutionParameters") => list(String.t() | atom()),
         optional("QueryExecutionContext") => query_execution_context(),
         optional("ResultConfiguration") => result_configuration(),
@@ -1891,6 +1953,17 @@ defmodule AWS.Athena do
       
   """
   @type import_notebook_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_dashboard_response() :: %{
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2062,6 +2135,17 @@ defmodule AWS.Athena do
 
   ## Example:
       
+      get_resource_dashboard_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_calculation_execution_request() :: %{
         required("CalculationExecutionId") => String.t() | atom()
       }
@@ -2157,6 +2241,18 @@ defmodule AWS.Athena do
       
   """
   @type list_data_catalogs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      classification() :: %{
+        "Name" => String.t() | atom(),
+        "Properties" => map()
+      }
+      
+  """
+  @type classification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2327,6 +2423,18 @@ defmodule AWS.Athena do
 
   ## Example:
       
+      managed_logging_configuration() :: %{
+        "Enabled" => boolean(),
+        "KmsKey" => String.t() | atom()
+      }
+      
+  """
+  @type managed_logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_data_catalogs_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -2429,6 +2537,20 @@ defmodule AWS.Athena do
       
   """
   @type create_capacity_reservation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logging_configuration() :: %{
+        "Enabled" => boolean(),
+        "LogGroup" => String.t() | atom(),
+        "LogStreamNamePrefix" => String.t() | atom(),
+        "LogTypes" => map()
+      }
+      
+  """
+  @type cloud_watch_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2583,6 +2705,7 @@ defmodule AWS.Athena do
       query_execution_statistics() :: %{
         "DataManifestLocation" => String.t() | atom(),
         "DataScannedInBytes" => float(),
+        "DpuCount" => float(),
         "EngineExecutionTimeInMillis" => float(),
         "QueryPlanningTimeInMillis" => float(),
         "QueryQueueTimeInMillis" => float(),
@@ -2712,7 +2835,17 @@ defmodule AWS.Athena do
   @type get_query_runtime_statistics_errors() ::
           internal_server_exception() | invalid_request_exception()
 
+  @type get_resource_dashboard_errors() ::
+          internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type get_session_errors() ::
+          internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type get_session_endpoint_errors() ::
           internal_server_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -3429,9 +3562,9 @@ defmodule AWS.Athena do
   output row
   count and data size) are updated asynchronously and may not be available
   immediately
-  after a query completes. The non-timeline statistics are also not included when
-  a query
-  has row-level filters defined in Lake Formation.
+  after a query completes or, in some cases, may not be returned. The non-timeline
+  statistics are also not included when a query has row-level filters defined in
+  Lake Formation.
   """
   @spec get_query_runtime_statistics(map(), get_query_runtime_statistics_input(), list()) ::
           {:ok, get_query_runtime_statistics_output(), any()}
@@ -3442,6 +3575,20 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "GetQueryRuntimeStatistics", input, options)
+  end
+
+  @doc """
+  Gets the Live UI/Persistence UI for a session.
+  """
+  @spec get_resource_dashboard(map(), get_resource_dashboard_request(), list()) ::
+          {:ok, get_resource_dashboard_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_dashboard_errors()}
+  def get_resource_dashboard(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourceDashboard", input, options)
   end
 
   @doc """
@@ -3458,6 +3605,20 @@ defmodule AWS.Athena do
     meta = metadata()
 
     Request.request_post(client, meta, "GetSession", input, options)
+  end
+
+  @doc """
+  Gets a connection endpoint and authentication token for a given session Id.
+  """
+  @spec get_session_endpoint(map(), get_session_endpoint_request(), list()) ::
+          {:ok, get_session_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_session_endpoint_errors()}
+  def get_session_endpoint(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSessionEndpoint", input, options)
   end
 
   @doc """

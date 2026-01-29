@@ -3,29 +3,29 @@
 
 defmodule AWS.PinpointSMSVoiceV2 do
   @moduledoc """
-  Welcome to the *End User MessagingSMS, version 2 API Reference*.
+  Welcome to the *End User Messaging SMS, version 2 API Reference*.
 
-  This guide provides information about End User MessagingSMS, version 2 API
+  This guide provides information about End User Messaging SMS, version 2 API
   resources, including supported HTTP methods, parameters, and schemas.
 
   Amazon Pinpoint is an Amazon Web Services service that you can use to engage
-  with your recipients across multiple messaging channels. The End User
-  MessagingSMS, version 2 API provides programmatic access to options that are
-  unique to the SMS and voice channels. End User MessagingSMS, version 2 resources
-  such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon
-  Pinpoint API.
+  with your recipients across multiple messaging channels. The End User Messaging
+  SMS, version 2 API provides programmatic access to options that are unique to
+  the SMS and voice channels. End User Messaging SMS, version 2 resources such as
+  phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint
+  API.
 
-  If you're new to End User MessagingSMS, it's also helpful to review the [ End User MessagingSMS User
+  If you're new to End User Messaging SMS, it's also helpful to review the [ End User Messaging SMS User
   Guide](https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html),
   where you'll find tutorials, code samples, and procedures that demonstrate how
-  to use End User MessagingSMS features programmatically and how to integrate
+  to use End User Messaging SMS features programmatically and how to integrate
   functionality into mobile apps and other types of applications. The guide also
-  provides key information, such as End User MessagingSMS integration with other
+  provides key information, such as End User Messaging SMS integration with other
   Amazon Web Services services, and the quotas that apply to use of the service.
 
   ## Regional availability
 
-  The *End User MessagingSMS version 2 API Reference* is available in several
+  The *End User Messaging SMS version 2 API Reference* is available in several
   Amazon Web Services Regions and it provides an endpoint for each of these
   Regions. For a list of all the Regions and endpoints where the API is currently
   available, see [Amazon Web Services Service Endpoints](https://docs.aws.amazon.com/hgeneral/latest/gr/rande.html#pinpoint_region)
@@ -644,6 +644,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       submit_registration_version_request() :: %{
+        optional("AwsReview") => [boolean()],
         required("RegistrationId") => String.t() | atom()
       }
       
@@ -1586,6 +1587,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       registration_version_status_history() :: %{
         "ApprovedTimestamp" => [non_neg_integer()],
         "ArchivedTimestamp" => [non_neg_integer()],
+        "AwsReviewingTimestamp" => [non_neg_integer()],
         "DeniedTimestamp" => [non_neg_integer()],
         "DiscardedTimestamp" => [non_neg_integer()],
         "DraftTimestamp" => [non_neg_integer()],
@@ -2981,6 +2983,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       submit_registration_version_result() :: %{
+        "AwsReview" => [boolean()],
         "RegistrationArn" => [String.t() | atom()],
         "RegistrationId" => [String.t() | atom()],
         "RegistrationVersionStatus" => String.t() | atom(),
@@ -3012,6 +3015,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_field_value_information() :: %{
         "DeniedReason" => [String.t() | atom()],
+        "Feedback" => [String.t() | atom()],
         "FieldPath" => String.t() | atom(),
         "RegistrationAttachmentId" => String.t() | atom(),
         "SelectChoices" => list(String.t() | atom()),
@@ -3080,6 +3084,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_version_information() :: %{
         "DeniedReasons" => list(registration_denied_reason_information()),
+        "Feedback" => [String.t() | atom()],
         "RegistrationVersionStatus" => String.t() | atom(),
         "RegistrationVersionStatusHistory" => registration_version_status_history(),
         "VersionNumber" => float()
@@ -4235,7 +4240,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   your recipients can use any supported opt-out keyword, such as CANCEL or OPTOUT.
   For a list of supported opt-out keywords, see [ SMS opt out
   ](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-manage.html#channels-sms-manage-optout)
-  in the End User MessagingSMS User Guide.
+  in the End User Messaging SMS User Guide.
   """
   @spec create_opt_out_list(map(), create_opt_out_list_request(), list()) ::
           {:ok, create_opt_out_list_result(), any()}
@@ -4482,7 +4487,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   pool. It is also a specific word or phrase that an end user can send to your
   number to elicit a response, such as an informational message or a special
   offer. When your number receives a message that begins with a keyword, End User
-  MessagingSMS responds with a customizable message.
+  Messaging SMS responds with a customizable message.
 
   Keywords "HELP" and "STOP" can't be deleted or modified.
   """
@@ -4672,8 +4677,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Deletes the resource-based policy document attached to the End User MessagingSMS
-  resource.
+  Deletes the resource-based policy document attached to the End User Messaging
+  SMS resource.
 
   A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number.
   """
@@ -4696,7 +4701,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   `MaxLimit`, which is controlled by Amazon Web Services. For more information on
   spend limits (quotas) see [Quotas
   ](https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html) in the
-  *End User MessagingSMS User Guide*.
+  *End User Messaging SMS User Guide*.
   """
   @spec delete_text_message_spend_limit_override(
           map(),
@@ -4739,7 +4744,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   `MaxLimit`, which is controlled by Amazon Web Services. For more information on
   spending limits (quotas) see [Quotas
   ](https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html) in the
-  *End User MessagingSMS User Guide*.
+  *End User Messaging SMS User Guide*.
   """
   @spec delete_voice_message_spend_limit_override(
           map(),
@@ -4780,7 +4785,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Describes the current End User MessagingSMS SMS Voice V2 resource quotas for
+  Describes the current End User Messaging SMS SMS Voice V2 resource quotas for
   your account.
 
   The description for a quota includes the quota name, current usage toward that
@@ -4791,7 +4796,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   numbers, and pools that you can create in a given Region. For more information
   see [Quotas
   ](https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html) in the
-  *End User MessagingSMS User Guide*.
+  *End User Messaging SMS User Guide*.
   """
   @spec describe_account_limits(map(), describe_account_limits_request(), list()) ::
           {:ok, describe_account_limits_result(), any()}
@@ -4834,7 +4839,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   pool. It is also a specific word or phrase that an end user can send to your
   number to elicit a response, such as an informational message or a special
   offer. When your number receives a message that begins with a keyword, End User
-  MessagingSMS responds with a customizable message.
+  Messaging SMS responds with a customizable message.
 
   If you specify a keyword that isn't valid, an error is returned.
   """
@@ -5115,7 +5120,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   monthly spend limit in a given Region. For more information on increasing your
   monthly spend limit, see [ Requesting increases to your monthly SMS, MMS, or Voice spending quota
   ](https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html)
-  in the *End User MessagingSMS User Guide*.
+  in the *End User Messaging SMS User Guide*.
   """
   @spec describe_spend_limits(map(), describe_spend_limits_request(), list()) ::
           {:ok, describe_spend_limits_result(), any()}
@@ -5220,7 +5225,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   @doc """
   Retrieves the JSON text of the resource-based policy document attached to the
-  End User MessagingSMS resource.
+  End User Messaging SMS resource.
 
   A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number.
   """
@@ -5322,7 +5327,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   pool. It is also a specific word or phrase that an end user can send to your
   number to elicit a response, such as an informational message or a special
   offer. When your number receives a message that begins with a keyword, End User
-  MessagingSMS responds with a customizable message.
+  Messaging SMS responds with a customizable message.
 
   If you specify a keyword that isn't valid, an error is returned.
   """
@@ -5414,13 +5419,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Attaches a resource-based policy to a End User MessagingSMS resource(phone
+  Attaches a resource-based policy to a End User Messaging SMS resource(phone
   number, sender Id, phone poll, or opt-out list) that is used for sharing the
   resource.
 
   A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number. For
   more information about resource-based policies, see [Working with shared resources](https://docs.aws.amazon.com/sms-voice/latest/userguide/shared-resources.html)
-  in the *End User MessagingSMS User Guide*.
+  in the *End User Messaging SMS User Guide*.
   """
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_result(), any()}
@@ -5470,7 +5475,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Request an origination phone number for use in your account.
 
   For more information on phone number request see [Request a phone number](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html)
-  in the *End User MessagingSMS User Guide*.
+  in the *End User Messaging SMS User Guide*.
   """
   @spec request_phone_number(map(), request_phone_number_request(), list()) ::
           {:ok, request_phone_number_result(), any()}
@@ -5546,7 +5551,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   limit depends on the destination country of your messages, as well as the type
   of phone number (origination number) that you use to send the message. For more
   information about MPS, see [Message Parts per Second (MPS) limits](https://docs.aws.amazon.com/sms-voice/latest/userguide/sms-limitations-mps.html)
-  in the *End User MessagingSMS User Guide*.
+  in the *End User Messaging SMS User Guide*.
   """
   @spec send_text_message(map(), send_text_message_request(), list()) ::
           {:ok, send_text_message_result(), any()}
@@ -5739,7 +5744,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   value. Each tag consists of a key and an optional value. Tag keys must be unique
   per resource. For more information about tags, see [Tags
   ](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-tags.html)
-  in the *End User MessagingSMS User Guide*.
+  in the *End User Messaging SMS User Guide*.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
@@ -5757,7 +5762,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   For more information on tags see [Tags
   ](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-tags.html)
-  in the *End User MessagingSMS User Guide*.
+  in the *End User Messaging SMS User Guide*.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}

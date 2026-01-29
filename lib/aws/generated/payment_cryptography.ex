@@ -156,6 +156,18 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      export_as2805_key_cryptogram() :: %{
+        "As2805KeyVariant" => list(any()),
+        "WrappingKeyIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type export_as2805_key_cryptogram() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_tr34_key_block() :: %{
         "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
         "ImportToken" => String.t() | atom(),
@@ -988,6 +1000,22 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type export_dukpt_initial_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_as2805_key_cryptogram() :: %{
+        "As2805KeyVariant" => list(any()),
+        "Exportable" => [boolean()],
+        "KeyAlgorithm" => String.t() | atom(),
+        "KeyModesOfUse" => key_modes_of_use(),
+        "WrappedKeyCryptogram" => String.t() | atom(),
+        "WrappingKeyIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type import_as2805_key_cryptogram() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

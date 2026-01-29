@@ -3640,6 +3640,18 @@ defmodule AWS.KMS do
   to
   `PendingImport`.
 
+  ## Considerations for multi-Region symmetric encryption keys
+
+    *
+  When you delete the key material of a primary Region key that is in
+  `PENDING_ROTATION` or `PENDING_MULTI_REGION_IMPORT_AND_ROTATION`state,
+  you'll also be deleting the key materials for the replica Region keys.
+
+    *
+  If you delete any key material of a replica Region key, the primary Region key
+  and
+  other replica Region keys remain unchanged.
+
   The KMS key that you use for this operation must be in a compatible key state.
   For
   details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
@@ -5393,11 +5405,34 @@ defmodule AWS.KMS do
   key material,
   see [Importing key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
 
-  For asymmetric, HMAC and multi-Region keys, you cannot change the key material
-  after the
-  initial import. You can import multiple key materials into single-Region,
-  symmetric encryption
-  keys and rotate the key material on demand using `RotateKeyOnDemand`.
+  For asymmetric and HMAC keys, you cannot change the key material after the
+  initial import.
+  You can import multiple key materials into symmetric encryption keys and rotate
+  the key
+  material on demand using `RotateKeyOnDemand`.
+
+  You can import new key materials into multi-Region symmetric encryption keys. To
+  do so, you must
+  import the new key material into the primary Region key. Then you can import the
+  same key
+  materials into the replica Region keys. You cannot directly import new key
+  material into
+  the replica Region keys.
+
+  To import new key material for a multi-Region symmetric key, you’ll need to
+  complete the
+  following:
+
+    1.
+  Call `ImportKeyMaterial` on the primary Region key with the
+  `ImportType`set to `NEW_KEY_MATERIAL`.
+
+    2.
+  Call `ImportKeyMaterial` on the replica Region key with the
+  `ImportType` set to `EXISTING_KEY_MATERIAL` using the same key
+  material imported to the primary Region key. You must do this for every replica
+  Region key before you can perform the `RotateKeyOnDemand` operation
+  on the primary Region key.
 
   After you import key material, you can [reimport the same key
   material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#reimport-key-material)
@@ -5452,8 +5487,8 @@ defmodule AWS.KMS do
   The key ID or key ARN of the KMS key to associate with the imported key
   material. Its
   `Origin` must be `EXTERNAL` and its `KeyState` must be
-  `PendingImport`. You cannot perform this operation on a KMS key in a
-  [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html),
+  `PendingImport` or `Enabled`. You cannot perform this operation on
+  a KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html),
   or on a KMS key in a different Amazon Web Services account. To get the
   `Origin` and `KeyState` of a KMS key, call `DescribeKey`.
 
@@ -5478,14 +5513,14 @@ defmodule AWS.KMS do
   expires. Each
   time you reimport, you can eliminate or reset the expiration time.
 
-  When this operation is successful, the key state of the KMS key changes from
-  `PendingImport` to `Enabled`, and you can use the KMS key in
-  cryptographic operations. For single-Region, symmetric encryption keys, you will
-  need to
-  import all of the key materials associated with the KMS key to change its state
-  to
-  `Enabled`. Use the `ListKeyRotations` operation to list the ID and
-  import state of each key material associated with a KMS key.
+  When this operation is successful, the state of the KMS key changes to
+  `Enabled`,
+  and you can use the KMS key in cryptographic operations. For symmetric
+  encryption keys, you will
+  need to import all of the key materials associated with the KMS key to change
+  its state to
+  `Enabled`. Use the `ListKeyRotations` operation to list the ID and import
+  state of each key material associated with a KMS key.
 
   If this operation fails, use the exception to help determine the problem. If the
   error is
@@ -6374,20 +6409,19 @@ defmodule AWS.KMS do
   On-demand key rotation is supported only on symmetric encryption KMS keys. You
   cannot
   perform on-demand rotation of [asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html),
-  [HMAC KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html),
-  multi-Region KMS
-  keys with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html),
-  or KMS keys in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html).
-  When you initiate on-demand key
-  rotation on a symmetric encryption KMS key with imported key material, you must
-  have already
-  imported [new key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html)
+  [HMAC KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html), or KMS
+  keys in a
+  [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html).
+  When you initiate on-demand key rotation on a symmetric encryption KMS key
+  with imported key material, you must have already imported [new key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html)
   and that
   key material's state should be `PENDING_ROTATION`. Use the
   `ListKeyRotations` operation to check the state of all key materials associated
   with a KMS key. To perform on-demand rotation of a set of related [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate),
-  invoke
-  the on-demand rotation on the primary key.
+  import
+  new key material in the primary Region key, import the same key material in each
+  replica
+  Region key, and invoke the on-demand rotation on the primary Region key.
 
   You cannot initiate on-demand rotation of [Amazon Web Services managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key).
   KMS

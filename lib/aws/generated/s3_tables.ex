@@ -79,6 +79,17 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      put_table_bucket_storage_class_request() :: %{
+        required("storageClassConfiguration") => storage_class_configuration()
+      }
+
+  """
+  @type put_table_bucket_storage_class_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       iceberg_snapshot_management_settings() :: %{
         "maxSnapshotAgeHours" => integer(),
         "minSnapshotsToKeep" => integer()
@@ -123,12 +134,36 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      table_record_expiration_configuration_value() :: %{
+        "settings" => table_record_expiration_settings(),
+        "status" => list(any())
+      }
+
+  """
+  @type table_record_expiration_configuration_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_table_bucket_policy_response() :: %{
         "resourcePolicy" => String.t() | atom()
       }
 
   """
   @type get_table_bucket_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_bucket_replication_configuration() :: %{
+        "role" => String.t() | atom(),
+        "rules" => list(table_bucket_replication_rule())
+      }
+
+  """
+  @type table_bucket_replication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -167,6 +202,19 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      put_table_replication_request() :: %{
+        optional("versionToken") => [String.t() | atom()],
+        required("configuration") => table_replication_configuration(),
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type put_table_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_table_request() :: %{
         optional("versionToken") => String.t() | atom()
       }
@@ -184,6 +232,18 @@ defmodule AWS.S3Tables do
 
   """
   @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      last_successful_replicated_update() :: %{
+        "metadataLocation" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type last_successful_replicated_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,6 +278,7 @@ defmodule AWS.S3Tables do
 
       table_summary() :: %{
         "createdAt" => [non_neg_integer()],
+        "managedByService" => [String.t() | atom()],
         "modifiedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "namespace" => list(String.t() | atom()),
@@ -229,6 +290,28 @@ defmodule AWS.S3Tables do
 
   """
   @type table_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_not_allowed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_replication_status_request() :: %{
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type get_table_replication_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -278,6 +361,7 @@ defmodule AWS.S3Tables do
       create_table_request() :: %{
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("metadata") => list(),
+        optional("storageClassConfiguration") => storage_class_configuration(),
         optional("tags") => map(),
         required("format") => list(any()),
         required("name") => String.t() | atom()
@@ -295,6 +379,7 @@ defmodule AWS.S3Tables do
         "createdBy" => String.t() | atom(),
         "format" => list(any()),
         "managedByService" => [String.t() | atom()],
+        "managedTableInformation" => managed_table_information(),
         "metadataLocation" => String.t() | atom(),
         "modifiedAt" => [non_neg_integer()],
         "modifiedBy" => String.t() | atom(),
@@ -311,6 +396,15 @@ defmodule AWS.S3Tables do
 
   """
   @type get_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_storage_class_request() :: %{}
+
+  """
+  @type get_table_storage_class_request() :: %{}
 
   @typedoc """
 
@@ -337,10 +431,60 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      table_record_expiration_job_metrics() :: %{
+        "deletedDataFiles" => [float()],
+        "deletedRecords" => [float()],
+        "removedFilesSize" => [float()]
+      }
+
+  """
+  @type table_record_expiration_job_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_record_expiration_job_status_request() :: %{
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type get_table_record_expiration_job_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_record_expiration_configuration_request() :: %{
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type get_table_record_expiration_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_table_bucket_metrics_configuration_request() :: %{}
 
   """
   @type put_table_bucket_metrics_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_destination_status_model() :: %{
+        "destinationTableArn" => String.t() | atom(),
+        "destinationTableBucketArn" => String.t() | atom(),
+        "failureMessage" => [String.t() | atom()],
+        "lastSuccessfulReplicatedUpdate" => last_successful_replicated_update(),
+        "replicationStatus" => list(any())
+      }
+
+  """
+  @type replication_destination_status_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -366,12 +510,35 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      delete_table_replication_request() :: %{
+        required("tableArn") => String.t() | atom(),
+        required("versionToken") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_table_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_requests_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_replication_rule() :: %{
+        "destinations" => list(replication_destination())
+      }
+
+  """
+  @type table_replication_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -425,7 +592,43 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      replication_information() :: %{
+        "sourceTableARN" => String.t() | atom()
+      }
+
+  """
+  @type replication_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_replication_response() :: %{
+        "configuration" => table_replication_configuration(),
+        "versionToken" => [String.t() | atom()]
+      }
+
+  """
+  @type get_table_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_replication_response() :: %{
+        "status" => [String.t() | atom()],
+        "versionToken" => String.t() | atom()
+      }
+
+  """
+  @type put_table_bucket_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       iceberg_metadata() :: %{
+        "properties" => map(),
         "schema" => iceberg_schema()
       }
 
@@ -459,6 +662,40 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      replication_destination() :: %{
+        "destinationTableBucketARN" => String.t() | atom()
+      }
+
+  """
+  @type replication_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_class_configuration() :: %{
+        "storageClass" => list(any())
+      }
+
+  """
+  @type storage_class_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_record_expiration_configuration_request() :: %{
+        required("tableArn") => String.t() | atom(),
+        required("value") => table_record_expiration_configuration_value()
+      }
+
+  """
+  @type put_table_record_expiration_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_table_response() :: %{
         "tableARN" => String.t() | atom(),
         "versionToken" => String.t() | atom()
@@ -475,6 +712,17 @@ defmodule AWS.S3Tables do
 
   """
   @type get_table_bucket_maintenance_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      table_bucket_replication_rule() :: %{
+        "destinations" => list(replication_destination())
+      }
+
+  """
+  @type table_bucket_replication_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -502,6 +750,18 @@ defmodule AWS.S3Tables do
 
   """
   @type delete_table_bucket_encryption_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_bucket_replication_request() :: %{
+        optional("versionToken") => String.t() | atom(),
+        required("tableBucketARN") => String.t() | atom()
+      }
+
+  """
+  @type delete_table_bucket_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -551,10 +811,30 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_bucket_storage_class_request() :: %{}
+
+  """
+  @type get_table_bucket_storage_class_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_table_bucket_request() :: %{}
 
   """
   @type get_table_bucket_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_table_information() :: %{
+        "replicationInformation" => replication_information()
+      }
+
+  """
+  @type managed_table_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,6 +851,7 @@ defmodule AWS.S3Tables do
 
       create_table_bucket_request() :: %{
         optional("encryptionConfiguration") => encryption_configuration(),
+        optional("storageClassConfiguration") => storage_class_configuration(),
         optional("tags") => map(),
         required("name") => String.t() | atom()
       }
@@ -600,6 +881,31 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_replication_request() :: %{
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type get_table_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_record_expiration_job_status_response() :: %{
+        "failureMessage" => [String.t() | atom()],
+        "lastRunTimestamp" => [non_neg_integer()],
+        "metrics" => table_record_expiration_job_metrics(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_table_record_expiration_job_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       iceberg_unreferenced_file_removal_settings() :: %{
         "nonCurrentDays" => integer(),
         "unreferencedDays" => integer()
@@ -620,6 +926,29 @@ defmodule AWS.S3Tables do
 
   """
   @type table_maintenance_job_status_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_replication_response() :: %{
+        "configuration" => table_bucket_replication_configuration(),
+        "versionToken" => String.t() | atom()
+      }
+
+  """
+  @type get_table_bucket_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_replication_request() :: %{
+        required("tableBucketARN") => String.t() | atom()
+      }
+
+  """
+  @type get_table_bucket_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -690,6 +1019,30 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_bucket_storage_class_response() :: %{
+        "storageClassConfiguration" => storage_class_configuration()
+      }
+
+  """
+  @type get_table_bucket_storage_class_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_replication_request() :: %{
+        optional("versionToken") => String.t() | atom(),
+        required("configuration") => table_bucket_replication_configuration(),
+        required("tableBucketARN") => String.t() | atom()
+      }
+
+  """
+  @type put_table_bucket_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_namespace_response() :: %{
         "namespace" => list(String.t() | atom()),
         "tableBucketARN" => String.t() | atom()
@@ -697,6 +1050,18 @@ defmodule AWS.S3Tables do
 
   """
   @type create_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_replication_status_response() :: %{
+        "destinations" => list(replication_destination_status_model()),
+        "sourceTableArn" => String.t() | atom()
+      }
+
+  """
+  @type get_table_replication_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -780,6 +1145,18 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      put_table_replication_response() :: %{
+        "status" => [String.t() | atom()],
+        "versionToken" => [String.t() | atom()]
+      }
+
+  """
+  @type put_table_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_table_bucket_metrics_configuration_response() :: %{
         "id" => [String.t() | atom()],
         "tableBucketARN" => String.t() | atom()
@@ -827,6 +1204,17 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_record_expiration_configuration_response() :: %{
+        "configuration" => table_record_expiration_configuration_value()
+      }
+
+  """
+  @type get_table_record_expiration_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_table_bucket_response() :: %{
         "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
@@ -861,6 +1249,17 @@ defmodule AWS.S3Tables do
 
   """
   @type put_table_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_record_expiration_settings() :: %{
+        "days" => integer()
+      }
+
+  """
+  @type table_record_expiration_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -902,6 +1301,17 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_storage_class_response() :: %{
+        "storageClassConfiguration" => storage_class_configuration()
+      }
+
+  """
+  @type get_table_storage_class_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_namespace_request() :: %{}
 
   """
@@ -920,6 +1330,18 @@ defmodule AWS.S3Tables do
 
   """
   @type list_tables_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_replication_configuration() :: %{
+        "role" => String.t() | atom(),
+        "rules" => list(table_replication_rule())
+      }
+
+  """
+  @type table_replication_configuration() :: %{(String.t() | atom()) => any()}
 
   @type create_namespace_errors() ::
           bad_request_exception()
@@ -993,9 +1415,27 @@ defmodule AWS.S3Tables do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type delete_table_bucket_replication_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type delete_table_policy_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_table_replication_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
           | not_found_exception()
           | conflict_exception()
           | too_many_requests_exception()
@@ -1060,6 +1500,23 @@ defmodule AWS.S3Tables do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type get_table_bucket_replication_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_table_bucket_storage_class_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type get_table_encryption_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -1097,6 +1554,47 @@ defmodule AWS.S3Tables do
           | internal_server_error_exception()
           | not_found_exception()
           | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_table_record_expiration_configuration_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | method_not_allowed_exception()
+          | forbidden_exception()
+
+  @type get_table_record_expiration_job_status_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | method_not_allowed_exception()
+          | forbidden_exception()
+
+  @type get_table_replication_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_table_replication_status_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_table_storage_class_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
 
@@ -1166,6 +1664,23 @@ defmodule AWS.S3Tables do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type put_table_bucket_replication_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type put_table_bucket_storage_class_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type put_table_maintenance_configuration_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -1177,6 +1692,23 @@ defmodule AWS.S3Tables do
   @type put_table_policy_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type put_table_record_expiration_configuration_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | method_not_allowed_exception()
+          | forbidden_exception()
+
+  @type put_table_replication_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
           | not_found_exception()
           | conflict_exception()
           | too_many_requests_exception()
@@ -1289,8 +1821,12 @@ defmodule AWS.S3Tables do
   `encryptionConfiguration` request parameter you must have the
   `s3tables:PutTableEncryption` permission.
 
-     You must have the `s3tables:TagResource` permission in addition to
-  `s3tables:CreateTable` permission to create a table with tags.
+     If you use this operation with the `storageClassConfiguration`
+  request parameter, you must have the `s3tables:PutTableStorageClass` permission.
+
+     To create a table with tags, you must have the
+  `s3tables:TagResource` permission in addition to `s3tables:CreateTable`
+  permission.
 
   Additionally, If you choose SSE-KMS encryption you must grant the S3 Tables
   maintenance principal access to your KMS key. For more information, see
@@ -1347,8 +1883,13 @@ defmodule AWS.S3Tables do
   `encryptionConfiguration` parameter you must have the
   `s3tables:PutTableBucketEncryption` permission.
 
-     You must have the `s3tables:TagResource` permission in addition to
-  `s3tables:CreateTableBucket` permission to create a table bucket with tags.
+     If you use this operation with the `storageClassConfiguration`
+  request parameter, you must have the `s3tables:PutTableBucketStorageClass`
+  permission.
+
+     To create a table bucket with tags, you must have the
+  `s3tables:TagResource` permission in addition to `s3tables:CreateTableBucket`
+  permission.
   """
   @spec create_table_bucket(map(), create_table_bucket_request(), list()) ::
           {:ok, create_table_bucket_response(), any()}
@@ -1644,6 +2185,51 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
+  Deletes the replication configuration for a table bucket.
+
+  After deletion, new table updates will no longer be replicated to destination
+  buckets, though existing replicated tables will remain in destination buckets.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DeleteTableBucketReplication` permission to use this
+  operation.
+  """
+  @spec delete_table_bucket_replication(map(), delete_table_bucket_replication_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_table_bucket_replication_errors()}
+  def delete_table_bucket_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/table-bucket-replication"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tableBucketARN", "tableBucketARN"},
+        {"versionToken", "versionToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a table policy.
 
   For more information, see [Deleting a table policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-delete)
@@ -1681,6 +2267,52 @@ defmodule AWS.S3Tables do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes the replication configuration for a specific table.
+
+  After deletion, new updates to this table will no longer be replicated to
+  destination tables, though existing replicated copies will remain in destination
+  buckets.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DeleteTableReplication` permission to use this
+  operation.
+  """
+  @spec delete_table_replication(map(), delete_table_replication_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_table_replication_errors()}
+  def delete_table_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/table-replication"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tableArn", "tableArn"},
+        {"versionToken", "versionToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -1933,6 +2565,68 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
+  Retrieves the replication configuration for a table bucket.This operation
+  returns the IAM role, `versionToken`, and replication rules that define how
+  tables in this bucket are replicated to other buckets.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableBucketReplication` permission to use this
+  operation.
+  """
+  @spec get_table_bucket_replication(map(), String.t() | atom(), list()) ::
+          {:ok, get_table_bucket_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_bucket_replication_errors()}
+  def get_table_bucket_replication(%Client{} = client, table_bucket_arn, options \\ []) do
+    url_path = "/table-bucket-replication"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(table_bucket_arn) do
+        [{"tableBucketARN", table_bucket_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the storage class configuration for a specific table.
+
+  This allows you to view the storage class settings that apply to an individual
+  table, which may differ from the table bucket's default configuration.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableBucketStorageClass` permission to use this
+  operation.
+  """
+  @spec get_table_bucket_storage_class(map(), String.t() | atom(), list()) ::
+          {:ok, get_table_bucket_storage_class_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_bucket_storage_class_errors()}
+  def get_table_bucket_storage_class(%Client{} = client, table_bucket_arn, options \\ []) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/storage-class"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets the encryption configuration for a table.
 
   ## Definitions
@@ -2117,6 +2811,188 @@ defmodule AWS.S3Tables do
   def get_table_policy(%Client{} = client, name, namespace, table_bucket_arn, options \\ []) do
     url_path =
       "/tables/#{AWS.Util.encode_uri(table_bucket_arn)}/#{AWS.Util.encode_uri(namespace)}/#{AWS.Util.encode_uri(name)}/policy"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the expiration configuration settings for records in a table, and the
+  status of the configuration.
+
+  If the status of the configuration is `enabled`, records expire and are
+  automatically removed from the table after the specified number of days.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableRecordExpirationConfiguration` permission to
+  use this operation.
+  """
+  @spec get_table_record_expiration_configuration(map(), String.t() | atom(), list()) ::
+          {:ok, get_table_record_expiration_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_record_expiration_configuration_errors()}
+  def get_table_record_expiration_configuration(%Client{} = client, table_arn, options \\ []) do
+    url_path = "/table-record-expiration"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(table_arn) do
+        [{"tableArn", table_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the status, metrics, and details of the latest record expiration job
+  for a table.
+
+  This includes when the job ran, and whether it succeeded or failed. If the job
+  ran successfully, this also includes statistics about the records that were
+  removed.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableRecordExpirationJobStatus` permission to use
+  this operation.
+  """
+  @spec get_table_record_expiration_job_status(map(), String.t() | atom(), list()) ::
+          {:ok, get_table_record_expiration_job_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_record_expiration_job_status_errors()}
+  def get_table_record_expiration_job_status(%Client{} = client, table_arn, options \\ []) do
+    url_path = "/table-record-expiration-job-status"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(table_arn) do
+        [{"tableArn", table_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the replication configuration for a specific table.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableReplication` permission to use this
+  operation.
+  """
+  @spec get_table_replication(map(), String.t() | atom(), list()) ::
+          {:ok, get_table_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_replication_errors()}
+  def get_table_replication(%Client{} = client, table_arn, options \\ []) do
+    url_path = "/table-replication"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(table_arn) do
+        [{"tableArn", table_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the replication status for a table, including the status of
+  replication to each destination.
+
+  This operation provides visibility into replication health and progress.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableReplicationStatus` permission to use this
+  operation.
+  """
+  @spec get_table_replication_status(map(), String.t() | atom(), list()) ::
+          {:ok, get_table_replication_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_replication_status_errors()}
+  def get_table_replication_status(%Client{} = client, table_arn, options \\ []) do
+    url_path = "/replication-status"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(table_arn) do
+        [{"tableArn", table_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the storage class configuration for a specific table.
+
+  This allows you to view the storage class settings that apply to an individual
+  table, which may differ from the table bucket's default configuration.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableStorageClass` permission to use this
+  operation.
+  """
+  @spec get_table_storage_class(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_table_storage_class_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_storage_class_errors()}
+  def get_table_storage_class(
+        %Client{} = client,
+        name,
+        namespace,
+        table_bucket_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/tables/#{AWS.Util.encode_uri(table_bucket_arn)}/#{AWS.Util.encode_uri(namespace)}/#{AWS.Util.encode_uri(name)}/storage-class"
 
     headers = []
     query_params = []
@@ -2551,6 +3427,120 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
+  Creates or updates the replication configuration for a table bucket.
+
+  This operation defines how tables in the source bucket are replicated to
+  destination buckets. Replication helps ensure data availability and disaster
+  recovery across regions or accounts.
+
+  ## Definitions
+
+  ### Permissions
+
+     You must have the `s3tables:PutTableBucketReplication` permission
+  to use this operation. The IAM role specified in the configuration must have
+  permissions to read from the source bucket and write permissions to all
+  destination buckets.
+
+     You must also have the following permissions:
+
+       `s3tables:GetTable` permission on the source table.
+
+       `s3tables:ListTables` permission on the bucket
+  containing the table.
+
+       `s3tables:CreateTable` permission for the destination.
+
+       `s3tables:CreateNamespace` permission for the
+  destination.
+
+       `s3tables:GetTableMaintenanceConfig` permission for the
+  source bucket.
+
+       `s3tables:PutTableMaintenanceConfig` permission for the
+  destination bucket.
+
+     You must have `iam:PassRole` permission with condition allowing
+  roles to be passed to `replication.s3tables.amazonaws.com`.
+  """
+  @spec put_table_bucket_replication(map(), put_table_bucket_replication_request(), list()) ::
+          {:ok, put_table_bucket_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_table_bucket_replication_errors()}
+  def put_table_bucket_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/table-bucket-replication"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tableBucketARN", "tableBucketARN"},
+        {"versionToken", "versionToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sets or updates the storage class configuration for a table bucket.
+
+  This configuration serves as the default storage class for all new tables
+  created in the bucket, allowing you to optimize storage costs at the bucket
+  level.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:PutTableBucketStorageClass` permission to use this
+  operation.
+  """
+  @spec put_table_bucket_storage_class(
+          map(),
+          String.t() | atom(),
+          put_table_bucket_storage_class_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_table_bucket_storage_class_errors()}
+  def put_table_bucket_storage_class(%Client{} = client, table_bucket_arn, input, options \\ []) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/storage-class"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new maintenance configuration or replaces an existing maintenance
   configuration for a table.
 
@@ -2646,6 +3636,121 @@ defmodule AWS.S3Tables do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates or updates the expiration configuration settings for records in a table,
+  including the status of the configuration.
+
+  If you enable record expiration for a table, records expire and are
+  automatically removed from the table after the number of days that you specify.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:PutTableRecordExpirationConfiguration` permission to
+  use this operation.
+  """
+  @spec put_table_record_expiration_configuration(
+          map(),
+          put_table_record_expiration_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_table_record_expiration_configuration_errors()}
+  def put_table_record_expiration_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/table-record-expiration"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tableArn", "tableArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Creates or updates the replication configuration for a specific table.
+
+  This operation allows you to define table-level replication independently of
+  bucket-level replication, providing granular control over which tables are
+  replicated and where.
+
+  ## Definitions
+
+  ### Permissions
+
+     You must have the `s3tables:PutTableReplication` permission to use
+  this operation. The IAM role specified in the configuration must have
+  permissions to read from the source table and write to all destination tables.
+
+     You must also have the following permissions:
+
+       `s3tables:GetTable` permission on the source table
+  being replicated.
+
+       `s3tables:CreateTable` permission for the destination.
+
+       `s3tables:CreateNamespace` permission for the
+  destination.
+
+       `s3tables:GetTableMaintenanceConfig` permission for the
+  source table.
+
+       `s3tables:PutTableMaintenanceConfig` permission for the
+  destination table.
+
+     You must have `iam:PassRole` permission with condition allowing
+  roles to be passed to `replication.s3tables.amazonaws.com`.
+  """
+  @spec put_table_replication(map(), put_table_replication_request(), list()) ::
+          {:ok, put_table_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_table_replication_errors()}
+  def put_table_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/table-replication"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tableArn", "tableArn"},
+        {"versionToken", "versionToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

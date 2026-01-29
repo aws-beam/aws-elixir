@@ -144,6 +144,41 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      operation() :: %{
+        "CallbackDetails" => callback_details(),
+        "ChainedInvokeDetails" => chained_invoke_details(),
+        "ContextDetails" => context_details(),
+        "EndTimestamp" => non_neg_integer(),
+        "ExecutionDetails" => execution_details(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ParentId" => String.t() | atom(),
+        "StartTimestamp" => non_neg_integer(),
+        "Status" => list(any()),
+        "StepDetails" => step_details(),
+        "SubType" => String.t() | atom(),
+        "Type" => list(any()),
+        "WaitDetails" => wait_details()
+      }
+
+  """
+  @type operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chained_invoke_stopped_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type chained_invoke_stopped_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kms_disabled_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
@@ -208,6 +243,7 @@ defmodule AWS.Lambda do
         optional("FunctionName") => String.t() | atom(),
         optional("FunctionResponseTypes") => list(list(any())()),
         optional("KMSKeyArn") => String.t() | atom(),
+        optional("LoggingConfig") => event_source_mapping_logging_config(),
         optional("MaximumBatchingWindowInSeconds") => integer(),
         optional("MaximumRecordAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
@@ -227,6 +263,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      delete_capacity_provider_response() :: %{
+        "CapacityProvider" => capacity_provider()
+      }
+
+  """
+  @type delete_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       runtime_version_config() :: %{
         "Error" => runtime_version_error(),
         "RuntimeVersionArn" => String.t() | atom()
@@ -234,6 +281,38 @@ defmodule AWS.Lambda do
 
   """
   @type runtime_version_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_versions_by_capacity_provider_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_function_versions_by_capacity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_capacity_provider_request() :: %{}
+
+  """
+  @type delete_capacity_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      wait_succeeded_details() :: %{
+        "Duration" => integer()
+      }
+
+  """
+  @type wait_succeeded_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,6 +329,19 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      lambda_managed_instances_capacity_provider_config() :: %{
+        "CapacityProviderArn" => String.t() | atom(),
+        "ExecutionEnvironmentMemoryGiBPerVCpu" => float(),
+        "PerExecutionEnvironmentMaxConcurrency" => integer()
+      }
+
+  """
+  @type lambda_managed_instances_capacity_provider_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("Tags") => map()
       }
@@ -261,10 +353,34 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      get_function_scaling_config_response() :: %{
+        "AppliedFunctionScalingConfig" => function_scaling_config(),
+        "FunctionArn" => String.t() | atom(),
+        "RequestedFunctionScalingConfig" => function_scaling_config()
+      }
+
+  """
+  @type get_function_scaling_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_code_signing_config_request() :: %{}
 
   """
   @type get_code_signing_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_scaling_config_request() :: %{
+        required("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type get_function_scaling_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -285,6 +401,18 @@ defmodule AWS.Lambda do
 
   """
   @type delete_function_code_signing_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      event_result() :: %{
+        "Payload" => String.t() | atom(),
+        "Truncated" => boolean()
+      }
+
+  """
+  @type event_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -325,6 +453,20 @@ defmodule AWS.Lambda do
 
   """
   @type provisioned_concurrency_config_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_object() :: %{
+        "ErrorData" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom(),
+        "StackTrace" => list(String.t() | atom())
+      }
+
+  """
+  @type error_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -379,6 +521,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      callback_timed_out_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type callback_timed_out_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_provisioned_concurrency_configs_response() :: %{
         "NextMarker" => String.t() | atom(),
         "ProvisionedConcurrencyConfigs" => list(provisioned_concurrency_config_list_item())
@@ -386,6 +539,17 @@ defmodule AWS.Lambda do
 
   """
   @type list_provisioned_concurrency_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_succeeded_details() :: %{
+        "Result" => event_result()
+      }
+
+  """
+  @type context_succeeded_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,6 +593,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      execution_details() :: %{
+        "InputPayload" => String.t() | atom()
+      }
+
+  """
+  @type execution_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter_criteria() :: %{
         "Filters" => list(filter())
       }
@@ -464,6 +639,15 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      send_durable_execution_callback_failure_response() :: %{}
+
+  """
+  @type send_durable_execution_callback_failure_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_alias_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("RoutingConfig") => alias_routing_configuration(),
@@ -473,6 +657,26 @@ defmodule AWS.Lambda do
 
   """
   @type create_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      callback_failed_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type callback_failed_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      step_started_details() :: %{}
+
+  """
+  @type step_started_details() :: %{}
 
   @typedoc """
 
@@ -544,12 +748,54 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      update_capacity_provider_request() :: %{
+        optional("CapacityProviderScalingConfig") => capacity_provider_scaling_config()
+      }
+
+  """
+  @type update_capacity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_timed_out_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type execution_timed_out_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_options() :: %{
+        "ReplayChildren" => boolean()
+      }
+
+  """
+  @type context_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_function_recursion_config_response() :: %{
         "RecursiveLoop" => list(any())
       }
 
   """
   @type put_function_recursion_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_durable_execution_request() :: %{}
+
+  """
+  @type get_durable_execution_request() :: %{}
 
   @typedoc """
 
@@ -587,6 +833,37 @@ defmodule AWS.Lambda do
 
   """
   @type list_layers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chained_invoke_started_details() :: %{
+        "DurableExecutionArn" => String.t() | atom(),
+        "ExecutedVersion" => String.t() | atom(),
+        "FunctionName" => String.t() | atom(),
+        "Input" => event_input(),
+        "TenantId" => String.t() | atom()
+      }
+
+  """
+  @type chained_invoke_started_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution() :: %{
+        "DurableExecutionArn" => String.t() | atom(),
+        "DurableExecutionName" => String.t() | atom(),
+        "EndTimestamp" => non_neg_integer(),
+        "FunctionArn" => String.t() | atom(),
+        "StartTimestamp" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -652,6 +929,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       invocation_response() :: %{
+        "DurableExecutionArn" => String.t() | atom(),
         "ExecutedVersion" => String.t() | atom(),
         "FunctionError" => String.t() | atom(),
         "LogResult" => String.t() | atom(),
@@ -698,6 +976,56 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      get_durable_execution_history_request() :: %{
+        optional("IncludeExecutionData") => boolean(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("ReverseOrder") => boolean()
+      }
+
+  """
+  @type get_durable_execution_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chained_invoke_timed_out_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type chained_invoke_timed_out_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_scaling_config() :: %{
+        "MaxVCpuCount" => integer(),
+        "ScalingMode" => list(any()),
+        "ScalingPolicies" => list(target_tracking_scaling_policy())
+      }
+
+  """
+  @type capacity_provider_scaling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_scaling_config() :: %{
+        "MaxExecutionEnvironments" => integer(),
+        "MinExecutionEnvironments" => integer()
+      }
+
+  """
+  @type function_scaling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_function_url_config_request() :: %{
         optional("AuthType") => list(any()),
         optional("Cors") => cors(),
@@ -712,6 +1040,32 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      chained_invoke_succeeded_details() :: %{
+        "Result" => event_result()
+      }
+
+  """
+  @type chained_invoke_succeeded_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_versions_by_capacity_provider_response() :: %{
+        "CapacityProviderArn" => String.t() | atom(),
+        "FunctionVersions" => list(function_versions_by_capacity_provider_list_item()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_function_versions_by_capacity_provider_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       self_managed_kafka_event_source_config() :: %{
         "ConsumerGroupId" => String.t() | atom(),
         "SchemaRegistryConfig" => kafka_schema_registry_config()
@@ -719,6 +1073,18 @@ defmodule AWS.Lambda do
 
   """
   @type self_managed_kafka_event_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_tracking_scaling_policy() :: %{
+        "PredefinedMetricType" => list(any()),
+        "TargetValue" => float()
+      }
+
+  """
+  @type target_tracking_scaling_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -747,6 +1113,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      capacity_provider_vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type capacity_provider_vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_function_response() :: %{
         "Code" => function_code_location(),
         "Concurrency" => concurrency(),
@@ -757,6 +1135,15 @@ defmodule AWS.Lambda do
 
   """
   @type get_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_started_details() :: %{}
+
+  """
+  @type context_started_details() :: %{}
 
   @typedoc """
 
@@ -884,6 +1271,36 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      callback_timeout_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type callback_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_durable_executions_by_function_request() :: %{
+        optional("DurableExecutionName") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("Qualifier") => String.t() | atom(),
+        optional("ReverseOrder") => boolean(),
+        optional("StartedAfter") => non_neg_integer(),
+        optional("StartedBefore") => non_neg_integer(),
+        optional("Statuses") => list(list(any())())
+      }
+
+  """
+  @type list_durable_executions_by_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_provisioned_concurrency_config_request() :: %{
         required("ProvisionedConcurrentExecutions") => integer(),
         required("Qualifier") => String.t() | atom()
@@ -912,6 +1329,41 @@ defmodule AWS.Lambda do
 
   """
   @type delete_layer_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      operation_update() :: %{
+        "Action" => list(any()),
+        "CallbackOptions" => callback_options(),
+        "ChainedInvokeOptions" => chained_invoke_options(),
+        "ContextOptions" => context_options(),
+        "Error" => error_object(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ParentId" => String.t() | atom(),
+        "Payload" => String.t() | atom(),
+        "StepOptions" => step_options(),
+        "SubType" => String.t() | atom(),
+        "Type" => list(any()),
+        "WaitOptions" => wait_options()
+      }
+
+  """
+  @type operation_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      checkpoint_updated_execution_state() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Operations" => list(operation())
+      }
+
+  """
+  @type checkpoint_updated_execution_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -962,10 +1414,31 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      execution_started_details() :: %{
+        "ExecutionTimeout" => integer(),
+        "Input" => event_input()
+      }
+
+  """
+  @type execution_started_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_event_source_mapping_request() :: %{}
 
   """
   @type delete_event_source_mapping_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      send_durable_execution_callback_heartbeat_request() :: %{}
+
+  """
+  @type send_durable_execution_callback_heartbeat_request() :: %{}
 
   @typedoc """
 
@@ -978,6 +1451,41 @@ defmodule AWS.Lambda do
 
   """
   @type recursive_invocation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chained_invoke_failed_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type chained_invoke_failed_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_durable_execution_state_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Operations" => list(operation())
+      }
+
+  """
+  @type get_durable_execution_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_input() :: %{
+        "Payload" => String.t() | atom(),
+        "Truncated" => boolean()
+      }
+
+  """
+  @type event_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1008,6 +1516,42 @@ defmodule AWS.Lambda do
 
   """
   @type get_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      wait_options() :: %{
+        "WaitSeconds" => integer()
+      }
+
+  """
+  @type wait_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_capacity_providers_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("State") => list(any())
+      }
+
+  """
+  @type list_capacity_providers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_details() :: %{
+        "CurrentAttempt" => integer(),
+        "NextAttemptDelaySeconds" => integer()
+      }
+
+  """
+  @type retry_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1083,6 +1627,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      durable_config() :: %{
+        "ExecutionTimeout" => integer(),
+        "RetentionPeriodInDays" => integer()
+      }
+
+  """
+  @type durable_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
@@ -1122,6 +1678,18 @@ defmodule AWS.Lambda do
 
   """
   @type document_db_event_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      durable_execution_already_started_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type durable_execution_already_started_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1189,11 +1757,26 @@ defmodule AWS.Lambda do
       publish_version_request() :: %{
         optional("CodeSha256") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("PublishTo") => list(any()),
         optional("RevisionId") => String.t() | atom()
       }
 
   """
   @type publish_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invocation_completed_details() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "Error" => event_error(),
+        "RequestId" => String.t() | atom(),
+        "StartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type invocation_completed_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1206,6 +1789,30 @@ defmodule AWS.Lambda do
 
   """
   @type put_function_code_signing_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_capacity_providers_response() :: %{
+        "CapacityProviders" => list(capacity_provider()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_capacity_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      step_failed_details() :: %{
+        "Error" => event_error(),
+        "RetryDetails" => retry_details()
+      }
+
+  """
+  @type step_failed_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1227,11 +1834,24 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      event_error() :: %{
+        "Payload" => error_object(),
+        "Truncated" => boolean()
+      }
+
+  """
+  @type event_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_function_code_request() :: %{
         optional("Architectures") => list(list(any())()),
         optional("DryRun") => boolean(),
         optional("ImageUri") => String.t() | atom(),
         optional("Publish") => boolean(),
+        optional("PublishTo") => list(any()),
         optional("RevisionId") => String.t() | atom(),
         optional("S3Bucket") => String.t() | atom(),
         optional("S3Key") => String.t() | atom(),
@@ -1274,38 +1894,39 @@ defmodule AWS.Lambda do
   ## Example:
 
       event_source_mapping_configuration() :: %{
-        "AmazonManagedKafkaEventSourceConfig" => amazon_managed_kafka_event_source_config(),
-        "BatchSize" => integer(),
-        "BisectBatchOnFunctionError" => boolean(),
+        "LastProcessingResult" => String.t() | atom(),
+        "ScalingConfig" => scaling_config(),
+        "ParallelizationFactor" => integer(),
+        "UUID" => String.t() | atom(),
+        "StartingPosition" => list(any()),
+        "SelfManagedEventSource" => self_managed_event_source(),
         "DestinationConfig" => destination_config(),
+        "StateTransitionReason" => String.t() | atom(),
+        "KMSKeyArn" => String.t() | atom(),
+        "AmazonManagedKafkaEventSourceConfig" => amazon_managed_kafka_event_source_config(),
+        "MetricsConfig" => event_source_mapping_metrics_config(),
+        "BatchSize" => integer(),
+        "MaximumBatchingWindowInSeconds" => integer(),
+        "MaximumRetryAttempts" => integer(),
+        "SelfManagedKafkaEventSourceConfig" => self_managed_kafka_event_source_config(),
+        "ProvisionedPollerConfig" => provisioned_poller_config(),
+        "State" => String.t() | atom(),
+        "Queues" => list(String.t() | atom()),
         "DocumentDBEventSourceConfig" => document_db_event_source_config(),
-        "EventSourceArn" => String.t() | atom(),
+        "SourceAccessConfigurations" => list(source_access_configuration()),
         "EventSourceMappingArn" => String.t() | atom(),
         "FilterCriteria" => filter_criteria(),
-        "FilterCriteriaError" => filter_criteria_error(),
-        "FunctionArn" => String.t() | atom(),
-        "FunctionResponseTypes" => list(list(any())()),
-        "KMSKeyArn" => String.t() | atom(),
         "LastModified" => non_neg_integer(),
-        "LastProcessingResult" => String.t() | atom(),
-        "MaximumBatchingWindowInSeconds" => integer(),
-        "MaximumRecordAgeInSeconds" => integer(),
-        "MaximumRetryAttempts" => integer(),
-        "MetricsConfig" => event_source_mapping_metrics_config(),
-        "ParallelizationFactor" => integer(),
-        "ProvisionedPollerConfig" => provisioned_poller_config(),
-        "Queues" => list(String.t() | atom()),
-        "ScalingConfig" => scaling_config(),
-        "SelfManagedEventSource" => self_managed_event_source(),
-        "SelfManagedKafkaEventSourceConfig" => self_managed_kafka_event_source_config(),
-        "SourceAccessConfigurations" => list(source_access_configuration()),
-        "StartingPosition" => list(any()),
-        "StartingPositionTimestamp" => non_neg_integer(),
-        "State" => String.t() | atom(),
-        "StateTransitionReason" => String.t() | atom(),
-        "Topics" => list(String.t() | atom()),
+        "FunctionResponseTypes" => list(list(any())()),
         "TumblingWindowInSeconds" => integer(),
-        "UUID" => String.t() | atom()
+        "FunctionArn" => String.t() | atom(),
+        "BisectBatchOnFunctionError" => boolean(),
+        "Topics" => list(String.t() | atom()),
+        "LoggingConfig" => event_source_mapping_logging_config(),
+        "FilterCriteriaError" => filter_criteria_error(),
+        "MaximumRecordAgeInSeconds" => integer(),
+        "EventSourceArn" => String.t() | atom(),
+        "StartingPositionTimestamp" => non_neg_integer()
       }
 
   """
@@ -1317,7 +1938,8 @@ defmodule AWS.Lambda do
 
       provisioned_poller_config() :: %{
         "MaximumPollers" => integer(),
-        "MinimumPollers" => integer()
+        "MinimumPollers" => integer(),
+        "PollerGroupName" => String.t() | atom()
       }
 
   """
@@ -1338,6 +1960,7 @@ defmodule AWS.Lambda do
         optional("FilterCriteria") => filter_criteria(),
         optional("FunctionResponseTypes") => list(list(any())()),
         optional("KMSKeyArn") => String.t() | atom(),
+        optional("LoggingConfig") => event_source_mapping_logging_config(),
         optional("MaximumBatchingWindowInSeconds") => integer(),
         optional("MaximumRecordAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
@@ -1359,6 +1982,28 @@ defmodule AWS.Lambda do
 
   """
   @type create_event_source_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capacity_provider_request() :: %{}
+
+  """
+  @type get_capacity_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      checkpoint_durable_execution_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Updates") => list(operation_update()),
+        required("CheckpointToken") => String.t() | atom()
+      }
+
+  """
+  @type checkpoint_durable_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1392,6 +2037,19 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      get_durable_execution_state_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        required("CheckpointToken") => String.t() | atom()
+      }
+
+  """
+  @type get_durable_execution_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_provisioned_concurrency_config_response() :: %{
         "AllocatedProvisionedConcurrentExecutions" => integer(),
         "AvailableProvisionedConcurrentExecutions" => integer(),
@@ -1403,6 +2061,17 @@ defmodule AWS.Lambda do
 
   """
   @type get_provisioned_concurrency_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_function_response() :: %{
+        "StatusCode" => integer()
+      }
+
+  """
+  @type delete_function_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1472,6 +2141,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      execution_failed_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type execution_failed_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       account_limit() :: %{
         "CodeSizeUnzipped" => float(),
         "CodeSizeZipped" => float(),
@@ -1517,6 +2197,17 @@ defmodule AWS.Lambda do
 
   """
   @type file_system_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wait_cancelled_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type wait_cancelled_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1578,6 +2269,38 @@ defmodule AWS.Lambda do
 
   """
   @type put_provisioned_concurrency_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_durable_execution_response() :: %{
+        "DurableExecutionArn" => String.t() | atom(),
+        "DurableExecutionName" => String.t() | atom(),
+        "EndTimestamp" => non_neg_integer(),
+        "Error" => error_object(),
+        "FunctionArn" => String.t() | atom(),
+        "InputPayload" => String.t() | atom(),
+        "Result" => String.t() | atom(),
+        "StartTimestamp" => non_neg_integer(),
+        "Status" => list(any()),
+        "TraceHeader" => trace_header(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type get_durable_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_source_mapping_logging_config() :: %{
+        "SystemLogLevel" => list(any())
+      }
+
+  """
+  @type event_source_mapping_logging_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1646,6 +2369,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      create_capacity_provider_response() :: %{
+        "CapacityProvider" => capacity_provider()
+      }
+
+  """
+  @type create_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       request_too_large_exception() :: %{
         "Type" => String.t() | atom(),
         "message" => String.t() | atom()
@@ -1687,6 +2421,76 @@ defmodule AWS.Lambda do
 
   """
   @type get_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      callback_started_details() :: %{
+        "CallbackId" => String.t() | atom(),
+        "HeartbeatTimeout" => integer(),
+        "Timeout" => integer()
+      }
+
+  """
+  @type callback_started_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      checkpoint_durable_execution_response() :: %{
+        "CheckpointToken" => String.t() | atom(),
+        "NewExecutionState" => checkpoint_updated_execution_state()
+      }
+
+  """
+  @type checkpoint_durable_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_capacity_provider_response() :: %{
+        "CapacityProvider" => capacity_provider()
+      }
+
+  """
+  @type update_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chained_invoke_details() :: %{
+        "Error" => error_object(),
+        "Result" => String.t() | atom()
+      }
+
+  """
+  @type chained_invoke_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_stopped_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type execution_stopped_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_permissions_config() :: %{
+        "CapacityProviderOperatorRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type capacity_provider_permissions_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1783,6 +2587,26 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      send_durable_execution_callback_success_response() :: %{}
+
+  """
+  @type send_durable_execution_callback_success_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      send_durable_execution_callback_success_request() :: %{
+        optional("Result") => binary()
+      }
+
+  """
+  @type send_durable_execution_callback_success_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       add_layer_version_permission_response() :: %{
         "RevisionId" => String.t() | atom(),
         "Statement" => String.t() | atom()
@@ -1790,6 +2614,47 @@ defmodule AWS.Lambda do
 
   """
   @type add_layer_version_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event() :: %{
+        "CallbackFailedDetails" => callback_failed_details(),
+        "CallbackStartedDetails" => callback_started_details(),
+        "CallbackSucceededDetails" => callback_succeeded_details(),
+        "CallbackTimedOutDetails" => callback_timed_out_details(),
+        "ChainedInvokeFailedDetails" => chained_invoke_failed_details(),
+        "ChainedInvokeStartedDetails" => chained_invoke_started_details(),
+        "ChainedInvokeStoppedDetails" => chained_invoke_stopped_details(),
+        "ChainedInvokeSucceededDetails" => chained_invoke_succeeded_details(),
+        "ChainedInvokeTimedOutDetails" => chained_invoke_timed_out_details(),
+        "ContextFailedDetails" => context_failed_details(),
+        "ContextStartedDetails" => context_started_details(),
+        "ContextSucceededDetails" => context_succeeded_details(),
+        "EventId" => integer(),
+        "EventTimestamp" => non_neg_integer(),
+        "EventType" => list(any()),
+        "ExecutionFailedDetails" => execution_failed_details(),
+        "ExecutionStartedDetails" => execution_started_details(),
+        "ExecutionStoppedDetails" => execution_stopped_details(),
+        "ExecutionSucceededDetails" => execution_succeeded_details(),
+        "ExecutionTimedOutDetails" => execution_timed_out_details(),
+        "Id" => String.t() | atom(),
+        "InvocationCompletedDetails" => invocation_completed_details(),
+        "Name" => String.t() | atom(),
+        "ParentId" => String.t() | atom(),
+        "StepFailedDetails" => step_failed_details(),
+        "StepStartedDetails" => step_started_details(),
+        "StepSucceededDetails" => step_succeeded_details(),
+        "SubType" => String.t() | atom(),
+        "WaitCancelledDetails" => wait_cancelled_details(),
+        "WaitStartedDetails" => wait_started_details(),
+        "WaitSucceededDetails" => wait_succeeded_details()
+      }
+
+  """
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1818,10 +2683,12 @@ defmodule AWS.Lambda do
 
       invocation_request() :: %{
         optional("ClientContext") => String.t() | atom(),
+        optional("DurableExecutionName") => String.t() | atom(),
         optional("InvocationType") => list(any()),
         optional("LogType") => list(any()),
         optional("Payload") => binary(),
-        optional("Qualifier") => String.t() | atom()
+        optional("Qualifier") => String.t() | atom(),
+        optional("TenantId") => String.t() | atom()
       }
 
   """
@@ -1879,16 +2746,51 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      callback_succeeded_details() :: %{
+        "Result" => event_result()
+      }
+
+  """
+  @type callback_succeeded_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_with_response_stream_request() :: %{
         optional("ClientContext") => String.t() | atom(),
         optional("InvocationType") => list(any()),
         optional("LogType") => list(any()),
         optional("Payload") => binary(),
-        optional("Qualifier") => String.t() | atom()
+        optional("Qualifier") => String.t() | atom(),
+        optional("TenantId") => String.t() | atom()
       }
 
   """
   @type invoke_with_response_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_durable_execution_callback_failure_request() :: %{
+        optional("Error") => error_object()
+      }
+
+  """
+  @type send_durable_execution_callback_failure_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wait_started_details() :: %{
+        "Duration" => integer(),
+        "ScheduledEndTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type wait_started_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1905,12 +2807,59 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      context_failed_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type context_failed_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_code_signing_config_response() :: %{
         "CodeSigningConfig" => code_signing_config()
       }
 
   """
   @type update_code_signing_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_requirements() :: %{
+        "AllowedInstanceTypes" => list(String.t() | atom()),
+        "Architectures" => list(list(any())()),
+        "ExcludedInstanceTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type instance_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_versions_by_capacity_provider_list_item() :: %{
+        "FunctionArn" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type function_versions_by_capacity_provider_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capacity_provider_response() :: %{
+        "CapacityProvider" => capacity_provider()
+      }
+
+  """
+  @type get_capacity_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1988,6 +2937,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      capacity_provider_limit_exceeded_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type capacity_provider_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_code_signing_config_response() :: %{
         "CodeSigningConfig" => code_signing_config()
       }
@@ -2030,7 +2991,9 @@ defmodule AWS.Lambda do
         "SigningProfileVersionArn" => String.t() | atom(),
         "MasterArn" => String.t() | atom(),
         "Role" => String.t() | atom(),
+        "DurableConfig" => durable_config(),
         "PackageType" => list(any()),
+        "CapacityProviderConfig" => capacity_provider_config(),
         "StateReason" => String.t() | atom(),
         "State" => list(any()),
         "LastUpdateStatus" => list(any()),
@@ -2046,6 +3009,8 @@ defmodule AWS.Lambda do
         "FileSystemConfigs" => list(file_system_config()),
         "LastUpdateStatusReason" => String.t() | atom(),
         "LastUpdateStatusReasonCode" => list(any()),
+        "ConfigSha256" => String.t() | atom(),
+        "TenancyConfig" => tenancy_config(),
         "SnapStart" => snap_start_response(),
         "Runtime" => list(any()),
         "ImageConfigResponse" => image_config_response(),
@@ -2104,6 +3069,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      capacity_provider_config() :: %{
+        "LambdaManagedInstancesCapacityProviderConfig" => lambda_managed_instances_capacity_provider_config()
+      }
+
+  """
+  @type capacity_provider_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       e_n_i_limit_reached_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
@@ -2111,6 +3087,17 @@ defmodule AWS.Lambda do
 
   """
   @type e_n_i_limit_reached_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_durable_execution_response() :: %{
+        "StopTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type stop_durable_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2137,6 +3124,30 @@ defmodule AWS.Lambda do
 
   """
   @type list_layer_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_function_scaling_config_request() :: %{
+        optional("FunctionScalingConfig") => function_scaling_config(),
+        required("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type put_function_scaling_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_durable_executions_by_function_response() :: %{
+        "DurableExecutions" => list(execution()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_durable_executions_by_function_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2198,6 +3209,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      wait_details() :: %{
+        "ScheduledEndTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type wait_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       on_success() :: %{
         "Destination" => String.t() | atom()
       }
@@ -2221,8 +3243,10 @@ defmodule AWS.Lambda do
   ## Example:
 
       update_function_configuration_request() :: %{
+        optional("CapacityProviderConfig") => capacity_provider_config(),
         optional("DeadLetterConfig") => dead_letter_config(),
         optional("Description") => String.t() | atom(),
+        optional("DurableConfig") => durable_config(),
         optional("Environment") => environment(),
         optional("EphemeralStorage") => ephemeral_storage(),
         optional("FileSystemConfigs") => list(file_system_config()),
@@ -2309,6 +3333,62 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      get_durable_execution_history_response() :: %{
+        "Events" => list(event()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type get_durable_execution_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider() :: %{
+        "CapacityProviderArn" => String.t() | atom(),
+        "CapacityProviderScalingConfig" => capacity_provider_scaling_config(),
+        "InstanceRequirements" => instance_requirements(),
+        "KmsKeyArn" => String.t() | atom(),
+        "LastModified" => String.t() | atom(),
+        "PermissionsConfig" => capacity_provider_permissions_config(),
+        "State" => list(any()),
+        "VpcConfig" => capacity_provider_vpc_config()
+      }
+
+  """
+  @type capacity_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_versions_per_capacity_provider_limit_exceeded_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type function_versions_per_capacity_provider_limit_exceeded_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      callback_options() :: %{
+        "HeartbeatTimeoutSeconds" => integer(),
+        "TimeoutSeconds" => integer()
+      }
+
+  """
+  @type callback_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_versions_by_function_response() :: %{
         "NextMarker" => String.t() | atom(),
         "Versions" => list(function_configuration())
@@ -2316,6 +3396,23 @@ defmodule AWS.Lambda do
 
   """
   @type list_versions_by_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_capacity_provider_request() :: %{
+        optional("CapacityProviderScalingConfig") => capacity_provider_scaling_config(),
+        optional("InstanceRequirements") => instance_requirements(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("CapacityProviderName") => String.t() | atom(),
+        required("PermissionsConfig") => capacity_provider_permissions_config(),
+        required("VpcConfig") => capacity_provider_vpc_config()
+      }
+
+  """
+  @type create_capacity_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2365,6 +3462,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      step_options() :: %{
+        "NextAttemptDelaySeconds" => integer()
+      }
+
+  """
+  @type step_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_function_event_invoke_config_request() :: %{
         optional("Qualifier") => String.t() | atom()
       }
@@ -2376,11 +3484,38 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      step_details() :: %{
+        "Attempt" => integer(),
+        "Error" => error_object(),
+        "NextAttemptTimestamp" => non_neg_integer(),
+        "Result" => String.t() | atom()
+      }
+
+  """
+  @type step_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_succeeded_details() :: %{
+        "Result" => event_result()
+      }
+
+  """
+  @type execution_succeeded_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_function_request() :: %{
         optional("Architectures") => list(list(any())()),
+        optional("CapacityProviderConfig") => capacity_provider_config(),
         optional("CodeSigningConfigArn") => String.t() | atom(),
         optional("DeadLetterConfig") => dead_letter_config(),
         optional("Description") => String.t() | atom(),
+        optional("DurableConfig") => durable_config(),
         optional("Environment") => environment(),
         optional("EphemeralStorage") => ephemeral_storage(),
         optional("FileSystemConfigs") => list(file_system_config()),
@@ -2392,9 +3527,11 @@ defmodule AWS.Lambda do
         optional("MemorySize") => integer(),
         optional("PackageType") => list(any()),
         optional("Publish") => boolean(),
+        optional("PublishTo") => list(any()),
         optional("Runtime") => list(any()),
         optional("SnapStart") => snap_start(),
         optional("Tags") => map(),
+        optional("TenancyConfig") => tenancy_config(),
         optional("Timeout") => integer(),
         optional("TracingConfig") => tracing_config(),
         optional("VpcConfig") => vpc_config(),
@@ -2422,6 +3559,29 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      no_published_version_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type no_published_version_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_durable_execution_request() :: %{
+        optional("Error") => error_object()
+      }
+
+  """
+  @type stop_durable_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tags_error() :: %{
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
@@ -2441,6 +3601,17 @@ defmodule AWS.Lambda do
 
   """
   @type ec2_throttled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trace_header() :: %{
+        "XAmznTraceId" => String.t() | atom()
+      }
+
+  """
+  @type trace_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2492,6 +3663,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      chained_invoke_options() :: %{
+        "FunctionName" => String.t() | atom(),
+        "TenantId" => String.t() | atom()
+      }
+
+  """
+  @type chained_invoke_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       alias_routing_configuration() :: %{
         "AdditionalVersionWeights" => map()
       }
@@ -2515,6 +3698,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      put_function_scaling_config_response() :: %{
+        "FunctionState" => list(any())
+      }
+
+  """
+  @type put_function_scaling_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_subnet_id_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
@@ -2522,6 +3716,17 @@ defmodule AWS.Lambda do
 
   """
   @type invalid_subnet_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tenancy_config() :: %{
+        "TenantIsolationMode" => list(any())
+      }
+
+  """
+  @type tenancy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2600,6 +3805,15 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      send_durable_execution_callback_heartbeat_response() :: %{}
+
+  """
+  @type send_durable_execution_callback_heartbeat_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_function_event_invoke_configs_request() :: %{
         optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
@@ -2607,6 +3821,19 @@ defmodule AWS.Lambda do
 
   """
   @type list_function_event_invoke_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_details() :: %{
+        "Error" => error_object(),
+        "ReplayChildren" => boolean(),
+        "Result" => String.t() | atom()
+      }
+
+  """
+  @type context_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2639,6 +3866,19 @@ defmodule AWS.Lambda do
 
   """
   @type delete_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      callback_details() :: %{
+        "CallbackId" => String.t() | atom(),
+        "Error" => error_object(),
+        "Result" => String.t() | atom()
+      }
+
+  """
+  @type callback_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2723,6 +3963,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      step_succeeded_details() :: %{
+        "Result" => event_result(),
+        "RetryDetails" => retry_details()
+      }
+
+  """
+  @type step_succeeded_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       add_permission_response() :: %{
         "Statement" => String.t() | atom()
       }
@@ -2764,11 +4016,23 @@ defmodule AWS.Lambda do
           | too_many_requests_exception()
           | policy_length_exceeded_exception()
 
+  @type checkpoint_durable_execution_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | too_many_requests_exception()
+
   @type create_alias_errors() ::
           resource_conflict_exception()
           | service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type create_capacity_provider_errors() ::
+          resource_conflict_exception()
+          | capacity_provider_limit_exceeded_exception()
+          | service_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type create_code_signing_config_errors() ::
@@ -2784,6 +4048,7 @@ defmodule AWS.Lambda do
   @type create_function_errors() ::
           resource_conflict_exception()
           | code_storage_exceeded_exception()
+          | function_versions_per_capacity_provider_limit_exceeded_exception()
           | invalid_code_signature_exception()
           | code_verification_failed_exception()
           | service_exception()
@@ -2803,6 +4068,13 @@ defmodule AWS.Lambda do
           resource_conflict_exception()
           | service_exception()
           | invalid_parameter_value_exception()
+          | too_many_requests_exception()
+
+  @type delete_capacity_provider_errors() ::
+          resource_conflict_exception()
+          | service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type delete_code_signing_config_errors() ::
@@ -2871,10 +4143,33 @@ defmodule AWS.Lambda do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type get_capacity_provider_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type get_code_signing_config_errors() ::
           service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
+
+  @type get_durable_execution_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_durable_execution_history_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_durable_execution_state_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | too_many_requests_exception()
 
   @type get_event_source_mapping_errors() ::
           service_exception()
@@ -2913,6 +4208,12 @@ defmodule AWS.Lambda do
           | too_many_requests_exception()
 
   @type get_function_recursion_config_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_function_scaling_config_errors() ::
           service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -2969,6 +4270,7 @@ defmodule AWS.Lambda do
           | kms_invalid_state_exception()
           | e_f_s_i_o_exception()
           | ec2_throttled_exception()
+          | no_published_version_exception()
           | ec2_unexpected_exception()
           | e_f_s_mount_failure_exception()
           | e_n_i_limit_reached_exception()
@@ -2981,6 +4283,7 @@ defmodule AWS.Lambda do
           | subnet_ip_address_limit_reached_exception()
           | service_exception()
           | invalid_parameter_value_exception()
+          | durable_execution_already_started_exception()
           | resource_not_found_exception()
           | invalid_request_content_exception()
           | invalid_runtime_exception()
@@ -3009,6 +4312,7 @@ defmodule AWS.Lambda do
           | kms_invalid_state_exception()
           | e_f_s_i_o_exception()
           | ec2_throttled_exception()
+          | no_published_version_exception()
           | ec2_unexpected_exception()
           | e_f_s_mount_failure_exception()
           | e_n_i_limit_reached_exception()
@@ -3040,8 +4344,19 @@ defmodule AWS.Lambda do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type list_capacity_providers_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | too_many_requests_exception()
+
   @type list_code_signing_configs_errors() ::
           service_exception() | invalid_parameter_value_exception()
+
+  @type list_durable_executions_by_function_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
 
   @type list_event_source_mappings_errors() ::
           service_exception()
@@ -3056,6 +4371,12 @@ defmodule AWS.Lambda do
           | too_many_requests_exception()
 
   @type list_function_url_configs_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_function_versions_by_capacity_provider_errors() ::
           service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -3111,6 +4432,7 @@ defmodule AWS.Lambda do
           resource_conflict_exception()
           | precondition_failed_exception()
           | code_storage_exceeded_exception()
+          | function_versions_per_capacity_provider_limit_exceeded_exception()
           | service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -3145,6 +4467,13 @@ defmodule AWS.Lambda do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type put_function_scaling_config_errors() ::
+          resource_conflict_exception()
+          | service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type put_provisioned_concurrency_config_errors() ::
           resource_conflict_exception()
           | service_exception()
@@ -3173,6 +4502,30 @@ defmodule AWS.Lambda do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type send_durable_execution_callback_failure_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | callback_timeout_exception()
+          | too_many_requests_exception()
+
+  @type send_durable_execution_callback_heartbeat_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | callback_timeout_exception()
+          | too_many_requests_exception()
+
+  @type send_durable_execution_callback_success_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | callback_timeout_exception()
+          | too_many_requests_exception()
+
+  @type stop_durable_execution_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type tag_resource_errors() ::
           resource_conflict_exception()
           | service_exception()
@@ -3190,6 +4543,13 @@ defmodule AWS.Lambda do
   @type update_alias_errors() ::
           resource_conflict_exception()
           | precondition_failed_exception()
+          | service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_capacity_provider_errors() ::
+          resource_conflict_exception()
           | service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -3373,6 +4733,56 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Saves the progress of a [durable function](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
+  execution during runtime.
+
+  This API is used by the Lambda durable functions SDK to checkpoint completed
+  steps and schedule asynchronous operations. You typically don't need to call
+  this API directly as the SDK handles checkpointing automatically.
+
+  Each checkpoint operation consumes the current checkpoint token and returns a
+  new one for the next checkpoint. This ensures that checkpoints are applied in
+  the correct order and prevents duplicate or out-of-order state updates.
+  """
+  @spec checkpoint_durable_execution(
+          map(),
+          String.t() | atom(),
+          checkpoint_durable_execution_request(),
+          list()
+        ) ::
+          {:ok, checkpoint_durable_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, checkpoint_durable_execution_errors()}
+  def checkpoint_durable_execution(
+        %Client{} = client,
+        durable_execution_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/2025-12-01/durable-executions/#{AWS.Util.encode_uri(durable_execution_arn)}/checkpoint"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html)
   for a Lambda function version.
@@ -3407,6 +4817,35 @@ defmodule AWS.Lambda do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates a capacity provider that manages compute resources for Lambda functions
+  """
+  @spec create_capacity_provider(map(), create_capacity_provider_request(), list()) ::
+          {:ok, create_capacity_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_capacity_provider_errors()}
+  def create_capacity_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/2025-11-30/capacity-providers"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -3465,8 +4904,8 @@ defmodule AWS.Lambda do
 
     * [ Amazon DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
 
-  The following error handling options are available only for DynamoDB and Kinesis
-  event sources:
+  The following error handling options are available for stream sources (DynamoDB,
+  Kinesis, Amazon MSK, and self-managed Apache Kafka):
 
     * `BisectBatchOnFunctionError` – If the function returns an error,
   split the batch in two and retry.
@@ -3479,14 +4918,14 @@ defmodule AWS.Lambda do
   number of retries. The default value is infinite (-1). When set to infinite
   (-1), failed records are retried until the record expires.
 
+    * `OnFailure` – Send discarded records to an Amazon SQS queue,
+  Amazon SNS topic, Kafka topic, or Amazon S3 bucket. For more information, see
+  [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
+
+  The following option is available only for DynamoDB and Kinesis event sources:
+
     * `ParallelizationFactor` – Process multiple batches from each shard
   concurrently.
-
-  For stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache
-  Kafka), the following option is also available:
-
-    * `OnFailure` – Send discarded records to an Amazon SQS queue,
-  Amazon SNS topic, or Amazon S3 bucket. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 
   For information about which configuration parameters apply to each event source,
   see the following topics.
@@ -3698,6 +5137,43 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Deletes a capacity provider.
+
+  You cannot delete a capacity provider that is currently being used by Lambda
+  functions.
+  """
+  @spec delete_capacity_provider(
+          map(),
+          String.t() | atom(),
+          delete_capacity_provider_request(),
+          list()
+        ) ::
+          {:ok, delete_capacity_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_capacity_provider_errors()}
+  def delete_capacity_provider(%Client{} = client, capacity_provider_name, input, options \\ []) do
+    url_path = "/2025-11-30/capacity-providers/#{AWS.Util.encode_uri(capacity_provider_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes the code signing configuration.
 
   You can delete the code signing configuration only if no function is using it.
@@ -3794,7 +5270,7 @@ defmodule AWS.Lambda do
   originally configured it.
   """
   @spec delete_function(map(), String.t() | atom(), delete_function_request(), list()) ::
-          {:ok, nil, any()}
+          {:ok, delete_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_function_errors()}
@@ -3820,7 +5296,7 @@ defmodule AWS.Lambda do
       custom_headers ++ headers,
       input,
       options,
-      204
+      200
     )
   end
 
@@ -4106,6 +5582,25 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Retrieves information about a specific capacity provider, including its
+  configuration, state, and associated resources.
+  """
+  @spec get_capacity_provider(map(), String.t() | atom(), list()) ::
+          {:ok, get_capacity_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_capacity_provider_errors()}
+  def get_capacity_provider(%Client{} = client, capacity_provider_name, options \\ []) do
+    url_path = "/2025-11-30/capacity-providers/#{AWS.Util.encode_uri(capacity_provider_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns information about the specified code signing configuration.
   """
   @spec get_code_signing_config(map(), String.t() | atom(), list()) ::
@@ -4117,6 +5612,162 @@ defmodule AWS.Lambda do
     url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves detailed information about a specific [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html),
+  including its current status, input payload, result or error information, and
+  execution metadata such as start time and usage statistics.
+  """
+  @spec get_durable_execution(map(), String.t() | atom(), list()) ::
+          {:ok, get_durable_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_durable_execution_errors()}
+  def get_durable_execution(%Client{} = client, durable_execution_arn, options \\ []) do
+    url_path = "/2025-12-01/durable-executions/#{AWS.Util.encode_uri(durable_execution_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the execution history for a [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html),
+  showing all the steps, callbacks, and events that occurred during the execution.
+
+  This provides a detailed audit trail of the execution's progress over time.
+
+  The history is available while the execution is running and for a retention
+  period after it completes (1-90 days, default 30 days). You can control whether
+  to include execution data such as step results and callback payloads.
+  """
+  @spec get_durable_execution_history(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_durable_execution_history_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_durable_execution_history_errors()}
+  def get_durable_execution_history(
+        %Client{} = client,
+        durable_execution_arn,
+        include_execution_data \\ nil,
+        marker \\ nil,
+        max_items \\ nil,
+        reverse_order \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2025-12-01/durable-executions/#{AWS.Util.encode_uri(durable_execution_arn)}/history"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(reverse_order) do
+        [{"ReverseOrder", reverse_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_execution_data) do
+        [{"IncludeExecutionData", include_execution_data} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the current execution state required for the replay process during
+  [durable function](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
+  execution.
+
+  This API is used by the Lambda durable functions SDK to get state information
+  needed for replay. You typically don't need to call this API directly as the SDK
+  handles state management automatically.
+
+  The response contains operations ordered by start sequence number in ascending
+  order. Completed operations with children don't include child operation details
+  since they don't need to be replayed.
+  """
+  @spec get_durable_execution_state(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_durable_execution_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_durable_execution_state_errors()}
+  def get_durable_execution_state(
+        %Client{} = client,
+        durable_execution_arn,
+        checkpoint_token,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2025-12-01/durable-executions/#{AWS.Util.encode_uri(durable_execution_arn)}/state"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(checkpoint_token) do
+        [{"CheckpointToken", checkpoint_token} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -4299,6 +5950,33 @@ defmodule AWS.Lambda do
     url_path = "/2024-08-31/functions/#{AWS.Util.encode_uri(function_name)}/recursion-config"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the scaling configuration for a Lambda Managed Instances function.
+  """
+  @spec get_function_scaling_config(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_function_scaling_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_function_scaling_config_errors()}
+  def get_function_scaling_config(%Client{} = client, function_name, qualifier, options \\ []) do
+    url_path =
+      "/2025-11-30/functions/#{AWS.Util.encode_uri(function_name)}/function-scaling-config"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(qualifier) do
+        [{"Qualifier", qualifier} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -4565,8 +6243,10 @@ defmodule AWS.Lambda do
     {headers, input} =
       [
         {"ClientContext", "X-Amz-Client-Context"},
+        {"DurableExecutionName", "X-Amz-Durable-Execution-Name"},
         {"InvocationType", "X-Amz-Invocation-Type"},
-        {"LogType", "X-Amz-Log-Type"}
+        {"LogType", "X-Amz-Log-Type"},
+        {"TenantId", "X-Amz-Tenant-Id"}
       ]
       |> Request.build_params(input)
 
@@ -4583,6 +6263,7 @@ defmodule AWS.Lambda do
         options,
         :response_header_parameters,
         [
+          {"X-Amz-Durable-Execution-Arn", "DurableExecutionArn"},
           {"X-Amz-Executed-Version", "ExecutedVersion"},
           {"X-Amz-Function-Error", "FunctionError"},
           {"X-Amz-Log-Result", "LogResult"}
@@ -4669,7 +6350,8 @@ defmodule AWS.Lambda do
       [
         {"ClientContext", "X-Amz-Client-Context"},
         {"InvocationType", "X-Amz-Invocation-Type"},
-        {"LogType", "X-Amz-Log-Type"}
+        {"LogType", "X-Amz-Log-Type"},
+        {"TenantId", "X-Amz-Tenant-Id"}
       ]
       |> Request.build_params(input)
 
@@ -4762,6 +6444,57 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Returns a list of capacity providers in your account.
+  """
+  @spec list_capacity_providers(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_capacity_providers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_capacity_providers_errors()}
+  def list_capacity_providers(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        state \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2025-11-30/capacity-providers"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of [code signing configurations](https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html).
 
   A request returns up to 10,000 configurations per call. You can use the
@@ -4797,6 +6530,108 @@ defmodule AWS.Lambda do
     query_params =
       if !is_nil(marker) do
         [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of [durable executions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
+  for a specified Lambda function.
+
+  You can filter the results by execution name, status, and start time range. This
+  API supports pagination for large result sets.
+  """
+  @spec list_durable_executions_by_function(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_durable_executions_by_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_durable_executions_by_function_errors()}
+  def list_durable_executions_by_function(
+        %Client{} = client,
+        function_name,
+        durable_execution_name \\ nil,
+        marker \\ nil,
+        max_items \\ nil,
+        qualifier \\ nil,
+        reverse_order \\ nil,
+        started_after \\ nil,
+        started_before \\ nil,
+        statuses \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2025-12-01/functions/#{AWS.Util.encode_uri(function_name)}/durable-executions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(statuses) do
+        [{"Statuses", statuses} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(started_before) do
+        [{"StartedBefore", started_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(started_after) do
+        [{"StartedAfter", started_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(reverse_order) do
+        [{"ReverseOrder", reverse_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(qualifier) do
+        [{"Qualifier", qualifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(durable_execution_name) do
+        [{"DurableExecutionName", durable_execution_name} | query_params]
       else
         query_params
       end
@@ -4940,6 +6775,53 @@ defmodule AWS.Lambda do
         options \\ []
       ) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/urls"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of function versions that are configured to use a specific
+  capacity provider.
+  """
+  @spec list_function_versions_by_capacity_provider(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_function_versions_by_capacity_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_function_versions_by_capacity_provider_errors()}
+  def list_function_versions_by_capacity_provider(
+        %Client{} = client,
+        capacity_provider_name,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2025-11-30/capacity-providers/#{AWS.Util.encode_uri(capacity_provider_name)}/function-versions"
+
     headers = []
     query_params = []
 
@@ -5600,6 +7482,51 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Sets the scaling configuration for a Lambda Managed Instances function.
+
+  The scaling configuration defines the minimum and maximum number of execution
+  environments that can be provisioned for the function, allowing you to control
+  scaling behavior and resource allocation.
+  """
+  @spec put_function_scaling_config(
+          map(),
+          String.t() | atom(),
+          put_function_scaling_config_request(),
+          list()
+        ) ::
+          {:ok, put_function_scaling_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_function_scaling_config_errors()}
+  def put_function_scaling_config(%Client{} = client, function_name, input, options \\ []) do
+    url_path =
+      "/2025-11-30/functions/#{AWS.Util.encode_uri(function_name)}/function-scaling-config"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"Qualifier", "Qualifier"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Adds a provisioned concurrency configuration to a function's alias or version.
   """
   @spec put_provisioned_concurrency_config(
@@ -5782,6 +7709,175 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Sends a failure response for a callback operation in a durable execution.
+
+  Use this API when an external system cannot complete a callback operation
+  successfully.
+  """
+  @spec send_durable_execution_callback_failure(
+          map(),
+          String.t() | atom(),
+          send_durable_execution_callback_failure_request(),
+          list()
+        ) ::
+          {:ok, send_durable_execution_callback_failure_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_durable_execution_callback_failure_errors()}
+  def send_durable_execution_callback_failure(
+        %Client{} = client,
+        callback_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/2025-12-01/durable-execution-callbacks/#{AWS.Util.encode_uri(callback_id)}/fail"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sends a heartbeat signal for a long-running callback operation to prevent
+  timeout.
+
+  Use this API to extend the callback timeout period while the external operation
+  is still in progress.
+  """
+  @spec send_durable_execution_callback_heartbeat(
+          map(),
+          String.t() | atom(),
+          send_durable_execution_callback_heartbeat_request(),
+          list()
+        ) ::
+          {:ok, send_durable_execution_callback_heartbeat_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_durable_execution_callback_heartbeat_errors()}
+  def send_durable_execution_callback_heartbeat(
+        %Client{} = client,
+        callback_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/2025-12-01/durable-execution-callbacks/#{AWS.Util.encode_uri(callback_id)}/heartbeat"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sends a successful completion response for a callback operation in a durable
+  execution.
+
+  Use this API when an external system has successfully completed a callback
+  operation.
+  """
+  @spec send_durable_execution_callback_success(
+          map(),
+          String.t() | atom(),
+          send_durable_execution_callback_success_request(),
+          list()
+        ) ::
+          {:ok, send_durable_execution_callback_success_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_durable_execution_callback_success_errors()}
+  def send_durable_execution_callback_success(
+        %Client{} = client,
+        callback_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/2025-12-01/durable-execution-callbacks/#{AWS.Util.encode_uri(callback_id)}/succeed"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops a running [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html).
+
+  The execution transitions to STOPPED status and cannot be resumed. Any
+  in-progress operations are terminated.
+  """
+  @spec stop_durable_execution(
+          map(),
+          String.t() | atom(),
+          stop_durable_execution_request(),
+          list()
+        ) ::
+          {:ok, stop_durable_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_durable_execution_errors()}
+  def stop_durable_execution(%Client{} = client, durable_execution_arn, input, options \\ []) do
+    url_path = "/2025-12-01/durable-executions/#{AWS.Util.encode_uri(durable_execution_arn)}/stop"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Adds [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to a
   function, event source mapping, or code signing configuration.
   """
@@ -5885,6 +7981,40 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Updates the configuration of an existing capacity provider.
+  """
+  @spec update_capacity_provider(
+          map(),
+          String.t() | atom(),
+          update_capacity_provider_request(),
+          list()
+        ) ::
+          {:ok, update_capacity_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_capacity_provider_errors()}
+  def update_capacity_provider(%Client{} = client, capacity_provider_name, input, options \\ []) do
+    url_path = "/2025-11-30/capacity-providers/#{AWS.Util.encode_uri(capacity_provider_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Update the code signing configuration.
 
   Changes to the code signing configuration take effect the next time a user tries
@@ -5949,8 +8079,8 @@ defmodule AWS.Lambda do
 
     * [ Amazon DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
 
-  The following error handling options are available only for DynamoDB and Kinesis
-  event sources:
+  The following error handling options are available for stream sources (DynamoDB,
+  Kinesis, Amazon MSK, and self-managed Apache Kafka):
 
     * `BisectBatchOnFunctionError` – If the function returns an error,
   split the batch in two and retry.
@@ -5963,14 +8093,14 @@ defmodule AWS.Lambda do
   number of retries. The default value is infinite (-1). When set to infinite
   (-1), failed records are retried until the record expires.
 
+    * `OnFailure` – Send discarded records to an Amazon SQS queue,
+  Amazon SNS topic, Kafka topic, or Amazon S3 bucket. For more information, see
+  [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
+
+  The following option is available only for DynamoDB and Kinesis event sources:
+
     * `ParallelizationFactor` – Process multiple batches from each shard
   concurrently.
-
-  For stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache
-  Kafka), the following option is also available:
-
-    * `OnFailure` – Send discarded records to an Amazon SQS queue,
-  Amazon SNS topic, or Amazon S3 bucket. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 
   For information about which configuration parameters apply to each event source,
   see the following topics.

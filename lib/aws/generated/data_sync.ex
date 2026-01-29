@@ -497,6 +497,21 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      task_execution_folders_failed_detail() :: %{
+        "Delete" => float(),
+        "List" => float(),
+        "Prepare" => float(),
+        "Transfer" => float(),
+        "Verify" => float()
+      }
+      
+  """
+  @type task_execution_folders_failed_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_location_nfs_response() :: %{}
       
   """
@@ -744,6 +759,8 @@ defmodule AWS.DataSync do
       update_location_smb_request() :: %{
         optional("AgentArns") => list(String.t() | atom()),
         optional("AuthenticationType") => list(any()),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("DnsIpAddresses") => list(String.t() | atom()),
         optional("Domain") => String.t() | atom(),
         optional("KerberosKeytab") => binary(),
@@ -1255,32 +1272,41 @@ defmodule AWS.DataSync do
   ## Example:
       
       describe_task_execution_response() :: %{
-        "BytesCompressed" => float(),
-        "BytesTransferred" => float(),
-        "BytesWritten" => float(),
-        "EndTime" => non_neg_integer(),
-        "EstimatedBytesToTransfer" => float(),
-        "EstimatedFilesToDelete" => float(),
-        "EstimatedFilesToTransfer" => float(),
-        "Excludes" => list(filter_rule()),
-        "FilesDeleted" => float(),
-        "FilesFailed" => task_execution_files_failed_detail(),
-        "FilesListed" => task_execution_files_listed_detail(),
+        "Status" => list(any()),
+        "TaskReportConfig" => task_report_config(),
         "FilesPrepared" => float(),
+        "LaunchTime" => non_neg_integer(),
         "FilesSkipped" => float(),
+        "FoldersListed" => task_execution_folders_listed_detail(),
+        "Excludes" => list(filter_rule()),
+        "FilesListed" => task_execution_files_listed_detail(),
+        "EstimatedFoldersToDelete" => float(),
+        "BytesWritten" => float(),
         "FilesTransferred" => float(),
+        "StartTime" => non_neg_integer(),
+        "TaskMode" => list(any()),
+        "FoldersFailed" => task_execution_folders_failed_detail(),
+        "EstimatedFilesToDelete" => float(),
+        "TaskExecutionArn" => String.t() | atom(),
+        "FoldersDeleted" => float(),
+        "FilesDeleted" => float(),
+        "ReportResult" => report_result(),
+        "EstimatedFoldersToTransfer" => float(),
+        "FoldersPrepared" => float(),
+        "FilesFailed" => task_execution_files_failed_detail(),
+        "EstimatedBytesToTransfer" => float(),
+        "FoldersSkipped" => float(),
         "FilesVerified" => float(),
         "Includes" => list(filter_rule()),
-        "LaunchTime" => non_neg_integer(),
-        "ManifestConfig" => manifest_config(),
         "Options" => options(),
-        "ReportResult" => report_result(),
-        "Result" => task_execution_result_detail(),
-        "StartTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "TaskExecutionArn" => String.t() | atom(),
-        "TaskMode" => list(any()),
-        "TaskReportConfig" => task_report_config()
+        "BytesTransferred" => float(),
+        "FoldersTransferred" => float(),
+        "EstimatedFilesToTransfer" => float(),
+        "FoldersVerified" => float(),
+        "BytesCompressed" => float(),
+        "EndTime" => non_neg_integer(),
+        "ManifestConfig" => manifest_config(),
+        "Result" => task_execution_result_detail()
       }
       
   """
@@ -1338,6 +1364,8 @@ defmodule AWS.DataSync do
       
       create_location_smb_request() :: %{
         optional("AuthenticationType") => list(any()),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("DnsIpAddresses") => list(String.t() | atom()),
         optional("Domain") => String.t() | atom(),
         optional("KerberosKeytab") => binary(),
@@ -1916,12 +1944,15 @@ defmodule AWS.DataSync do
       describe_location_smb_response() :: %{
         "AgentArns" => list(String.t() | atom()),
         "AuthenticationType" => list(any()),
+        "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
+        "CustomSecretConfig" => custom_secret_config(),
         "DnsIpAddresses" => list(String.t() | atom()),
         "Domain" => String.t() | atom(),
         "KerberosPrincipal" => String.t() | atom(),
         "LocationArn" => String.t() | atom(),
         "LocationUri" => String.t() | atom(),
+        "ManagedSecretConfig" => managed_secret_config(),
         "MountOptions" => smb_mount_options(),
         "User" => String.t() | atom()
       }
@@ -1978,6 +2009,18 @@ defmodule AWS.DataSync do
       
   """
   @type describe_location_s3_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_execution_folders_listed_detail() :: %{
+        "AtDestinationForDelete" => float(),
+        "AtSource" => float()
+      }
+      
+  """
+  @type task_execution_folders_listed_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

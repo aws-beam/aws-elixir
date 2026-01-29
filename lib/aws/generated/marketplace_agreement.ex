@@ -12,25 +12,18 @@ defmodule AWS.MarketplaceAgreement do
   searching, and filtering agreements.
 
   To manage agreements in AWS Marketplace, you must ensure that your AWS Identity
-  and
-  Access Management (IAM) policies and roles are set up. The user must have the
-  required
-  policies/permissions that allow them to carry out the actions in AWS:
+  and Access Management (IAM) policies and roles are set up. The user must have
+  the required policies/permissions that allow them to carry out the actions in
+  AWS:
 
-    *
+    * `DescribeAgreement` – Grants permission to users to obtain
+  detailed meta data about any of their agreements.
 
-  `DescribeAgreement` – Grants permission to users to obtain detailed
-  meta data about any of their agreements.
-
-    *
-
-  `GetAgreementTerms` – Grants permission to users to obtain details
+    * `GetAgreementTerms` – Grants permission to users to obtain details
   about the terms of an agreement.
 
-    *
-
-  `SearchAgreements` – Grants permission to users to search through all
-  their agreements.
+    * `SearchAgreements` – Grants permission to users to search through
+  all their agreements.
   """
 
   alias AWS.Client
@@ -448,6 +441,20 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      variable_payment_term() :: %{
+        "configuration" => variable_payment_term_configuration(),
+        "currencyCode" => String.t() | atom(),
+        "maxTotalChargeAmount" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type variable_payment_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       schedule_item() :: %{
         "chargeAmount" => String.t() | atom(),
         "chargeDate" => non_neg_integer()
@@ -476,6 +483,7 @@ defmodule AWS.MarketplaceAgreement do
       
       proposal_summary() :: %{
         "offerId" => String.t() | atom(),
+        "offerSetId" => String.t() | atom(),
         "resources" => list(resource())
       }
       
@@ -544,6 +552,18 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type rate_card_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      variable_payment_term_configuration() :: %{
+        "expirationDuration" => String.t() | atom(),
+        "paymentRequestApprovalStrategy" => list(any())
+      }
+      
+  """
+  @type variable_payment_term_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,34 +644,23 @@ defmodule AWS.MarketplaceAgreement do
 
   @doc """
   Obtains details about the terms in an agreement that you participated in as
-  proposer or
-  acceptor.
+  proposer or acceptor.
 
   The details include:
 
-    *
+    * `TermType` – The type of term, such as `LegalTerm`, `RenewalTerm`,
+  or `ConfigurableUpfrontPricingTerm`.
 
-  `TermType` – The type of term, such as `LegalTerm`,
-  `RenewalTerm`, or `ConfigurableUpfrontPricingTerm`.
+    * `TermID` – The ID of the particular term, which is common between
+  offer and agreement.
 
-    *
+    * `TermPayload` – The key information contained in the term, such as
+  the EULA for `LegalTerm` or pricing and dimensions for various pricing terms,
+  such as `ConfigurableUpfrontPricingTerm` or `UsageBasedPricingTerm`.
 
-  `TermID` – The ID of the particular term, which is common between offer
-  and agreement.
-
-    *
-
-  `TermPayload` – The key information contained in the term, such as the
-  EULA for `LegalTerm` or pricing and dimensions for various pricing terms,
-  such as `ConfigurableUpfrontPricingTerm` or
-  `UsageBasedPricingTerm`.
-
-    *
-
-  `Configuration` – The buyer/acceptor's selection at the time of
+    * `Configuration` – The buyer/acceptor's selection at the time of
   agreement creation, such as the number of units purchased for a dimension or
-  setting
-  the `EnableAutoRenew` flag.
+  setting the `EnableAutoRenew` flag.
   """
   @spec get_agreement_terms(map(), get_agreement_terms_input(), list()) ::
           {:ok, get_agreement_terms_output(), any()}
@@ -665,84 +674,90 @@ defmodule AWS.MarketplaceAgreement do
   end
 
   @doc """
-  Searches across all agreements that a proposer or an acceptor has in AWS
-  Marketplace.
+  Searches across all agreements that a proposer has in AWS Marketplace.
 
   The search returns a list of agreements with basic agreement information.
 
-  The following filter combinations are supported:
+  The following filter combinations are supported when the `PartyType` is
+  `Proposer`:
 
-    *
+    * `AgreementType`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `ResourceIdentifier`
+    * `AgreementType` + `EndTime`
 
-    *
+    * `AgreementType` + `ResourceType`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `OfferId`
+    * `AgreementType` + `ResourceType` + `EndTime`
 
-    *
+    * `AgreementType` + `ResourceType` + `Status`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `AcceptorAccountId`
+    * `AgreementType` + `ResourceType` + `Status` + `EndTime`
 
-    *
+    * `AgreementType` + `ResourceId`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `Status`
+    * `AgreementType` + `ResourceId` + `EndTime`
 
-    *
+    * `AgreementType` + `ResourceId` + `Status`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `ResourceIdentifier` + `Status`
+    * `AgreementType` + `ResourceId` + `Status` + `EndTime`
 
-    *
+    * `AgreementType` + `AcceptorAccountId`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `OfferId` + `Status`
+    * `AgreementType` + `AcceptorAccountId` + `EndTime`
 
-    *
+    * `AgreementType` + `AcceptorAccountId` + `Status`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `AcceptorAccountId` + `Status`
+    * `AgreementType` + `AcceptorAccountId` + `Status` + `EndTime`
 
-    *
+    * `AgreementType` + `AcceptorAccountId` + `OfferId`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `ResourceType` + `Status`
+    * `AgreementType` + `AcceptorAccountId` + `OfferId` + `Status`
 
-    *
+    * `AgreementType` + `AcceptorAccountId` + `OfferId` + `EndTime`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `AcceptorAccountId` + `ResourceType` +
-  `Status`
+    * `AgreementType` + `AcceptorAccountId` + `OfferId` + `Status` +
+  `EndTime`
 
-    *
+    * `AgreementType` + `AcceptorAccountId` + `ResourceId`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `AcceptorAccountId` + `OfferId`
+    * `AgreementType` + `AcceptorAccountId` + `ResourceId` + `Status`
 
-    *
+    * `AgreementType` + `AcceptorAccountId` + `ResourceId` + `EndTime`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `AcceptorAccountId` + `OfferId` + `Status`
+    * `AgreementType` + `AcceptorAccountId` + `ResourceId` + `Status` +
+  `EndTime`
 
-    *
+    * `AgreementType` + `AcceptorAccountId` + `ResourceType`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `AcceptorAccountId` + `ResourceIdentifier`
+    * `AgreementType` + `AcceptorAccountId` + `ResourceType` + `EndTime`
 
-    *
+    * `AgreementType` + `AcceptorAccountId` + `ResourceType` + `Status`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `AcceptorAccountId` + `ResourceIdentifier` +
-  `Status`
+    * `AgreementType` + `AcceptorAccountId` + `ResourceType` + `Status`
+  + `EndTime`
 
-    *
+    * `AgreementType` + `Status`
 
-  `PartyType` as `Proposer` + `AgreementType` +
-  `AcceptorAccountId` + `ResourceType`
+    * `AgreementType` + `Status` + `EndTime`
+
+    * `AgreementType` + `OfferId`
+
+    * `AgreementType` + `OfferId` + `EndTime`
+
+    * `AgreementType` + `OfferId` + `Status`
+
+    * `AgreementType` + `OfferId` + `Status` + `EndTime`
+
+    * `AgreementType` + `OfferSetId`
+
+    * `AgreementType` + `OfferSetId` + `EndTime`
+
+    * `AgreementType` + `OfferSetId` + `Status`
+
+    * `AgreementType` + `OfferSetId` + `Status` + `EndTime`
+
+  To filter by `EndTime`, you can use either `BeforeEndTime` or `AfterEndTime`.
+  Only `EndTime` is supported for sorting.
   """
   @spec search_agreements(map(), search_agreements_input(), list()) ::
           {:ok, search_agreements_output(), any()}

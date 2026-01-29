@@ -120,6 +120,8 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       update_whats_app_message_template_input() :: %{
+        optional("ctaUrlLinkTrackingOptedOut") => boolean(),
+        optional("parameterFormat") => String.t() | atom(),
         optional("templateCategory") => String.t() | atom(),
         optional("templateComponents") => binary(),
         required("id") => String.t() | atom(),
@@ -892,6 +894,7 @@ defmodule AWS.SocialMessaging do
 
       meta_library_template_definition() :: %{
         "templateBody" => String.t() | atom(),
+        "templateBodyExampleParams" => list([String.t() | atom()]()),
         "templateButtons" => list(library_template_button_list()),
         "templateCategory" => String.t() | atom(),
         "templateHeader" => String.t() | atom(),
@@ -1150,6 +1153,9 @@ defmodule AWS.SocialMessaging do
 
   @doc """
   Creates a new WhatsApp message template from a custom definition.
+
+  Amazon Web Services End User Messaging Social does not store any WhatsApp
+  message template content.
   """
   @spec create_whats_app_message_template(
           map(),
@@ -1392,8 +1398,8 @@ defmodule AWS.SocialMessaging do
   end
 
   @doc """
-  Use your WhatsApp phone number id to get the WABA account id and phone number
-  details.
+  Retrieve the WABA account id and phone number details of a WhatsApp business
+  account phone number.
   """
   @spec get_linked_whats_app_business_account_phone_number(map(), String.t() | atom(), list()) ::
           {:ok, get_linked_whats_app_business_account_phone_number_output(), any()}

@@ -799,6 +799,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       speke_key_provider() :: %{
+        "CertificateArn" => [String.t() | atom()],
         "DrmSystems" => list(list(any())()),
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
         "ResourceId" => [String.t() | atom()],
@@ -868,6 +869,7 @@ defmodule AWS.MediaPackageV2 do
 
       filter_configuration() :: %{
         "ClipStartTime" => [non_neg_integer()],
+        "DrmSettings" => [String.t() | atom()],
         "End" => [non_neg_integer()],
         "ManifestFilter" => [String.t() | atom()],
         "Start" => [non_neg_integer()],
@@ -1236,7 +1238,8 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       scte() :: %{
-        "ScteFilter" => list(list(any())())
+        "ScteFilter" => list(list(any())()),
+        "ScteInSegments" => list(any())
       }
 
   """

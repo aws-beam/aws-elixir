@@ -2678,7 +2678,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-  Exports optimization recommendations for Auto Scaling groups.
+  Exports optimization recommendations for Amazon EC2 Auto Scaling groups.
 
   Recommendations are exported in a comma-separated values (.csv) file, and its
   metadata
@@ -2688,8 +2688,8 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User
   Guide*.
 
-  You can have only one Auto Scaling group export job in progress per Amazon Web
-  Services Region.
+  You can have only one Amazon EC2 Auto Scaling group export job in progress per
+  Amazon Web Services Region.
   """
   @spec export_auto_scaling_group_recommendations(
           map(),
@@ -2905,7 +2905,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-  Returns Auto Scaling group recommendations.
+  Returns Amazon EC2 Auto Scaling group recommendations.
 
   Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups
   that
@@ -3242,7 +3242,7 @@ defmodule AWS.ComputeOptimizer do
   Use the `scope` parameter to specify which preferences to return. You can
   specify to return preferences for an organization, a specific account ID, or a
   specific
-  EC2 instance or Auto Scaling group Amazon Resource Name (ARN).
+  EC2 instance or Amazon EC2 Auto Scaling group Amazon Resource Name (ARN).
 
   For more information, see [Activating enhanced infrastructure
   metrics](https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html)
@@ -3271,7 +3271,7 @@ defmodule AWS.ComputeOptimizer do
   `Optimized`.
 
     *
-  EC2Auto Scaling groups in an account that are `NotOptimized`, or
+  EC2Amazon EC2 Auto Scaling groups in an account that are `NotOptimized`, or
   `Optimized`.
 
     *

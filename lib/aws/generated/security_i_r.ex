@@ -62,6 +62,18 @@ defmodule AWS.SecurityIR do
 
   ## Example:
 
+      send_feedback_request() :: %{
+        optional("comment") => String.t() | atom(),
+        required("usefulness") => list(any())
+      }
+
+  """
+  @type send_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_membership_account_detail_error() :: %{
         "accountId" => String.t() | atom(),
         "error" => [String.t() | atom()],
@@ -173,6 +185,15 @@ defmodule AWS.SecurityIR do
 
   ## Example:
 
+      send_feedback_response() :: %{}
+
+  """
+  @type send_feedback_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       incident_responder() :: %{
         "communicationPreferences" => list(list(any())()),
         "email" => String.t() | atom(),
@@ -182,6 +203,23 @@ defmodule AWS.SecurityIR do
 
   """
   @type incident_responder() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_action() :: %{
+        "actionType" => list(any()),
+        "content" => String.t() | atom(),
+        "feedback" => investigation_feedback(),
+        "investigationId" => String.t() | atom(),
+        "lastUpdated" => [non_neg_integer()],
+        "status" => list(any()),
+        "title" => String.t() | atom()
+      }
+
+  """
+  @type investigation_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,6 +288,7 @@ defmodule AWS.SecurityIR do
         "actualIncidentStartDate" => [non_neg_integer()],
         "caseArn" => String.t() | atom(),
         "caseAttachments" => list(case_attachment_attributes()),
+        "caseMetadata" => list(case_metadata_entry()),
         "caseStatus" => list(any()),
         "closedDate" => [non_neg_integer()],
         "closureCode" => list(any()),
@@ -306,6 +345,30 @@ defmodule AWS.SecurityIR do
 
   """
   @type list_comments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_investigations_response() :: %{
+        "investigationActions" => list(investigation_action()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_investigations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_metadata_entry() :: %{
+        "key" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type case_metadata_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -371,6 +434,18 @@ defmodule AWS.SecurityIR do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_investigations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_investigations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -583,6 +658,7 @@ defmodule AWS.SecurityIR do
 
       update_case_request() :: %{
         optional("actualIncidentStartDate") => [non_neg_integer()],
+        optional("caseMetadata") => list(case_metadata_entry()),
         optional("description") => String.t() | atom(),
         optional("engagementType") => list(any()),
         optional("impactedAccountsToAdd") => list(String.t() | atom()),
@@ -601,6 +677,19 @@ defmodule AWS.SecurityIR do
 
   """
   @type update_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_feedback() :: %{
+        "comment" => String.t() | atom(),
+        "submittedAt" => [non_neg_integer()],
+        "usefulness" => list(any())
+      }
+
+  """
+  @type investigation_feedback() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1247,6 +1336,49 @@ defmodule AWS.SecurityIR do
   end
 
   @doc """
+  Investigation performed by an agent for a security incident...
+  """
+  @spec list_investigations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_investigations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_investigations(
+        %Client{} = client,
+        case_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/list-investigations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the memberships that the calling principal can access.
   """
   @spec list_memberships(map(), list_memberships_request(), list()) ::
@@ -1290,6 +1422,42 @@ defmodule AWS.SecurityIR do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Send feedback based on response investigation action
+  """
+  @spec send_feedback(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          send_feedback_request(),
+          list()
+        ) ::
+          {:ok, send_feedback_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def send_feedback(%Client{} = client, case_id, result_id, input, options \\ []) do
+    url_path =
+      "/v1/cases/#{AWS.Util.encode_uri(case_id)}/feedback/#{AWS.Util.encode_uri(result_id)}/send-feedback"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

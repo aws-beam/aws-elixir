@@ -110,6 +110,7 @@ defmodule AWS.Keyspaces do
         optional("pointInTimeRecovery") => point_in_time_recovery(),
         optional("replicaSpecifications") => list(replica_specification()),
         optional("ttl") => time_to_live(),
+        optional("warmThroughputSpecification") => warm_throughput_specification(),
         required("keyspaceName") => String.t() | atom(),
         required("tableName") => String.t() | atom()
       }
@@ -295,6 +296,7 @@ defmodule AWS.Keyspaces do
         optional("replicaSpecifications") => list(replica_specification()),
         optional("tags") => list(tag()),
         optional("ttl") => time_to_live(),
+        optional("warmThroughputSpecification") => warm_throughput_specification(),
         required("keyspaceName") => String.t() | atom(),
         required("schemaDefinition") => schema_definition(),
         required("tableName") => String.t() | atom()
@@ -321,6 +323,7 @@ defmodule AWS.Keyspaces do
         optional("schemaDefinition") => schema_definition(),
         optional("status") => String.t() | atom(),
         optional("ttl") => time_to_live(),
+        optional("warmThroughputSpecification") => warm_throughput_specification_summary(),
         required("keyspaceName") => String.t() | atom(),
         required("resourceArn") => String.t() | atom(),
         required("tableName") => String.t() | atom()
@@ -601,7 +604,8 @@ defmodule AWS.Keyspaces do
       replica_specification_summary() :: %{
         "capacitySpecification" => capacity_specification_summary(),
         "region" => String.t() | atom(),
-        "status" => String.t() | atom()
+        "status" => String.t() | atom(),
+        "warmThroughputSpecification" => warm_throughput_specification_summary()
       }
       
   """
@@ -833,6 +837,18 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
+      warm_throughput_specification() :: %{
+        "readUnitsPerSecond" => [float()],
+        "writeUnitsPerSecond" => [float()]
+      }
+      
+  """
+  @type warm_throughput_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_table_auto_scaling_settings_response() :: %{
         "autoScalingSpecification" => auto_scaling_specification(),
         "keyspaceName" => String.t() | atom(),
@@ -949,6 +965,19 @@ defmodule AWS.Keyspaces do
       
   """
   @type column_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      warm_throughput_specification_summary() :: %{
+        "readUnitsPerSecond" => [float()],
+        "status" => String.t() | atom(),
+        "writeUnitsPerSecond" => [float()]
+      }
+      
+  """
+  @type warm_throughput_specification_summary() :: %{(String.t() | atom()) => any()}
 
   @type create_keyspace_errors() ::
           validation_exception()

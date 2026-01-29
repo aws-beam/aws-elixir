@@ -120,7 +120,13 @@ defmodule AWS.InspectorScan do
   Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities
   discovered in that SBOM.
 
-  You can generate compatible SBOMs for your resources using the [Amazon Inspector SBOM generator]().
+  You can generate compatible SBOMs for your resources using the [Amazon Inspector SBOM
+  generator](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html).
+
+  The output of this action reports NVD and CVSS scores when NVD and CVSS scores
+  are available. Because the output reports both scores, you might notice a
+  discrepency between them. However, you can triage the severity of either score
+  depending on the vendor of your choosing.
   """
   @spec scan_sbom(map(), scan_sbom_request(), list()) ::
           {:ok, scan_sbom_response(), any()}

@@ -198,6 +198,31 @@ defmodule AWS.Artifact do
 
   ## Example:
 
+      list_report_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("reportId") => String.t() | atom()
+      }
+
+  """
+  @type list_report_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_report_versions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "reports" => list(report_summary())
+      }
+
+  """
+  @type list_report_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_reports_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -403,6 +428,14 @@ defmodule AWS.Artifact do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_report_versions_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_reports_errors() ::
           validation_exception()
           | throttling_exception()
@@ -585,6 +618,57 @@ defmodule AWS.Artifact do
     url_path = "/v1/customer-agreement/list"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List available report versions for a given report.
+  """
+  @spec list_report_versions(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_report_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_report_versions_errors()}
+  def list_report_versions(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        report_id,
+        options \\ []
+      ) do
+    url_path = "/v1/report/listVersions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(report_id) do
+        [{"reportId", report_id} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

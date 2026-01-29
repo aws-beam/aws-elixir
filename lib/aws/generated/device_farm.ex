@@ -196,16 +196,11 @@ defmodule AWS.DeviceFarm do
       
       create_remote_access_session_request() :: %{
         optional("appArn") => String.t() | atom(),
-        optional("clientId") => String.t() | atom(),
         optional("configuration") => create_remote_access_session_configuration(),
         optional("instanceArn") => String.t() | atom(),
         optional("interactionMode") => list(any()),
         optional("name") => String.t() | atom(),
-        optional("remoteDebugEnabled") => boolean(),
-        optional("remoteRecordAppArn") => String.t() | atom(),
-        optional("remoteRecordEnabled") => boolean(),
         optional("skipAppResign") => boolean(),
-        optional("sshPublicKey") => String.t() | atom(),
         required("deviceArn") => String.t() | atom(),
         required("projectArn") => String.t() | atom()
       }
@@ -576,6 +571,18 @@ defmodule AWS.DeviceFarm do
       
   """
   @type delete_network_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_variable() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type environment_variable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -966,6 +973,8 @@ defmodule AWS.DeviceFarm do
         "billingMethod" => list(any()),
         "customerArtifactPaths" => customer_artifact_paths(),
         "deviceProxy" => device_proxy(),
+        "environmentVariables" => list(environment_variable()),
+        "executionRoleArn" => String.t() | atom(),
         "extraDataPackageArn" => String.t() | atom(),
         "locale" => String.t() | atom(),
         "location" => location(),
@@ -1266,6 +1275,8 @@ defmodule AWS.DeviceFarm do
         "arn" => String.t() | atom(),
         "created" => non_neg_integer(),
         "defaultJobTimeoutMinutes" => integer(),
+        "environmentVariables" => list(environment_variable()),
+        "executionRoleArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "vpcConfig" => vpc_config()
       }
@@ -1831,6 +1842,8 @@ defmodule AWS.DeviceFarm do
       
       update_project_request() :: %{
         optional("defaultJobTimeoutMinutes") => integer(),
+        optional("environmentVariables") => list(environment_variable()),
+        optional("executionRoleArn") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("vpcConfig") => vpc_config(),
         required("arn") => String.t() | atom()
@@ -1946,21 +1959,17 @@ defmodule AWS.DeviceFarm do
         "appUpload" => String.t() | atom(),
         "arn" => String.t() | atom(),
         "billingMethod" => list(any()),
-        "clientId" => String.t() | atom(),
         "created" => non_neg_integer(),
         "device" => device(),
         "deviceMinutes" => device_minutes(),
         "deviceProxy" => device_proxy(),
         "deviceUdid" => String.t() | atom(),
         "endpoint" => String.t() | atom(),
-        "hostAddress" => String.t() | atom(),
+        "endpoints" => remote_access_endpoints(),
         "instanceArn" => String.t() | atom(),
         "interactionMode" => list(any()),
         "message" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "remoteDebugEnabled" => boolean(),
-        "remoteRecordAppArn" => String.t() | atom(),
-        "remoteRecordEnabled" => boolean(),
         "result" => list(any()),
         "skipAppResign" => boolean(),
         "started" => non_neg_integer(),
@@ -2229,6 +2238,8 @@ defmodule AWS.DeviceFarm do
       
       create_project_request() :: %{
         optional("defaultJobTimeoutMinutes") => integer(),
+        optional("environmentVariables") => list(environment_variable()),
+        optional("executionRoleArn") => String.t() | atom(),
         optional("vpcConfig") => vpc_config(),
         required("name") => String.t() | atom()
       }
@@ -2564,6 +2575,18 @@ defmodule AWS.DeviceFarm do
 
   ## Example:
       
+      remote_access_endpoints() :: %{
+        "interactiveEndpoint" => String.t() | atom(),
+        "remoteDriverEndpoint" => String.t() | atom()
+      }
+      
+  """
+  @type remote_access_endpoints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_offerings_result() :: %{
         "nextToken" => String.t() | atom(),
         "offerings" => list(offering())
@@ -2739,6 +2762,7 @@ defmodule AWS.DeviceFarm do
         "resultCode" => list(any()),
         "testSpecArn" => String.t() | atom(),
         "seed" => integer(),
+        "executionRoleArn" => String.t() | atom(),
         "message" => String.t() | atom(),
         "billingMethod" => list(any()),
         "name" => String.t() | atom(),
@@ -2761,6 +2785,7 @@ defmodule AWS.DeviceFarm do
         "parsingResultUrl" => String.t() | atom(),
         "counters" => counters(),
         "totalJobs" => integer(),
+        "environmentVariables" => list(environment_variable()),
         "appUpload" => String.t() | atom(),
         "created" => non_neg_integer(),
         "result" => list(any()),
@@ -3436,7 +3461,9 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes an AWS Device Farm project, given the project ARN.
 
-  Deleting this resource does not stop an in-progress run.
+  You cannot delete a project if it has an active run or session.
+
+  You cannot undo this operation.
   """
   @spec delete_project(map(), delete_project_request(), list()) ::
           {:ok, delete_project_result(), any()}
@@ -3451,6 +3478,10 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Deletes a completed remote access session and its results.
+
+  You cannot delete a remote access session if it is still active.
+
+  You cannot undo this operation.
   """
   @spec delete_remote_access_session(map(), delete_remote_access_session_request(), list()) ::
           {:ok, delete_remote_access_session_result(), any()}
@@ -3466,7 +3497,9 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes the run, given the run ARN.
 
-  Deleting this resource does not stop an in-progress run.
+  You cannot delete a run if it is still active.
+
+  You cannot undo this operation.
   """
   @spec delete_run(map(), delete_run_request(), list()) ::
           {:ok, delete_run_result(), any()}
@@ -3482,9 +3515,9 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a Selenium testing project and all content generated under it.
 
-  You cannot undo this operation.
-
   You cannot delete a project if it has active sessions.
+
+  You cannot undo this operation.
   """
   @spec delete_test_grid_project(map(), delete_test_grid_project_request(), list()) ::
           {:ok, delete_test_grid_project_result(), any()}

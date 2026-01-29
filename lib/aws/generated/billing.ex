@@ -37,6 +37,7 @@ defmodule AWS.Billing do
         optional("arns") => list(String.t() | atom()),
         optional("billingViewTypes") => list(list(any())()),
         optional("maxResults") => integer(),
+        optional("names") => list(string_search()),
         optional("nextToken") => String.t() | atom(),
         optional("ownerAccountId") => String.t() | atom(),
         optional("sourceAccountId") => String.t() | atom()
@@ -385,6 +386,18 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      cost_category_values() :: %{
+        "key" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type cost_category_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       time_range() :: %{
         "beginDateInclusive" => [non_neg_integer()],
         "endDateInclusive" => [non_neg_integer()]
@@ -482,6 +495,7 @@ defmodule AWS.Billing do
   ## Example:
       
       expression() :: %{
+        "costCategories" => cost_category_values(),
         "dimensions" => dimension_values(),
         "tags" => tag_values(),
         "timeRange" => time_range()
@@ -524,6 +538,18 @@ defmodule AWS.Billing do
       
   """
   @type list_billing_views_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      string_search() :: %{
+        "searchOption" => list(any()),
+        "searchValue" => String.t() | atom()
+      }
+      
+  """
+  @type string_search() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

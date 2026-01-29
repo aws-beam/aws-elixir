@@ -169,7 +169,8 @@ defmodule AWS.AutoScaling do
         "RollbackDetails" => rollback_details(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
+        "StatusReason" => String.t() | atom(),
+        "Strategy" => list(any())
       }
       
   """
@@ -519,6 +520,17 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      idempotent_parameter_mismatch_error() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type idempotent_parameter_mismatch_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       record_lifecycle_action_heartbeat_answer() :: %{}
       
   """
@@ -744,6 +756,17 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      retention_triggers() :: %{
+        "TerminateHookAbandon" => list(any())
+      }
+      
+  """
+  @type retention_triggers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       scaling_activity_in_progress_fault() :: %{
         "message" => String.t() | atom()
       }
@@ -789,6 +812,17 @@ defmodule AWS.AutoScaling do
       
   """
   @type launch_configurations_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_lifecycle_policy() :: %{
+        "RetentionTriggers" => retention_triggers()
+      }
+      
+  """
+  @type instance_lifecycle_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -857,6 +891,23 @@ defmodule AWS.AutoScaling do
       
   """
   @type describe_traffic_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      launch_instances_error() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "MarketType" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type launch_instances_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1303,6 +1354,7 @@ defmodule AWS.AutoScaling do
         "AutoScalingGroupName" => String.t() | atom(),
         "AvailabilityZone" => String.t() | atom(),
         "HealthStatus" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
         "InstanceId" => String.t() | atom(),
         "InstanceType" => String.t() | atom(),
         "LaunchConfigurationName" => String.t() | atom(),
@@ -1472,6 +1524,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       launch_template_overrides() :: %{
+        "ImageId" => String.t() | atom(),
         "InstanceRequirements" => instance_requirements(),
         "InstanceType" => String.t() | atom(),
         "LaunchTemplateSpecification" => launch_template_specification(),
@@ -1545,38 +1598,40 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       create_auto_scaling_group_type() :: %{
-        optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
-        optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
-        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("DesiredCapacityType") => String.t() | atom(),
+        optional("LaunchConfigurationName") => String.t() | atom(),
+        required("AutoScalingGroupName") => String.t() | atom(),
+        optional("TrafficSources") => list(traffic_source_identifier()),
+        optional("MaxInstanceLifetime") => integer(),
+        optional("HealthCheckGracePeriod") => integer(),
+        optional("LoadBalancerNames") => list(String.t() | atom()),
         optional("CapacityRebalance") => boolean(),
-        optional("CapacityReservationSpecification") => capacity_reservation_specification(),
-        optional("Context") => String.t() | atom(),
-        optional("DefaultCooldown") => integer(),
         optional("DefaultInstanceWarmup") => integer(),
         optional("DesiredCapacity") => integer(),
-        optional("DesiredCapacityType") => String.t() | atom(),
-        optional("HealthCheckGracePeriod") => integer(),
-        optional("HealthCheckType") => String.t() | atom(),
-        optional("InstanceId") => String.t() | atom(),
-        optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
-        optional("LaunchConfigurationName") => String.t() | atom(),
-        optional("LaunchTemplate") => launch_template_specification(),
-        optional("LifecycleHookSpecificationList") => list(lifecycle_hook_specification()),
-        optional("LoadBalancerNames") => list(String.t() | atom()),
-        optional("MaxInstanceLifetime") => integer(),
         optional("MixedInstancesPolicy") => mixed_instances_policy(),
-        optional("NewInstancesProtectedFromScaleIn") => boolean(),
+        optional("Context") => String.t() | atom(),
+        required("MinSize") => integer(),
+        optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
         optional("PlacementGroup") => String.t() | atom(),
-        optional("ServiceLinkedRoleARN") => String.t() | atom(),
-        optional("SkipZonalShiftValidation") => boolean(),
-        optional("Tags") => list(tag()),
-        optional("TargetGroupARNs") => list(String.t() | atom()),
+        optional("CapacityReservationSpecification") => capacity_reservation_specification(),
         optional("TerminationPolicies") => list(String.t() | atom()),
-        optional("TrafficSources") => list(traffic_source_identifier()),
+        optional("SkipZonalShiftValidation") => boolean(),
+        optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
+        optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
+        optional("LifecycleHookSpecificationList") => list(lifecycle_hook_specification()),
+        optional("DefaultCooldown") => integer(),
+        optional("InstanceId") => String.t() | atom(),
+        optional("HealthCheckType") => String.t() | atom(),
+        optional("TargetGroupARNs") => list(String.t() | atom()),
         optional("VPCZoneIdentifier") => String.t() | atom(),
-        required("AutoScalingGroupName") => String.t() | atom(),
         required("MaxSize") => integer(),
-        required("MinSize") => integer()
+        optional("DeletionProtection") => list(any()),
+        optional("LaunchTemplate") => launch_template_specification(),
+        optional("InstanceLifecyclePolicy") => instance_lifecycle_policy(),
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("NewInstancesProtectedFromScaleIn") => boolean(),
+        optional("ServiceLinkedRoleARN") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
@@ -1798,9 +1853,27 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      launch_instances_request() :: %{
+        optional("AvailabilityZoneIds") => list(String.t() | atom()),
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("RetryStrategy") => list(any()),
+        optional("SubnetIds") => list(String.t() | atom()),
+        required("AutoScalingGroupName") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("RequestedCapacity") => integer()
+      }
+      
+  """
+  @type launch_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance() :: %{
         "AvailabilityZone" => String.t() | atom(),
         "HealthStatus" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
         "InstanceId" => String.t() | atom(),
         "InstanceType" => String.t() | atom(),
         "LaunchConfigurationName" => String.t() | atom(),
@@ -1992,7 +2065,9 @@ defmodule AWS.AutoScaling do
         "PlacementGroup" => String.t() | atom(),
         "AutoScalingGroupARN" => String.t() | atom(),
         "DesiredCapacity" => integer(),
+        "InstanceLifecyclePolicy" => instance_lifecycle_policy(),
         "WarmPoolConfiguration" => warm_pool_configuration(),
+        "DeletionProtection" => list(any()),
         "AvailabilityZoneImpairmentPolicy" => availability_zone_impairment_policy(),
         "DefaultInstanceWarmup" => integer(),
         "AutoScalingGroupName" => String.t() | atom(),
@@ -2078,6 +2153,20 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      launch_instances_result() :: %{
+        "AutoScalingGroupName" => String.t() | atom(),
+        "ClientToken" => String.t() | atom(),
+        "Errors" => list(launch_instances_error()),
+        "Instances" => list(instance_collection())
+      }
+      
+  """
+  @type launch_instances_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_instance_refreshes_answer() :: %{
         optional("InstanceRefreshes") => list(instance_refresh()),
         optional("NextToken") => String.t() | atom()
@@ -2108,10 +2197,12 @@ defmodule AWS.AutoScaling do
         optional("Context") => String.t() | atom(),
         optional("DefaultCooldown") => integer(),
         optional("DefaultInstanceWarmup") => integer(),
+        optional("DeletionProtection") => list(any()),
         optional("DesiredCapacity") => integer(),
         optional("DesiredCapacityType") => String.t() | atom(),
         optional("HealthCheckGracePeriod") => integer(),
         optional("HealthCheckType") => String.t() | atom(),
+        optional("InstanceLifecyclePolicy") => instance_lifecycle_policy(),
         optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
         optional("LaunchConfigurationName") => String.t() | atom(),
         optional("LaunchTemplate") => launch_template_specification(),
@@ -2207,6 +2298,22 @@ defmodule AWS.AutoScaling do
       
   """
   @type cpu_performance_factor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_collection() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "InstanceIds" => list(String.t() | atom()),
+        "InstanceType" => String.t() | atom(),
+        "MarketType" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type instance_collection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2454,6 +2561,7 @@ defmodule AWS.AutoScaling do
       describe_scaling_activities_type() :: %{
         optional("ActivityIds") => list(String.t() | atom()),
         optional("AutoScalingGroupName") => String.t() | atom(),
+        optional("Filters") => list(filter()),
         optional("IncludeDeletedGroups") => boolean(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -2655,13 +2763,19 @@ defmodule AWS.AutoScaling do
   @type attach_instances_errors() :: service_linked_role_failure() | resource_contention_fault()
 
   @type attach_load_balancer_target_groups_errors() ::
-          service_linked_role_failure() | resource_contention_fault()
+          service_linked_role_failure()
+          | instance_refresh_in_progress_fault()
+          | resource_contention_fault()
 
   @type attach_load_balancers_errors() ::
-          service_linked_role_failure() | resource_contention_fault()
+          service_linked_role_failure()
+          | instance_refresh_in_progress_fault()
+          | resource_contention_fault()
 
   @type attach_traffic_sources_errors() ::
-          service_linked_role_failure() | resource_contention_fault()
+          service_linked_role_failure()
+          | instance_refresh_in_progress_fault()
+          | resource_contention_fault()
 
   @type batch_delete_scheduled_action_errors() :: resource_contention_fault()
 
@@ -2784,6 +2898,9 @@ defmodule AWS.AutoScaling do
 
   @type get_predictive_scaling_forecast_errors() :: resource_contention_fault()
 
+  @type launch_instances_errors() ::
+          resource_contention_fault() | idempotent_parameter_mismatch_error()
+
   @type put_lifecycle_hook_errors() :: resource_contention_fault() | limit_exceeded_fault()
 
   @type put_notification_configuration_errors() ::
@@ -2795,7 +2912,10 @@ defmodule AWS.AutoScaling do
   @type put_scheduled_update_group_action_errors() ::
           already_exists_fault() | resource_contention_fault() | limit_exceeded_fault()
 
-  @type put_warm_pool_errors() :: resource_contention_fault() | limit_exceeded_fault()
+  @type put_warm_pool_errors() ::
+          instance_refresh_in_progress_fault()
+          | resource_contention_fault()
+          | limit_exceeded_fault()
 
   @type record_lifecycle_action_heartbeat_errors() :: resource_contention_fault()
 
@@ -2940,7 +3060,7 @@ defmodule AWS.AutoScaling do
   @doc """
 
   This API operation is superseded by
-  [https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html), which
+  [AttachTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html), which
   can attach multiple traffic sources types.
 
   We recommend using
@@ -3952,7 +4072,7 @@ defmodule AWS.AutoScaling do
   @doc """
 
   This API operation is superseded by
-  [DetachTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html), which
+  [DetachTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html), which
   can detach multiple traffic sources types.
 
   We recommend using
@@ -4186,6 +4306,24 @@ defmodule AWS.AutoScaling do
     meta = metadata()
 
     Request.request_post(client, meta, "GetPredictiveScalingForecast", input, options)
+  end
+
+  @doc """
+  Launches a specified number of instances in an Auto Scaling group.
+
+  Returns instance IDs and
+  other details if launch is successful or error details if launch is
+  unsuccessful.
+  """
+  @spec launch_instances(map(), launch_instances_request(), list()) ::
+          {:ok, launch_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, launch_instances_errors()}
+  def launch_instances(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "LaunchInstances", input, options)
   end
 
   @doc """

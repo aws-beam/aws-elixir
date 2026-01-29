@@ -3,7 +3,7 @@
 
 defmodule AWS.Glacier do
   @moduledoc """
-  Amazon S3 Glacier (Glacier) is a storage solution for "cold data."
+  Amazon Glacier (Glacier) is a storage solution for "cold data."
 
   Glacier is an extremely low-cost storage service that provides secure,
   durable, and easy-to-use storage for data backup and archival.
@@ -29,12 +29,12 @@ defmodule AWS.Glacier do
   amount of data you can store in Glacier.
 
   If you are a first-time user of Glacier, we recommend that you begin by
-  reading the following sections in the *Amazon S3 Glacier Developer
+  reading the following sections in the *Amazon Glacier Developer
   Guide*:
 
     *
 
-  [What is Amazon S3
+  [What is Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html)
   - This section of the Developer Guide describes the
   underlying data model, the operations it supports, and the AWS SDKs that you can
@@ -43,7 +43,7 @@ defmodule AWS.Glacier do
 
     *
 
-  [Getting Started with Amazon S3
+  [Getting Started with Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html)
   - The Getting Started section walks you through the
   process of creating a vault, uploading archives, creating jobs to download
@@ -1001,6 +1001,19 @@ defmodule AWS.Glacier do
 
   ## Example:
 
+      no_longer_supported_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type no_longer_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_vault_input() :: %{}
 
   """
@@ -1050,109 +1063,127 @@ defmodule AWS.Glacier do
   @type complete_vault_lock_input() :: %{}
 
   @type abort_multipart_upload_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type abort_vault_lock_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type add_tags_to_vault_errors() ::
-          limit_exceeded_exception()
+          no_longer_supported_exception()
+          | limit_exceeded_exception()
           | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type complete_multipart_upload_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type complete_vault_lock_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type create_vault_errors() ::
-          limit_exceeded_exception()
+          no_longer_supported_exception()
+          | limit_exceeded_exception()
           | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
 
   @type delete_archive_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type delete_vault_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type delete_vault_access_policy_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type delete_vault_notifications_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type describe_job_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type describe_vault_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type get_data_retrieval_policy_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
 
   @type get_job_output_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type get_vault_access_policy_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type get_vault_lock_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type get_vault_notifications_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type initiate_job_errors() ::
-          policy_enforced_exception()
+          no_longer_supported_exception()
+          | policy_enforced_exception()
           | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -1160,90 +1191,105 @@ defmodule AWS.Glacier do
           | missing_parameter_value_exception()
 
   @type initiate_multipart_upload_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type initiate_vault_lock_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type list_jobs_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type list_multipart_uploads_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type list_parts_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type list_provisioned_capacity_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
 
   @type list_tags_for_vault_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type list_vaults_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type purchase_provisioned_capacity_errors() ::
-          limit_exceeded_exception()
+          no_longer_supported_exception()
+          | limit_exceeded_exception()
           | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
 
   @type remove_tags_from_vault_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type set_data_retrieval_policy_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
 
   @type set_vault_access_policy_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type set_vault_notifications_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type upload_archive_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | request_timeout_exception()
           | missing_parameter_value_exception()
 
   @type upload_multipart_part_errors() ::
-          service_unavailable_exception()
+          no_longer_supported_exception()
+          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | request_timeout_exception()
@@ -1289,7 +1335,7 @@ defmodule AWS.Glacier do
   (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Working with Archives in
-  Amazon S3
+  Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html)
   and [Abort Multipart Upload](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html)
   in the *Amazon Glacier Developer Guide*.
@@ -1403,7 +1449,7 @@ defmodule AWS.Glacier do
   the vault to be exceeded, the operation throws the `LimitExceededException`
   error. If a tag already exists on the vault under a specified key, the existing
   key value
-  will be overwritten. For more information about tags, see [Tagging Amazon S3 Glacier
+  will be overwritten. For more information about tags, see [Tagging Amazon Glacier
   Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
   @spec add_tags_to_vault(
@@ -1441,8 +1487,8 @@ defmodule AWS.Glacier do
   end
 
   @doc """
-  You call this operation to inform Amazon S3 Glacier (Glacier) that all the
-  archive parts have been
+  You call this operation to inform Amazon Glacier (Glacier) that all the archive
+  parts have been
   uploaded and that Glacier can now assemble the archive from the uploaded parts.
 
   After assembling and saving the archive to the vault, Glacier returns the URI
@@ -1634,7 +1680,7 @@ defmodule AWS.Glacier do
   The name of the vault
   must be unique within a region for an AWS account. You can create up to 1,000
   vaults per
-  account. If you need to create more vaults, contact Amazon S3 Glacier.
+  account. If you need to create more vaults, contact Amazon Glacier.
 
   You must use the following guidelines when naming a vault.
 
@@ -1712,13 +1758,13 @@ defmodule AWS.Glacier do
 
     *
   If the archive retrieval job is actively preparing the data for download when
-  Amazon S3 Glacier receives the delete archive request, the archival retrieval
+  Amazon Glacier receives the delete archive request, the archival retrieval
   operation
   might fail.
 
     *
   If the archive retrieval job has successfully prepared the archive for download
-  when Amazon S3 Glacier receives the delete archive request, you will be able to
+  when Amazon Glacier receives the delete archive request, you will be able to
   download
   the output.
 
@@ -1779,13 +1825,13 @@ defmodule AWS.Glacier do
   @doc """
   This operation deletes a vault.
 
-  Amazon S3 Glacier will delete a vault only if there are
+  Amazon Glacier will delete a vault only if there are
   no archives in the vault as of the last inventory and there have been no writes
   to the
   vault since the last inventory. If either of these conditions is not satisfied,
   the vault
-  deletion fails (that is, the vault is not removed) and Amazon S3 Glacier returns
-  an error. You
+  deletion fails (that is, the vault is not removed) and Amazon Glacier returns an
+  error. You
   can use `DescribeVault` to return the number of archives in a vault, and
   you can use [Initiate a Job (POST jobs)](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html)
   to initiate a new inventory retrieval for a vault. The inventory contains
@@ -1807,7 +1853,7 @@ defmodule AWS.Glacier do
   and [Delete Vault
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html) in
   the
-  *Amazon S3 Glacier Developer Guide*.
+  *Amazon Glacier Developer Guide*.
   """
   @spec delete_vault(
           map(),
@@ -1846,7 +1892,7 @@ defmodule AWS.Glacier do
 
   The
   operation is eventually consistent; that is, it might take some time for Amazon
-  S3 Glacier to
+  Glacier to
   completely remove the access policy, and you might still see the effect of the
   policy for a
   short time after you send the delete request.
@@ -1895,8 +1941,8 @@ defmodule AWS.Glacier do
   This operation deletes the notification configuration set for a vault.
 
   The operation
-  is eventually consistent; that is, it might take some time for Amazon S3 Glacier
-  to completely
+  is eventually consistent; that is, it might take some time for Amazon Glacier to
+  completely
   disable the notifications and you might still receive some notifications for a
   short time
   after you send the delete request.
@@ -1910,11 +1956,11 @@ defmodule AWS.Glacier do
   [Access Control Using AWS Identity and Access Management
   (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
-  For conceptual information and underlying REST API, see [Configuring Vault Notifications in Amazon S3
+  For conceptual information and underlying REST API, see [Configuring Vault Notifications in Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html)
   and [Delete Vault Notification Configuration
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html)
-  in the Amazon S3 Glacier Developer Guide.
+  in the Amazon Glacier Developer Guide.
   """
   @spec delete_vault_notifications(
           map(),
@@ -1955,8 +2001,7 @@ defmodule AWS.Glacier do
   including
   the job initiation date, the user who initiated the job, the job status
   code/message and
-  the Amazon SNS topic to notify after Amazon S3 Glacier (Glacier) completes the
-  job.
+  the Amazon SNS topic to notify after Amazon Glacier (Glacier) completes the job.
 
   For more information
   about initiating a job, see `InitiateJob`.
@@ -2013,8 +2058,8 @@ defmodule AWS.Glacier do
   contents will
   not be immediately reflected. If you want to retrieve the latest inventory of
   the vault,
-  use `InitiateJob`. Amazon S3 Glacier generates vault inventories approximately
-  daily. For more information, see [Downloading a Vault Inventory in Amazon S3
+  use `InitiateJob`. Amazon Glacier generates vault inventories approximately
+  daily. For more information, see [Downloading a Vault Inventory in Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html).
 
   An AWS account has full permission to perform all operations (actions). However,
@@ -2027,7 +2072,7 @@ defmodule AWS.Glacier do
   (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Retrieving Vault Metadata in
-  Amazon S3
+  Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html)
   and [Describe Vault
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html) in
@@ -2083,7 +2128,7 @@ defmodule AWS.Glacier do
   specifying
   a byte range. In the case of an archive retrieval job, depending on the byte
   range you
-  specify, Amazon S3 Glacier (Glacier) returns the checksum for the portion of the
+  specify, Amazon Glacier (Glacier) returns the checksum for the portion of the
   data. You can compute the
   checksum on the client and verify that the values match to ensure the portion
   you downloaded
@@ -2104,8 +2149,7 @@ defmodule AWS.Glacier do
   should
   verify your download size is 1,048,576 bytes. If you download an entire archive,
   the
-  expected size is the size of the archive when you uploaded it to Amazon S3
-  Glacier
+  expected size is the size of the archive when you uploaded it to Amazon Glacier
   The expected size is also returned in the headers from the
   **Get Job Output** response.
 
@@ -2275,7 +2319,7 @@ defmodule AWS.Glacier do
   For information about setting a notification configuration on a vault, see
   `SetVaultNotifications`. If a notification configuration for a vault is not
   set, the operation returns a `404 Not Found` error. For more information about
-  vault notifications, see [Configuring Vault Notifications in Amazon S3
+  vault notifications, see [Configuring Vault Notifications in Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html).
 
   An AWS account has full permission to perform all operations (actions). However,
@@ -2287,7 +2331,7 @@ defmodule AWS.Glacier do
   [Access Control Using AWS Identity and Access Management
   (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
-  For conceptual information and underlying REST API, see [Configuring Vault Notifications in Amazon S3
+  For conceptual information and underlying REST API, see [Configuring Vault Notifications in Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html)
   and [Get Vault Notification Configuration
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html)
@@ -2367,7 +2411,7 @@ defmodule AWS.Glacier do
   @doc """
   This operation initiates a multipart upload.
 
-  Amazon S3 Glacier creates a multipart
+  Amazon Glacier creates a multipart
   upload resource and returns its ID in the response. The multipart upload ID is
   used in
   subsequent requests to upload parts of an archive (see `UploadMultipartPart`).
@@ -2390,10 +2434,10 @@ defmodule AWS.Glacier do
   0.2 MB.
 
   You don't need to know the size of the archive when you start a multipart upload
-  because Amazon S3 Glacier does not require you to specify the overall archive
+  because Amazon Glacier does not require you to specify the overall archive
   size.
 
-  After you complete the multipart upload, Amazon S3 Glacier (Glacier) removes the
+  After you complete the multipart upload, Amazon Glacier (Glacier) removes the
   multipart upload
   resource referenced by the ID. Glacier also removes the multipart upload
   resource if
@@ -2691,7 +2735,7 @@ defmodule AWS.Glacier do
   [Access Control Using AWS Identity and Access Management
   (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
-  For conceptual information and the underlying REST API, see [Working with Archives in Amazon S3
+  For conceptual information and the underlying REST API, see [Working with Archives in Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html)
   and [List Multipart Uploads
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html)
@@ -2772,7 +2816,7 @@ defmodule AWS.Glacier do
   [Access Control Using AWS Identity and Access Management
   (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
-  For conceptual information and the underlying REST API, see [Working with Archives in Amazon S3
+  For conceptual information and the underlying REST API, see [Working with Archives in Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html)
   and [List Parts](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html)
   in the
@@ -2848,7 +2892,7 @@ defmodule AWS.Glacier do
   This operation lists all the tags attached to a vault.
 
   The operation returns an empty
-  map if there are no tags. For more information about tags, see [Tagging Amazon S3 Glacier
+  map if there are no tags. For more information about tags, see [Tagging Amazon Glacier
   Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
   @spec list_tags_for_vault(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -2893,7 +2937,7 @@ defmodule AWS.Glacier do
   (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Retrieving Vault Metadata in
-  Amazon S3
+  Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html)
   and [List Vaults
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html) in
@@ -2981,7 +3025,7 @@ defmodule AWS.Glacier do
   vault.
 
   For
-  more information about tags, see [Tagging Amazon S3 Glacier Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
+  more information about tags, see [Tagging Amazon Glacier Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   This operation is idempotent. The operation will be successful, even if there
   are no tags
   attached to the vault.
@@ -3123,7 +3167,7 @@ defmodule AWS.Glacier do
   `notification-configuration` subresource of the vault. The request should
   include a JSON document that provides an Amazon SNS topic and specific events
   for which you
-  want Amazon S3 Glacier to send notifications to the topic.
+  want Amazon Glacier to send notifications to the topic.
 
   Amazon SNS topics must grant permission to the vault to be allowed to publish
   notifications to the topic. You can configure a vault to publish a notification
@@ -3157,7 +3201,7 @@ defmodule AWS.Glacier do
   [Access Control Using AWS Identity and Access Management
   (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
-  For conceptual information and underlying REST API, see [Configuring Vault Notifications in Amazon S3
+  For conceptual information and underlying REST API, see [Configuring Vault Notifications in Amazon
   Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html)
   and [Set Vault Notification Configuration
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html)
@@ -3201,11 +3245,11 @@ defmodule AWS.Glacier do
   This operation adds an archive to a vault.
 
   This is a synchronous operation, and for a
-  successful upload, your data is durably persisted. Amazon S3 Glacier returns the
+  successful upload, your data is durably persisted. Amazon Glacier returns the
   archive ID in
   the `x-amz-archive-id` header of the response.
 
-  You must use the archive ID to access your data in Amazon S3 Glacier. After you
+  You must use the archive ID to access your data in Amazon Glacier. After you
   upload
   an archive, you should save the archive ID returned so that you can retrieve or
   delete the
@@ -3319,7 +3363,7 @@ defmodule AWS.Glacier do
   **SHA256 tree hash does not match**To ensure that part
   data is not corrupted in transmission, you compute a SHA256 tree hash of the
   part and
-  include it in your request. Upon receiving the part data, Amazon S3 Glacier also
+  include it in your request. Upon receiving the part data, Amazon Glacier also
   computes a SHA256 tree hash. If these hash values don't match, the operation
   fails.
   For information about computing a SHA256 tree hash, see [Computing Checksums](https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html).

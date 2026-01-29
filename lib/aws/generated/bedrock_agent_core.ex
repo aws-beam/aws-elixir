@@ -3,11 +3,10 @@
 
 defmodule AWS.BedrockAgentCore do
   @moduledoc """
-  Amazon Bedrock AgentCore is in preview release and is subject to change.
+  Welcome to the Amazon Bedrock AgentCore Data Plane API reference.
 
-  Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane
-  actions process and handle data or workloads within Amazon Web Services
-  services.
+  Data Plane actions process and handle data or workloads within Amazon Web
+  Services services.
   """
 
   alias AWS.Client
@@ -47,6 +46,26 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type live_view_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_result_content() :: %{
+        "context" => list(),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "evaluatorName" => String.t() | atom(),
+        "explanation" => String.t() | atom(),
+        "label" => [String.t() | atom()],
+        "tokenUsage" => token_usage(),
+        "value" => [float()]
+      }
+
+  """
+  @type evaluation_result_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,6 +131,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      duplicate_id_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type duplicate_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unauthorized_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -165,6 +195,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      retryable_conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type retryable_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_browser_sessions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -188,6 +229,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type memory_record_create_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_job_filter_input() :: %{
+        "actorId" => [String.t() | atom()],
+        "sessionId" => [String.t() | atom()],
+        "status" => list(any()),
+        "strategyId" => [String.t() | atom()]
+      }
+
+  """
+  @type extraction_job_filter_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -340,6 +395,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      list_memory_extraction_jobs_output() :: %{
+        "jobs" => list(extraction_job_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_memory_extraction_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tool_arguments() :: %{
         "clearContext" => [boolean()],
         "code" => String.t() | atom(),
@@ -373,6 +440,19 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type content_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_memory_extraction_jobs_input() :: %{
+        optional("filter") => extraction_job_filter_input(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_memory_extraction_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,6 +520,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      start_memory_extraction_job_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("extractionJob") => extraction_job()
+      }
+
+  """
+  @type start_memory_extraction_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttled_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -467,6 +559,7 @@ defmodule AWS.BedrockAgentCore do
 
       start_browser_session_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("extensions") => list(browser_extension()),
         optional("name") => String.t() | atom(),
         optional("sessionTimeoutSeconds") => integer(),
         optional("traceId") => [String.t() | atom()],
@@ -488,6 +581,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type branch_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_memory_extraction_job_output() :: %{
+        "jobId" => [String.t() | atom()]
+      }
+
+  """
+  @type start_memory_extraction_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -543,6 +647,23 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_memory_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_job_metadata() :: %{
+        "actorId" => [String.t() | atom()],
+        "failureReason" => [String.t() | atom()],
+        "jobID" => [String.t() | atom()],
+        "messages" => list(),
+        "sessionId" => [String.t() | atom()],
+        "status" => list(any()),
+        "strategyId" => [String.t() | atom()]
+      }
+
+  """
+  @type extraction_job_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -665,6 +786,7 @@ defmodule AWS.BedrockAgentCore do
         "createdAt" => [non_neg_integer()],
         "memoryRecordId" => String.t() | atom(),
         "memoryStrategyId" => String.t() | atom(),
+        "metadata" => map(),
         "namespaces" => list(String.t() | atom()),
         "score" => [float()]
       }
@@ -683,6 +805,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_events_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_metadata() :: %{
+        "eventId" => [String.t() | atom()],
+        "messageIndex" => [integer()]
+      }
+
+  """
+  @type message_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -804,12 +938,49 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      s3_location() :: %{
+        "bucket" => [String.t() | atom()],
+        "prefix" => [String.t() | atom()],
+        "versionId" => [String.t() | atom()]
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_event_output() :: %{
         "eventId" => String.t() | atom()
       }
 
   """
   @type delete_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      span_context() :: %{
+        "sessionId" => [String.t() | atom()],
+        "spanId" => [String.t() | atom()],
+        "traceId" => [String.t() | atom()]
+      }
+
+  """
+  @type span_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluate_response() :: %{
+        "evaluationResults" => list(evaluation_result_content())
+      }
+
+  """
+  @type evaluate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -908,6 +1079,7 @@ defmodule AWS.BedrockAgentCore do
         "createdAt" => [non_neg_integer()],
         "memoryRecordId" => String.t() | atom(),
         "memoryStrategyId" => String.t() | atom(),
+        "metadata" => map(),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -941,6 +1113,19 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_usage() :: %{
+        "inputTokens" => [integer()],
+        "outputTokens" => [integer()],
+        "totalTokens" => [integer()]
+      }
+
+  """
+  @type token_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1005,6 +1190,7 @@ defmodule AWS.BedrockAgentCore do
       get_browser_session_response() :: %{
         "browserIdentifier" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
+        "extensions" => list(browser_extension()),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "sessionId" => String.t() | atom(),
@@ -1075,6 +1261,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_browser_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_extension() :: %{
+        "location" => list()
+      }
+
+  """
+  @type browser_extension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1214,6 +1411,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      evaluate_request() :: %{
+        optional("evaluationTarget") => list(),
+        required("evaluationInput") => list()
+      }
+
+  """
+  @type evaluate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_resource_api_key_response() :: %{
         "apiKey" => String.t() | atom()
       }
@@ -1273,6 +1482,7 @@ defmodule AWS.BedrockAgentCore do
 
       search_criteria() :: %{
         "memoryStrategyId" => String.t() | atom(),
+        "metadataFilters" => list(memory_metadata_filter_expression()),
         "searchQuery" => String.t() | atom(),
         "topK" => [integer()]
       }
@@ -1356,6 +1566,30 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      memory_metadata_filter_expression() :: %{
+        "left" => list(),
+        "operator" => list(any()),
+        "right" => list()
+      }
+
+  """
+  @type memory_metadata_filter_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_job() :: %{
+        "jobId" => [String.t() | atom()]
+      }
+
+  """
+  @type extraction_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       runtime_client_error() :: %{
         "message" => String.t() | atom()
       }
@@ -1403,6 +1637,7 @@ defmodule AWS.BedrockAgentCore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | throttled_exception()
+          | retryable_conflict_exception()
 
   @type delete_event_errors() ::
           validation_exception()
@@ -1421,6 +1656,17 @@ defmodule AWS.BedrockAgentCore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | throttled_exception()
+
+  @type evaluate_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+          | duplicate_id_exception()
 
   @type get_agent_card_errors() ::
           runtime_client_error()
@@ -1553,6 +1799,14 @@ defmodule AWS.BedrockAgentCore do
           | resource_not_found_exception()
           | throttled_exception()
 
+  @type list_memory_extraction_jobs_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | throttled_exception()
+
   @type list_memory_records_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1597,6 +1851,14 @@ defmodule AWS.BedrockAgentCore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type start_memory_extraction_job_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | throttled_exception()
 
   @type stop_browser_session_errors() ::
           throttling_exception()
@@ -1919,6 +2181,38 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  Performs on-demand evaluation of agent traces using a specified evaluator.
+
+  This synchronous API accepts traces in OpenTelemetry format and returns
+  immediate scoring results with detailed explanations.
+  """
+  @spec evaluate(map(), String.t() | atom(), evaluate_request(), list()) ::
+          {:ok, evaluate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, evaluate_errors()}
+  def evaluate(%Client{} = client, evaluator_id, input, options \\ []) do
+    url_path = "/evaluations/evaluate/#{AWS.Util.encode_uri(evaluator_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the A2A agent card associated with an AgentCore Runtime agent.
   """
   @spec get_agent_card(
@@ -1986,11 +2280,11 @@ defmodule AWS.BedrockAgentCore do
   The following operations are related to `GetBrowserSession`:
 
     *
-  [StartBrowserSession](https://docs.aws.amazon.com/API_StartBrowserSession.html)     *
-  [ListBrowserSessions](https://docs.aws.amazon.com/API_ListBrowserSessions.html)
+  [StartBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html)     *
+  [ListBrowserSessions](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListBrowserSessions.html)
 
     *
-  [StopBrowserSession](https://docs.aws.amazon.com/API_StopBrowserSession.html)
+  [StopBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html)
   """
   @spec get_browser_session(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_browser_session_response(), any()}
@@ -2028,11 +2322,11 @@ defmodule AWS.BedrockAgentCore do
   The following operations are related to `GetCodeInterpreterSession`:
 
     *
-  [StartCodeInterpreterSession](https://docs.aws.amazon.com/API_StartCodeInterpreterSession.html)     *
-  [ListCodeInterpreterSessions](https://docs.aws.amazon.com/API_ListCodeInterpreterSessions.html)
+  [StartCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html)     *
+  [ListCodeInterpreterSessions](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListCodeInterpreterSessions.html)
 
     *
-  [StopCodeInterpreterSession](https://docs.aws.amazon.com/API_StopCodeInterpreterSession.html)
+  [StopCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopCodeInterpreterSession.html)
   """
   @spec get_code_interpreter_session(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_code_interpreter_session_response(), any()}
@@ -2378,8 +2672,8 @@ defmodule AWS.BedrockAgentCore do
   The following operations are related to `InvokeCodeInterpreter`:
 
     *
-  [StartCodeInterpreterSession](https://docs.aws.amazon.com/API_StartCodeInterpreterSession.html)     *
-  [GetCodeInterpreterSession](https://docs.aws.amazon.com/API_GetCodeInterpreterSession.html)
+  [StartCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html)     *
+  [GetCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html)
   """
   @spec invoke_code_interpreter(
           map(),
@@ -2484,8 +2778,8 @@ defmodule AWS.BedrockAgentCore do
   The following operations are related to `ListBrowserSessions`:
 
     *
-  [StartBrowserSession](https://docs.aws.amazon.com/API_StartBrowserSession.html)     *
-  [GetBrowserSession](https://docs.aws.amazon.com/API_GetBrowserSession.html)
+  [StartBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html)     *
+  [GetBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html)
   """
   @spec list_browser_sessions(map(), String.t() | atom(), list_browser_sessions_request(), list()) ::
           {:ok, list_browser_sessions_response(), any()}
@@ -2529,8 +2823,8 @@ defmodule AWS.BedrockAgentCore do
   The following operations are related to `ListCodeInterpreterSessions`:
 
     *
-  [StartCodeInterpreterSession](https://docs.aws.amazon.com/API_StartCodeInterpreterSession.html)     *
-  [GetCodeInterpreterSession](https://docs.aws.amazon.com/API_GetCodeInterpreterSession.html)
+  [StartCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html)     *
+  [GetCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html)
   """
   @spec list_code_interpreter_sessions(
           map(),
@@ -2595,6 +2889,44 @@ defmodule AWS.BedrockAgentCore do
     url_path =
       "/memories/#{AWS.Util.encode_uri(memory_id)}/actor/#{AWS.Util.encode_uri(actor_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all long-term memory extraction jobs that are eligible to be started with
+  optional filtering.
+
+  To use this operation, you must have the
+  `bedrock-agentcore:ListMemoryExtractionJobs` permission.
+  """
+  @spec list_memory_extraction_jobs(
+          map(),
+          String.t() | atom(),
+          list_memory_extraction_jobs_input(),
+          list()
+        ) ::
+          {:ok, list_memory_extraction_jobs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_memory_extraction_jobs_errors()}
+  def list_memory_extraction_jobs(%Client{} = client, memory_id, input, options \\ []) do
+    url_path = "/memories/#{AWS.Util.encode_uri(memory_id)}/extractionJobs"
     headers = []
     custom_headers = []
     query_params = []
@@ -2749,11 +3081,11 @@ defmodule AWS.BedrockAgentCore do
   The following operations are related to `StartBrowserSession`:
 
     *
-  [GetBrowserSession](https://docs.aws.amazon.com/API_GetBrowserSession.html)     *
-  [UpdateBrowserStream](https://docs.aws.amazon.com/API_UpdateBrowserStream.html)
+  [GetBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html)     *
+  [UpdateBrowserStream](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_UpdateBrowserStream.html)
 
     *
-  [StopBrowserSession](https://docs.aws.amazon.com/API_StopBrowserSession.html)
+  [StopBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html)
   """
   @spec start_browser_session(map(), String.t() | atom(), start_browser_session_request(), list()) ::
           {:ok, start_browser_session_response(), any()}
@@ -2802,11 +3134,11 @@ defmodule AWS.BedrockAgentCore do
   The following operations are related to `StartCodeInterpreterSession`:
 
     *
-  [InvokeCodeInterpreter](https://docs.aws.amazon.com/API_InvokeCodeInterpreter.html)     *
-  [GetCodeInterpreterSession](https://docs.aws.amazon.com/API_GetCodeInterpreterSession.html)
+  [InvokeCodeInterpreter](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeCodeInterpreter.html)     *
+  [GetCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html)
 
     *
-  [StopCodeInterpreterSession](https://docs.aws.amazon.com/API_StopCodeInterpreterSession.html)
+  [StopCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopCodeInterpreterSession.html)
   """
   @spec start_code_interpreter_session(
           map(),
@@ -2853,6 +3185,48 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  Starts a memory extraction job that processes events that failed extraction
+  previously in an AgentCore Memory resource and produces structured memory
+  records.
+
+  When earlier extraction attempts have left events unprocessed, this job will
+  pick up and extract those as well.
+
+  To use this operation, you must have the
+  `bedrock-agentcore:StartMemoryExtractionJob` permission.
+  """
+  @spec start_memory_extraction_job(
+          map(),
+          String.t() | atom(),
+          start_memory_extraction_job_input(),
+          list()
+        ) ::
+          {:ok, start_memory_extraction_job_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_memory_extraction_job_errors()}
+  def start_memory_extraction_job(%Client{} = client, memory_id, input, options \\ []) do
+    url_path = "/memories/#{AWS.Util.encode_uri(memory_id)}/extractionJobs/start"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Terminates an active browser session in Amazon Bedrock.
 
   This operation stops the session, releases associated resources, and makes the
@@ -2865,8 +3239,8 @@ defmodule AWS.BedrockAgentCore do
   The following operations are related to `StopBrowserSession`:
 
     *
-  [StartBrowserSession](https://docs.aws.amazon.com/API_StartBrowserSession.html)     *
-  [GetBrowserSession](https://docs.aws.amazon.com/API_GetBrowserSession.html)
+  [StartBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html)     *
+  [GetBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html)
   """
   @spec stop_browser_session(map(), String.t() | atom(), stop_browser_session_request(), list()) ::
           {:ok, stop_browser_session_response(), any()}
@@ -2919,8 +3293,8 @@ defmodule AWS.BedrockAgentCore do
   The following operations are related to `StopCodeInterpreterSession`:
 
     *
-  [StartCodeInterpreterSession](https://docs.aws.amazon.com/API_StartCodeInterpreterSession.html)     *
-  [GetCodeInterpreterSession](https://docs.aws.amazon.com/API_GetCodeInterpreterSession.html)
+  [StartCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html)     *
+  [GetCodeInterpreterSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html)
   """
   @spec stop_code_interpreter_session(
           map(),

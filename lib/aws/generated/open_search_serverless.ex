@@ -23,6 +23,7 @@ defmodule AWS.OpenSearchServerless do
   ## Example:
       
       collection_filters() :: %{
+        "collectionGroupName" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => String.t() | atom()
       }
@@ -52,6 +53,18 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type batch_get_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_collection_groups_response() :: %{
+        "collectionGroupSummaries" => list(collection_group_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_collection_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,6 +106,18 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_config() :: %{
+        "aWSOwnedKey" => [boolean()],
+        "kmsKeyArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type encryption_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -242,7 +267,9 @@ defmodule AWS.OpenSearchServerless do
       
       collection_summary() :: %{
         "arn" => [String.t() | atom()],
+        "collectionGroupName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "kmsKeyArn" => [String.t() | atom()],
         "name" => String.t() | atom(),
         "status" => String.t() | atom()
       }
@@ -341,6 +368,7 @@ defmodule AWS.OpenSearchServerless do
       collection_detail() :: %{
         "arn" => [String.t() | atom()],
         "collectionEndpoint" => [String.t() | atom()],
+        "collectionGroupName" => String.t() | atom(),
         "createdDate" => [float()],
         "dashboardEndpoint" => [String.t() | atom()],
         "description" => [String.t() | atom()],
@@ -353,7 +381,8 @@ defmodule AWS.OpenSearchServerless do
         "name" => String.t() | atom(),
         "standbyReplicas" => String.t() | atom(),
         "status" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "type" => String.t() | atom(),
+        "vectorOptions" => vector_options()
       }
       
   """
@@ -382,6 +411,15 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type delete_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_collection_group_response() :: %{}
+      
+  """
+  @type delete_collection_group_response() :: %{}
 
   @typedoc """
 
@@ -464,6 +502,38 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      create_collection_group_detail() :: %{
+        "arn" => [String.t() | atom()],
+        "capacityLimits" => collection_group_capacity_limits(),
+        "createdDate" => [float()],
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "standbyReplicas" => String.t() | atom(),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type create_collection_group_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      collection_group_error_detail() :: %{
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type collection_group_error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("resourceArn") => String.t() | atom(),
         required("tagKeys") => list(String.t() | atom())
@@ -471,6 +541,22 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_collection_group_request() :: %{
+        optional("capacityLimits") => collection_group_capacity_limits(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        optional("tags") => list(tag()),
+        required("name") => String.t() | atom(),
+        required("standbyReplicas") => String.t() | atom()
+      }
+      
+  """
+  @type create_collection_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,6 +580,22 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type list_collections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      collection_group_summary() :: %{
+        "arn" => [String.t() | atom()],
+        "capacityLimits" => collection_group_capacity_limits(),
+        "createdDate" => [float()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "numberOfCollections" => [integer()]
+      }
+      
+  """
+  @type collection_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,6 +629,17 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type vpc_endpoint_error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vector_options() :: %{
+        "ServerlessVectorAcceleration" => String.t() | atom()
+      }
+      
+  """
+  @type vector_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -745,6 +858,25 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      collection_group_detail() :: %{
+        "arn" => [String.t() | atom()],
+        "capacityLimits" => collection_group_capacity_limits(),
+        "createdDate" => [float()],
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "numberOfCollections" => [integer()],
+        "standbyReplicas" => String.t() | atom(),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type collection_group_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_collection_request() :: %{
         optional("clientToken") => String.t() | atom(),
         required("id") => String.t() | atom()
@@ -908,10 +1040,13 @@ defmodule AWS.OpenSearchServerless do
       
       create_collection_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("collectionGroupName") => String.t() | atom(),
         optional("description") => [String.t() | atom()],
+        optional("encryptionConfig") => encryption_config(),
         optional("standbyReplicas") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("type") => String.t() | atom(),
+        optional("vectorOptions") => vector_options(),
         required("name") => String.t() | atom()
       }
       
@@ -928,6 +1063,18 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type update_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_collection_group_request() :: %{
+        optional("ids") => list(String.t() | atom()),
+        optional("names") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_collection_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,6 +1119,20 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type create_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      collection_group_capacity_limits() :: %{
+        "maxIndexingCapacityInOCU" => float(),
+        "maxSearchCapacityInOCU" => float(),
+        "minIndexingCapacityInOCU" => float(),
+        "minSearchCapacityInOCU" => float()
+      }
+      
+  """
+  @type collection_group_capacity_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,6 +1283,18 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      list_collection_groups_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_collection_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       access_policy_detail() :: %{
         "createdDate" => [float()],
         "description" => String.t() | atom(),
@@ -1185,6 +1358,18 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_collection_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_collection_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1273,6 +1458,18 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      batch_get_collection_group_response() :: %{
+        "collectionGroupDetails" => list(collection_group_detail()),
+        "collectionGroupErrorDetails" => list(collection_group_error_detail())
+      }
+      
+  """
+  @type batch_get_collection_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_get_effective_lifecycle_policy_response() :: %{
         "effectiveLifecyclePolicyDetails" => list(effective_lifecycle_policy_detail()),
         "effectiveLifecyclePolicyErrorDetails" => list(effective_lifecycle_policy_error_detail())
@@ -1346,6 +1543,34 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      update_collection_group_detail() :: %{
+        "arn" => [String.t() | atom()],
+        "capacityLimits" => collection_group_capacity_limits(),
+        "createdDate" => [float()],
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type update_collection_group_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_collection_group_response() :: %{
+        "updateCollectionGroupDetail" => update_collection_group_detail()
+      }
+      
+  """
+  @type update_collection_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ocu_limit_exceeded_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -1365,6 +1590,20 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type update_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_collection_group_request() :: %{
+        optional("capacityLimits") => collection_group_capacity_limits(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type update_collection_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1413,6 +1652,17 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type update_security_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_collection_group_response() :: %{
+        "createCollectionGroupDetail" => create_collection_group_detail()
+      }
+      
+  """
+  @type create_collection_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1580,6 +1830,7 @@ defmodule AWS.OpenSearchServerless do
       
       create_collection_detail() :: %{
         "arn" => [String.t() | atom()],
+        "collectionGroupName" => String.t() | atom(),
         "createdDate" => [float()],
         "description" => [String.t() | atom()],
         "id" => String.t() | atom(),
@@ -1588,7 +1839,8 @@ defmodule AWS.OpenSearchServerless do
         "name" => String.t() | atom(),
         "standbyReplicas" => String.t() | atom(),
         "status" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "type" => String.t() | atom(),
+        "vectorOptions" => vector_options()
       }
       
   """
@@ -1650,6 +1902,9 @@ defmodule AWS.OpenSearchServerless do
 
   @type batch_get_collection_errors() :: validation_exception() | internal_server_exception()
 
+  @type batch_get_collection_group_errors() ::
+          validation_exception() | internal_server_exception()
+
   @type batch_get_effective_lifecycle_policy_errors() ::
           validation_exception() | internal_server_exception()
 
@@ -1667,6 +1922,12 @@ defmodule AWS.OpenSearchServerless do
   @type create_collection_errors() ::
           ocu_limit_exceeded_exception()
           | validation_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_collection_group_errors() ::
+          validation_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
@@ -1708,6 +1969,12 @@ defmodule AWS.OpenSearchServerless do
           | conflict_exception()
 
   @type delete_collection_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_collection_group_errors() ::
           validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -1758,6 +2025,8 @@ defmodule AWS.OpenSearchServerless do
 
   @type list_access_policies_errors() :: validation_exception() | internal_server_exception()
 
+  @type list_collection_groups_errors() :: validation_exception() | internal_server_exception()
+
   @type list_collections_errors() :: validation_exception() | internal_server_exception()
 
   @type list_lifecycle_policies_errors() :: validation_exception() | internal_server_exception()
@@ -1790,10 +2059,19 @@ defmodule AWS.OpenSearchServerless do
           | resource_not_found_exception()
           | conflict_exception()
 
-  @type update_account_settings_errors() :: validation_exception() | internal_server_exception()
+  @type update_account_settings_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
 
   @type update_collection_errors() ::
           validation_exception() | internal_server_exception() | conflict_exception()
+
+  @type update_collection_group_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
 
   @type update_index_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
@@ -1852,6 +2130,23 @@ defmodule AWS.OpenSearchServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "BatchGetCollection", input, options)
+  end
+
+  @doc """
+  Returns attributes for one or more collection groups, including capacity limits
+  and the number of collections in each group.
+
+  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  """
+  @spec batch_get_collection_group(map(), batch_get_collection_group_request(), list()) ::
+          {:ok, batch_get_collection_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_collection_group_errors()}
+  def batch_get_collection_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetCollectionGroup", input, options)
   end
 
   @doc """
@@ -1941,6 +2236,25 @@ defmodule AWS.OpenSearchServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateCollection", input, options)
+  end
+
+  @doc """
+  Creates a collection group within OpenSearch Serverless.
+
+  Collection groups let you manage OpenSearch Compute Units (OCUs) at a group
+  level, with multiple collections sharing the group's capacity limits.
+
+  For more information, see [Managing collection groups](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-collection-groups.html).
+  """
+  @spec create_collection_group(map(), create_collection_group_request(), list()) ::
+          {:ok, create_collection_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_collection_group_errors()}
+  def create_collection_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCollectionGroup", input, options)
   end
 
   @doc """
@@ -2063,6 +2377,23 @@ defmodule AWS.OpenSearchServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteCollection", input, options)
+  end
+
+  @doc """
+  Deletes a collection group.
+
+  You can only delete empty collection groups that contain no collections. For
+  more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  """
+  @spec delete_collection_group(map(), delete_collection_group_request(), list()) ::
+          {:ok, delete_collection_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_collection_group_errors()}
+  def delete_collection_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCollectionGroup", input, options)
   end
 
   @doc """
@@ -2257,6 +2588,22 @@ defmodule AWS.OpenSearchServerless do
   end
 
   @doc """
+  Returns a list of collection groups.
+
+  For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+  """
+  @spec list_collection_groups(map(), list_collection_groups_request(), list()) ::
+          {:ok, list_collection_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_collection_groups_errors()}
+  def list_collection_groups(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCollectionGroups", input, options)
+  end
+
+  @doc """
   Lists all OpenSearch Serverless collections.
 
   For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
@@ -2433,6 +2780,20 @@ defmodule AWS.OpenSearchServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateCollection", input, options)
+  end
+
+  @doc """
+  Updates the description and capacity limits of a collection group.
+  """
+  @spec update_collection_group(map(), update_collection_group_request(), list()) ::
+          {:ok, update_collection_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_collection_group_errors()}
+  def update_collection_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCollectionGroup", input, options)
   end
 
   @doc """

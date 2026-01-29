@@ -402,6 +402,7 @@ defmodule AWS.AppIntegrations do
 
       create_application_request() :: %{
         optional("ApplicationConfig") => application_config(),
+        optional("ApplicationType") => list(any()),
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("IframeConfig") => iframe_config(),
@@ -543,6 +544,7 @@ defmodule AWS.AppIntegrations do
       update_application_request() :: %{
         optional("ApplicationConfig") => application_config(),
         optional("ApplicationSourceConfig") => application_source_config(),
+        optional("ApplicationType") => list(any()),
         optional("Description") => String.t() | atom(),
         optional("IframeConfig") => iframe_config(),
         optional("InitializationTimeout") => integer(),
@@ -585,6 +587,7 @@ defmodule AWS.AppIntegrations do
       get_application_response() :: %{
         "ApplicationConfig" => application_config(),
         "ApplicationSourceConfig" => application_source_config(),
+        "ApplicationType" => list(any()),
         "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "Description" => String.t() | atom(),
@@ -609,6 +612,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       list_applications_request() :: %{
+        optional("ApplicationType") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
@@ -768,6 +772,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       application_summary() :: %{
+        "ApplicationType" => list(any()),
         "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
         "Id" => String.t() | atom(),
@@ -1482,12 +1487,24 @@ defmodule AWS.AppIntegrations do
   @doc """
   Lists applications in the account.
   """
-  @spec list_applications(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+  @spec list_applications(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_applications(
+        %Client{} = client,
+        application_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/applications"
     headers = []
     query_params = []
@@ -1502,6 +1519,13 @@ defmodule AWS.AppIntegrations do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(application_type) do
+        [{"applicationType", application_type} | query_params]
       else
         query_params
       end

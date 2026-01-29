@@ -31,6 +31,18 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      display_content() :: %{
+        "Body" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type display_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_integration_response_response() :: %{
         "ContentHandlingStrategy" => list(any()),
         "IntegrationResponseId" => String.t() | atom(),
@@ -42,6 +54,20 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type update_integration_response_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_product_page_response() :: %{
+        "DisplayContent" => display_content(),
+        "LastModified" => non_neg_integer(),
+        "ProductPageArn" => String.t() | atom(),
+        "ProductPageId" => String.t() | atom()
+      }
+
+  """
+  @type update_product_page_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -136,12 +162,43 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      apigatewayv2_none() :: %{}
+
+  """
+  @type apigatewayv2_none() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_request() :: %{}
+
+  """
+  @type get_portal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       tls_config_input() :: %{
         "ServerNameToVerify" => String.t() | atom()
       }
 
   """
   @type tls_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_product_rest_endpoint_pages_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceOwnerAccountId") => String.t() | atom()
+      }
+
+  """
+  @type list_product_rest_endpoint_pages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -284,6 +341,23 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type get_stage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_product_response() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "DisplayOrder" => display_order(),
+        "LastModified" => non_neg_integer(),
+        "PortalProductArn" => String.t() | atom(),
+        "PortalProductId" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_portal_product_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -458,6 +532,19 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      create_product_rest_endpoint_page_request() :: %{
+        optional("DisplayContent") => endpoint_display_content(),
+        optional("TryItState") => list(any()),
+        required("RestEndpointIdentifier") => rest_endpoint_identifier()
+      }
+
+  """
+  @type create_product_rest_endpoint_page_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       mutual_tls_authentication() :: %{
         optional("TruststoreUri") => String.t() | atom(),
         optional("TruststoreVersion") => String.t() | atom(),
@@ -466,6 +553,15 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type mutual_tls_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preview_portal_response() :: %{}
+
+  """
+  @type preview_portal_response() :: %{}
 
   @typedoc """
 
@@ -521,6 +617,29 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type create_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_response() :: %{
+        "Authorization" => authorization(),
+        "EndpointConfiguration" => endpoint_configuration_response(),
+        "IncludedPortalProductArns" => list(String.t() | atom()),
+        "LastModified" => non_neg_integer(),
+        "LastPublished" => non_neg_integer(),
+        "LastPublishedDescription" => String.t() | atom(),
+        "PortalArn" => String.t() | atom(),
+        "PortalContent" => portal_content(),
+        "PortalId" => String.t() | atom(),
+        "PublishStatus" => list(any()),
+        "RumAppMonitorName" => String.t() | atom(),
+        "StatusException" => status_exception(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_portal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,6 +709,18 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      a_cm_managed() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "DomainName" => String.t() | atom()
+      }
+
+  """
+  @type a_cm_managed() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_routing_rule_response() :: %{
         "Actions" => list(routing_rule_action()),
         "Conditions" => list(routing_rule_condition()),
@@ -632,10 +763,46 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      cognito_config() :: %{
+        "AppClientId" => String.t() | atom(),
+        "UserPoolArn" => String.t() | atom(),
+        "UserPoolDomain" => String.t() | atom()
+      }
+
+  """
+  @type cognito_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_route_response_request() :: %{}
 
   """
   @type get_route_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      section() :: %{
+        "ProductRestEndpointPageArns" => list(String.t() | atom()),
+        "SectionName" => String.t() | atom()
+      }
+
+  """
+  @type section() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_portal_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type publish_portal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -675,6 +842,26 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type update_stage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_product_page_request() :: %{
+        optional("ResourceOwnerAccountId") => String.t() | atom()
+      }
+
+  """
+  @type get_product_page_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preview_portal_request() :: %{}
+
+  """
+  @type preview_portal_request() :: %{}
 
   @typedoc """
 
@@ -727,6 +914,20 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      get_product_page_response() :: %{
+        "DisplayContent" => display_content(),
+        "LastModified" => non_neg_integer(),
+        "ProductPageArn" => String.t() | atom(),
+        "ProductPageId" => String.t() | atom()
+      }
+
+  """
+  @type get_product_page_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t() | atom())
       }
@@ -742,6 +943,20 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type get_model_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      identifier_parts() :: %{
+        "Method" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "RestApiId" => String.t() | atom(),
+        "Stage" => String.t() | atom()
+      }
+
+  """
+  @type identifier_parts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -797,10 +1012,47 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      delete_product_rest_endpoint_page_request() :: %{}
+
+  """
+  @type delete_product_rest_endpoint_page_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_authorizer_request() :: %{}
 
   """
   @type get_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_product_sharing_policy_request() :: %{}
+
+  """
+  @type delete_portal_product_sharing_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      product_rest_endpoint_page_summary_no_body() :: %{
+        "Endpoint" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "OperationName" => String.t() | atom(),
+        "ProductRestEndpointPageArn" => String.t() | atom(),
+        "ProductRestEndpointPageId" => String.t() | atom(),
+        "RestEndpointIdentifier" => rest_endpoint_identifier(),
+        "Status" => list(any()),
+        "StatusException" => status_exception(),
+        "TryItState" => list(any())
+      }
+
+  """
+  @type product_rest_endpoint_page_summary_no_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -833,6 +1085,20 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      create_product_page_response() :: %{
+        "DisplayContent" => display_content(),
+        "LastModified" => non_neg_integer(),
+        "ProductPageArn" => String.t() | atom(),
+        "ProductPageId" => String.t() | atom()
+      }
+
+  """
+  @type create_product_page_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_api_mapping_request() :: %{
         optional("ApiMappingKey") => String.t() | atom(),
         required("ApiId") => String.t() | atom(),
@@ -841,6 +1107,18 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type create_api_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorization() :: %{
+        "CognitoConfig" => cognito_config(),
+        "None" => apigatewayv2_none()
+      }
+
+  """
+  @type authorization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -906,6 +1184,15 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      get_portal_product_sharing_policy_request() :: %{}
+
+  """
+  @type get_portal_product_sharing_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_stage_request() :: %{}
 
   """
@@ -929,6 +1216,15 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      put_portal_product_sharing_policy_response() :: %{}
+
+  """
+  @type put_portal_product_sharing_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_authorizers_request() :: %{
         optional("MaxResults") => String.t() | atom(),
         optional("NextToken") => String.t() | atom()
@@ -936,6 +1232,27 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type get_authorizers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_portals_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_request() :: %{}
+
+  """
+  @type delete_portal_request() :: %{}
 
   @typedoc """
 
@@ -956,6 +1273,22 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type delete_integration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_colors() :: %{
+        "AccentColor" => String.t() | atom(),
+        "BackgroundColor" => String.t() | atom(),
+        "ErrorValidationColor" => String.t() | atom(),
+        "HeaderColor" => String.t() | atom(),
+        "NavigationColor" => String.t() | atom(),
+        "TextColor" => String.t() | atom()
+      }
+
+  """
+  @type custom_colors() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -997,6 +1330,17 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      create_product_page_request() :: %{
+        required("DisplayContent") => display_content()
+      }
+
+  """
+  @type create_product_page_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_api_response() :: %{
         "ApiEndpoint" => String.t() | atom(),
         "ApiGatewayManaged" => boolean(),
@@ -1019,6 +1363,60 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type update_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portal_products_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceOwner") => String.t() | atom()
+      }
+
+  """
+  @type list_portal_products_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_request() :: %{
+        optional("IncludedPortalProductArns") => list(String.t() | atom()),
+        optional("LogoUri") => String.t() | atom(),
+        optional("RumAppMonitorName") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Authorization") => authorization(),
+        required("EndpointConfiguration") => endpoint_configuration_request(),
+        required("PortalContent") => portal_content()
+      }
+
+  """
+  @type create_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_response() :: %{
+        "Authorization" => authorization(),
+        "EndpointConfiguration" => endpoint_configuration_response(),
+        "IncludedPortalProductArns" => list(String.t() | atom()),
+        "LastModified" => non_neg_integer(),
+        "LastPublished" => non_neg_integer(),
+        "LastPublishedDescription" => String.t() | atom(),
+        "PortalArn" => String.t() | atom(),
+        "PortalContent" => portal_content(),
+        "PortalId" => String.t() | atom(),
+        "Preview" => preview(),
+        "PublishStatus" => list(any()),
+        "RumAppMonitorName" => String.t() | atom(),
+        "StatusException" => status_exception(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_portal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1102,6 +1500,19 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      endpoint_display_content_response() :: %{
+        "Body" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
+        "OperationName" => String.t() | atom()
+      }
+
+  """
+  @type endpoint_display_content_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_model_template_response() :: %{
         "Value" => String.t() | atom()
       }
@@ -1155,6 +1566,30 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_product_rest_endpoint_page_request() :: %{
+        optional("DisplayContent") => endpoint_display_content(),
+        optional("TryItState") => list(any())
+      }
+
+  """
+  @type update_product_rest_endpoint_page_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_display_content() :: %{
+        "None" => apigatewayv2_none(),
+        "Overrides" => display_content_overrides()
+      }
+
+  """
+  @type endpoint_display_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1262,6 +1697,17 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      put_portal_product_sharing_policy_request() :: %{
+        required("PolicyDocument") => String.t() | atom()
+      }
+
+  """
+  @type put_portal_product_sharing_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_routes_response() :: %{
         "Items" => list(route()),
         "NextToken" => String.t() | atom()
@@ -1289,6 +1735,19 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      display_order() :: %{
+        "Contents" => list(section()),
+        "OverviewPageArn" => String.t() | atom(),
+        "ProductPageArns" => list(String.t() | atom())
+      }
+
+  """
+  @type display_order() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_route_response_request() :: %{
         optional("ModelSelectionExpression") => String.t() | atom(),
         optional("ResponseModels") => map(),
@@ -1298,6 +1757,23 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type update_route_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_product_response() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "DisplayOrder" => display_order(),
+        "LastModified" => non_neg_integer(),
+        "PortalProductArn" => String.t() | atom(),
+        "PortalProductId" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_portal_product_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1325,6 +1801,36 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type update_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_product_rest_endpoint_page_response() :: %{
+        "DisplayContent" => endpoint_display_content_response(),
+        "LastModified" => non_neg_integer(),
+        "ProductRestEndpointPageArn" => String.t() | atom(),
+        "ProductRestEndpointPageId" => String.t() | atom(),
+        "RestEndpointIdentifier" => rest_endpoint_identifier(),
+        "Status" => list(any()),
+        "StatusException" => status_exception(),
+        "TryItState" => list(any())
+      }
+
+  """
+  @type update_product_rest_endpoint_page_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_product_sharing_policy_response() :: %{
+        "PolicyDocument" => String.t() | atom(),
+        "PortalProductId" => String.t() | atom()
+      }
+
+  """
+  @type get_portal_product_sharing_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1417,6 +1923,15 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      delete_product_page_request() :: %{}
+
+  """
+  @type delete_product_page_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_domain_name_request() :: %{
         optional("DomainNameConfigurations") => list(domain_name_configuration()),
         optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
@@ -1488,6 +2003,31 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      preview() :: %{
+        "PreviewStatus" => list(any()),
+        "PreviewUrl" => String.t() | atom(),
+        "StatusException" => status_exception()
+      }
+
+  """
+  @type preview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_response() :: %{
+        "Items" => list(portal_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_portals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_domain_names_response() :: %{
         "Items" => list(domain_name()),
         "NextToken" => String.t() | atom()
@@ -1522,6 +2062,34 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type create_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_product_response() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "DisplayOrder" => display_order(),
+        "LastModified" => non_neg_integer(),
+        "PortalProductArn" => String.t() | atom(),
+        "PortalProductId" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_portal_product_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_product_page_request() :: %{
+        optional("DisplayContent") => display_content()
+      }
+
+  """
+  @type update_product_page_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1597,10 +2165,34 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      create_portal_product_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("DisplayName") => String.t() | atom()
+      }
+
+  """
+  @type create_portal_product_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_model_request() :: %{}
 
   """
   @type delete_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_product_request() :: %{
+        optional("ResourceOwnerAccountId") => String.t() | atom()
+      }
+
+  """
+  @type get_portal_product_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1612,6 +2204,20 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type tls_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_configuration_response() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "PortalDefaultDomainName" => String.t() | atom(),
+        "PortalDomainHostedZoneId" => String.t() | atom()
+      }
+
+  """
+  @type endpoint_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1653,6 +2259,18 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      status_exception() :: %{
+        "Exception" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_route_result() :: %{
         "ApiGatewayManaged" => boolean(),
         "ApiKeyRequired" => boolean(),
@@ -1685,6 +2303,22 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      portal_product_summary() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "PortalProductArn" => String.t() | atom(),
+        "PortalProductId" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type portal_product_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_stages_response() :: %{
         "Items" => list(stage()),
         "NextToken" => String.t() | atom()
@@ -1692,6 +2326,19 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type get_stages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_product_pages_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceOwnerAccountId") => String.t() | atom()
+      }
+
+  """
+  @type list_product_pages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1819,6 +2466,18 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      list_product_pages_response() :: %{
+        "Items" => list(product_page_summary_no_body()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_product_pages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_api_request() :: %{
         optional("ApiKeySelectionExpression") => String.t() | atom(),
         optional("CorsConfiguration") => cors(),
@@ -1841,6 +2500,19 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      update_portal_product_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("DisplayOrder") => display_order()
+      }
+
+  """
+  @type update_portal_product_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_integration_response_request() :: %{
         optional("ContentHandlingStrategy") => list(any()),
         optional("ResponseParameters") => map(),
@@ -1851,6 +2523,22 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type create_integration_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_request() :: %{
+        optional("Authorization") => authorization(),
+        optional("EndpointConfiguration") => endpoint_configuration_request(),
+        optional("IncludedPortalProductArns") => list(String.t() | atom()),
+        optional("LogoUri") => String.t() | atom(),
+        optional("PortalContent") => portal_content(),
+        optional("RumAppMonitorName") => String.t() | atom()
+      }
+
+  """
+  @type update_portal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1867,6 +2555,50 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type update_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      display_content_overrides() :: %{
+        "Body" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
+        "OperationName" => String.t() | atom()
+      }
+
+  """
+  @type display_content_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_theme() :: %{
+        "CustomColors" => custom_colors(),
+        "LogoLastUploaded" => non_neg_integer()
+      }
+
+  """
+  @type portal_theme() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_product_rest_endpoint_page_response() :: %{
+        "DisplayContent" => endpoint_display_content_response(),
+        "LastModified" => non_neg_integer(),
+        "ProductRestEndpointPageArn" => String.t() | atom(),
+        "ProductRestEndpointPageId" => String.t() | atom(),
+        "RawDisplayContent" => String.t() | atom(),
+        "RestEndpointIdentifier" => rest_endpoint_identifier(),
+        "Status" => list(any()),
+        "StatusException" => status_exception(),
+        "TryItState" => list(any())
+      }
+
+  """
+  @type get_product_rest_endpoint_page_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1942,6 +2674,18 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      list_product_rest_endpoint_pages_response() :: %{
+        "Items" => list(product_rest_endpoint_page_summary_no_body()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_product_rest_endpoint_pages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_vpc_link_response() :: %{
         "CreatedDate" => non_neg_integer(),
         "Name" => String.t() | atom(),
@@ -2004,6 +2748,30 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      portal_summary() :: %{
+        "Authorization" => authorization(),
+        "EndpointConfiguration" => endpoint_configuration_response(),
+        "IncludedPortalProductArns" => list(String.t() | atom()),
+        "LastModified" => non_neg_integer(),
+        "LastPublished" => non_neg_integer(),
+        "LastPublishedDescription" => String.t() | atom(),
+        "PortalArn" => String.t() | atom(),
+        "PortalContent" => portal_content(),
+        "PortalId" => String.t() | atom(),
+        "Preview" => preview(),
+        "PublishStatus" => list(any()),
+        "RumAppMonitorName" => String.t() | atom(),
+        "StatusException" => status_exception(),
+        "Tags" => map()
+      }
+
+  """
+  @type portal_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_route_response_response() :: %{
         "ModelSelectionExpression" => String.t() | atom(),
         "ResponseModels" => map(),
@@ -2041,6 +2809,19 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type get_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_content() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Theme" => portal_theme()
+      }
+
+  """
+  @type portal_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2096,6 +2877,18 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type update_vpc_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portal_products_response() :: %{
+        "Items" => list(portal_product_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_portal_products_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2198,6 +2991,30 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      get_portal_response() :: %{
+        "Authorization" => authorization(),
+        "EndpointConfiguration" => endpoint_configuration_response(),
+        "IncludedPortalProductArns" => list(String.t() | atom()),
+        "LastModified" => non_neg_integer(),
+        "LastPublished" => non_neg_integer(),
+        "LastPublishedDescription" => String.t() | atom(),
+        "PortalArn" => String.t() | atom(),
+        "PortalContent" => portal_content(),
+        "PortalId" => String.t() | atom(),
+        "Preview" => preview(),
+        "PublishStatus" => list(any()),
+        "RumAppMonitorName" => String.t() | atom(),
+        "StatusException" => status_exception(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_route_request() :: %{
         optional("ApiKeyRequired") => boolean(),
         optional("AuthorizationScopes") => list(String.t() | atom()),
@@ -2219,6 +3036,24 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      create_product_rest_endpoint_page_response() :: %{
+        "DisplayContent" => endpoint_display_content_response(),
+        "LastModified" => non_neg_integer(),
+        "ProductRestEndpointPageArn" => String.t() | atom(),
+        "ProductRestEndpointPageId" => String.t() | atom(),
+        "RestEndpointIdentifier" => rest_endpoint_identifier(),
+        "Status" => list(any()),
+        "StatusException" => status_exception(),
+        "TryItState" => list(any())
+      }
+
+  """
+  @type create_product_rest_endpoint_page_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_vpc_links_request() :: %{
         optional("MaxResults") => String.t() | atom(),
         optional("NextToken") => String.t() | atom()
@@ -2226,6 +3061,26 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type get_vpc_links_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_product_request() :: %{}
+
+  """
+  @type delete_portal_product_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      rest_endpoint_identifier() :: %{
+        "IdentifierParts" => identifier_parts()
+      }
+
+  """
+  @type rest_endpoint_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2283,6 +3138,20 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      product_page_summary_no_body() :: %{
+        "LastModified" => non_neg_integer(),
+        "PageTitle" => String.t() | atom(),
+        "ProductPageArn" => String.t() | atom(),
+        "ProductPageId" => String.t() | atom()
+      }
+
+  """
+  @type product_page_summary_no_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2365,6 +3234,15 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type get_integration_response_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_portal_request() :: %{}
+
+  """
+  @type disable_portal_request() :: %{}
 
   @typedoc """
 
@@ -2464,6 +3342,18 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      endpoint_configuration_request() :: %{
+        "AcmManaged" => a_cm_managed(),
+        "None" => apigatewayv2_none()
+      }
+
+  """
+  @type endpoint_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       routing_rule_match_base_paths() :: %{
         "AnyOf" => list(String.t() | atom())
       }
@@ -2475,10 +3365,31 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      publish_portal_response() :: %{}
+
+  """
+  @type publish_portal_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_route_request() :: %{}
 
   """
   @type get_route_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_product_rest_endpoint_page_request() :: %{
+        optional("IncludeRawDisplayContent") => String.t() | atom(),
+        optional("ResourceOwnerAccountId") => String.t() | atom()
+      }
+
+  """
+  @type get_product_rest_endpoint_page_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2544,6 +3455,24 @@ defmodule AWS.ApiGatewayV2 do
           | conflict_exception()
           | too_many_requests_exception()
 
+  @type create_portal_errors() ::
+          bad_request_exception() | access_denied_exception() | too_many_requests_exception()
+
+  @type create_portal_product_errors() ::
+          bad_request_exception() | access_denied_exception() | too_many_requests_exception()
+
+  @type create_product_page_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type create_product_rest_endpoint_page_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
   @type create_route_errors() ::
           bad_request_exception()
           | not_found_exception()
@@ -2594,6 +3523,33 @@ defmodule AWS.ApiGatewayV2 do
 
   @type delete_model_errors() :: not_found_exception() | too_many_requests_exception()
 
+  @type delete_portal_errors() ::
+          bad_request_exception() | access_denied_exception() | too_many_requests_exception()
+
+  @type delete_portal_product_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_portal_product_sharing_policy_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_product_page_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_product_rest_endpoint_page_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
   @type delete_route_errors() :: not_found_exception() | too_many_requests_exception()
 
   @type delete_route_request_parameter_errors() ::
@@ -2609,6 +3565,13 @@ defmodule AWS.ApiGatewayV2 do
   @type delete_stage_errors() :: not_found_exception() | too_many_requests_exception()
 
   @type delete_vpc_link_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type disable_portal_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
 
   @type export_api_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
@@ -2656,6 +3619,36 @@ defmodule AWS.ApiGatewayV2 do
   @type get_models_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
+  @type get_portal_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_portal_product_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_portal_product_sharing_policy_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_product_page_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_product_rest_endpoint_page_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
   @type get_route_errors() :: not_found_exception() | too_many_requests_exception()
 
   @type get_route_response_errors() :: not_found_exception() | too_many_requests_exception()
@@ -2690,8 +3683,46 @@ defmodule AWS.ApiGatewayV2 do
           | conflict_exception()
           | too_many_requests_exception()
 
+  @type list_portal_products_errors() ::
+          bad_request_exception() | access_denied_exception() | too_many_requests_exception()
+
+  @type list_portals_errors() ::
+          bad_request_exception() | access_denied_exception() | too_many_requests_exception()
+
+  @type list_product_pages_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_product_rest_endpoint_pages_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
   @type list_routing_rules_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type preview_portal_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type publish_portal_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type put_portal_product_sharing_policy_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
 
   @type put_routing_rule_errors() ::
           bad_request_exception()
@@ -2765,6 +3796,31 @@ defmodule AWS.ApiGatewayV2 do
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_portal_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_portal_product_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_product_page_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_product_rest_endpoint_page_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
           | too_many_requests_exception()
 
   @type update_route_errors() ::
@@ -3031,6 +4087,134 @@ defmodule AWS.ApiGatewayV2 do
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a portal.
+  """
+  @spec create_portal(map(), create_portal_request(), list()) ::
+          {:ok, create_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_portal_errors()}
+  def create_portal(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/portals"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new portal product.
+  """
+  @spec create_portal_product(map(), create_portal_product_request(), list()) ::
+          {:ok, create_portal_product_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_portal_product_errors()}
+  def create_portal_product(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/portalproducts"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new product page for a portal product.
+  """
+  @spec create_product_page(map(), String.t() | atom(), create_product_page_request(), list()) ::
+          {:ok, create_product_page_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_product_page_errors()}
+  def create_product_page(%Client{} = client, portal_product_id, input, options \\ []) do
+    url_path = "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productpages"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a product REST endpoint page for a portal product.
+  """
+  @spec create_product_rest_endpoint_page(
+          map(),
+          String.t() | atom(),
+          create_product_rest_endpoint_page_request(),
+          list()
+        ) ::
+          {:ok, create_product_rest_endpoint_page_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_product_rest_endpoint_page_errors()}
+  def create_product_rest_endpoint_page(
+        %Client{} = client,
+        portal_product_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productrestendpointpages"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -3568,6 +4752,189 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
+  Deletes a portal.
+  """
+  @spec delete_portal(map(), String.t() | atom(), delete_portal_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_portal_errors()}
+  def delete_portal(%Client{} = client, portal_id, input, options \\ []) do
+    url_path = "/v2/portals/#{AWS.Util.encode_uri(portal_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a portal product.
+  """
+  @spec delete_portal_product(map(), String.t() | atom(), delete_portal_product_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_portal_product_errors()}
+  def delete_portal_product(%Client{} = client, portal_product_id, input, options \\ []) do
+    url_path = "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes the sharing policy for a portal product.
+  """
+  @spec delete_portal_product_sharing_policy(
+          map(),
+          String.t() | atom(),
+          delete_portal_product_sharing_policy_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_portal_product_sharing_policy_errors()}
+  def delete_portal_product_sharing_policy(
+        %Client{} = client,
+        portal_product_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/sharingpolicy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a product page of a portal product.
+  """
+  @spec delete_product_page(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_product_page_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_product_page_errors()}
+  def delete_product_page(
+        %Client{} = client,
+        portal_product_id,
+        product_page_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productpages/#{AWS.Util.encode_uri(product_page_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a product REST endpoint page.
+  """
+  @spec delete_product_rest_endpoint_page(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_product_rest_endpoint_page_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_product_rest_endpoint_page_errors()}
+  def delete_product_rest_endpoint_page(
+        %Client{} = client,
+        portal_product_id,
+        product_rest_endpoint_page_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productrestendpointpages/#{AWS.Util.encode_uri(product_rest_endpoint_page_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a Route.
   """
   @spec delete_route(
@@ -3842,6 +5209,35 @@ defmodule AWS.ApiGatewayV2 do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deletes the publication of a portal portal.
+  """
+  @spec disable_portal(map(), String.t() | atom(), disable_portal_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disable_portal_errors()}
+  def disable_portal(%Client{} = client, portal_id, input, options \\ []) do
+    url_path = "/v2/portals/#{AWS.Util.encode_uri(portal_id)}/publish"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -4421,6 +5817,159 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
+  Gets a portal.
+  """
+  @spec get_portal(map(), String.t() | atom(), list()) ::
+          {:ok, get_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_portal_errors()}
+  def get_portal(%Client{} = client, portal_id, options \\ []) do
+    url_path = "/v2/portals/#{AWS.Util.encode_uri(portal_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a portal product.
+  """
+  @spec get_portal_product(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+          {:ok, get_portal_product_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_portal_product_errors()}
+  def get_portal_product(
+        %Client{} = client,
+        portal_product_id,
+        resource_owner_account_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_owner_account_id) do
+        [{"resourceOwnerAccountId", resource_owner_account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the sharing policy for a portal product.
+  """
+  @spec get_portal_product_sharing_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_portal_product_sharing_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_portal_product_sharing_policy_errors()}
+  def get_portal_product_sharing_policy(%Client{} = client, portal_product_id, options \\ []) do
+    url_path = "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/sharingpolicy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a product page of a portal product.
+  """
+  @spec get_product_page(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_product_page_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_product_page_errors()}
+  def get_product_page(
+        %Client{} = client,
+        portal_product_id,
+        product_page_id,
+        resource_owner_account_id \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productpages/#{AWS.Util.encode_uri(product_page_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_owner_account_id) do
+        [{"resourceOwnerAccountId", resource_owner_account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a product REST endpoint page.
+  """
+  @spec get_product_rest_endpoint_page(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_product_rest_endpoint_page_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_product_rest_endpoint_page_errors()}
+  def get_product_rest_endpoint_page(
+        %Client{} = client,
+        portal_product_id,
+        product_rest_endpoint_page_id,
+        include_raw_display_content \\ nil,
+        resource_owner_account_id \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productrestendpointpages/#{AWS.Util.encode_uri(product_rest_endpoint_page_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_owner_account_id) do
+        [{"resourceOwnerAccountId", resource_owner_account_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_raw_display_content) do
+        [{"includeRawDisplayContent", include_raw_display_content} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a Route.
   """
   @spec get_route(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -4756,6 +6305,197 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
+  Lists portal products.
+  """
+  @spec list_portal_products(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_portal_products_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_portal_products_errors()}
+  def list_portal_products(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/portalproducts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_owner) do
+        [{"resourceOwner", resource_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists portals.
+  """
+  @spec list_portals(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_portals_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_portals_errors()}
+  def list_portals(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v2/portals"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the product pages for a portal product.
+  """
+  @spec list_product_pages(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_product_pages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_product_pages_errors()}
+  def list_product_pages(
+        %Client{} = client,
+        portal_product_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_owner_account_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productpages"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_owner_account_id) do
+        [{"resourceOwnerAccountId", resource_owner_account_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the product REST endpoint pages of a portal product.
+  """
+  @spec list_product_rest_endpoint_pages(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_product_rest_endpoint_pages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_product_rest_endpoint_pages_errors()}
+  def list_product_rest_endpoint_pages(
+        %Client{} = client,
+        portal_product_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_owner_account_id \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productrestendpointpages"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_owner_account_id) do
+        [{"resourceOwnerAccountId", resource_owner_account_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists routing rules.
   """
   @spec list_routing_rules(
@@ -4806,6 +6546,103 @@ defmodule AWS.ApiGatewayV2 do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Creates a portal preview.
+  """
+  @spec preview_portal(map(), String.t() | atom(), preview_portal_request(), list()) ::
+          {:ok, preview_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, preview_portal_errors()}
+  def preview_portal(%Client{} = client, portal_id, input, options \\ []) do
+    url_path = "/v2/portals/#{AWS.Util.encode_uri(portal_id)}/preview"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Publishes a portal.
+  """
+  @spec publish_portal(map(), String.t() | atom(), publish_portal_request(), list()) ::
+          {:ok, publish_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, publish_portal_errors()}
+  def publish_portal(%Client{} = client, portal_id, input, options \\ []) do
+    url_path = "/v2/portals/#{AWS.Util.encode_uri(portal_id)}/publish"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates the sharing policy for a portal product.
+  """
+  @spec put_portal_product_sharing_policy(
+          map(),
+          String.t() | atom(),
+          put_portal_product_sharing_policy_request(),
+          list()
+        ) ::
+          {:ok, put_portal_product_sharing_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_portal_product_sharing_policy_errors()}
+  def put_portal_product_sharing_policy(
+        %Client{} = client,
+        portal_product_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/sharingpolicy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5261,6 +7098,150 @@ defmodule AWS.ApiGatewayV2 do
           | {:error, update_model_errors()}
   def update_model(%Client{} = client, api_id, model_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a portal.
+  """
+  @spec update_portal(map(), String.t() | atom(), update_portal_request(), list()) ::
+          {:ok, update_portal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_portal_errors()}
+  def update_portal(%Client{} = client, portal_id, input, options \\ []) do
+    url_path = "/v2/portals/#{AWS.Util.encode_uri(portal_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the portal product.
+  """
+  @spec update_portal_product(map(), String.t() | atom(), update_portal_product_request(), list()) ::
+          {:ok, update_portal_product_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_portal_product_errors()}
+  def update_portal_product(%Client{} = client, portal_product_id, input, options \\ []) do
+    url_path = "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a product page of a portal product.
+  """
+  @spec update_product_page(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_product_page_request(),
+          list()
+        ) ::
+          {:ok, update_product_page_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_product_page_errors()}
+  def update_product_page(
+        %Client{} = client,
+        portal_product_id,
+        product_page_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productpages/#{AWS.Util.encode_uri(product_page_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a product REST endpoint page.
+  """
+  @spec update_product_rest_endpoint_page(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_product_rest_endpoint_page_request(),
+          list()
+        ) ::
+          {:ok, update_product_rest_endpoint_page_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_product_rest_endpoint_page_errors()}
+  def update_product_rest_endpoint_page(
+        %Client{} = client,
+        portal_product_id,
+        product_rest_endpoint_page_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/portalproducts/#{AWS.Util.encode_uri(portal_product_id)}/productrestendpointpages/#{AWS.Util.encode_uri(product_rest_endpoint_page_id)}"
+
     headers = []
     custom_headers = []
     query_params = []

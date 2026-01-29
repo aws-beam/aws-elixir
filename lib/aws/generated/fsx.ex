@@ -256,6 +256,7 @@ defmodule AWS.FSx do
         "DailyAutomaticBackupStartTime" => String.t() | atom(),
         "DeploymentType" => list(any()),
         "DiskIopsConfiguration" => disk_iops_configuration(),
+        "FsrmConfiguration" => windows_fsrm_configuration(),
         "PreferredSubnetId" => String.t() | atom(),
         "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration(),
         "ThroughputCapacity" => integer(),
@@ -557,6 +558,18 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      windows_fsrm_configuration() :: %{
+        "EventLogDestination" => String.t() | atom(),
+        "FsrmServiceEnabled" => boolean()
+      }
+      
+  """
+  @type windows_fsrm_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       duration_since_last_access() :: %{
         "Unit" => list(any()),
         "Value" => float()
@@ -648,6 +661,7 @@ defmodule AWS.FSx do
       
       create_and_attach_s3_access_point_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("OntapConfiguration") => create_and_attach_s3_access_point_ontap_configuration(),
         optional("OpenZFSConfiguration") => create_and_attach_s3_access_point_open_z_f_s_configuration(),
         optional("S3AccessPoint") => create_and_attach_s3_access_point_s3_configuration(),
         required("Name") => String.t() | atom(),
@@ -883,6 +897,17 @@ defmodule AWS.FSx do
       
   """
   @type open_z_f_s_nfs_export() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ontap_unix_file_system_user() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type ontap_unix_file_system_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2108,6 +2133,18 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      s3_access_point_ontap_configuration() :: %{
+        "FileSystemIdentity" => ontap_file_system_identity(),
+        "VolumeId" => String.t() | atom()
+      }
+      
+  """
+  @type s3_access_point_ontap_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       active_directory_backup_attributes() :: %{
         "ActiveDirectoryId" => String.t() | atom(),
         "DomainName" => String.t() | atom(),
@@ -2116,6 +2153,17 @@ defmodule AWS.FSx do
       
   """
   @type active_directory_backup_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ontap_windows_file_system_user() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type ontap_windows_file_system_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2297,6 +2345,7 @@ defmodule AWS.FSx do
         "AutomaticBackupRetentionDays" => integer(),
         "DailyAutomaticBackupStartTime" => String.t() | atom(),
         "DiskIopsConfiguration" => disk_iops_configuration(),
+        "FsrmConfiguration" => windows_fsrm_configuration(),
         "SelfManagedActiveDirectoryConfiguration" => self_managed_active_directory_configuration_updates(),
         "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t() | atom()
@@ -2510,6 +2559,19 @@ defmodule AWS.FSx do
       
   """
   @type volume() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ontap_file_system_identity() :: %{
+        "Type" => list(any()),
+        "UnixUser" => ontap_unix_file_system_user(),
+        "WindowsUser" => ontap_windows_file_system_user()
+      }
+      
+  """
+  @type ontap_file_system_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2768,6 +2830,7 @@ defmodule AWS.FSx do
         "DailyAutomaticBackupStartTime" => String.t() | atom(),
         "DeploymentType" => list(any()),
         "DiskIopsConfiguration" => disk_iops_configuration(),
+        "FsrmConfiguration" => windows_fsrm_configuration(),
         "MaintenanceOperationsInProgress" => list(list(any())()),
         "PreferredFileServerIp" => String.t() | atom(),
         "PreferredFileServerIpv6" => String.t() | atom(),
@@ -2836,6 +2899,7 @@ defmodule AWS.FSx do
         "Lifecycle" => list(any()),
         "LifecycleTransitionReason" => lifecycle_transition_reason(),
         "Name" => String.t() | atom(),
+        "OntapConfiguration" => s3_access_point_ontap_configuration(),
         "OpenZFSConfiguration" => s3_access_point_open_z_f_s_configuration(),
         "S3AccessPoint" => s3_access_point(),
         "Type" => list(any())
@@ -2943,6 +3007,20 @@ defmodule AWS.FSx do
       
   """
   @type start_misconfigured_state_recovery_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_and_attach_s3_access_point_ontap_configuration() :: %{
+        "FileSystemIdentity" => ontap_file_system_identity(),
+        "VolumeId" => String.t() | atom()
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_ontap_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 

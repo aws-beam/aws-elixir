@@ -150,6 +150,7 @@ defmodule AWS.MediaConvert do
       mxf_settings() :: %{
         "AfdSignaling" => list(any()),
         "Profile" => list(any()),
+        "UncompressedAudioWrapping" => list(any()),
         "XavcProfileSettings" => mxf_xavc_profile_settings()
       }
 
@@ -788,6 +789,7 @@ defmodule AWS.MediaConvert do
         "FramerateDenominator" => integer(),
         "FramerateNumerator" => integer(),
         "Height" => integer(),
+        "ImageInput" => String.t() | atom(),
         "SampleRate" => integer(),
         "Width" => integer()
       }
@@ -1976,14 +1978,18 @@ defmodule AWS.MediaConvert do
 
       h265_settings() :: %{
         "PerFrameMetrics" => list(list(any())()),
+        "MvTemporalPredictor" => list(any()),
         "ParControl" => list(any()),
+        "TileWidth" => integer(),
         "TemporalAdaptiveQuantization" => list(any()),
         "DynamicSubGop" => list(any()),
         "HrdBufferSize" => integer(),
         "FramerateConversionAlgorithm" => list(any()),
         "CodecProfile" => list(any()),
         "NumberBFramesBetweenReferenceFrames" => integer(),
+        "TreeBlockSize" => list(any()),
         "EndOfStreamMarkers" => list(any()),
+        "TileHeight" => integer(),
         "NumberReferenceFrames" => integer(),
         "Bitrate" => integer(),
         "SlowPal" => list(any()),
@@ -1996,6 +2002,7 @@ defmodule AWS.MediaConvert do
         "AdaptiveQuantization" => list(any()),
         "CodecLevel" => list(any()),
         "HrdBufferFinalFillPercentage" => integer(),
+        "MvOverPictureBoundaries" => list(any()),
         "FramerateControl" => list(any()),
         "SpatialAdaptiveQuantization" => list(any()),
         "FramerateDenominator" => integer(),
@@ -2005,6 +2012,7 @@ defmodule AWS.MediaConvert do
         "UnregisteredSeiTimecode" => list(any()),
         "ScanTypeConversionMode" => list(any()),
         "Deblocking" => list(any()),
+        "TilePadding" => list(any()),
         "ParNumerator" => integer(),
         "GopClosedCadence" => integer(),
         "FramerateNumerator" => integer(),
@@ -2119,6 +2127,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       dolby_vision() :: %{
+        "Compatibility" => list(any()),
         "L6Metadata" => dolby_vision_level6_metadata(),
         "L6Mode" => list(any()),
         "Mapping" => list(any()),
@@ -3267,6 +3276,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       video_overlay_input() :: %{
+        "AudioSelectors" => map(),
         "FileInput" => String.t() | atom(),
         "InputClippings" => list(video_overlay_input_clipping()),
         "TimecodeSource" => list(any()),

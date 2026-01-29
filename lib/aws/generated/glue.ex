@@ -140,6 +140,7 @@ defmodule AWS.Glue do
         "CreateTime" => non_neg_integer(),
         "DatabaseName" => String.t() | atom(),
         "FunctionName" => String.t() | atom(),
+        "FunctionType" => list(any()),
         "OwnerName" => String.t() | atom(),
         "OwnerType" => list(any()),
         "ResourceUris" => list(resource_uri())
@@ -577,8 +578,13 @@ defmodule AWS.Glue do
       view_definition_input() :: %{
         "Definer" => String.t() | atom(),
         "IsProtected" => boolean(),
+        "LastRefreshType" => list(any()),
+        "RefreshSeconds" => float(),
         "Representations" => list(view_representation_input()),
-        "SubObjects" => list(String.t() | atom())
+        "SubObjectVersionIds" => list(float()),
+        "SubObjects" => list(String.t() | atom()),
+        "ViewVersionId" => float(),
+        "ViewVersionToken" => String.t() | atom()
       }
       
   """
@@ -708,9 +714,11 @@ defmodule AWS.Glue do
       iceberg_struct_field() :: %{
         "Doc" => String.t() | atom(),
         "Id" => integer(),
+        "InitialDefault" => any(),
         "Name" => String.t() | atom(),
         "Required" => boolean(),
-        "Type" => any()
+        "Type" => any(),
+        "WriteDefault" => any()
       }
       
   """
@@ -1852,6 +1860,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      integration_resource_property_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type integration_resource_property_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       iceberg_orphan_file_deletion_configuration() :: %{
         "location" => String.t() | atom(),
         "orphanFileRetentionPeriodInDays" => integer(),
@@ -2012,6 +2032,7 @@ defmodule AWS.Glue do
       get_unfiltered_table_metadata_response() :: %{
         "AuthorizedColumns" => list(String.t() | atom()),
         "CellFilters" => list(column_row_filter()),
+        "IsMaterializedView" => boolean(),
         "IsMultiDialectView" => boolean(),
         "IsProtected" => boolean(),
         "IsRegisteredWithLakeFormation" => boolean(),
@@ -2054,6 +2075,31 @@ defmodule AWS.Glue do
       
   """
   @type task_run_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      materialized_view_refresh_task_run() :: %{
+        "CatalogId" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CustomerId" => String.t() | atom(),
+        "DPUSeconds" => float(),
+        "DatabaseName" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "ErrorMessage" => String.t() | atom(),
+        "LastUpdated" => non_neg_integer(),
+        "MaterializedViewRefreshTaskRunId" => String.t() | atom(),
+        "ProcessedBytes" => float(),
+        "RefreshType" => list(any()),
+        "Role" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TableName" => String.t() | atom()
+      }
+      
+  """
+  @type materialized_view_refresh_task_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2166,6 +2212,15 @@ defmodule AWS.Glue do
       
   """
   @type get_workflow_run_properties_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_integration_resource_property_response() :: %{}
+      
+  """
+  @type delete_integration_resource_property_response() :: %{}
 
   @typedoc """
 
@@ -2364,6 +2419,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_materialized_view_refresh_task_runs_request() :: %{
+        optional("DatabaseName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TableName") => String.t() | atom(),
+        required("CatalogId") => String.t() | atom()
+      }
+      
+  """
+  @type list_materialized_view_refresh_task_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       registry_id() :: %{
         "RegistryArn" => String.t() | atom(),
         "RegistryName" => String.t() | atom()
@@ -2512,6 +2582,20 @@ defmodule AWS.Glue do
       
   """
   @type run_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_encrypted_key() :: %{
+        "EncryptedById" => String.t() | atom(),
+        "EncryptedKeyMetadata" => String.t() | atom(),
+        "KeyId" => String.t() | atom(),
+        "Properties" => map()
+      }
+      
+  """
+  @type iceberg_encrypted_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3931,6 +4015,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_materialized_view_refresh_task_runs_response() :: %{
+        "MaterializedViewRefreshTaskRuns" => list(materialized_view_refresh_task_run()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_materialized_view_refresh_task_runs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       status_details() :: %{
         "RequestedChange" => table(),
         "ViewValidations" => list(view_validation())
@@ -4600,6 +4696,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      materialized_view_refresh_task_stopping_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type materialized_view_refresh_task_stopping_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_integration_table_properties_response() :: %{}
       
   """
@@ -5255,6 +5362,18 @@ defmodule AWS.Glue do
       
   """
   @type kinesis_streaming_source_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_materialized_view_refresh_task_run_request() :: %{
+        required("CatalogId") => String.t() | atom(),
+        required("MaterializedViewRefreshTaskRunId") => String.t() | atom()
+      }
+      
+  """
+  @type get_materialized_view_refresh_task_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6190,6 +6309,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      start_materialized_view_refresh_task_run_request() :: %{
+        optional("FullRefresh") => boolean(),
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
+      }
+      
+  """
+  @type start_materialized_view_refresh_task_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       workflow_graph() :: %{
         "Edges" => list(edge()),
         "Nodes" => list(node())
@@ -6204,6 +6337,7 @@ defmodule AWS.Glue do
       
       get_integration_resource_property_response() :: %{
         "ResourceArn" => String.t() | atom(),
+        "ResourcePropertyArn" => String.t() | atom(),
         "SourceProcessingProperties" => source_processing_properties(),
         "TargetProcessingProperties" => target_processing_properties()
       }
@@ -6520,6 +6654,19 @@ defmodule AWS.Glue do
       
   """
   @type update_grok_classifier_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      materialized_view_refresh_task_not_running_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type materialized_view_refresh_task_not_running_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -7368,6 +7515,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_integration_resource_property_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_integration_resource_property_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_connection_response() :: %{}
       
   """
@@ -7597,6 +7755,17 @@ defmodule AWS.Glue do
       
   """
   @type update_csv_classifier_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_materialized_view_refresh_task_run_response() :: %{
+        "MaterializedViewRefreshTaskRunId" => String.t() | atom()
+      }
+      
+  """
+  @type start_materialized_view_refresh_task_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7998,8 +8167,13 @@ defmodule AWS.Glue do
       view_definition() :: %{
         "Definer" => String.t() | atom(),
         "IsProtected" => boolean(),
+        "LastRefreshType" => list(any()),
+        "RefreshSeconds" => float(),
         "Representations" => list(view_representation()),
-        "SubObjects" => list(String.t() | atom())
+        "SubObjectVersionIds" => list(float()),
+        "SubObjects" => list(String.t() | atom()),
+        "ViewVersionId" => float(),
+        "ViewVersionToken" => String.t() | atom()
       }
       
   """
@@ -9005,6 +9179,7 @@ defmodule AWS.Glue do
       user_defined_function_input() :: %{
         "ClassName" => String.t() | atom(),
         "FunctionName" => String.t() | atom(),
+        "FunctionType" => list(any()),
         "OwnerName" => String.t() | atom(),
         "OwnerType" => list(any()),
         "ResourceUris" => list(resource_uri())
@@ -9106,6 +9281,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      stop_materialized_view_refresh_task_run_response() :: %{}
+      
+  """
+  @type stop_materialized_view_refresh_task_run_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       get_plan_response() :: %{
         "PythonScript" => String.t() | atom(),
         "ScalaCode" => String.t() | atom()
@@ -9120,6 +9304,7 @@ defmodule AWS.Glue do
       
       update_integration_resource_property_response() :: %{
         "ResourceArn" => String.t() | atom(),
+        "ResourcePropertyArn" => String.t() | atom(),
         "SourceProcessingProperties" => source_processing_properties(),
         "TargetProcessingProperties" => target_processing_properties()
       }
@@ -9207,8 +9392,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_materialized_view_refresh_task_run_response() :: %{
+        "MaterializedViewRefreshTaskRun" => materialized_view_refresh_task_run()
+      }
+      
+  """
+  @type get_materialized_view_refresh_task_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_integration_resource_property_request() :: %{
         optional("SourceProcessingProperties") => source_processing_properties(),
+        optional("Tags") => list(tag()),
         optional("TargetProcessingProperties") => target_processing_properties(),
         required("ResourceArn") => String.t() | atom()
       }
@@ -9803,6 +10000,9 @@ defmodule AWS.Glue do
   ## Example:
       
       iceberg_table_update() :: %{
+        "Action" => list(any()),
+        "EncryptionKey" => iceberg_encrypted_key(),
+        "KeyId" => String.t() | atom(),
         "Location" => String.t() | atom(),
         "PartitionSpec" => iceberg_partition_spec(),
         "Properties" => map(),
@@ -10411,6 +10611,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      stop_materialized_view_refresh_task_run_request() :: %{
+        required("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_materialized_view_refresh_task_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       evaluate_data_quality() :: %{
         "Inputs" => list(String.t() | atom()),
         "Name" => String.t() | atom(),
@@ -10512,6 +10725,18 @@ defmodule AWS.Glue do
       
   """
   @type get_table_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_integration_resource_properties_response() :: %{
+        "IntegrationResourcePropertyList" => list(integration_resource_property()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type list_integration_resource_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11342,6 +11567,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      integration_resource_property() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "ResourcePropertyArn" => String.t() | atom(),
+        "SourceProcessingProperties" => source_processing_properties(),
+        "TargetProcessingProperties" => target_processing_properties()
+      }
+      
+  """
+  @type integration_resource_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_json_classifier_request() :: %{
         "JsonPath" => String.t() | atom(),
         "Name" => String.t() | atom()
@@ -12059,6 +12298,7 @@ defmodule AWS.Glue do
         "DatabaseName" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "FederatedTable" => federated_table(),
+        "IsMaterializedView" => boolean(),
         "IsMultiDialectView" => boolean(),
         "IsRegisteredWithLakeFormation" => boolean(),
         "LastAccessTime" => non_neg_integer(),
@@ -12162,6 +12402,7 @@ defmodule AWS.Glue do
       
       create_integration_resource_property_response() :: %{
         "ResourceArn" => String.t() | atom(),
+        "ResourcePropertyArn" => String.t() | atom(),
         "SourceProcessingProperties" => source_processing_properties(),
         "TargetProcessingProperties" => target_processing_properties()
       }
@@ -12550,6 +12791,7 @@ defmodule AWS.Glue do
       get_user_defined_functions_request() :: %{
         optional("CatalogId") => String.t() | atom(),
         optional("DatabaseName") => String.t() | atom(),
+        optional("FunctionType") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         required("Pattern") => String.t() | atom()
@@ -12700,6 +12942,17 @@ defmodule AWS.Glue do
       
   """
   @type data_quality_ruleset_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      materialized_view_refresh_task_running_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type materialized_view_refresh_task_running_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13103,6 +13356,19 @@ defmodule AWS.Glue do
       
   """
   @type update_column_statistics_for_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_integration_resource_properties_request() :: %{
+        optional("Filters") => list(integration_resource_property_filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type list_integration_resource_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13628,6 +13894,15 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | entity_not_found_exception()
 
+  @type delete_integration_resource_property_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
   @type delete_integration_table_properties_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -14016,6 +14291,12 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type get_materialized_view_refresh_task_run_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type get_ml_task_run_errors() ::
           invalid_input_exception()
           | internal_service_exception()
@@ -14326,11 +14607,23 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type list_integration_resource_properties_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
   @type list_jobs_errors() ::
           invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
+
+  @type list_materialized_view_refresh_task_runs_errors() ::
+          access_denied_exception() | invalid_input_exception() | operation_timeout_exception()
 
   @type list_ml_transforms_errors() ::
           invalid_input_exception()
@@ -14541,6 +14834,14 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type start_materialized_view_refresh_task_run_errors() ::
+          materialized_view_refresh_task_running_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type start_ml_evaluation_task_run_errors() ::
           invalid_input_exception()
           | internal_service_exception()
@@ -14592,6 +14893,13 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
           | scheduler_not_running_exception()
+
+  @type stop_materialized_view_refresh_task_run_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | materialized_view_refresh_task_not_running_exception()
+          | materialized_view_refresh_task_stopping_exception()
+          | operation_timeout_exception()
 
   @type stop_session_errors() ::
           concurrent_modification_exception()
@@ -16008,6 +16316,25 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  This API is used for deleting the `ResourceProperty` of the Glue connection (for
+  the source) or Glue database ARN (for the target).
+  """
+  @spec delete_integration_resource_property(
+          map(),
+          delete_integration_resource_property_request(),
+          list()
+        ) ::
+          {:ok, delete_integration_resource_property_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_integration_resource_property_errors()}
+  def delete_integration_resource_property(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIntegrationResourceProperty", input, options)
+  end
+
+  @doc """
   Deletes the table properties that have been created for the tables that need to
   be replicated.
   """
@@ -17048,6 +17375,24 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Get the associated metadata/information for a task run, given a task run ID.
+  """
+  @spec get_materialized_view_refresh_task_run(
+          map(),
+          get_materialized_view_refresh_task_run_request(),
+          list()
+        ) ::
+          {:ok, get_materialized_view_refresh_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_materialized_view_refresh_task_run_errors()}
+  def get_materialized_view_refresh_task_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMaterializedViewRefreshTaskRun", input, options)
+  end
+
+  @doc """
   Gets details for a specific task run on a machine learning transform.
 
   Machine learning
@@ -17920,6 +18265,26 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  List integration resource properties for a single customer.
+
+  It supports the filters, maxRecords and markers.
+  """
+  @spec list_integration_resource_properties(
+          map(),
+          list_integration_resource_properties_request(),
+          list()
+        ) ::
+          {:ok, list_integration_resource_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_integration_resource_properties_errors()}
+  def list_integration_resource_properties(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListIntegrationResourceProperties", input, options)
+  end
+
+  @doc """
   Retrieves the names of all job resources in this Amazon Web Services account, or
   the resources with the specified tag.
 
@@ -17940,6 +18305,24 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
+  end
+
+  @doc """
+  List all task runs for a particular account.
+  """
+  @spec list_materialized_view_refresh_task_runs(
+          map(),
+          list_materialized_view_refresh_task_runs_request(),
+          list()
+        ) ::
+          {:ok, list_materialized_view_refresh_task_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_materialized_view_refresh_task_runs_errors()}
+  def list_materialized_view_refresh_task_runs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMaterializedViewRefreshTaskRuns", input, options)
   end
 
   @doc """
@@ -18575,6 +18958,24 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Starts a materialized view refresh task run, for a specified table and columns.
+  """
+  @spec start_materialized_view_refresh_task_run(
+          map(),
+          start_materialized_view_refresh_task_run_request(),
+          list()
+        ) ::
+          {:ok, start_materialized_view_refresh_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_materialized_view_refresh_task_run_errors()}
+  def start_materialized_view_refresh_task_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMaterializedViewRefreshTaskRun", input, options)
+  end
+
+  @doc """
   Starts a task to estimate the quality of the transform.
 
   When you provide label sets as examples of truth, Glue machine learning uses
@@ -18729,6 +19130,24 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "StopCrawlerSchedule", input, options)
+  end
+
+  @doc """
+  Stops a materialized view refresh task run, for a specified table and columns.
+  """
+  @spec stop_materialized_view_refresh_task_run(
+          map(),
+          stop_materialized_view_refresh_task_run_request(),
+          list()
+        ) ::
+          {:ok, stop_materialized_view_refresh_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_materialized_view_refresh_task_run_errors()}
+  def stop_materialized_view_refresh_task_run(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopMaterializedViewRefreshTaskRun", input, options)
   end
 
   @doc """

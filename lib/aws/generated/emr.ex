@@ -113,6 +113,18 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      s3_monitoring_configuration() :: %{
+        "EncryptionKeyArn" => String.t() | atom(),
+        "LogUri" => String.t() | atom()
+      }
+      
+  """
+  @type s3_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       auto_termination_policy() :: %{
         "IdleTimeout" => float()
       }
@@ -582,6 +594,17 @@ defmodule AWS.EMR do
       
   """
   @type hadoop_step_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitoring_configuration() :: %{
+        "CloudWatchLogConfiguration" => cloud_watch_log_configuration()
+      }
+      
+  """
+  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1149,6 +1172,7 @@ defmodule AWS.EMR do
         "RequestedAmiVersion" => String.t() | atom(),
         "NormalizedInstanceHours" => integer(),
         "EbsRootVolumeIops" => integer(),
+        "MonitoringConfiguration" => monitoring_configuration(),
         "UnhealthyNodeReplacement" => boolean(),
         "ScaleDownBehavior" => list(any()),
         "VisibleToAllUsers" => boolean(),
@@ -1480,7 +1504,8 @@ defmodule AWS.EMR do
       step_config() :: %{
         "ActionOnFailure" => list(any()),
         "HadoopJarStep" => hadoop_jar_step_config(),
-        "Name" => String.t() | atom()
+        "Name" => String.t() | atom(),
+        "StepMonitoringConfiguration" => step_monitoring_configuration()
       }
       
   """
@@ -2005,6 +2030,17 @@ defmodule AWS.EMR do
       
   """
   @type instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      step_monitoring_configuration() :: %{
+        "S3MonitoringConfiguration" => s3_monitoring_configuration()
+      }
+      
+  """
+  @type step_monitoring_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2611,6 +2647,21 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      cloud_watch_log_configuration() :: %{
+        "Enabled" => boolean(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "LogGroupName" => String.t() | atom(),
+        "LogStreamNamePrefix" => String.t() | atom(),
+        "LogTypes" => map()
+      }
+      
+  """
+  @type cloud_watch_log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       set_termination_protection_input() :: %{
         required("JobFlowIds") => list(String.t() | atom()),
         required("TerminationProtected") => boolean()
@@ -2673,8 +2724,10 @@ defmodule AWS.EMR do
       step() :: %{
         "ActionOnFailure" => list(any()),
         "Config" => hadoop_step_config(),
+        "EncryptionKeyArn" => String.t() | atom(),
         "ExecutionRoleArn" => String.t() | atom(),
         "Id" => String.t() | atom(),
+        "LogUri" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "Status" => step_status()
       }
@@ -2725,7 +2778,9 @@ defmodule AWS.EMR do
       step_summary() :: %{
         "ActionOnFailure" => list(any()),
         "Config" => hadoop_step_config(),
+        "EncryptionKeyArn" => String.t() | atom(),
         "Id" => String.t() | atom(),
+        "LogUri" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "Status" => step_status()
       }
@@ -2867,38 +2922,39 @@ defmodule AWS.EMR do
   ## Example:
       
       run_job_flow_input() :: %{
-        optional("AdditionalInfo") => String.t() | atom(),
-        optional("AmiVersion") => String.t() | atom(),
-        optional("Applications") => list(application()),
-        optional("AutoScalingRole") => String.t() | atom(),
-        optional("AutoTerminationPolicy") => auto_termination_policy(),
-        optional("BootstrapActions") => list(bootstrap_action_config()),
-        optional("Configurations") => list(configuration()),
-        optional("CustomAmiId") => String.t() | atom(),
-        optional("EbsRootVolumeIops") => integer(),
-        optional("EbsRootVolumeSize") => integer(),
-        optional("EbsRootVolumeThroughput") => integer(),
-        optional("ExtendedSupport") => boolean(),
-        optional("JobFlowRole") => String.t() | atom(),
-        optional("KerberosAttributes") => kerberos_attributes(),
-        optional("LogEncryptionKmsKeyId") => String.t() | atom(),
-        optional("LogUri") => String.t() | atom(),
-        optional("ManagedScalingPolicy") => managed_scaling_policy(),
-        optional("NewSupportedProducts") => list(supported_product_config()),
-        optional("OSReleaseLabel") => String.t() | atom(),
-        optional("PlacementGroupConfigs") => list(placement_group_config()),
-        optional("ReleaseLabel") => String.t() | atom(),
         optional("RepoUpgradeOnBoot") => list(any()),
         optional("ScaleDownBehavior") => list(any()),
+        optional("LogEncryptionKmsKeyId") => String.t() | atom(),
+        optional("JobFlowRole") => String.t() | atom(),
         optional("SecurityConfiguration") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("AutoScalingRole") => String.t() | atom(),
+        optional("KerberosAttributes") => kerberos_attributes(),
+        optional("EbsRootVolumeIops") => integer(),
+        optional("AmiVersion") => String.t() | atom(),
         optional("ServiceRole") => String.t() | atom(),
-        optional("StepConcurrencyLevel") => integer(),
+        optional("ReleaseLabel") => String.t() | atom(),
+        optional("AdditionalInfo") => String.t() | atom(),
+        optional("NewSupportedProducts") => list(supported_product_config()),
         optional("Steps") => list(step_config()),
+        optional("PlacementGroupConfigs") => list(placement_group_config()),
+        optional("Applications") => list(application()),
+        optional("OSReleaseLabel") => String.t() | atom(),
         optional("SupportedProducts") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
+        optional("StepConcurrencyLevel") => integer(),
+        optional("EbsRootVolumeSize") => integer(),
         optional("VisibleToAllUsers") => boolean(),
+        optional("ManagedScalingPolicy") => managed_scaling_policy(),
         required("Instances") => job_flow_instances_config(),
-        required("Name") => String.t() | atom()
+        optional("AutoTerminationPolicy") => auto_termination_policy(),
+        optional("ExtendedSupport") => boolean(),
+        optional("EbsRootVolumeThroughput") => integer(),
+        optional("Configurations") => list(configuration()),
+        optional("BootstrapActions") => list(bootstrap_action_config()),
+        optional("Tags") => list(tag()),
+        optional("MonitoringConfiguration") => monitoring_configuration(),
+        optional("LogUri") => String.t() | atom(),
+        optional("CustomAmiId") => String.t() | atom()
       }
       
   """

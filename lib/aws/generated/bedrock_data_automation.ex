@@ -113,8 +113,22 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      sensitive_data_configuration() :: %{
+        "detectionMode" => list(any()),
+        "detectionScope" => list(list(any())()),
+        "piiEntitiesConfiguration" => p_i_i_entities_configuration()
+      }
+
+  """
+  @type sensitive_data_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       image_override_configuration() :: %{
-        "modalityProcessing" => modality_processing_configuration()
+        "modalityProcessing" => modality_processing_configuration(),
+        "sensitiveDataConfiguration" => sensitive_data_configuration()
       }
 
   """
@@ -128,7 +142,8 @@ defmodule AWS.BedrockDataAutomation do
         "creationTime" => non_neg_integer(),
         "projectArn" => String.t() | atom(),
         "projectName" => String.t() | atom(),
-        "projectStage" => list(any())
+        "projectStage" => list(any()),
+        "projectType" => list(any())
       }
 
   """
@@ -255,6 +270,18 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      blueprint_optimization_sample() :: %{
+        "assetS3Object" => s3_object(),
+        "groundTruthS3Object" => s3_object()
+      }
+
+  """
+  @type blueprint_optimization_sample() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_blueprint_response() :: %{}
 
   """
@@ -266,6 +293,7 @@ defmodule AWS.BedrockDataAutomation do
 
       document_override_configuration() :: %{
         "modalityProcessing" => modality_processing_configuration(),
+        "sensitiveDataConfiguration" => sensitive_data_configuration(),
         "splitter" => splitter_configuration()
       }
 
@@ -277,7 +305,8 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       video_override_configuration() :: %{
-        "modalityProcessing" => modality_processing_configuration()
+        "modalityProcessing" => modality_processing_configuration(),
+        "sensitiveDataConfiguration" => sensitive_data_configuration()
       }
 
   """
@@ -294,6 +323,18 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type audio_standard_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_object() :: %{
+        "s3Uri" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -369,12 +410,36 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      invoke_blueprint_optimization_async_response() :: %{
+        "invocationArn" => String.t() | atom()
+      }
+
+  """
+  @type invoke_blueprint_optimization_async_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       document_extraction_granularity() :: %{
         "types" => list(list(any())())
       }
 
   """
   @type document_extraction_granularity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_blueprint_stage_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("sourceStage") => list(any()),
+        required("targetStage") => list(any())
+      }
+
+  """
+  @type copy_blueprint_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -501,6 +566,7 @@ defmodule AWS.BedrockDataAutomation do
         optional("overrideConfiguration") => override_configuration(),
         optional("projectDescription") => String.t() | atom(),
         optional("projectStage") => list(any()),
+        optional("projectType") => list(any()),
         optional("tags") => list(tag()),
         required("projectName") => String.t() | atom(),
         required("standardOutputConfiguration") => standard_output_configuration()
@@ -595,6 +661,8 @@ defmodule AWS.BedrockDataAutomation do
         "kmsEncryptionContext" => map(),
         "kmsKeyId" => String.t() | atom(),
         "lastModifiedTime" => non_neg_integer(),
+        "optimizationSamples" => list(blueprint_optimization_sample()),
+        "optimizationTime" => non_neg_integer(),
         "schema" => String.t() | atom(),
         "type" => list(any())
       }
@@ -617,6 +685,7 @@ defmodule AWS.BedrockDataAutomation do
         "projectDescription" => String.t() | atom(),
         "projectName" => String.t() | atom(),
         "projectStage" => list(any()),
+        "projectType" => list(any()),
         "standardOutputConfiguration" => standard_output_configuration(),
         "status" => list(any())
       }
@@ -687,6 +756,18 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      p_i_i_entities_configuration() :: %{
+        "piiEntityTypes" => list(list(any())()),
+        "redactionMaskMode" => list(any())
+      }
+
+  """
+  @type p_i_i_entities_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       document_standard_extraction() :: %{
         "boundingBox" => document_bounding_box(),
         "granularity" => document_extraction_granularity()
@@ -717,6 +798,18 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type transcript_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blueprint_optimization_object() :: %{
+        "blueprintArn" => String.t() | atom(),
+        "stage" => list(any())
+      }
+
+  """
+  @type blueprint_optimization_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,6 +854,17 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      blueprint_optimization_output_configuration() :: %{
+        "s3Object" => s3_object()
+      }
+
+  """
+  @type blueprint_optimization_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -871,9 +975,24 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      get_blueprint_optimization_status_response() :: %{
+        "errorMessage" => [String.t() | atom()],
+        "errorType" => [String.t() | atom()],
+        "outputConfiguration" => blueprint_optimization_output_configuration(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_blueprint_optimization_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       audio_override_configuration() :: %{
         "languageConfiguration" => audio_language_configuration(),
-        "modalityProcessing" => modality_processing_configuration()
+        "modalityProcessing" => modality_processing_configuration(),
+        "sensitiveDataConfiguration" => sensitive_data_configuration()
       }
 
   """
@@ -990,6 +1109,40 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      get_blueprint_optimization_status_request() :: %{}
+
+  """
+  @type get_blueprint_optimization_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_blueprint_optimization_async_request() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("tags") => list(tag()),
+        required("blueprint") => blueprint_optimization_object(),
+        required("dataAutomationProfileArn") => String.t() | atom(),
+        required("outputConfiguration") => blueprint_optimization_output_configuration(),
+        required("samples") => list(blueprint_optimization_sample())
+      }
+
+  """
+  @type invoke_blueprint_optimization_async_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_blueprint_stage_response() :: %{}
+
+  """
+  @type copy_blueprint_stage_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       blueprint_filter() :: %{
         "blueprintArn" => String.t() | atom(),
         "blueprintStage" => list(any()),
@@ -1010,6 +1163,13 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type document_output_format() :: %{(String.t() | atom()) => any()}
+
+  @type copy_blueprint_stage_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type create_blueprint_errors() ::
           throttling_exception()
@@ -1056,11 +1216,26 @@ defmodule AWS.BedrockDataAutomation do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_blueprint_optimization_status_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_data_automation_project_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type invoke_blueprint_optimization_async_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
   @type list_blueprints_errors() ::
@@ -1130,6 +1305,35 @@ defmodule AWS.BedrockDataAutomation do
       signing_name: "bedrock",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Copies a Blueprint from one stage to another
+  """
+  @spec copy_blueprint_stage(map(), String.t() | atom(), copy_blueprint_stage_request(), list()) ::
+          {:ok, copy_blueprint_stage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, copy_blueprint_stage_errors()}
+  def copy_blueprint_stage(%Client{} = client, blueprint_arn, input, options \\ []) do
+    url_path = "/blueprints/#{AWS.Util.encode_uri(blueprint_arn)}/copy-stage"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1322,6 +1526,40 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
+  API used to get blueprint optimization status.
+  """
+  @spec get_blueprint_optimization_status(
+          map(),
+          String.t() | atom(),
+          get_blueprint_optimization_status_request(),
+          list()
+        ) ::
+          {:ok, get_blueprint_optimization_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_blueprint_optimization_status_errors()}
+  def get_blueprint_optimization_status(%Client{} = client, invocation_arn, input, options \\ []) do
+    url_path = "/getBlueprintOptimizationStatus/#{AWS.Util.encode_uri(invocation_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets an existing Amazon Bedrock Data Automation Project
   """
   @spec get_data_automation_project(
@@ -1336,6 +1574,39 @@ defmodule AWS.BedrockDataAutomation do
           | {:error, get_data_automation_project_errors()}
   def get_data_automation_project(%Client{} = client, project_arn, input, options \\ []) do
     url_path = "/data-automation-projects/#{AWS.Util.encode_uri(project_arn)}/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Invoke an async job to perform Blueprint Optimization
+  """
+  @spec invoke_blueprint_optimization_async(
+          map(),
+          invoke_blueprint_optimization_async_request(),
+          list()
+        ) ::
+          {:ok, invoke_blueprint_optimization_async_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_blueprint_optimization_async_errors()}
+  def invoke_blueprint_optimization_async(%Client{} = client, input, options \\ []) do
+    url_path = "/invokeBlueprintOptimizationAsync"
     headers = []
     custom_headers = []
     query_params = []

@@ -1825,12 +1825,12 @@ defmodule AWS.CloudWatch do
   def metadata do
     %{
       api_version: "2010-08-01",
-      content_type: "application/x-www-form-urlencoded",
+      content_type: "application/x-amz-json-1.0",
       credential_scope: nil,
       endpoint_prefix: "monitoring",
       global?: false,
       hostname: nil,
-      protocol: "query",
+      protocol: "json",
       service_id: "CloudWatch",
       signature_version: "v4",
       signing_name: "monitoring",

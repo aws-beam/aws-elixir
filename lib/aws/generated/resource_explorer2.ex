@@ -159,7 +159,8 @@ defmodule AWS.ResourceExplorer2 do
         "LastUpdatedAt" => [non_neg_integer()],
         "Owner" => [String.t() | atom()],
         "Scope" => [String.t() | atom()],
-        "ViewArn" => [String.t() | atom()]
+        "ViewArn" => [String.t() | atom()],
+        "ViewName" => String.t() | atom()
       }
 
   """
@@ -208,6 +209,7 @@ defmodule AWS.ResourceExplorer2 do
         "IncludedProperties" => list(included_property()),
         "ScopeType" => [String.t() | atom()],
         "ServiceViewArn" => [String.t() | atom()],
+        "ServiceViewName" => String.t() | atom(),
         "StreamingAccessForService" => [String.t() | atom()]
       }
 

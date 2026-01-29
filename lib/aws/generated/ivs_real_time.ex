@@ -997,6 +997,20 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      exchanged_participant_token() :: %{
+        "attributes" => map(),
+        "capabilities" => list(String.t() | atom()),
+        "expirationTime" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type exchanged_participant_token() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       destination_summary() :: %{
         "endTime" => non_neg_integer(),
         "id" => String.t() | atom(),
@@ -1252,7 +1266,9 @@ defmodule AWS.IVSRealTime do
         "errorCode" => list(any()),
         "eventTime" => non_neg_integer(),
         "name" => String.t() | atom(),
+        "newToken" => exchanged_participant_token(),
         "participantId" => String.t() | atom(),
+        "previousToken" => exchanged_participant_token(),
         "remoteParticipantId" => String.t() | atom(),
         "replica" => boolean()
       }

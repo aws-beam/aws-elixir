@@ -222,6 +222,20 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      put_attachment_routing_policy_label_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("AttachmentId") => String.t() | atom(),
+        required("CoreNetworkId") => String.t() | atom(),
+        required("RoutingPolicyLabel") => String.t() | atom()
+      }
+
+  """
+  @type put_attachment_routing_policy_label_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_transit_gateway_connect_peer_associations_response() :: %{
         "NextToken" => String.t() | atom(),
         "TransitGatewayConnectPeerAssociations" => list(transit_gateway_connect_peer_association())
@@ -518,6 +532,20 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      create_core_network_prefix_list_association_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("CoreNetworkId") => String.t() | atom(),
+        required("PrefixListAlias") => String.t() | atom(),
+        required("PrefixListArn") => String.t() | atom()
+      }
+
+  """
+  @type create_core_network_prefix_list_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       site_to_site_vpn_attachment() :: %{
         "Attachment" => attachment(),
         "VpnConnectionArn" => String.t() | atom()
@@ -590,6 +618,19 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      remove_attachment_routing_policy_label_response() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
+        "RoutingPolicyLabel" => String.t() | atom()
+      }
+
+  """
+  @type remove_attachment_routing_policy_label_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       connect_peer_configuration() :: %{
         "BgpConfigurations" => list(connect_peer_bgp_configuration()),
         "CoreNetworkAddress" => String.t() | atom(),
@@ -607,6 +648,7 @@ defmodule AWS.NetworkManager do
 
       create_transit_gateway_route_table_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("PeeringId") => String.t() | atom(),
         required("TransitGatewayRouteTableArn") => String.t() | atom()
@@ -662,6 +704,7 @@ defmodule AWS.NetworkManager do
 
       create_site_to_site_vpn_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t() | atom(),
         required("VpnConnectionArn") => String.t() | atom()
@@ -712,6 +755,22 @@ defmodule AWS.NetworkManager do
 
   """
   @type peering_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_information_next_hop() :: %{
+        "CoreNetworkAttachmentId" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SegmentName" => String.t() | atom()
+      }
+
+  """
+  @type routing_information_next_hop() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1074,6 +1133,7 @@ defmodule AWS.NetworkManager do
 
       create_direct_connect_gateway_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t() | atom(),
         required("DirectConnectGatewayArn") => String.t() | atom(),
@@ -1215,8 +1275,18 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      delete_core_network_prefix_list_association_request() :: %{}
+
+  """
+  @type delete_core_network_prefix_list_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_connect_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t() | atom(),
         required("EdgeLocation") => String.t() | atom(),
@@ -1226,6 +1296,25 @@ defmodule AWS.NetworkManager do
 
   """
   @type create_connect_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_network_routing_information_request() :: %{
+        optional("CommunityMatches") => list(String.t() | atom()),
+        optional("ExactAsPathMatches") => list(String.t() | atom()),
+        optional("LocalPreferenceMatches") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("MedMatches") => list(String.t() | atom()),
+        optional("NextHopFilters") => map(),
+        optional("NextToken") => String.t() | atom(),
+        required("EdgeLocation") => String.t() | atom(),
+        required("SegmentName") => String.t() | atom()
+      }
+
+  """
+  @type list_core_network_routing_information_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1346,12 +1435,17 @@ defmodule AWS.NetworkManager do
 
       core_network_change_values() :: %{
         "Asn" => float(),
+        "AttachmentId" => String.t() | atom(),
         "Cidr" => String.t() | atom(),
         "DestinationIdentifier" => String.t() | atom(),
         "DnsSupport" => boolean(),
         "EdgeLocations" => list(String.t() | atom()),
         "InsideCidrBlocks" => list(String.t() | atom()),
         "NetworkFunctionGroupName" => String.t() | atom(),
+        "PeerEdgeLocations" => list(String.t() | atom()),
+        "RoutingPolicy" => String.t() | atom(),
+        "RoutingPolicyAssociationDetails" => list(routing_policy_association_detail()),
+        "RoutingPolicyDirection" => list(any()),
         "SecurityGroupReferencingSupport" => boolean(),
         "SegmentName" => String.t() | atom(),
         "ServiceInsertionActions" => list(service_insertion_action()),
@@ -1377,6 +1471,19 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      list_core_network_prefix_list_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PrefixListArn") => String.t() | atom()
+      }
+
+  """
+  @type list_core_network_prefix_list_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_network_resources_request() :: %{
         optional("AccountId") => String.t() | atom(),
         optional("AwsRegion") => String.t() | atom(),
@@ -1390,6 +1497,19 @@ defmodule AWS.NetworkManager do
 
   """
   @type get_network_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attachment_routing_policy_associations_request() :: %{
+        optional("AttachmentId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_attachment_routing_policy_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1556,6 +1676,22 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      core_network_routing_information() :: %{
+        "AsPath" => list(String.t() | atom()),
+        "Communities" => list(String.t() | atom()),
+        "LocalPreference" => String.t() | atom(),
+        "Med" => String.t() | atom(),
+        "NextHop" => routing_information_next_hop(),
+        "Prefix" => String.t() | atom()
+      }
+
+  """
+  @type core_network_routing_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       connection() :: %{
         "ConnectedDeviceId" => String.t() | atom(),
         "ConnectedLinkId" => String.t() | atom(),
@@ -1647,6 +1783,20 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      attachment_routing_policy_association_summary() :: %{
+        "AssociatedRoutingPolicies" => list(String.t() | atom()),
+        "AttachmentId" => String.t() | atom(),
+        "PendingRoutingPolicies" => list(String.t() | atom()),
+        "RoutingPolicyLabel" => String.t() | atom()
+      }
+
+  """
+  @type attachment_routing_policy_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       connect_peer_bgp_configuration() :: %{
         "CoreNetworkAddress" => String.t() | atom(),
         "CoreNetworkAsn" => float(),
@@ -1668,6 +1818,15 @@ defmodule AWS.NetworkManager do
 
   """
   @type get_connect_peer_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_attachment_routing_policy_label_request() :: %{}
+
+  """
+  @type remove_attachment_routing_policy_label_request() :: %{}
 
   @typedoc """
 
@@ -1746,6 +1905,18 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      list_core_network_prefix_list_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PrefixListAssociations" => list(prefix_list_association())
+      }
+
+  """
+  @type list_core_network_prefix_list_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_site_request() :: %{}
 
   """
@@ -1804,6 +1975,20 @@ defmodule AWS.NetworkManager do
 
   """
   @type network_resource_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attachment_routing_policy_associations_response() :: %{
+        "AttachmentRoutingPolicyAssociations" => list(attachment_routing_policy_association_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_attachment_routing_policy_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2104,6 +2289,7 @@ defmodule AWS.NetworkManager do
       create_vpc_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Options") => vpc_options(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t() | atom(),
         required("SubnetArns") => list(String.t() | atom()),
@@ -2123,6 +2309,20 @@ defmodule AWS.NetworkManager do
 
   """
   @type network_function_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_core_network_prefix_list_association_response() :: %{
+        "CoreNetworkId" => String.t() | atom(),
+        "PrefixListArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_core_network_prefix_list_association_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2318,6 +2518,9 @@ defmodule AWS.NetworkManager do
         "Cidr" => String.t() | atom(),
         "EdgeLocation" => String.t() | atom(),
         "NetworkFunctionGroupName" => String.t() | atom(),
+        "PeerEdgeLocation" => String.t() | atom(),
+        "RoutingPolicyAssociationDetails" => list(routing_policy_association_detail()),
+        "RoutingPolicyDirection" => list(any()),
         "SegmentName" => String.t() | atom()
       }
 
@@ -2502,6 +2705,18 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      routing_policy_association_detail() :: %{
+        "RoutingPolicyNames" => list(String.t() | atom()),
+        "SharedSegments" => list(String.t() | atom())
+      }
+
+  """
+  @type routing_policy_association_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       core_network_policy_error() :: %{
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom(),
@@ -2656,6 +2871,18 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      list_core_network_routing_information_response() :: %{
+        "CoreNetworkRoutingInformation" => list(core_network_routing_information()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_core_network_routing_information_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_global_network_response() :: %{
         "GlobalNetwork" => global_network()
       }
@@ -2780,6 +3007,19 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      put_attachment_routing_policy_label_response() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
+        "RoutingPolicyLabel" => String.t() | atom()
+      }
+
+  """
+  @type put_attachment_routing_policy_label_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_transit_gateway_connect_peer_request() :: %{
         optional("LinkId") => String.t() | atom(),
         required("DeviceId") => String.t() | atom(),
@@ -2806,6 +3046,21 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      create_core_network_prefix_list_association_response() :: %{
+        "CoreNetworkId" => String.t() | atom(),
+        "PrefixListAlias" => String.t() | atom(),
+        "PrefixListArn" => String.t() | atom()
+      }
+
+  """
+  @type create_core_network_prefix_list_association_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       delete_resource_policy_request() :: %{}
 
   """
@@ -2822,6 +3077,19 @@ defmodule AWS.NetworkManager do
 
   """
   @type get_core_network_change_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prefix_list_association() :: %{
+        "CoreNetworkId" => String.t() | atom(),
+        "PrefixListAlias" => String.t() | atom(),
+        "PrefixListArn" => String.t() | atom()
+      }
+
+  """
+  @type prefix_list_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3342,6 +3610,15 @@ defmodule AWS.NetworkManager do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_core_network_prefix_list_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_device_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3454,6 +3731,15 @@ defmodule AWS.NetworkManager do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_core_network_prefix_list_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -3749,6 +4035,13 @@ defmodule AWS.NetworkManager do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_attachment_routing_policy_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_attachments_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3762,6 +4055,20 @@ defmodule AWS.NetworkManager do
           | internal_server_exception()
 
   @type list_core_network_policy_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_core_network_prefix_list_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_core_network_routing_information_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3786,6 +4093,15 @@ defmodule AWS.NetworkManager do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type put_attachment_routing_policy_label_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type put_core_network_policy_errors() ::
           throttling_exception()
@@ -3817,6 +4133,15 @@ defmodule AWS.NetworkManager do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type remove_attachment_routing_policy_label_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -4298,6 +4623,40 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Creates an association between a core network and a prefix list for routing
+  control.
+  """
+  @spec create_core_network_prefix_list_association(
+          map(),
+          create_core_network_prefix_list_association_request(),
+          list()
+        ) ::
+          {:ok, create_core_network_prefix_list_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_core_network_prefix_list_association_errors()}
+  def create_core_network_prefix_list_association(%Client{} = client, input, options \\ []) do
+    url_path = "/prefix-list"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new device in a global network.
 
   If you specify both a site ID and a
@@ -4734,6 +5093,49 @@ defmodule AWS.NetworkManager do
       ) do
     url_path =
       "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy-versions/#{AWS.Util.encode_uri(policy_version_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an association between a core network and a prefix list.
+  """
+  @spec delete_core_network_prefix_list_association(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_core_network_prefix_list_association_request(),
+          list()
+        ) ::
+          {:ok, delete_core_network_prefix_list_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_core_network_prefix_list_association_errors()}
+  def delete_core_network_prefix_list_association(
+        %Client{} = client,
+        core_network_id,
+        prefix_list_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/prefix-list/#{AWS.Util.encode_uri(prefix_list_arn)}/core-network/#{AWS.Util.encode_uri(core_network_id)}"
 
     headers = []
     custom_headers = []
@@ -6545,6 +6947,59 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Lists the routing policy associations for attachments in a core network.
+  """
+  @spec list_attachment_routing_policy_associations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_attachment_routing_policy_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_attachment_routing_policy_associations_errors()}
+  def list_attachment_routing_policy_associations(
+        %Client{} = client,
+        core_network_id,
+        attachment_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/routing-policy-label/core-network/#{AWS.Util.encode_uri(core_network_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(attachment_id) do
+        [{"attachmentId", attachment_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of core network attachments.
   """
   @spec list_attachments(
@@ -6729,6 +7184,107 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Lists the prefix list associations for a core network.
+  """
+  @spec list_core_network_prefix_list_associations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_core_network_prefix_list_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_core_network_prefix_list_associations_errors()}
+  def list_core_network_prefix_list_associations(
+        %Client{} = client,
+        core_network_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        prefix_list_arn \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prefix-list/core-network/#{AWS.Util.encode_uri(core_network_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(prefix_list_arn) do
+        [{"prefixListArn", prefix_list_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists routing information for a core network, including routes and their
+  attributes.
+  """
+  @spec list_core_network_routing_information(
+          map(),
+          String.t() | atom(),
+          list_core_network_routing_information_request(),
+          list()
+        ) ::
+          {:ok, list_core_network_routing_information_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_core_network_routing_information_errors()}
+  def list_core_network_routing_information(
+        %Client{} = client,
+        core_network_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-routing-information"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of owned and shared core networks.
   """
   @spec list_core_networks(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
@@ -6899,6 +7455,39 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Applies a routing policy label to an attachment for traffic routing decisions.
+  """
+  @spec put_attachment_routing_policy_label(
+          map(),
+          put_attachment_routing_policy_label_request(),
+          list()
+        ) ::
+          {:ok, put_attachment_routing_policy_label_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_attachment_routing_policy_label_errors()}
+  def put_attachment_routing_policy_label(%Client{} = client, input, options \\ []) do
+    url_path = "/routing-policy-label"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new, immutable version of a core network policy.
 
   A subsequent change set is created showing the differences between the LIVE
@@ -7028,6 +7617,49 @@ defmodule AWS.NetworkManager do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes a routing policy label from an attachment.
+  """
+  @spec remove_attachment_routing_policy_label(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          remove_attachment_routing_policy_label_request(),
+          list()
+        ) ::
+          {:ok, remove_attachment_routing_policy_label_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, remove_attachment_routing_policy_label_errors()}
+  def remove_attachment_routing_policy_label(
+        %Client{} = client,
+        attachment_id,
+        core_network_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/routing-policy-label/core-network/#{AWS.Util.encode_uri(core_network_id)}/attachment/#{AWS.Util.encode_uri(attachment_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -630,6 +630,15 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      describe_topic_request() :: %{}
+
+  """
+  @type describe_topic_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       configuration_info() :: %{
         "Arn" => String.t() | atom(),
         "Revision" => float()
@@ -929,6 +938,20 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      topic_partition_info() :: %{
+        "Isr" => list(integer()),
+        "Leader" => integer(),
+        "Partition" => integer(),
+        "Replicas" => list(integer())
+      }
+
+  """
+  @type topic_partition_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       topic_replication() :: %{
         "CopyAccessControlListsForTopics" => boolean(),
         "CopyTopicConfigurations" => boolean(),
@@ -1110,6 +1133,22 @@ defmodule AWS.Kafka do
 
   """
   @type create_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_topic_response() :: %{
+        "Configs" => String.t() | atom(),
+        "PartitionCount" => integer(),
+        "ReplicationFactor" => integer(),
+        "Status" => list(any()),
+        "TopicArn" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type describe_topic_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1334,6 +1373,19 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      list_topics_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TopicNameFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_topics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_replicator_response() :: %{
         "ReplicatorArn" => String.t() | atom(),
         "ReplicatorState" => list(any())
@@ -1433,6 +1485,18 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      list_topics_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Topics" => list(topic_info())
+      }
+
+  """
+  @type list_topics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       replication_topic_name_configuration() :: %{
         "Type" => list(any())
       }
@@ -1520,6 +1584,18 @@ defmodule AWS.Kafka do
 
   """
   @type list_clusters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_topic_partitions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_topic_partitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1698,6 +1774,21 @@ defmodule AWS.Kafka do
 
   """
   @type describe_cluster_operation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_info() :: %{
+        "OutOfSyncReplicaCount" => integer(),
+        "PartitionCount" => integer(),
+        "ReplicationFactor" => integer(),
+        "TopicArn" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type topic_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2484,6 +2575,18 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      describe_topic_partitions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Partitions" => list(topic_partition_info())
+      }
+
+  """
+  @type describe_topic_partitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_configuration_revisions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -2704,6 +2807,20 @@ defmodule AWS.Kafka do
           | forbidden_exception()
           | unauthorized_exception()
 
+  @type describe_topic_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
+
+  @type describe_topic_partitions_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
+
   @type describe_vpc_connection_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -2815,6 +2932,13 @@ defmodule AWS.Kafka do
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception() | internal_server_error_exception() | not_found_exception()
+
+  @type list_topics_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
 
   @type list_vpc_connections_errors() ::
           bad_request_exception()
@@ -3464,6 +3588,74 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Returns topic details of this topic on a MSK cluster.
+  """
+  @spec describe_topic(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_topic_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_topic_errors()}
+  def describe_topic(%Client{} = client, cluster_arn, topic_name, options \\ []) do
+    url_path =
+      "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topics/#{AWS.Util.encode_uri(topic_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns partition details of this topic on a MSK cluster.
+  """
+  @spec describe_topic_partitions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, describe_topic_partitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_topic_partitions_errors()}
+  def describe_topic_partitions(
+        %Client{} = client,
+        cluster_arn,
+        topic_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topics/#{AWS.Util.encode_uri(topic_name)}/partitions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a description of this MSK VPC connection.
   """
   @spec describe_vpc_connection(map(), String.t() | atom(), list()) ::
@@ -4063,6 +4255,59 @@ defmodule AWS.Kafka do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List topics in a MSK cluster.
+  """
+  @spec list_topics(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_topics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_topics_errors()}
+  def list_topics(
+        %Client{} = client,
+        cluster_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        topic_name_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topics"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(topic_name_filter) do
+        [{"topicNameFilter", topic_name_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

@@ -54,6 +54,15 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      disassociate_iam_role_from_resource_output() :: %{}
+      
+  """
+  @type disassociate_iam_role_from_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("resourceArn") => String.t() | atom(),
         required("tags") => map()
@@ -69,6 +78,7 @@ defmodule AWS.Odb do
       get_oci_onboarding_status_output() :: %{
         "existingTenancyActivationLink" => [String.t() | atom()],
         "newTenancyActivationLink" => [String.t() | atom()],
+        "ociIdentityDomain" => oci_identity_domain(),
         "status" => list(any())
       }
       
@@ -236,6 +246,7 @@ defmodule AWS.Odb do
         "hostname" => [String.t() | atom()],
         "memorySizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
         "licenseModel" => list(any()),
         "lastUpdateHistoryEntryId" => [String.t() | atom()],
         "domain" => [String.t() | atom()],
@@ -258,6 +269,7 @@ defmodule AWS.Odb do
         "storageSizeInGBs" => [integer()],
         "sshPublicKeys" => list(String.t() | atom()),
         "timeZone" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
         "scanDnsRecordId" => [String.t() | atom()],
         "scanIpIds" => list([String.t() | atom()]()),
         "status" => list(any()),
@@ -266,6 +278,7 @@ defmodule AWS.Odb do
         "nodeCount" => [integer()],
         "computeModel" => list(any()),
         "odbNetworkId" => String.t() | atom(),
+        "iamRoles" => list(iam_role()),
         "dataCollectionOptions" => data_collection_options(),
         "cloudVmClusterId" => String.t() | atom()
       }
@@ -302,10 +315,15 @@ defmodule AWS.Odb do
         optional("availabilityZoneId") => [String.t() | atom()],
         optional("backupSubnetCidr") => [String.t() | atom()],
         optional("clientToken") => String.t() | atom(),
+        optional("crossRegionS3RestoreSourcesToEnable") => list([String.t() | atom()]()),
         optional("customDomainName") => [String.t() | atom()],
         optional("defaultDnsPrefix") => [String.t() | atom()],
+        optional("kmsAccess") => list(any()),
+        optional("kmsPolicyDocument") => String.t() | atom(),
         optional("s3Access") => list(any()),
         optional("s3PolicyDocument") => String.t() | atom(),
+        optional("stsAccess") => list(any()),
+        optional("stsPolicyDocument") => String.t() | atom(),
         optional("tags") => map(),
         optional("zeroEtlAccess") => list(any()),
         required("clientSubnetCidr") => [String.t() | atom()],
@@ -377,6 +395,7 @@ defmodule AWS.Odb do
         "hostname" => [String.t() | atom()],
         "memorySizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
         "licenseModel" => list(any()),
         "maxAcdsLowestScaledValue" => [integer()],
         "domain" => [String.t() | atom()],
@@ -405,6 +424,7 @@ defmodule AWS.Odb do
         "availableAutonomousDataStorageSizeInTBs" => [float()],
         "timeZone" => [String.t() | atom()],
         "nonProvisionableAutonomousContainerDatabases" => [integer()],
+        "odbNetworkArn" => String.t() | atom(),
         "timeDatabaseSslCertificateExpires" => [non_neg_integer()],
         "provisionedAutonomousContainerDatabases" => [integer()],
         "status" => list(any()),
@@ -417,6 +437,7 @@ defmodule AWS.Odb do
         "cpuCoreCountPerNode" => [integer()],
         "provisionableAutonomousContainerDatabases" => [integer()],
         "odbNetworkId" => String.t() | atom(),
+        "iamRoles" => list(iam_role()),
         "cpuPercentage" => [float()]
       }
       
@@ -706,6 +727,20 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      kms_access() :: %{
+        "domainName" => [String.t() | atom()],
+        "ipv4Addresses" => list([String.t() | atom()]()),
+        "kmsPolicyDocument" => [String.t() | atom()],
+        "status" => list(any())
+      }
+      
+  """
+  @type kms_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       exadata_iorm_config() :: %{
         "dbPlans" => list(db_iorm_config()),
         "lifecycleDetails" => [String.t() | atom()],
@@ -715,6 +750,19 @@ defmodule AWS.Odb do
       
   """
   @type exadata_iorm_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_iam_role_to_resource_input() :: %{
+        required("awsIntegration") => list(any()),
+        required("iamRoleArn") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type associate_iam_role_to_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -936,6 +984,15 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      associate_iam_role_to_resource_output() :: %{}
+      
+  """
+  @type associate_iam_role_to_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       list_cloud_vm_clusters_input() :: %{
         optional("cloudExadataInfrastructureId") => String.t() | atom(),
         optional("maxResults") => [integer()],
@@ -969,6 +1026,19 @@ defmodule AWS.Odb do
       
   """
   @type data_collection_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cross_region_s3_restore_sources_access() :: %{
+        "ipv4Addresses" => list([String.t() | atom()]()),
+        "region" => [String.t() | atom()],
+        "status" => list(any())
+      }
+      
+  """
+  @type cross_region_s3_restore_sources_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1039,10 +1109,12 @@ defmodule AWS.Odb do
 
   ## Example:
       
-      initialize_service_input() :: %{}
+      initialize_service_input() :: %{
+        optional("ociIdentityDomain") => [boolean()]
+      }
       
   """
-  @type initialize_service_input() :: %{}
+  @type initialize_service_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1114,11 +1186,17 @@ defmodule AWS.Odb do
   ## Example:
       
       update_odb_network_input() :: %{
+        optional("crossRegionS3RestoreSourcesToDisable") => list([String.t() | atom()]()),
+        optional("crossRegionS3RestoreSourcesToEnable") => list([String.t() | atom()]()),
         optional("displayName") => String.t() | atom(),
+        optional("kmsAccess") => list(any()),
+        optional("kmsPolicyDocument") => String.t() | atom(),
         optional("peeredCidrsToBeAdded") => list([String.t() | atom()]()),
         optional("peeredCidrsToBeRemoved") => list([String.t() | atom()]()),
         optional("s3Access") => list(any()),
         optional("s3PolicyDocument") => String.t() | atom(),
+        optional("stsAccess") => list(any()),
+        optional("stsPolicyDocument") => String.t() | atom(),
         optional("zeroEtlAccess") => list(any())
       }
       
@@ -1269,6 +1347,20 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      sts_access() :: %{
+        "domainName" => [String.t() | atom()],
+        "ipv4Addresses" => list([String.t() | atom()]()),
+        "status" => list(any()),
+        "stsPolicyDocument" => [String.t() | atom()]
+      }
+      
+  """
+  @type sts_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       initialize_service_output() :: %{}
       
   """
@@ -1351,6 +1443,20 @@ defmodule AWS.Odb do
       
   """
   @type autonomous_virtual_machine_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iam_role() :: %{
+        "awsIntegration" => list(any()),
+        "iamRoleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type iam_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1465,6 +1571,22 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      oci_identity_domain() :: %{
+        "accountSetupCloudFormationUrl" => [String.t() | atom()],
+        "ociIdentityDomainId" => [String.t() | atom()],
+        "ociIdentityDomainResourceUrl" => [String.t() | atom()],
+        "ociIdentityDomainUrl" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type oci_identity_domain() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
@@ -1541,6 +1663,7 @@ defmodule AWS.Odb do
         "hostname" => [String.t() | atom()],
         "memorySizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
         "licenseModel" => list(any()),
         "lastUpdateHistoryEntryId" => [String.t() | atom()],
         "domain" => [String.t() | atom()],
@@ -1563,6 +1686,7 @@ defmodule AWS.Odb do
         "storageSizeInGBs" => [integer()],
         "sshPublicKeys" => list(String.t() | atom()),
         "timeZone" => [String.t() | atom()],
+        "odbNetworkArn" => String.t() | atom(),
         "scanDnsRecordId" => [String.t() | atom()],
         "scanIpIds" => list([String.t() | atom()]()),
         "status" => list(any()),
@@ -1571,6 +1695,7 @@ defmodule AWS.Odb do
         "nodeCount" => [integer()],
         "computeModel" => list(any()),
         "odbNetworkId" => String.t() | atom(),
+        "iamRoles" => list(iam_role()),
         "dataCollectionOptions" => data_collection_options(),
         "cloudVmClusterId" => String.t() | atom()
       }
@@ -1739,6 +1864,19 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      disassociate_iam_role_from_resource_input() :: %{
+        required("awsIntegration") => list(any()),
+        required("iamRoleArn") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_iam_role_from_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       accept_marketplace_registration_input() :: %{
         required("marketplaceRegistrationToken") => [String.t() | atom()]
       }
@@ -1777,12 +1915,15 @@ defmodule AWS.Odb do
   ## Example:
       
       managed_services() :: %{
+        "crossRegionS3RestoreSourcesAccess" => list(cross_region_s3_restore_sources_access()),
+        "kmsAccess" => kms_access(),
         "managedS3BackupAccess" => managed_s3_backup_access(),
         "managedServicesIpv4Cidrs" => list([String.t() | atom()]()),
         "resourceGatewayArn" => String.t() | atom(),
         "s3Access" => s3_access(),
         "serviceNetworkArn" => String.t() | atom(),
         "serviceNetworkEndpoint" => service_network_endpoint(),
+        "stsAccess" => sts_access(),
         "zeroEtlAccess" => zero_etl_access()
       }
       
@@ -1893,6 +2034,7 @@ defmodule AWS.Odb do
         "hostname" => [String.t() | atom()],
         "memorySizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
         "licenseModel" => list(any()),
         "maxAcdsLowestScaledValue" => [integer()],
         "domain" => [String.t() | atom()],
@@ -1921,6 +2063,7 @@ defmodule AWS.Odb do
         "availableAutonomousDataStorageSizeInTBs" => [float()],
         "timeZone" => [String.t() | atom()],
         "nonProvisionableAutonomousContainerDatabases" => [integer()],
+        "odbNetworkArn" => String.t() | atom(),
         "timeDatabaseSslCertificateExpires" => [non_neg_integer()],
         "provisionedAutonomousContainerDatabases" => [integer()],
         "status" => list(any()),
@@ -1933,6 +2076,7 @@ defmodule AWS.Odb do
         "cpuCoreCountPerNode" => [integer()],
         "provisionableAutonomousContainerDatabases" => [integer()],
         "odbNetworkId" => String.t() | atom(),
+        "iamRoles" => list(iam_role()),
         "cpuPercentage" => [float()]
       }
       
@@ -1978,6 +2122,14 @@ defmodule AWS.Odb do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | conflict_exception()
+
+  @type associate_iam_role_to_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type create_cloud_autonomous_vm_cluster_errors() ::
@@ -2057,6 +2209,14 @@ defmodule AWS.Odb do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type disassociate_iam_role_from_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_cloud_autonomous_vm_cluster_errors() ::
           throttling_exception()
@@ -2283,6 +2443,22 @@ defmodule AWS.Odb do
   end
 
   @doc """
+  Associates an Amazon Web Services Identity and Access Management (IAM) service
+  role with a specified resource to enable Amazon Web Services service
+  integration.
+  """
+  @spec associate_iam_role_to_resource(map(), associate_iam_role_to_resource_input(), list()) ::
+          {:ok, associate_iam_role_to_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_iam_role_to_resource_errors()}
+  def associate_iam_role_to_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateIamRoleToResource", input, options)
+  end
+
+  @doc """
   Creates a new Autonomous VM cluster in the specified Exadata infrastructure.
   """
   @spec create_cloud_autonomous_vm_cluster(
@@ -2445,6 +2621,26 @@ defmodule AWS.Odb do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteOdbPeeringConnection", input, options)
+  end
+
+  @doc """
+  Disassociates an Amazon Web Services Identity and Access Management (IAM)
+  service role from a specified resource to disable Amazon Web Services service
+  integration.
+  """
+  @spec disassociate_iam_role_from_resource(
+          map(),
+          disassociate_iam_role_from_resource_input(),
+          list()
+        ) ::
+          {:ok, disassociate_iam_role_from_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_iam_role_from_resource_errors()}
+  def disassociate_iam_role_from_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateIamRoleFromResource", input, options)
   end
 
   @doc """

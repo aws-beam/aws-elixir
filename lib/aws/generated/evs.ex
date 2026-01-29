@@ -147,6 +147,7 @@ defmodule AWS.Evs do
       
       create_environment_host_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("esxVersion") => String.t() | atom(),
         required("environmentId") => String.t() | atom(),
         required("host") => host_info_for_create()
       }
@@ -236,6 +237,20 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      vcf_version_info() :: %{
+        "defaultEsxVersion" => [String.t() | atom()],
+        "instanceTypes" => list(list(any())()),
+        "status" => [String.t() | atom()],
+        "vcfVersion" => list(any())
+      }
+      
+  """
+  @type vcf_version_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_access_security_groups() :: %{
         "securityGroups" => list(String.t() | atom())
       }
@@ -253,6 +268,18 @@ defmodule AWS.Evs do
       
   """
   @type associate_eip_to_vlan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_type_esx_versions_info() :: %{
+        "esxVersions" => list([String.t() | atom()]()),
+        "instanceType" => list(any())
+      }
+      
+  """
+  @type instance_type_esx_versions_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,6 +509,17 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_environment_request() :: %{
         optional("clientToken") => String.t() | atom()
       }
@@ -601,6 +639,18 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      get_versions_response() :: %{
+        "instanceTypeEsxVersions" => list(instance_type_esx_versions_info()),
+        "vcfVersions" => list(vcf_version_info())
+      }
+      
+  """
+  @type get_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       vlan() :: %{
         "availabilityZone" => [String.t() | atom()],
         "cidr" => String.t() | atom(),
@@ -618,6 +668,15 @@ defmodule AWS.Evs do
       
   """
   @type vlan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_versions_request() :: %{}
+      
+  """
+  @type get_versions_request() :: %{}
 
   @typedoc """
 
@@ -670,6 +729,8 @@ defmodule AWS.Evs do
           throttling_exception() | validation_exception() | resource_not_found_exception()
 
   @type get_environment_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type get_versions_errors() :: throttling_exception() | internal_server_exception()
 
   @type list_environment_hosts_errors() :: validation_exception() | resource_not_found_exception()
 
@@ -730,6 +791,11 @@ defmodule AWS.Evs do
   completes, you can configure VCF in the vSphere user interface according to your
   needs.
 
+  When creating a new environment, the default ESX version for the selected VCF
+  version will be used, you cannot choose a specific ESX version in
+  `CreateEnvironment` action. When a host has been added with a specific ESX
+  version, it can only be upgraded using vCenter Lifecycle Manager.
+
   You cannot use the `dedicatedHostId` and `placementGroupId` parameters together
   in the same `CreateEnvironment` action. This results in a `ValidationException`
   response.
@@ -746,17 +812,22 @@ defmodule AWS.Evs do
   end
 
   @doc """
-  Creates an ESXi host and adds it to an Amazon EVS environment.
+  Creates an ESX host and adds it to an Amazon EVS environment.
 
   Amazon EVS supports 4-16 hosts per environment.
 
   This action can only be used after the Amazon EVS environment is deployed.
 
   You can use the `dedicatedHostId` parameter to specify an Amazon EC2 Dedicated
-  Host for ESXi host creation.
+  Host for ESX host creation.
 
   You can use the `placementGroupId` parameter to specify a cluster or partition
   placement group to launch EC2 instances into.
+
+  If you don't specify an ESX version when adding hosts using
+  `CreateEnvironmentHost` action, Amazon EVS automatically uses the default ESX
+  version associated with your environment's VCF version. To find the default ESX
+  version for a particular VCF version, use the `GetVersions` action.
 
   You cannot use the `dedicatedHostId` and `placementGroupId` parameters together
   in the same `CreateEnvironmentHost` action. This results in a
@@ -841,6 +912,24 @@ defmodule AWS.Evs do
     meta = metadata()
 
     Request.request_post(client, meta, "GetEnvironment", input, options)
+  end
+
+  @doc """
+  Returns information about VCF versions, ESX versions and EC2 instance types
+  provided by Amazon EVS.
+
+  For each VCF version, the response also includes the default ESX version and
+  provided EC2 instance types.
+  """
+  @spec get_versions(map(), get_versions_request(), list()) ::
+          {:ok, get_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_versions_errors()}
+  def get_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetVersions", input, options)
   end
 
   @doc """

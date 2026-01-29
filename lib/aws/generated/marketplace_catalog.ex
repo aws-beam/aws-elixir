@@ -193,6 +193,18 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      offer_set_release_date_filter_date_range() :: %{
+        "AfterValue" => String.t() | atom(),
+        "BeforeValue" => String.t() | atom()
+      }
+
+  """
+  @type offer_set_release_date_filter_date_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ami_product_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
@@ -294,6 +306,17 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      offer_set_associated_offer_ids_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type offer_set_associated_offer_ids_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_product_summary() :: %{
         "ProductTitle" => String.t() | atom(),
         "Visibility" => list(any())
@@ -352,6 +375,7 @@ defmodule AWS.MarketplaceCatalog do
         "LastModifiedDate" => String.t() | atom(),
         "MachineLearningProductSummary" => machine_learning_product_summary(),
         "Name" => String.t() | atom(),
+        "OfferSetSummary" => offer_set_summary(),
         "OfferSummary" => offer_summary(),
         "ResaleAuthorizationSummary" => resale_authorization_summary(),
         "SaaSProductSummary" => saa_s_product_summary(),
@@ -432,6 +456,29 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      offer_set_entity_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type offer_set_entity_id_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      offer_set_sort() :: %{
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+
+  """
+  @type offer_set_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_product_last_modified_date_filter_date_range() :: %{
         "AfterValue" => String.t() | atom(),
         "BeforeValue" => String.t() | atom()
@@ -439,6 +486,17 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type data_product_last_modified_date_filter_date_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      offer_set_solution_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type offer_set_solution_id_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -462,6 +520,17 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type container_product_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      offer_set_release_date_filter() :: %{
+        "DateRange" => offer_set_release_date_filter_date_range()
+      }
+
+  """
+  @type offer_set_release_date_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,6 +669,18 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      offer_set_last_modified_date_filter_date_range() :: %{
+        "AfterValue" => String.t() | atom(),
+        "BeforeValue" => String.t() | atom()
+      }
+
+  """
+  @type offer_set_last_modified_date_filter_date_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resale_authorization_reseller_legal_name_filter() :: %{
         "ValueList" => list(String.t() | atom()),
         "WildCardValue" => String.t() | atom()
@@ -689,6 +770,17 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type machine_learning_product_title_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      offer_set_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type offer_set_id_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -889,6 +981,23 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      offer_set_filters() :: %{
+        "AssociatedOfferIds" => offer_set_associated_offer_ids_filter(),
+        "EntityId" => offer_set_entity_id_filter(),
+        "LastModifiedDate" => offer_set_last_modified_date_filter(),
+        "Name" => offer_set_name_filter(),
+        "ReleaseDate" => offer_set_release_date_filter(),
+        "SolutionId" => offer_set_solution_id_filter(),
+        "State" => offer_set_state_filter()
+      }
+
+  """
+  @type offer_set_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_product_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
@@ -926,10 +1035,26 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      offer_set_summary() :: %{
+        "AssociatedOfferIds" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "ReleaseDate" => String.t() | atom(),
+        "SolutionId" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type offer_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       offer_summary() :: %{
         "AvailabilityEndDate" => String.t() | atom(),
         "BuyerAccounts" => list(String.t() | atom()),
         "Name" => String.t() | atom(),
+        "OfferSetId" => String.t() | atom(),
         "ProductId" => String.t() | atom(),
         "ReleaseDate" => String.t() | atom(),
         "ResaleAuthorizationId" => String.t() | atom(),
@@ -999,6 +1124,17 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type data_product_title_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      offer_set_last_modified_date_filter() :: %{
+        "DateRange" => offer_set_last_modified_date_filter_date_range()
+      }
+
+  """
+  @type offer_set_last_modified_date_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1117,6 +1253,17 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type offer_name_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      offer_set_name_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type offer_set_name_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1305,6 +1452,17 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      offer_set_state_filter() :: %{
+        "ValueList" => list(list(any())())
+      }
+
+  """
+  @type offer_set_state_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resale_authorization_availability_end_date_filter_date_range() :: %{
         "AfterValue" => String.t() | atom(),
         "BeforeValue" => String.t() | atom()
@@ -1433,6 +1591,7 @@ defmodule AWS.MarketplaceCatalog do
         "EntityId" => offer_entity_id_filter(),
         "LastModifiedDate" => offer_last_modified_date_filter(),
         "Name" => offer_name_filter(),
+        "OfferSetId" => offer_set_id_filter(),
         "ProductId" => offer_product_id_filter(),
         "ReleaseDate" => offer_release_date_filter(),
         "ResaleAuthorizationId" => offer_resale_authorization_id_filter(),

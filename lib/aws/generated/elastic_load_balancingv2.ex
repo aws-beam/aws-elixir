@@ -36,7 +36,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
     *
   Network Load Balancer - Operates at the transport layer (layer 4) and supports
   TCP,
-  TLS, and UDP.
+  TLS, UDP, and QUIC.
 
     *
   Gateway Load Balancer - Operates at the network layer (layer 3).
@@ -927,6 +927,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         optional("Protocol") => list(any()),
         optional("ProtocolVersion") => String.t() | atom(),
         optional("Tags") => list(tag()),
+        optional("TargetControlPort") => integer(),
         optional("TargetType") => list(any()),
         optional("UnhealthyThresholdCount") => integer(),
         optional("VpcId") => String.t() | atom(),
@@ -1963,6 +1964,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "Port" => integer(),
         "Protocol" => list(any()),
         "ProtocolVersion" => String.t() | atom(),
+        "TargetControlPort" => integer(),
         "TargetGroupArn" => String.t() | atom(),
         "TargetGroupName" => String.t() | atom(),
         "TargetType" => list(any()),

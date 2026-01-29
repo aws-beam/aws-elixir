@@ -108,6 +108,18 @@ defmodule AWS.Braket do
 
   ## Example:
 
+      search_spending_limits_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "spendingLimits" => list(spending_limit_summary())
+      }
+
+  """
+  @type search_spending_limits_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_quantum_task_request() :: %{
         optional("additionalAttributeNames") => list(String.t() | atom())
       }
@@ -164,6 +176,32 @@ defmodule AWS.Braket do
 
   ## Example:
 
+      search_spending_limits_filter() :: %{
+        "name" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type search_spending_limits_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_spending_limits_request() :: %{
+        optional("filters") => list(search_spending_limits_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type search_spending_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_quantum_task_response() :: %{
         required("cancellationStatus") => String.t() | atom(),
         required("quantumTaskArn") => String.t() | atom()
@@ -171,6 +209,25 @@ defmodule AWS.Braket do
 
   """
   @type cancel_quantum_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      spending_limit_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "deviceArn" => String.t() | atom(),
+        "queuedSpend" => [String.t() | atom()],
+        "spendingLimit" => [String.t() | atom()],
+        "spendingLimitArn" => String.t() | atom(),
+        "tags" => map(),
+        "timePeriod" => time_period(),
+        "totalSpend" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type spending_limit_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -317,6 +374,27 @@ defmodule AWS.Braket do
 
   ## Example:
 
+      time_period() :: %{
+        "endAt" => [non_neg_integer()],
+        "startAt" => [non_neg_integer()]
+      }
+
+  """
+  @type time_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_spending_limit_request() :: %{}
+
+  """
+  @type delete_spending_limit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       algorithm_specification() :: %{
         "containerImage" => container_image(),
         "scriptModeConfig" => script_mode_config()
@@ -396,6 +474,19 @@ defmodule AWS.Braket do
 
   ## Example:
 
+      update_spending_limit_request() :: %{
+        optional("spendingLimit") => [String.t() | atom()],
+        optional("timePeriod") => time_period(),
+        required("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type update_spending_limit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -413,6 +504,15 @@ defmodule AWS.Braket do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_spending_limit_response() :: %{}
+
+  """
+  @type update_spending_limit_response() :: %{}
 
   @typedoc """
 
@@ -437,6 +537,17 @@ defmodule AWS.Braket do
 
   """
   @type program_set_validation_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_spending_limit_response() :: %{
+        "spendingLimitArn" => String.t() | atom()
+      }
+
+  """
+  @type create_spending_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -721,6 +832,15 @@ defmodule AWS.Braket do
 
   ## Example:
 
+      delete_spending_limit_response() :: %{}
+
+  """
+  @type delete_spending_limit_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_job_request() :: %{
         optional("additionalAttributeNames") => list(String.t() | atom())
       }
@@ -774,6 +894,21 @@ defmodule AWS.Braket do
 
   """
   @type cancel_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_spending_limit_request() :: %{
+        optional("tags") => map(),
+        optional("timePeriod") => time_period(),
+        required("clientToken") => String.t() | atom(),
+        required("deviceArn") => String.t() | atom(),
+        required("spendingLimit") => [String.t() | atom()]
+      }
+
+  """
+  @type create_spending_limit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -851,6 +986,20 @@ defmodule AWS.Braket do
           | device_retired_exception()
           | device_offline_exception()
 
+  @type create_spending_limit_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_service_exception()
+          | device_retired_exception()
+
+  @type delete_spending_limit_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type get_device_errors() ::
           throttling_exception()
           | validation_exception()
@@ -893,11 +1042,24 @@ defmodule AWS.Braket do
           | access_denied_exception()
           | internal_service_exception()
 
+  @type search_spending_limits_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_service_exception()
+
   @type tag_resource_errors() ::
           validation_exception() | resource_not_found_exception() | internal_service_exception()
 
   @type untag_resource_errors() ::
           validation_exception() | resource_not_found_exception() | internal_service_exception()
+
+  @type update_spending_limit_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
 
   def metadata do
     %{
@@ -1028,6 +1190,71 @@ defmodule AWS.Braket do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates a spending limit for a specified quantum device.
+
+  Spending limits help you control costs by setting maximum amounts that can be
+  spent on quantum computing tasks within a specified time period. Simulators do
+  not support spending limits.
+  """
+  @spec create_spending_limit(map(), create_spending_limit_request(), list()) ::
+          {:ok, create_spending_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_spending_limit_errors()}
+  def create_spending_limit(%Client{} = client, input, options \\ []) do
+    url_path = "/spending-limit"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Deletes an existing spending limit.
+
+  This operation permanently removes the spending limit and cannot be undone.
+  After deletion, the associated device becomes unrestricted for spending.
+  """
+  @spec delete_spending_limit(map(), String.t() | atom(), delete_spending_limit_request(), list()) ::
+          {:ok, delete_spending_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_spending_limit_errors()}
+  def delete_spending_limit(%Client{} = client, spending_limit_arn, input, options \\ []) do
+    url_path = "/spending-limit/#{AWS.Util.encode_uri(spending_limit_arn)}/delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -1219,6 +1446,39 @@ defmodule AWS.Braket do
   end
 
   @doc """
+  Searches and lists spending limits based on specified filters.
+
+  This operation supports pagination and allows filtering by various criteria to
+  find specific spending limits. We recommend using pagination to ensure that the
+  operation returns quickly and successfully.
+  """
+  @spec search_spending_limits(map(), search_spending_limits_request(), list()) ::
+          {:ok, search_spending_limits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_spending_limits_errors()}
+  def search_spending_limits(%Client{} = client, input, options \\ []) do
+    url_path = "/spending-limits"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Add a tag to the specified resource.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
@@ -1272,6 +1532,38 @@ defmodule AWS.Braket do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing spending limit.
+
+  You can modify the spending amount or time period. Changes take effect
+  immediately.
+  """
+  @spec update_spending_limit(map(), String.t() | atom(), update_spending_limit_request(), list()) ::
+          {:ok, update_spending_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_spending_limit_errors()}
+  def update_spending_limit(%Client{} = client, spending_limit_arn, input, options \\ []) do
+    url_path = "/spending-limit/#{AWS.Util.encode_uri(spending_limit_arn)}/update"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

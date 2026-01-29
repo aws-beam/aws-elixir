@@ -257,6 +257,19 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      nat_gateway_configuration() :: %{
+        "activeConnectionCount" => [float()],
+        "packetsInFromDestination" => [float()],
+        "packetsInFromSource" => [float()]
+      }
+      
+  """
+  @type nat_gateway_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       lambda_function_configuration() :: %{
         "compute" => compute_configuration()
       }
@@ -322,6 +335,18 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type update_enrollment_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_period() :: %{
+        "end" => [String.t() | atom()],
+        "start" => [String.t() | atom()]
+      }
+      
+  """
+  @type time_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,6 +573,18 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      list_efficiency_metrics_response() :: %{
+        "efficiencyMetricsByGroup" => list(efficiency_metrics_by_group()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_efficiency_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       recommendation() :: %{
         "accountId" => [String.t() | atom()],
         "actionType" => [String.t() | atom()],
@@ -718,6 +755,18 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type ec2_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      nat_gateway() :: %{
+        "configuration" => nat_gateway_configuration(),
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type nat_gateway() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -923,12 +972,39 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      efficiency_metrics_by_group() :: %{
+        "group" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "metricsByTime" => list(metrics_by_time())
+      }
+      
+  """
+  @type efficiency_metrics_by_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       throttling_exception() :: %{
         "message" => [String.t() | atom()]
       }
       
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metrics_by_time() :: %{
+        "savings" => [float()],
+        "score" => [float()],
+        "spend" => [float()],
+        "timestamp" => [String.t() | atom()]
+      }
+      
+  """
+  @type metrics_by_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1007,6 +1083,22 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type recommendation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_efficiency_metrics_request() :: %{
+        optional("groupBy") => [String.t() | atom()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()],
+        optional("orderBy") => order_by(),
+        required("granularity") => list(any()),
+        required("timePeriod") => time_period()
+      }
+      
+  """
+  @type list_efficiency_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1119,6 +1211,12 @@ defmodule AWS.CostOptimizationHub do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_efficiency_metrics_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_enrollment_statuses_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1204,6 +1302,30 @@ defmodule AWS.CostOptimizationHub do
   end
 
   @doc """
+  Returns cost efficiency metrics aggregated over time and optionally grouped by a
+  specified dimension.
+
+  The metrics provide insights into your cost optimization progress by tracking
+  estimated savings, spending, and measures how effectively you're optimizing your
+  Cloud resources.
+
+  The operation supports both daily and monthly time granularities and allows
+  grouping results by account ID, Amazon Web Services Region. Results are returned
+  as time-series data, enabling you to analyze trends in your cost optimization
+  performance over the specified time period.
+  """
+  @spec list_efficiency_metrics(map(), list_efficiency_metrics_request(), list()) ::
+          {:ok, list_efficiency_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_efficiency_metrics_errors()}
+  def list_efficiency_metrics(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEfficiencyMetrics", input, options)
+  end
+
+  @doc """
   Retrieves the enrollment status for an account.
 
   It can also return the list of accounts that are enrolled under the
@@ -1257,9 +1379,8 @@ defmodule AWS.CostOptimizationHub do
   Updates the enrollment (opt in and opt out) status of an account to the Cost
   Optimization Hub service.
 
-  If the account is a management account or delegated administrator of an
-  organization, this action can also be used to enroll member accounts of the
-  organization.
+  If the account is a management account of an organization, this action can also
+  be used to enroll member accounts of the organization.
 
   You must have the appropriate permissions to opt in to Cost Optimization Hub and
   to view its recommendations. When you opt in, Cost Optimization Hub

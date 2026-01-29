@@ -3644,6 +3644,7 @@ defmodule AWS.GameLift do
       script() :: %{
         "CreationTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "NodeJsVersion" => String.t() | atom(),
         "ScriptArn" => String.t() | atom(),
         "ScriptId" => String.t() | atom(),
         "SizeOnDisk" => float(),
@@ -4347,6 +4348,7 @@ defmodule AWS.GameLift do
       
       create_script_input() :: %{
         optional("Name") => String.t() | atom(),
+        optional("NodeJsVersion") => String.t() | atom(),
         optional("StorageLocation") => s3_location(),
         optional("Tags") => list(tag()),
         optional("Version") => String.t() | atom(),
@@ -9551,6 +9553,10 @@ defmodule AWS.GameLift do
 
   For examples of searching game sessions, see the ones below, and also see
   [Search game sessions by game property](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-search).
+
+  Avoid using periods (".") in property keys if you plan to search for game
+  sessions by properties. Property keys containing periods cannot be searched and
+  will be filtered out from search results due to search index limitations.
 
     *
 

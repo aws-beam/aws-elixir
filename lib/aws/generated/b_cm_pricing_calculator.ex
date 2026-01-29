@@ -166,10 +166,13 @@ defmodule AWS.BCMPricingCalculator do
       
       create_bill_estimate_response() :: %{
         "billInterval" => bill_interval(),
+        "costCategoryGroupSharingPreferenceArn" => String.t() | atom(),
+        "costCategoryGroupSharingPreferenceEffectiveDate" => [non_neg_integer()],
         "costSummary" => bill_estimate_cost_summary(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
         "failureMessage" => [String.t() | atom()],
+        "groupSharingPreference" => list(any()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any())
@@ -239,10 +242,13 @@ defmodule AWS.BCMPricingCalculator do
       
       update_bill_estimate_response() :: %{
         "billInterval" => bill_interval(),
+        "costCategoryGroupSharingPreferenceArn" => String.t() | atom(),
+        "costCategoryGroupSharingPreferenceEffectiveDate" => [non_neg_integer()],
         "costSummary" => bill_estimate_cost_summary(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
         "failureMessage" => [String.t() | atom()],
+        "groupSharingPreference" => list(any()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any())
@@ -414,10 +420,13 @@ defmodule AWS.BCMPricingCalculator do
       
       get_bill_estimate_response() :: %{
         "billInterval" => bill_interval(),
+        "costCategoryGroupSharingPreferenceArn" => String.t() | atom(),
+        "costCategoryGroupSharingPreferenceEffectiveDate" => [non_neg_integer()],
         "costSummary" => bill_estimate_cost_summary(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
         "failureMessage" => [String.t() | atom()],
+        "groupSharingPreference" => list(any()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any())
@@ -810,9 +819,11 @@ defmodule AWS.BCMPricingCalculator do
       
       get_bill_scenario_response() :: %{
         "billInterval" => bill_interval(),
+        "costCategoryGroupSharingPreferenceArn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
         "failureMessage" => [String.t() | atom()],
+        "groupSharingPreference" => list(any()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any())
@@ -827,9 +838,11 @@ defmodule AWS.BCMPricingCalculator do
       
       update_bill_scenario_response() :: %{
         "billInterval" => bill_interval(),
+        "costCategoryGroupSharingPreferenceArn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
         "failureMessage" => [String.t() | atom()],
+        "groupSharingPreference" => list(any()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any())
@@ -1151,9 +1164,11 @@ defmodule AWS.BCMPricingCalculator do
       
       bill_scenario_summary() :: %{
         "billInterval" => bill_interval(),
+        "costCategoryGroupSharingPreferenceArn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
         "failureMessage" => [String.t() | atom()],
+        "groupSharingPreference" => list(any()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any())
@@ -1167,7 +1182,9 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       update_bill_scenario_request() :: %{
+        optional("costCategoryGroupSharingPreferenceArn") => String.t() | atom(),
         optional("expiresAt") => [non_neg_integer()],
+        optional("groupSharingPreference") => list(any()),
         optional("name") => String.t() | atom(),
         required("identifier") => String.t() | atom()
       }
@@ -1654,6 +1671,8 @@ defmodule AWS.BCMPricingCalculator do
       
       create_bill_scenario_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("costCategoryGroupSharingPreferenceArn") => String.t() | atom(),
+        optional("groupSharingPreference") => list(any()),
         optional("tags") => map(),
         required("name") => String.t() | atom()
       }
@@ -1786,9 +1805,11 @@ defmodule AWS.BCMPricingCalculator do
       
       create_bill_scenario_response() :: %{
         "billInterval" => bill_interval(),
+        "costCategoryGroupSharingPreferenceArn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
         "failureMessage" => [String.t() | atom()],
+        "groupSharingPreference" => list(any()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any())

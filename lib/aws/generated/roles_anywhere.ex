@@ -4,29 +4,24 @@
 defmodule AWS.RolesAnywhere do
   @moduledoc """
   Identity and Access Management Roles Anywhere provides a secure way for your
-  workloads such as
-  servers, containers, and applications that run outside of Amazon Web Services to
-  obtain
-  temporary Amazon Web Services credentials.
+  workloads such as servers, containers, and applications that run outside of
+  Amazon Web Services to obtain temporary Amazon Web Services credentials.
 
   Your workloads can use the same IAM policies and roles you have for native
   Amazon Web Services applications to access Amazon Web Services resources. Using
-  IAM Roles Anywhere eliminates the need to
-  manage long-term credentials for workloads running outside of Amazon Web
-  Services.
+  IAM Roles Anywhere eliminates the need to manage long-term credentials for
+  workloads running outside of Amazon Web Services.
 
-  To use IAM Roles Anywhere, your workloads must use X.509 certificates
-  issued by their certificate authority (CA). You register the CA with IAM
-  Roles Anywhere as a trust anchor to establish trust between your public key
-  infrastructure
-  (PKI) and IAM Roles Anywhere. If you don't manage your own PKI system, you
-  can use Private Certificate Authority to create a CA and then use that to
-  establish trust with
-  IAM Roles Anywhere.
+  To use IAM Roles Anywhere, your workloads must use X.509 certificates issued by
+  their certificate authority (CA). You register the CA with IAM Roles Anywhere as
+  a trust anchor to establish trust between your public key infrastructure (PKI)
+  and IAM Roles Anywhere. If you don't manage your own PKI system, you can use
+  Private Certificate Authority to create a CA and then use that to establish
+  trust with IAM Roles Anywhere.
 
   This guide describes the IAM Roles Anywhere operations that you can call
-  programmatically. For more information about IAM Roles Anywhere, see the
-  [IAM Roles Anywhere User Guide](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html).
+  programmatically. For more information about IAM Roles Anywhere, see the [IAM Roles Anywhere User
+  Guide](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html).
   """
 
   alias AWS.Client
@@ -771,8 +766,7 @@ defmodule AWS.RolesAnywhere do
 
   You use profiles to intersect permissions with IAM managed policies.
 
-  ## Required permissions: 
-  `rolesanywhere:CreateProfile`.
+  **Required permissions: ** `rolesanywhere:CreateProfile`.
   """
   @spec create_profile(map(), create_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
@@ -801,16 +795,15 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Creates a trust anchor to establish trust between IAM Roles Anywhere and
-  your certificate authority (CA).
+  Creates a trust anchor to establish trust between IAM Roles Anywhere and your
+  certificate authority (CA).
 
   You can define a trust anchor as a reference to an Private Certificate Authority
   (Private CA) or by uploading a CA certificate. Your Amazon Web Services
   workloads can authenticate with the trust anchor using certificates issued by
   the CA in exchange for temporary Amazon Web Services credentials.
 
-  ## Required permissions: 
-  `rolesanywhere:CreateTrustAnchor`.
+  **Required permissions: ** `rolesanywhere:CreateTrustAnchor`.
   """
   @spec create_trust_anchor(map(), create_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -881,8 +874,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a certificate revocation list (CRL).
 
-  ## Required permissions: 
-  `rolesanywhere:DeleteCrl`.
+  **Required permissions: ** `rolesanywhere:DeleteCrl`.
   """
   @spec delete_crl(map(), String.t() | atom(), scalar_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
@@ -913,8 +905,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a profile.
 
-  ## Required permissions: 
-  `rolesanywhere:DeleteProfile`.
+  **Required permissions: ** `rolesanywhere:DeleteProfile`.
   """
   @spec delete_profile(map(), String.t() | atom(), scalar_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
@@ -945,8 +936,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a trust anchor.
 
-  ## Required permissions: 
-  `rolesanywhere:DeleteTrustAnchor`.
+  **Required permissions: ** `rolesanywhere:DeleteTrustAnchor`.
   """
   @spec delete_trust_anchor(map(), String.t() | atom(), scalar_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -977,8 +967,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Disables a certificate revocation list (CRL).
 
-  ## Required permissions: 
-  `rolesanywhere:DisableCrl`.
+  **Required permissions: ** `rolesanywhere:DisableCrl`.
   """
   @spec disable_crl(map(), String.t() | atom(), scalar_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
@@ -1011,8 +1000,7 @@ defmodule AWS.RolesAnywhere do
 
   When disabled, temporary credential requests with this profile fail.
 
-  ## Required permissions: 
-  `rolesanywhere:DisableProfile`.
+  **Required permissions: ** `rolesanywhere:DisableProfile`.
   """
   @spec disable_profile(map(), String.t() | atom(), scalar_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
@@ -1046,8 +1034,7 @@ defmodule AWS.RolesAnywhere do
   When disabled, temporary credential requests specifying this trust anchor are
   unauthorized.
 
-  ## Required permissions: 
-  `rolesanywhere:DisableTrustAnchor`.
+  **Required permissions: ** `rolesanywhere:DisableTrustAnchor`.
   """
   @spec disable_trust_anchor(map(), String.t() | atom(), scalar_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -1081,8 +1068,7 @@ defmodule AWS.RolesAnywhere do
   When enabled, certificates stored in the CRL are unauthorized to receive session
   credentials.
 
-  ## Required permissions: 
-  `rolesanywhere:EnableCrl`.
+  **Required permissions: ** `rolesanywhere:EnableCrl`.
   """
   @spec enable_crl(map(), String.t() | atom(), scalar_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
@@ -1113,8 +1099,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Enables temporary credential requests for a profile.
 
-  ## Required permissions: 
-  `rolesanywhere:EnableProfile`.
+  **Required permissions: ** `rolesanywhere:EnableProfile`.
   """
   @spec enable_profile(map(), String.t() | atom(), scalar_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
@@ -1148,8 +1133,7 @@ defmodule AWS.RolesAnywhere do
   When enabled, certificates in the trust anchor chain are authorized for trust
   validation.
 
-  ## Required permissions: 
-  `rolesanywhere:EnableTrustAnchor`.
+  **Required permissions: ** `rolesanywhere:EnableTrustAnchor`.
   """
   @spec enable_trust_anchor(map(), String.t() | atom(), scalar_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -1180,8 +1164,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a certificate revocation list (CRL).
 
-  ## Required permissions: 
-  `rolesanywhere:GetCrl`.
+  **Required permissions: ** `rolesanywhere:GetCrl`.
   """
   @spec get_crl(map(), String.t() | atom(), list()) ::
           {:ok, crl_detail_response(), any()}
@@ -1201,8 +1184,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a profile.
 
-  ## Required permissions: 
-  `rolesanywhere:GetProfile`.
+  **Required permissions: ** `rolesanywhere:GetProfile`.
   """
   @spec get_profile(map(), String.t() | atom(), list()) ::
           {:ok, profile_detail_response(), any()}
@@ -1220,16 +1202,14 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Gets a *subject*, which associates a certificate identity with
-  authentication attempts.
+  Gets a *subject*, which associates a certificate identity with authentication
+  attempts.
 
-  The subject stores auditing information such as the status
-  of the last authentication attempt, the certificate data used in the attempt,
-  and the
-  last time the associated identity attempted authentication.
+  The subject stores auditing information such as the status of the last
+  authentication attempt, the certificate data used in the attempt, and the last
+  time the associated identity attempted authentication.
 
-  ## Required permissions: 
-  `rolesanywhere:GetSubject`.
+  **Required permissions: ** `rolesanywhere:GetSubject`.
   """
   @spec get_subject(map(), String.t() | atom(), list()) ::
           {:ok, subject_detail_response(), any()}
@@ -1249,8 +1229,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a trust anchor.
 
-  ## Required permissions: 
-  `rolesanywhere:GetTrustAnchor`.
+  **Required permissions: ** `rolesanywhere:GetTrustAnchor`.
   """
   @spec get_trust_anchor(map(), String.t() | atom(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -1270,14 +1249,12 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Imports the certificate revocation list (CRL).
 
-  A CRL is a list of certificates that have
-  been revoked by the issuing certificate Authority (CA).In order to be properly
-  imported, a CRL must be in PEM
-  format. IAM Roles Anywhere
-  validates against the CRL before issuing credentials.
+  A CRL is a list of certificates that have been revoked by the issuing
+  certificate Authority (CA).In order to be properly imported, a CRL must be in
+  PEM format. IAM Roles Anywhere validates against the CRL before issuing
+  credentials.
 
-  ## Required permissions: 
-  `rolesanywhere:ImportCrl`.
+  **Required permissions: ** `rolesanywhere:ImportCrl`.
   """
   @spec import_crl(map(), import_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
@@ -1309,8 +1286,7 @@ defmodule AWS.RolesAnywhere do
   Lists all certificate revocation lists (CRL) in the authenticated account and
   Amazon Web Services Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListCrls`.
+  **Required permissions: ** `rolesanywhere:ListCrls`.
   """
   @spec list_crls(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_crls_response(), any()}
@@ -1344,8 +1320,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists all profiles in the authenticated account and Amazon Web Services Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListProfiles`.
+  **Required permissions: ** `rolesanywhere:ListProfiles`.
   """
   @spec list_profiles(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_profiles_response(), any()}
@@ -1379,8 +1354,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists the subjects in the authenticated account and Amazon Web Services Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListSubjects`.
+  **Required permissions: ** `rolesanywhere:ListSubjects`.
   """
   @spec list_subjects(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_subjects_response(), any()}
@@ -1414,8 +1388,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists the tags attached to the resource.
 
-  ## Required permissions: 
-  `rolesanywhere:ListTagsForResource`.
+  **Required permissions: ** `rolesanywhere:ListTagsForResource`.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1443,8 +1416,7 @@ defmodule AWS.RolesAnywhere do
   Lists the trust anchors in the authenticated account and Amazon Web Services
   Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListTrustAnchors`.
+  **Required permissions: ** `rolesanywhere:ListTrustAnchors`.
   """
   @spec list_trust_anchors(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_trust_anchors_response(), any()}
@@ -1512,11 +1484,9 @@ defmodule AWS.RolesAnywhere do
   Attaches a list of *notification settings* to a trust anchor.
 
   A notification setting includes information such as event name, threshold,
-  status of
-  the notification setting, and the channel to notify.
+  status of the notification setting, and the channel to notify.
 
-  ## Required permissions: 
-  `rolesanywhere:PutNotificationSettings`.
+  **Required permissions: ** `rolesanywhere:PutNotificationSettings`.
   """
   @spec put_notification_settings(map(), put_notification_settings_request(), list()) ::
           {:ok, put_notification_settings_response(), any()}
@@ -1547,8 +1517,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Resets the *custom notification setting* to IAM Roles Anywhere default setting.
 
-  ## Required permissions: 
-  `rolesanywhere:ResetNotificationSettings`.
+  **Required permissions: ** `rolesanywhere:ResetNotificationSettings`.
   """
   @spec reset_notification_settings(map(), reset_notification_settings_request(), list()) ::
           {:ok, reset_notification_settings_response(), any()}
@@ -1579,8 +1548,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Attaches tags to a resource.
 
-  ## Required permissions: 
-  `rolesanywhere:TagResource`.
+  **Required permissions: ** `rolesanywhere:TagResource`.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -1611,8 +1579,7 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Removes tags from the resource.
 
-  ## Required permissions: 
-  `rolesanywhere:UntagResource`.
+  **Required permissions: ** `rolesanywhere:UntagResource`.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -1643,12 +1610,11 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Updates the certificate revocation list (CRL).
 
-  A CRL is a list of certificates that have
-  been revoked by the issuing certificate authority (CA). IAM Roles Anywhere
-  validates against the CRL before issuing credentials.
+  A CRL is a list of certificates that have been revoked by the issuing
+  certificate authority (CA). IAM Roles Anywhere validates against the CRL before
+  issuing credentials.
 
-  ## Required permissions: 
-  `rolesanywhere:UpdateCrl`.
+  **Required permissions: ** `rolesanywhere:UpdateCrl`.
   """
   @spec update_crl(map(), String.t() | atom(), update_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
@@ -1677,14 +1643,12 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Updates a *profile*, a list of the roles that IAM
-  Roles Anywhere service is trusted to assume.
+  Updates a *profile*, a list of the roles that IAM Roles Anywhere service is
+  trusted to assume.
 
-  You use profiles to intersect permissions with
-  IAM managed policies.
+  You use profiles to intersect permissions with IAM managed policies.
 
-  ## Required permissions: 
-  `rolesanywhere:UpdateProfile`.
+  **Required permissions: ** `rolesanywhere:UpdateProfile`.
   """
   @spec update_profile(map(), String.t() | atom(), update_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
@@ -1715,19 +1679,14 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Updates a trust anchor.
 
-  You establish trust between IAM Roles Anywhere
-  and your certificate authority (CA) by configuring a trust anchor. You can
-  define a trust
-  anchor as a reference to an Private Certificate Authority (Private CA) or by
-  uploading a
-  CA certificate. Your Amazon Web Services workloads can authenticate with the
-  trust anchor
-  using certificates issued by the CA in exchange for temporary Amazon Web
-  Services
-  credentials.
+  You establish trust between IAM Roles Anywhere and your certificate authority
+  (CA) by configuring a trust anchor. You can define a trust anchor as a reference
+  to an Private Certificate Authority (Private CA) or by uploading a CA
+  certificate. Your Amazon Web Services workloads can authenticate with the trust
+  anchor using certificates issued by the CA in exchange for temporary Amazon Web
+  Services credentials.
 
-  ## Required permissions: 
-  `rolesanywhere:UpdateTrustAnchor`.
+  **Required permissions: ** `rolesanywhere:UpdateTrustAnchor`.
   """
   @spec update_trust_anchor(map(), String.t() | atom(), update_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}

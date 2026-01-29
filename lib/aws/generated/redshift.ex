@@ -2286,6 +2286,17 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      connect() :: %{
+        "Authorization" => list(any())
+      }
+      
+  """
+  @type connect() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       copy_cluster_snapshot_message() :: %{
         optional("ManualSnapshotRetentionPeriod") => integer(),
         optional("SourceSnapshotClusterIdentifier") => String.t() | atom(),
@@ -2345,6 +2356,22 @@ defmodule AWS.Redshift do
       
   """
   @type event_info_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_lakehouse_configuration_message() :: %{
+        optional("CatalogName") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("LakehouseIdcApplicationArn") => String.t() | atom(),
+        optional("LakehouseIdcRegistration") => list(any()),
+        optional("LakehouseRegistration") => list(any()),
+        required("ClusterIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type modify_lakehouse_configuration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2558,6 +2585,7 @@ defmodule AWS.Redshift do
         "PreferredMaintenanceWindow" => String.t() | atom(),
         "ClusterAvailabilityStatus" => String.t() | atom(),
         "ClusterRevisionNumber" => String.t() | atom(),
+        "LakehouseRegistrationStatus" => String.t() | atom(),
         "ClusterNamespaceArn" => String.t() | atom(),
         "RestoreStatus" => restore_status(),
         "PendingModifiedValues" => pending_modified_values(),
@@ -2596,6 +2624,8 @@ defmodule AWS.Redshift do
         "MasterPasswordSecretKmsKeyId" => String.t() | atom(),
         "ElasticResizeNumberOfNodeOptions" => String.t() | atom(),
         "ModifyStatus" => String.t() | atom(),
+        "CatalogArn" => String.t() | atom(),
+        "ExtraComputeForAutomaticOptimization" => String.t() | atom(),
         "Endpoint" => endpoint(),
         "AvailabilityZoneRelocationStatus" => String.t() | atom(),
         "SnapshotScheduleIdentifier" => String.t() | atom(),
@@ -2810,6 +2840,20 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      lakehouse_configuration() :: %{
+        "CatalogArn" => String.t() | atom(),
+        "ClusterIdentifier" => String.t() | atom(),
+        "LakehouseIdcApplicationArn" => String.t() | atom(),
+        "LakehouseRegistrationStatus" => String.t() | atom()
+      }
+      
+  """
+  @type lakehouse_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       source_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
@@ -2898,6 +2942,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       redshift_idc_application() :: %{
+        "ApplicationType" => list(any()),
         "AuthorizedTokenIssuerList" => list(authorized_token_issuer()),
         "IamRoleArn" => String.t() | atom(),
         "IdcDisplayName" => String.t() | atom(),
@@ -3757,6 +3802,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       create_redshift_idc_application_message() :: %{
+        optional("ApplicationType") => list(any()),
         optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()),
         optional("IdentityNamespace") => String.t() | atom(),
         optional("ServiceIntegrations") => list(list()),
@@ -4446,6 +4492,7 @@ defmodule AWS.Redshift do
         optional("PubliclyAccessible") => boolean(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
         optional("DefaultIamRoleArn") => String.t() | atom(),
+        optional("CatalogName") => String.t() | atom(),
         required("ClusterIdentifier") => String.t() | atom(),
         required("MasterUsername") => String.t() | atom(),
         optional("Port") => integer(),
@@ -4455,6 +4502,7 @@ defmodule AWS.Redshift do
         optional("AutomatedSnapshotRetentionPeriod") => integer(),
         optional("KmsKeyId") => String.t() | atom(),
         optional("DBName") => String.t() | atom(),
+        optional("ExtraComputeForAutomaticOptimization") => boolean(),
         optional("PreferredMaintenanceWindow") => String.t() | atom(),
         optional("ClusterParameterGroupName") => String.t() | atom(),
         optional("Tags") => list(tag())
@@ -5246,6 +5294,7 @@ defmodule AWS.Redshift do
         optional("ElasticIp") => String.t() | atom(),
         optional("Encrypted") => boolean(),
         optional("EnhancedVpcRouting") => boolean(),
+        optional("ExtraComputeForAutomaticOptimization") => boolean(),
         optional("HsmClientCertificateIdentifier") => String.t() | atom(),
         optional("HsmConfigurationIdentifier") => String.t() | atom(),
         optional("IpAddressType") => String.t() | atom(),
@@ -5504,6 +5553,7 @@ defmodule AWS.Redshift do
         optional("HsmClientCertificateIdentifier") => String.t() | atom(),
         optional("Encrypted") => boolean(),
         optional("MaintenanceTrackName") => String.t() | atom(),
+        optional("RedshiftIdcApplicationArn") => String.t() | atom(),
         optional("SnapshotScheduleIdentifier") => String.t() | atom(),
         optional("HsmConfigurationIdentifier") => String.t() | atom(),
         optional("IpAddressType") => String.t() | atom(),
@@ -5520,6 +5570,7 @@ defmodule AWS.Redshift do
         optional("NodeType") => String.t() | atom(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
         optional("DefaultIamRoleArn") => String.t() | atom(),
+        optional("CatalogName") => String.t() | atom(),
         required("ClusterIdentifier") => String.t() | atom(),
         optional("Port") => integer(),
         optional("TargetReservedNodeOfferingId") => String.t() | atom(),
@@ -6173,7 +6224,8 @@ defmodule AWS.Redshift do
           | authentication_profile_already_exists_fault()
 
   @type create_cluster_errors() ::
-          tag_limit_exceeded_fault()
+          dependent_service_unavailable_fault()
+          | tag_limit_exceeded_fault()
           | invalid_retention_period_fault()
           | cluster_already_exists_fault()
           | insufficient_cluster_capacity_fault()
@@ -6184,6 +6236,7 @@ defmodule AWS.Redshift do
           | number_of_nodes_quota_exceeded_fault()
           | hsm_client_certificate_not_found_fault()
           | redshift_idc_application_not_exists_fault()
+          | dependent_service_access_denied_fault()
           | cluster_parameter_group_not_found_fault()
           | invalid_tag_fault()
           | invalid_elastic_ip_fault()
@@ -6711,6 +6764,15 @@ defmodule AWS.Redshift do
           | unsupported_operation_fault()
           | integration_already_exists_fault()
 
+  @type modify_lakehouse_configuration_errors() ::
+          dependent_service_unavailable_fault()
+          | invalid_cluster_state_fault()
+          | redshift_idc_application_not_exists_fault()
+          | dependent_service_access_denied_fault()
+          | unauthorized_operation()
+          | unsupported_operation_fault()
+          | cluster_not_found_fault()
+
   @type modify_redshift_idc_application_errors() ::
           dependent_service_unavailable_fault()
           | redshift_idc_application_not_exists_fault()
@@ -6804,6 +6866,8 @@ defmodule AWS.Redshift do
           | number_of_nodes_quota_exceeded_fault()
           | hsm_client_certificate_not_found_fault()
           | invalid_reserved_node_state_fault()
+          | redshift_idc_application_not_exists_fault()
+          | dependent_service_access_denied_fault()
           | cluster_parameter_group_not_found_fault()
           | invalid_tag_fault()
           | invalid_elastic_ip_fault()
@@ -9395,6 +9459,23 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
+  end
+
+  @doc """
+  Modifies the lakehouse configuration for a cluster.
+
+  This operation allows you to manage Amazon Redshift federated permissions and
+  Amazon Web Services IAM Identity Center trusted identity propagation.
+  """
+  @spec modify_lakehouse_configuration(map(), modify_lakehouse_configuration_message(), list()) ::
+          {:ok, lakehouse_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, modify_lakehouse_configuration_errors()}
+  def modify_lakehouse_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyLakehouseConfiguration", input, options)
   end
 
   @doc """

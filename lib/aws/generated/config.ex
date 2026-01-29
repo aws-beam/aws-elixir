@@ -1659,6 +1659,7 @@ defmodule AWS.Config do
         optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
         optional("DeliveryS3Bucket") => String.t() | atom(),
         optional("DeliveryS3KeyPrefix") => String.t() | atom(),
+        optional("Tags") => list(tag()),
         optional("TemplateBody") => String.t() | atom(),
         optional("TemplateS3Uri") => String.t() | atom(),
         optional("TemplateSSMDocumentDetails") => template_s_s_m_document_details(),
@@ -6979,6 +6980,20 @@ defmodule AWS.Config do
 
   You must specify only one of the follow parameters: `TemplateS3Uri`,
   `TemplateBody` or `TemplateSSMDocumentDetails`.
+
+  ## Tags are added at creation and cannot be updated with this operation
+
+  `PutConformancePack` is an idempotent API. Subsequent requests won't create a
+  duplicate resource if one was already created. If a following request has
+  different `tags` values,
+  Config will ignore these differences and treat it as an idempotent request of
+  the previous. In this case, `tags` will not be updated, even if they are
+  different.
+
+  Use
+  [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html) and
+  [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html)
+  to update tags after creation.
   """
   @spec put_conformance_pack(map(), put_conformance_pack_request(), list()) ::
           {:ok, put_conformance_pack_response(), any()}

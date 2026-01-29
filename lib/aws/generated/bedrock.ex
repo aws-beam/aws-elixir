@@ -417,6 +417,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_enforced_guardrail_configuration_request() :: %{}
+
+  """
+  @type delete_enforced_guardrail_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       automated_reasoning_policy_planning() :: %{}
 
   """
@@ -634,6 +643,19 @@ defmodule AWS.Bedrock do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_generated_test_case() :: %{
+        "expectedAggregatedFindingsResult" => list(any()),
+        "guardContent" => String.t() | atom(),
+        "queryContent" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_generated_test_case() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1124,6 +1146,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      list_enforced_guardrails_configuration_request() :: %{
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_enforced_guardrails_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       marketplace_model_endpoint() :: %{
         "createdAt" => non_neg_integer(),
         "endpointArn" => String.t() | atom(),
@@ -1171,6 +1204,15 @@ defmodule AWS.Bedrock do
 
   """
   @type evaluation_model_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_enforced_guardrail_configuration_response() :: %{}
+
+  """
+  @type delete_enforced_guardrail_configuration_response() :: %{}
 
   @typedoc """
 
@@ -1272,6 +1314,26 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      account_enforced_guardrail_output_configuration() :: %{
+        "configId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => [String.t() | atom()],
+        "guardrailArn" => String.t() | atom(),
+        "guardrailId" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom(),
+        "inputTags" => list(any()),
+        "owner" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => [String.t() | atom()]
+      }
+
+  """
+  @type account_enforced_guardrail_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       automated_reasoning_policy_delete_rule_annotation() :: %{
         "ruleId" => String.t() | atom()
       }
@@ -1339,7 +1401,26 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      r_f_t_hyper_parameters() :: %{
+        "batchSize" => integer(),
+        "epochCount" => integer(),
+        "evalInterval" => integer(),
+        "inferenceMaxTokens" => integer(),
+        "learningRate" => float(),
+        "maxPromptLength" => integer(),
+        "reasoningEffort" => list(any()),
+        "trainingSamplePerPrompt" => integer()
+      }
+
+  """
+  @type r_f_t_hyper_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       logging_config() :: %{
+        "audioDataDeliveryEnabled" => [boolean()],
         "cloudWatchConfig" => cloud_watch_config(),
         "embeddingDataDeliveryEnabled" => [boolean()],
         "imageDataDeliveryEnabled" => [boolean()],
@@ -1908,6 +1989,17 @@ defmodule AWS.Bedrock do
 
   """
   @type get_automated_reasoning_policy_build_workflow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_scenarios() :: %{
+        "policyScenarios" => list(automated_reasoning_policy_scenario())
+      }
+
+  """
+  @type automated_reasoning_policy_scenarios() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2494,6 +2586,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      custom_model_deployment_update_details() :: %{
+        "modelArn" => String.t() | atom(),
+        "updateStatus" => list(any())
+      }
+
+  """
+  @type custom_model_deployment_update_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_output_data_config() :: %{
         "s3Uri" => String.t() | atom()
       }
@@ -2806,6 +2910,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      r_f_t_config() :: %{
+        "graderConfig" => list(),
+        "hyperParameters" => r_f_t_hyper_parameters()
+      }
+
+  """
+  @type r_f_t_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_use_case_for_model_access_response() :: %{}
 
   """
@@ -2958,6 +3074,17 @@ defmodule AWS.Bedrock do
 
   """
   @type list_imported_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_grader_config() :: %{
+        "lambdaArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_grader_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3323,6 +3450,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      put_enforced_guardrail_configuration_response() :: %{
+        "configId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => [String.t() | atom()]
+      }
+
+  """
+  @type put_enforced_guardrail_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_foundation_model_agreement_offers_request() :: %{
         optional("offerType") => list(any())
       }
@@ -3517,6 +3657,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      update_custom_model_deployment_response() :: %{
+        "customModelDeploymentArn" => String.t() | atom()
+      }
+
+  """
+  @type update_custom_model_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       custom_metric_evaluator_model_config() :: %{
         "bedrockEvaluatorModels" => list(custom_metric_bedrock_evaluator_model())
       }
@@ -3571,7 +3722,8 @@ defmodule AWS.Bedrock do
         "lastUpdatedAt" => non_neg_integer(),
         "modelArn" => String.t() | atom(),
         "modelDeploymentName" => String.t() | atom(),
-        "status" => list(any())
+        "status" => list(any()),
+        "updateDetails" => custom_model_deployment_update_details()
       }
 
   """
@@ -4160,6 +4312,29 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      put_enforced_guardrail_configuration_request() :: %{
+        optional("configId") => String.t() | atom(),
+        required("guardrailInferenceConfig") => account_enforced_guardrail_inference_input_configuration()
+      }
+
+  """
+  @type put_enforced_guardrail_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_model_deployment_request() :: %{
+        required("modelArn") => String.t() | atom()
+      }
+
+  """
+  @type update_custom_model_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_model_customization_job_response() :: %{
         "baseModelArn" => String.t() | atom(),
         "clientRequestToken" => String.t() | atom(),
@@ -4250,6 +4425,17 @@ defmodule AWS.Bedrock do
 
   """
   @type list_custom_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_generated_test_cases() :: %{
+        "generatedTestCases" => list(automated_reasoning_policy_generated_test_case())
+      }
+
+  """
+  @type automated_reasoning_policy_generated_test_cases() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4921,6 +5107,21 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      account_enforced_guardrail_inference_input_configuration() :: %{
+        "guardrailIdentifier" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom(),
+        "inputTags" => list(any())
+      }
+
+  """
+  @type account_enforced_guardrail_inference_input_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       automated_reasoning_policy_definition_type_value() :: %{
         "description" => String.t() | atom(),
         "value" => String.t() | atom()
@@ -4980,6 +5181,18 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_topic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enforced_guardrails_configuration_response() :: %{
+        "guardrailsConfig" => list(account_enforced_guardrail_output_configuration()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_enforced_guardrails_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5297,6 +5510,13 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_enforced_guardrail_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_foundation_model_agreement_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5573,6 +5793,13 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_enforced_guardrails_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_evaluation_jobs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5661,6 +5888,14 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type put_enforced_guardrail_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type put_model_invocation_logging_configuration_errors() ::
           throttling_exception()
@@ -5764,6 +5999,13 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
           | resource_in_use_exception()
+
+  @type update_custom_model_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type update_guardrail_errors() ::
           throttling_exception()
@@ -6761,6 +7003,40 @@ defmodule AWS.Bedrock do
     url_path =
       "/model-customization/custom-model-deployments/#{AWS.Util.encode_uri(custom_model_deployment_identifier)}"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the account-level enforced guardrail configuration.
+  """
+  @spec delete_enforced_guardrail_configuration(
+          map(),
+          String.t() | atom(),
+          delete_enforced_guardrail_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_enforced_guardrail_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_enforced_guardrail_configuration_errors()}
+  def delete_enforced_guardrail_configuration(%Client{} = client, config_id, input, options \\ []) do
+    url_path = "/enforcedGuardrailsConfiguration/#{AWS.Util.encode_uri(config_id)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -8164,6 +8440,31 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Lists the account-level enforced guardrail configurations.
+  """
+  @spec list_enforced_guardrails_configuration(map(), String.t() | atom() | nil, list()) ::
+          {:ok, list_enforced_guardrails_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_enforced_guardrails_configuration_errors()}
+  def list_enforced_guardrails_configuration(%Client{} = client, next_token \\ nil, options \\ []) do
+    url_path = "/enforcedGuardrailsConfiguration"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all existing evaluation jobs.
   """
   @spec list_evaluation_jobs(
@@ -9234,6 +9535,39 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Sets the account-level enforced guardrail configuration.
+  """
+  @spec put_enforced_guardrail_configuration(
+          map(),
+          put_enforced_guardrail_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_enforced_guardrail_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_enforced_guardrail_configuration_errors()}
+  def put_enforced_guardrail_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/enforcedGuardrailsConfiguration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Set the configuration values for model invocation logging.
   """
   @spec put_model_invocation_logging_configuration(
@@ -9726,6 +10060,50 @@ defmodule AWS.Bedrock do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Updates a custom model deployment with a new custom model.
+
+  This allows you to deploy updated models without creating new deployment
+  endpoints.
+  """
+  @spec update_custom_model_deployment(
+          map(),
+          String.t() | atom(),
+          update_custom_model_deployment_request(),
+          list()
+        ) ::
+          {:ok, update_custom_model_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_custom_model_deployment_errors()}
+  def update_custom_model_deployment(
+        %Client{} = client,
+        custom_model_deployment_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/model-customization/custom-model-deployments/#{AWS.Util.encode_uri(custom_model_deployment_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

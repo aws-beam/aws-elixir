@@ -1320,7 +1320,8 @@ defmodule AWS.GameLift do
         "GameServerContainerGroupCounts" => game_server_container_group_counts(),
         "InstanceCounts" => ec2_instance_counts(),
         "InstanceType" => list(any()),
-        "Location" => String.t() | atom()
+        "Location" => String.t() | atom(),
+        "ManagedCapacityConfiguration" => managed_capacity_configuration()
       }
       
   """
@@ -1568,6 +1569,18 @@ defmodule AWS.GameLift do
       
   """
   @type request_upload_credentials_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_capacity_configuration() :: %{
+        "ScaleInAfterInactivityMinutes" => integer(),
+        "ZeroCapacityStrategy" => list(any())
+      }
+      
+  """
+  @type managed_capacity_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2009,6 +2022,7 @@ defmodule AWS.GameLift do
       update_fleet_capacity_input() :: %{
         optional("DesiredInstances") => integer(),
         optional("Location") => String.t() | atom(),
+        optional("ManagedCapacityConfiguration") => managed_capacity_configuration(),
         optional("MaxSize") => integer(),
         optional("MinSize") => integer(),
         required("FleetId") => String.t() | atom()
@@ -2714,7 +2728,8 @@ defmodule AWS.GameLift do
       update_fleet_capacity_output() :: %{
         "FleetArn" => String.t() | atom(),
         "FleetId" => String.t() | atom(),
-        "Location" => String.t() | atom()
+        "Location" => String.t() | atom(),
+        "ManagedCapacityConfiguration" => managed_capacity_configuration()
       }
       
   """
@@ -10502,8 +10517,6 @@ defmodule AWS.GameLift do
   operation to
   manage capacity settings in each location individually.
 
-  Use this operation to set these fleet capacity properties:
-
     *
   Minimum/maximum size: Set hard limits on the number of Amazon EC2 instances
   allowed. If Amazon GameLift Servers receives a
@@ -10541,7 +10554,30 @@ defmodule AWS.GameLift do
   location. You can track a fleet's current capacity by calling
   [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html)
   or
-  [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html). 
+  [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html).   Use ManagedCapacityConfiguration with the "SCALE_TO_AND_FROM_ZERO"
+  ZeroCapacityStrategy to enable Amazon
+  GameLift Servers to fully manage the MinSize value, switching between 0 and 1
+  based on game session
+  activity. This is ideal for eliminating compute costs during periods of no game
+  activity.
+  It is particularly beneficial during development when you're away from your
+  desk, iterating on builds
+  for extended periods, in production environments serving low-traffic locations,
+  or for games with long,
+  predictable downtime windows. By automatically managing capacity between 0 and 1
+  instances, you avoid paying
+  for idle instances while maintaining the ability to serve game sessions when
+  demand arrives. Note that while
+  scale-out is triggered immediately upon receiving a game session request, actual
+  game session availability
+  depends on your server process startup time, so this approach works best with
+  multi-location Fleets where
+  cold-start latency is tolerable. With a "MANUAL" ZeroCapacityStrategy Amazon
+  GameLift Servers will not
+  modify Fleet MinSize values automatically and will not scale out from zero
+  instances in response to game
+  sessions. This is configurable per-location.
+
   ## Learn more
 
   [Scaling fleet

@@ -1579,6 +1579,7 @@ defmodule AWS.BedrockAgentCoreControl do
       create_online_evaluation_config_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("tags") => map(),
         required("dataSourceConfig") => list(),
         required("enableOnCreate") => [boolean()],
         required("evaluationExecutionRoleArn") => String.t() | atom(),
@@ -3874,6 +3875,7 @@ defmodule AWS.BedrockAgentCoreControl do
       create_evaluator_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("tags") => map(),
         required("evaluatorConfig") => list(),
         required("evaluatorName") => String.t() | atom(),
         required("level") => list(any())

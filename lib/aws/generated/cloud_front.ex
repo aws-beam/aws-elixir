@@ -5644,6 +5644,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      origin_mtls_config() :: %{
+        "ClientCertificateArn" => String.t() | atom()
+      }
+
+  """
+  @type origin_mtls_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_field_level_encryption_profile_result() :: %{
         "ETag" => String.t() | atom(),
         "FieldLevelEncryptionProfile" => field_level_encryption_profile(),
@@ -8007,6 +8018,7 @@ defmodule AWS.CloudFront do
         "HTTPSPort" => integer(),
         "IpAddressType" => list(any()),
         "OriginKeepaliveTimeout" => integer(),
+        "OriginMtlsConfig" => origin_mtls_config(),
         "OriginProtocolPolicy" => list(any()),
         "OriginReadTimeout" => integer(),
         "OriginSslProtocols" => origin_ssl_protocols()

@@ -121,6 +121,7 @@ defmodule AWS.MPA do
       get_session_response() :: %{
         "ActionCompletionStrategy" => list(any()),
         "ActionName" => String.t() | atom(),
+        "AdditionalSecurityRequirements" => list(list(any())()),
         "ApprovalStrategy" => list(),
         "ApprovalTeamArn" => String.t() | atom(),
         "ApprovalTeamName" => String.t() | atom(),
@@ -256,6 +257,18 @@ defmodule AWS.MPA do
 
   """
   @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mfa_method() :: %{
+        "SyncStatus" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type mfa_method() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,6 +462,7 @@ defmodule AWS.MPA do
 
       get_approval_team_response_approver() :: %{
         "ApproverId" => String.t() | atom(),
+        "MfaMethods" => list(mfa_method()),
         "PrimaryIdentityId" => String.t() | atom(),
         "PrimaryIdentitySourceArn" => String.t() | atom(),
         "PrimaryIdentityStatus" => list(any()),
@@ -817,6 +831,7 @@ defmodule AWS.MPA do
       list_sessions_response_session() :: %{
         "ActionCompletionStrategy" => list(any()),
         "ActionName" => String.t() | atom(),
+        "AdditionalSecurityRequirements" => list(list(any())()),
         "ApprovalTeamArn" => String.t() | atom(),
         "ApprovalTeamName" => String.t() | atom(),
         "CompletionTime" => non_neg_integer(),
@@ -895,7 +910,8 @@ defmodule AWS.MPA do
       update_approval_team_request() :: %{
         optional("ApprovalStrategy") => list(),
         optional("Approvers") => list(approval_team_request_approver()),
-        optional("Description") => String.t() | atom()
+        optional("Description") => String.t() | atom(),
+        optional("UpdateActions") => list(list(any())())
       }
 
   """
@@ -1304,10 +1320,6 @@ defmodule AWS.MPA do
   Returns details for the version of a policy.
 
   Policies define the permissions for team resources.
-
-  The protected operation for a service integration might require specific
-  permissions. For more information, see [How other services work with Multi-party approval](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html)
-  in the *Multi-party approval User Guide*.
   """
   @spec get_policy_version(map(), String.t() | atom(), list()) ::
           {:ok, get_policy_version_response(), any()}
@@ -1452,10 +1464,6 @@ defmodule AWS.MPA do
   Returns a list of policies.
 
   Policies define the permissions for team resources.
-
-  The protected operation for a service integration might require specific
-  permissions. For more information, see [How other services work with Multi-party approval](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html)
-  in the *Multi-party approval User Guide*.
   """
   @spec list_policies(map(), list_policies_request(), list()) ::
           {:ok, list_policies_response(), any()}
@@ -1493,10 +1501,6 @@ defmodule AWS.MPA do
   Returns a list of the versions for policies.
 
   Policies define the permissions for team resources.
-
-  The protected operation for a service integration might require specific
-  permissions. For more information, see [How other services work with Multi-party approval](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html)
-  in the *Multi-party approval User Guide*.
   """
   @spec list_policy_versions(map(), String.t() | atom(), list_policy_versions_request(), list()) ::
           {:ok, list_policy_versions_response(), any()}

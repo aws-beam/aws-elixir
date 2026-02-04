@@ -136,6 +136,7 @@ defmodule AWS.GeoMaps do
   ## Example:
 
       get_style_descriptor_request() :: %{
+        optional("Buildings") => String.t() | atom(),
         optional("ColorScheme") => String.t() | atom(),
         optional("ContourDensity") => String.t() | atom(),
         optional("Key") => String.t() | atom(),
@@ -587,6 +588,7 @@ defmodule AWS.GeoMaps do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_style_descriptor_response(), any()}
@@ -595,6 +597,7 @@ defmodule AWS.GeoMaps do
   def get_style_descriptor(
         %Client{} = client,
         style,
+        buildings \\ nil,
         color_scheme \\ nil,
         contour_density \\ nil,
         key \\ nil,
@@ -653,6 +656,13 @@ defmodule AWS.GeoMaps do
     query_params =
       if !is_nil(color_scheme) do
         [{"color-scheme", color_scheme} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(buildings) do
+        [{"buildings", buildings} | query_params]
       else
         query_params
       end

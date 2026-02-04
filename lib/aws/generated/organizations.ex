@@ -3093,6 +3093,13 @@ defmodule AWS.Organizations do
   *Organizations User Guide*.
 
     
+  Resources remaining within the account after closing will be automatically
+  deleted after 90 days. During this 90-day period,
+  the resources won't be available unless you contact Amazon Web Services Support
+  to reopen the account. After 90 days, you can't reopen an account.
+  You might still receive a [bill after account closure](https://repost.aws/knowledge-center/closed-account-bill).
+
+    
   You can close only 10% of member accounts, between 10 and 1000, within a
   rolling 30 day period. This quota is not bound by a calendar month, but
   starts when you close an account. After you reach this limit, you can't

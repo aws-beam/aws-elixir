@@ -97,6 +97,7 @@ defmodule AWS.Kinesis do
       
       enable_enhanced_monitoring_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("ShardLevelMetrics") => list(list(any())())
       }
@@ -115,6 +116,7 @@ defmodule AWS.Kinesis do
         optional("ShardFilter") => shard_filter(),
         optional("StreamARN") => String.t() | atom(),
         optional("StreamCreationTimestamp") => non_neg_integer(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom()
       }
       
@@ -140,6 +142,7 @@ defmodule AWS.Kinesis do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("StreamCreationTimestamp") => non_neg_integer(),
+        optional("StreamId") => String.t() | atom(),
         required("StreamARN") => String.t() | atom()
       }
       
@@ -176,6 +179,7 @@ defmodule AWS.Kinesis do
       
       update_stream_warm_throughput_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("WarmThroughputMiBps") => integer()
       }
@@ -224,6 +228,7 @@ defmodule AWS.Kinesis do
       
       update_shard_count_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("ScalingType") => list(any()),
         required("TargetShardCount") => integer()
@@ -271,6 +276,7 @@ defmodule AWS.Kinesis do
       
       decrease_stream_retention_period_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("RetentionPeriodHours") => integer()
       }
@@ -292,6 +298,7 @@ defmodule AWS.Kinesis do
         "RetentionPeriodHours" => integer(),
         "StreamARN" => String.t() | atom(),
         "StreamCreationTimestamp" => non_neg_integer(),
+        "StreamId" => String.t() | atom(),
         "StreamModeDetails" => stream_mode_details(),
         "StreamName" => String.t() | atom(),
         "StreamStatus" => list(any()),
@@ -308,7 +315,8 @@ defmodule AWS.Kinesis do
       deregister_stream_consumer_input() :: %{
         optional("ConsumerARN") => String.t() | atom(),
         optional("ConsumerName") => String.t() | atom(),
-        optional("StreamARN") => String.t() | atom()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom()
       }
       
   """
@@ -329,6 +337,7 @@ defmodule AWS.Kinesis do
       
       increase_stream_retention_period_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("RetentionPeriodHours") => integer()
       }
@@ -343,6 +352,7 @@ defmodule AWS.Kinesis do
       delete_stream_input() :: %{
         optional("EnforceConsumerDeletion") => boolean(),
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom()
       }
       
@@ -354,6 +364,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       delete_resource_policy_input() :: %{
+        optional("StreamId") => String.t() | atom(),
         required("ResourceARN") => String.t() | atom()
       }
       
@@ -377,6 +388,7 @@ defmodule AWS.Kinesis do
       
       put_records_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("Records") => list(put_records_request_entry())
       }
@@ -404,6 +416,7 @@ defmodule AWS.Kinesis do
       
       add_tags_to_stream_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("Tags") => map()
       }
@@ -524,6 +537,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       put_resource_policy_input() :: %{
+        optional("StreamId") => String.t() | atom(),
         required("Policy") => String.t() | atom(),
         required("ResourceARN") => String.t() | atom()
       }
@@ -550,6 +564,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       register_stream_consumer_input() :: %{
+        optional("StreamId") => String.t() | atom(),
         optional("Tags") => map(),
         required("ConsumerName") => String.t() | atom(),
         required("StreamARN") => String.t() | atom()
@@ -565,6 +580,7 @@ defmodule AWS.Kinesis do
       get_shard_iterator_input() :: %{
         optional("StartingSequenceNumber") => String.t() | atom(),
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         optional("Timestamp") => non_neg_integer(),
         required("ShardId") => String.t() | atom(),
@@ -581,7 +597,8 @@ defmodule AWS.Kinesis do
       describe_stream_consumer_input() :: %{
         optional("ConsumerARN") => String.t() | atom(),
         optional("ConsumerName") => String.t() | atom(),
-        optional("StreamARN") => String.t() | atom()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom()
       }
       
   """
@@ -593,6 +610,7 @@ defmodule AWS.Kinesis do
       
       remove_tags_from_stream_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("TagKeys") => list(String.t() | atom())
       }
@@ -606,6 +624,7 @@ defmodule AWS.Kinesis do
       
       merge_shards_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("AdjacentShardToMerge") => String.t() | atom(),
         required("ShardToMerge") => String.t() | atom()
@@ -642,6 +661,7 @@ defmodule AWS.Kinesis do
       
       describe_stream_summary_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom()
       }
       
@@ -653,6 +673,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       tag_resource_input() :: %{
+        optional("StreamId") => String.t() | atom(),
         required("ResourceARN") => String.t() | atom(),
         required("Tags") => map()
       }
@@ -738,6 +759,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       subscribe_to_shard_input() :: %{
+        optional("StreamId") => String.t() | atom(),
         required("ConsumerARN") => String.t() | atom(),
         required("ShardId") => String.t() | atom(),
         required("StartingPosition") => starting_position()
@@ -774,6 +796,7 @@ defmodule AWS.Kinesis do
       
       stop_stream_encryption_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("EncryptionType") => list(any()),
         required("KeyId") => String.t() | atom()
@@ -789,6 +812,7 @@ defmodule AWS.Kinesis do
       get_records_input() :: %{
         optional("Limit") => integer(),
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         required("ShardIterator") => String.t() | atom()
       }
       
@@ -844,6 +868,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       untag_resource_input() :: %{
+        optional("StreamId") => String.t() | atom(),
         required("ResourceARN") => String.t() | atom(),
         required("TagKeys") => list(String.t() | atom())
       }
@@ -859,6 +884,7 @@ defmodule AWS.Kinesis do
         optional("ExclusiveStartTagKey") => String.t() | atom(),
         optional("Limit") => integer(),
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom()
       }
       
@@ -884,6 +910,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       get_resource_policy_input() :: %{
+        optional("StreamId") => String.t() | atom(),
         required("ResourceARN") => String.t() | atom()
       }
       
@@ -906,6 +933,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       update_stream_mode_input() :: %{
+        optional("StreamId") => String.t() | atom(),
         optional("WarmThroughputMiBps") => integer(),
         required("StreamARN") => String.t() | atom(),
         required("StreamModeDetails") => stream_mode_details()
@@ -942,6 +970,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       list_tags_for_resource_input() :: %{
+        optional("StreamId") => String.t() | atom(),
         required("ResourceARN") => String.t() | atom()
       }
       
@@ -981,6 +1010,7 @@ defmodule AWS.Kinesis do
       
       update_max_record_size_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         required("MaxRecordSizeInKiB") => integer()
       }
       
@@ -1075,6 +1105,7 @@ defmodule AWS.Kinesis do
       
       start_stream_encryption_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("EncryptionType") => list(any()),
         required("KeyId") => String.t() | atom()
@@ -1089,6 +1120,7 @@ defmodule AWS.Kinesis do
       
       disable_enhanced_monitoring_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("ShardLevelMetrics") => list(list(any())())
       }
@@ -1149,6 +1181,7 @@ defmodule AWS.Kinesis do
       
       split_shard_input() :: %{
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("NewStartingHashKey") => String.t() | atom(),
         required("ShardToSplit") => String.t() | atom()
@@ -1165,6 +1198,7 @@ defmodule AWS.Kinesis do
         optional("ExplicitHashKey") => String.t() | atom(),
         optional("SequenceNumberForOrdering") => String.t() | atom(),
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom(),
         required("Data") => binary(),
         required("PartitionKey") => String.t() | atom()
@@ -1192,6 +1226,7 @@ defmodule AWS.Kinesis do
         optional("ExclusiveStartShardId") => String.t() | atom(),
         optional("Limit") => integer(),
         optional("StreamARN") => String.t() | atom(),
+        optional("StreamId") => String.t() | atom(),
         optional("StreamName") => String.t() | atom()
       }
       

@@ -49,6 +49,7 @@ defmodule AWS.DynamoDB do
         "CreationDateTime" => non_neg_integer(),
         "DeletionProtectionEnabled" => boolean(),
         "GlobalSecondaryIndexes" => list(global_secondary_index_description()),
+        "GlobalTableSettingsReplicationMode" => list(any()),
         "GlobalTableVersion" => String.t() | atom(),
         "GlobalTableWitnesses" => list(global_table_witness_description()),
         "ItemCount" => float(),
@@ -623,9 +624,13 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       create_table_input() :: %{
+        optional("AttributeDefinitions") => list(attribute_definition()),
         optional("BillingMode") => list(any()),
         optional("DeletionProtectionEnabled") => boolean(),
         optional("GlobalSecondaryIndexes") => list(global_secondary_index()),
+        optional("GlobalTableSettingsReplicationMode") => list(any()),
+        optional("GlobalTableSourceArn") => String.t() | atom(),
+        optional("KeySchema") => list(key_schema_element()),
         optional("LocalSecondaryIndexes") => list(local_secondary_index()),
         optional("OnDemandThroughput") => on_demand_throughput(),
         optional("ProvisionedThroughput") => provisioned_throughput(),
@@ -635,8 +640,6 @@ defmodule AWS.DynamoDB do
         optional("TableClass") => list(any()),
         optional("Tags") => list(tag()),
         optional("WarmThroughput") => warm_throughput(),
-        required("AttributeDefinitions") => list(attribute_definition()),
-        required("KeySchema") => list(key_schema_element()),
         required("TableName") => String.t() | atom()
       }
       
@@ -2749,6 +2752,7 @@ defmodule AWS.DynamoDB do
       
       replica_description() :: %{
         "GlobalSecondaryIndexes" => list(replica_global_secondary_index_description()),
+        "GlobalTableSettingsReplicationMode" => list(any()),
         "KMSMasterKeyId" => String.t() | atom(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),

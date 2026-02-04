@@ -169,6 +169,17 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
+      remove_region_response() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type remove_region_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_provider() :: %{
         "ApplicationProviderArn" => String.t() | atom(),
         "DisplayData" => display_data(),
@@ -190,6 +201,18 @@ defmodule AWS.SSOAdmin do
       
   """
   @type list_application_authentication_methods_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_region_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,6 +355,18 @@ defmodule AWS.SSOAdmin do
       
   """
   @type trusted_token_issuer_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_region_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
+      }
+      
+  """
+  @type remove_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1055,6 +1090,17 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
+      add_region_response() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type add_region_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_inline_policy_to_permission_set_response() :: %{}
       
   """
@@ -1104,6 +1150,7 @@ defmodule AWS.SSOAdmin do
         "ApplicationArn" => String.t() | atom(),
         "ApplicationProviderArn" => String.t() | atom(),
         "CreatedDate" => non_neg_integer(),
+        "CreatedFrom" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -1205,6 +1252,19 @@ defmodule AWS.SSOAdmin do
   @type describe_permission_set_provisioning_status_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_regions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_regions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2026,6 +2086,20 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
+      region_metadata() :: %{
+        "AddedDate" => non_neg_integer(),
+        "IsPrimaryRegion" => boolean(),
+        "RegionName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type region_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_instance_access_control_attribute_configuration_request() :: %{
         required("InstanceAccessControlAttributeConfiguration") => instance_access_control_attribute_configuration(),
         required("InstanceArn") => String.t() | atom()
@@ -2131,6 +2205,20 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
+      describe_region_response() :: %{
+        "AddedDate" => non_neg_integer(),
+        "IsPrimaryRegion" => boolean(),
+        "RegionName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_region_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_trusted_token_issuer_request() :: %{
         required("TrustedTokenIssuerArn") => String.t() | atom()
       }
@@ -2187,6 +2275,18 @@ defmodule AWS.SSOAdmin do
       
   """
   @type refresh_token_grant() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_regions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Regions" => list(region_metadata())
+      }
+      
+  """
+  @type list_regions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2370,6 +2470,7 @@ defmodule AWS.SSOAdmin do
         "ApplicationArn" => String.t() | atom(),
         "ApplicationProviderArn" => String.t() | atom(),
         "CreatedDate" => non_neg_integer(),
+        "CreatedFrom" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -2391,6 +2492,18 @@ defmodule AWS.SSOAdmin do
       
   """
   @type resource_server_scope_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_region_request() :: %{
+        required("InstanceArn") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
+      }
+      
+  """
+  @type add_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2420,6 +2533,14 @@ defmodule AWS.SSOAdmin do
       
   """
   @type detach_managed_policy_from_permission_set_response() :: %{}
+
+  @type add_region_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
 
   @type attach_customer_managed_policy_reference_to_permission_set_errors() ::
           throttling_exception()
@@ -2656,6 +2777,13 @@ defmodule AWS.SSOAdmin do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type describe_region_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type describe_trusted_token_issuer_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2851,6 +2979,12 @@ defmodule AWS.SSOAdmin do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_regions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_tags_for_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2929,6 +3063,14 @@ defmodule AWS.SSOAdmin do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type remove_region_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type tag_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3000,6 +3142,36 @@ defmodule AWS.SSOAdmin do
       signing_name: "sso",
       target_prefix: "SWBExternalService"
     }
+  end
+
+  @doc """
+  Adds a Region to an IAM Identity Center instance.
+
+  This operation initiates an asynchronous workflow to replicate the IAM Identity
+  Center instance to the target Region. The Region status is set to ADDING at
+  first and changes to ACTIVE when the workflow completes.
+
+  To use this operation, your IAM Identity Center instance and the target Region
+  must meet the requirements described in the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-iam-identity-center.html#multi-region-prerequisites).
+
+  The following actions are related to `AddRegion`:
+
+    *
+  [RemoveRegion](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html)     *
+  [DescribeRegion](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html)
+
+    *
+  [ListRegions](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html)
+  """
+  @spec add_region(map(), add_region_request(), list()) ::
+          {:ok, add_region_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, add_region_errors()}
+  def add_region(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddRegion", input, options)
   end
 
   @doc """
@@ -3622,6 +3794,35 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
+  Retrieves details about a specific Region enabled in an IAM Identity Center
+  instance.
+
+  Details include the Region name, current status (ACTIVE, ADDING, or REMOVING),
+  the date when the Region was added, and whether it is the primary Region. The
+  request must be made from one of the enabled Regions of the IAM Identity Center
+  instance.
+
+  The following actions are related to `DescribeRegion`:
+
+    * [
+  AddRegion](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_AddRegion.html)
+
+    *
+  [RemoveRegion](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html)     *
+  [ListRegions](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html)
+  """
+  @spec describe_region(map(), describe_region_request(), list()) ::
+          {:ok, describe_region_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_region_errors()}
+  def describe_region(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRegion", input, options)
+  end
+
+  @doc """
   Retrieves details about a trusted token issuer configuration stored in an
   instance of IAM Identity Center.
 
@@ -4142,6 +4343,32 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
+  Lists all enabled Regions of an IAM Identity Center instance, including those
+  that are being added or removed.
+
+  This operation returns Regions with ACTIVE, ADDING, or REMOVING status.
+
+  The following actions are related to `ListRegions`:
+
+    * [
+  AddRegion](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_AddRegion.html)
+
+    *
+  [RemoveRegion](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html)     *
+  [DescribeRegion](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html)
+  """
+  @spec list_regions(map(), list_regions_request(), list()) ::
+          {:ok, list_regions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_regions_errors()}
+  def list_regions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRegions", input, options)
+  end
+
+  @doc """
   Lists the tags that are attached to a specified resource.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
@@ -4368,6 +4595,35 @@ defmodule AWS.SSOAdmin do
     meta = metadata()
 
     Request.request_post(client, meta, "PutPermissionsBoundaryToPermissionSet", input, options)
+  end
+
+  @doc """
+  Removes an additional Region from an IAM Identity Center instance.
+
+  This operation initiates an asynchronous workflow to clean up IAM Identity
+  Center resources in the specified additional Region. The Region status is set to
+  REMOVING and the Region record is deleted when the workflow completes. The
+  request must be made from the primary Region. The target Region cannot be the
+  primary Region, and no other add or remove Region workflows can be in progress.
+
+  The following actions are related to `RemoveRegion`:
+
+    * [
+  AddRegion](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_AddRegion.html)
+
+    *
+  [DescribeRegion](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html)     *
+  [ListRegions](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html)
+  """
+  @spec remove_region(map(), remove_region_request(), list()) ::
+          {:ok, remove_region_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, remove_region_errors()}
+  def remove_region(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RemoveRegion", input, options)
   end
 
   @doc """

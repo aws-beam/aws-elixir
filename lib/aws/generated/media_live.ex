@@ -400,6 +400,19 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      srt_listener_settings() :: %{
+        "Decryption" => srt_listener_decryption(),
+        "MinimumLatency" => integer(),
+        "StreamId" => String.t() | atom()
+      }
+
+  """
+  @type srt_listener_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_input_device_transfer_response() :: %{}
 
   """
@@ -576,6 +589,7 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
@@ -974,6 +988,7 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
@@ -1981,6 +1996,7 @@ defmodule AWS.MediaLive do
 
       input_security_group() :: %{
         "Arn" => String.t() | atom(),
+        "Channels" => list(String.t() | atom()),
         "Id" => String.t() | atom(),
         "Inputs" => list(String.t() | atom()),
         "State" => list(any()),
@@ -2898,6 +2914,7 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "Id" => String.t() | atom(),
@@ -2954,6 +2971,7 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
@@ -3405,6 +3423,7 @@ defmodule AWS.MediaLive do
       node_interface_mapping() :: %{
         "LogicalInterfaceName" => String.t() | atom(),
         "NetworkInterfaceMode" => list(any()),
+        "PhysicalInterfaceIpAddresses" => list(String.t() | atom()),
         "PhysicalInterfaceName" => String.t() | atom()
       }
 
@@ -3523,7 +3542,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       srt_settings_request() :: %{
-        "SrtCallerSources" => list(srt_caller_source_request())
+        "SrtCallerSources" => list(srt_caller_source_request()),
+        "SrtListenerSettings" => srt_listener_settings_request()
       }
 
   """
@@ -3539,6 +3559,7 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
@@ -3963,6 +3984,7 @@ defmodule AWS.MediaLive do
         optional("CdiInputSpecification") => cdi_input_specification(),
         optional("ChannelClass") => list(any()),
         optional("ChannelEngineVersion") => channel_engine_version_request(),
+        optional("ChannelSecurityGroups") => list(String.t() | atom()),
         optional("Destinations") => list(output_destination()),
         optional("DryRun") => boolean(),
         optional("EncoderSettings") => encoder_settings(),
@@ -4344,7 +4366,9 @@ defmodule AWS.MediaLive do
   ## Example:
 
       srt_output_destination_settings() :: %{
+        "ConnectionMode" => list(any()),
         "EncryptionPassphraseSecretArn" => String.t() | atom(),
+        "ListenerPort" => integer(),
         "StreamId" => String.t() | atom(),
         "Url" => String.t() | atom()
       }
@@ -4743,6 +4767,7 @@ defmodule AWS.MediaLive do
         optional("AnywhereSettings") => anywhere_settings(),
         optional("CdiInputSpecification") => cdi_input_specification(),
         optional("ChannelEngineVersion") => channel_engine_version_request(),
+        optional("ChannelSecurityGroups") => list(String.t() | atom()),
         optional("Destinations") => list(output_destination()),
         optional("DryRun") => boolean(),
         optional("EncoderSettings") => encoder_settings(),
@@ -6204,6 +6229,7 @@ defmodule AWS.MediaLive do
 
       describe_input_security_group_response() :: %{
         "Arn" => String.t() | atom(),
+        "Channels" => list(String.t() | atom()),
         "Id" => String.t() | atom(),
         "Inputs" => list(String.t() | atom()),
         "State" => list(any()),
@@ -6361,6 +6387,7 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
@@ -6433,6 +6460,7 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
@@ -6600,7 +6628,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       srt_settings() :: %{
-        "SrtCallerSources" => list(srt_caller_source())
+        "SrtCallerSources" => list(srt_caller_source()),
+        "SrtListenerSettings" => srt_listener_settings()
       }
 
   """
@@ -7257,6 +7286,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      srt_listener_decryption() :: %{
+        "Algorithm" => list(any()),
+        "PassphraseSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type srt_listener_decryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_anywhere_settings() :: %{
         "ChannelPlacementGroupId" => String.t() | atom(),
         "ClusterId" => String.t() | atom()
@@ -7768,6 +7809,19 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      srt_listener_settings_request() :: %{
+        "Decryption" => srt_listener_decryption_request(),
+        "MinimumLatency" => integer(),
+        "StreamId" => String.t() | atom()
+      }
+
+  """
+  @type srt_listener_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_account_configuration_request() :: %{
         optional("AccountConfiguration") => account_configuration()
       }
@@ -7822,6 +7876,18 @@ defmodule AWS.MediaLive do
 
   """
   @type update_node_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_listener_decryption_request() :: %{
+        "Algorithm" => list(any()),
+        "PassphraseSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type srt_listener_decryption_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

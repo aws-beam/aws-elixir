@@ -1149,6 +1149,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("displayName") => String.t() | atom(),
         optional("instanceType") => String.t() | atom(),
         optional("maxConcurrentSessions") => integer(),
+        optional("portalCustomDomain") => String.t() | atom(),
         optional("tags") => list(tag())
       }
 
@@ -1824,7 +1825,8 @@ defmodule AWS.WorkSpacesWeb do
         optional("authenticationType") => String.t() | atom(),
         optional("displayName") => String.t() | atom(),
         optional("instanceType") => String.t() | atom(),
-        optional("maxConcurrentSessions") => integer()
+        optional("maxConcurrentSessions") => integer(),
+        optional("portalCustomDomain") => String.t() | atom()
       }
 
   """
@@ -2044,6 +2046,7 @@ defmodule AWS.WorkSpacesWeb do
         "maxConcurrentSessions" => integer(),
         "networkSettingsArn" => String.t() | atom(),
         "portalArn" => String.t() | atom(),
+        "portalCustomDomain" => String.t() | atom(),
         "portalEndpoint" => String.t() | atom(),
         "portalStatus" => String.t() | atom(),
         "rendererType" => String.t() | atom(),
@@ -2387,6 +2390,7 @@ defmodule AWS.WorkSpacesWeb do
         "maxConcurrentSessions" => integer(),
         "networkSettingsArn" => String.t() | atom(),
         "portalArn" => String.t() | atom(),
+        "portalCustomDomain" => String.t() | atom(),
         "portalEndpoint" => String.t() | atom(),
         "portalStatus" => String.t() | atom(),
         "rendererType" => String.t() | atom(),

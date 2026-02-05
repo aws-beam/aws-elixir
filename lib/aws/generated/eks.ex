@@ -3960,7 +3960,7 @@ defmodule AWS.EKS do
   Amazon EC2 instances.
 
   The cluster control plane is provisioned across multiple Availability Zones and
-  fronted by an ELB
+  fronted by an Elastic Load Balancing
   Network Load Balancer. Amazon EKS also provisions elastic network interfaces in
   your VPC subnets to provide
   connectivity from the control plane instances to the nodes (for example, to
@@ -4425,8 +4425,8 @@ defmodule AWS.EKS do
   @doc """
   Deletes an Amazon EKS cluster control plane.
 
-  If you have active services in your cluster that are associated with a load
-  balancer,
+  If you have active services and ingress resources in your cluster that are
+  associated with a load balancer,
   you must delete those services before deleting the cluster so that the load
   balancers
   are deleted properly. Otherwise, you can have orphaned resources in your VPC

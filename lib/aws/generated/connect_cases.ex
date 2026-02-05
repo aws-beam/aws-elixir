@@ -530,6 +530,17 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      text_attributes() :: %{
+        "isMultiline" => [boolean()]
+      }
+
+  """
+  @type text_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_layout_response() :: %{}
 
   """
@@ -834,6 +845,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       create_field_request() :: %{
+        optional("attributes") => list(),
         optional("description") => String.t() | atom(),
         required("name") => String.t() | atom(),
         required("type") => String.t() | atom()
@@ -1044,6 +1056,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       field_summary() :: %{
+        "attributes" => list(),
         "fieldArn" => String.t() | atom(),
         "fieldId" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -1297,6 +1310,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       update_field_request() :: %{
+        optional("attributes") => list(),
         optional("description") => String.t() | atom(),
         optional("name") => String.t() | atom()
       }
@@ -1463,6 +1477,7 @@ defmodule AWS.ConnectCases do
 
       search_cases_response() :: %{
         optional("nextToken") => String.t() | atom(),
+        optional("totalCount") => float(),
         required("cases") => list(search_cases_response_item())
       }
 
@@ -1654,6 +1669,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       get_field_response() :: %{
+        "attributes" => list(),
         "createdTime" => non_neg_integer(),
         "deleted" => boolean(),
         "description" => String.t() | atom(),

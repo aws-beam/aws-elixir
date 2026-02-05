@@ -265,6 +265,7 @@ defmodule AWS.BedrockRuntime do
         optional("guardrailConfig") => guardrail_configuration(),
         optional("inferenceConfig") => inference_configuration(),
         optional("messages") => list(message()),
+        optional("outputConfig") => output_config(),
         optional("performanceConfig") => performance_configuration(),
         optional("promptVariables") => map(),
         optional("requestMetadata") => map(),
@@ -925,7 +926,8 @@ defmodule AWS.BedrockRuntime do
       tool_specification() :: %{
         "description" => String.t() | atom(),
         "inputSchema" => list(),
-        "name" => String.t() | atom()
+        "name" => String.t() | atom(),
+        "strict" => [boolean()]
       }
 
   """
@@ -1258,6 +1260,7 @@ defmodule AWS.BedrockRuntime do
         optional("guardrailConfig") => guardrail_stream_configuration(),
         optional("inferenceConfig") => inference_configuration(),
         optional("messages") => list(message()),
+        optional("outputConfig") => output_config(),
         optional("performanceConfig") => performance_configuration(),
         optional("promptVariables") => map(),
         optional("requestMetadata") => map(),
@@ -1372,6 +1375,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type async_invoke_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_config() :: %{
+        "textFormat" => output_format()
+      }
+
+  """
+  @type output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1632,6 +1646,31 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type performance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      json_schema_definition() :: %{
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "schema" => [String.t() | atom()]
+      }
+
+  """
+  @type json_schema_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_format() :: %{
+        "structure" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type output_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

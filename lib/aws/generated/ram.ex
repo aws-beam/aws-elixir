@@ -190,6 +190,23 @@ defmodule AWS.RAM do
 
   ## Example:
 
+      associated_source() :: %{
+        "creationTime" => non_neg_integer(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "resourceShareArn" => String.t() | atom(),
+        "sourceId" => String.t() | atom(),
+        "sourceType" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
+      }
+
+  """
+  @type associated_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_arn_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -484,6 +501,18 @@ defmodule AWS.RAM do
 
   """
   @type disassociate_resource_share_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_associations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sourceAssociations" => list(associated_source())
+      }
+
+  """
+  @type list_source_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1344,6 +1373,22 @@ defmodule AWS.RAM do
 
   ## Example:
 
+      list_source_associations_request() :: %{
+        optional("associationStatus") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceShareArns") => list(String.t() | atom()),
+        optional("sourceId") => String.t() | atom(),
+        optional("sourceType") => String.t() | atom()
+      }
+
+  """
+  @type list_source_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       replace_permission_associations_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("fromPermissionVersion") => integer(),
@@ -1491,6 +1536,7 @@ defmodule AWS.RAM do
   @type create_resource_share_errors() ::
           tag_policy_violation_exception()
           | invalid_client_token_exception()
+          | throttling_exception()
           | server_internal_exception()
           | malformed_arn_exception()
           | invalid_parameter_exception()
@@ -1523,6 +1569,7 @@ defmodule AWS.RAM do
 
   @type delete_resource_share_errors() ::
           invalid_client_token_exception()
+          | throttling_exception()
           | server_internal_exception()
           | malformed_arn_exception()
           | invalid_parameter_exception()
@@ -1534,6 +1581,7 @@ defmodule AWS.RAM do
 
   @type disassociate_resource_share_errors() ::
           invalid_client_token_exception()
+          | throttling_exception()
           | server_internal_exception()
           | malformed_arn_exception()
           | invalid_parameter_exception()
@@ -1674,6 +1722,14 @@ defmodule AWS.RAM do
           | service_unavailable_exception()
           | invalid_next_token_exception()
 
+  @type list_source_associations_errors() ::
+          server_internal_exception()
+          | malformed_arn_exception()
+          | invalid_parameter_exception()
+          | unknown_resource_exception()
+          | service_unavailable_exception()
+          | invalid_next_token_exception()
+
   @type promote_permission_created_from_policy_errors() ::
           server_internal_exception()
           | malformed_arn_exception()
@@ -1681,6 +1737,7 @@ defmodule AWS.RAM do
           | unknown_resource_exception()
           | operation_not_permitted_exception()
           | service_unavailable_exception()
+          | invalid_policy_exception()
           | missing_required_parameter_exception()
 
   @type promote_resource_share_created_from_policy_errors() ::
@@ -1810,7 +1867,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Adds the specified list of principals and list of resources to a resource share.
+  Adds the specified list of principals, resources, and source constraints to a
+  resource share.
 
   Principals that
   already have access to this resource share immediately receive access to the
@@ -1962,9 +2020,9 @@ defmodule AWS.RAM do
 
   You can provide a list of the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
   for the resources that you
-  want to share, a list of principals you want to share the resources with, and
-  the
-  permissions to grant those principals.
+  want to share, a list of principals you want to share the resources with, the
+  permissions to grant those principals, and optionally source constraints to
+  enhance security for service principal sharing.
 
   Sharing a resource makes it available for use by principals outside of the
   Amazon Web Services account that created the resource. Sharing doesn't change
@@ -2121,8 +2179,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Removes the specified principals or resources from participating in the
-  specified
+  Removes the specified principals, resources, or source constraints from
+  participating in the specified
   resource share.
   """
   @spec disassociate_resource_share(map(), disassociate_resource_share_request(), list()) ::
@@ -2273,6 +2331,13 @@ defmodule AWS.RAM do
   Retrieves the resource policies for the specified resources that you own and
   have
   shared.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec get_resource_policies(map(), get_resource_policies_request(), list()) ::
           {:ok, get_resource_policies_response(), any()}
@@ -2304,6 +2369,13 @@ defmodule AWS.RAM do
   Retrieves the lists of resources and principals that associated for resource
   shares that you
   own.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec get_resource_share_associations(map(), get_resource_share_associations_request(), list()) ::
           {:ok, get_resource_share_associations_response(), any()}
@@ -2333,6 +2405,13 @@ defmodule AWS.RAM do
 
   @doc """
   Retrieves details about invitations that you have received for resource shares.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec get_resource_share_invitations(map(), get_resource_share_invitations_request(), list()) ::
           {:ok, get_resource_share_invitations_response(), any()}
@@ -2363,6 +2442,13 @@ defmodule AWS.RAM do
   @doc """
   Retrieves details about the resource shares that you own or that are shared with
   you.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec get_resource_shares(map(), get_resource_shares_request(), list()) ::
           {:ok, get_resource_shares_response(), any()}
@@ -2397,6 +2483,13 @@ defmodule AWS.RAM do
 
   That means that you haven't accepted or rejected the
   invitation and the invitation hasn't expired.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec list_pending_invitation_resources(
           map(),
@@ -2435,6 +2528,13 @@ defmodule AWS.RAM do
 
   This lets you see which resource shares use which versions of the specified
   managed permission.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec list_permission_associations(map(), list_permission_associations_request(), list()) ::
           {:ok, list_permission_associations_response(), any()}
@@ -2464,6 +2564,13 @@ defmodule AWS.RAM do
 
   @doc """
   Lists the available versions of the specified RAM permission.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec list_permission_versions(map(), list_permission_versions_request(), list()) ::
           {:ok, list_permission_versions_response(), any()}
@@ -2494,6 +2601,13 @@ defmodule AWS.RAM do
   @doc """
   Retrieves a list of available RAM permissions that you can use for the supported
   resource types.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec list_permissions(map(), list_permissions_request(), list()) ::
           {:ok, list_permissions_response(), any()}
@@ -2525,6 +2639,13 @@ defmodule AWS.RAM do
   Lists the principals that you are sharing resources with or that are sharing
   resources
   with you.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec list_principals(map(), list_principals_request(), list()) ::
           {:ok, list_principals_response(), any()}
@@ -2555,6 +2676,13 @@ defmodule AWS.RAM do
   @doc """
   Retrieves the current status of the asynchronous tasks performed by RAM when you
   perform the `ReplacePermissionAssociationsWork` operation.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec list_replace_permission_associations_work(
           map(),
@@ -2588,6 +2716,13 @@ defmodule AWS.RAM do
 
   @doc """
   Lists the RAM permissions that are associated with a resource share.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec list_resource_share_permissions(map(), list_resource_share_permissions_request(), list()) ::
           {:ok, list_resource_share_permissions_response(), any()}
@@ -2648,6 +2783,13 @@ defmodule AWS.RAM do
   Lists the resources that you added to a resource share or the resources that are
   shared with
   you.
+
+  Always check the `NextToken` response parameter for a `null` value
+  when calling a paginated operation. These operations can occasionally return an
+  empty set of results even when there are more
+  results available. The `NextToken` response parameter value is `null`
+  *only*
+  when there are no more results to display.
   """
   @spec list_resources(map(), list_resources_request(), list()) ::
           {:ok, list_resources_response(), any()}
@@ -2656,6 +2798,43 @@ defmodule AWS.RAM do
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
     url_path = "/listresources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists source associations for resource shares.
+
+  Source associations control which sources can be used with service principals in
+  resource shares. This operation provides visibility into source associations for
+  resource share owners.
+
+  You can filter the results by resource share Amazon Resource Name (ARN), source
+  ID, source type, or association status. We recommend using pagination to ensure
+  that the operation returns quickly and successfully.
+  """
+  @spec list_source_associations(map(), list_source_associations_request(), list()) ::
+          {:ok, list_source_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_source_associations_errors()}
+  def list_source_associations(%Client{} = client, input, options \\ []) do
+    url_path = "/listsourceassociations"
     headers = []
     custom_headers = []
     query_params = []

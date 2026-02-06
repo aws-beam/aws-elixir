@@ -393,6 +393,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_browser_profiles_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_browser_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       schema_definition() :: %{
         "description" => [String.t() | atom()],
         "items" => schema_definition(),
@@ -1342,6 +1354,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_browser_profile_request() :: %{}
+
+  """
+  @type get_browser_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_policy_engines_response() :: %{
         "nextToken" => String.t() | atom(),
         "policyEngines" => list(policy_engine())
@@ -1406,6 +1427,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type github_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_browser_profile_response() :: %{
+        "lastSavedAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_browser_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1647,6 +1683,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_browser_profiles_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "profileSummaries" => list(browser_profile_summary())
+      }
+
+  """
+  @type list_browser_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -1734,6 +1782,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type episodic_reflection_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_browser_profile_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_browser_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2643,6 +2705,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_browser_profile_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_browser_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_memory_output() :: %{
         "memory" => memory()
       }
@@ -2935,6 +3011,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_workload_identities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_browser_profile_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_browser_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3317,6 +3404,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type agent_runtime_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_profile_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastSavedAt" => non_neg_integer(),
+        "lastSavedBrowserId" => String.t() | atom(),
+        "lastSavedBrowserSessionId" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_browser_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3872,6 +3979,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      browser_profile_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastSavedAt" => non_neg_integer(),
+        "lastSavedBrowserId" => String.t() | atom(),
+        "lastSavedBrowserSessionId" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type browser_profile_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_evaluator_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -4206,6 +4333,14 @@ defmodule AWS.BedrockAgentCoreControl do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_browser_profile_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type create_code_interpreter_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4325,6 +4460,14 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_browser_profile_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_code_interpreter_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4441,6 +4584,13 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_browser_profile_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type get_code_interpreter_errors() ::
@@ -4564,6 +4714,12 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
+
+  @type list_browser_profiles_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_browsers_errors() ::
           throttling_exception()
@@ -4956,6 +5112,39 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Creates a browser profile in Amazon Bedrock AgentCore.
+
+  A browser profile stores persistent browser data such as cookies, local storage,
+  session storage, and browsing history that can be saved from browser sessions
+  and reused in subsequent sessions.
+  """
+  @spec create_browser_profile(map(), create_browser_profile_request(), list()) ::
+          {:ok, create_browser_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_browser_profile_errors()}
+  def create_browser_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/browser-profiles"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -5435,6 +5624,45 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deletes a browser profile.
+  """
+  @spec delete_browser_profile(
+          map(),
+          String.t() | atom(),
+          delete_browser_profile_request(),
+          list()
+        ) ::
+          {:ok, delete_browser_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_browser_profile_errors()}
+  def delete_browser_profile(%Client{} = client, profile_id, input, options \\ []) do
+    url_path = "/browser-profiles/#{AWS.Util.encode_uri(profile_id)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -5931,6 +6159,24 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Gets information about a browser profile.
+  """
+  @spec get_browser_profile(map(), String.t() | atom(), list()) ::
+          {:ok, get_browser_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_browser_profile_errors()}
+  def get_browser_profile(%Client{} = client, profile_id, options \\ []) do
+    url_path = "/browser-profiles/#{AWS.Util.encode_uri(profile_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about a custom code interpreter.
   """
   @spec get_code_interpreter(map(), String.t() | atom(), list()) ::
@@ -6367,6 +6613,41 @@ defmodule AWS.BedrockAgentCoreControl do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all browser profiles in your account.
+  """
+  @spec list_browser_profiles(map(), list_browser_profiles_request(), list()) ::
+          {:ok, list_browser_profiles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_browser_profiles_errors()}
+  def list_browser_profiles(%Client{} = client, input, options \\ []) do
+    url_path = "/browser-profiles"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -6868,8 +7149,8 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Lists the tags associated with the specified resource.
 
-  This feature is currently available only for AgentCore Runtime, Browser, Code
-  Interpreter tool, and Gateway.
+  This feature is currently available only for AgentCore Runtime, Browser, Browser
+  Profile, Code Interpreter tool, and Gateway.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -7064,8 +7345,8 @@ defmodule AWS.BedrockAgentCoreControl do
   are not changed. When a resource is deleted, the tags associated with that
   resource are also deleted.
 
-  This feature is currently available only for AgentCore Runtime, Browser, Code
-  Interpreter tool, and Gateway.
+  This feature is currently available only for AgentCore Runtime, Browser, Browser
+  Profile, Code Interpreter tool, and Gateway.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -7096,8 +7377,8 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Removes the specified tags from the specified resource.
 
-  This feature is currently available only for AgentCore Runtime, Browser, Code
-  Interpreter tool, and Gateway.
+  This feature is currently available only for AgentCore Runtime, Browser, Browser
+  Profile, Code Interpreter tool, and Gateway.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

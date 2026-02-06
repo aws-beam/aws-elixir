@@ -1757,8 +1757,8 @@ defmodule AWS.NeptuneGraph do
   end
 
   @doc """
-  Create a private graph endpoint to allow private access from to the graph from
-  within a VPC.
+  Create a private graph endpoint to allow private access to the graph from within
+  a VPC.
 
   You can attach security groups to the private graph endpoint.
 
@@ -1832,7 +1832,7 @@ defmodule AWS.NeptuneGraph do
   end
 
   @doc """
-  Deletes the specifed graph snapshot.
+  Deletes the specified graph snapshot.
   """
   @spec delete_graph_snapshot(map(), String.t() | atom(), delete_graph_snapshot_input(), list()) ::
           {:ok, delete_graph_snapshot_output(), any()}

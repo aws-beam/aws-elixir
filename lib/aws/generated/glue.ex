@@ -60,6 +60,23 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      client_credentials_properties() :: %{
+        "ClientId" => connector_property(),
+        "ClientSecret" => connector_property(),
+        "ContentType" => list(any()),
+        "RequestMethod" => list(any()),
+        "Scope" => connector_property(),
+        "TokenUrl" => connector_property(),
+        "TokenUrlParameters" => list(connector_property())
+      }
+      
+  """
+  @type client_credentials_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_catalog_response() :: %{}
       
   """
@@ -1734,6 +1751,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      j_w_t_bearer_properties() :: %{
+        "ContentType" => list(any()),
+        "JwtToken" => connector_property(),
+        "RequestMethod" => list(any()),
+        "TokenUrl" => connector_property(),
+        "TokenUrlParameters" => list(connector_property())
+      }
+      
+  """
+  @type j_w_t_bearer_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ml_transform() :: %{
         "CreatedOn" => non_neg_integer(),
         "Description" => String.t() | atom(),
@@ -1880,6 +1912,20 @@ defmodule AWS.Glue do
       
   """
   @type iceberg_orphan_file_deletion_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extracted_parameter() :: %{
+        "DefaultValue" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "PropertyLocation" => list(any()),
+        "Value" => response_extraction_mapping()
+      }
+      
+  """
+  @type extracted_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3115,6 +3161,18 @@ defmodule AWS.Glue do
       
   """
   @type list_data_quality_statistic_annotations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cursor_configuration() :: %{
+        "LimitParameter" => extracted_parameter(),
+        "NextPage" => extracted_parameter()
+      }
+      
+  """
+  @type cursor_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4401,6 +4459,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      connection_properties_configuration() :: %{
+        "AdditionalRequestParameters" => list(connector_property()),
+        "Url" => connector_property()
+      }
+      
+  """
+  @type connection_properties_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_column_statistics_for_table_request() :: %{
         optional("CatalogId") => String.t() | atom(),
         required("ColumnName") => String.t() | atom(),
@@ -4702,6 +4772,18 @@ defmodule AWS.Glue do
       
   """
   @type materialized_view_refresh_task_stopping_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      basic_authentication_properties() :: %{
+        "Password" => connector_property(),
+        "Username" => connector_property()
+      }
+      
+  """
+  @type basic_authentication_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5097,6 +5179,23 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      connector_property() :: %{
+        "AllowedValues" => list([String.t() | atom()]()),
+        "DefaultValue" => [String.t() | atom()],
+        "KeyOverride" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PropertyLocation" => list(any()),
+        "PropertyType" => list(any()),
+        "Required" => boolean()
+      }
+      
+  """
+  @type connector_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       allowed_value() :: %{
         "Description" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -5115,6 +5214,17 @@ defmodule AWS.Glue do
       
   """
   @type delete_workflow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_authentication_properties() :: %{
+        "AuthenticationParameters" => list(connector_property())
+      }
+      
+  """
+  @type custom_authentication_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5880,6 +5990,7 @@ defmodule AWS.Glue do
         "Description" => String.t() | atom(),
         "PhysicalConnectionRequirements" => map(),
         "PythonConnectionProperties" => map(),
+        "RestConfiguration" => rest_configuration(),
         "SparkConnectionProperties" => map()
       }
       
@@ -6491,6 +6602,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      field_definition() :: %{
+        "FieldDataType" => list(any()),
+        "Name" => [String.t() | atom()]
+      }
+      
+  """
+  @type field_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       grok_classifier() :: %{
         "Classification" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
@@ -6514,6 +6637,23 @@ defmodule AWS.Glue do
       
   """
   @type stop_trigger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_connection_type_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ConnectionProperties") => connection_properties_configuration(),
+        required("ConnectionType") => String.t() | atom(),
+        required("ConnectorAuthenticationConfiguration") => connector_authentication_configuration(),
+        required("IntegrationType") => list(any()),
+        required("RestConfiguration") => rest_configuration()
+      }
+      
+  """
+  @type register_connection_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7515,12 +7655,39 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      offset_configuration() :: %{
+        "LimitParameter" => extracted_parameter(),
+        "OffsetParameter" => extracted_parameter()
+      }
+      
+  """
+  @type offset_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_integration_resource_property_request() :: %{
         required("ResourceArn") => String.t() | atom()
       }
       
   """
   @type delete_integration_resource_property_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_configuration() :: %{
+        "PaginationConfiguration" => pagination_configuration(),
+        "RequestMethod" => list(any()),
+        "RequestParameters" => list(connector_property()),
+        "RequestPath" => String.t() | atom(),
+        "ResponseConfiguration" => response_configuration()
+      }
+      
+  """
+  @type source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9227,6 +9394,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      register_connection_type_response() :: %{
+        "ConnectionTypeArn" => String.t() | atom()
+      }
+      
+  """
+  @type register_connection_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       my_s_q_l_catalog_target() :: %{
         "Database" => String.t() | atom(),
         "Inputs" => list(String.t() | atom()),
@@ -9353,6 +9531,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_connection_type_response() :: %{}
+      
+  """
+  @type delete_connection_type_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_get_jobs_response() :: %{
         "Jobs" => list(job()),
         "JobsNotFound" => list(String.t() | atom())
@@ -9398,6 +9585,27 @@ defmodule AWS.Glue do
       
   """
   @type get_materialized_view_refresh_task_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_authorization_code_properties() :: %{
+        "AuthorizationCode" => connector_property(),
+        "AuthorizationCodeUrl" => connector_property(),
+        "ClientId" => connector_property(),
+        "ClientSecret" => connector_property(),
+        "ContentType" => list(any()),
+        "Prompt" => connector_property(),
+        "RedirectUri" => connector_property(),
+        "RequestMethod" => list(any()),
+        "Scope" => connector_property(),
+        "TokenUrl" => connector_property(),
+        "TokenUrlParameters" => list(connector_property())
+      }
+      
+  """
+  @type connector_authorization_code_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9922,6 +10130,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      entity_configuration() :: %{
+        "Schema" => map(),
+        "SourceConfiguration" => source_configuration()
+      }
+      
+  """
+  @type entity_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_dev_endpoints_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -10023,6 +10243,20 @@ defmodule AWS.Glue do
       
   """
   @type delete_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_o_auth2_properties() :: %{
+        "AuthorizationCodeProperties" => connector_authorization_code_properties(),
+        "ClientCredentialsProperties" => client_credentials_properties(),
+        "JWTBearerProperties" => j_w_t_bearer_properties(),
+        "OAuth2GrantType" => list(any())
+      }
+      
+  """
+  @type connector_o_auth2_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10398,6 +10632,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_connection_type_request() :: %{
+        required("ConnectionType") => String.t() | atom()
+      }
+      
+  """
+  @type delete_connection_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       job() :: %{
         "AllocatedCapacity" => integer(),
         "CodeGenConfigurationNodes" => map(),
@@ -10465,13 +10710,29 @@ defmodule AWS.Glue do
         "DataOperationScopes" => list(list(any())()),
         "DefaultValue" => [String.t() | atom()],
         "Description" => String.t() | atom(),
+        "KeyOverride" => [String.t() | atom()],
         "Name" => String.t() | atom(),
+        "PropertyLocation" => list(any()),
         "PropertyTypes" => list(list(any())()),
         "Required" => boolean()
       }
       
   """
   @type property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_authentication_configuration() :: %{
+        "AuthenticationTypes" => list(list(any())()),
+        "BasicAuthenticationProperties" => basic_authentication_properties(),
+        "CustomAuthenticationProperties" => custom_authentication_properties(),
+        "OAuth2Properties" => connector_o_auth2_properties()
+      }
+      
+  """
+  @type connector_authentication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10889,6 +11150,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      response_configuration() :: %{
+        "ErrorPath" => String.t() | atom(),
+        "ResultPath" => String.t() | atom()
+      }
+      
+  """
+  @type response_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_unfiltered_partitions_metadata_response() :: %{
         "NextToken" => String.t() | atom(),
         "UnfilteredPartitions" => list(unfiltered_partition())
@@ -11106,6 +11379,18 @@ defmodule AWS.Glue do
       
   """
   @type stop_workflow_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pagination_configuration() :: %{
+        "CursorConfiguration" => cursor_configuration(),
+        "OffsetConfiguration" => offset_configuration()
+      }
+      
+  """
+  @type pagination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12277,6 +12562,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      response_extraction_mapping() :: %{
+        "ContentPath" => String.t() | atom(),
+        "HeaderKey" => String.t() | atom()
+      }
+      
+  """
+  @type response_extraction_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_direct_source_additional_options() :: %{
         "BoundedFiles" => float(),
         "BoundedSize" => float(),
@@ -13292,6 +13589,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      rest_configuration() :: %{
+        "EntityConfigurations" => map(),
+        "GlobalSourceConfiguration" => source_configuration(),
+        "ValidationEndpointConfiguration" => source_configuration()
+      }
+      
+  """
+  @type rest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       string_column_statistics_data() :: %{
         "AverageLength" => float(),
         "MaximumLength" => float(),
@@ -13838,6 +14148,14 @@ defmodule AWS.Glue do
           invalid_input_exception() | operation_timeout_exception() | entity_not_found_exception()
 
   @type delete_connection_errors() :: operation_timeout_exception() | entity_not_found_exception()
+
+  @type delete_connection_type_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
 
   @type delete_crawler_errors() ::
           crawler_running_exception()
@@ -14727,6 +15045,14 @@ defmodule AWS.Glue do
 
   @type query_schema_version_metadata_errors() ::
           access_denied_exception() | invalid_input_exception() | entity_not_found_exception()
+
+  @type register_connection_type_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
 
   @type register_schema_version_errors() ::
           concurrent_modification_exception()
@@ -16195,6 +16521,24 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Deletes a custom connection type in Glue.
+
+  The connection type must exist and be registered before it can be deleted. This
+  operation supports cleanup of connection type resources and helps maintain
+  proper lifecycle management of custom connection types.
+  """
+  @spec delete_connection_type(map(), delete_connection_type_request(), list()) ::
+          {:ok, delete_connection_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_connection_type_errors()}
+  def delete_connection_type(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteConnectionType", input, options)
+  end
+
+  @doc """
   Removes a specified crawler from the Glue Data Catalog, unless the crawler state
   is
   `RUNNING`.
@@ -16652,6 +16996,13 @@ defmodule AWS.Glue do
   @doc """
   The `DescribeConnectionType` API provides full details of the supported options
   for a given connection type in Glue.
+
+  The response includes authentication configuration details that show supported
+  authentication types and properties, and RestConfiguration for custom REST-based
+  connection types registered via `RegisterConnectionType`.
+
+  See also: `ListConnectionTypes`, `RegisterConnectionType`,
+  `DeleteConnectionType`
   """
   @spec describe_connection_type(map(), describe_connection_type_request(), list()) ::
           {:ok, describe_connection_type_response(), any()}
@@ -18043,9 +18394,13 @@ defmodule AWS.Glue do
   connection types in Glue.
 
   The response contains a list of connection types with high-level details of what
-  is supported for each connection type. The connection types listed are the set
-  of supported options for the `ConnectionType` value in the `CreateConnection`
-  API.
+  is supported for each connection type, including both built-in connection types
+  and custom connection types registered via `RegisterConnectionType`. The
+  connection types listed are the set of supported options for the
+  `ConnectionType` value in the `CreateConnection` API.
+
+  See also: `DescribeConnectionType`, `RegisterConnectionType`,
+  `DeleteConnectionType`
   """
   @spec list_connection_types(map(), list_connection_types_request(), list()) ::
           {:ok, list_connection_types_response(), any()}
@@ -18608,6 +18963,33 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "QuerySchemaVersionMetadata", input, options)
+  end
+
+  @doc """
+  Registers a custom connection type in Glue based on the configuration provided.
+
+  This operation enables customers to configure custom connectors for any data
+  source with REST-based APIs, eliminating the need for building custom Lambda
+  connectors.
+
+  The registered connection type stores details about how requests and responses
+  are interpreted by REST sources, including connection properties, authentication
+  configuration, and REST configuration with entity definitions. Once registered,
+  customers can create connections using this connection type and work with them
+  the same way as natively supported Glue connectors.
+
+  Supports multiple authentication types including Basic, OAuth2 (Client
+  Credentials, JWT Bearer, Authorization Code), and Custom Auth configurations.
+  """
+  @spec register_connection_type(map(), register_connection_type_request(), list()) ::
+          {:ok, register_connection_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_connection_type_errors()}
+  def register_connection_type(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterConnectionType", input, options)
   end
 
   @doc """

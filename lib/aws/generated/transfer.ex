@@ -1025,6 +1025,7 @@ defmodule AWS.Transfer do
   ## Example:
       
       as2_connector_config() :: %{
+        "AsyncMdnConfig" => as2_async_mdn_connector_config(),
         "BasicAuthSecretId" => String.t() | atom(),
         "Compression" => list(any()),
         "EncryptionAlgorithm" => list(any()),
@@ -1699,6 +1700,18 @@ defmodule AWS.Transfer do
       
   """
   @type send_workflow_step_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_http_header() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type custom_http_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2529,6 +2542,18 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      as2_async_mdn_connector_config() :: %{
+        "ServerIds" => list(String.t() | atom()),
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type as2_async_mdn_connector_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_certificate_response() :: %{
         "CertificateId" => String.t() | atom()
       }
@@ -2555,6 +2580,7 @@ defmodule AWS.Transfer do
   ## Example:
       
       start_file_transfer_request() :: %{
+        optional("CustomHttpHeaders") => list(custom_http_header()),
         optional("LocalDirectoryPath") => String.t() | atom(),
         optional("RemoteDirectoryPath") => String.t() | atom(),
         optional("RetrieveFilePaths") => list(String.t() | atom()),

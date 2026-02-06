@@ -561,6 +561,7 @@ defmodule AWS.BedrockAgentCore do
         optional("clientToken") => String.t() | atom(),
         optional("extensions") => list(browser_extension()),
         optional("name") => String.t() | atom(),
+        optional("profileConfiguration") => browser_profile_configuration(),
         optional("sessionTimeoutSeconds") => integer(),
         optional("traceId") => [String.t() | atom()],
         optional("traceParent") => [String.t() | atom()],
@@ -810,6 +811,21 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      save_browser_session_profile_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
+        required("browserIdentifier") => [String.t() | atom()],
+        required("sessionId") => String.t() | atom()
+      }
+
+  """
+  @type save_browser_session_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       message_metadata() :: %{
         "eventId" => [String.t() | atom()],
         "messageIndex" => [integer()]
@@ -946,6 +962,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      save_browser_session_profile_response() :: %{
+        "browserIdentifier" => [String.t() | atom()],
+        "lastUpdatedAt" => non_neg_integer(),
+        "profileIdentifier" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type save_browser_session_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1193,6 +1223,7 @@ defmodule AWS.BedrockAgentCore do
         "extensions" => list(browser_extension()),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
+        "profileConfiguration" => browser_profile_configuration(),
         "sessionId" => String.t() | atom(),
         "sessionReplayArtifact" => [String.t() | atom()],
         "sessionTimeoutSeconds" => integer(),
@@ -1579,6 +1610,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      browser_profile_configuration() :: %{
+        "profileIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type browser_profile_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       extraction_job() :: %{
         "jobId" => [String.t() | atom()]
       }
@@ -1833,6 +1875,14 @@ defmodule AWS.BedrockAgentCore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | throttled_exception()
+
+  @type save_browser_session_profile_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type start_browser_session_errors() ::
           throttling_exception()
@@ -2268,7 +2318,7 @@ defmodule AWS.BedrockAgentCore do
 
   @doc """
   Retrieves detailed information about a specific browser session in Amazon
-  Bedrock.
+  Bedrock AgentCore.
 
   This operation returns the session's configuration, current status, associated
   streams, and metadata.
@@ -2310,7 +2360,7 @@ defmodule AWS.BedrockAgentCore do
 
   @doc """
   Retrieves detailed information about a specific code interpreter session in
-  Amazon Bedrock.
+  Amazon Bedrock AgentCore.
 
   This operation returns the session's configuration, current status, and
   metadata.
@@ -2655,7 +2705,8 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Executes code within an active code interpreter session in Amazon Bedrock.
+  Executes code within an active code interpreter session in Amazon Bedrock
+  AgentCore.
 
   This operation processes the provided code, runs it in a secure environment, and
   returns the execution results including output, errors, and generated
@@ -2763,8 +2814,8 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Retrieves a list of browser sessions in Amazon Bedrock that match the specified
-  criteria.
+  Retrieves a list of browser sessions in Amazon Bedrock AgentCore that match the
+  specified criteria.
 
   This operation returns summary information about each session, including
   identifiers, status, and timestamps.
@@ -2808,8 +2859,8 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Retrieves a list of code interpreter sessions in Amazon Bedrock that match the
-  specified criteria.
+  Retrieves a list of code interpreter sessions in Amazon Bedrock AgentCore that
+  match the specified criteria.
 
   This operation returns summary information about each session, including
   identifiers, status, and timestamps.
@@ -3067,7 +3118,68 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Creates and initializes a browser session in Amazon Bedrock.
+  Saves the current state of a browser session as a reusable profile in Amazon
+  Bedrock AgentCore.
+
+  A browser profile captures persistent browser data such as cookies and local
+  storage from an active session, enabling you to reuse this data in future
+  browser sessions.
+
+  To save a browser session profile, you must specify the profile identifier,
+  browser identifier, and session ID. The session must be active when saving the
+  profile. Once saved, the profile can be used with the `StartBrowserSession`
+  operation to initialize new sessions with the stored browser state.
+
+  Browser profiles are useful for scenarios that require persistent
+  authentication, maintaining user preferences across sessions, or continuing
+  tasks that depend on previously stored browser data.
+
+  The following operations are related to `SaveBrowserSessionProfile`:
+
+    *
+  [StartBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html)     *
+  [GetBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html)
+  """
+  @spec save_browser_session_profile(
+          map(),
+          String.t() | atom(),
+          save_browser_session_profile_request(),
+          list()
+        ) ::
+          {:ok, save_browser_session_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, save_browser_session_profile_errors()}
+  def save_browser_session_profile(%Client{} = client, profile_identifier, input, options \\ []) do
+    url_path = "/browser-profiles/#{AWS.Util.encode_uri(profile_identifier)}/save"
+
+    {headers, input} =
+      [
+        {"traceId", "X-Amzn-Trace-Id"},
+        {"traceParent", "traceparent"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates and initializes a browser session in Amazon Bedrock AgentCore.
 
   The session enables agents to navigate and interact with web content, extract
   information from websites, and perform web-based tasks as part of their response
@@ -3085,6 +3197,7 @@ defmodule AWS.BedrockAgentCore do
   [UpdateBrowserStream](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_UpdateBrowserStream.html)
 
     *
+  [SaveBrowserSessionProfile](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_SaveBrowserSessionProfile.html)     *
   [StopBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html)
   """
   @spec start_browser_session(map(), String.t() | atom(), start_browser_session_request(), list()) ::
@@ -3121,7 +3234,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Creates and initializes a code interpreter session in Amazon Bedrock.
+  Creates and initializes a code interpreter session in Amazon Bedrock AgentCore.
 
   The session enables agents to execute code as part of their response generation,
   supporting programming languages such as Python for data analysis,
@@ -3227,7 +3340,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Terminates an active browser session in Amazon Bedrock.
+  Terminates an active browser session in Amazon Bedrock AgentCore.
 
   This operation stops the session, releases associated resources, and makes the
   session unavailable for further use.
@@ -3281,7 +3394,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Terminates an active code interpreter session in Amazon Bedrock.
+  Terminates an active code interpreter session in Amazon Bedrock AgentCore.
 
   This operation stops the session, releases associated resources, and makes the
   session unavailable for further use.

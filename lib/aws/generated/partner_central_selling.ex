@@ -623,6 +623,27 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      aws_opportunity_summary_full_view() :: %{
+        "Customer" => aws_opportunity_customer(),
+        "Insights" => aws_opportunity_insights(),
+        "InvolvementType" => list(any()),
+        "InvolvementTypeChangeReason" => list(any()),
+        "LifeCycle" => aws_opportunity_life_cycle(),
+        "OpportunityTeam" => list(aws_team_member()),
+        "Origin" => list(any()),
+        "Project" => aws_opportunity_project(),
+        "RelatedEntityIds" => aws_opportunity_related_entities(),
+        "RelatedOpportunityId" => String.t() | atom(),
+        "Visibility" => list(any())
+      }
+      
+  """
+  @type aws_opportunity_summary_full_view() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       aws_opportunity_project() :: %{
         "AwsPartition" => list(any()),
         "ExpectedCustomerSpend" => list(expected_customer_spend())
@@ -1047,6 +1068,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_opportunities_request() :: %{
+        optional("CreatedDate") => created_date_filter(),
         optional("CustomerCompanyName") => list([String.t() | atom()]()),
         optional("Identifier") => list(String.t() | atom()),
         optional("LastModifiedDate") => last_modified_date(),
@@ -1809,7 +1831,8 @@ defmodule AWS.PartnerCentralSelling do
         "ResourceId" => String.t() | atom(),
         "ResourceSnapshotTemplateName" => String.t() | atom(),
         "ResourceType" => list(any()),
-        "Revision" => integer()
+        "Revision" => integer(),
+        "TargetMemberAccounts" => list(String.t() | atom())
       }
       
   """
@@ -2029,6 +2052,18 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      created_date_filter() :: %{
+        "AfterCreatedDate" => non_neg_integer(),
+        "BeforeCreatedDate" => non_neg_integer()
+      }
+      
+  """
+  @type created_date_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

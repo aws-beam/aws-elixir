@@ -1184,6 +1184,7 @@ defmodule AWS.Deadline do
         optional("parameters") => map(),
         optional("sourceJobId") => String.t() | atom(),
         optional("storageProfileId") => String.t() | atom(),
+        optional("tags") => map(),
         optional("targetTaskRunStatus") => list(any()),
         optional("template") => String.t() | atom(),
         optional("templateType") => list(any()),

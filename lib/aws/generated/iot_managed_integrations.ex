@@ -21,6 +21,7 @@ defmodule AWS.IoTManagedIntegrations do
 
       managed_thing_association() :: %{
         "AccountAssociationId" => String.t() | atom(),
+        "ManagedThingAssociationStatus" => list(any()),
         "ManagedThingId" => String.t() | atom()
       }
 
@@ -149,6 +150,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      auth_material() :: %{
+        "AuthMaterialName" => String.t() | atom(),
+        "SecretsManager" => secrets_manager()
+      }
+
+  """
+  @type auth_material() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       send_managed_thing_command_request() :: %{
         optional("AccountAssociationId") => String.t() | atom(),
         optional("ConnectorAssociationId") => String.t() | atom(),
@@ -174,6 +187,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       auth_config_update() :: %{
+        "GeneralAuthorizationUpdate" => general_authorization_update(),
         "oAuthUpdate" => o_auth_update()
       }
 
@@ -644,6 +658,7 @@ defmodule AWS.IoTManagedIntegrations do
 
       create_provisioning_profile_request() :: %{
         optional("CaCertificate") => String.t() | atom(),
+        optional("ClaimCertificate") => String.t() | atom(),
         optional("ClientToken") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
         optional("Tags") => map(),
@@ -1174,6 +1189,7 @@ defmodule AWS.IoTManagedIntegrations do
       create_account_association_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("GeneralAuthorization") => general_authorization_name(),
         optional("Name") => String.t() | atom(),
         optional("Tags") => map(),
         required("ConnectorDestinationId") => String.t() | atom()
@@ -1427,13 +1443,13 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       create_connector_destination_request() :: %{
+        optional("AuthType") => list(any()),
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
+        optional("SecretsManager") => secrets_manager(),
         required("AuthConfig") => auth_config(),
-        required("AuthType") => list(any()),
-        required("CloudConnectorId") => String.t() | atom(),
-        required("SecretsManager") => secrets_manager()
+        required("CloudConnectorId") => String.t() | atom()
       }
 
   """
@@ -1799,6 +1815,7 @@ defmodule AWS.IoTManagedIntegrations do
         optional("AuthenticationMaterialType") => list(any()),
         optional("ClientToken") => String.t() | atom(),
         optional("ConnectorAssociationIdentifier") => String.t() | atom(),
+        optional("ConnectorDeviceIdList") => list(String.t() | atom()),
         optional("ControllerIdentifier") => String.t() | atom(),
         optional("CustomProtocolDetail") => map(),
         optional("EndDeviceIdentifier") => String.t() | atom(),
@@ -2106,6 +2123,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       auth_config() :: %{
+        "GeneralAuthorization" => list(auth_material()),
         "oAuth" => o_auth_config()
       }
 
@@ -2300,6 +2318,7 @@ defmodule AWS.IoTManagedIntegrations do
         "ConnectorDestinationId" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "ErrorMessage" => String.t() | atom(),
+        "GeneralAuthorization" => general_authorization_name(),
         "Name" => String.t() | atom(),
         "OAuthAuthorizationUrl" => String.t() | atom(),
         "Tags" => map()
@@ -2318,6 +2337,17 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type update_event_log_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      general_authorization_name() :: %{
+        "AuthMaterialName" => String.t() | atom()
+      }
+
+  """
+  @type general_authorization_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2386,6 +2416,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type create_credential_locker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      general_authorization_update() :: %{
+        "AuthMaterialsToAdd" => list(auth_material()),
+        "AuthMaterialsToUpdate" => list(auth_material())
+      }
+
+  """
+  @type general_authorization_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3330,6 +3372,7 @@ defmodule AWS.IoTManagedIntegrations do
           | internal_server_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type start_device_discovery_errors() ::
           throttling_exception()
@@ -5538,7 +5581,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  List tags for the specified resource.
+  Lists the tags for a specified resource.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -5888,7 +5931,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Add tags for the specified resource.
+  Adds tags to a specified resource.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -5917,7 +5960,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Remove tags for the specified resource.
+  Removes tags from a specified resource.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

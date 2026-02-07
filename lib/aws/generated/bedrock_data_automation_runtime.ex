@@ -166,6 +166,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
         optional("blueprints") => list(blueprint()),
         optional("dataAutomationConfiguration") => data_automation_configuration(),
         optional("encryptionConfiguration") => encryption_configuration(),
+        optional("outputConfiguration") => output_configuration(),
         required("dataAutomationProfileArn") => String.t() | atom(),
         required("inputConfiguration") => sync_input_configuration()
       }
@@ -178,6 +179,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
   ## Example:
       
       invoke_data_automation_response() :: %{
+        "outputConfiguration" => output_configuration(),
         "outputSegments" => list(output_segment()),
         "semanticModality" => list(any())
       }

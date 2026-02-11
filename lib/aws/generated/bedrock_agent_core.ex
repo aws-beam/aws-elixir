@@ -206,6 +206,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      proxy_configuration() :: %{
+        "bypass" => proxy_bypass(),
+        "proxies" => list(list())
+      }
+
+  """
+  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_browser_sessions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -289,6 +301,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type event_metadata_filter_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_proxy() :: %{
+        "credentials" => list(),
+        "domainPatterns" => list(String.t() | atom()),
+        "port" => [integer()],
+        "server" => String.t() | atom()
+      }
+
+  """
+  @type external_proxy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,6 +588,7 @@ defmodule AWS.BedrockAgentCore do
         optional("extensions") => list(browser_extension()),
         optional("name") => String.t() | atom(),
         optional("profileConfiguration") => browser_profile_configuration(),
+        optional("proxyConfiguration") => proxy_configuration(),
         optional("sessionTimeoutSeconds") => integer(),
         optional("traceId") => [String.t() | atom()],
         optional("traceParent") => [String.t() | atom()],
@@ -967,6 +994,28 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      basic_auth() :: %{
+        "secretArn" => String.t() | atom()
+      }
+
+  """
+  @type basic_auth() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      proxy_bypass() :: %{
+        "domainPatterns" => list(String.t() | atom())
+      }
+
+  """
+  @type proxy_bypass() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       save_browser_session_profile_response() :: %{
         "browserIdentifier" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
@@ -1224,6 +1273,7 @@ defmodule AWS.BedrockAgentCore do
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "profileConfiguration" => browser_profile_configuration(),
+        "proxyConfiguration" => proxy_configuration(),
         "sessionId" => String.t() | atom(),
         "sessionReplayArtifact" => [String.t() | atom()],
         "sessionTimeoutSeconds" => integer(),

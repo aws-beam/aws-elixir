@@ -2141,6 +2141,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_secondary_subnet_request() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("Ipv4CidrBlock") => String.t() | atom(),
+        required("SecondaryNetworkId") => String.t() | atom()
+      }
+      
+  """
+  @type create_secondary_subnet_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_tags_request() :: %{
         optional("DryRun") => boolean(),
         optional("Tags") => list(tag()),
@@ -2171,6 +2188,26 @@ defmodule AWS.EC2 do
       
   """
   @type target_groups_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_secondary_interface() :: %{
+        "Attachment" => instance_secondary_interface_attachment(),
+        "InterfaceType" => list(any()),
+        "MacAddress" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "PrivateIpAddresses" => list(instance_secondary_interface_private_ip_address()),
+        "SecondaryInterfaceId" => String.t() | atom(),
+        "SecondaryNetworkId" => String.t() | atom(),
+        "SecondarySubnetId" => String.t() | atom(),
+        "SourceDestCheck" => boolean(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type instance_secondary_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4723,6 +4760,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      secondary_interface_ipv4_address() :: %{
+        "PrivateIpAddress" => String.t() | atom()
+      }
+      
+  """
+  @type secondary_interface_ipv4_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_image_license_configuration_request() :: %{
         "LicenseConfigurationArn" => String.t() | atom()
       }
@@ -6657,6 +6705,18 @@ defmodule AWS.EC2 do
       
   """
   @type memory_gi_b_per_v_cpu_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_secondary_interfaces_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SecondaryInterfaces" => list(secondary_interface())
+      }
+      
+  """
+  @type describe_secondary_interfaces_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8956,6 +9016,7 @@ defmodule AWS.EC2 do
         optional("KeyName") => String.t() | atom(),
         optional("Operator") => operator_request(),
         optional("InstanceType") => list(any()),
+        optional("SecondaryInterfaces") => list(instance_secondary_interface_specification_request()),
         optional("EbsOptimized") => boolean(),
         optional("CapacityReservationSpecification") => capacity_reservation_specification(),
         optional("AdditionalInfo") => String.t() | atom(),
@@ -9082,6 +9143,18 @@ defmodule AWS.EC2 do
       
   """
   @type scheduled_instances_private_ip_address_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_secondary_subnet_result() :: %{
+        "ClientToken" => String.t() | atom(),
+        "SecondarySubnet" => secondary_subnet()
+      }
+      
+  """
+  @type create_secondary_subnet_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9466,6 +9539,24 @@ defmodule AWS.EC2 do
       
   """
   @type describe_scheduled_instance_availability_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secondary_interface_attachment() :: %{
+        "AttachTime" => non_neg_integer(),
+        "AttachmentId" => String.t() | atom(),
+        "DeleteOnTermination" => boolean(),
+        "DeviceIndex" => integer(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceOwnerId" => String.t() | atom(),
+        "NetworkCardIndex" => integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type secondary_interface_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12021,6 +12112,31 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      secondary_interface() :: %{
+        "Attachment" => secondary_interface_attachment(),
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "MacAddress" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "PrivateIpv4Addresses" => list(secondary_interface_ipv4_address()),
+        "SecondaryInterfaceArn" => String.t() | atom(),
+        "SecondaryInterfaceId" => String.t() | atom(),
+        "SecondaryInterfaceType" => list(any()),
+        "SecondaryNetworkId" => String.t() | atom(),
+        "SecondaryNetworkType" => list(any()),
+        "SecondarySubnetId" => String.t() | atom(),
+        "SourceDestCheck" => boolean(),
+        "Status" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type secondary_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       attach_classic_link_vpc_result() :: %{
         "Return" => boolean()
       }
@@ -12212,6 +12328,19 @@ defmodule AWS.EC2 do
       
   """
   @type create_verified_access_trust_provider_device_options() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      secondary_interface_private_ip_address_specification_request() :: %{
+        "PrivateIpAddress" => String.t() | atom()
+      }
+      
+  """
+  @type secondary_interface_private_ip_address_specification_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -12772,6 +12901,17 @@ defmodule AWS.EC2 do
       
   """
   @type disable_fast_launch_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_secondary_interface_private_ip_address() :: %{
+        "PrivateIpAddress" => String.t() | atom()
+      }
+      
+  """
+  @type instance_secondary_interface_private_ip_address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14038,6 +14178,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_secondary_subnets_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SecondarySubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_secondary_subnets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       allocate_hosts_request() :: %{
         optional("AssetIds") => list(String.t() | atom()),
         optional("AutoPlacement") => list(any()),
@@ -14559,6 +14714,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_secondary_networks_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SecondaryNetworkIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_secondary_networks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_ipam_prefix_list_resolver_targets_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -15001,6 +15171,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_secondary_networks_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SecondaryNetworks" => list(secondary_network())
+      }
+      
+  """
+  @type describe_secondary_networks_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_client_vpn_endpoint_result() :: %{
         "ClientVpnEndpointId" => String.t() | atom(),
         "DnsName" => String.t() | atom(),
@@ -15364,6 +15546,18 @@ defmodule AWS.EC2 do
       
   """
   @type modify_vpc_endpoint_service_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_secondary_network_result() :: %{
+        "ClientToken" => String.t() | atom(),
+        "SecondaryNetwork" => secondary_network()
+      }
+      
+  """
+  @type delete_secondary_network_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16474,6 +16668,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_secondary_subnets_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SecondarySubnets" => list(secondary_subnet())
+      }
+      
+  """
+  @type describe_secondary_subnets_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_connect_endpoint_dns_names() :: %{
         "DnsName" => String.t() | atom(),
         "FipsDnsName" => String.t() | atom()
@@ -16913,6 +17119,7 @@ defmodule AWS.EC2 do
         "DisableApiTermination" => boolean(),
         "EnclaveOptions" => launch_template_enclave_options(),
         "CpuOptions" => launch_template_cpu_options(),
+        "SecondaryInterfaces" => list(launch_template_instance_secondary_interface_specification()),
         "IamInstanceProfile" => launch_template_iam_instance_profile_specification(),
         "HibernationOptions" => launch_template_hibernation_options(),
         "InstanceMarketOptions" => launch_template_instance_market_options(),
@@ -17065,6 +17272,19 @@ defmodule AWS.EC2 do
       
   """
   @type network_interface_private_ip_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secondary_interface_private_ip_address_specification() :: %{
+        "PrivateIpAddress" => String.t() | atom()
+      }
+      
+  """
+  @type secondary_interface_private_ip_address_specification() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -17894,6 +18114,25 @@ defmodule AWS.EC2 do
       
   """
   @type snapshot_disk_container() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      launch_template_instance_secondary_interface_specification_request() :: %{
+        "DeleteOnTermination" => boolean(),
+        "DeviceIndex" => integer(),
+        "InterfaceType" => list(any()),
+        "NetworkCardIndex" => integer(),
+        "PrivateIpAddressCount" => integer(),
+        "PrivateIpAddresses" => list(secondary_interface_private_ip_address_specification_request()),
+        "SecondarySubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type launch_template_instance_secondary_interface_specification_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -19057,12 +19296,15 @@ defmodule AWS.EC2 do
         "EncryptionInTransitSupported" => boolean(),
         "FlexibleEnaQueuesSupport" => list(any()),
         "Ipv4AddressesPerInterface" => integer(),
+        "Ipv4AddressesPerSecondaryInterface" => integer(),
         "Ipv6AddressesPerInterface" => integer(),
         "Ipv6Supported" => boolean(),
         "MaximumNetworkCards" => integer(),
         "MaximumNetworkInterfaces" => integer(),
+        "MaximumSecondaryNetworkInterfaces" => integer(),
         "NetworkCards" => list(network_card_info()),
-        "NetworkPerformance" => String.t() | atom()
+        "NetworkPerformance" => String.t() | atom(),
+        "SecondaryNetworkSupported" => boolean()
       }
       
   """
@@ -20086,6 +20328,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_secondary_network_result() :: %{
+        "ClientToken" => String.t() | atom(),
+        "SecondaryNetwork" => secondary_network()
+      }
+      
+  """
+  @type create_secondary_network_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       restore_snapshot_tier_result() :: %{
         "IsPermanentRestore" => boolean(),
         "RestoreDuration" => integer(),
@@ -20213,6 +20467,27 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      secondary_subnet() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "Ipv4CidrBlockAssociations" => list(secondary_subnet_ipv4_cidr_block_association()),
+        "OwnerId" => String.t() | atom(),
+        "SecondaryNetworkId" => String.t() | atom(),
+        "SecondaryNetworkType" => list(any()),
+        "SecondarySubnetArn" => String.t() | atom(),
+        "SecondarySubnetId" => String.t() | atom(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type secondary_subnet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_metadata_options_response() :: %{
         "HttpEndpoint" => list(any()),
         "HttpProtocolIpv6" => list(any()),
@@ -20309,6 +20584,25 @@ defmodule AWS.EC2 do
       
   """
   @type create_volume_permission_modifications() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      launch_template_instance_secondary_interface_specification() :: %{
+        "DeleteOnTermination" => boolean(),
+        "DeviceIndex" => integer(),
+        "InterfaceType" => list(any()),
+        "NetworkCardIndex" => integer(),
+        "PrivateIpAddressCount" => integer(),
+        "PrivateIpAddresses" => list(secondary_interface_private_ip_address_specification()),
+        "SecondarySubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type launch_template_instance_secondary_interface_specification() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -20769,6 +21063,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      instance_secondary_interface_private_ip_address_request() :: %{
+        "PrivateIpAddress" => String.t() | atom()
+      }
+      
+  """
+  @type instance_secondary_interface_private_ip_address_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       media_device_memory_info() :: %{
         "SizeInMiB" => integer()
       }
@@ -20972,6 +21279,7 @@ defmodule AWS.EC2 do
         "DisableApiTermination" => boolean(),
         "EnclaveOptions" => launch_template_enclave_options_request(),
         "CpuOptions" => launch_template_cpu_options_request(),
+        "SecondaryInterfaces" => list(launch_template_instance_secondary_interface_specification_request()),
         "IamInstanceProfile" => launch_template_iam_instance_profile_specification_request(),
         "HibernationOptions" => launch_template_hibernation_options_request(),
         "InstanceMarketOptions" => launch_template_instance_market_options_request(),
@@ -22278,6 +22586,7 @@ defmodule AWS.EC2 do
         "EnclaveOptions" => enclave_options(),
         "CpuOptions" => cpu_options(),
         "PrivateIpAddress" => String.t() | atom(),
+        "SecondaryInterfaces" => list(instance_secondary_interface()),
         "PrivateDnsName" => String.t() | atom(),
         "IamInstanceProfile" => iam_instance_profile(),
         "UsageOperation" => String.t() | atom(),
@@ -23628,6 +23937,21 @@ defmodule AWS.EC2 do
       
   """
   @type instance_type_offering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_secondary_network_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("Ipv4CidrBlock") => String.t() | atom(),
+        required("NetworkType") => list(any())
+      }
+      
+  """
+  @type create_secondary_network_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -25184,6 +25508,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_secondary_network_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        required("SecondaryNetworkId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_secondary_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       unsuccessful_instance_credit_specification_item() :: %{
         "Error" => unsuccessful_instance_credit_specification_item_error(),
         "InstanceId" => String.t() | atom()
@@ -25548,6 +25885,24 @@ defmodule AWS.EC2 do
       
   """
   @type delete_fleet_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secondary_network() :: %{
+        "Ipv4CidrBlockAssociations" => list(secondary_network_ipv4_cidr_block_association()),
+        "OwnerId" => String.t() | atom(),
+        "SecondaryNetworkArn" => String.t() | atom(),
+        "SecondaryNetworkId" => String.t() | atom(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type secondary_network() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -28219,6 +28574,19 @@ defmodule AWS.EC2 do
       
   """
   @type describe_host_reservations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_secondary_subnet_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        required("SecondarySubnetId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_secondary_subnet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -31097,6 +31465,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      secondary_subnet_ipv4_cidr_block_association() :: %{
+        "AssociationId" => String.t() | atom(),
+        "CidrBlock" => String.t() | atom(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom()
+      }
+      
+  """
+  @type secondary_subnet_ipv4_cidr_block_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_client_vpn_endpoint_request() :: %{
         optional("DryRun") => boolean(),
         required("ClientVpnEndpointId") => String.t() | atom()
@@ -31120,6 +31502,21 @@ defmodule AWS.EC2 do
       
   """
   @type create_local_gateway_route_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_secondary_interfaces_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SecondaryInterfaceIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_secondary_interfaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -31228,6 +31625,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      instance_secondary_interface_specification_request() :: %{
+        "DeleteOnTermination" => boolean(),
+        "DeviceIndex" => integer(),
+        "InterfaceType" => list(any()),
+        "NetworkCardIndex" => integer(),
+        "PrivateIpAddressCount" => integer(),
+        "PrivateIpAddresses" => list(instance_secondary_interface_private_ip_address_request()),
+        "SecondarySubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type instance_secondary_interface_specification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       interruption_info() :: %{
         "InterruptionType" => list(any()),
         "SourceCapacityReservationId" => String.t() | atom()
@@ -31262,6 +31676,32 @@ defmodule AWS.EC2 do
       
   """
   @type interruptible_capacity_allocation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_secondary_subnet_result() :: %{
+        "ClientToken" => String.t() | atom(),
+        "SecondarySubnet" => secondary_subnet()
+      }
+      
+  """
+  @type delete_secondary_subnet_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secondary_network_ipv4_cidr_block_association() :: %{
+        "AssociationId" => String.t() | atom(),
+        "CidrBlock" => String.t() | atom(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom()
+      }
+      
+  """
+  @type secondary_network_ipv4_cidr_block_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -31823,6 +32263,22 @@ defmodule AWS.EC2 do
       
   """
   @type delete_traffic_mirror_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_secondary_interface_attachment() :: %{
+        "AttachTime" => non_neg_integer(),
+        "AttachmentId" => String.t() | atom(),
+        "DeleteOnTermination" => boolean(),
+        "DeviceIndex" => integer(),
+        "NetworkCardIndex" => integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type instance_secondary_interface_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36049,6 +36505,44 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Creates an Amazon secondary network.
+
+  The allowed size for a secondary network CIDR block is between /28 netmask (16
+  IP addresses) and /12 netmask (1,048,576 IP addresses).
+  """
+  @spec create_secondary_network(map(), create_secondary_network_request(), list()) ::
+          {:ok, create_secondary_network_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_secondary_network(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSecondaryNetwork", input, options)
+  end
+
+  @doc """
+  Creates a secondary subnet in a secondary network.
+
+  A secondary subnet CIDR block must not overlap with the CIDR block of an
+  existing secondary subnet in the secondary network. After you create a secondary
+  subnet, you can't change its CIDR block.
+
+  The allowed size for a secondary subnet CIDR block is between /28 netmask (16 IP
+  addresses) and /12 netmask (1,048,576 IP addresses). Amazon reserves the first
+  four IP addresses and the last IP address in each secondary subnet for internal
+  use.
+  """
+  @spec create_secondary_subnet(map(), create_secondary_subnet_request(), list()) ::
+          {:ok, create_secondary_subnet_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_secondary_subnet(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSecondarySubnet", input, options)
+  end
+
+  @doc """
   Creates a security group.
 
   A security group acts as a virtual firewall for your instance to control inbound
@@ -38093,6 +38587,37 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteRouteTable", input, options)
+  end
+
+  @doc """
+  Deletes a secondary network.
+
+  You must delete all secondary subnets in the secondary network before you can
+  delete the secondary network.
+  """
+  @spec delete_secondary_network(map(), delete_secondary_network_request(), list()) ::
+          {:ok, delete_secondary_network_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_secondary_network(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSecondaryNetwork", input, options)
+  end
+
+  @doc """
+  Deletes a secondary subnet.
+
+  A secondary subnet must not contain any secondary interfaces prior to deletion.
+  """
+  @spec delete_secondary_subnet(map(), delete_secondary_subnet_request(), list()) ::
+          {:ok, delete_secondary_subnet_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_secondary_subnet(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSecondarySubnet", input, options)
   end
 
   @doc """
@@ -41720,6 +42245,45 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeScheduledInstances", input, options)
+  end
+
+  @doc """
+  Describes one or more of your secondary interfaces.
+  """
+  @spec describe_secondary_interfaces(map(), describe_secondary_interfaces_request(), list()) ::
+          {:ok, describe_secondary_interfaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_secondary_interfaces(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSecondaryInterfaces", input, options)
+  end
+
+  @doc """
+  Describes one or more secondary networks.
+  """
+  @spec describe_secondary_networks(map(), describe_secondary_networks_request(), list()) ::
+          {:ok, describe_secondary_networks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_secondary_networks(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSecondaryNetworks", input, options)
+  end
+
+  @doc """
+  Describes one or more of your secondary subnets.
+  """
+  @spec describe_secondary_subnets(map(), describe_secondary_subnets_request(), list()) ::
+          {:ok, describe_secondary_subnets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_secondary_subnets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSecondarySubnets", input, options)
   end
 
   @doc """

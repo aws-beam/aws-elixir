@@ -522,6 +522,7 @@ defmodule AWS.Neptunedata do
 
       start_loader_job_input() :: %{
         optional("dependencies") => list([String.t() | atom()]()),
+        optional("edgeOnlyLoad") => [boolean()],
         optional("failOnError") => [boolean()],
         optional("mode") => list(any()),
         optional("parallelism") => list(any()),

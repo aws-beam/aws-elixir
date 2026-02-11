@@ -492,6 +492,7 @@ defmodule AWS.EKS do
         "modifiedAt" => non_neg_integer(),
         "namespace" => String.t() | atom(),
         "ownerArn" => String.t() | atom(),
+        "policy" => String.t() | atom(),
         "roleArn" => String.t() | atom(),
         "serviceAccount" => String.t() | atom(),
         "tags" => map(),
@@ -1518,6 +1519,7 @@ defmodule AWS.EKS do
       update_pod_identity_association_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         optional("disableSessionTags") => boolean(),
+        optional("policy") => String.t() | atom(),
         optional("roleArn") => String.t() | atom(),
         optional("targetRoleArn") => String.t() | atom()
       }
@@ -3082,6 +3084,7 @@ defmodule AWS.EKS do
       create_pod_identity_association_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         optional("disableSessionTags") => boolean(),
+        optional("policy") => String.t() | atom(),
         optional("tags") => map(),
         optional("targetRoleArn") => String.t() | atom(),
         required("namespace") => String.t() | atom(),

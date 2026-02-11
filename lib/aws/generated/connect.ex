@@ -830,6 +830,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      persistent_connection_config() :: %{
+        "Channel" => list(any()),
+        "PersistentConnection" => boolean()
+      }
+
+  """
+  @type persistent_connection_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_flow_attribute_and_condition() :: %{
         "ContactFlowTypeCondition" => contact_flow_type_condition(),
         "TagConditions" => list(tag_condition())
@@ -2234,6 +2246,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      after_contact_work_config_per_channel() :: %{
+        "AfterContactWorkConfig" => after_contact_work_config(),
+        "AgentFirstCallbackAfterContactWorkConfig" => after_contact_work_config(),
+        "Channel" => list(any())
+      }
+
+  """
+  @type after_contact_work_config_per_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_security_profile_request() :: %{
         optional("AllowedAccessControlHierarchyGroupId") => String.t() | atom(),
         optional("AllowedAccessControlTags") => map(),
@@ -2797,16 +2822,21 @@ defmodule AWS.Connect do
   ## Example:
 
       user_search_summary() :: %{
+        "AfterContactWorkConfigs" => list(after_contact_work_config_per_channel()),
         "Arn" => String.t() | atom(),
+        "AutoAcceptConfigs" => list(auto_accept_config()),
         "DirectoryUserId" => String.t() | atom(),
         "HierarchyGroupId" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "IdentityInfo" => user_identity_info_lite(),
+        "PersistentConnectionConfigs" => list(persistent_connection_config()),
         "PhoneConfig" => user_phone_config(),
+        "PhoneNumberConfigs" => list(phone_number_config()),
         "RoutingProfileId" => String.t() | atom(),
         "SecurityProfileIds" => list(String.t() | atom()),
         "Tags" => map(),
-        "Username" => String.t() | atom()
+        "Username" => String.t() | atom(),
+        "VoiceEnhancementConfigs" => list(voice_enhancement_config())
       }
 
   """
@@ -3270,6 +3300,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      phone_number_config() :: %{
+        "Channel" => list(any()),
+        "PhoneNumber" => String.t() | atom(),
+        "PhoneType" => list(any())
+      }
+
+  """
+  @type phone_number_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_user_hierarchy_group_request() :: %{}
 
   """
@@ -3577,6 +3620,17 @@ defmodule AWS.Connect do
 
   """
   @type delete_view_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      after_contact_work_config() :: %{
+        "AfterContactWorkTimeLimit" => integer()
+      }
+
+  """
+  @type after_contact_work_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6936,6 +6990,18 @@ defmodule AWS.Connect do
 
   """
   @type start_contact_recording_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      voice_enhancement_config() :: %{
+        "Channel" => list(any()),
+        "VoiceEnhancementMode" => list(any())
+      }
+
+  """
+  @type voice_enhancement_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11509,18 +11575,23 @@ defmodule AWS.Connect do
   ## Example:
 
       user() :: %{
+        "AfterContactWorkConfigs" => list(after_contact_work_config_per_channel()),
         "Arn" => String.t() | atom(),
+        "AutoAcceptConfigs" => list(auto_accept_config()),
         "DirectoryUserId" => String.t() | atom(),
         "HierarchyGroupId" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "IdentityInfo" => user_identity_info(),
         "LastModifiedRegion" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
+        "PersistentConnectionConfigs" => list(persistent_connection_config()),
         "PhoneConfig" => user_phone_config(),
+        "PhoneNumberConfigs" => list(phone_number_config()),
         "RoutingProfileId" => String.t() | atom(),
         "SecurityProfileIds" => list(String.t() | atom()),
         "Tags" => map(),
-        "Username" => String.t() | atom()
+        "Username" => String.t() | atom(),
+        "VoiceEnhancementConfigs" => list(voice_enhancement_config())
       }
 
   """
@@ -11708,6 +11779,19 @@ defmodule AWS.Connect do
 
   """
   @type predefined_attribute_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_accept_config() :: %{
+        "AgentFirstCallbackAutoAccept" => boolean(),
+        "AutoAccept" => boolean(),
+        "Channel" => list(any())
+      }
+
+  """
+  @type auto_accept_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14616,6 +14700,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_user_config_request() :: %{
+        optional("AfterContactWorkConfigs") => list(after_contact_work_config_per_channel()),
+        optional("AutoAcceptConfigs") => list(auto_accept_config()),
+        optional("PersistentConnectionConfigs") => list(persistent_connection_config()),
+        optional("PhoneNumberConfigs") => list(phone_number_config()),
+        optional("VoiceEnhancementConfigs") => list(voice_enhancement_config())
+      }
+
+  """
+  @type update_user_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       suspend_contact_recording_request() :: %{
         optional("ContactRecordingType") => list(any()),
         required("ContactId") => String.t() | atom(),
@@ -14631,12 +14730,17 @@ defmodule AWS.Connect do
   ## Example:
 
       create_user_request() :: %{
+        optional("AfterContactWorkConfigs") => list(after_contact_work_config_per_channel()),
+        optional("AutoAcceptConfigs") => list(auto_accept_config()),
         optional("DirectoryUserId") => String.t() | atom(),
         optional("HierarchyGroupId") => String.t() | atom(),
         optional("IdentityInfo") => user_identity_info(),
         optional("Password") => String.t() | atom(),
+        optional("PersistentConnectionConfigs") => list(persistent_connection_config()),
+        optional("PhoneConfig") => user_phone_config(),
+        optional("PhoneNumberConfigs") => list(phone_number_config()),
         optional("Tags") => map(),
-        required("PhoneConfig") => user_phone_config(),
+        optional("VoiceEnhancementConfigs") => list(voice_enhancement_config()),
         required("RoutingProfileId") => String.t() | atom(),
         required("SecurityProfileIds") => list(String.t() | atom()),
         required("Username") => String.t() | atom()
@@ -17481,6 +17585,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type update_user_config_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | conditional_operation_failed_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type update_user_hierarchy_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -20238,6 +20350,30 @@ defmodule AWS.Connect do
   `FirstName` and `LastName` are required if you are using Amazon Connect or SAML
   for
   identity management.
+
+  Fields in `PhoneConfig` cannot be set simultaneously with their corresponding
+  channel-specific configuration parameters. Specifically:
+
+    
+
+  `PhoneConfig.AutoAccept` conflicts with `AutoAcceptConfigs`
+
+    
+
+  `PhoneConfig.AfterContactWorkTimeLimit` conflicts with `AfterContactWorkConfigs`
+
+    
+
+  `PhoneConfig.PhoneType` and `PhoneConfig.PhoneNumber` conflict with
+  `PhoneNumberConfigs`
+
+    
+
+  `PhoneConfig.PersistentConnection` conflicts with `PersistentConnectionConfigs`
+
+  We recommend using channel-specific parameters such as `AutoAcceptConfigs`,
+  `AfterContactWorkConfigs`, `PhoneNumberConfigs`, `PersistentConnectionConfigs`,
+  and `VoiceEnhancementConfigs` for per-channel configuration.
 
   For information about how to create users using the Amazon Connect admin
   website, see [Add
@@ -32371,6 +32507,47 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Updates the configuration settings for the specified user, including per-channel
+  auto-accept and after contact work (ACW) timeout settings.
+
+  This operation replaces the UpdateUserPhoneConfig API. While
+  UpdateUserPhoneConfig applies the same ACW timeout to all channels,
+  UpdateUserConfig allows you to set different auto-accept and ACW timeout values
+  for each channel type.
+  """
+  @spec update_user_config(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_user_config_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_user_config_errors()}
+  def update_user_config(%Client{} = client, instance_id, user_id, input, options \\ []) do
+    url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/config"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Assigns the specified hierarchy group to the specified user.
   """
   @spec update_user_hierarchy(
@@ -32534,6 +32711,14 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the phone configuration settings for the specified user.
+
+  We recommend using the
+  [UpdateUserConfig](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserConfig.html)
+  API, which supports additional functionality that is not available in the
+  UpdateUserPhoneConfig API, such as voice enhancement settings and per-channel
+  configuration for auto-accept and After Contact Work (ACW) timeouts. In
+  comparison, the UpdateUserPhoneConfig API will always set the same ACW timeouts
+  to all channels the user handles.
   """
   @spec update_user_phone_config(
           map(),

@@ -336,6 +336,18 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      kafka_request_exception() :: %{
+        "InvalidParameter" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type kafka_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cluster_operation_v2_summary() :: %{
         "ClusterArn" => String.t() | atom(),
         "ClusterType" => list(any()),
@@ -512,6 +524,20 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      create_topic_request() :: %{
+        optional("Configs") => String.t() | atom(),
+        required("PartitionCount") => integer(),
+        required("ReplicationFactor") => integer(),
+        required("TopicName") => String.t() | atom()
+      }
+
+  """
+  @type create_topic_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kafka_cluster_client_vpc_config() :: %{
         "SecurityGroupIds" => list(String.t() | atom()),
         "SubnetIds" => list(String.t() | atom())
@@ -581,6 +607,18 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      update_topic_request() :: %{
+        optional("Configs") => String.t() | atom(),
+        optional("PartitionCount") => integer()
+      }
+
+  """
+  @type update_topic_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_clusters_v2_request() :: %{
         optional("ClusterNameFilter") => String.t() | atom(),
         optional("ClusterTypeFilter") => String.t() | atom(),
@@ -625,6 +663,18 @@ defmodule AWS.Kafka do
 
   """
   @type public_access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_timeout_exception() :: %{
+        "InvalidParameter" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type kafka_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -938,6 +988,19 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      create_topic_response() :: %{
+        "Status" => list(any()),
+        "TopicArn" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type create_topic_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       topic_partition_info() :: %{
         "Isr" => list(integer()),
         "Leader" => integer(),
@@ -1110,6 +1173,18 @@ defmodule AWS.Kafka do
 
   """
   @type controller_node_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_exists_exception() :: %{
+        "InvalidParameter" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type topic_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1469,6 +1544,18 @@ defmodule AWS.Kafka do
 
   """
   @type create_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reassignment_in_progress_exception() :: %{
+        "InvalidParameter" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type reassignment_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1924,6 +2011,19 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      update_topic_response() :: %{
+        "Status" => list(any()),
+        "TopicArn" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type update_topic_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ebs_storage_info() :: %{
         "ProvisionedThroughput" => provisioned_throughput(),
         "VolumeSize" => integer()
@@ -1977,6 +2077,18 @@ defmodule AWS.Kafka do
 
   """
   @type update_broker_count_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_topic_or_partition_exception() :: %{
+        "InvalidParameter" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unknown_topic_or_partition_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2072,6 +2184,18 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      cluster_connectivity_exception() :: %{
+        "InvalidParameter" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type cluster_connectivity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_cluster_operations_v2_response() :: %{
         "ClusterOperationInfoList" => list(cluster_operation_v2_summary()),
         "NextToken" => String.t() | atom()
@@ -2100,6 +2224,19 @@ defmodule AWS.Kafka do
 
   """
   @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_topic_response() :: %{
+        "Status" => list(any()),
+        "TopicArn" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type delete_topic_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2152,6 +2289,18 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      not_controller_exception() :: %{
+        "InvalidParameter" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_controller_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kafka_cluster_description() :: %{
         "AmazonMskCluster" => amazon_msk_cluster(),
         "KafkaClusterAlias" => String.t() | atom(),
@@ -2184,6 +2333,18 @@ defmodule AWS.Kafka do
 
   """
   @type delete_vpc_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      controller_moved_exception() :: %{
+        "InvalidParameter" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type controller_moved_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2599,6 +2760,15 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      delete_topic_request() :: %{}
+
+  """
+  @type delete_topic_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       cluster_operation_v2_serverless() :: %{
         "VpcConnectionInfo" => vpc_connection_info_serverless()
       }
@@ -2642,6 +2812,18 @@ defmodule AWS.Kafka do
 
   """
   @type serverless() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_subscribed_to_topic_exception() :: %{
+        "InvalidParameter" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type group_subscribed_to_topic_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2711,6 +2893,24 @@ defmodule AWS.Kafka do
           | forbidden_exception()
           | unauthorized_exception()
 
+  @type create_topic_errors() ::
+          group_subscribed_to_topic_exception()
+          | bad_request_exception()
+          | controller_moved_exception()
+          | not_controller_exception()
+          | internal_server_error_exception()
+          | cluster_connectivity_exception()
+          | unknown_topic_or_partition_exception()
+          | service_unavailable_exception()
+          | reassignment_in_progress_exception()
+          | conflict_exception()
+          | topic_exists_exception()
+          | too_many_requests_exception()
+          | kafka_timeout_exception()
+          | forbidden_exception()
+          | kafka_request_exception()
+          | unauthorized_exception()
+
   @type create_vpc_connection_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -2745,6 +2945,20 @@ defmodule AWS.Kafka do
           | too_many_requests_exception()
           | forbidden_exception()
           | unauthorized_exception()
+
+  @type delete_topic_errors() ::
+          group_subscribed_to_topic_exception()
+          | bad_request_exception()
+          | controller_moved_exception()
+          | not_controller_exception()
+          | internal_server_error_exception()
+          | cluster_connectivity_exception()
+          | unknown_topic_or_partition_exception()
+          | reassignment_in_progress_exception()
+          | not_found_exception()
+          | kafka_timeout_exception()
+          | forbidden_exception()
+          | kafka_request_exception()
 
   @type delete_vpc_connection_errors() ::
           bad_request_exception()
@@ -3071,6 +3285,22 @@ defmodule AWS.Kafka do
           | forbidden_exception()
           | unauthorized_exception()
 
+  @type update_topic_errors() ::
+          group_subscribed_to_topic_exception()
+          | bad_request_exception()
+          | controller_moved_exception()
+          | not_controller_exception()
+          | internal_server_error_exception()
+          | cluster_connectivity_exception()
+          | unknown_topic_or_partition_exception()
+          | service_unavailable_exception()
+          | reassignment_in_progress_exception()
+          | not_found_exception()
+          | kafka_timeout_exception()
+          | forbidden_exception()
+          | kafka_request_exception()
+          | unauthorized_exception()
+
   def metadata do
     %{
       api_version: "2018-11-14",
@@ -3272,6 +3502,35 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Creates a topic in the specified MSK cluster.
+  """
+  @spec create_topic(map(), String.t() | atom(), create_topic_request(), list()) ::
+          {:ok, create_topic_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_topic_errors()}
+  def create_topic(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topics"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new MSK VPC connection.
   """
   @spec create_vpc_connection(map(), create_vpc_connection_request(), list()) ::
@@ -3412,6 +3671,43 @@ defmodule AWS.Kafka do
         {"CurrentVersion", "currentVersion"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a topic in the specified MSK cluster.
+  """
+  @spec delete_topic(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_topic_request(),
+          list()
+        ) ::
+          {:ok, delete_topic_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_topic_errors()}
+  def delete_topic(%Client{} = client, cluster_arn, topic_name, input, options \\ []) do
+    url_path =
+      "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topics/#{AWS.Util.encode_uri(topic_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -4862,6 +5158,43 @@ defmodule AWS.Kafka do
           | {:error, update_storage_errors()}
   def update_storage(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/storage"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the configuration of the specified topic.
+  """
+  @spec update_topic(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_topic_request(),
+          list()
+        ) ::
+          {:ok, update_topic_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_topic_errors()}
+  def update_topic(%Client{} = client, cluster_arn, topic_name, input, options \\ []) do
+    url_path =
+      "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topics/#{AWS.Util.encode_uri(topic_name)}"
+
     headers = []
     custom_headers = []
     query_params = []

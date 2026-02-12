@@ -111,6 +111,18 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      iceberg_partition_spec() :: %{
+        "fields" => list(iceberg_partition_field()),
+        "specId" => [integer()]
+      }
+
+  """
+  @type iceberg_partition_spec() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_table_metadata_location_request() :: %{
         required("metadataLocation") => String.t() | atom(),
         required("versionToken") => String.t() | atom()
@@ -326,6 +338,18 @@ defmodule AWS.S3Tables do
 
   """
   @type get_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iceberg_sort_order() :: %{
+        "fields" => list(iceberg_sort_field()),
+        "orderId" => [integer()]
+      }
+
+  """
+  @type iceberg_sort_order() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,8 +652,10 @@ defmodule AWS.S3Tables do
   ## Example:
 
       iceberg_metadata() :: %{
+        "partitionSpec" => iceberg_partition_spec(),
         "properties" => map(),
-        "schema" => iceberg_schema()
+        "schema" => iceberg_schema(),
+        "writeOrder" => iceberg_sort_order()
       }
 
   """
@@ -840,6 +866,20 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      iceberg_sort_field() :: %{
+        "direction" => list(any()),
+        "nullOrder" => list(any()),
+        "sourceId" => [integer()],
+        "transform" => [String.t() | atom()]
+      }
+
+  """
+  @type iceberg_sort_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_table_metadata_location_request() :: %{}
 
   """
@@ -876,6 +916,20 @@ defmodule AWS.S3Tables do
 
   """
   @type delete_table_bucket_metrics_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      iceberg_partition_field() :: %{
+        "fieldId" => [integer()],
+        "name" => [String.t() | atom()],
+        "sourceId" => [integer()],
+        "transform" => [String.t() | atom()]
+      }
+
+  """
+  @type iceberg_partition_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -998,6 +1052,7 @@ defmodule AWS.S3Tables do
   ## Example:
 
       schema_field() :: %{
+        "id" => [integer()],
         "name" => [String.t() | atom()],
         "required" => [boolean()],
         "type" => [String.t() | atom()]

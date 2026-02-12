@@ -514,6 +514,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      service_job_capacity_usage_summary() :: %{
+        "capacityUnit" => String.t() | atom(),
+        "quantity" => float()
+      }
+
+  """
+  @type service_job_capacity_usage_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_environment_order() :: %{
         "order" => integer(),
         "serviceEnvironment" => String.t() | atom()
@@ -699,6 +711,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      fairshare_capacity_utilization() :: %{
+        "capacityUsage" => list(fairshare_capacity_usage()),
+        "shareIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type fairshare_capacity_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_compute_environment_request() :: %{
         optional("computeResources") => compute_resource(),
         optional("context") => String.t() | atom(),
@@ -827,8 +851,21 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      job_capacity_usage_summary() :: %{
+        "capacityUnit" => String.t() | atom(),
+        "quantity" => float()
+      }
+
+  """
+  @type job_capacity_usage_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_summary() :: %{
         "arrayProperties" => array_properties_summary(),
+        "capacityUsage" => list(job_capacity_usage_summary()),
         "container" => container_summary(),
         "createdAt" => float(),
         "jobArn" => String.t() | atom(),
@@ -836,6 +873,8 @@ defmodule AWS.Batch do
         "jobId" => String.t() | atom(),
         "jobName" => String.t() | atom(),
         "nodeProperties" => node_properties_summary(),
+        "scheduledAt" => float(),
+        "shareIdentifier" => String.t() | atom(),
         "startedAt" => float(),
         "status" => list(any()),
         "statusReason" => String.t() | atom(),
@@ -990,6 +1029,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      service_job_capacity_usage_detail() :: %{
+        "capacityUnit" => String.t() | atom(),
+        "quantity" => float()
+      }
+
+  """
+  @type service_job_capacity_usage_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_resource_id() :: %{
         "name" => list(any()),
         "value" => String.t() | atom()
@@ -1063,6 +1114,18 @@ defmodule AWS.Batch do
 
   """
   @type register_job_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fairshare_utilization_detail() :: %{
+        "activeShareCount" => float(),
+        "topCapacityUtilization" => list(fairshare_capacity_utilization())
+      }
+
+  """
+  @type fairshare_utilization_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1336,6 +1399,19 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      queue_snapshot_utilization_detail() :: %{
+        "fairshareUtilization" => fairshare_utilization_detail(),
+        "lastUpdatedAt" => float(),
+        "totalCapacityUsage" => list(queue_snapshot_capacity_usage())
+      }
+
+  """
+  @type queue_snapshot_utilization_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       container_summary() :: %{
         "exitCode" => integer(),
         "reason" => String.t() | atom()
@@ -1451,7 +1527,8 @@ defmodule AWS.Batch do
   ## Example:
 
       get_job_queue_snapshot_response() :: %{
-        "frontOfQueue" => front_of_queue_detail()
+        "frontOfQueue" => front_of_queue_detail(),
+        "queueUtilization" => queue_snapshot_utilization_detail()
       }
 
   """
@@ -1970,6 +2047,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      fairshare_capacity_usage() :: %{
+        "capacityUnit" => String.t() | atom(),
+        "quantity" => float()
+      }
+
+  """
+  @type fairshare_capacity_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       terminate_job_response() :: %{}
 
   """
@@ -1993,6 +2082,7 @@ defmodule AWS.Batch do
 
       describe_service_job_response() :: %{
         "attempts" => list(service_job_attempt_detail()),
+        "capacityUsage" => list(service_job_capacity_usage_detail()),
         "createdAt" => float(),
         "isTerminated" => boolean(),
         "jobArn" => String.t() | atom(),
@@ -2001,6 +2091,7 @@ defmodule AWS.Batch do
         "jobQueue" => String.t() | atom(),
         "latestAttempt" => latest_service_job_attempt(),
         "retryStrategy" => service_job_retry_strategy(),
+        "scheduledAt" => float(),
         "schedulingPriority" => integer(),
         "serviceJobType" => list(any()),
         "serviceRequestPayload" => String.t() | atom(),
@@ -2365,6 +2456,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      queue_snapshot_capacity_usage() :: %{
+        "capacityUnit" => String.t() | atom(),
+        "quantity" => float()
+      }
+
+  """
+  @type queue_snapshot_capacity_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ecs_properties_detail() :: %{
         "taskProperties" => list(ecs_task_details())
       }
@@ -2377,11 +2480,13 @@ defmodule AWS.Batch do
   ## Example:
 
       service_job_summary() :: %{
+        "capacityUsage" => list(service_job_capacity_usage_summary()),
         "createdAt" => float(),
         "jobArn" => String.t() | atom(),
         "jobId" => String.t() | atom(),
         "jobName" => String.t() | atom(),
         "latestAttempt" => latest_service_job_attempt(),
+        "scheduledAt" => float(),
         "serviceJobType" => list(any()),
         "shareIdentifier" => String.t() | atom(),
         "startedAt" => float(),
@@ -3462,7 +3567,8 @@ defmodule AWS.Batch do
 
   @doc """
   Provides a list of the first 100 `RUNNABLE` jobs associated to a single job
-  queue.
+  queue and includes capacity utilization, including total usage and breakdown by
+  share for fairshare scheduling job queues.
   """
   @spec get_job_queue_snapshot(map(), get_job_queue_snapshot_request(), list()) ::
           {:ok, get_job_queue_snapshot_response(), any()}
@@ -3532,9 +3638,6 @@ defmodule AWS.Batch do
 
     *
   An array job ID to return a list of the children for that job
-
-  You can filter the results by job status with the `jobStatus` parameter. If you
-  don't specify a status, only `RUNNING` jobs are returned.
   """
   @spec list_jobs(map(), list_jobs_request(), list()) ::
           {:ok, list_jobs_response(), any()}

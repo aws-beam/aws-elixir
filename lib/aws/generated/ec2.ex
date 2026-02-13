@@ -3592,10 +3592,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_instance_cpu_options_request() :: %{
+        optional("CoreCount") => integer(),
         optional("DryRun") => boolean(),
-        required("CoreCount") => integer(),
-        required("InstanceId") => String.t() | atom(),
-        required("ThreadsPerCore") => integer()
+        optional("NestedVirtualization") => list(any()),
+        optional("ThreadsPerCore") => integer(),
+        required("InstanceId") => String.t() | atom()
       }
       
   """
@@ -5158,6 +5159,7 @@ defmodule AWS.EC2 do
       launch_template_cpu_options_request() :: %{
         "AmdSevSnp" => list(any()),
         "CoreCount" => integer(),
+        "NestedVirtualization" => list(any()),
         "ThreadsPerCore" => integer()
       }
       
@@ -6943,6 +6945,7 @@ defmodule AWS.EC2 do
       cpu_options_request() :: %{
         "AmdSevSnp" => list(any()),
         "CoreCount" => integer(),
+        "NestedVirtualization" => list(any()),
         "ThreadsPerCore" => integer()
       }
       
@@ -10363,6 +10366,7 @@ defmodule AWS.EC2 do
       launch_template_cpu_options() :: %{
         "AmdSevSnp" => list(any()),
         "CoreCount" => integer(),
+        "NestedVirtualization" => list(any()),
         "ThreadsPerCore" => integer()
       }
       
@@ -15444,6 +15448,7 @@ defmodule AWS.EC2 do
       cpu_options() :: %{
         "AmdSevSnp" => list(any()),
         "CoreCount" => integer(),
+        "NestedVirtualization" => list(any()),
         "ThreadsPerCore" => integer()
       }
       
@@ -16201,6 +16206,7 @@ defmodule AWS.EC2 do
       modify_instance_cpu_options_result() :: %{
         "CoreCount" => integer(),
         "InstanceId" => String.t() | atom(),
+        "NestedVirtualization" => list(any()),
         "ThreadsPerCore" => integer()
       }
       

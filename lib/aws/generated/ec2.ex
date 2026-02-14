@@ -2720,6 +2720,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       availability_zone() :: %{
+        "Geography" => list(availability_zone_geography()),
         "GroupLongName" => String.t() | atom(),
         "GroupName" => String.t() | atom(),
         "Messages" => list(availability_zone_message()),
@@ -2729,6 +2730,7 @@ defmodule AWS.EC2 do
         "ParentZoneName" => String.t() | atom(),
         "RegionName" => String.t() | atom(),
         "State" => list(any()),
+        "SubGeography" => list(availability_zone_sub_geography()),
         "ZoneId" => String.t() | atom(),
         "ZoneName" => String.t() | atom(),
         "ZoneType" => String.t() | atom()
@@ -5190,6 +5192,17 @@ defmodule AWS.EC2 do
       
   """
   @type delete_instance_event_window_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone_geography() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type availability_zone_geography() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9197,6 +9210,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      availability_zone_sub_geography() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type availability_zone_sub_geography() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_capacity_reservations_result() :: %{
         "CapacityReservations" => list(capacity_reservation()),
         "NextToken" => String.t() | atom()
@@ -11979,6 +12003,7 @@ defmodule AWS.EC2 do
       
       region() :: %{
         "Endpoint" => String.t() | atom(),
+        "Geography" => list(region_geography()),
         "OptInStatus" => String.t() | atom(),
         "RegionName" => String.t() | atom()
       }
@@ -14744,6 +14769,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_ipam_prefix_list_resolver_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      region_geography() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type region_geography() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -5215,7 +5215,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_orchestrator() :: %{
-        "Eks" => cluster_orchestrator_eks_config()
+        "Eks" => cluster_orchestrator_eks_config(),
+        "Slurm" => cluster_orchestrator_slurm_config()
       }
       
   """
@@ -5823,6 +5824,7 @@ defmodule AWS.SageMaker do
         optional("InstanceGroupsToDelete") => list(String.t() | atom()),
         optional("NodeProvisioningMode") => list(any()),
         optional("NodeRecovery") => list(any()),
+        optional("Orchestrator") => cluster_orchestrator(),
         optional("RestrictedInstanceGroups") => list(cluster_restricted_instance_group_specification()),
         optional("TieredStorageConfig") => cluster_tiered_storage_config(),
         required("ClusterName") => String.t() | atom()
@@ -6158,6 +6160,18 @@ defmodule AWS.SageMaker do
       
   """
   @type service_catalog_provisioning_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_slurm_config_details() :: %{
+        "NodeType" => list(any()),
+        "PartitionNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type cluster_slurm_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11950,6 +11964,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_orchestrator_slurm_config() :: %{
+        "SlurmConfigStrategy" => list(any())
+      }
+      
+  """
+  @type cluster_orchestrator_slurm_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_mlflow_tracking_server_response() :: %{
         "TrackingServerArn" => String.t() | atom()
       }
@@ -16184,6 +16209,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_slurm_config() :: %{
+        "NodeType" => list(any()),
+        "PartitionNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type cluster_slurm_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       inference_component_container_specification() :: %{
         "ArtifactUrl" => String.t() | atom(),
         "Environment" => map(),
@@ -16530,6 +16567,7 @@ defmodule AWS.SageMaker do
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
         "ScheduledUpdateConfig" => scheduled_update_config(),
+        "SlurmConfig" => cluster_slurm_config(),
         "ThreadsPerCore" => integer(),
         "TrainingPlanArn" => String.t() | atom()
       }
@@ -17693,6 +17731,19 @@ defmodule AWS.SageMaker do
       
   """
   @type update_cluster_scheduler_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_fsx_lustre_config() :: %{
+        "DnsName" => String.t() | atom(),
+        "MountName" => String.t() | atom(),
+        "MountPath" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_fsx_lustre_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19061,6 +19112,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_fsx_open_zfs_config() :: %{
+        "DnsName" => String.t() | atom(),
+        "MountPath" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_fsx_open_zfs_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_inference_component_input() :: %{
         required("InferenceComponentName") => String.t() | atom()
       }
@@ -19158,6 +19221,7 @@ defmodule AWS.SageMaker do
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
         "ScheduledUpdateConfig" => scheduled_update_config(),
+        "SlurmConfig" => cluster_slurm_config_details(),
         "SoftwareUpdateStatus" => list(any()),
         "Status" => list(any()),
         "TargetCount" => integer(),

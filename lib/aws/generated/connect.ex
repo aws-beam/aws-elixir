@@ -677,6 +677,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_user_notifications_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "UserNotifications" => list(user_notification_summary())
+      }
+
+  """
+  @type list_user_notifications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_test_case_response() :: %{}
 
   """
@@ -947,6 +959,19 @@ defmodule AWS.Connect do
 
   """
   @type routing_criteria_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_notifications_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "NextToken" => String.t() | atom(),
+        "Notifications" => list(notification_search_summary())
+      }
+
+  """
+  @type search_notifications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1462,6 +1487,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_notifications_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotificationSummaryList" => list(notification())
+      }
+
+  """
+  @type list_notifications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       font_family() :: %{
         "Default" => list(any())
       }
@@ -1946,6 +1983,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_notifications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchCriteria") => notification_search_criteria(),
+        optional("SearchFilter") => notification_search_filter(),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type search_notifications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_email_address_response() :: %{}
 
   """
@@ -2286,6 +2338,25 @@ defmodule AWS.Connect do
 
   """
   @type search_user_hierarchy_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_notification_summary() :: %{
+        "Content" => map(),
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "InstanceId" => String.t() | atom(),
+        "NotificationId" => String.t() | atom(),
+        "NotificationStatus" => list(any()),
+        "Priority" => list(any()),
+        "RecipientId" => String.t() | atom(),
+        "Source" => list(any())
+      }
+
+  """
+  @type user_notification_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3660,6 +3731,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_user_notification_status_request() :: %{
+        optional("LastModifiedRegion") => String.t() | atom(),
+        optional("LastModifiedTime") => non_neg_integer(),
+        required("Status") => list(any())
+      }
+
+  """
+  @type update_user_notification_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_contact_schedule_response() :: %{}
 
   """
@@ -4193,6 +4277,18 @@ defmodule AWS.Connect do
 
   """
   @type list_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_notification_response() :: %{
+        "NotificationArn" => String.t() | atom(),
+        "NotificationId" => String.t() | atom()
+      }
+
+  """
+  @type create_notification_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6154,6 +6250,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_notification_response() :: %{
+        "Notification" => notification()
+      }
+
+  """
+  @type describe_notification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_bot_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("LexBot") => lex_bot(),
@@ -6629,6 +6736,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_notification_request() :: %{}
+
+  """
+  @type describe_notification_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       numeric_question_property_value_automation() :: %{
         "Label" => list(any())
       }
@@ -6792,6 +6908,18 @@ defmodule AWS.Connect do
 
   """
   @type filter_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notifications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_notifications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8837,6 +8965,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_notification_content_response() :: %{}
+
+  """
+  @type update_notification_content_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_data_tables_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -9327,6 +9464,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      notification_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+
+  """
+  @type notification_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_hierarchy_group_search_criteria() :: %{
         "AndConditions" => list(user_hierarchy_group_search_criteria()),
         "OrConditions" => list(user_hierarchy_group_search_criteria()),
@@ -9432,6 +9580,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      notification_search_criteria() :: %{
+        "AndConditions" => list(notification_search_criteria()),
+        "OrConditions" => list(notification_search_criteria()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type notification_search_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_security_profile_applications_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -9516,6 +9677,27 @@ defmodule AWS.Connect do
 
   """
   @type workspace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_search_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Content" => map(),
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Priority" => list(any()),
+        "Recipients" => list(String.t() | atom()),
+        "Tags" => map()
+      }
+
+  """
+  @type notification_search_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10830,6 +11012,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_notification_response() :: %{}
+
+  """
+  @type delete_notification_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       workspace_search_criteria() :: %{
         "AndConditions" => list(workspace_search_criteria()),
         "OrConditions" => list(workspace_search_criteria()),
@@ -11404,6 +11595,17 @@ defmodule AWS.Connect do
 
   """
   @type disassociate_security_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_notification_content_request() :: %{
+        required("Content") => map()
+      }
+
+  """
+  @type update_notification_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12219,6 +12421,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_user_notification_status_response() :: %{}
+
+  """
+  @type update_user_notification_status_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_evaluation_forms_response() :: %{
         "EvaluationFormSummaryList" => list(evaluation_form_summary()),
         "NextToken" => String.t() | atom()
@@ -12495,6 +12706,26 @@ defmodule AWS.Connect do
 
   """
   @type associate_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification() :: %{
+        "Arn" => String.t() | atom(),
+        "Content" => map(),
+        "CreatedAt" => non_neg_integer(),
+        "ExpiresAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Priority" => list(any()),
+        "Recipients" => list(String.t() | atom()),
+        "Tags" => map()
+      }
+
+  """
+  @type notification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13140,6 +13371,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_notification_request() :: %{}
+
+  """
+  @type delete_notification_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       tag_search_condition() :: %{
         "tagKey" => String.t() | atom(),
         "tagKeyComparisonType" => list(any()),
@@ -13711,6 +13951,23 @@ defmodule AWS.Connect do
 
   """
   @type associate_flow_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_notification_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ExpiresAt") => non_neg_integer(),
+        optional("PredefinedNotificationId") => String.t() | atom(),
+        optional("Priority") => list(any()),
+        optional("Tags") => map(),
+        required("Content") => map(),
+        required("Recipients") => list(String.t() | atom())
+      }
+
+  """
+  @type create_notification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14766,6 +15023,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_user_notifications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_user_notifications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_form_content() :: %{
         "AutoEvaluationConfiguration" => evaluation_form_auto_evaluation_configuration(),
         "Description" => String.t() | atom(),
@@ -15341,6 +15610,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type create_notification_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type create_participant_errors() ::
           throttling_exception()
           | service_quota_exceeded_exception()
@@ -15656,6 +15934,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type delete_notification_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type delete_predefined_attribute_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -15920,6 +16206,14 @@ defmodule AWS.Connect do
   @type describe_instance_storage_config_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type describe_notification_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -16518,6 +16812,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type list_notifications_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type list_phone_numbers_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -16698,6 +17000,14 @@ defmodule AWS.Connect do
   @type list_user_hierarchy_groups_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_user_notifications_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -16890,6 +17200,14 @@ defmodule AWS.Connect do
   @type search_hours_of_operations_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type search_notifications_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -17400,6 +17718,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type update_notification_content_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type update_participant_authentication_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -17619,6 +17945,14 @@ defmodule AWS.Connect do
   @type update_user_identity_info_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_user_notification_status_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -19779,6 +20113,39 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates a new notification to be delivered to specified recipients.
+
+  Notifications can include localized content with embedded links, and an optional
+  expiration time. Recipients can be specified as individual user ARNs or instance
+  ARNs to target all users in an instance.
+  """
+  @spec create_notification(map(), String.t() | atom(), create_notification_request(), list()) ::
+          {:ok, create_notification_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_notification_errors()}
+  def create_notification(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/notifications/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Adds a new participant into an on-going chat contact or webRTC call.
 
   For more information, see [Customize chat flow experiences by integrating custom
@@ -21352,6 +21719,46 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes a notification.
+
+  Once deleted, the notification is no longer visible to all users and cannot be
+  managed through the Admin Website or APIs.
+  """
+  @spec delete_notification(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_notification_request(),
+          list()
+        ) ::
+          {:ok, delete_notification_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_notification_errors()}
+  def delete_notification(%Client{} = client, instance_id, notification_id, input, options \\ []) do
+    url_path =
+      "/notifications/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(notification_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a predefined attribute from the specified Amazon Connect instance.
   """
   @spec delete_predefined_attribute(
@@ -22702,6 +23109,27 @@ defmodule AWS.Connect do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves detailed information about a specific notification, including its
+  content, priority, recipients, and metadata.
+  """
+  @spec describe_notification(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_notification_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_notification_errors()}
+  def describe_notification(%Client{} = client, instance_id, notification_id, options \\ []) do
+    url_path =
+      "/notifications/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(notification_id)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -26304,6 +26732,50 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Retrieves a paginated list of all notifications in the Amazon Connect instance.
+  """
+  @spec list_notifications(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_notifications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_notifications_errors()}
+  def list_notifications(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/notifications/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Provides information about the phone numbers for the specified Amazon Connect
   instance.
 
@@ -27707,6 +28179,55 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Retrieves a paginated list of notifications for a specific user, including the
+  notification status for that user.
+  """
+  @spec list_user_notifications(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_user_notifications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_user_notifications_errors()}
+  def list_user_notifications(
+        %Client{} = client,
+        instance_id,
+        user_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/notifications"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists proficiencies associated with a user.
   """
   @spec list_user_proficiencies(
@@ -28660,6 +29181,38 @@ defmodule AWS.Connect do
           | {:error, search_hours_of_operations_errors()}
   def search_hours_of_operations(%Client{} = client, input, options \\ []) do
     url_path = "/search-hours-of-operations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches for notifications based on specified criteria and filters.
+
+  Returns a paginated list of notifications matching the search parameters,
+  ordered by descending creation time. Supports filtering by content and tags.
+  """
+  @spec search_notifications(map(), search_notifications_request(), list()) ::
+          {:ok, search_notifications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_notifications_errors()}
+  def search_notifications(%Client{} = client, input, options \\ []) do
+    url_path = "/search-notifications"
     headers = []
     custom_headers = []
     query_params = []
@@ -31402,6 +31955,51 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Updates the localized content of an existing notification.
+
+  This operation applies to all users for whom the notification was sent.
+  """
+  @spec update_notification_content(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_notification_content_request(),
+          list()
+        ) ::
+          {:ok, update_notification_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_notification_content_errors()}
+  def update_notification_content(
+        %Client{} = client,
+        instance_id,
+        notification_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/notifications/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(notification_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Instructs Amazon Connect to resume the authentication process.
 
   The subsequent actions depend on the request
@@ -32691,6 +33289,62 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/identity-info"
 
     headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the status of a notification for a specific user, such as marking it as
+  read or hidden.
+
+  Users can only update notification status for notifications that have been sent
+  to them. READ status deprioritizes the notification and greys it out, while
+  HIDDEN status removes it from the notification widget.
+  """
+  @spec update_user_notification_status(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_user_notification_status_request(),
+          list()
+        ) ::
+          {:ok, update_user_notification_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_user_notification_status_errors()}
+  def update_user_notification_status(
+        %Client{} = client,
+        instance_id,
+        notification_id,
+        user_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/notifications/#{AWS.Util.encode_uri(notification_id)}"
+
+    {headers, input} =
+      [
+        {"LastModifiedRegion", "x-amz-last-modified-region"},
+        {"LastModifiedTime", "x-amz-last-modified-time"}
+      ]
+      |> Request.build_params(input)
+
     custom_headers = []
     query_params = []
 

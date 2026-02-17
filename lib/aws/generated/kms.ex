@@ -493,13 +493,14 @@ defmodule AWS.KMS do
   ## Example:
       
       decrypt_request() :: %{
+        optional("CiphertextBlob") => binary(),
         optional("DryRun") => boolean(),
+        optional("DryRunModifiers") => list(list(any())()),
         optional("EncryptionAlgorithm") => list(any()),
         optional("EncryptionContext") => map(),
         optional("GrantTokens") => list(String.t() | atom()),
         optional("KeyId") => String.t() | atom(),
-        optional("Recipient") => recipient_info(),
-        required("CiphertextBlob") => binary()
+        optional("Recipient") => recipient_info()
       }
       
   """
@@ -957,14 +958,15 @@ defmodule AWS.KMS do
   ## Example:
       
       re_encrypt_request() :: %{
+        optional("CiphertextBlob") => binary(),
         optional("DestinationEncryptionAlgorithm") => list(any()),
         optional("DestinationEncryptionContext") => map(),
         optional("DryRun") => boolean(),
+        optional("DryRunModifiers") => list(list(any())()),
         optional("GrantTokens") => list(String.t() | atom()),
         optional("SourceEncryptionAlgorithm") => list(any()),
         optional("SourceEncryptionContext") => map(),
         optional("SourceKeyId") => String.t() | atom(),
-        required("CiphertextBlob") => binary(),
         required("DestinationKeyId") => String.t() | atom()
       }
       
@@ -3193,8 +3195,6 @@ defmodule AWS.KMS do
 
   ### Multi-Region primary keys
 
-  ### Imported key material
-
   To create a multi-Region *primary key* in the local Amazon Web Services Region,
   use the `MultiRegion` parameter with a value of `True`. To create
   a multi-Region *replica key*, that is, a KMS key with the same key ID
@@ -3221,6 +3221,8 @@ defmodule AWS.KMS do
   making a cross-Region call. For more information about multi-Region keys, see
   [Multi-Region keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html)
   in the *Key Management Service Developer Guide*.
+
+  ### Imported key material
 
   To import your own key material into a KMS key, begin by creating a KMS key with
   no
@@ -6396,7 +6398,7 @@ defmodule AWS.KMS do
   automatically
   rotate, as scheduled, on April 14, 2024 and every 730 days thereafter.
 
-  You can perform on-demand key rotation a **maximum of 10
+  You can perform on-demand key rotation a **maximum of 25
   times** per KMS key. You can use the KMS console to view the number of
   remaining on-demand rotations available for a KMS key.
 

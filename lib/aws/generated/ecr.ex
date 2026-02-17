@@ -3821,6 +3821,9 @@ defmodule AWS.ECR do
 
   @doc """
   Lists the artifacts associated with a specified subject image.
+
+  The IAM principal invoking this operation must have the `ecr:BatchGetImage`
+  permission.
   """
   @spec list_image_referrers(map(), list_image_referrers_request(), list()) ::
           {:ok, list_image_referrers_response(), any()}

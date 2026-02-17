@@ -8,8 +8,7 @@ defmodule AWS.ARCRegionswitch do
   healthy Region.
 
   With Region switch, you can create plans that define the steps to shift traffic
-  for your application from one Amazon Web Services Region to another. You can
-  test your plans in practice mode before using them in a real recovery scenario.
+  for your application from one Amazon Web Services Region to another.
 
   Region switch provides a structured approach to multi-Region failover, helping
   you to meet your recovery time objectives (RTOs) and maintain business
@@ -1546,11 +1545,10 @@ defmodule AWS.ARCRegionswitch do
   @doc """
   Starts the execution of a Region switch plan.
 
-  You can execute a plan in either PRACTICE or RECOVERY mode.
+  You can execute a plan in either `graceful` or `ungraceful` mode.
 
-  In PRACTICE mode, the execution simulates the steps without making actual
-  changes to your application's traffic routing. In RECOVERY mode, the execution
-  performs actual changes to shift traffic between Regions.
+  Specifing `ungraceful` mode either changes the behavior of the execution blocks
+  in a workflow or skips specific execution blocks.
   """
   @spec start_plan_execution(map(), start_plan_execution_request(), list()) ::
           {:ok, start_plan_execution_response(), any()}

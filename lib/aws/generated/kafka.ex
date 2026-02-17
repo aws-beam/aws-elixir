@@ -105,6 +105,17 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      serverless_connectivity_info() :: %{
+        "NetworkType" => list(any())
+      }
+
+  """
+  @type serverless_connectivity_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       compatible_kafka_version() :: %{
         "SourceVersion" => String.t() | atom(),
         "TargetVersions" => list(String.t() | atom())
@@ -1127,6 +1138,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       connectivity_info() :: %{
+        "NetworkType" => list(any()),
         "PublicAccess" => public_access(),
         "VpcConnectivity" => vpc_connectivity()
       }
@@ -1363,12 +1375,16 @@ defmodule AWS.Kafka do
 
       get_bootstrap_brokers_response() :: %{
         "BootstrapBrokerString" => String.t() | atom(),
+        "BootstrapBrokerStringIpv6" => String.t() | atom(),
         "BootstrapBrokerStringPublicSaslIam" => String.t() | atom(),
         "BootstrapBrokerStringPublicSaslScram" => String.t() | atom(),
         "BootstrapBrokerStringPublicTls" => String.t() | atom(),
         "BootstrapBrokerStringSaslIam" => String.t() | atom(),
+        "BootstrapBrokerStringSaslIamIpv6" => String.t() | atom(),
         "BootstrapBrokerStringSaslScram" => String.t() | atom(),
+        "BootstrapBrokerStringSaslScramIpv6" => String.t() | atom(),
         "BootstrapBrokerStringTls" => String.t() | atom(),
+        "BootstrapBrokerStringTlsIpv6" => String.t() | atom(),
         "BootstrapBrokerStringVpcConnectivitySaslIam" => String.t() | atom(),
         "BootstrapBrokerStringVpcConnectivitySaslScram" => String.t() | atom(),
         "BootstrapBrokerStringVpcConnectivityTls" => String.t() | atom()
@@ -2770,6 +2786,8 @@ defmodule AWS.Kafka do
   ## Example:
 
       cluster_operation_v2_serverless() :: %{
+        "SourceClusterInfo" => serverless_connectivity_info(),
+        "TargetClusterInfo" => serverless_connectivity_info(),
         "VpcConnectionInfo" => vpc_connection_info_serverless()
       }
 
@@ -2807,6 +2825,7 @@ defmodule AWS.Kafka do
 
       serverless() :: %{
         "ClientAuthentication" => serverless_client_authentication(),
+        "ConnectivityInfo" => serverless_connectivity_info(),
         "VpcConfigs" => list(vpc_config())
       }
 

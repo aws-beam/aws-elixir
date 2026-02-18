@@ -4,21 +4,17 @@
 defmodule AWS.Grafana do
   @moduledoc """
   Amazon Managed Grafana is a fully managed and secure data visualization service
-  that
-  you can use to instantly query, correlate, and visualize operational metrics,
-  logs, and
-  traces from multiple sources.
+  that you can use to instantly query, correlate, and visualize operational
+  metrics, logs, and traces from multiple sources.
 
-  Amazon Managed Grafana makes it easy to deploy, operate, and
-  scale Grafana, a widely deployed data visualization tool that is popular for its
-  extensible data support.
+  Amazon Managed Grafana makes it easy to deploy, operate, and scale Grafana, a
+  widely deployed data visualization tool that is popular for its extensible data
+  support.
 
   With Amazon Managed Grafana, you create logically isolated Grafana servers
-  called
-  *workspaces*. In a workspace, you can create Grafana dashboards
-  and visualizations to analyze your metrics, logs, and traces without having to
-  build,
-  package, or deploy any hardware to run Grafana servers.
+  called *workspaces*. In a workspace, you can create Grafana dashboards and
+  visualizations to analyze your metrics, logs, and traces without having to
+  build, package, or deploy any hardware to run Grafana servers.
   """
 
   alias AWS.Client
@@ -575,6 +571,7 @@ defmodule AWS.Grafana do
         "grafanaToken" => String.t() | atom(),
         "grafanaVersion" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
         "licenseExpiration" => [non_neg_integer()],
         "licenseType" => String.t() | atom(),
         "modified" => [non_neg_integer()],
@@ -963,6 +960,7 @@ defmodule AWS.Grafana do
         optional("clientToken") => String.t() | atom(),
         optional("configuration") => String.t() | atom(),
         optional("grafanaVersion") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
         optional("networkAccessControl") => network_access_configuration(),
         optional("organizationRoleName") => String.t() | atom(),
         optional("stackSetName") => String.t() | atom(),
@@ -1188,8 +1186,7 @@ defmodule AWS.Grafana do
   @doc """
   Assigns a Grafana Enterprise license to a workspace.
 
-  To upgrade, you must use
-  `ENTERPRISE` for the `licenseType`, and pass in a valid
+  To upgrade, you must use `ENTERPRISE` for the `licenseType`, and pass in a valid
   Grafana Labs token for the `grafanaToken`. Upgrading to Grafana Enterprise
   incurs additional fees. For more information, see [Upgrade a workspace to Grafana
   Enterprise](https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html).
@@ -1236,10 +1233,9 @@ defmodule AWS.Grafana do
   @doc """
   Creates a *workspace*.
 
-  In a workspace, you can create Grafana
-  dashboards and visualizations to analyze your metrics, logs, and traces. You
-  don't have
-  to build, package, or deploy any hardware to run the Grafana server.
+  In a workspace, you can create Grafana dashboards and visualizations to analyze
+  your metrics, logs, and traces. You don't have to build, package, or deploy any
+  hardware to run the Grafana server.
 
   Don't use `CreateWorkspace` to modify an existing workspace. Instead, use
   [UpdateWorkspace](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html).
@@ -1273,8 +1269,8 @@ defmodule AWS.Grafana do
   @doc """
   Creates a Grafana API key for the workspace.
 
-  This key can be used to authenticate
-  requests sent to the workspace's HTTP API. See
+  This key can be used to authenticate requests sent to the workspace's HTTP API.
+  See
   [https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
   for available APIs and example requests.
 
@@ -1315,20 +1311,16 @@ defmodule AWS.Grafana do
   @doc """
   Creates a service account for the workspace.
 
-  A service account can be used to call
-  Grafana HTTP APIs, and run automated workloads. After creating the service
-  account with
-  the correct `GrafanaRole` for your use case, use
-  `CreateWorkspaceServiceAccountToken` to create a token that can be used to
-  authenticate and authorize Grafana HTTP API calls.
+  A service account can be used to call Grafana HTTP APIs, and run automated
+  workloads. After creating the service account with the correct `GrafanaRole` for
+  your use case, use `CreateWorkspaceServiceAccountToken` to create a token that
+  can be used to authenticate and authorize Grafana HTTP API calls.
 
   You can only create service accounts for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  Grafana version 9 and above.
 
   For more information about service accounts, see [Service accounts](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html)
-  in
-  the *Amazon Managed Grafana User Guide*.
+  in the *Amazon Managed Grafana User Guide*.
 
   For more information about the Grafana HTTP APIs, see [Using Grafana HTTP APIs](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
   in the *Amazon Managed Grafana User Guide*.
@@ -1368,8 +1360,8 @@ defmodule AWS.Grafana do
   Creates a token that can be used to authenticate and authorize Grafana HTTP API
   operations for the given [workspace service account](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
 
-  The service account acts as a user for the API operations, and
-  defines the permissions that are used by the API.
+  The service account acts as a user for the API operations, and defines the
+  permissions that are used by the API.
 
   When you create the service account token, you will receive a key that is used
   when calling Grafana APIs. Do not lose this key, as it will not be retrievable
@@ -1379,8 +1371,7 @@ defmodule AWS.Grafana do
   new key. This will disable the initial key.
 
   Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  Grafana version 9 and above.
   """
   @spec create_workspace_service_account_token(
           map(),
@@ -1495,13 +1486,11 @@ defmodule AWS.Grafana do
   Deletes a workspace service account from the workspace.
 
   This will delete any tokens created for the service account, as well. If the
-  tokens
-  are currently in use, the will fail to authenticate / authorize after they are
-  deleted.
+  tokens are currently in use, the will fail to authenticate / authorize after
+  they are deleted.
 
   Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  Grafana version 9 and above.
   """
   @spec delete_workspace_service_account(
           map(),
@@ -1547,14 +1536,11 @@ defmodule AWS.Grafana do
   Deletes a token for the workspace service account.
 
   This will disable the key associated with the token. If any automation is
-  currently
-  using the key, it will no longer be authenticated or authorized to perform
-  actions with
-  the Grafana HTTP APIs.
+  currently using the key, it will no longer be authenticated or authorized to
+  perform actions with the Grafana HTTP APIs.
 
   Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  Grafana version 9 and above.
   """
   @spec delete_workspace_service_account_token(
           map(),
@@ -1618,8 +1604,7 @@ defmodule AWS.Grafana do
 
   @doc """
   Displays information about the authentication methods used in one Amazon Managed
-  Grafana
-  workspace.
+  Grafana workspace.
   """
   @spec describe_workspace_authentication(map(), String.t() | atom(), list()) ::
           {:ok, describe_workspace_authentication_response(), any()}
@@ -1692,15 +1677,13 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Lists the users and groups who have the Grafana `Admin` and
-  `Editor` roles in this workspace.
+  Lists the users and groups who have the Grafana `Admin` and `Editor` roles in
+  this workspace.
 
-  If you use this operation without
-  specifying `userId` or `groupId`, the operation returns the roles
-  of all users and groups. If you specify a `userId` or a `groupId`,
-  only the roles for that user or group are returned. If you do this, you can
-  specify only
-  one `userId` or one `groupId`.
+  If you use this operation without specifying `userId` or `groupId`, the
+  operation returns the roles of all users and groups. If you specify a `userId`
+  or a `groupId`, only the roles for that user or group are returned. If you do
+  this, you can specify only one `userId` or one `groupId`.
   """
   @spec list_permissions(
           map(),
@@ -1771,12 +1754,10 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  The `ListTagsForResource` operation returns the tags that are associated
-  with the Amazon Managed Service for Grafana resource specified by the
-  `resourceArn`.
+  The `ListTagsForResource` operation returns the tags that are associated with
+  the Amazon Managed Service for Grafana resource specified by the `resourceArn`.
 
-  Currently, the only resource that can be tagged is a
-  workspace.
+  Currently, the only resource that can be tagged is a workspace.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1796,9 +1777,8 @@ defmodule AWS.Grafana do
   @doc """
   Lists available versions of Grafana.
 
-  These are available when calling
-  `CreateWorkspace`. Optionally, include a workspace to list the versions
-  to which it can be upgraded.
+  These are available when calling `CreateWorkspace`. Optionally, include a
+  workspace to list the versions to which it can be upgraded.
   """
   @spec list_versions(
           map(),
@@ -1855,8 +1835,7 @@ defmodule AWS.Grafana do
   are created. To create a new key, delete the token and recreate it.
 
   Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  Grafana version 9 and above.
   """
   @spec list_workspace_service_account_tokens(
           map(),
@@ -1907,8 +1886,7 @@ defmodule AWS.Grafana do
   Returns a list of service accounts for a workspace.
 
   Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  Grafana version 9 and above.
   """
   @spec list_workspace_service_accounts(
           map(),
@@ -1953,11 +1931,10 @@ defmodule AWS.Grafana do
 
   @doc """
   Returns a list of Amazon Managed Grafana workspaces in the account, with some
-  information
-  about each workspace.
+  information about each workspace.
 
   For more complete information about one workspace, use
-  [DescribeWorkspace](https://docs.aws.amazon.com/AAMG/latest/APIReference/API_DescribeWorkspace.html).
+  [DescribeWorkspace](https://docs.aws.amazon.com/grafana/latest/APIReference/API_DescribeWorkspace.html).
   """
   @spec list_workspaces(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_workspaces_response(), any()}
@@ -1995,12 +1972,9 @@ defmodule AWS.Grafana do
   Currently, the only resource that can be tagged is workspaces.
 
   If you specify a new tag key for the resource, this tag is appended to the list
-  of
-  tags associated with the resource. If you specify a tag key that is already
-  associated
-  with the resource, the new tag value that you specify replaces the previous
-  value for
-  that tag.
+  of tags associated with the resource. If you specify a tag key that is already
+  associated with the resource, the new tag value that you specify replaces the
+  previous value for that tag.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -2029,8 +2003,8 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  The `UntagResource` operation removes the association of the tag with the
-  Amazon Managed Grafana resource.
+  The `UntagResource` operation removes the association of the tag with the Amazon
+  Managed Grafana resource.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -2064,8 +2038,7 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Updates which users in a workspace have the Grafana `Admin` or
-  `Editor` roles.
+  Updates which users in a workspace have the Grafana `Admin` or `Editor` roles.
   """
   @spec update_permissions(map(), String.t() | atom(), update_permissions_request(), list()) ::
           {:ok, update_permissions_response(), any()}
@@ -2096,15 +2069,13 @@ defmodule AWS.Grafana do
   @doc """
   Modifies an existing Amazon Managed Grafana workspace.
 
-  If you use this operation and omit
-  any optional parameters, the existing values of those parameters are not
-  changed.
+  If you use this operation and omit any optional parameters, the existing values
+  of those parameters are not changed.
 
   To modify the user authentication methods that the workspace uses, such as SAML
-  or
-  IAM Identity Center, use
-  [UpdateWorkspaceAuthentication](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html).   To modify which users in the workspace have the `Admin` and
-  `Editor` Grafana roles, use
+  or IAM Identity Center, use
+  [UpdateWorkspaceAuthentication](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html).  To modify which users in the workspace have the `Admin` and `Editor` Grafana
+  roles, use
   [UpdatePermissions](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html).
   """
   @spec update_workspace(map(), String.t() | atom(), update_workspace_request(), list()) ::
@@ -2137,10 +2108,9 @@ defmodule AWS.Grafana do
   Use this operation to define the identity provider (IdP) that this workspace
   authenticates users from, using SAML.
 
-  You can also map SAML assertion attributes to
-  workspace user information and define which groups in the assertion attribute
-  are to
-  have the `Admin` and `Editor` roles in the workspace.
+  You can also map SAML assertion attributes to workspace user information and
+  define which groups in the assertion attribute are to have the `Admin` and
+  `Editor` roles in the workspace.
 
   Changes to the authentication method for a workspace may take a few minutes to
   take effect.

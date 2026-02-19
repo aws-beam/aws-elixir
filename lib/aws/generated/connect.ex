@@ -20115,7 +20115,7 @@ defmodule AWS.Connect do
   @doc """
   Creates a new notification to be delivered to specified recipients.
 
-  Notifications can include localized content with embedded links, and an optional
+  Notifications can include localized content with links, and an optional
   expiration time. Recipients can be specified as individual user ARNs or instance
   ARNs to target all users in an instance.
   """

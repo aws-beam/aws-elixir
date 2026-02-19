@@ -1380,6 +1380,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       athena_table_reference() :: %{
+        "catalogName" => String.t() | atom(),
         "databaseName" => String.t() | atom(),
         "outputLocation" => String.t() | atom(),
         "region" => list(any()),
@@ -4070,7 +4071,7 @@ defmodule AWS.CleanRooms do
       protected_query_s3_output_configuration() :: %{
         "bucket" => [String.t() | atom()],
         "keyPrefix" => String.t() | atom(),
-        "resultFormat" => String.t() | atom(),
+        "resultFormat" => list(any()),
         "singleFileOutput" => [boolean()]
       }
 

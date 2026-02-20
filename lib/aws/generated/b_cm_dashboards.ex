@@ -502,6 +502,7 @@ defmodule AWS.BCMDashboards do
         "description" => String.t() | atom(),
         "height" => integer(),
         "horizontalOffset" => [integer()],
+        "id" => String.t() | atom(),
         "title" => String.t() | atom(),
         "width" => integer()
       }

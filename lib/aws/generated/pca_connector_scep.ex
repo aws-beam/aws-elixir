@@ -275,6 +275,7 @@ defmodule AWS.PcaConnectorScep do
         optional("ClientToken") => String.t() | atom(),
         optional("MobileDeviceManagement") => list(),
         optional("Tags") => map(),
+        optional("VpcEndpointId") => String.t() | atom(),
         required("CertificateAuthorityArn") => String.t() | atom()
       }
 
@@ -550,7 +551,7 @@ defmodule AWS.PcaConnectorScep do
   password as part of their certificate request to Connector for SCEP. To retrieve
   the connector Amazon Resource Names (ARNs) for the connectors in your account,
   call
-  [ListConnectors](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_ListConnectors.html).
+  [ListConnectors](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListConnectors.html).
 
   To create additional challenge passwords for the connector, call
   `CreateChallenge` again. We recommend frequently rotating your challenge
@@ -619,7 +620,7 @@ defmodule AWS.PcaConnectorScep do
 
   @doc """
   Deletes the specified
-  [Challenge](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html).
+  [Challenge](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html).
   """
   @spec delete_challenge(map(), String.t() | atom(), delete_challenge_request(), list()) ::
           {:ok, nil, any()}
@@ -649,7 +650,7 @@ defmodule AWS.PcaConnectorScep do
 
   @doc """
   Deletes the specified
-  [Connector](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Connector.html).
+  [Connector](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html).
 
   This operation also deletes any challenges associated with the connector.
   """
@@ -681,7 +682,7 @@ defmodule AWS.PcaConnectorScep do
 
   @doc """
   Retrieves the metadata for the specified
-  [Challenge](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html).
+  [Challenge](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html).
   """
   @spec get_challenge_metadata(map(), String.t() | atom(), list()) ::
           {:ok, get_challenge_metadata_response(), any()}
@@ -700,7 +701,7 @@ defmodule AWS.PcaConnectorScep do
 
   @doc """
   Retrieves the challenge password for the specified
-  [Challenge](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html).
+  [Challenge](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html).
   """
   @spec get_challenge_password(map(), String.t() | atom(), list()) ::
           {:ok, get_challenge_password_response(), any()}
@@ -719,7 +720,7 @@ defmodule AWS.PcaConnectorScep do
 
   @doc """
   Retrieves details about the specified
-  [Connector](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Connector.html).
+  [Connector](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html).
 
   Calling this action returns important details about the connector, such as the
   public SCEP URL where your clients can request certificates.
@@ -825,14 +826,10 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Retrieves the tags associated with the specified resource.
 
-  Tags are key-value pairs that
-  you can use to categorize and manage your resources, for purposes like billing.
-  For
-  example, you might set the tag key to "customer" and the value to the customer
-  name or ID.
-  You can specify one or more tags to add to each Amazon Web Services resource, up
-  to 50 tags for a
-  resource.
+  Tags are key-value pairs that you can use to categorize and manage your
+  resources, for purposes like billing. For example, you might set the tag key to
+  "customer" and the value to the customer name or ID. You can specify one or more
+  tags to add to each Amazon Web Services resource, up to 50 tags for a resource.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}

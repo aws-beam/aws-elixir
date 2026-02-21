@@ -50,9 +50,11 @@ defmodule AWS.SageMakerRuntime do
         optional("Accept") => String.t() | atom(),
         optional("ContentType") => String.t() | atom(),
         optional("CustomAttributes") => String.t() | atom(),
+        optional("Filename") => String.t() | atom(),
         optional("InferenceId") => String.t() | atom(),
         optional("InvocationTimeoutSeconds") => integer(),
         optional("RequestTTLSeconds") => integer(),
+        optional("S3OutputPathExtension") => String.t() | atom(),
         required("InputLocation") => String.t() | atom()
       }
 
@@ -383,10 +385,12 @@ defmodule AWS.SageMakerRuntime do
         {"Accept", "X-Amzn-SageMaker-Accept"},
         {"ContentType", "X-Amzn-SageMaker-Content-Type"},
         {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
+        {"Filename", "X-Amzn-SageMaker-Filename"},
         {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
         {"InputLocation", "X-Amzn-SageMaker-InputLocation"},
         {"InvocationTimeoutSeconds", "X-Amzn-SageMaker-InvocationTimeoutSeconds"},
-        {"RequestTTLSeconds", "X-Amzn-SageMaker-RequestTTLSeconds"}
+        {"RequestTTLSeconds", "X-Amzn-SageMaker-RequestTTLSeconds"},
+        {"S3OutputPathExtension", "X-Amzn-SageMaker-S3OutputPathExtension"}
       ]
       |> Request.build_params(input)
 

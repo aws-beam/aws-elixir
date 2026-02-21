@@ -60,10 +60,12 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
-      get_recommendation_request() :: %{}
+      get_recommendation_request() :: %{
+        optional("language") => list(any())
+      }
 
   """
-  @type get_recommendation_request() :: %{}
+  @type get_recommendation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,6 +123,7 @@ defmodule AWS.TrustedAdvisor do
 
       recommendation_resources_aggregates() :: %{
         "errorCount" => [float()],
+        "excludedCount" => [float()],
         "okCount" => [float()],
         "warningCount" => [float()]
       }
@@ -183,6 +186,7 @@ defmodule AWS.TrustedAdvisor do
         "resourcesAggregates" => recommendation_resources_aggregates(),
         "source" => list(any()),
         "status" => list(any()),
+        "statusReason" => list(any()),
         "type" => list(any()),
         "updateReason" => String.t() | atom(),
         "updateReasonCode" => list(any()),
@@ -302,6 +306,7 @@ defmodule AWS.TrustedAdvisor do
 
       list_recommendation_resources_request() :: %{
         optional("exclusionStatus") => list(any()),
+        optional("language") => list(any()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()],
         optional("regionCode") => [String.t() | atom()],
@@ -443,6 +448,7 @@ defmodule AWS.TrustedAdvisor do
         "resourcesAggregates" => recommendation_resources_aggregates(),
         "source" => list(any()),
         "status" => list(any()),
+        "statusReason" => list(any()),
         "type" => list(any())
       }
 
@@ -576,6 +582,7 @@ defmodule AWS.TrustedAdvisor do
         optional("awsService") => String.t() | atom(),
         optional("beforeLastUpdatedAt") => [non_neg_integer()],
         optional("checkIdentifier") => String.t() | atom(),
+        optional("language") => list(any()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()],
         optional("pillar") => list(any()),
@@ -680,7 +687,13 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  Update one or more exclusion status for a list of recommendation resources
+  Update one or more exclusion statuses for a list of recommendation resources.
+
+  This API supports up to 25 unique recommendation resource ARNs per request. This
+  API currently doesn't support prioritized recommendation resources. This API
+  updates global recommendations, eliminating the need to call the API in each AWS
+  Region. After submitting an exclusion update, note that it might take a few
+  minutes for the changes to be reflected in the system.
   """
   @spec batch_update_recommendation_resource_exclusion(
           map(),
@@ -715,8 +728,8 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   Get a specific recommendation within an AWS Organizations organization.
 
-  This API supports only prioritized
-  recommendations.
+  This API supports only prioritized recommendations and provides global priority
+  recommendations, eliminating the need to call the API in each AWS Region.
   """
   @spec get_organization_recommendation(map(), String.t() | atom(), list()) ::
           {:ok, get_organization_recommendation_response(), any()}
@@ -740,17 +753,32 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  Get a specific Recommendation
+  Get a specific Recommendation.
+
+  This API provides global recommendations, eliminating the need to call the API
+  in each AWS Region.
   """
-  @spec get_recommendation(map(), String.t() | atom(), list()) ::
+  @spec get_recommendation(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_recommendation_errors()}
-  def get_recommendation(%Client{} = client, recommendation_identifier, options \\ []) do
+  def get_recommendation(
+        %Client{} = client,
+        recommendation_identifier,
+        language \\ nil,
+        options \\ []
+      ) do
     url_path = "/v1/recommendations/#{AWS.Util.encode_uri(recommendation_identifier)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(language) do
+        [{"language", language} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -758,7 +786,10 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  List a filterable set of Checks
+  List a filterable set of Checks.
+
+  This API provides global recommendations, eliminating the need to call the API
+  in each AWS Region.
   """
   @spec list_checks(
           map(),
@@ -839,8 +870,8 @@ defmodule AWS.TrustedAdvisor do
   Lists the accounts that own the resources for an organization aggregate
   recommendation.
 
-  This API only
-  supports prioritized recommendations.
+  This API only supports prioritized recommendations and provides global priority
+  recommendations, eliminating the need to call the API in each AWS Region.
   """
   @spec list_organization_recommendation_accounts(
           map(),
@@ -897,8 +928,8 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   List Resources of a Recommendation within an Organization.
 
-  This API only supports prioritized
-  recommendations.
+  This API only supports prioritized recommendations and provides global priority
+  recommendations, eliminating the need to call the API in each AWS Region.
   """
   @spec list_organization_recommendation_resources(
           map(),
@@ -982,8 +1013,8 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   List a filterable set of Recommendations within an Organization.
 
-  This API only supports prioritized
-  recommendations.
+  This API only supports prioritized recommendations and provides global priority
+  recommendations, eliminating the need to call the API in each AWS Region.
   """
   @spec list_organization_recommendations(
           map(),
@@ -1097,11 +1128,15 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  List Resources of a Recommendation
+  List Resources of a Recommendation.
+
+  This API provides global recommendations, eliminating the need to call the API
+  in each AWS Region.
   """
   @spec list_recommendation_resources(
           map(),
           String.t() | atom(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -1117,6 +1152,7 @@ defmodule AWS.TrustedAdvisor do
         %Client{} = client,
         recommendation_identifier,
         exclusion_status \\ nil,
+        language \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         region_code \\ nil,
@@ -1156,6 +1192,13 @@ defmodule AWS.TrustedAdvisor do
       end
 
     query_params =
+      if !is_nil(language) do
+        [{"language", language} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(exclusion_status) do
         [{"exclusionStatus", exclusion_status} | query_params]
       else
@@ -1168,10 +1211,14 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  List a filterable set of Recommendations
+  List a filterable set of Recommendations.
+
+  This API provides global recommendations, eliminating the need to call the API
+  in each AWS Region.
   """
   @spec list_recommendations(
           map(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -1194,6 +1241,7 @@ defmodule AWS.TrustedAdvisor do
         aws_service \\ nil,
         before_last_updated_at \\ nil,
         check_identifier \\ nil,
+        language \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         pillar \\ nil,
@@ -1249,6 +1297,13 @@ defmodule AWS.TrustedAdvisor do
       end
 
     query_params =
+      if !is_nil(language) do
+        [{"language", language} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(check_identifier) do
         [{"checkIdentifier", check_identifier} | query_params]
       else
@@ -1284,8 +1339,8 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   Update the lifecycle of a Recommendation within an Organization.
 
-  This API only supports prioritized
-  recommendations.
+  This API only supports prioritized recommendations and updates global priority
+  recommendations, eliminating the need to call the API in each AWS Region.
   """
   @spec update_organization_recommendation_lifecycle(
           map(),
@@ -1328,7 +1383,8 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   Update the lifecyle of a Recommendation.
 
-  This API only supports prioritized recommendations.
+  This API only supports prioritized recommendations and updates global priority
+  recommendations, eliminating the need to call the API in each AWS Region.
   """
   @spec update_recommendation_lifecycle(
           map(),

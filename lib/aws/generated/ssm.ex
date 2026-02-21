@@ -1759,6 +1759,7 @@ defmodule AWS.SSM do
       
       association_version_info() :: %{
         "ApplyOnlyAtCronInterval" => boolean(),
+        "AssociationDispatchAssumeRole" => String.t() | atom(),
         "AssociationId" => String.t() | atom(),
         "AssociationName" => String.t() | atom(),
         "AssociationVersion" => String.t() | atom(),
@@ -2132,6 +2133,7 @@ defmodule AWS.SSM do
   ## Example:
       
       create_association_batch_request() :: %{
+        optional("AssociationDispatchAssumeRole") => String.t() | atom(),
         required("Entries") => list(create_association_batch_request_entry())
       }
       
@@ -5370,6 +5372,7 @@ defmodule AWS.SSM do
       create_association_request() :: %{
         optional("AlarmConfiguration") => alarm_configuration(),
         optional("ApplyOnlyAtCronInterval") => boolean(),
+        optional("AssociationDispatchAssumeRole") => String.t() | atom(),
         optional("AssociationName") => String.t() | atom(),
         optional("AutomationTargetParameterName") => String.t() | atom(),
         optional("CalendarNames") => list(String.t() | atom()),
@@ -7558,6 +7561,7 @@ defmodule AWS.SSM do
       update_association_request() :: %{
         optional("AlarmConfiguration") => alarm_configuration(),
         optional("ApplyOnlyAtCronInterval") => boolean(),
+        optional("AssociationDispatchAssumeRole") => String.t() | atom(),
         optional("AssociationName") => String.t() | atom(),
         optional("AssociationVersion") => String.t() | atom(),
         optional("AutomationTargetParameterName") => String.t() | atom(),
@@ -7964,6 +7968,7 @@ defmodule AWS.SSM do
       association_description() :: %{
         "AlarmConfiguration" => alarm_configuration(),
         "ApplyOnlyAtCronInterval" => boolean(),
+        "AssociationDispatchAssumeRole" => String.t() | atom(),
         "AssociationId" => String.t() | atom(),
         "AssociationName" => String.t() | atom(),
         "AssociationVersion" => String.t() | atom(),
@@ -11105,11 +11110,10 @@ defmodule AWS.SSM do
 
   @doc """
 
-  Amazon Web Services Systems Manager Change Manager will no longer be open to new
-  customers starting November 7, 2025.
+  Amazon Web Services Systems Manager Change Manager is no longer open to new
+  customers.
 
-  If you would like to use Change Manager, sign up prior to that date. Existing
-  customers can
+  Existing customers can
   continue to use the service as normal. For more information, see
   [Amazon Web Services Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html).
 
@@ -11757,11 +11761,10 @@ defmodule AWS.SSM do
 
   @doc """
 
-  Amazon Web Services Systems Manager Change Manager will no longer be open to new
-  customers starting November 7, 2025.
+  Amazon Web Services Systems Manager Change Manager is no longer open to new
+  customers.
 
-  If you would like to use Change Manager, sign up prior to that date. Existing
-  customers can
+  Existing customers can
   continue to use the service as normal. For more information, see
   [Amazon Web Services Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html).
 
@@ -11984,11 +11987,10 @@ defmodule AWS.SSM do
 
   @doc """
 
-  Amazon Web Services Systems Manager Change Manager will no longer be open to new
-  customers starting November 7, 2025.
+  Amazon Web Services Systems Manager Change Manager is no longer open to new
+  customers.
 
-  If you would like to use Change Manager, sign up prior to that date. Existing
-  customers can
+  Existing customers can
   continue to use the service as normal. For more information, see
   [Amazon Web Services Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html).
 

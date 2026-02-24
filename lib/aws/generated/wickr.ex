@@ -128,6 +128,20 @@ defmodule AWS.Wickr do
 
   ## Example:
 
+      register_opentdf_config_response() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "domain" => String.t() | atom(),
+        "provider" => String.t() | atom()
+      }
+
+  """
+  @type register_opentdf_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_network_settings_request() :: %{}
 
   """
@@ -574,6 +588,7 @@ defmodule AWS.Wickr do
       network_settings() :: %{
         "dataRetention" => [boolean()],
         "enableClientMetrics" => [boolean()],
+        "enableTrustedDataFormat" => [boolean()],
         "readReceiptConfig" => read_receipt_config()
       }
 
@@ -711,6 +726,20 @@ defmodule AWS.Wickr do
 
   """
   @type basic_device_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_opentdf_config_response() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "domain" => String.t() | atom(),
+        "provider" => String.t() | atom()
+      }
+
+  """
+  @type get_opentdf_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -870,6 +899,7 @@ defmodule AWS.Wickr do
   ## Example:
 
       validation_error() :: %{
+        "message" => String.t() | atom(),
         "reasons" => list(error_detail())
       }
 
@@ -1145,6 +1175,15 @@ defmodule AWS.Wickr do
 
   ## Example:
 
+      get_opentdf_config_request() :: %{}
+
+  """
+  @type get_opentdf_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_network_response() :: %{
         "accessLevel" => list(any()),
         "awsAccountId" => String.t() | atom(),
@@ -1170,6 +1209,21 @@ defmodule AWS.Wickr do
 
   """
   @type update_network_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_opentdf_config_request() :: %{
+        optional("dryRun") => [boolean()],
+        required("clientId") => String.t() | atom(),
+        required("clientSecret") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("provider") => String.t() | atom()
+      }
+
+  """
+  @type register_opentdf_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1877,6 +1931,15 @@ defmodule AWS.Wickr do
           | unauthorized_error()
           | forbidden_error()
 
+  @type get_opentdf_config_errors() ::
+          rate_limit_error()
+          | internal_server_error()
+          | resource_not_found_error()
+          | validation_error()
+          | bad_request_error()
+          | unauthorized_error()
+          | forbidden_error()
+
   @type get_security_group_errors() ::
           rate_limit_error()
           | internal_server_error()
@@ -1985,6 +2048,15 @@ defmodule AWS.Wickr do
           | forbidden_error()
 
   @type register_oidc_config_test_errors() ::
+          rate_limit_error()
+          | internal_server_error()
+          | resource_not_found_error()
+          | validation_error()
+          | bad_request_error()
+          | unauthorized_error()
+          | forbidden_error()
+
+  @type register_opentdf_config_errors() ::
           rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
@@ -2865,6 +2937,24 @@ defmodule AWS.Wickr do
   end
 
   @doc """
+  Retrieves the OpenTDF integration configuration for a Wickr network.
+  """
+  @spec get_opentdf_config(map(), String.t() | atom(), list()) ::
+          {:ok, get_opentdf_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_opentdf_config_errors()}
+  def get_opentdf_config(%Client{} = client, network_id, options \\ []) do
+    url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/tdf"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves detailed information about a specific security group in a Wickr
   network, including its settings, member counts, and configuration.
   """
@@ -3644,6 +3734,46 @@ defmodule AWS.Wickr do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Registers and saves OpenTDF configuration for a Wickr network, enabling
+  attribute-based access control for Wickr through an OpenTDF provider.
+  """
+  @spec register_opentdf_config(
+          map(),
+          String.t() | atom(),
+          register_opentdf_config_request(),
+          list()
+        ) ::
+          {:ok, register_opentdf_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_opentdf_config_errors()}
+  def register_opentdf_config(%Client{} = client, network_id, input, options \\ []) do
+    url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/tdf"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"dryRun", "dryRun"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

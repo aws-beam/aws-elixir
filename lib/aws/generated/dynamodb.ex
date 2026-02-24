@@ -3170,6 +3170,7 @@ defmodule AWS.DynamoDB do
         optional("BillingMode") => list(any()),
         optional("DeletionProtectionEnabled") => boolean(),
         optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_update()),
+        optional("GlobalTableSettingsReplicationMode") => list(any()),
         optional("GlobalTableWitnessUpdates") => list(global_table_witness_group_update()),
         optional("MultiRegionConsistency") => list(any()),
         optional("OnDemandThroughput") => on_demand_throughput(),
@@ -4939,7 +4940,8 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
-  Lists completed exports within the past 90 days.
+  Lists completed exports within the past 90 days, in reverse alphanumeric order
+  of `ExportArn`.
   """
   @spec list_exports(map(), list_exports_input(), list()) ::
           {:ok, list_exports_output(), any()}
@@ -5061,6 +5063,10 @@ defmodule AWS.DynamoDB do
   name of the attribute being used as the partition key for the table. Since every
   record must contain that attribute, the `attribute_not_exists` function
   will only succeed if no matching item exists.
+
+  To determine whether `PutItem` overwrote an existing item, use
+  `ReturnValues` set to `ALL_OLD`. If the response includes
+  the `Attributes` element, an existing item was overwritten.
 
   For more information about `PutItem`, see [Working with Items](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
   in the *Amazon DynamoDB Developer Guide*.

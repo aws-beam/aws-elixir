@@ -982,6 +982,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       get_automated_reasoning_policy_build_workflow_result_assets_request() :: %{
+        optional("assetId") => String.t() | atom(),
         required("assetType") => list(any())
       }
 
@@ -1141,6 +1142,18 @@ defmodule AWS.Bedrock do
 
   """
   @type stop_evaluation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_annotated_chunk() :: %{
+        "content" => list(list()),
+        "pageNumber" => [integer()]
+      }
+
+  """
+  @type automated_reasoning_policy_annotated_chunk() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1918,6 +1931,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_annotated_line() :: %{
+        "lineNumber" => [integer()],
+        "lineText" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_annotated_line() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_foundation_model_request() :: %{}
 
   """
@@ -2340,6 +2365,21 @@ defmodule AWS.Bedrock do
   @type automated_reasoning_policy_update_from_scenario_feedback_annotation() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_source_document() :: %{
+        "document" => binary(),
+        "documentContentType" => list(any()),
+        "documentDescription" => String.t() | atom(),
+        "documentHash" => String.t() | atom(),
+        "documentName" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_source_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3056,6 +3096,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_statement_location() :: %{
+        "lines" => list([integer()]())
+      }
+
+  """
+  @type automated_reasoning_policy_statement_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       legal_term() :: %{
         "url" => [String.t() | atom()]
       }
@@ -3299,6 +3350,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_statement_reference() :: %{
+        "documentId" => String.t() | atom(),
+        "statementId" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_statement_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_word_config() :: %{
         "inputAction" => list(any()),
         "inputEnabled" => [boolean()],
@@ -3375,6 +3438,21 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_contextual_grounding_policy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_rule_report() :: %{
+        "accuracyJustification" => String.t() | atom(),
+        "accuracyScore" => float(),
+        "groundingJustifications" => list(String.t() | atom()),
+        "groundingStatements" => list(automated_reasoning_policy_statement_reference()),
+        "rule" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_rule_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3781,6 +3859,21 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_report_source_document() :: %{
+        "atomicStatements" => list(automated_reasoning_policy_atomic_statement()),
+        "documentContent" => list(automated_reasoning_policy_annotated_chunk()),
+        "documentHash" => String.t() | atom(),
+        "documentId" => String.t() | atom(),
+        "documentName" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_report_source_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_imported_model_response() :: %{
         "creationTime" => non_neg_integer(),
         "customModelUnits" => custom_model_units(),
@@ -4005,6 +4098,21 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_word_policy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_fidelity_report() :: %{
+        "accuracyScore" => float(),
+        "coverageScore" => float(),
+        "documentSources" => list(automated_reasoning_policy_report_source_document()),
+        "ruleReports" => map(),
+        "variableReports" => map()
+      }
+
+  """
+  @type automated_reasoning_policy_fidelity_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4305,6 +4413,21 @@ defmodule AWS.Bedrock do
 
   """
   @type start_automated_reasoning_policy_build_workflow_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_result_asset_manifest_entry() :: %{
+        "assetId" => String.t() | atom(),
+        "assetName" => String.t() | atom(),
+        "assetType" => list(any())
+      }
+
+  """
+  @type automated_reasoning_policy_build_result_asset_manifest_entry() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4792,6 +4915,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_atomic_statement() :: %{
+        "id" => String.t() | atom(),
+        "location" => automated_reasoning_policy_statement_location(),
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_atomic_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_regex() :: %{
         "action" => list(any()),
         "description" => [String.t() | atom()],
@@ -4936,6 +5072,19 @@ defmodule AWS.Bedrock do
 
   """
   @type register_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_result_asset_manifest() :: %{
+        "entries" => list(automated_reasoning_policy_build_result_asset_manifest_entry())
+      }
+
+  """
+  @type automated_reasoning_policy_build_result_asset_manifest() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -5237,6 +5386,21 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_marketplace_model_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_variable_report() :: %{
+        "accuracyJustification" => String.t() | atom(),
+        "accuracyScore" => float(),
+        "groundingJustifications" => list(String.t() | atom()),
+        "groundingStatements" => list(automated_reasoning_policy_statement_reference()),
+        "policyVariable" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_variable_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7503,6 +7667,7 @@ defmodule AWS.Bedrock do
           map(),
           String.t() | atom(),
           String.t() | atom(),
+          String.t() | atom() | nil,
           String.t() | atom(),
           list()
         ) ::
@@ -7514,6 +7679,7 @@ defmodule AWS.Bedrock do
         %Client{} = client,
         build_workflow_id,
         policy_arn,
+        asset_id \\ nil,
         asset_type,
         options \\ []
       ) do
@@ -7526,6 +7692,13 @@ defmodule AWS.Bedrock do
     query_params =
       if !is_nil(asset_type) do
         [{"assetType", asset_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_id) do
+        [{"assetId", asset_id} | query_params]
       else
         query_params
       end

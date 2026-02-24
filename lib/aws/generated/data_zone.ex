@@ -955,6 +955,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      workflows_mwaa_properties_input() :: %{
+        "mwaaEnvironmentName" => [String.t() | atom()]
+      }
+
+  """
+  @type workflows_mwaa_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       glue_connection() :: %{
         "athenaProperties" => map(),
         "authenticationConfiguration" => authentication_configuration(),
@@ -3424,6 +3435,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      workflows_serverless_properties_input() :: %{}
+
+  """
+  @type workflows_serverless_properties_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_entity_owners_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -3899,6 +3919,15 @@ defmodule AWS.DataZone do
 
   """
   @type get_iam_portal_login_url_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflows_serverless_properties_output() :: %{}
+
+  """
+  @type workflows_serverless_properties_output() :: %{}
 
   @typedoc """
 
@@ -6815,6 +6844,17 @@ defmodule AWS.DataZone do
 
   """
   @type list_domain_units_for_parent_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflows_mwaa_properties_output() :: %{
+        "mwaaEnvironmentName" => [String.t() | atom()]
+      }
+
+  """
+  @type workflows_mwaa_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

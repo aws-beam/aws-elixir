@@ -150,6 +150,23 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      put_alarm_mute_rule_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("ExpireDate") => non_neg_integer(),
+        optional("MuteTargets") => mute_targets(),
+        optional("StartDate") => non_neg_integer(),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("Rule") => rule()
+      }
+      
+  """
+  @type put_alarm_mute_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_composite_alarm_input() :: %{
         optional("ActionsEnabled") => boolean(),
         optional("ActionsSuppressor") => String.t() | atom(),
@@ -364,6 +381,21 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      alarm_mute_rule_summary() :: %{
+        "AlarmMuteRuleArn" => String.t() | atom(),
+        "ExpireDate" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "MuteType" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type alarm_mute_rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_metrics_input() :: %{
         optional("Dimensions") => list(dimension_filter()),
         optional("IncludeLinkedAccounts") => boolean(),
@@ -462,6 +494,17 @@ defmodule AWS.CloudWatch do
       
   """
   @type put_managed_insight_rules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mute_targets() :: %{
+        "AlarmNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type mute_targets() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -749,6 +792,20 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      list_alarm_mute_rules_input() :: %{
+        optional("AlarmName") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Statuses") => list(list(any())())
+      }
+      
+  """
+  @type list_alarm_mute_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -889,6 +946,26 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      get_alarm_mute_rule_output() :: %{
+        "AlarmMuteRuleArn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ExpireDate" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "MuteTargets" => mute_targets(),
+        "MuteType" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Rule" => rule(),
+        "StartDate" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_alarm_mute_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_anomaly_detectors_input() :: %{
         optional("AnomalyDetectorTypes") => list(list(any())()),
         optional("Dimensions") => list(dimension()),
@@ -976,6 +1053,17 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      rule() :: %{
+        "Schedule" => schedule()
+      }
+      
+  """
+  @type rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_metrics_output() :: %{
         "Metrics" => list(metric()),
         "NextToken" => String.t() | atom(),
@@ -1052,6 +1140,19 @@ defmodule AWS.CloudWatch do
       
   """
   @type get_metric_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule() :: %{
+        "Duration" => String.t() | atom(),
+        "Expression" => String.t() | atom(),
+        "Timezone" => String.t() | atom()
+      }
+      
+  """
+  @type schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1240,6 +1341,17 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      get_alarm_mute_rule_input() :: %{
+        required("AlarmMuteRuleName") => String.t() | atom()
+      }
+      
+  """
+  @type get_alarm_mute_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       insight_rule() :: %{
         "ApplyOnTransformedLogs" => boolean(),
         "Definition" => String.t() | atom(),
@@ -1294,6 +1406,18 @@ defmodule AWS.CloudWatch do
       
   """
   @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_alarm_mute_rules_output() :: %{
+        "AlarmMuteRuleSummaries" => list(alarm_mute_rule_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_alarm_mute_rules_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1607,6 +1731,17 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      delete_alarm_mute_rule_input() :: %{
+        required("AlarmMuteRuleName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_alarm_mute_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entity_metric_data() :: %{
         "Entity" => entity(),
         "MetricData" => list(metric_datum())
@@ -1716,6 +1851,8 @@ defmodule AWS.CloudWatch do
           | invalid_parameter_value_exception()
           | missing_required_parameter_exception()
 
+  @type get_alarm_mute_rule_errors() :: resource_not_found_exception()
+
   @type get_dashboard_errors() ::
           internal_service_fault()
           | invalid_parameter_value_exception()
@@ -1741,6 +1878,8 @@ defmodule AWS.CloudWatch do
           | invalid_parameter_combination_exception()
           | missing_required_parameter_exception()
 
+  @type list_alarm_mute_rules_errors() :: invalid_next_token() | resource_not_found_exception()
+
   @type list_dashboards_errors() :: internal_service_fault() | invalid_parameter_value_exception()
 
   @type list_managed_insight_rules_errors() ::
@@ -1760,6 +1899,8 @@ defmodule AWS.CloudWatch do
           internal_service_fault()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
+
+  @type put_alarm_mute_rule_errors() :: limit_exceeded_fault()
 
   @type put_anomaly_detector_errors() ::
           internal_service_fault()
@@ -1836,6 +1977,31 @@ defmodule AWS.CloudWatch do
       signing_name: "monitoring",
       target_prefix: "GraniteServiceVersion20100801"
     }
+  end
+
+  @doc """
+  Deletes a specific alarm mute rule.
+
+  When you delete a mute rule, any alarms that are currently being muted by that
+  rule are immediately unmuted. If those alarms are in an ALARM state, their
+  configured actions will trigger.
+
+  This operation is idempotent. If you delete a mute rule that does not exist, the
+  operation succeeds without returning an error.
+
+  ## Permissions
+
+  To delete a mute rule, you need the `cloudwatch:DeleteAlarmMuteRule` permission
+  on the alarm mute rule resource.
+  """
+  @spec delete_alarm_mute_rule(map(), delete_alarm_mute_rule_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_alarm_mute_rule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAlarmMuteRule", input, options)
   end
 
   @doc """
@@ -2140,6 +2306,43 @@ defmodule AWS.CloudWatch do
     meta = metadata()
 
     Request.request_post(client, meta, "EnableInsightRules", input, options)
+  end
+
+  @doc """
+  Retrieves details for a specific alarm mute rule.
+
+  This operation returns complete information about the mute rule, including its
+  configuration, status, targeted alarms, and metadata.
+
+  The returned status indicates the current state of the mute rule:
+
+    *
+
+  **SCHEDULED**: The mute rule is configured and will become active in the future
+
+    *
+
+  **ACTIVE**: The mute rule is currently muting alarm actions
+
+    *
+
+  **EXPIRED**: The mute rule has passed its expiration date and will no longer
+  become active
+
+  ## Permissions
+
+  To retrieve details for a mute rule, you need the `cloudwatch:GetAlarmMuteRule`
+  permission on the alarm mute rule resource.
+  """
+  @spec get_alarm_mute_rule(map(), get_alarm_mute_rule_input(), list()) ::
+          {:ok, get_alarm_mute_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_alarm_mute_rule_errors()}
+  def get_alarm_mute_rule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAlarmMuteRule", input, options)
   end
 
   @doc """
@@ -2461,6 +2664,31 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Lists alarm mute rules in your Amazon Web Services account and region.
+
+  You can filter the results by alarm name to find all mute rules targeting a
+  specific alarm, or by status to find rules that are scheduled, active, or
+  expired.
+
+  This operation supports pagination for accounts with many mute rules. Use the
+  `MaxRecords` and `NextToken` parameters to retrieve results in multiple calls.
+
+  ## Permissions
+
+  To list mute rules, you need the `cloudwatch:ListAlarmMuteRules` permission.
+  """
+  @spec list_alarm_mute_rules(map(), list_alarm_mute_rules_input(), list()) ::
+          {:ok, list_alarm_mute_rules_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_alarm_mute_rules_errors()}
+  def list_alarm_mute_rules(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAlarmMuteRules", input, options)
+  end
+
+  @doc """
   Returns a list of the dashboards for your account.
 
   If you include
@@ -2566,6 +2794,51 @@ defmodule AWS.CloudWatch do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Creates or updates an alarm mute rule.
+
+  Alarm mute rules automatically mute alarm actions during predefined time
+  windows. When a mute rule is active, targeted alarms continue to evaluate
+  metrics and transition between states, but their configured actions (such as
+  Amazon SNS notifications or Auto Scaling actions) are muted.
+
+  You can create mute rules with recurring schedules using `cron` expressions or
+  one-time mute windows using `at` expressions. Each mute rule can target up to
+  100 specific alarms by name.
+
+  If you specify a rule name that already exists, this operation updates the
+  existing rule with the new configuration.
+
+  ## Permissions
+
+  To create or update a mute rule, you must have the `cloudwatch:PutAlarmMuteRule`
+  permission on two types of resources: the alarm mute rule resource itself, and
+  each alarm that the rule targets.
+
+  For example, If you want to allow a user to create mute rules that target only
+  specific alarms named "WebServerCPUAlarm" and "DatabaseConnectionAlarm", you
+  would create an IAM policy with one statement granting
+  `cloudwatch:PutAlarmMuteRule` on the alarm mute rule resource
+  (`arn:aws:cloudwatch:[REGION]:123456789012:alarm-mute:*`), and another statement granting `cloudwatch:PutAlarmMuteRule` on the targeted alarm resources
+  (`arn:aws:cloudwatch:[REGION]:123456789012:alarm:WebServerCPUAlarm` and
+  `arn:aws:cloudwatch:[REGION]:123456789012:alarm:DatabaseConnectionAlarm`).
+
+  You can also use IAM policy conditions to allow targeting alarms based on
+  resource tags. For example, you can restrict users to create/update mute rules
+  to only target alarms that have a specific tag key-value pair, such as
+  `Team=TeamA`.
+  """
+  @spec put_alarm_mute_rule(map(), put_alarm_mute_rule_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_alarm_mute_rule_errors()}
+  def put_alarm_mute_rule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAlarmMuteRule", input, options)
   end
 
   @doc """

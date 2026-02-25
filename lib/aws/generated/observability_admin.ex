@@ -406,6 +406,17 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      log_group_name_configuration() :: %{
+        "LogGroupNamePattern" => String.t() | atom()
+      }
+
+  """
+  @type log_group_name_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       advanced_event_selector() :: %{
         "FieldSelectors" => list(advanced_field_selector()),
         "Name" => [String.t() | atom()]
@@ -464,7 +475,8 @@ defmodule AWS.ObservabilityAdmin do
         "ResourceIdentifier" => String.t() | atom(),
         "ResourceTags" => map(),
         "ResourceType" => list(any()),
-        "TelemetryConfigurationState" => map()
+        "TelemetryConfigurationState" => map(),
+        "TelemetrySourceType" => list(any())
       }
 
   """
@@ -580,6 +592,7 @@ defmodule AWS.ObservabilityAdmin do
 
       destination_logs_configuration() :: %{
         "BackupConfiguration" => logs_backup_configuration(),
+        "LogGroupNameConfiguration" => log_group_name_configuration(),
         "LogsEncryptionConfiguration" => logs_encryption_configuration()
       }
 
@@ -2885,7 +2898,7 @@ defmodule AWS.ObservabilityAdmin do
   ### Okta Sources (SSO, Auth0)
 
   **Updatable:** All Amazon Web Services Secrets Manager attributes, `domain`,
-  `range` (SSO only), OAuth2 credentials (`client_id`, `client_secret`)
+  `range`, OAuth2 credentials (`client_id`, `client_secret`)
 
   ### Palo Alto Networks
 

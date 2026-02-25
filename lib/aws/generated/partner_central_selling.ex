@@ -1003,6 +1003,18 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      target_close_date_filter() :: %{
+        "AfterTargetCloseDate" => String.t() | atom(),
+        "BeforeTargetCloseDate" => String.t() | atom()
+      }
+      
+  """
+  @type target_close_date_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       aws_product_insights() :: %{
         "AwsProducts" => list(aws_product_details()),
         "CurrencyCode" => list(any()),
@@ -1077,6 +1089,7 @@ defmodule AWS.PartnerCentralSelling do
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t() | atom()],
         optional("Sort") => opportunity_sort(),
+        optional("TargetCloseDate") => target_close_date_filter(),
         required("Catalog") => String.t() | atom()
       }
       

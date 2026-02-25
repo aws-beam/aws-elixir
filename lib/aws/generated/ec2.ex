@@ -16172,6 +16172,7 @@ defmodule AWS.EC2 do
         optional("HttpEndpoint") => list(any()),
         optional("HttpPutResponseHopLimit") => integer(),
         optional("HttpTokens") => list(any()),
+        optional("HttpTokensEnforced") => list(any()),
         optional("InstanceMetadataTags") => list(any())
       }
       
@@ -31167,6 +31168,7 @@ defmodule AWS.EC2 do
         "HttpEndpoint" => list(any()),
         "HttpPutResponseHopLimit" => integer(),
         "HttpTokens" => list(any()),
+        "HttpTokensEnforced" => list(any()),
         "InstanceMetadataTags" => list(any()),
         "ManagedBy" => list(any()),
         "ManagedExceptionMessage" => String.t() | atom()

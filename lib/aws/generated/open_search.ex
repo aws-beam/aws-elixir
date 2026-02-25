@@ -5364,15 +5364,41 @@ defmodule AWS.OpenSearch do
   For more information, see [Auto-Tune for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
   """
-  @spec describe_domain_auto_tunes(map(), String.t() | atom(), list()) ::
+  @spec describe_domain_auto_tunes(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, describe_domain_auto_tunes_errors()}
-  def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
+  def describe_domain_auto_tunes(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

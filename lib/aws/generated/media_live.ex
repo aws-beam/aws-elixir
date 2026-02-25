@@ -485,6 +485,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      describe_inference_settings() :: %{
+        "FeedArn" => String.t() | atom()
+      }
+
+  """
+  @type describe_inference_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multiplex_summary() :: %{
         "Arn" => String.t() | atom(),
         "AvailabilityZones" => list(String.t() | atom()),
@@ -594,6 +605,7 @@ defmodule AWS.MediaLive do
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t() | atom(),
+        "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
@@ -993,6 +1005,7 @@ defmodule AWS.MediaLive do
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t() | atom(),
+        "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
@@ -2918,6 +2931,7 @@ defmodule AWS.MediaLive do
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "Id" => String.t() | atom(),
+        "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
@@ -2976,6 +2990,7 @@ defmodule AWS.MediaLive do
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t() | atom(),
+        "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
@@ -3564,6 +3579,7 @@ defmodule AWS.MediaLive do
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t() | atom(),
+        "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
@@ -3988,6 +4004,7 @@ defmodule AWS.MediaLive do
         optional("Destinations") => list(output_destination()),
         optional("DryRun") => boolean(),
         optional("EncoderSettings") => encoder_settings(),
+        optional("InferenceSettings") => inference_settings(),
         optional("InputAttachments") => list(input_attachment()),
         optional("InputSpecification") => input_specification(),
         optional("LinkedChannelSettings") => linked_channel_settings(),
@@ -4771,6 +4788,7 @@ defmodule AWS.MediaLive do
         optional("Destinations") => list(output_destination()),
         optional("DryRun") => boolean(),
         optional("EncoderSettings") => encoder_settings(),
+        optional("InferenceSettings") => inference_settings(),
         optional("InputAttachments") => list(input_attachment()),
         optional("InputSpecification") => input_specification(),
         optional("LinkedChannelSettings") => linked_channel_settings(),
@@ -6393,6 +6411,7 @@ defmodule AWS.MediaLive do
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t() | atom(),
+        "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
@@ -6466,6 +6485,7 @@ defmodule AWS.MediaLive do
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t() | atom(),
+        "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
@@ -6996,6 +7016,17 @@ defmodule AWS.MediaLive do
 
   """
   @type reject_input_device_transfer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_settings() :: %{
+        "FeedArn" => String.t() | atom()
+      }
+
+  """
+  @type inference_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

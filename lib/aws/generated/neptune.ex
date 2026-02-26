@@ -1635,6 +1635,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       global_cluster() :: %{
+        "DatabaseName" => String.t() | atom(),
         "DeletionProtection" => boolean(),
         "Engine" => String.t() | atom(),
         "EngineVersion" => String.t() | atom(),
@@ -1644,7 +1645,8 @@ defmodule AWS.Neptune do
         "GlobalClusterMembers" => list(global_cluster_member()),
         "GlobalClusterResourceId" => String.t() | atom(),
         "Status" => String.t() | atom(),
-        "StorageEncrypted" => boolean()
+        "StorageEncrypted" => boolean(),
+        "TagList" => list(tag())
       }
       
   """
@@ -2184,11 +2186,13 @@ defmodule AWS.Neptune do
   ## Example:
       
       create_global_cluster_message() :: %{
+        optional("DatabaseName") => String.t() | atom(),
         optional("DeletionProtection") => boolean(),
         optional("Engine") => String.t() | atom(),
         optional("EngineVersion") => String.t() | atom(),
         optional("SourceDBClusterIdentifier") => String.t() | atom(),
         optional("StorageEncrypted") => boolean(),
+        optional("Tags") => list(tag()),
         required("GlobalClusterIdentifier") => String.t() | atom()
       }
       
@@ -3642,7 +3646,11 @@ defmodule AWS.Neptune do
           | subscription_not_found_fault()
 
   @type modify_global_cluster_errors() ::
-          global_cluster_not_found_fault() | invalid_global_cluster_state_fault()
+          invalid_db_instance_state_fault()
+          | global_cluster_already_exists_fault()
+          | global_cluster_not_found_fault()
+          | invalid_db_cluster_state_fault()
+          | invalid_global_cluster_state_fault()
 
   @type promote_read_replica_db_cluster_errors() ::
           db_cluster_not_found_fault() | invalid_db_cluster_state_fault()

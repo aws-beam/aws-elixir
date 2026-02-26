@@ -5221,7 +5221,8 @@ defmodule AWS.EC2 do
         "CurrencyCode" => String.t() | atom(),
         "InstanceCount" => integer(),
         "InstanceType" => String.t() | atom(),
-        "UpfrontFee" => String.t() | atom()
+        "UpfrontFee" => String.t() | atom(),
+        "ZoneType" => String.t() | atom()
       }
       
   """
@@ -15644,7 +15645,8 @@ defmodule AWS.EC2 do
         "Tenancy" => list(any()),
         "UltraserverCount" => integer(),
         "UltraserverType" => String.t() | atom(),
-        "UpfrontFee" => String.t() | atom()
+        "UpfrontFee" => String.t() | atom(),
+        "ZoneType" => String.t() | atom()
       }
       
   """
@@ -17435,7 +17437,8 @@ defmodule AWS.EC2 do
         "InstanceType" => String.t() | atom(),
         "StartDate" => non_neg_integer(),
         "Tenancy" => list(any()),
-        "UpfrontFee" => String.t() | atom()
+        "UpfrontFee" => String.t() | atom(),
+        "ZoneType" => String.t() | atom()
       }
       
   """
@@ -26128,6 +26131,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_block_offerings_request() :: %{
+        optional("AllAvailabilityZones") => boolean(),
         optional("DryRun") => boolean(),
         optional("EndDateRange") => non_neg_integer(),
         optional("InstanceCount") => integer(),

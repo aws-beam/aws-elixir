@@ -625,6 +625,20 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      get_top_path_statistics_by_traffic_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "PathStatistics" => list(path_statistics()),
+        "TopCategories" => list(path_statistics()),
+        "TotalRequestCount" => float()
+      }
+      
+  """
+  @type get_top_path_statistics_by_traffic_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_ip_set_response() :: %{
         "NextLockToken" => String.t() | atom()
       }
@@ -1110,6 +1124,19 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      bot_statistics() :: %{
+        "BotName" => String.t() | atom(),
+        "Percentage" => float(),
+        "RequestCount" => float()
+      }
+      
+  """
+  @type bot_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       challenge_action() :: %{
         "CustomRequestHandling" => custom_request_handling()
       }
@@ -1495,6 +1522,19 @@ defmodule AWS.WAFV2 do
       
   """
   @type default_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter_source() :: %{
+        "BotCategory" => String.t() | atom(),
+        "BotName" => String.t() | atom(),
+        "BotOrganization" => String.t() | atom()
+      }
+      
+  """
+  @type filter_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2558,6 +2598,26 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      get_top_path_statistics_by_traffic_request() :: %{
+        optional("BotCategory") => String.t() | atom(),
+        optional("BotName") => String.t() | atom(),
+        optional("BotOrganization") => String.t() | atom(),
+        optional("NextMarker") => String.t() | atom(),
+        optional("UriPathPrefix") => String.t() | atom(),
+        required("Limit") => integer(),
+        required("NumberOfTopTrafficBotsPerPath") => integer(),
+        required("Scope") => list(any()),
+        required("TimeWindow") => time_window(),
+        required("WebAclArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_top_path_statistics_by_traffic_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_regex_pattern_set_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
@@ -2685,6 +2745,21 @@ defmodule AWS.WAFV2 do
       
   """
   @type delete_firewall_manager_rule_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      path_statistics() :: %{
+        "Path" => String.t() | atom(),
+        "Percentage" => float(),
+        "RequestCount" => float(),
+        "Source" => filter_source(),
+        "TopBots" => list(bot_statistics())
+      }
+      
+  """
+  @type path_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3659,6 +3734,13 @@ defmodule AWS.WAFV2 do
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_item_exception()
 
+  @type get_top_path_statistics_by_traffic_errors() ::
+          w_a_f_invalid_operation_exception()
+          | w_a_f_invalid_parameter_exception()
+          | w_a_f_internal_error_exception()
+          | w_a_f_feature_not_included_in_pricing_plan_exception()
+          | w_a_f_nonexistent_item_exception()
+
   @type get_web_acl_errors() ::
           w_a_f_invalid_operation_exception()
           | w_a_f_invalid_parameter_exception()
@@ -4505,6 +4587,32 @@ defmodule AWS.WAFV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetSampledRequests", input, options)
+  end
+
+  @doc """
+  Retrieves aggregated statistics about the top URI paths accessed by bot traffic
+  for a specified web ACL and time window.
+
+  You can use this operation to analyze which paths on your web application
+  receive the most bot traffic and identify the specific bots accessing those
+  paths.
+  The operation supports filtering by bot category, organization, or name, and
+  allows you to drill down into specific path prefixes to view detailed URI-level
+  statistics.
+  """
+  @spec get_top_path_statistics_by_traffic(
+          map(),
+          get_top_path_statistics_by_traffic_request(),
+          list()
+        ) ::
+          {:ok, get_top_path_statistics_by_traffic_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_top_path_statistics_by_traffic_errors()}
+  def get_top_path_statistics_by_traffic(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTopPathStatisticsByTraffic", input, options)
   end
 
   @doc """

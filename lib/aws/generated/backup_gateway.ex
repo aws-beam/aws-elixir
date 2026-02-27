@@ -55,6 +55,7 @@ defmodule AWS.BackupGateway do
   ## Example:
       
       gateway_details() :: %{
+        "DeprecationDate" => non_neg_integer(),
         "GatewayArn" => String.t() | atom(),
         "GatewayDisplayName" => String.t() | atom(),
         "GatewayType" => String.t() | atom(),
@@ -62,6 +63,7 @@ defmodule AWS.BackupGateway do
         "LastSeenTime" => non_neg_integer(),
         "MaintenanceStartTime" => maintenance_start_time(),
         "NextUpdateAvailabilityTime" => non_neg_integer(),
+        "SoftwareVersion" => String.t() | atom(),
         "VpcEndpoint" => String.t() | atom()
       }
       
@@ -1057,8 +1059,8 @@ defmodule AWS.BackupGateway do
   This action retrieves the property mappings for the specified hypervisor.
 
   A hypervisor property mapping displays the relationship of entity properties
-  available from the on-premises hypervisor to the properties available in Amazon
-  Web Services.
+  available from the hypervisor to the properties available in Amazon Web
+  Services.
   """
   @spec get_hypervisor_property_mappings(map(), get_hypervisor_property_mappings_input(), list()) ::
           {:ok, get_hypervisor_property_mappings_output(), any()}
@@ -1183,8 +1185,8 @@ defmodule AWS.BackupGateway do
   This action sets the property mappings for the specified hypervisor.
 
   A hypervisor property mapping displays the relationship of entity properties
-  available from the on-premises hypervisor to the properties available in Amazon
-  Web Services.
+  available from the hypervisor to the properties available in Amazon Web
+  Services.
   """
   @spec put_hypervisor_property_mappings(map(), put_hypervisor_property_mappings_input(), list()) ::
           {:ok, put_hypervisor_property_mappings_output(), any()}

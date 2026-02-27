@@ -2110,6 +2110,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      capacity_reservation_request() :: %{
+        "reservationGroupArn" => String.t() | atom(),
+        "reservationPreference" => list(any())
+      }
+      
+  """
+  @type capacity_reservation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_response() :: %{
         "tags" => list(tag())
       }
@@ -2628,6 +2640,7 @@ defmodule AWS.ECS do
   ## Example:
       
       instance_launch_template_update() :: %{
+        "capacityReservations" => capacity_reservation_request(),
         "ec2InstanceProfileArn" => String.t() | atom(),
         "instanceRequirements" => instance_requirements_request(),
         "monitoring" => list(any()),
@@ -3988,6 +4001,7 @@ defmodule AWS.ECS do
       
       instance_launch_template() :: %{
         "capacityOptionType" => list(any()),
+        "capacityReservations" => capacity_reservation_request(),
         "ec2InstanceProfileArn" => String.t() | atom(),
         "fipsEnabled" => boolean(),
         "instanceRequirements" => instance_requirements_request(),

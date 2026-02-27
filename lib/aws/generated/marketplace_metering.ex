@@ -63,7 +63,7 @@ defmodule AWS.MarketplaceMetering do
     *
   Resolves the registration token that the buyer submits through the browser
   during the registration process. Obtains a `CustomerIdentifier` along
-  with the `CustomerAWSAccountId` and `ProductCode`.
+  with the `CustomerAWSAccountId`, `ProductCode`, and `LicenseArn`.
 
     *
   Called from: SaaS application during the registration process
@@ -141,7 +141,7 @@ defmodule AWS.MarketplaceMetering do
   ## Example:
       
       batch_meter_usage_request() :: %{
-        required("ProductCode") => String.t() | atom(),
+        optional("ProductCode") => String.t() | atom(),
         required("UsageRecords") => list(usage_record())
       }
       
@@ -247,6 +247,17 @@ defmodule AWS.MarketplaceMetering do
       
   """
   @type invalid_endpoint_region_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_license_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_license_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,6 +418,7 @@ defmodule AWS.MarketplaceMetering do
       resolve_customer_result() :: %{
         "CustomerAWSAccountId" => String.t() | atom(),
         "CustomerIdentifier" => String.t() | atom(),
+        "LicenseArn" => String.t() | atom(),
         "ProductCode" => String.t() | atom()
       }
       
@@ -467,6 +479,7 @@ defmodule AWS.MarketplaceMetering do
         "CustomerAWSAccountId" => String.t() | atom(),
         "CustomerIdentifier" => String.t() | atom(),
         "Dimension" => String.t() | atom(),
+        "LicenseArn" => String.t() | atom(),
         "Quantity" => integer(),
         "Timestamp" => non_neg_integer(),
         "UsageAllocations" => list(usage_allocation())
@@ -495,6 +508,7 @@ defmodule AWS.MarketplaceMetering do
           | invalid_usage_allocations_exception()
           | invalid_tag_exception()
           | invalid_product_code_exception()
+          | invalid_license_exception()
           | invalid_customer_identifier_exception()
           | internal_service_error_exception()
           | disabled_api_exception()
@@ -547,14 +561,14 @@ defmodule AWS.MarketplaceMetering do
 
   @doc """
 
+  Amazon Web Services Marketplace is introducing Concurrent Agreements, enabling
+  buyers to make multiple purchases per Amazon Web Services account.
 
-  The `CustomerIdentifier` and `CustomerAWSAccountID` are mutually exclusive
-  parameters.
-
-  You must use one or the other, but not both in the same API request.
-  For new implementations, we recommend using the `CustomerAWSAccountID`. Your
-  current integration will continue to work. When updating your implementation,
-  consider migrating to `CustomerAWSAccountID` for improved integration.
+  Starting June 1, 2026, new SaaS products must use `CustomerAWSAccountId`
+  (instead of `CustomerIdentifier`), `LicenseArn` (instead of `ProductCode`) to
+  support this feature. Existing integrations will continue to work. Review the
+  new integration for Concurrent Agreements
+  [here](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements). 
 
   To post metering records for customers, SaaS applications call
   `BatchMeterUsage`, which is used for metering SaaS flexible
@@ -580,7 +594,8 @@ defmodule AWS.MarketplaceMetering do
   side that should be retried.
 
   For Amazon Web Services Regions that support `BatchMeterUsage`, see
-  [BatchMeterUsage Region support](https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#batchmeterusage-region-support).
+  [BatchMeterUsage Region
+  support](https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#batchmeterusage-region-support).
 
   For an example of `BatchMeterUsage`, see [ BatchMeterUsage code example](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-example)
   in the *Amazon Web Services Marketplace Seller
@@ -758,7 +773,7 @@ defmodule AWS.MarketplaceMetering do
   submits a registration token through their browser. The registration token is
   resolved
   through this API to obtain a `CustomerIdentifier` along with the
-  `CustomerAWSAccountId` and `ProductCode`.
+  `CustomerAWSAccountId`, `ProductCode`, and `LicenseArn`.
 
   To successfully resolve the token, the API must be called from the account that
   was used to publish the SaaS

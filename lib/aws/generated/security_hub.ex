@@ -3,18 +3,18 @@
 
 defmodule AWS.SecurityHub do
   @moduledoc """
-  Security Hub provides you with a comprehensive view of your security state in
-  Amazon Web Services and helps
+  Security Hub CSPM provides you with a comprehensive view of your security state
+  in Amazon Web Services and helps
   you assess your Amazon Web Services environment against security industry
   standards and best practices.
 
-  Security Hub collects security data across Amazon Web Services accounts, Amazon
-  Web Services services, and
+  Security Hub CSPM collects security data across Amazon Web Services accounts,
+  Amazon Web Services services, and
   supported third-party products and helps you analyze your security trends and
   identify the highest priority security
   issues.
 
-  To help you manage the security state of your organization, Security Hub
+  To help you manage the security state of your organization, Security Hub CSPM
   supports multiple security standards.
   These include the Amazon Web Services Foundational Security Best Practices
   (FSBP) standard developed by Amazon Web Services,
@@ -23,53 +23,53 @@ defmodule AWS.SecurityHub do
   Security Standard (PCI DSS), and the National Institute of Standards and
   Technology (NIST). Each standard includes
   several security controls, each of which represents a security best practice.
-  Security Hub runs checks against
+  Security Hub CSPM runs checks against
   security controls and generates control findings to help you assess your
   compliance against security best practices.
 
-  In addition to generating control findings, Security Hub also receives findings
-  from other Amazon Web Services services,
+  In addition to generating control findings, Security Hub CSPM also receives
+  findings from other Amazon Web Services services,
   such as Amazon GuardDuty and Amazon Inspector, and
   supported third-party products. This gives you a single pane of glass into a
   variety of security-related issues. You
-  can also send Security Hub findings to other Amazon Web Services services and
-  supported third-party products.
+  can also send Security Hub CSPM findings to other Amazon Web Services services
+  and supported third-party products.
 
-  Security Hub offers automation features that help you triage and remediate
+  Security Hub CSPM offers automation features that help you triage and remediate
   security issues. For example,
   you can use automation rules to automatically update critical findings when a
   security check fails. You can also leverage the integration with
   Amazon EventBridge to trigger automatic responses to specific findings.
 
-  This guide, the *Security Hub API Reference*, provides
-  information about the Security Hub API. This includes supported resources, HTTP
-  methods, parameters,
-  and schemas. If you're new to Security Hub, you might find it helpful to also
-  review the [
-  *Security Hub User Guide*
+  This guide, the *Security Hub CSPM API Reference*, provides
+  information about the Security Hub CSPM API. This includes supported resources,
+  HTTP methods, parameters,
+  and schemas. If you're new to Security Hub CSPM, you might find it helpful to
+  also review the [
+  *Security Hub CSPM User Guide*
   ](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html).
   The
   user guide explains key concepts and provides procedures
-  that demonstrate how to use Security Hub features. It also provides information
-  about topics such as
-  integrating Security Hub with other Amazon Web Services services.
+  that demonstrate how to use Security Hub CSPM features. It also provides
+  information about topics such as
+  integrating Security Hub CSPM with other Amazon Web Services services.
 
-  In addition to interacting with Security Hub by making calls to the Security Hub
-  API, you can
+  In addition to interacting with Security Hub CSPM by making calls to the
+  Security Hub CSPM API, you can
   use a current version of an Amazon Web Services command line tool or SDK. Amazon
   Web Services provides tools
   and SDKs that consist of libraries and sample code for various languages and
   platforms, such as PowerShell,
   Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient,
   programmatic access to
-  Security Hub and other Amazon Web Services services . They also handle tasks
-  such as signing requests,
+  Security Hub CSPM and other Amazon Web Services services . They also handle
+  tasks such as signing requests,
   managing errors, and retrying requests automatically. For information about
   installing and using the Amazon Web Services tools
   and SDKs, see [Tools to Build on Amazon Web Services](http://aws.amazon.com/developer/tools/).
 
   With the exception of operations that are related to central configuration,
-  Security Hub API requests are executed only in
+  Security Hub CSPM API requests are executed only in
   the Amazon Web Services Region that is currently active or in the specific
   Amazon Web Services Region that you specify in your request. Any configuration
   or settings change
@@ -77,13 +77,13 @@ defmodule AWS.SecurityHub do
   change in
   other Regions, call the same API operation in each Region in which you want to
   apply the change. When you use central configuration,
-  API requests for enabling Security Hub, standards, and controls are executed in
-  the home Region and all linked Regions. For a list of
+  API requests for enabling Security Hub CSPM, standards, and controls are
+  executed in the home Region and all linked Regions. For a list of
   central configuration operations, see the [Central configuration terms and
   concepts](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html#central-configuration-concepts)
-  section of the *Security Hub User Guide*.
+  section of the *Security Hub CSPM User Guide*.
 
-  The following throttling limits apply to Security Hub API operations.
+  The following throttling limits apply to Security Hub CSPM API operations.
 
     *
 
@@ -12599,6 +12599,7 @@ defmodule AWS.SecurityHub do
         "CompanyName" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "IntegrationV2Types" => list(list(any())()),
+        "MarketplaceProductId" => String.t() | atom(),
         "MarketplaceUrl" => String.t() | atom(),
         "ProductV2Name" => String.t() | atom()
       }
@@ -14578,15 +14579,15 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  We recommend using Organizations instead of Security Hub invitations to manage
-  your member accounts.
+  We recommend using Organizations instead of Security Hub CSPM invitations to
+  manage your member accounts.
 
-  For information, see [Managing Security Hub administrator and member accounts with
+  For information, see [Managing Security Hub CSPM administrator and member accounts with
   Organizations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html)
-  in the *Security Hub User Guide*.
+  in the *Security Hub CSPM User Guide*.
 
   Accepts the invitation to be a member account and be monitored by the Security
-  Hub administrator
+  Hub CSPM administrator
   account that the invitation was sent from.
 
   This operation is only used by member accounts that are not added through
@@ -14627,15 +14628,15 @@ defmodule AWS.SecurityHub do
 
   Instead, use `AcceptAdministratorInvitation`.
 
-  The Security Hub console continues to use `AcceptInvitation`. It will eventually
-  change to use `AcceptAdministratorInvitation`. Any IAM policies that
+  The Security Hub CSPM console continues to use `AcceptInvitation`. It will
+  eventually change to use `AcceptAdministratorInvitation`. Any IAM policies that
   specifically control access to this function must continue to use
   `AcceptInvitation`. You should also add `AcceptAdministratorInvitation` to your
   policies to ensure that the correct permissions are in place after the console
   begins to use `AcceptAdministratorInvitation`.
 
   Accepts the invitation to be a member account and be monitored by the Security
-  Hub administrator
+  Hub CSPM administrator
   account that the invitation was sent from.
 
   This operation is only used by member accounts that are not added through
@@ -14706,7 +14707,7 @@ defmodule AWS.SecurityHub do
   `StandardsSubscriptionArns`.
 
   For more information, see [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
-  section of the *Security Hub User
+  section of the *Security Hub CSPM User
   Guide*.
   """
   @spec batch_disable_standards(map(), batch_disable_standards_request(), list()) ::
@@ -14743,7 +14744,7 @@ defmodule AWS.SecurityHub do
   operation.
 
   For more information, see the [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
-  section of the *Security Hub User Guide*.
+  section of the *Security Hub CSPM User Guide*.
   """
   @spec batch_enable_standards(map(), batch_enable_standards_request(), list()) ::
           {:ok, batch_enable_standards_response(), any()}
@@ -14805,11 +14806,11 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  Returns associations between an Security Hub configuration and a batch of target
-  accounts, organizational units, or the root.
+  Returns associations between an Security Hub CSPM configuration and a batch of
+  target accounts, organizational units, or the root.
 
-  Only the Security Hub delegated administrator can invoke this operation from the
-  home Region. A configuration
+  Only the Security Hub CSPM delegated administrator can invoke this operation
+  from the home Region. A configuration
   can refer to a configuration policy or to a self-managed configuration.
   """
   @spec batch_get_configuration_policy_associations(
@@ -14913,10 +14914,11 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Imports security findings generated by a finding provider into Security Hub.
+  Imports security findings generated by a finding provider into Security Hub
+  CSPM.
 
   This action is requested by the finding provider to import its findings into
-  Security Hub.
+  Security Hub CSPM.
 
   `BatchImportFindings` must be called by one of the following:
 
@@ -14931,7 +14933,7 @@ defmodule AWS.SecurityHub do
   from needs to be the same as the `AwsAccountId` attribute for the finding.
 
     *
-  An Amazon Web Services account that Security Hub has allow-listed for an
+  An Amazon Web Services account that Security Hub CSPM has allow-listed for an
   official partner
   integration. In this case, you can call `BatchImportFindings` from the
   allow-listed
@@ -14942,8 +14944,8 @@ defmodule AWS.SecurityHub do
   larger than 240 Kb.
 
   After a finding is created, `BatchImportFindings` cannot be used to update
-  the following finding fields and objects, which Security Hub customers use to
-  manage their
+  the following finding fields and objects, which Security Hub CSPM customers use
+  to manage their
   investigation workflow.
 
     *
@@ -15047,8 +15049,8 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  Used by Security Hub customers to update information about their investigation
-  into one or more findings.
+  Used by Security Hub CSPM customers to update information about their
+  investigation into one or more findings.
 
   Requested by administrator accounts or member accounts.
   Administrator accounts can update findings for their account and their member
@@ -15095,14 +15097,14 @@ defmodule AWS.SecurityHub do
 
   If you use this operation to update a finding, your updates don’t affect the
   value for the `UpdatedAt` field of the finding.
-  Also note that it can take several minutes for Security Hub to process your
+  Also note that it can take several minutes for Security Hub CSPM to process your
   request and update each finding specified in the request.
 
   You can configure IAM policies to restrict access to fields and field values.
   For example, you might not want member accounts to be able to suppress findings
   or change the finding severity.
   For more information see [Configuring access to BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access)
-  in the *Security Hub User Guide*.
+  in the *Security Hub CSPM User Guide*.
   """
   @spec batch_update_findings(map(), batch_update_findings_request(), list()) ::
           {:ok, batch_update_findings_response(), any()}
@@ -15208,10 +15210,10 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Creates a custom action target in Security Hub.
+  Creates a custom action target in Security Hub CSPM.
 
-  You can use custom actions on findings and insights in Security Hub to trigger
-  target actions
+  You can use custom actions on findings and insights in Security Hub CSPM to
+  trigger target actions
   in Amazon CloudWatch Events.
   """
   @spec create_action_target(map(), create_action_target_request(), list()) ::
@@ -15332,7 +15334,7 @@ defmodule AWS.SecurityHub do
 
   Creates a configuration policy with the defined configuration.
 
-  Only the Security Hub delegated administrator
+  Only the Security Hub CSPM delegated administrator
   can invoke this operation from the home Region.
   """
   @spec create_configuration_policy(map(), create_configuration_policy_request(), list()) ::
@@ -15397,9 +15399,9 @@ defmodule AWS.SecurityHub do
   Used to enable cross-Region aggregation. This operation can be invoked from the
   home Region only.
 
-  For information about how cross-Region aggregation works, see [Understanding cross-Region aggregation in Security
-  Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html)
-  in the *Security Hub User Guide*.
+  For information about how cross-Region aggregation works, see [Understanding cross-Region aggregation in Security Hub
+  CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html)
+  in the *Security Hub CSPM User Guide*.
   """
   @spec create_finding_aggregator(map(), create_finding_aggregator_request(), list()) ::
           {:ok, create_finding_aggregator_response(), any()}
@@ -15428,7 +15430,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Creates a custom insight in Security Hub.
+  Creates a custom insight in Security Hub CSPM.
 
   An insight is a consolidation of findings that relate
   to a security issue that requires attention or remediation.
@@ -15463,8 +15465,8 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Creates a member association in Security Hub between the specified accounts and
-  the account
+  Creates a member association in Security Hub CSPM between the specified accounts
+  and the account
   used to make the request, which is the administrator account.
 
   If you are integrated with
@@ -15478,13 +15480,14 @@ defmodule AWS.SecurityHub do
   in the following cases:
 
     *
-  Security Hub is not configured to automatically add new organization accounts.
+  Security Hub CSPM is not configured to automatically add new organization
+  accounts.
 
     *
-  The account was disassociated or deleted in Security Hub.
+  The account was disassociated or deleted in Security Hub CSPM.
 
-  This action can only be used by an account that has Security Hub enabled. To
-  enable Security Hub, you
+  This action can only be used by an account that has Security Hub CSPM enabled.
+  To enable Security Hub CSPM, you
   can use the `EnableSecurityHub` operation.
 
   For accounts that are not organization members, you create the account
@@ -15492,22 +15495,22 @@ defmodule AWS.SecurityHub do
   then send an invitation to the member account. To send the invitation, you use
   the
   `InviteMembers` operation. If the account owner accepts
-  the invitation, the account becomes a member account in Security Hub.
+  the invitation, the account becomes a member account in Security Hub CSPM.
 
   Accounts that are managed using Organizations don't receive an invitation. They
-  automatically become a member account in Security Hub.
+  automatically become a member account in Security Hub CSPM.
 
     *
-  If the organization account does not have Security Hub enabled, then Security
-  Hub and the default standards are automatically enabled. Note that Security Hub
-  cannot be enabled automatically for the organization management account. The
-  organization management account must enable Security Hub before the
-  administrator account enables it as a member account.
+  If the organization account does not have Security Hub CSPM enabled, then
+  Security Hub CSPM and the default standards are automatically enabled. Note that
+  Security Hub CSPM cannot be enabled automatically for the organization
+  management account. The organization management account must enable Security Hub
+  CSPM before the administrator account enables it as a member account.
 
     *
-  For organization accounts that already have Security Hub enabled, Security Hub
-  does not make any other changes to those accounts. It does not change their
-  enabled standards or controls.
+  For organization accounts that already have Security Hub CSPM enabled, Security
+  Hub CSPM does not make any other changes to those accounts. It does not change
+  their enabled standards or controls.
 
   A permissions policy is added that permits the administrator account to view the
   findings
@@ -15574,14 +15577,14 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  We recommend using Organizations instead of Security Hub invitations to manage
-  your member accounts.
+  We recommend using Organizations instead of Security Hub CSPM invitations to
+  manage your member accounts.
 
-  For information, see [Managing Security Hub administrator and member accounts with
+  For information, see [Managing Security Hub CSPM administrator and member accounts with
   Organizations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html)
-  in the *Security Hub User Guide*.
+  in the *Security Hub CSPM User Guide*.
 
-  Declines invitations to become a Security Hub member account.
+  Declines invitations to become a Security Hub CSPM member account.
 
   A prospective member account uses this operation to decline an invitation to
   become a member.
@@ -15617,7 +15620,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Deletes a custom action target from Security Hub.
+  Deletes a custom action target from Security Hub CSPM.
 
   Deleting a custom action target does not affect any findings or insights that
   were
@@ -15716,7 +15719,7 @@ defmodule AWS.SecurityHub do
 
   Deletes a configuration policy.
 
-  Only the Security Hub delegated administrator can invoke this operation
+  Only the Security Hub CSPM delegated administrator can invoke this operation
   from the home Region. For the deletion to succeed, you must first disassociate a
   configuration policy from target accounts,
   organizational units, or the root by invoking the
@@ -15859,16 +15862,16 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  We recommend using Organizations instead of Security Hub invitations to manage
-  your member accounts.
+  We recommend using Organizations instead of Security Hub CSPM invitations to
+  manage your member accounts.
 
-  For information, see [Managing Security Hub administrator and member accounts with
+  For information, see [Managing Security Hub CSPM administrator and member accounts with
   Organizations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html)
-  in the *Security Hub User Guide*.
+  in the *Security Hub CSPM User Guide*.
 
-  Deletes invitations to become a Security Hub member account.
+  Deletes invitations to become a Security Hub CSPM member account.
 
-  A Security Hub administrator account can use this operation to delete
+  A Security Hub CSPM administrator account can use this operation to delete
   invitations sent to one or more prospective member accounts.
 
   This operation is only used to delete invitations that are sent to prospective
@@ -15902,7 +15905,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Deletes the specified member accounts from Security Hub.
+  Deletes the specified member accounts from Security Hub CSPM.
 
   You can invoke this API only to delete accounts that became members through
   invitation. You can't invoke this
@@ -15935,7 +15938,8 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns a list of the custom action targets in Security Hub in your account.
+  Returns a list of the custom action targets in Security Hub CSPM in your
+  account.
   """
   @spec describe_action_targets(map(), describe_action_targets_request(), list()) ::
           {:ok, describe_action_targets_response(), any()}
@@ -15965,7 +15969,7 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns details about the Hub resource in your account, including the
-  `HubArn` and the time when you enabled Security Hub.
+  `HubArn` and the time when you enabled Security Hub CSPM.
   """
   @spec describe_hub(map(), String.t() | atom() | nil, list()) ::
           {:ok, describe_hub_response(), any()}
@@ -15991,10 +15995,10 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns information about the way your organization is configured in Security
-  Hub.
+  Hub CSPM.
 
   Only the
-  Security Hub administrator account can invoke this operation.
+  Security Hub CSPM administrator account can invoke this operation.
   """
   @spec describe_organization_configuration(map(), list()) ::
           {:ok, describe_organization_configuration_response(), any()}
@@ -16012,7 +16016,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns information about product integrations in Security Hub.
+  Returns information about product integrations in Security Hub CSPM.
 
   You can optionally provide an integration ARN. If you provide an integration
   ARN, then
@@ -16126,7 +16130,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns a list of the available standards in Security Hub.
+  Returns a list of the available standards in Security Hub CSPM.
 
   For each standard, the results include the standard ARN, the name, and a
   description.
@@ -16214,10 +16218,10 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disables the integration of the specified product with Security Hub.
+  Disables the integration of the specified product with Security Hub CSPM.
 
   After the integration is
-  disabled, findings from that product are no longer sent to Security Hub.
+  disabled, findings from that product are no longer sent to Security Hub CSPM.
   """
   @spec disable_import_findings_for_product(
           map(),
@@ -16258,7 +16262,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disables a Security Hub administrator account.
+  Disables a Security Hub CSPM administrator account.
 
   Can only be called by the organization
   management account.
@@ -16294,18 +16298,18 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disables Security Hub in your account only in the current Amazon Web Services
-  Region.
+  Disables Security Hub CSPM in your account only in the current Amazon Web
+  Services Region.
 
-  To disable Security Hub in all
+  To disable Security Hub CSPM in all
   Regions, you must submit one request per Region where you have enabled Security
-  Hub.
+  Hub CSPM.
 
-  You can't disable Security Hub in an account that is currently the Security Hub
-  administrator.
+  You can't disable Security Hub CSPM in an account that is currently the Security
+  Hub CSPM administrator.
 
-  When you disable Security Hub, your existing findings and insights and any
-  Security Hub configuration
+  When you disable Security Hub CSPM, your existing findings and insights and any
+  Security Hub CSPM configuration
   settings are deleted after 90 days and cannot be recovered. Any standards that
   were enabled
   are disabled, and your administrator and member account associations are
@@ -16313,7 +16317,7 @@ defmodule AWS.SecurityHub do
 
   If you want to save your existing findings, you must export them before you
   disable
-  Security Hub.
+  Security Hub CSPM.
   """
   @spec disable_security_hub(map(), disable_security_hub_request(), list()) ::
           {:ok, disable_security_hub_response(), any()}
@@ -16372,7 +16376,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disassociates the current Security Hub member account from the associated
+  Disassociates the current Security Hub CSPM member account from the associated
   administrator
   account.
 
@@ -16416,15 +16420,15 @@ defmodule AWS.SecurityHub do
 
   Instead, use `DisassociateFromAdministratorAccount`.
 
-  The Security Hub console continues to use `DisassociateFromMasterAccount`. It
-  will eventually change to use `DisassociateFromAdministratorAccount`. Any IAM
+  The Security Hub CSPM console continues to use `DisassociateFromMasterAccount`.
+  It will eventually change to use `DisassociateFromAdministratorAccount`. Any IAM
   policies that specifically control access to this function must continue to use
   `DisassociateFromMasterAccount`. You should also add
   `DisassociateFromAdministratorAccount` to your policies to ensure that the
   correct permissions are in place after the console begins to use
   `DisassociateFromAdministratorAccount`.
 
-  Disassociates the current Security Hub member account from the associated
+  Disassociates the current Security Hub CSPM member account from the associated
   administrator
   account.
 
@@ -16498,14 +16502,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Enables the integration of a partner product with Security Hub.
+  Enables the integration of a partner product with Security Hub CSPM.
 
   Integrated products send
-  findings to Security Hub.
+  findings to Security Hub CSPM.
 
   When you enable a product integration, a permissions policy that grants
   permission for
-  the product to send findings to Security Hub is applied.
+  the product to send findings to Security Hub CSPM is applied.
   """
   @spec enable_import_findings_for_product(
           map(),
@@ -16538,7 +16542,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Designates the Security Hub administrator account for an organization.
+  Designates the Security Hub CSPM administrator account for an organization.
 
   Can only be called by
   the organization management account.
@@ -16574,15 +16578,16 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Enables Security Hub for your account in the current Region or the Region you
-  specify in the
+  Enables Security Hub CSPM for your account in the current Region or the Region
+  you specify in the
   request.
 
-  When you enable Security Hub, you grant to Security Hub the permissions
-  necessary to gather findings
-  from other services that are integrated with Security Hub.
+  When you enable Security Hub CSPM, you grant to Security Hub CSPM the
+  permissions necessary to gather findings
+  from other services that are integrated with Security Hub CSPM.
 
-  When you use the `EnableSecurityHub` operation to enable Security Hub, you also
+  When you use the `EnableSecurityHub` operation to enable Security Hub CSPM, you
+  also
   automatically enable the following standards:
 
     *
@@ -16597,12 +16602,12 @@ defmodule AWS.SecurityHub do
   To opt out of automatically enabled standards, set
   `EnableDefaultStandards` to `false`.
 
-  After you enable Security Hub, to enable a standard, use the
+  After you enable Security Hub CSPM, to enable a standard, use the
   `BatchEnableStandards` operation. To disable a standard, use the
   `BatchDisableStandards` operation.
 
   To learn more, see the [setup information](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html)
-  in the *Security Hub User Guide*.
+  in the *Security Hub CSPM User Guide*.
   """
   @spec enable_security_hub(map(), enable_security_hub_request(), list()) ::
           {:ok, enable_security_hub_response(), any()}
@@ -16661,8 +16666,8 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Provides the details for the Security Hub administrator account for the current
-  member account.
+  Provides the details for the Security Hub CSPM administrator account for the
+  current member account.
 
   Can be used by both member accounts that are managed using Organizations and
   accounts that were
@@ -16723,7 +16728,7 @@ defmodule AWS.SecurityHub do
 
   Provides information about a configuration policy.
 
-  Only the Security Hub delegated administrator can invoke
+  Only the Security Hub CSPM delegated administrator can invoke
   this operation from the home Region.
   """
   @spec get_configuration_policy(map(), String.t() | atom(), list()) ::
@@ -16748,7 +16753,7 @@ defmodule AWS.SecurityHub do
 
   The
   configuration can be a configuration policy or self-managed behavior. Only the
-  Security Hub delegated administrator can
+  Security Hub CSPM delegated administrator can
   invoke this operation from the home Region.
   """
   @spec get_configuration_policy_association(
@@ -16855,7 +16860,7 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  Returns the history of a Security Hub finding.
+  Returns the history of a Security Hub CSPM finding.
 
   The history includes changes made to any fields in
   the Amazon Web Services Security Finding Format (ASFF) except top-level
@@ -17029,7 +17034,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Lists the results of the Security Hub insight specified by the insight ARN.
+  Lists the results of the Security Hub CSPM insight specified by the insight ARN.
   """
   @spec get_insight_results(map(), String.t() | atom(), list()) ::
           {:ok, get_insight_results_response(), any()}
@@ -17077,15 +17082,15 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  We recommend using Organizations instead of Security Hub invitations to manage
-  your member accounts.
+  We recommend using Organizations instead of Security Hub CSPM invitations to
+  manage your member accounts.
 
-  For information, see [Managing Security Hub administrator and member accounts with
+  For information, see [Managing Security Hub CSPM administrator and member accounts with
   Organizations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html)
-  in the *Security Hub User Guide*.
+  in the *Security Hub CSPM User Guide*.
 
-  Returns the count of all Security Hub membership invitations that were sent to
-  the
+  Returns the count of all Security Hub CSPM membership invitations that were sent
+  to the
   calling member account, not including the currently accepted invitation.
   """
   @spec get_invitations_count(map(), list()) ::
@@ -17108,15 +17113,15 @@ defmodule AWS.SecurityHub do
 
   Instead, use `GetAdministratorAccount`.
 
-  The Security Hub console continues to use `GetMasterAccount`. It will eventually
-  change to use `GetAdministratorAccount`. Any IAM policies that specifically
-  control access to this function must continue to use `GetMasterAccount`. You
-  should also add `GetAdministratorAccount` to your policies to ensure that the
-  correct permissions are in place after the console begins to use
-  `GetAdministratorAccount`.
+  The Security Hub CSPM console continues to use `GetMasterAccount`. It will
+  eventually change to use `GetAdministratorAccount`. Any IAM policies that
+  specifically control access to this function must continue to use
+  `GetMasterAccount`. You should also add `GetAdministratorAccount` to your
+  policies to ensure that the correct permissions are in place after the console
+  begins to use `GetAdministratorAccount`.
 
-  Provides the details for the Security Hub administrator account for the current
-  member account.
+  Provides the details for the Security Hub CSPM administrator account for the
+  current member account.
 
   Can be used by both member accounts that are managed using Organizations and
   accounts that were
@@ -17138,12 +17143,13 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns the details for the Security Hub member accounts for the specified
+  Returns the details for the Security Hub CSPM member accounts for the specified
   account IDs.
 
-  An administrator account can be either the delegated Security Hub administrator
-  account for an
-  organization or an administrator account that enabled Security Hub manually.
+  An administrator account can be either the delegated Security Hub CSPM
+  administrator account for an
+  organization or an administrator account that enabled Security Hub CSPM
+  manually.
 
   The results include both member accounts that are managed using Organizations
   and accounts that
@@ -17297,15 +17303,15 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  We recommend using Organizations instead of Security Hub invitations to manage
-  your member accounts.
+  We recommend using Organizations instead of Security Hub CSPM invitations to
+  manage your member accounts.
 
-  For information, see [Managing Security Hub administrator and member accounts with
+  For information, see [Managing Security Hub CSPM administrator and member accounts with
   Organizations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html)
-  in the *Security Hub User Guide*.
+  in the *Security Hub CSPM User Guide*.
 
   Invites other Amazon Web Services accounts to become member accounts for the
-  Security Hub administrator account that
+  Security Hub CSPM administrator account that
   the invitation is sent from.
 
   This operation is only used to invite accounts that don't belong to an Amazon
@@ -17313,10 +17319,10 @@ defmodule AWS.SecurityHub do
   Organization accounts don't receive invitations.
 
   Before you can use this action to invite a member, you must first use the
-  `CreateMembers` action to create the member account in Security Hub.
+  `CreateMembers` action to create the member account in Security Hub CSPM.
 
-  When the account owner enables Security Hub and accepts the invitation to become
-  a member
+  When the account owner enables Security Hub CSPM and accepts the invitation to
+  become a member
   account, the administrator account can view the findings generated in the member
   account.
   """
@@ -17465,8 +17471,8 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  Lists the configuration policies that the Security Hub delegated administrator
-  has created for your
+  Lists the configuration policies that the Security Hub CSPM delegated
+  administrator has created for your
   organization.
 
   Only the delegated administrator can invoke this operation from the home Region.
@@ -17516,8 +17522,8 @@ defmodule AWS.SecurityHub do
   self-managed behavior.
 
   Only the
-  Security Hub delegated administrator can invoke this operation from the home
-  Region.
+  Security Hub CSPM delegated administrator can invoke this operation from the
+  home Region.
   """
   @spec list_configuration_policy_associations(
           map(),
@@ -17613,7 +17619,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Lists all findings-generating solutions (products) that you are subscribed to
   receive
-  findings from in Security Hub.
+  findings from in Security Hub CSPM.
   """
   @spec list_enabled_products_for_import(
           map(),
@@ -17702,14 +17708,14 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  We recommend using Organizations instead of Security Hub invitations to manage
-  your member accounts.
+  We recommend using Organizations instead of Security Hub CSPM invitations to
+  manage your member accounts.
 
-  For information, see [Managing Security Hub administrator and member accounts with
+  For information, see [Managing Security Hub CSPM administrator and member accounts with
   Organizations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html)
-  in the *Security Hub User Guide*.
+  in the *Security Hub CSPM User Guide*.
 
-  Lists all Security Hub membership invitations that were sent to the calling
+  Lists all Security Hub CSPM membership invitations that were sent to the calling
   account.
 
   Only accounts that are managed by invitation can use this operation.
@@ -17746,7 +17752,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Lists details about all member accounts for the current Security Hub
+  Lists details about all member accounts for the current Security Hub CSPM
   administrator
   account.
 
@@ -17803,7 +17809,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Lists the Security Hub administrator accounts.
+  Lists the Security Hub CSPM administrator accounts.
 
   Can only be called by the organization
   management account.
@@ -18018,7 +18024,7 @@ defmodule AWS.SecurityHub do
 
   The target can be
   associated with a configuration policy or self-managed behavior. Only the
-  Security Hub delegated administrator can
+  Security Hub CSPM delegated administrator can
   invoke this operation from the home Region.
   """
   @spec start_configuration_policy_association(
@@ -18061,8 +18067,8 @@ defmodule AWS.SecurityHub do
   configuration of the closest parent. If there’s no
   configuration to inherit, the target retains its settings but becomes a
   self-managed account. A target can be disassociated from
-  a configuration policy or self-managed behavior. Only the Security Hub delegated
-  administrator can invoke this
+  a configuration policy or self-managed behavior. Only the Security Hub CSPM
+  delegated administrator can invoke this
   operation from the home Region.
   """
   @spec start_configuration_policy_disassociation(
@@ -18159,7 +18165,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Updates the name and description of a custom action target in Security Hub.
+  Updates the name and description of a custom action target in Security Hub CSPM.
   """
   @spec update_action_target(map(), String.t() | atom(), update_action_target_request(), list()) ::
           {:ok, update_action_target_response(), any()}
@@ -18254,7 +18260,7 @@ defmodule AWS.SecurityHub do
 
   Updates a configuration policy.
 
-  Only the Security Hub delegated
+  Only the Security Hub CSPM delegated
   administrator can invoke this operation from the home Region.
   """
   @spec update_configuration_policy(
@@ -18362,7 +18368,7 @@ defmodule AWS.SecurityHub do
   the `BatchUpdateFindings` operation.
 
   The `UpdateFindings` operation updates the `Note` and `RecordState` of the
-  Security Hub aggregated
+  Security Hub CSPM aggregated
   findings that the filter attributes specify. Any member account that can view
   the finding
   can also see the update to the finding.
@@ -18370,7 +18376,7 @@ defmodule AWS.SecurityHub do
   Finding updates made with `UpdateFindings` aren't persisted if the same finding
   is later updated by the
   finding provider through the `BatchImportFindings` operation. In addition,
-  Security Hub doesn't
+  Security Hub CSPM doesn't
   record updates made with `UpdateFindings` in the finding history.
   """
   @spec update_findings(map(), update_findings_request(), list()) ::
@@ -18400,7 +18406,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Updates the Security Hub insight identified by the specified insight ARN.
+  Updates the Security Hub CSPM insight identified by the specified insight ARN.
   """
   @spec update_insight(map(), String.t() | atom(), update_insight_request(), list()) ::
           {:ok, update_insight_response(), any()}
@@ -18429,10 +18435,10 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Updates the configuration of your organization in Security Hub.
+  Updates the configuration of your organization in Security Hub CSPM.
 
   Only the
-  Security Hub administrator account can invoke this operation.
+  Security Hub CSPM administrator account can invoke this operation.
   """
   @spec update_organization_configuration(
           map(),
@@ -18495,7 +18501,7 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Updates configuration options for Security Hub.
+  Updates configuration options for Security Hub CSPM.
   """
   @spec update_security_hub_configuration(
           map(),

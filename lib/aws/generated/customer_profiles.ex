@@ -108,6 +108,7 @@ defmodule AWS.CustomerProfiles do
         "MaxAvailableProfileObjectCount" => integer(),
         "MaxProfileObjectCount" => integer(),
         "ObjectTypeName" => String.t() | atom(),
+        "SourcePriority" => integer(),
         "Tags" => map()
       }
 
@@ -215,6 +216,7 @@ defmodule AWS.CustomerProfiles do
         "MaxProfileObjectCount" => integer(),
         "ObjectTypeName" => String.t() | atom(),
         "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
+        "SourcePriority" => integer(),
         "Tags" => map(),
         "TemplateId" => String.t() | atom()
       }
@@ -520,6 +522,7 @@ defmodule AWS.CustomerProfiles do
         "MaxProfileObjectCount" => integer(),
         "ObjectTypeName" => String.t() | atom(),
         "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
+        "SourcePriority" => integer(),
         "Tags" => map(),
         "TemplateId" => String.t() | atom()
       }
@@ -3361,6 +3364,7 @@ defmodule AWS.CustomerProfiles do
         optional("Keys") => map(),
         optional("MaxProfileObjectCount") => integer(),
         optional("SourceLastUpdatedTimestampFormat") => String.t() | atom(),
+        optional("SourcePriority") => integer(),
         optional("Tags") => map(),
         optional("TemplateId") => String.t() | atom(),
         required("Description") => String.t() | atom()

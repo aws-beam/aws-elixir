@@ -738,6 +738,7 @@ defmodule AWS.ARCRegionswitch do
         "nextToken" => [String.t() | atom()],
         "plan" => plan(),
         "planArn" => String.t() | atom(),
+        "recoveryExecutionId" => [String.t() | atom()],
         "startTime" => [non_neg_integer()],
         "stepStates" => list(step_state()),
         "updatedAt" => [non_neg_integer()],
@@ -955,6 +956,7 @@ defmodule AWS.ARCRegionswitch do
         "executionState" => list(any()),
         "mode" => list(any()),
         "planArn" => String.t() | atom(),
+        "recoveryExecutionId" => [String.t() | atom()],
         "startTime" => [non_neg_integer()],
         "updatedAt" => [non_neg_integer()],
         "version" => [String.t() | atom()]
@@ -971,6 +973,7 @@ defmodule AWS.ARCRegionswitch do
         optional("comment") => String.t() | atom(),
         optional("latestVersion") => [String.t() | atom()],
         optional("mode") => list(any()),
+        optional("recoveryExecutionId") => String.t() | atom(),
         required("action") => list(any()),
         required("planArn") => String.t() | atom(),
         required("targetRegion") => [String.t() | atom()]
@@ -1152,6 +1155,20 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      rds_create_cross_region_replica_configuration() :: %{
+        "crossAccountRole" => String.t() | atom(),
+        "dbInstanceArnMap" => map(),
+        "externalId" => [String.t() | atom()],
+        "timeoutMinutes" => [integer()]
+      }
+      
+  """
+  @type rds_create_cross_region_replica_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       abbreviated_plan() :: %{
         "activePlanExecution" => String.t() | atom(),
         "arn" => String.t() | atom(),
@@ -1178,6 +1195,20 @@ defmodule AWS.ARCRegionswitch do
       
   """
   @type approve_plan_execution_step_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_promote_read_replica_configuration() :: %{
+        "crossAccountRole" => String.t() | atom(),
+        "dbInstanceArnMap" => map(),
+        "externalId" => [String.t() | atom()],
+        "timeoutMinutes" => [integer()]
+      }
+      
+  """
+  @type rds_promote_read_replica_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

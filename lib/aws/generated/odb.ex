@@ -2091,6 +2091,7 @@ defmodule AWS.Odb do
         optional("clientToken") => String.t() | atom(),
         optional("displayName") => String.t() | atom(),
         optional("peerNetworkCidrsToBeAdded") => list(String.t() | atom()),
+        optional("peerNetworkRouteTableIds") => list(String.t() | atom()),
         optional("tags") => map(),
         required("odbNetworkId") => String.t() | atom(),
         required("peerNetworkId") => String.t() | atom()

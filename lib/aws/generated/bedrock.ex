@@ -1788,6 +1788,7 @@ defmodule AWS.Bedrock do
 
       create_model_invocation_job_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
+        optional("modelInvocationType") => list(any()),
         optional("tags") => list(tag()),
         optional("timeoutDurationInHours") => integer(),
         optional("vpcConfig") => vpc_config(),
@@ -3411,6 +3412,10 @@ defmodule AWS.Bedrock do
   ## Example:
 
       foundation_model_lifecycle() :: %{
+        "endOfLifeTime" => non_neg_integer(),
+        "legacyTime" => non_neg_integer(),
+        "publicExtendedAccessTime" => non_neg_integer(),
+        "startOfLifeTime" => non_neg_integer(),
         "status" => list(any())
       }
 
@@ -5018,6 +5023,7 @@ defmodule AWS.Bedrock do
         "lastModifiedTime" => non_neg_integer(),
         "message" => String.t() | atom(),
         "modelId" => String.t() | atom(),
+        "modelInvocationType" => list(any()),
         "outputDataConfig" => list(),
         "roleArn" => String.t() | atom(),
         "status" => list(any()),
@@ -5425,6 +5431,7 @@ defmodule AWS.Bedrock do
         "lastModifiedTime" => non_neg_integer(),
         "message" => String.t() | atom(),
         "modelId" => String.t() | atom(),
+        "modelInvocationType" => list(any()),
         "outputDataConfig" => list(),
         "roleArn" => String.t() | atom(),
         "status" => list(any()),

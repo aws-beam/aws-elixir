@@ -247,6 +247,7 @@ defmodule AWS.RAM do
         optional("permissionArns") => list(String.t() | atom()),
         optional("principals") => list(String.t() | atom()),
         optional("resourceArns") => list(String.t() | atom()),
+        optional("resourceShareConfiguration") => resource_share_configuration(),
         optional("sources") => list(String.t() | atom()),
         optional("tags") => list(tag()),
         required("name") => String.t() | atom()
@@ -476,6 +477,17 @@ defmodule AWS.RAM do
 
   """
   @type permission_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_share_configuration() :: %{
+        "retainSharingOnAccountLeaveOrganization" => boolean()
+      }
+
+  """
+  @type resource_share_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -849,6 +861,7 @@ defmodule AWS.RAM do
         "name" => String.t() | atom(),
         "owningAccountId" => String.t() | atom(),
         "resourceShareArn" => String.t() | atom(),
+        "resourceShareConfiguration" => resource_share_configuration(),
         "status" => list(any()),
         "statusMessage" => String.t() | atom(),
         "tags" => list(tag())

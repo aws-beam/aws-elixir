@@ -1905,6 +1905,8 @@ defmodule AWS.Connect do
       evaluation_review_metadata() :: %{
         "CreatedBy" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
+        "RequestedBy" => String.t() | atom(),
+        "RequestedTime" => non_neg_integer(),
         "ReviewId" => String.t() | atom(),
         "ReviewRequestComments" => list(evaluation_review_request_comment())
       }
@@ -28899,9 +28901,7 @@ defmodule AWS.Connect do
   resource (create, update or
   delete). If you don't see updated information for recently changed contact
   evaluations, try calling the API again
-  in a few seconds. Contact Evaluations may not be fully backfilled with
-  historical data in all regions yet, however
-  all recently created Contact Evaluations should be available for search.
+  in a few seconds.
 
   **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """

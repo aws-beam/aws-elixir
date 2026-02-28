@@ -1603,6 +1603,7 @@ defmodule AWS.Batch do
         "maxvCpus" => integer(),
         "minvCpus" => integer(),
         "placementGroup" => String.t() | atom(),
+        "scalingPolicy" => compute_scaling_policy(),
         "securityGroupIds" => list(String.t() | atom()),
         "subnets" => list(String.t() | atom()),
         "tags" => map(),
@@ -2468,6 +2469,17 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      compute_scaling_policy() :: %{
+        "minScaleDownDelayMinutes" => integer()
+      }
+
+  """
+  @type compute_scaling_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ecs_properties_detail() :: %{
         "taskProperties" => list(ecs_task_details())
       }
@@ -2629,6 +2641,7 @@ defmodule AWS.Batch do
         "maxvCpus" => integer(),
         "minvCpus" => integer(),
         "placementGroup" => String.t() | atom(),
+        "scalingPolicy" => compute_scaling_policy(),
         "securityGroupIds" => list(String.t() | atom()),
         "spotIamFleetRole" => String.t() | atom(),
         "subnets" => list(String.t() | atom()),

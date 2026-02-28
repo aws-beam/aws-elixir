@@ -1426,6 +1426,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      list_user_pool_client_secrets_response() :: %{
+        "ClientSecrets" => list(client_secret_descriptor_type()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_user_pool_client_secrets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       confirm_device_request() :: %{
         optional("DeviceName") => String.t() | atom(),
         optional("DeviceSecretVerifierConfig") => device_secret_verifier_config_type(),
@@ -1475,6 +1487,19 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type terms_description_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_pool_client_secret_request() :: %{
+        required("ClientId") => String.t() | atom(),
+        required("ClientSecretId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_pool_client_secret_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1534,6 +1559,19 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type admin_update_user_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_pool_client_secrets_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_user_pool_client_secrets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1634,6 +1672,15 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type get_identity_provider_by_identifier_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_pool_client_secret_response() :: %{}
+      
+  """
+  @type delete_user_pool_client_secret_response() :: %{}
 
   @typedoc """
 
@@ -2146,6 +2193,19 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      client_secret_descriptor_type() :: %{
+        "ClientSecretCreateDate" => non_neg_integer(),
+        "ClientSecretId" => String.t() | atom(),
+        "ClientSecretValue" => String.t() | atom()
+      }
+      
+  """
+  @type client_secret_descriptor_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_tokens_from_refresh_token_request() :: %{
         optional("ClientMetadata") => map(),
         optional("ClientSecret") => String.t() | atom(),
@@ -2261,6 +2321,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AnalyticsConfiguration") => analytics_configuration_type(),
         optional("AuthSessionValidity") => integer(),
         optional("CallbackURLs") => list(String.t() | atom()),
+        optional("ClientSecret") => String.t() | atom(),
         optional("DefaultRedirectURI") => String.t() | atom(),
         optional("EnablePropagateAdditionalUserContextData") => boolean(),
         optional("EnableTokenRevocation") => boolean(),
@@ -2854,6 +2915,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      add_user_pool_client_secret_response() :: %{
+        "ClientSecretDescriptor" => client_secret_descriptor_type()
+      }
+      
+  """
+  @type add_user_pool_client_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       web_authn_credential_description() :: %{
         "AuthenticatorAttachment" => String.t() | atom(),
         "AuthenticatorTransports" => list(String.t() | atom()),
@@ -3026,6 +3098,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type delete_user_pool_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3301,6 +3384,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type confirm_forgot_password_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3599,6 +3693,19 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type resend_confirmation_code_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_user_pool_client_secret_request() :: %{
+        optional("ClientSecret") => String.t() | atom(),
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type add_user_pool_client_secret_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4677,6 +4784,14 @@ defmodule AWS.CognitoIdentityProvider do
           | too_many_requests_exception()
           | user_import_in_progress_exception()
 
+  @type add_user_pool_client_secret_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type admin_add_user_to_group_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
@@ -4982,6 +5097,7 @@ defmodule AWS.CognitoIdentityProvider do
           | not_authorized_exception()
           | web_authn_credential_not_supported_exception()
           | web_authn_client_mismatch_exception()
+          | password_reset_required_exception()
           | too_many_requests_exception()
           | web_authn_relying_party_mismatch_exception()
           | forbidden_exception()
@@ -5204,6 +5320,13 @@ defmodule AWS.CognitoIdentityProvider do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type delete_user_pool_client_secret_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type delete_user_pool_domain_errors() ::
           internal_error_exception()
           | concurrent_modification_exception()
@@ -5216,6 +5339,7 @@ defmodule AWS.CognitoIdentityProvider do
           | limit_exceeded_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
+          | password_reset_required_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -5516,6 +5640,13 @@ defmodule AWS.CognitoIdentityProvider do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type list_user_pool_client_secrets_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type list_user_pool_clients_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
@@ -5548,6 +5679,7 @@ defmodule AWS.CognitoIdentityProvider do
           | limit_exceeded_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
+          | password_reset_required_exception()
           | too_many_requests_exception()
           | forbidden_exception()
 
@@ -5691,6 +5823,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | not_authorized_exception()
           | web_authn_configuration_missing_exception()
+          | password_reset_required_exception()
           | too_many_requests_exception()
           | forbidden_exception()
 
@@ -5910,6 +6043,23 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "AddCustomAttributes", input, options)
+  end
+
+  @doc """
+  Creates a new client secret for an existing confidential user pool app client.
+
+  Supports up to 2 active secrets per app client for zero-downtime credential
+  rotation workflows.
+  """
+  @spec add_user_pool_client_secret(map(), add_user_pool_client_secret_request(), list()) ::
+          {:ok, add_user_pool_client_secret_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, add_user_pool_client_secret_errors()}
+  def add_user_pool_client_secret(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AddUserPoolClientSecret", input, options)
   end
 
   @doc """
@@ -7933,6 +8083,22 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Deletes a specific client secret from a user pool app client.
+
+  You cannot delete the last remaining secret for an app client.
+  """
+  @spec delete_user_pool_client_secret(map(), delete_user_pool_client_secret_request(), list()) ::
+          {:ok, delete_user_pool_client_secret_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_user_pool_client_secret_errors()}
+  def delete_user_pool_client_secret(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUserPoolClientSecret", input, options)
+  end
+
+  @doc """
   Given a user pool ID and domain identifier, deletes a user pool domain.
 
   After you
@@ -9027,6 +9193,25 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Lists all client secrets associated with a user pool app client.
+
+  Returns metadata about the secrets. The response does not include pagination
+  tokens as there are only 2 secrets at any given time and we return both with
+  every ListUserPoolClientSecrets call. For security reasons, the response never
+  reveals the actual secret value in ClientSecretValue.
+  """
+  @spec list_user_pool_client_secrets(map(), list_user_pool_client_secrets_request(), list()) ::
+          {:ok, list_user_pool_client_secrets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_user_pool_client_secrets_errors()}
+  def list_user_pool_client_secrets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUserPoolClientSecrets", input, options)
+  end
+
+  @doc """
   Given a user pool ID, lists app clients.
 
   App clients are sets of rules for the access
@@ -9091,6 +9276,12 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Given a user pool ID, returns a list of users and their basic details in a user
   pool.
+
+  This operation is eventually consistent. You might experience a delay before
+  results
+  are up-to-date. To validate the existence or configuration of an individual
+  user, use
+  `AdminGetUser`.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -10045,8 +10236,8 @@ defmodule AWS.CognitoIdentityProvider do
   user
   pool, modified to include the changes that you want to make.
 
-  If you don't provide a value for an attribute, Amazon Cognito sets it to its
-  default value.
+  With the exception of `UserPoolTier`, if you don't provide a value for an
+  attribute, Amazon Cognito sets it to its default value.
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers

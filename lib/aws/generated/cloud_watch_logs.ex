@@ -293,6 +293,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      put_bearer_token_authentication_request() :: %{
+        required("bearerTokenAuthenticationEnabled") => boolean(),
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type put_bearer_token_authentication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_delivery_destination_policy_request() :: %{
         required("deliveryDestinationName") => String.t() | atom(),
         required("deliveryDestinationPolicy") => String.t() | atom()
@@ -3332,6 +3344,7 @@ defmodule AWS.CloudWatchLogs do
       
       log_group() :: %{
         "arn" => String.t() | atom(),
+        "bearerTokenAuthenticationEnabled" => boolean(),
         "creationTime" => float(),
         "dataProtectionStatus" => list(any()),
         "deletionProtectionEnabled" => boolean(),
@@ -4606,6 +4619,14 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | operation_aborted_exception()
 
+  @type put_bearer_token_authentication_errors() ::
+          invalid_parameter_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_operation_exception()
+
   @type put_data_protection_policy_errors() ::
           limit_exceeded_exception()
           | invalid_parameter_exception()
@@ -5074,10 +5095,10 @@ defmodule AWS.CloudWatchLogs do
   logs:PutResourcePolicy
 
       *
-  (If source has an associated AWS KMS Key) kms:Decrypt
+  (If source has an associated Amazon Web Services KMS Key) kms:Decrypt
 
       *
-  (If source has an associated AWS KMS Key) kms:GenerateDataKey
+  (If source has an associated Amazon Web Services KMS Key) kms:GenerateDataKey
 
   Example IAM policy for provided import role:
 
@@ -6504,6 +6525,14 @@ defmodule AWS.CloudWatchLogs do
   `@ptr.$[path.to.field]`) are added. The path in the reference field reflects the original JSON structure where the large field was located. For example, this
   could be
   `@ptr.$['input']['message']`, `@ptr.$['AAA']['BBB']['CCC']['DDD']`, `@ptr.$['AAA']`, or any other path matching your log structure.
+
+  The `GetLogObject` API routes requests using SDK host prefix injection. SDK
+  versions released before April 1, 2026 route to
+  `streaming-logs.*Region*.amazonaws.com`, which does not support VPC endpoints.
+  SDK versions released on or after April 1, 2026 route to
+  `stream-logs.*Region*.amazonaws.com`, which supports VPC endpoints. To set up a
+  VPC endpoint for this API, see [Creating a VPC endpoint for CloudWatch Logs
+  ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs).
   """
   @spec get_log_object(map(), get_log_object_request(), list()) ::
           {:ok, get_log_object_response(), any()}
@@ -7289,8 +7318,8 @@ defmodule AWS.CloudWatchLogs do
   EMF format
   are still ingested, but no CloudWatch Metrics are created from them.
 
-  Creating a policy disables metrics for AWS features that use EMF to create
-  metrics, such
+  Creating a policy disables metrics for Amazon Web Services features that use EMF
+  to create metrics, such
   as CloudWatch Container Insights and CloudWatch Application Signals. To prevent
   turning off
   those features by accident, we recommend that you exclude the underlying
@@ -7369,6 +7398,27 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "PutAccountPolicy", input, options)
+  end
+
+  @doc """
+  Enables or disables bearer token authentication for the specified log group.
+
+  When enabled on a
+  log group, bearer token authentication is enabled on operations until it is
+  explicitly
+  disabled.
+
+  For information about the parameters that are common to all actions, see [Common Parameters](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonParameters.html).
+  """
+  @spec put_bearer_token_authentication(map(), put_bearer_token_authentication_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_bearer_token_authentication_errors()}
+  def put_bearer_token_authentication(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutBearerTokenAuthentication", input, options)
   end
 
   @doc """
@@ -8244,9 +8294,13 @@ defmodule AWS.CloudWatchLogs do
   object is returned when the session times out, after it
   has been kept open for three hours.
 
-  The `StartLiveTail` API routes requests to
-  `streaming-logs.*Region*.amazonaws.com` using SDK host
-  prefix injection. VPC endpoint support is not available for this API.
+  The `StartLiveTail` API routes requests using SDK host prefix injection. SDK
+  versions released before April 1, 2026 route to
+  `streaming-logs.*Region*.amazonaws.com`, which does not support VPC endpoints.
+  SDK versions released on or after April 1, 2026 route to
+  `stream-logs.*Region*.amazonaws.com`, which supports VPC endpoints. To set up a
+  VPC endpoint for this API, see [Creating a VPC endpoint for CloudWatch Logs
+  ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs).
 
   You can end a session before it times out by closing the session stream or by
   closing

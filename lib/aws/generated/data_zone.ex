@@ -19,6 +19,31 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      lineage_node_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "downstreamLineageNodeIds" => list(String.t() | atom()),
+        "eventTimestamp" => [non_neg_integer()],
+        "formsOutput" => list(form_output()),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "sourceIdentifier" => [String.t() | atom()],
+        "typeName" => [String.t() | atom()],
+        "typeRevision" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom(),
+        "upstreamLineageNodeIds" => list(String.t() | atom())
+      }
+
+  """
+  @type lineage_node_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       policy_grant_member() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
@@ -5020,6 +5045,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      entity_pattern() :: %{
+        "entityType" => list(any()),
+        "filters" => list(),
+        "identifier" => [String.t() | atom()]
+      }
+
+  """
+  @type entity_pattern() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_product_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
@@ -7488,6 +7526,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      relation_pattern() :: %{
+        "maxPathLength" => [integer()],
+        "relationDirection" => list(any()),
+        "relationType" => list(any())
+      }
+
+  """
+  @type relation_pattern() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_subscription_grant_status_input() :: %{
         optional("failureCause") => failure_cause(),
         optional("targetName") => [String.t() | atom()],
@@ -7621,6 +7672,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      additional_attributes() :: %{
+        "formNames" => list(String.t() | atom())
+      }
+
+  """
+  @type additional_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_scope() :: %{
         "assetId" => String.t() | atom(),
         "errorMessage" => [String.t() | atom()],
@@ -7726,6 +7788,20 @@ defmodule AWS.DataZone do
 
   """
   @type detailed_glossary_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_graph_input() :: %{
+        optional("additionalAttributes") => additional_attributes(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("match") => list(list())
+      }
+
+  """
+  @type query_graph_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8560,6 +8636,18 @@ defmodule AWS.DataZone do
 
   """
   @type lake_formation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_graph_output() :: %{
+        "items" => list(list()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type query_graph_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9789,6 +9877,12 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type query_graph_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type reject_predictions_errors() ::
           throttling_exception()
@@ -16670,6 +16764,41 @@ defmodule AWS.DataZone do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Queries entities in the graph store.
+  """
+  @spec query_graph(map(), String.t() | atom(), query_graph_input(), list()) ::
+          {:ok, query_graph_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, query_graph_errors()}
+  def query_graph(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/graph/query"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

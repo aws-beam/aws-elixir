@@ -552,6 +552,19 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
+      resold_unified_operations() :: %{
+        "chargeAccountId" => String.t() | atom(),
+        "coverage" => list(any()),
+        "tamLocation" => [String.t() | atom()]
+      }
+      
+  """
+  @type resold_unified_operations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_response() :: %{
         "tags" => list(tag())
       }
@@ -872,17 +885,6 @@ defmodule AWS.PartnerCentralChannel do
       
   """
   @type revoke_service_period_type_sort() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resold_business() :: %{
-        "coverage" => list(any())
-      }
-      
-  """
-  @type resold_business() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

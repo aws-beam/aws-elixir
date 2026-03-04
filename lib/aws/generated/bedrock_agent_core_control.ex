@@ -291,6 +291,7 @@ defmodule AWS.BedrockAgentCoreControl do
       update_policy_engine_response() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "policyEngineArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -738,6 +739,7 @@ defmodule AWS.BedrockAgentCoreControl do
       get_policy_engine_response() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "policyEngineArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -1521,6 +1523,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      runtime_metadata_configuration() :: %{
+        "requireMMDSV2" => [boolean()]
+      }
+
+  """
+  @type runtime_metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_agent_runtime_endpoint_request() :: %{
         optional("clientToken") => String.t() | atom()
       }
@@ -1559,6 +1572,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
         optional("lifecycleConfiguration") => lifecycle_configuration(),
+        optional("metadataConfiguration") => runtime_metadata_configuration(),
         optional("protocolConfiguration") => protocol_configuration(),
         optional("requestHeaderConfiguration") => list(),
         required("agentRuntimeArtifact") => list(),
@@ -1742,6 +1756,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_workload_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_generation_details() :: %{
+        "policyGenerationAssetId" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom()
+      }
+
+  """
+  @type policy_generation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2241,9 +2267,9 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_policy_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("validationMode") => list(any()),
-        required("definition") => list()
+        optional("definition") => list(),
+        optional("description") => updated_description(),
+        optional("validationMode") => list(any())
       }
 
   """
@@ -2977,6 +3003,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "failureReason" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
         "lifecycleConfiguration" => lifecycle_configuration(),
+        "metadataConfiguration" => runtime_metadata_configuration(),
         "networkConfiguration" => network_configuration(),
         "protocolConfiguration" => protocol_configuration(),
         "requestHeaderConfiguration" => list(),
@@ -3165,6 +3192,7 @@ defmodule AWS.BedrockAgentCoreControl do
       create_policy_engine_response() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "policyEngineArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -3299,6 +3327,8 @@ defmodule AWS.BedrockAgentCoreControl do
       create_policy_engine_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("encryptionKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
         required("name") => String.t() | atom()
       }
 
@@ -3526,6 +3556,7 @@ defmodule AWS.BedrockAgentCoreControl do
       delete_policy_engine_response() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "policyEngineArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -3850,6 +3881,7 @@ defmodule AWS.BedrockAgentCoreControl do
       policy_engine() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "policyEngineArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -4242,7 +4274,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_policy_engine_request() :: %{
-        optional("description") => String.t() | atom()
+        optional("description") => updated_description()
       }
 
   """
@@ -4256,6 +4288,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_description() :: %{
+        "optionalValue" => String.t() | atom()
+      }
+
+  """
+  @type updated_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7756,7 +7799,7 @@ defmodule AWS.BedrockAgentCoreControl do
     Request.request_rest(
       client,
       meta,
-      :put,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -7789,7 +7832,7 @@ defmodule AWS.BedrockAgentCoreControl do
     Request.request_rest(
       client,
       meta,
-      :put,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

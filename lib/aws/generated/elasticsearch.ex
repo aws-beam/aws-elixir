@@ -606,6 +606,7 @@ defmodule AWS.Elasticsearch do
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options_input(),
         optional("CognitoOptions") => cognito_options(),
+        optional("DeploymentStrategyOptions") => deployment_strategy_options(),
         optional("DomainEndpointOptions") => domain_endpoint_options(),
         optional("EBSOptions") => ebs_options(),
         optional("ElasticsearchClusterConfig") => elasticsearch_cluster_config(),
@@ -1079,6 +1080,7 @@ defmodule AWS.Elasticsearch do
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options(),
         optional("CognitoOptions") => cognito_options(),
+        optional("DeploymentStrategyOptions") => deployment_strategy_options(),
         optional("DomainEndpointOptions") => domain_endpoint_options(),
         optional("DryRun") => boolean(),
         optional("EBSOptions") => ebs_options(),
@@ -1294,6 +1296,7 @@ defmodule AWS.Elasticsearch do
         "AutoTuneOptions" => auto_tune_options_status(),
         "ChangeProgressDetails" => change_progress_details(),
         "CognitoOptions" => cognito_options_status(),
+        "DeploymentStrategyOptions" => deployment_strategy_options_status(),
         "DomainEndpointOptions" => domain_endpoint_options_status(),
         "EBSOptions" => ebs_options_status(),
         "ElasticsearchClusterConfig" => elasticsearch_cluster_config_status(),
@@ -1674,6 +1677,17 @@ defmodule AWS.Elasticsearch do
 
   ## Example:
 
+      deployment_strategy_options() :: %{
+        "DeploymentStrategy" => list(any())
+      }
+
+  """
+  @type deployment_strategy_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       advanced_security_options_status() :: %{
         "Options" => advanced_security_options(),
         "Status" => option_status()
@@ -1789,6 +1803,18 @@ defmodule AWS.Elasticsearch do
 
   ## Example:
 
+      deployment_strategy_options_status() :: %{
+        "Options" => deployment_strategy_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type deployment_strategy_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       auto_tune_options() :: %{
         "DesiredState" => list(any()),
         "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()),
@@ -1812,6 +1838,7 @@ defmodule AWS.Elasticsearch do
         "CognitoOptions" => cognito_options(),
         "Created" => boolean(),
         "Deleted" => boolean(),
+        "DeploymentStrategyOptions" => deployment_strategy_options(),
         "DomainEndpointOptions" => domain_endpoint_options(),
         "DomainId" => String.t() | atom(),
         "DomainName" => String.t() | atom(),

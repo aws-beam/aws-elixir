@@ -676,6 +676,7 @@ defmodule AWS.OpenSearch do
         "ChangeProgressDetails" => change_progress_details(),
         "ClusterConfig" => cluster_config_status(),
         "CognitoOptions" => cognito_options_status(),
+        "DeploymentStrategyOptions" => deployment_strategy_options_status(),
         "DomainEndpointOptions" => domain_endpoint_options_status(),
         "EBSOptions" => ebs_options_status(),
         "EncryptionAtRestOptions" => encryption_at_rest_options_status(),
@@ -1375,6 +1376,7 @@ defmodule AWS.OpenSearch do
         optional("AutoTuneOptions") => auto_tune_options_input(),
         optional("ClusterConfig") => cluster_config(),
         optional("CognitoOptions") => cognito_options(),
+        optional("DeploymentStrategyOptions") => deployment_strategy_options(),
         optional("DomainEndpointOptions") => domain_endpoint_options(),
         optional("EBSOptions") => ebs_options(),
         optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
@@ -1597,6 +1599,7 @@ defmodule AWS.OpenSearch do
         optional("AutoTuneOptions") => auto_tune_options(),
         optional("ClusterConfig") => cluster_config(),
         optional("CognitoOptions") => cognito_options(),
+        optional("DeploymentStrategyOptions") => deployment_strategy_options(),
         optional("DomainEndpointOptions") => domain_endpoint_options(),
         optional("DryRun") => boolean(),
         optional("DryRunMode") => list(any()),
@@ -2289,6 +2292,7 @@ defmodule AWS.OpenSearch do
         "DomainEndpointV2HostedZoneId" => String.t() | atom(),
         "AutoTuneOptions" => auto_tune_options_output(),
         "LogPublishingOptions" => map(),
+        "DeploymentStrategyOptions" => deployment_strategy_options(),
         "OffPeakWindowOptions" => off_peak_window_options(),
         "SoftwareUpdateOptions" => software_update_options(),
         "Deleted" => boolean(),
@@ -2760,6 +2764,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      deployment_strategy_options() :: %{
+        "DeploymentStrategy" => list(any())
+      }
+
+  """
+  @type deployment_strategy_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       advanced_security_options_status() :: %{
         "Options" => advanced_security_options(),
         "Status" => option_status()
@@ -2948,6 +2963,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type j_w_t_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_strategy_options_status() :: %{
+        "Options" => deployment_strategy_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type deployment_strategy_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

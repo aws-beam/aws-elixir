@@ -3689,6 +3689,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      email_address_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IsDefaultOutboundEmail" => boolean()
+      }
+
+  """
+  @type email_address_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_view_version_request() :: %{}
 
   """
@@ -5516,6 +5529,18 @@ defmodule AWS.Connect do
 
   """
   @type delete_routing_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_queue_email_addresses_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("EmailAddressesId") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_queue_email_addresses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7422,6 +7447,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_queue_email_addresses_response() :: %{
+        "EmailAddressMetadataList" => list(email_address_summary()),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_queue_email_addresses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_workspace_request() :: %{}
 
   """
@@ -7878,6 +7917,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      associate_queue_email_addresses_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("EmailAddressesConfig") => list(email_address_config())
+      }
+
+  """
+  @type associate_queue_email_addresses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       observation_summary() :: %{
         "ObservationsFailed" => integer(),
         "ObservationsPassed" => integer(),
@@ -8212,6 +8263,7 @@ defmodule AWS.Connect do
 
       create_queue_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("EmailAddressesConfig") => list(email_address_config()),
         optional("MaxContacts") => integer(),
         optional("OutboundCallerConfig") => outbound_caller_config(),
         optional("OutboundEmailConfig") => outbound_email_config(),
@@ -10081,6 +10133,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_queue_email_addresses_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_queue_email_addresses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_view_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
@@ -11812,6 +11876,17 @@ defmodule AWS.Connect do
 
   """
   @type update_contact_flow_name_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_address_config() :: %{
+        "EmailAddressId" => String.t() | atom()
+      }
+
+  """
+  @type email_address_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15321,6 +15396,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type associate_queue_email_addresses_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type associate_queue_quick_connects_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -16408,6 +16492,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type disassociate_queue_email_addresses_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type disassociate_queue_quick_connects_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -16846,6 +16938,14 @@ defmodule AWS.Connect do
   @type list_prompts_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_queue_email_addresses_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -18709,6 +18809,76 @@ defmodule AWS.Connect do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates a set of email addresses with a queue to enable agents to select
+  different "From" (system) email addresses when replying to inbound email
+  contacts or initiating outbound email contacts.
+
+  This allows agents to handle email contacts across different brands and business
+  units within the same queue.
+
+  ## Important things to know
+
+    *
+  You can associate up to 49 additional email addresses with a single queue, plus
+  1 default outbound email address, for a total of 50.
+
+    *
+  The email addresses must already exist in the Amazon Connect instance before
+  they can be associated with a queue.
+
+    *
+  Agents will be able to select from these associated email addresses when
+  handling email contacts in the queue.
+
+    *
+  For inbound email contacts, agents can select from email addresses associated
+  with the queue where the contact was accepted.
+
+    *
+  For outbound email contacts, agents can select from email addresses associated
+  with their default outbound queue configured in their routing profile.
+  """
+  @spec associate_queue_email_addresses(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          associate_queue_email_addresses_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_queue_email_addresses_errors()}
+  def associate_queue_email_addresses(
+        %Client{} = client,
+        instance_id,
+        queue_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/associate-email-addresses"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -24064,6 +24234,67 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Removes the association between a set of email addresses and a queue.
+
+  After disassociation, agents will no longer be able to select these email
+  addresses as "From" addresses when replying to inbound email contacts or
+  initiating outbound email contacts in this queue.
+
+  ## Important things to know
+
+    *
+  Agents will no longer see these email addresses in their "From" address
+  selection options for this queue.
+
+    *
+  The email addresses themselves are not deleted from the instance, only their
+  availability for agent selection in this queue is removed.
+
+    *
+  Changes take effect immediately and will affect the agent experience in the
+  Contact Control Panel (CCP).
+  """
+  @spec disassociate_queue_email_addresses(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          disassociate_queue_email_addresses_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_queue_email_addresses_errors()}
+  def disassociate_queue_email_addresses(
+        %Client{} = client,
+        instance_id,
+        queue_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/disassociate-email-addresses"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Disassociates a set of quick connects from a queue.
   """
   @spec disassociate_queue_quick_connects(
@@ -26993,6 +27224,77 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path = "/prompts-summary/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all email addresses that are currently associated with a specific queue,
+  providing details about which "From" email addresses agents can select when
+  handling email contacts.
+
+  This helps administrators manage agent email address options and understand the
+  available choices for different brands and business units.
+
+  ## Important things to know
+
+    *
+  The response includes metadata about each email address available for agent
+  selection, including whether it's configured as the default outbound email.
+
+    *
+  Agents can select from these email addresses when replying to inbound contacts
+  or initiating outbound contacts in this queue.
+
+    *
+  The list includes both explicitly associated email addresses and any default
+  outbound email address configured for the queue.
+
+    *
+  Results are paginated to handle queues with many associated email addresses (up
+  to 50 per queue).
+  """
+  @spec list_queue_email_addresses(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_queue_email_addresses_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_queue_email_addresses_errors()}
+  def list_queue_email_addresses(
+        %Client{} = client,
+        instance_id,
+        queue_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/email-addresses"
+
     headers = []
     query_params = []
 

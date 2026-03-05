@@ -97,6 +97,17 @@ defmodule AWS.GameLift do
 
   ## Example:
       
+      player_gateway_configuration() :: %{
+        "GameServerIpProtocolSupported" => list(any())
+      }
+      
+  """
+  @type player_gateway_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_fleet_status_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -182,6 +193,7 @@ defmodule AWS.GameLift do
         "GameSessionArn" => String.t() | atom(),
         "IpAddress" => String.t() | atom(),
         "MatchedPlayerSessions" => list(matched_player_session()),
+        "PlayerGatewayStatus" => list(any()),
         "Port" => integer()
       }
       
@@ -244,6 +256,7 @@ defmodule AWS.GameLift do
       
       container_fleet_location_attributes() :: %{
         "Location" => String.t() | atom(),
+        "PlayerGatewayStatus" => list(any()),
         "Status" => list(any())
       }
       
@@ -1426,6 +1439,7 @@ defmodule AWS.GameLift do
       
       location_state() :: %{
         "Location" => String.t() | atom(),
+        "PlayerGatewayStatus" => list(any()),
         "Status" => list(any())
       }
       
@@ -1721,6 +1735,20 @@ defmodule AWS.GameLift do
       
   """
   @type describe_script_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      player_connection_detail() :: %{
+        "Endpoints" => list(player_connection_endpoint()),
+        "Expiration" => non_neg_integer(),
+        "PlayerGatewayToken" => String.t() | atom(),
+        "PlayerId" => String.t() | atom()
+      }
+      
+  """
+  @type player_connection_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2613,6 +2641,8 @@ defmodule AWS.GameLift do
         "Name" => String.t() | atom(),
         "NewGameSessionProtectionPolicy" => list(any()),
         "OperatingSystem" => list(any()),
+        "PlayerGatewayConfiguration" => player_gateway_configuration(),
+        "PlayerGatewayMode" => list(any()),
         "ResourceCreationLimitPolicy" => resource_creation_limit_policy(),
         "ScriptArn" => String.t() | atom(),
         "ScriptId" => String.t() | atom(),
@@ -2865,6 +2895,8 @@ defmodule AWS.GameLift do
         optional("NewGameSessionProtectionPolicy") => list(any()),
         optional("PeerVpcAwsAccountId") => String.t() | atom(),
         optional("PeerVpcId") => String.t() | atom(),
+        optional("PlayerGatewayConfiguration") => player_gateway_configuration(),
+        optional("PlayerGatewayMode") => list(any()),
         optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
         optional("RuntimeConfiguration") => runtime_configuration(),
         optional("ScriptId") => String.t() | atom(),
@@ -3634,6 +3666,7 @@ defmodule AWS.GameLift do
         "NewGameSessionProtectionPolicy" => list(any()),
         "PerInstanceContainerGroupDefinitionArn" => String.t() | atom(),
         "PerInstanceContainerGroupDefinitionName" => String.t() | atom(),
+        "PlayerGatewayMode" => list(any()),
         "Status" => list(any())
       }
       
@@ -3879,6 +3912,18 @@ defmodule AWS.GameLift do
       
   """
   @type target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_player_connection_details_output() :: %{
+        "GameSessionId" => String.t() | atom(),
+        "PlayerConnectionDetails" => list(player_connection_detail())
+      }
+      
+  """
+  @type get_player_connection_details_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4230,6 +4275,7 @@ defmodule AWS.GameLift do
         optional("MetricGroups") => list(String.t() | atom()),
         optional("NewGameSessionProtectionPolicy") => list(any()),
         optional("PerInstanceContainerGroupDefinitionName") => String.t() | atom(),
+        optional("PlayerGatewayMode") => list(any()),
         optional("Tags") => list(tag()),
         required("FleetRoleArn") => String.t() | atom()
       }
@@ -4284,6 +4330,7 @@ defmodule AWS.GameLift do
         "MaximumPlayerSessionCount" => integer(),
         "PlacedPlayerSessions" => list(placed_player_session()),
         "PlacementId" => String.t() | atom(),
+        "PlayerGatewayStatus" => list(any()),
         "PlayerLatencies" => list(player_latency()),
         "Port" => integer(),
         "PriorityConfigurationOverride" => priority_configuration_override(),
@@ -4313,6 +4360,7 @@ defmodule AWS.GameLift do
         "MatchmakerData" => String.t() | atom(),
         "MaximumPlayerSessionCount" => integer(),
         "Name" => String.t() | atom(),
+        "PlayerGatewayStatus" => list(any()),
         "PlayerSessionCreationPolicy" => list(any()),
         "Port" => integer(),
         "Status" => list(any()),
@@ -4338,12 +4386,36 @@ defmodule AWS.GameLift do
 
   ## Example:
       
+      get_player_connection_details_input() :: %{
+        required("GameSessionId") => String.t() | atom(),
+        required("PlayerIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_player_connection_details_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_container_fleet_output() :: %{
         "ContainerFleet" => container_fleet()
       }
       
   """
   @type update_container_fleet_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      player_connection_endpoint() :: %{
+        "IpAddress" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type player_connection_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4978,6 +5050,15 @@ defmodule AWS.GameLift do
 
   @type get_instance_access_errors() ::
           not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
+  @type get_player_connection_details_errors() ::
+          limit_exceeded_exception()
+          | invalid_game_session_status_exception()
+          | unsupported_region_exception()
+          | not_found_exception()
           | invalid_request_exception()
           | internal_service_exception()
           | unauthorized_exception()
@@ -7473,7 +7554,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2, Anywhere, Container
+  **This API works with the following fleet types:** EC2, Anywhere
 
   Retrieves core fleet-wide properties for fleets in an Amazon Web Services
   Region.
@@ -8051,7 +8132,11 @@ defmodule AWS.GameLift do
   you must configure an Amazon Simple Notification Service (SNS) topic to receive
   notifications from FlexMatch or
   queues. Continuously polling with `DescribeGameSessionPlacement` should only
-  be used for games in development with low game session usage.
+  be used for games in development with low game session usage. For a reference
+  implementation of event-based game session placement tracking, see [
+  Event-based game session placement
+  guidance](https://github.com/amazon-gamelift/amazon-gamelift-toolkit/tree/main/event-based-session-placement)
+  in the Amazon GameLift Toolkit.
   """
   @spec describe_game_session_placement(map(), describe_game_session_placement_input(), list()) ::
           {:ok, describe_game_session_placement_output(), any()}
@@ -8158,7 +8243,7 @@ defmodule AWS.GameLift do
 
   @doc """
 
-  **This API works with the following fleet types:** EC2
+  **This API works with the following fleet types:**EC2, Container
 
   Retrieves information about the EC2 instances in an Amazon GameLift Servers
   managed fleet, including
@@ -8717,6 +8802,43 @@ defmodule AWS.GameLift do
     meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceAccess", input, options)
+  end
+
+  @doc """
+
+  **This API works with the following fleet types:** EC2 (server SDK 5.x or
+  later), Container
+
+  Retrieves connection details for game clients to connect to game sessions.
+
+  **Player gateway benefits:** DDoS protection with negligible impact to latency.
+
+  To enable player gateway on your fleet, set `PlayerGatewayMode` to `ENABLED` or
+  `REQUIRED` when calling
+  [CreateFleet](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html) or
+  [CreateContainerFleet](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html).
+
+  **How to use:** After creating a game session and adding players, call this
+  operation with the game session ID and player IDs. When player gateway is
+  enabled, the response includes connection endpoints and player gateway tokens
+  that your game clients can use to connect to the game session through player
+  gateway. To learn more about player gateway integration, see [DDoS protection with Amazon GameLift Servers player
+  gateway](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html).
+
+  When player gateway is disabled or in locations where player gateway is not
+  supported, this operation returns game server connection information without
+  player gateway tokens, so that your game clients directly connect to the game
+  server endpoint.
+  """
+  @spec get_player_connection_details(map(), get_player_connection_details_input(), list()) ::
+          {:ok, get_player_connection_details_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_player_connection_details_errors()}
+  def get_player_connection_details(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPlayerConnectionDetails", input, options)
   end
 
   @doc """
@@ -9569,9 +9691,16 @@ defmodule AWS.GameLift do
   For examples of searching game sessions, see the ones below, and also see
   [Search game sessions by game property](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-search).
 
+    
   Avoid using periods (".") in property keys if you plan to search for game
   sessions by properties. Property keys containing periods cannot be searched and
   will be filtered out from search results due to search index limitations.
+
+    
+  If you use SearchGameSessions API, there is a limit of 500 game property keys
+  across all game sessions and all fleets per region. If the limit is exceeded,
+  there will potentially be game session entries missing from SearchGameSessions
+  API results.
 
     *
 

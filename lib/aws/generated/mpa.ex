@@ -152,6 +152,17 @@ defmodule AWS.MPA do
 
   ## Example:
 
+      start_approval_team_baseline_request() :: %{
+        optional("ApproverIds") => list(String.t() | atom())
+      }
+
+  """
+  @type start_approval_team_baseline_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_policy_version_request() :: %{}
 
   """
@@ -375,6 +386,17 @@ defmodule AWS.MPA do
 
   ## Example:
 
+      start_approval_team_baseline_response() :: %{
+        "BaselineSessionArn" => String.t() | atom()
+      }
+
+  """
+  @type start_approval_team_baseline_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       identity_source_for_list() :: %{
         "CreationTime" => non_neg_integer(),
         "IdentitySourceArn" => String.t() | atom(),
@@ -462,7 +484,10 @@ defmodule AWS.MPA do
 
       get_approval_team_response_approver() :: %{
         "ApproverId" => String.t() | atom(),
+        "LastActivity" => list(any()),
+        "LastActivityTime" => non_neg_integer(),
         "MfaMethods" => list(mfa_method()),
+        "PendingBaselineSessionArn" => String.t() | atom(),
         "PrimaryIdentityId" => String.t() | atom(),
         "PrimaryIdentitySourceArn" => String.t() | atom(),
         "PrimaryIdentityStatus" => list(any()),
@@ -1055,6 +1080,13 @@ defmodule AWS.MPA do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type start_approval_team_baseline_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type tag_resource_errors() ::
           too_many_tags_exception()
           | throttling_exception()
@@ -1644,6 +1676,40 @@ defmodule AWS.MPA do
           | {:error, start_active_approval_team_deletion_errors()}
   def start_active_approval_team_deletion(%Client{} = client, arn, input, options \\ []) do
     url_path = "/approval-teams/#{AWS.Util.encode_uri(arn)}?Delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a baseline session for specified approvers on an `ACTIVE` approval team.
+  """
+  @spec start_approval_team_baseline(
+          map(),
+          String.t() | atom(),
+          start_approval_team_baseline_request(),
+          list()
+        ) ::
+          {:ok, start_approval_team_baseline_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_approval_team_baseline_errors()}
+  def start_approval_team_baseline(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/approval-teams/#{AWS.Util.encode_uri(arn)}/baseline"
     headers = []
     custom_headers = []
     query_params = []

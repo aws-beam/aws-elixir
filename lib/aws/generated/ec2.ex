@@ -11174,6 +11174,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_allocation_metadata_entry() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_allocation_metadata_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       outpost_lag() :: %{
         "LocalGatewayVirtualInterfaceIds" => list(String.t() | atom()),
         "OutpostArn" => String.t() | atom(),
@@ -19050,6 +19062,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       capacity_allocation() :: %{
+        "AllocationMetadata" => list(capacity_allocation_metadata_entry()),
         "AllocationType" => list(any()),
         "Count" => integer()
       }

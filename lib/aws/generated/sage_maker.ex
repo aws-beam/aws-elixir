@@ -9650,6 +9650,8 @@ defmodule AWS.SageMaker do
       update_mlflow_tracking_server_request() :: %{
         optional("ArtifactStoreUri") => String.t() | atom(),
         optional("AutomaticModelRegistration") => boolean(),
+        optional("S3BucketOwnerAccountId") => String.t() | atom(),
+        optional("S3BucketOwnerVerification") => boolean(),
         optional("TrackingServerSize") => list(any()),
         optional("WeeklyMaintenanceWindowStart") => String.t() | atom(),
         required("TrackingServerName") => String.t() | atom()
@@ -13618,6 +13620,8 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "MlflowVersion" => String.t() | atom(),
         "RoleArn" => String.t() | atom(),
+        "S3BucketOwnerAccountId" => String.t() | atom(),
+        "S3BucketOwnerVerification" => boolean(),
         "TrackingServerArn" => String.t() | atom(),
         "TrackingServerMaintenanceStatus" => list(any()),
         "TrackingServerName" => String.t() | atom(),
@@ -15171,6 +15175,8 @@ defmodule AWS.SageMaker do
       create_mlflow_tracking_server_request() :: %{
         optional("AutomaticModelRegistration") => boolean(),
         optional("MlflowVersion") => String.t() | atom(),
+        optional("S3BucketOwnerAccountId") => String.t() | atom(),
+        optional("S3BucketOwnerVerification") => boolean(),
         optional("Tags") => list(tag()),
         optional("TrackingServerSize") => list(any()),
         optional("WeeklyMaintenanceWindowStart") => String.t() | atom(),

@@ -1776,6 +1776,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       update_farm_request() :: %{
+        optional("costScaleFactor") => float(),
         optional("description") => String.t() | atom(),
         optional("displayName") => String.t() | atom()
       }
@@ -2167,6 +2168,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       get_farm_response() :: %{
+        "costScaleFactor" => float(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
@@ -4075,6 +4077,7 @@ defmodule AWS.Deadline do
 
       create_farm_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("costScaleFactor") => float(),
         optional("description") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
         optional("tags") => map(),

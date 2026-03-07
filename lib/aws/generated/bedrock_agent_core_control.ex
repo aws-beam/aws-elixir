@@ -336,6 +336,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("encryptionKeyArn") => String.t() | atom(),
         optional("memoryExecutionRoleArn") => String.t() | atom(),
         optional("memoryStrategies") => list(list()),
+        optional("streamDeliveryResources") => stream_delivery_resources(),
         optional("tags") => map(),
         required("eventExpiryDuration") => [integer()],
         required("name") => String.t() | atom()
@@ -466,6 +467,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_delivery_resources() :: %{
+        "resources" => list(list())
+      }
+
+  """
+  @type stream_delivery_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1118,6 +1130,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      kinesis_resource() :: %{
+        "contentConfigurations" => list(content_configuration()),
+        "dataStreamArn" => String.t() | atom()
+      }
+
+  """
+  @type kinesis_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       semantic_override_consolidation_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -1301,7 +1325,8 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("description") => String.t() | atom(),
         optional("eventExpiryDuration") => [integer()],
         optional("memoryExecutionRoleArn") => String.t() | atom(),
-        optional("memoryStrategies") => modify_memory_strategies()
+        optional("memoryStrategies") => modify_memory_strategies(),
+        optional("streamDeliveryResources") => stream_delivery_resources()
       }
 
   """
@@ -1933,6 +1958,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type target_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_configuration() :: %{
+        "level" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type content_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3921,6 +3958,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "name" => String.t() | atom(),
         "status" => list(any()),
         "strategies" => list(memory_strategy()),
+        "streamDeliveryResources" => stream_delivery_resources(),
         "updatedAt" => [non_neg_integer()]
       }
 

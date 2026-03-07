@@ -1335,6 +1335,7 @@ defmodule AWS.Bedrock do
         "guardrailId" => String.t() | atom(),
         "guardrailVersion" => String.t() | atom(),
         "inputTags" => list(any()),
+        "modelEnforcement" => model_enforcement(),
         "owner" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => [String.t() | atom()]
@@ -2062,6 +2063,18 @@ defmodule AWS.Bedrock do
 
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_enforcement() :: %{
+        "excludedModels" => list(String.t() | atom()),
+        "includedModels" => list(String.t() | atom())
+      }
+
+  """
+  @type model_enforcement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5265,7 +5278,8 @@ defmodule AWS.Bedrock do
       account_enforced_guardrail_inference_input_configuration() :: %{
         "guardrailIdentifier" => String.t() | atom(),
         "guardrailVersion" => String.t() | atom(),
-        "inputTags" => list(any())
+        "inputTags" => list(any()),
+        "modelEnforcement" => model_enforcement()
       }
 
   """
@@ -5703,6 +5717,7 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | resource_in_use_exception()
 
   @type delete_imported_model_errors() ::
           throttling_exception()

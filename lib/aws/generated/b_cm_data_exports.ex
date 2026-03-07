@@ -5,13 +5,11 @@ defmodule AWS.BCMDataExports do
   @moduledoc """
   You can use the Data Exports API to create customized exports from multiple
   Amazon Web Services cost management and billing datasets, such as cost and usage
-  data and cost
-  optimization recommendations.
+  data and cost optimization recommendations.
 
   The Data Exports API provides the following endpoint:
 
-    *
-  https://bcm-data-exports.us-east-1.api.aws
+    * https://bcm-data-exports.us-east-1.api.aws
   """
 
   alias AWS.Client
@@ -353,6 +351,17 @@ defmodule AWS.BCMDataExports do
 
   ## Example:
       
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_export_response() :: %{
         "ExportArn" => String.t() | atom()
       }
@@ -564,6 +573,7 @@ defmodule AWS.BCMDataExports do
   @type create_export_errors() ::
           throttling_exception()
           | validation_exception()
+          | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
 
@@ -603,18 +613,21 @@ defmodule AWS.BCMDataExports do
   @type list_tags_for_resource_errors() ::
           throttling_exception()
           | validation_exception()
+          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type tag_resource_errors() ::
           throttling_exception()
           | validation_exception()
+          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type untag_resource_errors() ::
           throttling_exception()
           | validation_exception()
+          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
@@ -642,29 +655,25 @@ defmodule AWS.BCMDataExports do
 
   @doc """
   Creates a data export and specifies the data query, the delivery preference, and
-  any
-  optional resource tags.
+  any optional resource tags.
 
-  A `DataQuery` consists of both a `QueryStatement` and
-  `TableConfigurations`.
+  A `DataQuery` consists of both a `QueryStatement` and `TableConfigurations`.
 
   The `QueryStatement` is an SQL statement. Data Exports only supports a limited
   subset of the SQL syntax. For more information on the SQL syntax that is
   supported, see [Data query](https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html). To
   view the available tables and columns, see the [Data Exports table dictionary](https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html).
 
-  The `TableConfigurations` is a collection of specified
-  `TableProperties` for the table being queried in the `QueryStatement`.
-  TableProperties are additional configurations you can provide to change the data
-  and schema of
-  a table. Each table can have different TableProperties. However, tables are not
-  required to
+  The `TableConfigurations` is a collection of specified `TableProperties` for the
+  table being queried in the `QueryStatement`. TableProperties are additional
+  configurations you can provide to change the data and schema of a table. Each
+  table can have different TableProperties. However, tables are not required to
   have any TableProperties. Each table property has a default value that it
-  assumes if not
-  specified. For more information on table configurations, see [Data query](https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html). To
+  assumes if not specified. For more information on table configurations, see
+  [Data query](https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html). To
   view the table properties available for each table, see the [Data Exports table dictionary](https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html)
-  or use the `ListTables` API to get a response of all tables
-  and their available properties.
+  or use the `ListTables` API to get a response of all tables and their available
+  properties.
   """
   @spec create_export(map(), create_export_request(), list()) ::
           {:ok, create_export_response(), any()}
@@ -722,8 +731,8 @@ defmodule AWS.BCMDataExports do
   @doc """
   Returns the metadata for the specified table and table properties.
 
-  This includes the list
-  of columns in the table schema, their data types, and column descriptions.
+  This includes the list of columns in the table schema, their data types, and
+  column descriptions.
   """
   @spec get_table(map(), get_table_request(), list()) ::
           {:ok, get_table_response(), any()}
@@ -823,8 +832,7 @@ defmodule AWS.BCMDataExports do
   @doc """
   Updates an existing data export by overwriting all export parameters.
 
-  All export
-  parameters must be provided in the UpdateExport request.
+  All export parameters must be provided in the UpdateExport request.
   """
   @spec update_export(map(), update_export_request(), list()) ::
           {:ok, update_export_response(), any()}

@@ -5642,6 +5642,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      chat_entry_point_parameters() :: %{
+        "FlowId" => String.t() | atom()
+      }
+
+  """
+  @type chat_entry_point_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_analytics_data_set_request() :: %{
         optional("TargetAccountId") => String.t() | atom(),
         required("DataSetId") => String.t() | atom()
@@ -10849,6 +10860,7 @@ defmodule AWS.Connect do
   ## Example:
 
       test_case_entry_point() :: %{
+        "ChatEntryPointParameters" => chat_entry_point_parameters(),
         "Type" => list(any()),
         "VoiceCallEntryPointParameters" => voice_call_entry_point_parameters()
       }

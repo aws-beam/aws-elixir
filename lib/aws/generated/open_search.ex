@@ -1310,6 +1310,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       get_direct_query_data_source_response() :: %{
+        "DataSourceAccessPolicy" => String.t() | atom(),
         "DataSourceArn" => String.t() | atom(),
         "DataSourceName" => String.t() | atom(),
         "DataSourceType" => list(),
@@ -3321,6 +3322,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       add_direct_query_data_source_request() :: %{
+        optional("DataSourceAccessPolicy") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("TagList") => list(tag()),
         required("DataSourceName") => String.t() | atom(),
@@ -3361,6 +3363,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       update_direct_query_data_source_request() :: %{
+        optional("DataSourceAccessPolicy") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         required("DataSourceType") => list(),
         required("OpenSearchArns") => list(String.t() | atom())
@@ -3502,7 +3505,8 @@ defmodule AWS.OpenSearch do
 
       data_source() :: %{
         "dataSourceArn" => String.t() | atom(),
-        "dataSourceDescription" => String.t() | atom()
+        "dataSourceDescription" => String.t() | atom(),
+        "iamRoleForDataSourceArn" => String.t() | atom()
       }
 
   """
@@ -4456,7 +4460,8 @@ defmodule AWS.OpenSearch do
           | disabled_operation_exception()
 
   @type update_direct_query_data_source_errors() ::
-          base_exception()
+          limit_exceeded_exception()
+          | base_exception()
           | validation_exception()
           | internal_exception()
           | resource_not_found_exception()

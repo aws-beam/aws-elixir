@@ -10,6 +10,12 @@ defmodule AWS.Route53GlobalResolver do
 
   Route 53 Global Resolver supports DNS-over-port 53 (Do53), DNS-over-TLS (DoT),
   and DNS-over-HTTPS (DoH) protocols through global anycast IP addresses.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
 
   alias AWS.Client
@@ -221,7 +227,9 @@ defmodule AWS.Route53GlobalResolver do
         "description" => String.t() | atom(),
         "dnsName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
         "ipv4Addresses" => list(String.t() | atom()),
+        "ipv6Addresses" => list(String.t() | atom()),
         "name" => String.t() | atom(),
         "observabilityRegion" => String.t() | atom(),
         "regions" => list(String.t() | atom()),
@@ -609,6 +617,7 @@ defmodule AWS.Route53GlobalResolver do
       create_global_resolver_input() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("ipAddressType") => list(any()),
         optional("observabilityRegion") => String.t() | atom(),
         optional("tags") => map(),
         required("name") => String.t() | atom(),
@@ -741,7 +750,9 @@ defmodule AWS.Route53GlobalResolver do
         "description" => String.t() | atom(),
         "dnsName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
         "ipv4Addresses" => list(String.t() | atom()),
+        "ipv6Addresses" => list(String.t() | atom()),
         "name" => String.t() | atom(),
         "observabilityRegion" => String.t() | atom(),
         "regions" => list(String.t() | atom()),
@@ -763,7 +774,9 @@ defmodule AWS.Route53GlobalResolver do
         "description" => String.t() | atom(),
         "dnsName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
         "ipv4Addresses" => list(String.t() | atom()),
+        "ipv6Addresses" => list(String.t() | atom()),
         "name" => String.t() | atom(),
         "observabilityRegion" => String.t() | atom(),
         "regions" => list(String.t() | atom()),
@@ -1098,7 +1111,9 @@ defmodule AWS.Route53GlobalResolver do
         "description" => String.t() | atom(),
         "dnsName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
         "ipv4Addresses" => list(String.t() | atom()),
+        "ipv6Addresses" => list(String.t() | atom()),
         "name" => String.t() | atom(),
         "observabilityRegion" => String.t() | atom(),
         "regions" => list(String.t() | atom()),
@@ -1403,6 +1418,7 @@ defmodule AWS.Route53GlobalResolver do
 
       update_global_resolver_input() :: %{
         optional("description") => String.t() | atom(),
+        optional("ipAddressType") => list(any()),
         optional("name") => String.t() | atom(),
         optional("observabilityRegion") => String.t() | atom()
       }
@@ -1661,7 +1677,9 @@ defmodule AWS.Route53GlobalResolver do
         "description" => String.t() | atom(),
         "dnsName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "ipAddressType" => list(any()),
         "ipv4Addresses" => list(String.t() | atom()),
+        "ipv6Addresses" => list(String.t() | atom()),
         "name" => String.t() | atom(),
         "observabilityRegion" => String.t() | atom(),
         "regions" => list(String.t() | atom()),
@@ -1945,6 +1963,7 @@ defmodule AWS.Route53GlobalResolver do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -1961,6 +1980,7 @@ defmodule AWS.Route53GlobalResolver do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2025,6 +2045,7 @@ defmodule AWS.Route53GlobalResolver do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2111,6 +2132,7 @@ defmodule AWS.Route53GlobalResolver do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2119,6 +2141,7 @@ defmodule AWS.Route53GlobalResolver do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2127,6 +2150,7 @@ defmodule AWS.Route53GlobalResolver do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2135,6 +2159,7 @@ defmodule AWS.Route53GlobalResolver do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2143,6 +2168,7 @@ defmodule AWS.Route53GlobalResolver do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2151,6 +2177,7 @@ defmodule AWS.Route53GlobalResolver do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2176,6 +2203,12 @@ defmodule AWS.Route53GlobalResolver do
 
   This allows the resolver to resolve DNS queries for the private hosted zone from
   anywhere globally.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec associate_hosted_zone(map(), String.t() | atom(), associate_hosted_zone_input(), list()) ::
           {:ok, associate_hosted_zone_output(), any()}
@@ -2208,6 +2241,12 @@ defmodule AWS.Route53GlobalResolver do
 
   This is more efficient than creating rules individually when you need to set up
   multiple rules at once.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec batch_create_firewall_rule(map(), batch_create_firewall_rule_input(), list()) ::
           {:ok, batch_create_firewall_rule_output(), any()}
@@ -2239,6 +2278,12 @@ defmodule AWS.Route53GlobalResolver do
   Deletes multiple DNS firewall rules in a single operation.
 
   This is more efficient than deleting rules individually.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec batch_delete_firewall_rule(map(), batch_delete_firewall_rule_input(), list()) ::
           {:ok, batch_delete_firewall_rule_output(), any()}
@@ -2270,6 +2315,12 @@ defmodule AWS.Route53GlobalResolver do
   Updates multiple DNS firewall rules in a single operation.
 
   This is more efficient than updating rules individually.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec batch_update_firewall_rule(map(), batch_update_firewall_rule_input(), list()) ::
           {:ok, batch_update_firewall_rule_output(), any()}
@@ -2302,6 +2353,12 @@ defmodule AWS.Route53GlobalResolver do
 
   Access sources define IP addresses or CIDR ranges that are allowed to send DNS
   queries to the Route 53 Global Resolver, along with the permitted DNS protocols.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec create_access_source(map(), create_access_source_input(), list()) ::
           {:ok, create_access_source_output(), any()}
@@ -2334,6 +2391,12 @@ defmodule AWS.Route53GlobalResolver do
 
   Access tokens provide token-based authentication for DNS-over-HTTPS (DoH) and
   DNS-over-TLS (DoT) connections to the Route 53 Global Resolver.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec create_access_token(map(), String.t() | atom(), create_access_token_input(), list()) ::
           {:ok, create_access_token_output(), any()}
@@ -2367,6 +2430,12 @@ defmodule AWS.Route53GlobalResolver do
   A DNS view models end users, user groups, networks, and devices, and serves as a
   parent resource that holds configurations controlling access, authorization, DNS
   firewall rules, and forwarding rules.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec create_dns_view(map(), String.t() | atom(), create_dns_view_input(), list()) ::
           {:ok, create_dns_view_output(), any()}
@@ -2399,6 +2468,12 @@ defmodule AWS.Route53GlobalResolver do
 
   Domain lists are reusable sets of domain specifications that you use in DNS
   firewall rules to allow, block, or alert on DNS queries to specific domains.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec create_firewall_domain_list(
           map(),
@@ -2437,6 +2512,12 @@ defmodule AWS.Route53GlobalResolver do
   Firewall rules define actions (ALLOW, BLOCK, or ALERT) to take on DNS queries
   that match specified domain lists, managed domain lists, or advanced threat
   protections.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec create_firewall_rule(map(), create_firewall_rule_input(), list()) ::
           {:ok, create_firewall_rule_output(), any()}
@@ -2470,6 +2551,12 @@ defmodule AWS.Route53GlobalResolver do
   A Route 53 Global Resolver is a global, internet-accessible DNS resolver that
   provides secure DNS resolution for both public and private domains through
   global anycast IP addresses.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec create_global_resolver(map(), create_global_resolver_input(), list()) ::
           {:ok, create_global_resolver_output(), any()}
@@ -2501,6 +2588,12 @@ defmodule AWS.Route53GlobalResolver do
   Deletes an access source.
 
   This operation cannot be undone.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec delete_access_source(map(), String.t() | atom(), delete_access_source_input(), list()) ::
           {:ok, delete_access_source_output(), any()}
@@ -2532,6 +2625,12 @@ defmodule AWS.Route53GlobalResolver do
   Deletes an access token.
 
   This operation cannot be undone.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec delete_access_token(map(), String.t() | atom(), delete_access_token_input(), list()) ::
           {:ok, delete_access_token_output(), any()}
@@ -2563,6 +2662,12 @@ defmodule AWS.Route53GlobalResolver do
   Deletes a DNS view.
 
   This operation cannot be undone.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec delete_dns_view(map(), String.t() | atom(), delete_dns_view_input(), list()) ::
           {:ok, delete_dns_view_output(), any()}
@@ -2594,6 +2699,12 @@ defmodule AWS.Route53GlobalResolver do
   Deletes a firewall domain list.
 
   This operation cannot be undone.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec delete_firewall_domain_list(
           map(),
@@ -2635,6 +2746,12 @@ defmodule AWS.Route53GlobalResolver do
   Deletes a DNS firewall rule.
 
   This operation cannot be undone.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec delete_firewall_rule(map(), String.t() | atom(), delete_firewall_rule_input(), list()) ::
           {:ok, delete_firewall_rule_output(), any()}
@@ -2667,6 +2784,12 @@ defmodule AWS.Route53GlobalResolver do
 
   This operation cannot be undone. All associated DNS views, access sources,
   tokens, and firewall rules are also deleted.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec delete_global_resolver(map(), String.t() | atom(), delete_global_resolver_input(), list()) ::
           {:ok, delete_global_resolver_output(), any()}
@@ -2696,6 +2819,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Disables a DNS view, preventing it from serving DNS queries.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec disable_dns_view(map(), String.t() | atom(), disable_dns_view_input(), list()) ::
           {:ok, disable_dns_view_output(), any()}
@@ -2726,6 +2855,12 @@ defmodule AWS.Route53GlobalResolver do
   @doc """
   Disassociates a Route 53 private hosted zone from a Route 53 Global Resolver
   resource.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec disassociate_hosted_zone(
           map(),
@@ -2769,6 +2904,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Enables a disabled DNS view, allowing it to serve DNS queries again.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec enable_dns_view(map(), String.t() | atom(), enable_dns_view_input(), list()) ::
           {:ok, enable_dns_view_output(), any()}
@@ -2798,6 +2939,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Retrieves information about an access source.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec get_access_source(map(), String.t() | atom(), list()) ::
           {:ok, get_access_source_output(), any()}
@@ -2816,6 +2963,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Retrieves information about an access token.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec get_access_token(map(), String.t() | atom(), list()) ::
           {:ok, get_access_token_output(), any()}
@@ -2834,6 +2987,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Retrieves information about a DNS view.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec get_dns_view(map(), String.t() | atom(), list()) ::
           {:ok, get_dns_view_output(), any()}
@@ -2852,6 +3011,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Retrieves information about a firewall domain list.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec get_firewall_domain_list(map(), String.t() | atom(), list()) ::
           {:ok, get_firewall_domain_list_output(), any()}
@@ -2870,6 +3035,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Retrieves information about a DNS firewall rule.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec get_firewall_rule(map(), String.t() | atom(), list()) ::
           {:ok, get_firewall_rule_output(), any()}
@@ -2888,6 +3059,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Retrieves information about a Route 53 Global Resolver instance.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec get_global_resolver(map(), String.t() | atom(), list()) ::
           {:ok, get_global_resolver_output(), any()}
@@ -2906,6 +3083,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Retrieves information about a hosted zone association.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec get_hosted_zone_association(map(), String.t() | atom(), list()) ::
           {:ok, get_hosted_zone_association_output(), any()}
@@ -2923,10 +3106,16 @@ defmodule AWS.Route53GlobalResolver do
   end
 
   @doc """
-  Retrieves information about an AWS-managed firewall domain list.
+  Retrieves information about an Amazon Web Services-managed firewall domain list.
 
   Managed domain lists contain domains associated with malicious activity, content
   categories, or specific threats.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec get_managed_firewall_domain_list(map(), String.t() | atom(), list()) ::
           {:ok, get_managed_firewall_domain_list_output(), any()}
@@ -2953,6 +3142,12 @@ defmodule AWS.Route53GlobalResolver do
   Imports a list of domains from an Amazon S3 file into a firewall domain list.
 
   The file should contain one domain per line.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec import_firewall_domains(
           map(),
@@ -2989,6 +3184,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Lists all access sources with pagination support.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_access_sources(
           map(),
@@ -3040,6 +3241,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Lists all access tokens for a DNS view with pagination support.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_access_tokens(
           map(),
@@ -3093,6 +3300,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Lists all DNS views for a Route 53 Global Resolver with pagination support.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_dns_views(
           map(),
@@ -3138,6 +3351,12 @@ defmodule AWS.Route53GlobalResolver do
   @doc """
   Lists all firewall domain lists for a Route 53 Global Resolver with pagination
   support.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_firewall_domain_lists(
           map(),
@@ -3189,6 +3408,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Lists all the domains in DNS Firewall domain list you have created.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_firewall_domains(
           map(),
@@ -3233,6 +3458,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Lists all DNS firewall rules for a DNS view with pagination support.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_firewall_rules(
           map(),
@@ -3294,6 +3525,12 @@ defmodule AWS.Route53GlobalResolver do
   @doc """
   Lists all Route 53 Global Resolver instances in your account with pagination
   support.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_global_resolvers(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_global_resolvers_output(), any()}
@@ -3332,6 +3569,12 @@ defmodule AWS.Route53GlobalResolver do
   @doc """
   Lists all hosted zone associations for a Route 53 Global Resolver resource with
   pagination support.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_hosted_zone_associations(
           map(),
@@ -3377,10 +3620,16 @@ defmodule AWS.Route53GlobalResolver do
   end
 
   @doc """
-  Returns a paginated list of the AWS Managed DNS Lists and the categories for DNS
-  Firewall.
+  Returns a paginated list of the Amazon Web Services Managed DNS Lists and the
+  categories for DNS Firewall.
 
   The categories are either `THREAT` or `CONTENT`.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_managed_firewall_domain_lists(
           map(),
@@ -3427,6 +3676,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Lists the tags associated with a Route 53 Global Resolver resource.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3458,6 +3713,12 @@ defmodule AWS.Route53GlobalResolver do
   Adds or updates tags for a Route 53 Global Resolver resource.
 
   Tags are key-value pairs that help you organize and identify your resources.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -3487,6 +3748,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Removes tags from a Route 53 Global Resolver resource.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -3516,6 +3783,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Updates the configuration of an access source.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec update_access_source(map(), String.t() | atom(), update_access_source_input(), list()) ::
           {:ok, update_access_source_output(), any()}
@@ -3545,6 +3818,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Updates the configuration of an access token.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec update_access_token(map(), String.t() | atom(), update_access_token_input(), list()) ::
           {:ok, update_access_token_output(), any()}
@@ -3574,6 +3853,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Updates the configuration of a DNS view.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec update_dns_view(map(), String.t() | atom(), update_dns_view_input(), list()) ::
           {:ok, update_dns_view_output(), any()}
@@ -3603,6 +3888,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Updates a DNS Firewall domain list from an array of specified domains.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec update_firewall_domains(
           map(),
@@ -3637,6 +3928,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Updates the configuration of a DNS firewall rule.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec update_firewall_rule(map(), String.t() | atom(), update_firewall_rule_input(), list()) ::
           {:ok, update_firewall_rule_output(), any()}
@@ -3667,7 +3964,13 @@ defmodule AWS.Route53GlobalResolver do
   @doc """
   Updates the configuration of a Route 53 Global Resolver instance.
 
-  You can modify the name, description, and observability region.
+  You can modify the name, description, and observability Region.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec update_global_resolver(map(), String.t() | atom(), update_global_resolver_input(), list()) ::
           {:ok, update_global_resolver_output(), any()}
@@ -3697,6 +4000,12 @@ defmodule AWS.Route53GlobalResolver do
 
   @doc """
   Updates the configuration of a hosted zone association.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
   """
   @spec update_hosted_zone_association(
           map(),

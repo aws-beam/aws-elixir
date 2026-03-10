@@ -255,6 +255,7 @@ defmodule AWS.Mgn do
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
         optional("stagingAreaTags") => map(),
+        optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("tags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()],
@@ -308,6 +309,7 @@ defmodule AWS.Mgn do
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
         optional("stagingAreaTags") => map(),
+        optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()],
         required("replicationConfigurationTemplateID") => String.t() | atom()
@@ -396,6 +398,7 @@ defmodule AWS.Mgn do
       create_replication_configuration_template_request() :: %{
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
         optional("internetProtocol") => String.t() | atom(),
+        optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("tags") => map(),
         optional("useFipsEndpoint") => [boolean()],
         required("associateDefaultSecurityGroup") => [boolean()],
@@ -968,6 +971,7 @@ defmodule AWS.Mgn do
         optional("sourceServerID") => String.t() | atom(),
         optional("stagingAreaSubnetId") => String.t() | atom(),
         optional("stagingAreaTags") => map(),
+        optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()]
       }
@@ -2189,6 +2193,7 @@ defmodule AWS.Mgn do
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
         optional("stagingAreaTags") => map(),
+        optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()],
         required("sourceServerID") => String.t() | atom()

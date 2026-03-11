@@ -258,6 +258,17 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      compound_condition() :: %{
+        "conditions" => list(list())
+      }
+
+  """
+  @type compound_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_summary() :: %{
         "domainArn" => String.t() | atom(),
         "domainId" => String.t() | atom(),

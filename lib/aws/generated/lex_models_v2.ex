@@ -306,6 +306,19 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      issue_location() :: %{
+        "botLocale" => String.t() | atom(),
+        "intentId" => String.t() | atom(),
+        "slotId" => String.t() | atom()
+      }
+
+  """
+  @type issue_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bot_locale_history_event() :: %{
         "event" => String.t() | atom(),
         "eventDate" => non_neg_integer()
@@ -889,6 +902,21 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      stop_bot_analyzer_response() :: %{
+        "botAnalyzerRequestId" => String.t() | atom(),
+        "botAnalyzerStatus" => list(any()),
+        "botId" => String.t() | atom(),
+        "botVersion" => String.t() | atom(),
+        "localeId" => String.t() | atom()
+      }
+
+  """
+  @type stop_bot_analyzer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analytics_utterance_attribute() :: %{
         "name" => list(any())
       }
@@ -1150,6 +1178,31 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type text_input_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_bot_analyzer_recommendation_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_bot_analyzer_recommendation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bot_analyzer_history_summary() :: %{
+        "botAnalyzerRequestId" => String.t() | atom(),
+        "botAnalyzerStatus" => list(any()),
+        "creationDateTime" => non_neg_integer()
+      }
+
+  """
+  @type bot_analyzer_history_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2382,6 +2435,19 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      start_bot_analyzer_request() :: %{
+        optional("botVersion") => String.t() | atom(),
+        optional("localeId") => String.t() | atom(),
+        required("analysisScope") => list(any())
+      }
+
+  """
+  @type start_bot_analyzer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_session_analytics_data_response() :: %{
         "botId" => String.t() | atom(),
         "nextToken" => String.t() | atom(),
@@ -2518,6 +2584,20 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      list_bot_analyzer_history_request() :: %{
+        optional("botVersion") => String.t() | atom(),
+        optional("localeId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_bot_analyzer_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_slots_response() :: %{
         "botId" => String.t() | atom(),
         "botVersion" => String.t() | atom(),
@@ -2591,6 +2671,21 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type test_set_discrepancy_report_bot_alias_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bot_analyzer_history_response() :: %{
+        "botAnalyzerHistoryList" => list(bot_analyzer_history_summary()),
+        "botId" => String.t() | atom(),
+        "botVersion" => String.t() | atom(),
+        "localeId" => String.t() | atom(),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_bot_analyzer_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3362,6 +3457,23 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      describe_bot_analyzer_recommendation_response() :: %{
+        "botAnalyzerRecommendationList" => list(bot_analyzer_recommendation()),
+        "botAnalyzerStatus" => list(any()),
+        "botId" => String.t() | atom(),
+        "botVersion" => String.t() | atom(),
+        "creationDateTime" => non_neg_integer(),
+        "localeId" => String.t() | atom(),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_bot_analyzer_recommendation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_bot_version_replicas_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -3755,6 +3867,15 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      delete_bot_analyzer_recommendation_request() :: %{}
+
+  """
+  @type delete_bot_analyzer_recommendation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_aggregated_utterances_response() :: %{
         "aggregatedUtterancesSummaries" => list(aggregated_utterances_summary()),
         "aggregationDuration" => utterance_aggregation_duration(),
@@ -3848,6 +3969,22 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type update_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_bot_analyzer_response() :: %{
+        "botAnalyzerRequestId" => String.t() | atom(),
+        "botAnalyzerStatus" => list(any()),
+        "botId" => String.t() | atom(),
+        "botVersion" => String.t() | atom(),
+        "creationDateTime" => non_neg_integer(),
+        "localeId" => String.t() | atom()
+      }
+
+  """
+  @type start_bot_analyzer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5000,6 +5137,15 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      delete_bot_analyzer_recommendation_response() :: %{}
+
+  """
+  @type delete_bot_analyzer_recommendation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_bot_locale_response() :: %{
         "botId" => String.t() | atom(),
         "botLocaleHistoryEvents" => list(bot_locale_history_event()),
@@ -5240,6 +5386,20 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type list_utterance_analytics_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bot_analyzer_recommendation() :: %{
+        "issueDescription" => String.t() | atom(),
+        "issueLocation" => issue_location(),
+        "priority" => list(any()),
+        "proposedFix" => String.t() | atom()
+      }
+
+  """
+  @type bot_analyzer_recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6367,6 +6527,15 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      stop_bot_analyzer_request() :: %{}
+
+  """
+  @type stop_bot_analyzer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       message() :: %{
         "customPayload" => custom_payload(),
         "imageResponseCard" => image_response_card(),
@@ -6548,6 +6717,12 @@ defmodule AWS.LexModelsV2 do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type delete_bot_analyzer_recommendation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_bot_locale_errors() ::
           precondition_failed_exception()
           | throttling_exception()
@@ -6653,6 +6828,12 @@ defmodule AWS.LexModelsV2 do
           | validation_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type describe_bot_analyzer_recommendation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type describe_bot_locale_errors() ::
@@ -6792,6 +6973,12 @@ defmodule AWS.LexModelsV2 do
           | validation_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+
+  @type list_bot_analyzer_history_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_bot_locales_errors() ::
           throttling_exception()
@@ -6973,6 +7160,13 @@ defmodule AWS.LexModelsV2 do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
+  @type start_bot_analyzer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type start_bot_recommendation_errors() ::
           precondition_failed_exception()
           | throttling_exception()
@@ -7013,6 +7207,12 @@ defmodule AWS.LexModelsV2 do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type stop_bot_analyzer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type stop_bot_recommendation_errors() ::
           precondition_failed_exception()
@@ -7934,6 +8134,56 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Permanently deletes the recommendations and analysis results for a specific bot
+  analysis request.
+
+  This operation is provided for GDPR compliance and cannot be undone.
+
+  After deletion, the analysis results cannot be retrieved. The analysis request
+  ID will still appear in the history list, but attempting to describe the
+  recommendations will return a `ResourceNotFoundException`.
+  """
+  @spec delete_bot_analyzer_recommendation(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_bot_analyzer_recommendation_request(),
+          list()
+        ) ::
+          {:ok, delete_bot_analyzer_recommendation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_bot_analyzer_recommendation_errors()}
+  def delete_bot_analyzer_recommendation(
+        %Client{} = client,
+        bot_analyzer_request_id,
+        bot_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botanalyzer/#{AWS.Util.encode_uri(bot_analyzer_request_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Removes a locale from a bot.
 
   When you delete a locale, all intents, slots, and slot types defined
@@ -8537,6 +8787,56 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Retrieves the analysis results and recommendations for bot optimization.
+
+  The analysis must be in `Available` status before recommendations can be
+  retrieved.
+
+  Recommendations are returned with pagination support. Each recommendation
+  includes the issue location, priority level, detailed description, and proposed
+  fix.
+  """
+  @spec describe_bot_analyzer_recommendation(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          describe_bot_analyzer_recommendation_request(),
+          list()
+        ) ::
+          {:ok, describe_bot_analyzer_recommendation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_bot_analyzer_recommendation_errors()}
+  def describe_bot_analyzer_recommendation(
+        %Client{} = client,
+        bot_analyzer_request_id,
+        bot_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botanalyzer/describe/#{AWS.Util.encode_uri(bot_analyzer_request_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Describes the settings that a bot has for a specific locale.
   """
   @spec describe_bot_locale(
@@ -9120,6 +9420,45 @@ defmodule AWS.LexModelsV2 do
           | {:error, list_bot_aliases_errors()}
   def list_bot_aliases(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves a list of historical bot analysis executions for a specific bot.
+
+  You can filter the results by locale and bot version.
+
+  The history includes all analysis executions regardless of their status,
+  allowing you to track past analyses and their outcomes.
+  """
+  @spec list_bot_analyzer_history(
+          map(),
+          String.t() | atom(),
+          list_bot_analyzer_history_request(),
+          list()
+        ) ::
+          {:ok, list_bot_analyzer_history_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_bot_analyzer_history_errors()}
+  def list_bot_analyzer_history(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botanalyzer/history"
     headers = []
     custom_headers = []
     query_params = []
@@ -10364,6 +10703,41 @@ defmodule AWS.LexModelsV2 do
   end
 
   @doc """
+  Initiates an asynchronous analysis of your bot configuration using AI-powered
+  analysis to identify potential issues and recommend improvements based on AWS
+  best practices.
+
+  The analysis examines your bot's configuration, including intents, utterances,
+  slots, and conversation flows, to provide actionable recommendations for
+  optimization.
+  """
+  @spec start_bot_analyzer(map(), String.t() | atom(), start_bot_analyzer_request(), list()) ::
+          {:ok, start_bot_analyzer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_bot_analyzer_errors()}
+  def start_bot_analyzer(%Client{} = client, bot_id, input, options \\ []) do
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botanalyzer"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Use this to provide your transcript data, and to start the bot
   recommendation process.
   """
@@ -10548,6 +10922,46 @@ defmodule AWS.LexModelsV2 do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Cancels an ongoing bot analysis execution.
+
+  Once stopped, the analysis cannot be resumed and no recommendations will be
+  generated.
+  """
+  @spec stop_bot_analyzer(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          stop_bot_analyzer_request(),
+          list()
+        ) ::
+          {:ok, stop_bot_analyzer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_bot_analyzer_errors()}
+  def stop_bot_analyzer(%Client{} = client, bot_analyzer_request_id, bot_id, input, options \\ []) do
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botanalyzer/#{AWS.Util.encode_uri(bot_analyzer_request_id)}/stop"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

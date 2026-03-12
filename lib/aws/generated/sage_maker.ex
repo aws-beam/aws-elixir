@@ -32,6 +32,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      extend_training_plan_request() :: %{
+        required("TrainingPlanExtensionOfferingId") => String.t() | atom()
+      }
+      
+  """
+  @type extend_training_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       available_upgrade() :: %{
         "ReleaseNotes" => list(String.t() | atom()),
         "Version" => String.t() | atom()
@@ -1730,6 +1741,7 @@ defmodule AWS.SageMaker do
         optional("InstanceType") => list(any()),
         optional("StartTimeAfter") => non_neg_integer(),
         optional("TargetResources") => list(list(any())()),
+        optional("TrainingPlanArn") => String.t() | atom(),
         optional("UltraServerCount") => integer(),
         optional("UltraServerType") => String.t() | atom()
       }
@@ -3879,6 +3891,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       search_training_plan_offerings_response() :: %{
+        "TrainingPlanExtensionOfferings" => list(training_plan_extension_offering()),
         "TrainingPlanOfferings" => list(training_plan_offering())
       }
       
@@ -10056,6 +10069,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      extend_training_plan_response() :: %{
+        "TrainingPlanExtensions" => list(training_plan_extension())
+      }
+      
+  """
+  @type extend_training_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_user_profiles_request() :: %{
         optional("DomainIdEquals") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -12430,6 +12454,23 @@ defmodule AWS.SageMaker do
       
   """
   @type monitoring_dataset_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_plan_extension_offering() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "CurrencyCode" => String.t() | atom(),
+        "DurationHours" => integer(),
+        "EndDate" => non_neg_integer(),
+        "StartDate" => non_neg_integer(),
+        "TrainingPlanExtensionOfferingId" => String.t() | atom(),
+        "UpfrontFee" => String.t() | atom()
+      }
+      
+  """
+  @type training_plan_extension_offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15637,6 +15678,27 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      training_plan_extension() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "CurrencyCode" => String.t() | atom(),
+        "DurationHours" => integer(),
+        "EndDate" => non_neg_integer(),
+        "ExtendedAt" => non_neg_integer(),
+        "PaymentStatus" => String.t() | atom(),
+        "StartDate" => non_neg_integer(),
+        "Status" => String.t() | atom(),
+        "TrainingPlanExtensionOfferingId" => String.t() | atom(),
+        "UpfrontFee" => String.t() | atom()
+      }
+      
+  """
+  @type training_plan_extension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_lineage_group_policy_request() :: %{
         required("LineageGroupName") => String.t() | atom()
       }
@@ -16064,6 +16126,19 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_mlflow_tracking_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_training_plan_extension_history_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("TrainingPlanArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_training_plan_extension_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18918,6 +18993,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_training_plan_extension_history_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TrainingPlanExtensions" => list(training_plan_extension())
+      }
+      
+  """
+  @type describe_training_plan_extension_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_pipeline_parameters_for_execution_response() :: %{
         "NextToken" => String.t() | atom(),
         "PipelineParameters" => list(parameter())
@@ -19452,6 +19539,8 @@ defmodule AWS.SageMaker do
         "DurationHours" => float(),
         "DurationMinutes" => float(),
         "EndTime" => non_neg_integer(),
+        "ExtensionEndTime" => non_neg_integer(),
+        "ExtensionStartTime" => non_neg_integer(),
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
         "ReservedCapacityType" => list(any()),
@@ -20469,6 +20558,8 @@ defmodule AWS.SageMaker do
 
   @type describe_training_plan_errors() :: resource_not_found()
 
+  @type describe_training_plan_extension_history_errors() :: resource_not_found()
+
   @type describe_transform_job_errors() :: resource_not_found()
 
   @type describe_trial_errors() :: resource_not_found()
@@ -20480,6 +20571,8 @@ defmodule AWS.SageMaker do
   @type detach_cluster_node_volume_errors() :: resource_not_found()
 
   @type disassociate_trial_component_errors() :: resource_not_found()
+
+  @type extend_training_plan_errors() :: resource_not_found()
 
   @type get_lineage_group_policy_errors() :: resource_not_found()
 
@@ -24728,6 +24821,27 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Retrieves the extension history for a specified training plan.
+
+  The response includes details about each extension, such as the offering ID,
+  start and end dates, status, payment status, and cost information.
+  """
+  @spec describe_training_plan_extension_history(
+          map(),
+          describe_training_plan_extension_history_request(),
+          list()
+        ) ::
+          {:ok, describe_training_plan_extension_history_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_training_plan_extension_history_errors()}
+  def describe_training_plan_extension_history(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrainingPlanExtensionHistory", input, options)
+  end
+
+  @doc """
   Returns information about a transform job.
   """
   @spec describe_transform_job(map(), describe_transform_job_request(), list()) ::
@@ -24900,6 +25014,30 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "EnableSagemakerServicecatalogPortfolio", input, options)
+  end
+
+  @doc """
+  Extends an existing training plan by purchasing an extension offering.
+
+  This allows you to add additional compute capacity time to your training plan
+  without creating a new plan or reconfiguring your workloads.
+
+  To find available extension offerings, use the `
+  [SearchTrainingPlanOfferings](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchTrainingPlanOfferings.html) ` API with the `TrainingPlanArn` parameter.
+
+  To view the history of extensions for a training plan, use the `
+  [DescribeTrainingPlanExtensionHistory](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingPlanExtensionHistory.html)
+  ` API.
+  """
+  @spec extend_training_plan(map(), extend_training_plan_request(), list()) ::
+          {:ok, extend_training_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, extend_training_plan_errors()}
+  def extend_training_plan(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExtendTrainingPlan", input, options)
   end
 
   @doc """

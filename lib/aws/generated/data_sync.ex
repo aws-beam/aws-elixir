@@ -254,10 +254,13 @@ defmodule AWS.DataSync do
   ## Example:
       
       describe_location_fsx_windows_response() :: %{
+        "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
+        "CustomSecretConfig" => custom_secret_config(),
         "Domain" => String.t() | atom(),
         "LocationArn" => String.t() | atom(),
         "LocationUri" => String.t() | atom(),
+        "ManagedSecretConfig" => managed_secret_config(),
         "SecurityGroupArns" => list(String.t() | atom()),
         "User" => String.t() | atom()
       }
@@ -373,6 +376,8 @@ defmodule AWS.DataSync do
         optional("AgentArns") => list(String.t() | atom()),
         optional("AuthenticationType") => list(any()),
         optional("BlockSize") => integer(),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("KerberosKeytab") => binary(),
         optional("KerberosKrb5Conf") => binary(),
         optional("KerberosPrincipal") => String.t() | atom(),
@@ -871,6 +876,8 @@ defmodule AWS.DataSync do
   ## Example:
       
       fsx_update_protocol_smb() :: %{
+        "CmkSecretConfig" => cmk_secret_config(),
+        "CustomSecretConfig" => custom_secret_config(),
         "Domain" => String.t() | atom(),
         "MountOptions" => smb_mount_options(),
         "Password" => String.t() | atom(),
@@ -1337,11 +1344,13 @@ defmodule AWS.DataSync do
   ## Example:
       
       create_location_fsx_windows_request() :: %{
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("Domain") => String.t() | atom(),
+        optional("Password") => String.t() | atom(),
         optional("Subdirectory") => String.t() | atom(),
         optional("Tags") => list(tag_list_entry()),
         required("FsxFilesystemArn") => String.t() | atom(),
-        required("Password") => String.t() | atom(),
         required("SecurityGroupArns") => list(String.t() | atom()),
         required("User") => String.t() | atom()
       }
@@ -1515,6 +1524,8 @@ defmodule AWS.DataSync do
       
       create_location_hdfs_request() :: %{
         optional("BlockSize") => integer(),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("KerberosKeytab") => binary(),
         optional("KerberosKrb5Conf") => binary(),
         optional("KerberosPrincipal") => String.t() | atom(),
@@ -1656,6 +1667,8 @@ defmodule AWS.DataSync do
   ## Example:
       
       update_location_fsx_windows_request() :: %{
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("Domain") => String.t() | atom(),
         optional("Password") => String.t() | atom(),
         optional("Subdirectory") => String.t() | atom(),
@@ -1705,7 +1718,10 @@ defmodule AWS.DataSync do
   ## Example:
       
       fsx_protocol_smb() :: %{
+        "CmkSecretConfig" => cmk_secret_config(),
+        "CustomSecretConfig" => custom_secret_config(),
         "Domain" => String.t() | atom(),
+        "ManagedSecretConfig" => managed_secret_config(),
         "MountOptions" => smb_mount_options(),
         "Password" => String.t() | atom(),
         "User" => String.t() | atom()
@@ -1880,11 +1896,14 @@ defmodule AWS.DataSync do
         "AgentArns" => list(String.t() | atom()),
         "AuthenticationType" => list(any()),
         "BlockSize" => integer(),
+        "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
+        "CustomSecretConfig" => custom_secret_config(),
         "KerberosPrincipal" => String.t() | atom(),
         "KmsKeyProviderUri" => String.t() | atom(),
         "LocationArn" => String.t() | atom(),
         "LocationUri" => String.t() | atom(),
+        "ManagedSecretConfig" => managed_secret_config(),
         "NameNodes" => list(hdfs_name_node()),
         "QopConfiguration" => qop_configuration(),
         "ReplicationFactor" => integer(),

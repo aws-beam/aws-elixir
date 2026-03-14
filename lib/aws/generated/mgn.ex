@@ -13,12 +13,38 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_deployer_job_filters() :: %{
+        "jobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_deployer_job_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_cutover_response() :: %{
         optional("job") => job()
       }
 
   """
   @type start_cutover_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_code_generations_request() :: %{
+        optional("filters") => list_network_migration_code_generations_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_code_generations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -46,6 +72,25 @@ defmodule AWS.Mgn do
   @type change_server_life_cycle_state_source_server_lifecycle() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_code_generation_segment() :: %{
+        "artifacts" => list(network_migration_code_generation_artifact()),
+        "createdAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "logicalID" => String.t() | atom(),
+        "mapperSegmentID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "segmentID" => String.t() | atom(),
+        "segmentType" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_code_generation_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -81,6 +126,59 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      get_network_migration_mapper_segment_construct_response() :: %{
+        "construct" => network_migration_mapper_segment_construct()
+      }
+
+  """
+  @type get_network_migration_mapper_segment_construct_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_analysis_request() :: %{
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapping_updates_request() :: %{
+        optional("filters") => list_network_migration_mapping_updates_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mapping_updates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_mapping_update_segment() :: %{
+        "scopeTags" => map(),
+        "segmentID" => String.t() | atom(),
+        "targetAccount" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_update_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_vcenter_clients_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -104,6 +202,19 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      start_network_migration_mapping_request() :: %{
+        optional("securityGroupMappingStrategy") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       life_cycle() :: %{
         "addedToServiceDateTime" => String.t() | atom(),
         "elapsedReplicationDuration" => String.t() | atom(),
@@ -121,12 +232,53 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      target_network_update() :: %{
+        "inboundCidr" => String.t() | atom(),
+        "inspectionCidr" => String.t() | atom(),
+        "outboundCidr" => String.t() | atom(),
+        "topology" => String.t() | atom()
+      }
+
+  """
+  @type target_network_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_migration_mapper_segment_construct_request() :: %{
+        required("constructID") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom(),
+        required("segmentID") => String.t() | atom()
+      }
+
+  """
+  @type get_network_migration_mapper_segment_construct_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       list_exports_request_filters() :: %{
         "exportIDs" => list(String.t() | atom())
       }
 
   """
   @type list_exports_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_operation() :: %{
+        "properties" => map()
+      }
+
+  """
+  @type update_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,6 +291,17 @@ defmodule AWS.Mgn do
 
   """
   @type unarchive_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_code_generations_filters() :: %{
+        "jobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_code_generations_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,6 +331,17 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_analyses_filters() :: %{
+        "jobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_analyses_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_source_server_request() :: %{
         optional("accountID") => String.t() | atom(),
         optional("connectorAction") => source_server_connector_action(),
@@ -188,6 +362,20 @@ defmodule AWS.Mgn do
 
   """
   @type archive_wave_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapper_segment_constructs_response() :: %{
+        "items" => list(network_migration_mapper_segment_construct()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mapper_segment_constructs_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -295,6 +483,19 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_import_file_enrichments_request() :: %{
+        optional("filters") => list_import_file_enrichments_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_import_file_enrichments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_replication_configuration_template_request() :: %{
         optional("arn") => String.t() | atom(),
         optional("associateDefaultSecurityGroup") => [boolean()],
@@ -317,6 +518,40 @@ defmodule AWS.Mgn do
 
   """
   @type update_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_s3_configuration_update() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom()
+      }
+
+  """
+  @type target_s3_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_definition() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "scopeTags" => map(),
+        "sourceConfigurations" => list(source_configuration()),
+        "tags" => map(),
+        "targetDeployment" => String.t() | atom(),
+        "targetNetwork" => target_network(),
+        "targetS3Configuration" => target_s3_configuration(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type network_migration_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -371,6 +606,85 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_mapper_segments_response() :: %{
+        "items" => list(network_migration_mapper_segment()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mapper_segments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_file_enrichment_response() :: %{
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type start_import_file_enrichment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mappings_request() :: %{
+        optional("filters") => list_network_migration_mappings_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mappings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapper_segments_filters() :: %{
+        "segmentIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_mapper_segments_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_mapping_update_job_details() :: %{
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_mapping_update_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_code_generation_segments_filters() :: %{
+        "segmentIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_code_generation_segments_filters() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       network_interface() :: %{
         "ips" => list(String.t() | atom()),
         "isPrimary" => [boolean()],
@@ -390,6 +704,19 @@ defmodule AWS.Mgn do
 
   """
   @type life_cycle_last_test_finalized() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_failed_resource_details() :: %{
+        "logicalID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_failed_resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -430,6 +757,40 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      import_file_enrichment() :: %{
+        "checksum" => checksum(),
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "s3BucketTarget" => enrichment_target_s3_configuration(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type import_file_enrichment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_analysis_job_details() :: %{
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_analysis_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_source_server_action_request() :: %{
         optional("accountID") => String.t() | atom(),
         required("actionID") => String.t() | atom(),
@@ -456,6 +817,32 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_executions_request() :: %{
+        optional("filters") => list_network_migration_execution_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_import_file_enrichments_response() :: %{
+        "items" => list(import_file_enrichment()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_import_file_enrichments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       source_server_connector_action() :: %{
         "connectorArn" => String.t() | atom(),
         "credentialsSecretArn" => String.t() | atom()
@@ -463,6 +850,49 @@ defmodule AWS.Mgn do
 
   """
   @type source_server_connector_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_mapping_update_construct() :: %{
+        "constructID" => String.t() | atom(),
+        "constructType" => String.t() | atom(),
+        "operation" => list(),
+        "segmentID" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_update_construct() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_deployer_job_response() :: %{
+        optional("jobID") => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_deployer_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_migration_definition_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("scopeTags") => map(),
+        optional("sourceConfigurations") => list(source_configuration()),
+        optional("targetDeployment") => String.t() | atom(),
+        optional("targetNetwork") => target_network_update(),
+        optional("targetS3Configuration") => target_s3_configuration_update(),
+        required("networkMigrationDefinitionID") => String.t() | atom()
+      }
+
+  """
+  @type update_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -476,6 +906,35 @@ defmodule AWS.Mgn do
 
   """
   @type list_applications_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_definition_summary() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "scopeTags" => map(),
+        "sourceEnvironment" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type network_migration_definition_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_definitions_request() :: %{
+        optional("filters") => list_network_migration_definitions_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -516,6 +975,18 @@ defmodule AWS.Mgn do
 
   """
   @type launched_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_definitions_response() :: %{
+        "items" => list(network_migration_definition_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -658,6 +1129,21 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_mapper_segments_request() :: %{
+        optional("filters") => list_network_migration_mapper_segments_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mapper_segments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_replication_request() :: %{
         optional("accountID") => String.t() | atom(),
         required("sourceServerID") => String.t() | atom()
@@ -690,6 +1176,24 @@ defmodule AWS.Mgn do
 
   """
   @type list_source_server_actions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_mapper_segment_construct() :: %{
+        "constructID" => String.t() | atom(),
+        "constructType" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "logicalID" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "properties" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type network_migration_mapper_segment_construct() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -751,12 +1255,42 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      network_migration_analysis_result() :: %{
+        "analysisResult" => [String.t() | atom()],
+        "analyzerType" => String.t() | atom(),
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "source" => network_migration_analysis_result_source(),
+        "status" => String.t() | atom(),
+        "target" => network_migration_analysis_result_target()
+      }
+
+  """
+  @type network_migration_analysis_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       licensing() :: %{
         "osByol" => [boolean()]
       }
 
   """
   @type licensing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_execution_request_filters() :: %{
+        "networkMigrationExecutionIDs" => list(String.t() | atom()),
+        "networkMigrationExecutionStatuses" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_execution_request_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -793,6 +1327,33 @@ defmodule AWS.Mgn do
 
   """
   @type list_imports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_network() :: %{
+        "inboundCidr" => String.t() | atom(),
+        "inspectionCidr" => String.t() | atom(),
+        "outboundCidr" => String.t() | atom(),
+        "topology" => String.t() | atom()
+      }
+
+  """
+  @type target_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_code_generation_request() :: %{
+        optional("codeGenerationOutputFormatTypes") => list(String.t() | atom()),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_code_generation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -919,6 +1480,20 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_mapper_segment_constructs_filters() :: %{
+        "constructIDs" => list(String.t() | atom()),
+        "constructTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_mapper_segment_constructs_filters() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       life_cycle_last_test_initiated() :: %{
         "apiCallDateTime" => String.t() | atom(),
         "jobID" => String.t() | atom()
@@ -1012,6 +1587,35 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_analyses_response() :: %{
+        "items" => list(network_migration_analysis_job_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_analyses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_mapping_job_details() :: %{
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_mapping_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_replication_error() :: %{
         "error" => String.t() | atom(),
         "rawError" => String.t() | atom()
@@ -1077,6 +1681,36 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      network_migration_execution() :: %{
+        "activity" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "stage" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type network_migration_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_analysis_result_source() :: %{
+        "subnetID" => String.t() | atom(),
+        "vpcID" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_analysis_result_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_wave_request() :: %{
         optional("accountID") => String.t() | atom(),
         required("waveID") => String.t() | atom()
@@ -1113,6 +1747,17 @@ defmodule AWS.Mgn do
 
   """
   @type post_launch_actions_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_mapping_response() :: %{
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1155,6 +1800,32 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      start_import_file_enrichment_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("ipAssignmentStrategy") => String.t() | atom(),
+        required("s3BucketSource") => enrichment_source_s3_configuration(),
+        required("s3BucketTarget") => enrichment_target_s3_configuration()
+      }
+
+  """
+  @type start_import_file_enrichment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_deployer_job_response() :: %{
+        optional("items") => list(network_migration_deployer_job_details()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_deployer_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       c_p_u() :: %{
         "cores" => float(),
         "modelName" => String.t() | atom()
@@ -1179,6 +1850,17 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_mappings_filters() :: %{
+        "jobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_mappings_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       application() :: %{
         "applicationAggregatedStatus" => application_aggregated_status(),
         "applicationID" => String.t() | atom(),
@@ -1194,6 +1876,18 @@ defmodule AWS.Mgn do
 
   """
   @type application() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_analysis_result_target() :: %{
+        "subnetID" => String.t() | atom(),
+        "vpcID" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_analysis_result_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1248,6 +1942,17 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      start_network_migration_mapping_update_response() :: %{
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_update_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
@@ -1279,6 +1984,18 @@ defmodule AWS.Mgn do
 
   """
   @type managed_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_configuration() :: %{
+        "sourceEnvironment" => String.t() | atom(),
+        "sourceS3Configuration" => source_s3_configuration()
+      }
+
+  """
+  @type source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1316,6 +2033,17 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      start_network_migration_analysis_response() :: %{
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception_field() :: %{
         "message" => String.t() | atom(),
         "name" => String.t() | atom()
@@ -1338,6 +2066,18 @@ defmodule AWS.Mgn do
 
   """
   @type describe_source_servers_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapping_updates_response() :: %{
+        "items" => list(network_migration_mapping_update_job_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mapping_updates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1367,6 +2107,18 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_deployed_stacks_response() :: %{
+        "items" => list(network_migration_deployed_stack_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_deployed_stacks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       terminate_target_instances_request() :: %{
         optional("accountID") => String.t() | atom(),
         optional("tags") => map(),
@@ -1375,6 +2127,19 @@ defmodule AWS.Mgn do
 
   """
   @type terminate_target_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
+      }
+
+  """
+  @type source_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1473,6 +2238,30 @@ defmodule AWS.Mgn do
 
   """
   @type describe_vcenter_clients_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_executions_response() :: %{
+        "items" => list(network_migration_execution()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_code_generations_response() :: %{
+        "items" => list(network_migration_code_generation_job_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_code_generations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1631,6 +2420,18 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      checksum() :: %{
+        "encryptionAlgorithm" => String.t() | atom(),
+        "hash" => String.t() | atom()
+      }
+
+  """
+  @type checksum() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_import_errors_request() :: %{
         "importID" => String.t() | atom(),
         "maxResults" => integer(),
@@ -1670,6 +2471,23 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      network_migration_deployer_job_details() :: %{
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_deployer_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       import_task_summary_applications() :: %{
         "createdCount" => float(),
         "modifiedCount" => float()
@@ -1694,6 +2512,41 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      create_network_migration_definition_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("scopeTags") => map(),
+        optional("sourceConfigurations") => list(source_configuration()),
+        optional("tags") => map(),
+        optional("targetDeployment") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("targetNetwork") => target_network(),
+        required("targetS3Configuration") => target_s3_configuration()
+      }
+
+  """
+  @type create_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_code_generation_segments_request() :: %{
+        optional("filters") => list_network_migration_code_generation_segments_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_code_generation_segments_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       life_cycle_last_test() :: %{
         "finalized" => life_cycle_last_test_finalized(),
         "initiated" => life_cycle_last_test_initiated(),
@@ -1702,6 +2555,21 @@ defmodule AWS.Mgn do
 
   """
   @type life_cycle_last_test() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_analysis_results_request() :: %{
+        optional("filters") => list_network_migration_analysis_results_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_analysis_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1733,6 +2601,31 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      network_migration_mapper_segment() :: %{
+        optional("checksum") => checksum(),
+        optional("createdAt") => [non_neg_integer()],
+        optional("description") => String.t() | atom(),
+        optional("jobID") => String.t() | atom(),
+        optional("logicalID") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("networkMigrationDefinitionID") => String.t() | atom(),
+        optional("networkMigrationExecutionID") => String.t() | atom(),
+        optional("outputS3Configuration") => s3_configuration(),
+        optional("referencedSegments") => list(String.t() | atom()),
+        optional("scopeTags") => map(),
+        optional("segmentID") => String.t() | atom(),
+        optional("segmentType") => String.t() | atom(),
+        optional("targetAccount") => String.t() | atom(),
+        optional("updatedAt") => [non_neg_integer()]
+      }
+
+  """
+  @type network_migration_mapper_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_export_errors_request() :: %{
         "exportID" => String.t() | atom(),
         "maxResults" => integer(),
@@ -1741,6 +2634,20 @@ defmodule AWS.Mgn do
 
   """
   @type list_export_errors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_deployed_stacks_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_deployed_stacks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1779,6 +2686,17 @@ defmodule AWS.Mgn do
 
   """
   @type remove_template_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapping_updates_filters() :: %{
+        "jobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_mapping_updates_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1979,6 +2897,17 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_analysis_results_filters() :: %{
+        "vpcIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_analysis_results_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       import_task_summary_servers() :: %{
         "createdCount" => float(),
         "modifiedCount" => float()
@@ -1986,6 +2915,21 @@ defmodule AWS.Mgn do
 
   """
   @type import_task_summary_servers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_deployments_request() :: %{
+        optional("filters") => list_network_migration_deployer_job_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2000,6 +2944,33 @@ defmodule AWS.Mgn do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_migration_definition_response() :: %{}
+
+  """
+  @type delete_network_migration_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapper_segment_constructs_request() :: %{
+        optional("filters") => list_network_migration_mapper_segment_constructs_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom(),
+        required("segmentID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mapper_segment_constructs_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2045,6 +3016,37 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      enrichment_source_s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
+      }
+
+  """
+  @type enrichment_source_s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_code_generation_job_details() :: %{
+        "codeGenerationOutputFormatStatusDetailsMap" => map(),
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_code_generation_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_imports_request() :: %{
         "filters" => list_imports_request_filters(),
         "maxResults" => integer(),
@@ -2058,12 +3060,53 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
+      }
+
+  """
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_imports_request_filters() :: %{
         "importIDs" => list(String.t() | atom())
       }
 
   """
   @type list_imports_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mappings_response() :: %{
+        "items" => list(network_migration_mapping_job_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mappings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_deployed_stack_details() :: %{
+        "failedResources" => list(network_migration_failed_resource_details()),
+        "segmentID" => String.t() | atom(),
+        "stackLogicalID" => String.t() | atom(),
+        "stackPhysicalID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "targetAccount" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_deployed_stack_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2206,6 +3249,21 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_analyses_request() :: %{
+        optional("filters") => list_network_migration_analyses_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_analyses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_connector_request() :: %{
         required("connectorID") => String.t() | atom()
       }
@@ -2241,6 +3299,29 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_analysis_results_response() :: %{
+        "items" => list(network_migration_analysis_result()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_analysis_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_migration_definition_request() :: %{
+        required("networkMigrationDefinitionID") => String.t() | atom()
+      }
+
+  """
+  @type get_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       wave_aggregated_status() :: %{
         "healthStatus" => String.t() | atom(),
         "lastUpdateDateTime" => String.t() | atom(),
@@ -2268,6 +3349,51 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      network_migration_code_generation_artifact() :: %{
+        "artifactID" => String.t() | atom(),
+        "artifactSubType" => String.t() | atom(),
+        "artifactType" => String.t() | atom(),
+        "checksum" => checksum(),
+        "createdAt" => [non_neg_integer()],
+        "logicalID" => String.t() | atom(),
+        "outputS3Configuration" => s3_configuration()
+      }
+
+  """
+  @type network_migration_code_generation_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_mapping_update_request() :: %{
+        optional("constructs") => list(start_network_migration_mapping_update_construct()),
+        optional("segments") => list(start_network_migration_mapping_update_segment()),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_migration_mapper_segment_request() :: %{
+        optional("scopeTags") => map(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom(),
+        required("segmentID") => String.t() | atom()
+      }
+
+  """
+  @type update_network_migration_mapper_segment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_waves_response() :: %{
         optional("items") => list(wave()),
         optional("nextToken") => String.t() | atom()
@@ -2275,6 +3401,19 @@ defmodule AWS.Mgn do
 
   """
   @type list_waves_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enrichment_target_s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
+      }
+
+  """
+  @type enrichment_target_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2309,6 +3448,17 @@ defmodule AWS.Mgn do
 
   """
   @type finalize_cutover_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_code_generation_response() :: %{
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_code_generation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2426,6 +3576,29 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      target_s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom()
+      }
+
+  """
+  @type target_s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_definitions_request_filters() :: %{
+        "networkMigrationDefinitionIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_definitions_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_import_request() :: %{
         "clientToken" => String.t() | atom(),
         "s3BucketSource" => s3_bucket_source(),
@@ -2489,6 +3662,18 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      start_network_migration_deployment_request() :: %{
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_cutover_request() :: %{
         optional("accountID") => String.t() | atom(),
         optional("tags") => map(),
@@ -2497,6 +3682,17 @@ defmodule AWS.Mgn do
 
   """
   @type start_cutover_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_migration_definition_request() :: %{
+        required("networkMigrationDefinitionID") => String.t() | atom()
+      }
+
+  """
+  @type delete_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2526,6 +3722,20 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_code_generation_segments_response() :: %{
+        "items" => list(network_migration_code_generation_segment()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_code_generation_segments_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       delete_application_request() :: %{
         optional("accountID") => String.t() | atom(),
         required("applicationID") => String.t() | atom()
@@ -2550,12 +3760,35 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      code_generation_output_format_status_details() :: %{
+        "status" => String.t() | atom(),
+        "statusDetailList" => String.t() | atom()
+      }
+
+  """
+  @type code_generation_output_format_status_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_launch_configuration_template_request() :: %{
         required("launchConfigurationTemplateID") => String.t() | atom()
       }
 
   """
   @type delete_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_import_file_enrichments_filters() :: %{
+        "jobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_import_file_enrichments_filters() :: %{(String.t() | atom()) => any()}
 
   @type archive_application_errors() ::
           uninitialized_account_exception()
@@ -2597,6 +3830,9 @@ defmodule AWS.Mgn do
   @type create_launch_configuration_template_errors() ::
           validation_exception() | access_denied_exception() | uninitialized_account_exception()
 
+  @type create_network_migration_definition_errors() ::
+          validation_exception() | service_quota_exceeded_exception()
+
   @type create_replication_configuration_template_errors() ::
           validation_exception() | access_denied_exception() | uninitialized_account_exception()
 
@@ -2624,6 +3860,9 @@ defmodule AWS.Mgn do
           uninitialized_account_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type delete_network_migration_definition_errors() ::
+          access_denied_exception() | resource_not_found_exception() | conflict_exception()
 
   @type delete_replication_configuration_template_errors() ::
           uninitialized_account_exception()
@@ -2692,6 +3931,12 @@ defmodule AWS.Mgn do
   @type get_launch_configuration_errors() ::
           uninitialized_account_exception() | resource_not_found_exception()
 
+  @type get_network_migration_definition_errors() ::
+          access_denied_exception() | resource_not_found_exception()
+
+  @type get_network_migration_mapper_segment_construct_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
   @type get_replication_configuration_errors() ::
           uninitialized_account_exception() | resource_not_found_exception()
 
@@ -2707,10 +3952,77 @@ defmodule AWS.Mgn do
 
   @type list_import_errors_errors() :: validation_exception() | uninitialized_account_exception()
 
+  @type list_import_file_enrichments_errors() :: validation_exception()
+
   @type list_imports_errors() :: validation_exception() | uninitialized_account_exception()
 
   @type list_managed_accounts_errors() ::
           validation_exception() | uninitialized_account_exception()
+
+  @type list_network_migration_analyses_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_network_migration_analysis_results_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_network_migration_code_generation_segments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_network_migration_code_generations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_network_migration_definitions_errors() :: access_denied_exception()
+
+  @type list_network_migration_deployed_stacks_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_network_migration_deployments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_network_migration_executions_errors() ::
+          access_denied_exception() | resource_not_found_exception()
+
+  @type list_network_migration_mapper_segment_constructs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_network_migration_mapper_segments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_network_migration_mapping_updates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_network_migration_mappings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type list_source_server_actions_errors() ::
           uninitialized_account_exception() | resource_not_found_exception()
@@ -2788,6 +4100,53 @@ defmodule AWS.Mgn do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type start_import_file_enrichment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type start_network_migration_analysis_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_network_migration_code_generation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_network_migration_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_network_migration_mapping_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_network_migration_mapping_update_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type start_replication_errors() ::
           validation_exception()
           | uninitialized_account_exception()
@@ -2853,6 +4212,12 @@ defmodule AWS.Mgn do
           | access_denied_exception()
           | uninitialized_account_exception()
           | resource_not_found_exception()
+
+  @type update_network_migration_definition_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type update_network_migration_mapper_segment_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type update_replication_configuration_errors() ::
           validation_exception()
@@ -3140,6 +4505,40 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Creates a new network migration definition that specifies the source and target
+  network configuration for a migration.
+  """
+  @spec create_network_migration_definition(
+          map(),
+          create_network_migration_definition_request(),
+          list()
+        ) ::
+          {:ok, network_migration_definition(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_network_migration_definition_errors()}
+  def create_network_migration_definition(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/CreateNetworkMigrationDefinition"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a new ReplicationConfigurationTemplate.
   """
   @spec create_replication_configuration_template(
@@ -3302,6 +4701,41 @@ defmodule AWS.Mgn do
           | {:error, delete_launch_configuration_template_errors()}
   def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a network migration definition.
+
+  This operation removes the migration definition and all associated metadata.
+  """
+  @spec delete_network_migration_definition(
+          map(),
+          delete_network_migration_definition_request(),
+          list()
+        ) ::
+          {:ok, delete_network_migration_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_network_migration_definition_errors()}
+  def delete_network_migration_definition(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/DeleteNetworkMigrationDefinition"
     headers = []
     custom_headers = []
     query_params = []
@@ -3814,6 +5248,74 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Retrieves the details of a network migration definition including source and
+  target configurations.
+  """
+  @spec get_network_migration_definition(
+          map(),
+          get_network_migration_definition_request(),
+          list()
+        ) ::
+          {:ok, network_migration_definition(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_network_migration_definition_errors()}
+  def get_network_migration_definition(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/GetNetworkMigrationDefinition"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves detailed information about a specific construct within a mapper
+  segment, including its properties and configuration data.
+  """
+  @spec get_network_migration_mapper_segment_construct(
+          map(),
+          get_network_migration_mapper_segment_construct_request(),
+          list()
+        ) ::
+          {:ok, get_network_migration_mapper_segment_construct_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_network_migration_mapper_segment_construct_errors()}
+  def get_network_migration_mapper_segment_construct(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/GetNetworkMigrationMapperSegmentConstruct"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all ReplicationConfigurations, filtered by Source Server ID.
   """
   @spec get_replication_configuration(map(), get_replication_configuration_request(), list()) ::
@@ -4017,6 +5519,35 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Lists import file enrichment jobs with optional filtering by job IDs.
+  """
+  @spec list_import_file_enrichments(map(), list_import_file_enrichments_request(), list()) ::
+          {:ok, list_import_file_enrichments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_import_file_enrichments_errors()}
+  def list_import_file_enrichments(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListImportFileEnrichments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   List imports.
   """
   @spec list_imports(map(), list_imports_request(), list()) ::
@@ -4055,6 +5586,405 @@ defmodule AWS.Mgn do
           | {:error, list_managed_accounts_errors()}
   def list_managed_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/ListManagedAccounts"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists network migration analysis jobs for a specified execution.
+
+  Returns information about analysis job status and results.
+  """
+  @spec list_network_migration_analyses(map(), list_network_migration_analyses_request(), list()) ::
+          {:ok, list_network_migration_analyses_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_analyses_errors()}
+  def list_network_migration_analyses(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationAnalyses"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the results of network migration analyses, showing connectivity and
+  compatibility findings for migrated resources.
+  """
+  @spec list_network_migration_analysis_results(
+          map(),
+          list_network_migration_analysis_results_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_analysis_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_analysis_results_errors()}
+  def list_network_migration_analysis_results(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationAnalysisResults"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists code generation segments, which represent individual infrastructure
+  components generated as code templates.
+  """
+  @spec list_network_migration_code_generation_segments(
+          map(),
+          list_network_migration_code_generation_segments_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_code_generation_segments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_code_generation_segments_errors()}
+  def list_network_migration_code_generation_segments(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationCodeGenerationSegments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists network migration code generation jobs, which convert network mappings
+  into infrastructure-as-code templates.
+  """
+  @spec list_network_migration_code_generations(
+          map(),
+          list_network_migration_code_generations_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_code_generations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_code_generations_errors()}
+  def list_network_migration_code_generations(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationCodeGenerations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all network migration definitions in the account, with optional filtering.
+  """
+  @spec list_network_migration_definitions(
+          map(),
+          list_network_migration_definitions_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_definitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_definitions_errors()}
+  def list_network_migration_definitions(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationDefinitions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists CloudFormation stacks that have been deployed as part of the network
+  migration.
+  """
+  @spec list_network_migration_deployed_stacks(
+          map(),
+          list_network_migration_deployed_stacks_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_deployed_stacks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_deployed_stacks_errors()}
+  def list_network_migration_deployed_stacks(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationDeployedStacks"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists network migration deployment jobs and their current status.
+  """
+  @spec list_network_migration_deployments(
+          map(),
+          list_network_migration_deployments_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_deployer_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_deployments_errors()}
+  def list_network_migration_deployments(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationDeployments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists network migration execution instances for a given definition, showing the
+  status and progress of each execution.
+  """
+  @spec list_network_migration_executions(
+          map(),
+          list_network_migration_executions_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_executions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_executions_errors()}
+  def list_network_migration_executions(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationExecutions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists constructs within a mapper segment, representing individual infrastructure
+  components like VPCs, subnets, or security groups.
+  """
+  @spec list_network_migration_mapper_segment_constructs(
+          map(),
+          list_network_migration_mapper_segment_constructs_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_mapper_segment_constructs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_mapper_segment_constructs_errors()}
+  def list_network_migration_mapper_segment_constructs(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationMapperSegmentConstructs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists mapper segments, which represent logical groupings of network resources to
+  be migrated together.
+  """
+  @spec list_network_migration_mapper_segments(
+          map(),
+          list_network_migration_mapper_segments_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_mapper_segments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_mapper_segments_errors()}
+  def list_network_migration_mapper_segments(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationMapperSegments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists mapping update jobs, which apply customer modifications to the generated
+  network mappings.
+  """
+  @spec list_network_migration_mapping_updates(
+          map(),
+          list_network_migration_mapping_updates_request(),
+          list()
+        ) ::
+          {:ok, list_network_migration_mapping_updates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_mapping_updates_errors()}
+  def list_network_migration_mapping_updates(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationMappingUpdates"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists network migration mapping jobs, which analyze and create relationships
+  between source and target network resources.
+  """
+  @spec list_network_migration_mappings(map(), list_network_migration_mappings_request(), list()) ::
+          {:ok, list_network_migration_mappings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_mappings_errors()}
+  def list_network_migration_mappings(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationMappings"
     headers = []
     custom_headers = []
     query_params = []
@@ -4511,6 +6441,202 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Starts an import file enrichment job to process and enrich network migration
+  import files with additional metadata and IP assignment strategies.
+  """
+  @spec start_import_file_enrichment(map(), start_import_file_enrichment_request(), list()) ::
+          {:ok, start_import_file_enrichment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_import_file_enrichment_errors()}
+  def start_import_file_enrichment(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/StartImportFileEnrichment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Starts a network migration analysis job to evaluate connectivity and
+  compatibility of the migration mappings.
+  """
+  @spec start_network_migration_analysis(
+          map(),
+          start_network_migration_analysis_request(),
+          list()
+        ) ::
+          {:ok, start_network_migration_analysis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_network_migration_analysis_errors()}
+  def start_network_migration_analysis(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/StartNetworkMigrationAnalysis"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Starts a code generation job to convert network migration mappings into
+  infrastructure-as-code templates.
+  """
+  @spec start_network_migration_code_generation(
+          map(),
+          start_network_migration_code_generation_request(),
+          list()
+        ) ::
+          {:ok, start_network_migration_code_generation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_network_migration_code_generation_errors()}
+  def start_network_migration_code_generation(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/StartNetworkMigrationCodeGeneration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Starts a deployment job to create the target network infrastructure based on the
+  generated code templates.
+  """
+  @spec start_network_migration_deployment(
+          map(),
+          start_network_migration_deployment_request(),
+          list()
+        ) ::
+          {:ok, start_network_migration_deployer_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_network_migration_deployment_errors()}
+  def start_network_migration_deployment(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/StartNetworkMigrationDeployment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Starts the network migration mapping process for a given network migration
+  execution.
+  """
+  @spec start_network_migration_mapping(map(), start_network_migration_mapping_request(), list()) ::
+          {:ok, start_network_migration_mapping_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_network_migration_mapping_errors()}
+  def start_network_migration_mapping(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/StartNetworkMigrationMapping"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Starts a job to apply customer modifications to network migration mappings, such
+  as changing properties.
+  """
+  @spec start_network_migration_mapping_update(
+          map(),
+          start_network_migration_mapping_update_request(),
+          list()
+        ) ::
+          {:ok, start_network_migration_mapping_update_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_network_migration_mapping_update_errors()}
+  def start_network_migration_mapping_update(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/StartNetworkMigrationMappingUpdate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Start replication for source server irrespective of its replication type.
   """
   @spec start_replication(map(), start_replication_request(), list()) ::
@@ -4862,6 +6988,73 @@ defmodule AWS.Mgn do
           | {:error, update_launch_configuration_template_errors()}
   def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing network migration definition with new source or target
+  configurations.
+  """
+  @spec update_network_migration_definition(
+          map(),
+          update_network_migration_definition_request(),
+          list()
+        ) ::
+          {:ok, network_migration_definition(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_network_migration_definition_errors()}
+  def update_network_migration_definition(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/UpdateNetworkMigrationDefinition"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a mapper segment's configuration, such as changing its scope tags.
+  """
+  @spec update_network_migration_mapper_segment(
+          map(),
+          update_network_migration_mapper_segment_request(),
+          list()
+        ) ::
+          {:ok, network_migration_mapper_segment(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_network_migration_mapper_segment_errors()}
+  def update_network_migration_mapper_segment(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/UpdateNetworkMigrationMapperSegment"
     headers = []
     custom_headers = []
     query_params = []

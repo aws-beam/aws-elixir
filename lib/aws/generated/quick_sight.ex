@@ -19459,6 +19459,7 @@ defmodule AWS.QuickSight do
         "CreateAndUpdateGenericHTTPAction" => list(any()),
         "KnowledgeBase" => list(any()),
         "Extension" => list(any()),
+        "ManageSharedFolders" => list(any()),
         "AsanaAction" => list(any()),
         "CreateAndUpdateSlackAction" => list(any()),
         "CreateAndUpdateSAPPhysicalInventoryAction" => list(any()),

@@ -6136,7 +6136,9 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_partition_request() :: %{
+        optional("AuditContext") => audit_context(),
         optional("CatalogId") => String.t() | atom(),
+        optional("QuerySessionContext") => query_session_context(),
         required("DatabaseName") => String.t() | atom(),
         required("PartitionsToGet") => list(partition_value_list()),
         required("TableName") => String.t() | atom()

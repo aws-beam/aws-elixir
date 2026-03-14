@@ -590,6 +590,7 @@ defmodule AWS.MediaConvert do
       audio_codec_settings() :: %{
         "AacSettings" => aac_settings(),
         "Ac3Settings" => ac3_settings(),
+        "Ac4Settings" => ac4_settings(),
         "AiffSettings" => aiff_settings(),
         "Codec" => list(any()),
         "Eac3AtmosSettings" => eac3_atmos_settings(),
@@ -3311,6 +3312,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       cmaf_encryption_settings() :: %{
+        "ClearLead" => list(any()),
         "ConstantInitializationVector" => String.t() | atom(),
         "EncryptionMethod" => list(any()),
         "InitializationVectorInManifest" => list(any()),
@@ -3551,6 +3553,29 @@ defmodule AWS.MediaConvert do
 
   """
   @type warning_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ac4_settings() :: %{
+        "Bitrate" => integer(),
+        "BitstreamMode" => list(any()),
+        "CodingMode" => list(any()),
+        "DynamicRangeCompressionFlatPanelTv" => list(any()),
+        "DynamicRangeCompressionHomeTheater" => list(any()),
+        "DynamicRangeCompressionPortableHeadphones" => list(any()),
+        "DynamicRangeCompressionPortableSpeakers" => list(any()),
+        "LoRoCenterMixLevel" => float(),
+        "LoRoSurroundMixLevel" => float(),
+        "LtRtCenterMixLevel" => float(),
+        "LtRtSurroundMixLevel" => float(),
+        "SampleRate" => integer(),
+        "StereoDownmix" => list(any())
+      }
+
+  """
+  @type ac4_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

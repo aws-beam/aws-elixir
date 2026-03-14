@@ -261,7 +261,8 @@ defmodule AWS.GameLiftStreams do
         "LocationName" => String.t() | atom(),
         "MaximumCapacity" => integer(),
         "OnDemandCapacity" => integer(),
-        "TargetIdleCapacity" => integer()
+        "TargetIdleCapacity" => integer(),
+        "VpcTransitConfiguration" => vpc_transit_configuration()
       }
 
   """
@@ -275,12 +276,14 @@ defmodule AWS.GameLiftStreams do
         "AllocatedCapacity" => integer(),
         "AlwaysOnCapacity" => integer(),
         "IdleCapacity" => integer(),
+        "InternalVpcIpv4CidrBlock" => String.t() | atom(),
         "LocationName" => String.t() | atom(),
         "MaximumCapacity" => integer(),
         "OnDemandCapacity" => integer(),
         "RequestedCapacity" => integer(),
         "Status" => list(any()),
-        "TargetIdleCapacity" => integer()
+        "TargetIdleCapacity" => integer(),
+        "VpcTransitConfiguration" => vpc_transit_configuration_response()
       }
 
   """
@@ -595,6 +598,18 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
+      vpc_transit_configuration() :: %{
+        "Ipv4CidrBlocks" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_transit_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "Message" => [String.t() | atom()]
       }
@@ -736,6 +751,20 @@ defmodule AWS.GameLiftStreams do
 
   """
   @type add_stream_group_locations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_transit_configuration_response() :: %{
+        "Ipv4CidrBlocks" => list(String.t() | atom()),
+        "TransitGatewayId" => [String.t() | atom()],
+        "TransitGatewayResourceShareArn" => [String.t() | atom()],
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_transit_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1990,6 +2019,9 @@ defmodule AWS.GameLiftStreams do
   stream session. If no client connects before the timeout, Amazon GameLift
   Streams terminates the stream session. This value is specified by
   `ConnectionTimeoutSeconds` in the `StartStreamSession` parameters.
+
+    * **Idle timeout**: A stream session will be terminated if no user
+  input has been received for 60 minutes.
 
     * **Maximum session length**: A stream session will be terminated
   after this amount of time has elapsed since it started, regardless of any

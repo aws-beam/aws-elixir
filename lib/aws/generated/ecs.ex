@@ -2642,6 +2642,7 @@ defmodule AWS.ECS do
       instance_launch_template_update() :: %{
         "capacityReservations" => capacity_reservation_request(),
         "ec2InstanceProfileArn" => String.t() | atom(),
+        "instanceMetadataTagsPropagation" => boolean(),
         "instanceRequirements" => instance_requirements_request(),
         "monitoring" => list(any()),
         "networkConfiguration" => managed_instances_network_configuration(),
@@ -4004,6 +4005,7 @@ defmodule AWS.ECS do
         "capacityReservations" => capacity_reservation_request(),
         "ec2InstanceProfileArn" => String.t() | atom(),
         "fipsEnabled" => boolean(),
+        "instanceMetadataTagsPropagation" => boolean(),
         "instanceRequirements" => instance_requirements_request(),
         "monitoring" => list(any()),
         "networkConfiguration" => managed_instances_network_configuration(),

@@ -231,6 +231,30 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      invoke_agent_runtime_command_request_body() :: %{
+        "command" => [String.t() | atom()],
+        "timeout" => [integer()]
+      }
+
+  """
+  @type invoke_agent_runtime_command_request_body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_stop_event() :: %{
+        "exitCode" => [integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type content_stop_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory_record_create_input() :: %{
         "content" => list(),
         "memoryStrategyId" => String.t() | atom(),
@@ -301,6 +325,24 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type event_metadata_filter_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_agent_runtime_command_response() :: %{
+        "baggage" => [String.t() | atom()],
+        "contentType" => [String.t() | atom()],
+        "runtimeSessionId" => String.t() | atom(),
+        "statusCode" => integer(),
+        "stream" => list(),
+        "traceId" => [String.t() | atom()],
+        "traceParent" => [String.t() | atom()],
+        "traceState" => [String.t() | atom()]
+      }
+
+  """
+  @type invoke_agent_runtime_command_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -553,6 +595,15 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type start_memory_extraction_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_start_event() :: %{}
+
+  """
+  @type content_start_event() :: %{}
 
   @typedoc """
 
@@ -902,6 +953,26 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      invoke_agent_runtime_command_request() :: %{
+        optional("accept") => String.t() | atom(),
+        optional("accountId") => [String.t() | atom()],
+        optional("baggage") => [String.t() | atom()],
+        optional("contentType") => String.t() | atom(),
+        optional("qualifier") => [String.t() | atom()],
+        optional("runtimeSessionId") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
+        optional("traceState") => [String.t() | atom()],
+        required("body") => invoke_agent_runtime_command_request_body()
+      }
+
+  """
+  @type invoke_agent_runtime_command_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_input_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -935,6 +1006,19 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type browser_session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      response_chunk() :: %{
+        "contentDelta" => content_delta_event(),
+        "contentStart" => content_start_event(),
+        "contentStop" => content_stop_event()
+      }
+
+  """
+  @type response_chunk() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1527,6 +1611,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      content_delta_event() :: %{
+        "stderr" => [String.t() | atom()],
+        "stdout" => [String.t() | atom()]
+      }
+
+  """
+  @type content_delta_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       browser_session_stream() :: %{
         "automationStream" => automation_stream(),
         "liveViewStream" => live_view_stream()
@@ -1842,6 +1938,15 @@ defmodule AWS.BedrockAgentCore do
           | unauthorized_exception()
 
   @type invoke_agent_runtime_errors() ::
+          runtime_client_error()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type invoke_agent_runtime_command_errors() ::
           runtime_client_error()
           | throttling_exception()
           | validation_exception()
@@ -2670,9 +2775,11 @@ defmodule AWS.BedrockAgentCore do
   Sends a request to an agent or tool hosted in an Amazon Bedrock AgentCore
   Runtime and receives responses in real-time.
 
-  To invoke an agent you must specify the AgentCore Runtime ARN and provide a
-  payload containing your request. You can optionally specify a qualifier to
-  target a specific version or endpoint of the agent.
+  To invoke an agent, you can specify either the AgentCore Runtime ARN or the
+  agent ID with an account ID, and provide a payload containing your request. When
+  you use the agent ID instead of the full ARN, you don't need to URL-encode the
+  identifier. You can optionally specify a qualifier to target a specific endpoint
+  of the agent.
 
   This operation supports streaming responses, allowing you to receive partial
   responses as they become available. We recommend using pagination to ensure that
@@ -2732,6 +2839,75 @@ defmodule AWS.BedrockAgentCore do
           {"Content-Type", "contentType"},
           {"Mcp-Protocol-Version", "mcpProtocolVersion"},
           {"Mcp-Session-Id", "mcpSessionId"},
+          {"X-Amzn-Bedrock-AgentCore-Runtime-Session-Id", "runtimeSessionId"},
+          {"X-Amzn-Trace-Id", "traceId"},
+          {"traceparent", "traceParent"},
+          {"tracestate", "traceState"}
+        ]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Executes a command in a runtime session container.
+
+  Returns streaming output with contentStart, contentDelta, and contentStop
+  events.
+  """
+  @spec invoke_agent_runtime_command(
+          map(),
+          String.t() | atom(),
+          invoke_agent_runtime_command_request(),
+          list()
+        ) ::
+          {:ok, invoke_agent_runtime_command_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_agent_runtime_command_errors()}
+  def invoke_agent_runtime_command(%Client{} = client, agent_runtime_arn, input, options \\ []) do
+    url_path = "/runtimes/#{AWS.Util.encode_uri(agent_runtime_arn)}/commands"
+
+    {headers, input} =
+      [
+        {"accept", "Accept"},
+        {"baggage", "baggage"},
+        {"contentType", "Content-Type"},
+        {"runtimeSessionId", "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id"},
+        {"traceId", "X-Amzn-Trace-Id"},
+        {"traceParent", "traceparent"},
+        {"traceState", "tracestate"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"accountId", "accountId"},
+        {"qualifier", "qualifier"}
+      ]
+      |> Request.build_params(input)
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"baggage", "baggage"},
+          {"Content-Type", "contentType"},
           {"X-Amzn-Bedrock-AgentCore-Runtime-Session-Id", "runtimeSessionId"},
           {"X-Amzn-Trace-Id", "traceId"},
           {"traceparent", "traceParent"},

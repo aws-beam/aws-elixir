@@ -600,7 +600,8 @@ defmodule AWS.EMR do
   ## Example:
       
       monitoring_configuration() :: %{
-        "CloudWatchLogConfiguration" => cloud_watch_log_configuration()
+        "CloudWatchLogConfiguration" => cloud_watch_log_configuration(),
+        "S3LoggingConfiguration" => s3_logging_configuration()
       }
       
   """
@@ -1119,6 +1120,17 @@ defmodule AWS.EMR do
       
   """
   @type list_studio_session_mappings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_logging_configuration() :: %{
+        "LogTypeUploadPolicy" => map()
+      }
+      
+  """
+  @type s3_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

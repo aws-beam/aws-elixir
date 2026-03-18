@@ -7621,6 +7621,7 @@ defmodule AWS.Glue do
         "CreateTableDefaultPermissions" => list(principal_permissions()),
         "Description" => String.t() | atom(),
         "FederatedCatalog" => federated_catalog(),
+        "OverwriteChildResourcePermissionsWithDefault" => list(any()),
         "Parameters" => map(),
         "TargetRedshiftCatalog" => target_redshift_catalog()
       }

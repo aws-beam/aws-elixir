@@ -154,6 +154,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom()),
         "status" => list(any()),
         "strategyId" => String.t() | atom(),
@@ -352,6 +353,7 @@ defmodule AWS.BedrockAgentCoreControl do
       summary_memory_strategy_input() :: %{
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -881,6 +883,7 @@ defmodule AWS.BedrockAgentCoreControl do
       semantic_memory_strategy_input() :: %{
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -944,6 +947,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "configuration" => list(),
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -957,6 +961,7 @@ defmodule AWS.BedrockAgentCoreControl do
       episodic_override_reflection_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()],
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -991,6 +996,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       episodic_reflection_configuration() :: %{
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -1537,6 +1543,7 @@ defmodule AWS.BedrockAgentCoreControl do
       episodic_memory_strategy_input() :: %{
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom()),
         "reflectionConfiguration" => episodic_reflection_configuration_input()
       }
@@ -1828,6 +1835,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       episodic_reflection_configuration_input() :: %{
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -1903,6 +1911,7 @@ defmodule AWS.BedrockAgentCoreControl do
       episodic_reflection_override() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()],
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -2829,6 +2838,7 @@ defmodule AWS.BedrockAgentCoreControl do
       user_preference_memory_strategy_input() :: %{
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
 
@@ -2960,6 +2970,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "configuration" => modify_strategy_configuration(),
         "description" => String.t() | atom(),
         "memoryStrategyId" => [String.t() | atom()],
+        "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
 

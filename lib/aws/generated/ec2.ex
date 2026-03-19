@@ -19349,6 +19349,7 @@ defmodule AWS.EC2 do
       
       network_info() :: %{
         "BandwidthWeightings" => list(list(any())()),
+        "ConnectionTrackingConfiguration" => default_connection_tracking_configuration(),
         "DefaultNetworkCardIndex" => integer(),
         "EfaInfo" => efa_info(),
         "EfaSupported" => boolean(),
@@ -33281,6 +33282,19 @@ defmodule AWS.EC2 do
       
   """
   @type client_vpn_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      default_connection_tracking_configuration() :: %{
+        "DefaultTcpEstablishedTimeout" => integer(),
+        "DefaultUdpStreamTimeout" => integer(),
+        "DefaultUdpTimeout" => integer()
+      }
+      
+  """
+  @type default_connection_tracking_configuration() :: %{(String.t() | atom()) => any()}
 
   def metadata do
     %{

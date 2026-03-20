@@ -29,6 +29,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      browser_enterprise_policy() :: %{
+        "location" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type browser_enterprise_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_gateway_request() :: %{
         optional("authorizerConfiguration") => list(),
         optional("description") => String.t() | atom(),
@@ -1247,8 +1259,10 @@ defmodule AWS.BedrockAgentCoreControl do
         "browserArn" => String.t() | atom(),
         "browserId" => String.t() | atom(),
         "browserSigning" => browser_signing_config_output(),
+        "certificates" => list(certificate()),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "enterprisePolicies" => list(browser_enterprise_policy()),
         "executionRoleArn" => String.t() | atom(),
         "failureReason" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
@@ -1679,8 +1693,10 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_browser_request() :: %{
         optional("browserSigning") => browser_signing_config_input(),
+        optional("certificates") => list(certificate()),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("enterprisePolicies") => list(browser_enterprise_policy()),
         optional("executionRoleArn") => String.t() | atom(),
         optional("recording") => recording_config(),
         optional("tags") => map(),
@@ -2126,6 +2142,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       get_code_interpreter_response() :: %{
+        "certificates" => list(certificate()),
         "codeInterpreterArn" => String.t() | atom(),
         "codeInterpreterId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
@@ -2914,6 +2931,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      certificate() :: %{
+        "location" => list()
+      }
+
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sampling_config() :: %{
         "samplingPercentage" => float()
       }
@@ -2926,6 +2954,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_code_interpreter_request() :: %{
+        optional("certificates") => list(certificate()),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("executionRoleArn") => String.t() | atom(),
@@ -3451,6 +3480,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_agent_runtime_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager_location() :: %{
+        "secretArn" => String.t() | atom()
+      }
+
+  """
+  @type secrets_manager_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -4854,6 +4854,7 @@ defmodule AWS.EC2 do
         optional("ExcessCapacityTerminationPolicy") => list(any()),
         optional("OnDemandOptions") => on_demand_options_request(),
         optional("ReplaceUnhealthyInstances") => boolean(),
+        optional("ReservedCapacityOptions") => reserved_capacity_options_request(),
         optional("SpotOptions") => spot_options_request(),
         optional("TagSpecifications") => list(tag_specification()),
         optional("TerminateInstancesWithExpiration") => boolean(),
@@ -24187,6 +24188,7 @@ defmodule AWS.EC2 do
         "LaunchTemplateConfigs" => list(fleet_launch_template_config()),
         "OnDemandOptions" => on_demand_options(),
         "ReplaceUnhealthyInstances" => boolean(),
+        "ReservedCapacityOptions" => reserved_capacity_options(),
         "SpotOptions" => spot_options(),
         "Tags" => list(tag()),
         "TargetCapacitySpecification" => target_capacity_specification(),
@@ -30851,6 +30853,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      reserved_capacity_options_request() :: %{
+        "ReservationTypes" => list(list(any())())
+      }
+      
+  """
+  @type reserved_capacity_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_ipam_discovered_accounts_result() :: %{
         "IpamDiscoveredAccounts" => list(ipam_discovered_account()),
         "NextToken" => String.t() | atom()
@@ -33282,6 +33295,17 @@ defmodule AWS.EC2 do
       
   """
   @type client_vpn_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_capacity_options() :: %{
+        "ReservationTypes" => list(list(any())())
+      }
+      
+  """
+  @type reserved_capacity_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

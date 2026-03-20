@@ -301,6 +301,7 @@ defmodule AWS.ObservabilityAdmin do
   ## Example:
 
       source_logs_configuration() :: %{
+        "DataSourceSelectionCriteria" => String.t() | atom(),
         "EncryptedLogGroupStrategy" => list(any()),
         "LogGroupSelectionCriteria" => String.t() | atom()
       }

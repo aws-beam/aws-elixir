@@ -28,6 +28,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      browser_enterprise_policy() :: %{
+        "location" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type browser_enterprise_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conversational() :: %{
         "content" => list(),
         "role" => list(any())
@@ -635,7 +647,9 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       start_browser_session_request() :: %{
+        optional("certificates") => list(certificate()),
         optional("clientToken") => String.t() | atom(),
+        optional("enterprisePolicies") => list(browser_enterprise_policy()),
         optional("extensions") => list(browser_extension()),
         optional("name") => String.t() | atom(),
         optional("profileConfiguration") => browser_profile_configuration(),
@@ -823,6 +837,7 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       start_code_interpreter_session_request() :: %{
+        optional("certificates") => list(certificate()),
         optional("clientToken") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("sessionTimeoutSeconds") => integer(),
@@ -1205,6 +1220,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      certificate() :: %{
+        "location" => list()
+      }
+
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       event() :: %{
         "actorId" => String.t() | atom(),
         "branch" => branch(),
@@ -1314,6 +1340,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      secrets_manager_location() :: %{
+        "secretArn" => String.t() | atom()
+      }
+
+  """
+  @type secrets_manager_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_agent_runtime_request() :: %{
         optional("accept") => String.t() | atom(),
         optional("accountId") => [String.t() | atom()],
@@ -1352,7 +1389,9 @@ defmodule AWS.BedrockAgentCore do
 
       get_browser_session_response() :: %{
         "browserIdentifier" => [String.t() | atom()],
+        "certificates" => list(certificate()),
         "createdAt" => non_neg_integer(),
+        "enterprisePolicies" => list(browser_enterprise_policy()),
         "extensions" => list(browser_extension()),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
@@ -1492,6 +1531,7 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       get_code_interpreter_session_response() :: %{
+        "certificates" => list(certificate()),
         "codeInterpreterIdentifier" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
         "name" => String.t() | atom(),

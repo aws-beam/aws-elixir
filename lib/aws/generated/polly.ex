@@ -61,6 +61,19 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      text_event() :: %{
+        "FlushStreamConfiguration" => flush_stream_configuration(),
+        "Text" => String.t() | atom(),
+        "TextType" => list(any())
+      }
+
+  """
+  @type text_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       max_lexicons_number_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -105,12 +118,34 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      flush_stream_configuration() :: %{
+        "Force" => boolean()
+      }
+
+  """
+  @type flush_stream_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_failure_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type service_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_event() :: %{
+        "AudioChunk" => binary()
+      }
+
+  """
+  @type audio_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -269,6 +304,17 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      start_speech_synthesis_stream_output() :: %{
+        "EventStream" => list()
+      }
+
+  """
+  @type start_speech_synthesis_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_speech_synthesis_task_output() :: %{
         "SynthesisTask" => synthesis_task()
       }
@@ -286,6 +332,28 @@ defmodule AWS.Polly do
 
   """
   @type invalid_s3_bucket_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      close_stream_event() :: %{}
+
+  """
+  @type close_stream_event() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => list(any()),
+        "serviceCode" => list(any())
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,6 +381,35 @@ defmodule AWS.Polly do
 
   """
   @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_speech_synthesis_stream_input() :: %{
+        optional("ActionStream") => list(),
+        optional("LanguageCode") => list(any()),
+        optional("LexiconNames") => list(String.t() | atom()),
+        optional("SampleRate") => String.t() | atom(),
+        required("Engine") => list(any()),
+        required("OutputFormat") => list(any()),
+        required("VoiceId") => list(any())
+      }
+
+  """
+  @type start_speech_synthesis_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -398,6 +495,19 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_sns_topic_arn_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -425,6 +535,29 @@ defmodule AWS.Polly do
 
   """
   @type put_lexicon_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "throttlingReasons" => list(throttling_reason())
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_closed_event() :: %{
+        "RequestCharacters" => integer()
+      }
+
+  """
+  @type stream_closed_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -521,6 +654,18 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      throttling_reason() :: %{
+        "reason" => String.t() | atom(),
+        "resource" => String.t() | atom()
+      }
+
+  """
+  @type throttling_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_speech_synthesis_task_input() :: %{}
 
   """
@@ -570,6 +715,12 @@ defmodule AWS.Polly do
           | service_failure_exception()
           | lexicon_size_exceeded_exception()
           | max_lexicons_number_exceeded_exception()
+
+  @type start_speech_synthesis_stream_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_quota_exceeded_exception()
+          | service_failure_exception()
 
   @type start_speech_synthesis_task_errors() ::
           text_length_exceeded_exception()
@@ -883,6 +1034,57 @@ defmodule AWS.Polly do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Synthesizes UTF-8 input, plain text, or SSML over a bidirectional streaming
+  connection.
+
+  Specify synthesis parameters in HTTP/2 headers, send text incrementally as
+  events on the input stream,
+  and receive synthesized audio as it becomes available.
+
+  This operation serves as a bidirectional counterpart to `SynthesizeSpeech`:
+
+    *
+
+  [SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/API/API_SynthesizeSpeech.html)
+  """
+  @spec start_speech_synthesis_stream(map(), start_speech_synthesis_stream_input(), list()) ::
+          {:ok, start_speech_synthesis_stream_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_speech_synthesis_stream_errors()}
+  def start_speech_synthesis_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/synthesisStream"
+
+    {headers, input} =
+      [
+        {"Engine", "x-amzn-Engine"},
+        {"LanguageCode", "x-amzn-LanguageCode"},
+        {"LexiconNames", "x-amzn-LexiconNames"},
+        {"OutputFormat", "x-amzn-OutputFormat"},
+        {"SampleRate", "x-amzn-SampleRate"},
+        {"VoiceId", "x-amzn-VoiceId"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

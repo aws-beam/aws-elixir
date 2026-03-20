@@ -82,6 +82,17 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      quota_share_preemption_configuration() :: %{
+        "inSharePreemption" => list(any())
+      }
+
+  """
+  @type quota_share_preemption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_metadata() :: %{
         "annotations" => map(),
         "labels" => map(),
@@ -261,6 +272,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      quota_share_capacity_utilization() :: %{
+        "capacityUsage" => list(quota_share_capacity_usage()),
+        "quotaShareName" => String.t() | atom()
+      }
+
+  """
+  @type quota_share_capacity_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_container_environment_variable() :: %{
         "name" => String.t() | atom(),
         "value" => String.t() | atom()
@@ -268,6 +291,17 @@ defmodule AWS.Batch do
 
   """
   @type eks_container_environment_variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quota_share_policy() :: %{
+        "idleResourceAssignmentStrategy" => list(any())
+      }
+
+  """
+  @type quota_share_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,6 +344,19 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      update_service_job_response() :: %{
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "jobName" => String.t() | atom()
+      }
+
+  """
+  @type update_service_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_timeout() :: %{
         "attemptDurationSeconds" => integer()
       }
@@ -325,6 +372,7 @@ defmodule AWS.Batch do
         "arn" => String.t() | atom(),
         "fairsharePolicy" => fairshare_policy(),
         "name" => String.t() | atom(),
+        "quotaSharePolicy" => quota_share_policy(),
         "tags" => map()
       }
 
@@ -347,6 +395,18 @@ defmodule AWS.Batch do
 
   """
   @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_quota_share_response() :: %{
+        "quotaShareArn" => String.t() | atom(),
+        "quotaShareName" => String.t() | atom()
+      }
+
+  """
+  @type update_quota_share_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,6 +467,7 @@ defmodule AWS.Batch do
 
       create_scheduling_policy_request() :: %{
         optional("fairsharePolicy") => fairshare_policy(),
+        optional("quotaSharePolicy") => quota_share_policy(),
         optional("tags") => map(),
         required("name") => String.t() | atom()
       }
@@ -457,6 +518,19 @@ defmodule AWS.Batch do
 
   """
   @type network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_quota_shares_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("jobQueue") => String.t() | atom()
+      }
+
+  """
+  @type list_quota_shares_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -803,6 +877,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      front_of_quota_share_job_summary() :: %{
+        "earliestTimeAtPosition" => float(),
+        "jobArn" => String.t() | atom()
+      }
+
+  """
+  @type front_of_quota_share_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_properties_override() :: %{
         "podProperties" => eks_pod_properties_override()
       }
@@ -820,6 +906,24 @@ defmodule AWS.Batch do
 
   """
   @type service_job_timeout() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quota_share_detail() :: %{
+        "capacityLimits" => list(quota_share_capacity_limit()),
+        "jobQueueArn" => String.t() | atom(),
+        "preemptionConfiguration" => quota_share_preemption_configuration(),
+        "quotaShareArn" => String.t() | atom(),
+        "quotaShareName" => String.t() | atom(),
+        "resourceSharingConfiguration" => quota_share_resource_sharing_configuration(),
+        "state" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type quota_share_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -911,6 +1015,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      front_of_quota_shares_detail() :: %{
+        "lastUpdatedAt" => float(),
+        "quotaShares" => map()
+      }
+
+  """
+  @type front_of_quota_shares_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ecs_task_properties() :: %{
         "containers" => list(task_container_properties()),
         "enableExecuteCommand" => boolean(),
@@ -934,6 +1050,8 @@ defmodule AWS.Batch do
 
       submit_service_job_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("preemptionConfiguration") => service_job_preemption_configuration(),
+        optional("quotaShareName") => String.t() | atom(),
         optional("retryStrategy") => service_job_retry_strategy(),
         optional("schedulingPriority") => integer(),
         optional("shareIdentifier") => String.t() | atom(),
@@ -1271,6 +1389,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      service_job_preemption_summary() :: %{
+        "preemptedAttemptCount" => integer(),
+        "recentPreemptedAttempts" => list(service_job_preempted_attempt())
+      }
+
+  """
+  @type service_job_preemption_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       secret() :: %{
         "name" => String.t() | atom(),
         "valueFrom" => String.t() | atom()
@@ -1402,6 +1532,7 @@ defmodule AWS.Batch do
       queue_snapshot_utilization_detail() :: %{
         "fairshareUtilization" => fairshare_utilization_detail(),
         "lastUpdatedAt" => float(),
+        "quotaShareUtilization" => quota_share_utilization_detail(),
         "totalCapacityUsage" => list(queue_snapshot_capacity_usage())
       }
 
@@ -1495,6 +1626,15 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      delete_quota_share_response() :: %{}
+
+  """
+  @type delete_quota_share_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       eks_attempt_detail() :: %{
         "containers" => list(eks_attempt_container_detail()),
         "eksClusterArn" => String.t() | atom(),
@@ -1514,6 +1654,25 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      describe_quota_share_response() :: %{
+        "capacityLimits" => list(quota_share_capacity_limit()),
+        "jobQueueArn" => String.t() | atom(),
+        "preemptionConfiguration" => quota_share_preemption_configuration(),
+        "quotaShareArn" => String.t() | atom(),
+        "quotaShareName" => String.t() | atom(),
+        "resourceSharingConfiguration" => quota_share_resource_sharing_configuration(),
+        "state" => list(any()),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type describe_quota_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_secret() :: %{
         "optional" => boolean(),
         "secretName" => String.t() | atom()
@@ -1528,11 +1687,29 @@ defmodule AWS.Batch do
 
       get_job_queue_snapshot_response() :: %{
         "frontOfQueue" => front_of_queue_detail(),
+        "frontOfQuotaShares" => front_of_quota_shares_detail(),
         "queueUtilization" => queue_snapshot_utilization_detail()
       }
 
   """
   @type get_job_queue_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_quota_share_request() :: %{
+        optional("state") => list(any()),
+        optional("tags") => map(),
+        required("capacityLimits") => list(quota_share_capacity_limit()),
+        required("jobQueue") => String.t() | atom(),
+        required("preemptionConfiguration") => quota_share_preemption_configuration(),
+        required("quotaShareName") => String.t() | atom(),
+        required("resourceSharingConfiguration") => quota_share_resource_sharing_configuration()
+      }
+
+  """
+  @type create_quota_share_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1563,6 +1740,7 @@ defmodule AWS.Batch do
 
       update_scheduling_policy_request() :: %{
         optional("fairsharePolicy") => fairshare_policy(),
+        optional("quotaSharePolicy") => quota_share_policy(),
         required("arn") => String.t() | atom()
       }
 
@@ -1585,6 +1763,17 @@ defmodule AWS.Batch do
 
   """
   @type service_environment_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quota_share_utilization_detail() :: %{
+        "topCapacityUtilization" => list(quota_share_capacity_utilization())
+      }
+
+  """
+  @type quota_share_utilization_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1646,6 +1835,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      update_service_job_request() :: %{
+        required("jobId") => String.t() | atom(),
+        required("schedulingPriority") => integer()
+      }
+
+  """
+  @type update_service_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       e_f_s_authorization_config() :: %{
         "accessPointId" => String.t() | atom(),
         "iam" => list(any())
@@ -1653,6 +1854,18 @@ defmodule AWS.Batch do
 
   """
   @type e_f_s_authorization_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quota_share_capacity_usage() :: %{
+        "capacityUnit" => String.t() | atom(),
+        "quantity" => float()
+      }
+
+  """
+  @type quota_share_capacity_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1694,6 +1907,20 @@ defmodule AWS.Batch do
 
   """
   @type front_of_queue_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_job_preempted_attempt() :: %{
+        "serviceResourceId" => service_resource_id(),
+        "startedAt" => float(),
+        "statusReason" => String.t() | atom(),
+        "stoppedAt" => float()
+      }
+
+  """
+  @type service_job_preempted_attempt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1779,6 +2006,17 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      service_job_preemption_configuration() :: %{
+        "preemptionRetriesBeforeTermination" => integer()
+      }
+
+  """
+  @type service_job_preemption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scheduling_policy_listing_detail() :: %{
         "arn" => String.t() | atom()
       }
@@ -1808,6 +2046,18 @@ defmodule AWS.Batch do
 
   """
   @type delete_consumable_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      quota_share_resource_sharing_configuration() :: %{
+        "borrowLimit" => integer(),
+        "strategy" => list(any())
+      }
+
+  """
+  @type quota_share_resource_sharing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1978,12 +2228,35 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      create_quota_share_response() :: %{
+        "quotaShareArn" => String.t() | atom(),
+        "quotaShareName" => String.t() | atom()
+      }
+
+  """
+  @type create_quota_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_jobs_response() :: %{
         "jobs" => list(job_detail())
       }
 
   """
   @type describe_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_quota_share_request() :: %{
+        required("quotaShareArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_quota_share_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2060,6 +2333,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      quota_share_capacity_limit() :: %{
+        "capacityUnit" => String.t() | atom(),
+        "maxCapacity" => integer()
+      }
+
+  """
+  @type quota_share_capacity_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       terminate_job_response() :: %{}
 
   """
@@ -2091,6 +2376,9 @@ defmodule AWS.Batch do
         "jobName" => String.t() | atom(),
         "jobQueue" => String.t() | atom(),
         "latestAttempt" => latest_service_job_attempt(),
+        "preemptionConfiguration" => service_job_preemption_configuration(),
+        "preemptionSummary" => service_job_preemption_summary(),
+        "quotaShareName" => String.t() | atom(),
         "retryStrategy" => service_job_retry_strategy(),
         "scheduledAt" => float(),
         "schedulingPriority" => integer(),
@@ -2498,6 +2786,7 @@ defmodule AWS.Batch do
         "jobId" => String.t() | atom(),
         "jobName" => String.t() | atom(),
         "latestAttempt" => latest_service_job_attempt(),
+        "quotaShareName" => String.t() | atom(),
         "scheduledAt" => float(),
         "serviceJobType" => list(any()),
         "shareIdentifier" => String.t() | atom(),
@@ -2572,6 +2861,17 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      describe_quota_share_request() :: %{
+        required("quotaShareArn") => String.t() | atom()
+      }
+
+  """
+  @type describe_quota_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_job_response() :: %{}
 
   """
@@ -2585,6 +2885,21 @@ defmodule AWS.Batch do
 
   """
   @type update_scheduling_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_quota_share_request() :: %{
+        optional("capacityLimits") => list(quota_share_capacity_limit()),
+        optional("preemptionConfiguration") => quota_share_preemption_configuration(),
+        optional("resourceSharingConfiguration") => quota_share_resource_sharing_configuration(),
+        optional("state") => list(any()),
+        required("quotaShareArn") => String.t() | atom()
+      }
+
+  """
+  @type update_quota_share_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2623,6 +2938,18 @@ defmodule AWS.Batch do
 
   """
   @type job_state_time_limit_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_quota_shares_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "quotaShares" => list(quota_share_detail())
+      }
+
+  """
+  @type list_quota_shares_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2802,6 +3129,8 @@ defmodule AWS.Batch do
 
   @type create_job_queue_errors() :: server_exception() | client_exception()
 
+  @type create_quota_share_errors() :: server_exception() | client_exception()
+
   @type create_scheduling_policy_errors() :: server_exception() | client_exception()
 
   @type create_service_environment_errors() :: server_exception() | client_exception()
@@ -2811,6 +3140,8 @@ defmodule AWS.Batch do
   @type delete_consumable_resource_errors() :: server_exception() | client_exception()
 
   @type delete_job_queue_errors() :: server_exception() | client_exception()
+
+  @type delete_quota_share_errors() :: server_exception() | client_exception()
 
   @type delete_scheduling_policy_errors() :: server_exception() | client_exception()
 
@@ -2828,6 +3159,8 @@ defmodule AWS.Batch do
 
   @type describe_jobs_errors() :: server_exception() | client_exception()
 
+  @type describe_quota_share_errors() :: server_exception() | client_exception()
+
   @type describe_scheduling_policies_errors() :: server_exception() | client_exception()
 
   @type describe_service_environments_errors() :: server_exception() | client_exception()
@@ -2841,6 +3174,8 @@ defmodule AWS.Batch do
   @type list_jobs_errors() :: server_exception() | client_exception()
 
   @type list_jobs_by_consumable_resource_errors() :: server_exception() | client_exception()
+
+  @type list_quota_shares_errors() :: server_exception() | client_exception()
 
   @type list_scheduling_policies_errors() :: server_exception() | client_exception()
 
@@ -2868,9 +3203,13 @@ defmodule AWS.Batch do
 
   @type update_job_queue_errors() :: server_exception() | client_exception()
 
+  @type update_quota_share_errors() :: server_exception() | client_exception()
+
   @type update_scheduling_policy_errors() :: server_exception() | client_exception()
 
   @type update_service_environment_errors() :: server_exception() | client_exception()
+
+  @type update_service_job_errors() :: server_exception() | client_exception()
 
   def metadata do
     %{
@@ -3077,6 +3416,38 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Creates an Batch quota share.
+
+  Each quota share operates as a virtual queue with a configured compute capacity,
+  resource sharing strategy, and borrow limits.
+  """
+  @spec create_quota_share(map(), create_quota_share_request(), list()) ::
+          {:ok, create_quota_share_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_quota_share_errors()}
+  def create_quota_share(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/createquotashare"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an Batch scheduling policy.
   """
   @spec create_scheduling_policy(map(), create_scheduling_policy_request(), list()) ::
@@ -3209,9 +3580,7 @@ defmodule AWS.Batch do
 
   You must first disable submissions for a queue with the
   `UpdateJobQueue` operation. All jobs in the queue are eventually terminated
-  when you delete a job queue. The jobs are terminated at a rate of about 16 jobs
-  each
-  second.
+  when you delete a job queue.
 
   It's not necessary to disassociate compute environments from a queue before
   submitting a
@@ -3224,6 +3593,39 @@ defmodule AWS.Batch do
           | {:error, delete_job_queue_errors()}
   def delete_job_queue(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deletejobqueue"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the specified quota share.
+
+  You must first disable submissions for the share by
+  updating the state to `DISABLED` using the `UpdateQuotaShare` operation.
+  All jobs in the share are eventually terminated when you delete a quota share.
+  """
+  @spec delete_quota_share(map(), delete_quota_share_request(), list()) ::
+          {:ok, delete_quota_share_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_quota_share_errors()}
+  def delete_quota_share(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/deletequotashare"
     headers = []
     custom_headers = []
     query_params = []
@@ -3492,6 +3894,35 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Returns a description of the specified quota share.
+  """
+  @spec describe_quota_share(map(), describe_quota_share_request(), list()) ::
+          {:ok, describe_quota_share_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_quota_share_errors()}
+  def describe_quota_share(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/describequotashare"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Describes one or more of your scheduling policies.
   """
   @spec describe_scheduling_policies(map(), describe_scheduling_policies_request(), list()) ::
@@ -3579,9 +4010,15 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Provides a list of the first 100 `RUNNABLE` jobs associated to a single job
-  queue and includes capacity utilization, including total usage and breakdown by
-  share for fairshare scheduling job queues.
+  Provides a snapshot of job queue state, including ordering of `RUNNABLE` jobs,
+  as well as capacity utilization for already dispatched jobs.
+
+  The first 100 `RUNNABLE` jobs in the job queue are listed in order of dispatch.
+  For job queues with an attached
+  quota-share policy, the first `RUNNABLE` job in each quota share is also listed.
+  Capacity utilization for the job queue is provided, as well as
+  break downs by share for job queues with attached fair-share or quota-share
+  scheduling policies.
   """
   @spec get_job_queue_snapshot(map(), get_job_queue_snapshot_request(), list()) ::
           {:ok, get_job_queue_snapshot_response(), any()}
@@ -3692,6 +4129,35 @@ defmodule AWS.Batch do
           | {:error, list_jobs_by_consumable_resource_errors()}
   def list_jobs_by_consumable_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/listjobsbyconsumableresource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of Batch quota shares associated with a job queue.
+  """
+  @spec list_quota_shares(map(), list_quota_shares_request(), list()) ::
+          {:ok, list_quota_shares_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_quota_shares_errors()}
+  def list_quota_shares(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/listquotashares"
     headers = []
     custom_headers = []
     query_params = []
@@ -4124,6 +4590,35 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Updates a quota share.
+  """
+  @spec update_quota_share(map(), update_quota_share_request(), list()) ::
+          {:ok, update_quota_share_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_quota_share_errors()}
+  def update_quota_share(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/updatequotashare"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates a scheduling policy.
   """
   @spec update_scheduling_policy(map(), update_scheduling_policy_request(), list()) ::
@@ -4165,6 +4660,35 @@ defmodule AWS.Batch do
           | {:error, update_service_environment_errors()}
   def update_service_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updateserviceenvironment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the priority of a specified service job in an Batch job queue.
+  """
+  @spec update_service_job(map(), update_service_job_request(), list()) ::
+          {:ok, update_service_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_service_job_errors()}
+  def update_service_job(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/updateservicejob"
     headers = []
     custom_headers = []
     query_params = []

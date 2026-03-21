@@ -5541,12 +5541,12 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Describes whether the Amazon Web Services account is opted in to cross-account
-  backup.
+  Describes whether the Amazon Web Services account has enabled different
+  cross-account management options, including cross-account backup, multi-party
+  approval, and delegated administrator.
 
   Returns an error if the account is not a member of an Organizations
-  organization.
-  Example: `describe-global-settings --region us-west-2`
+  organization. Example: `describe-global-settings --region us-west-2`
   """
   @spec describe_global_settings(map(), list()) ::
           {:ok, describe_global_settings_output(), any()}
@@ -8915,12 +8915,12 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates whether the Amazon Web Services account is opted in to cross-account
-  backup.
+  Updates whether the Amazon Web Services account has enabled different
+  cross-account management options, including cross-account backup, multi-party
+  approval, and delegated administrator.
 
   Returns an error if the account is not an Organizations management account. Use
-  the
-  `DescribeGlobalSettings` API to determine the current settings.
+  the `DescribeGlobalSettings` API to determine the current settings.
   """
   @spec update_global_settings(map(), update_global_settings_input(), list()) ::
           {:ok, nil, any()}

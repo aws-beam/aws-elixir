@@ -2757,6 +2757,7 @@ defmodule AWS.DynamoDB do
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
         "RegionName" => String.t() | atom(),
+        "ReplicaArn" => String.t() | atom(),
         "ReplicaInaccessibleDateTime" => non_neg_integer(),
         "ReplicaStatus" => list(any()),
         "ReplicaStatusDescription" => String.t() | atom(),

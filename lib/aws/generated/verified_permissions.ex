@@ -242,6 +242,21 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      policy_store_alias_item() :: %{
+        "aliasArn" => String.t() | atom(),
+        "aliasName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "policyStoreId" => String.t() | atom(),
+        "state" => list(any())
+      }
+      
+  """
+  @type policy_store_alias_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       open_id_connect_access_token_configuration() :: %{
         "audiences" => list(String.t() | atom()),
         "principalIdClaim" => String.t() | atom()
@@ -324,6 +339,7 @@ defmodule AWS.VerifiedPermissions do
         "createdDate" => non_neg_integer(),
         "description" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
         "policyStoreId" => String.t() | atom(),
         "policyTemplateId" => String.t() | atom()
       }
@@ -360,6 +376,17 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      policy_store_alias_filter() :: %{
+        "policyStoreId" => String.t() | atom()
+      }
+      
+  """
+  @type policy_store_alias_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_is_authorized_with_token_output_item() :: %{
         "decision" => list(any()),
         "determiningPolicies" => list(determining_policy_item()),
@@ -380,6 +407,7 @@ defmodule AWS.VerifiedPermissions do
         "definition" => list(),
         "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
         "policyId" => String.t() | atom(),
         "policyStoreId" => String.t() | atom(),
         "policyType" => list(any()),
@@ -389,6 +417,15 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type policy_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_policy_store_alias_output() :: %{}
+      
+  """
+  @type delete_policy_store_alias_output() :: %{}
 
   @typedoc """
 
@@ -447,6 +484,17 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_store_alias_input() :: %{
+        required("aliasName") => String.t() | atom()
+      }
+      
+  """
+  @type get_policy_store_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,6 +567,7 @@ defmodule AWS.VerifiedPermissions do
       
       update_policy_input() :: %{
         optional("definition") => list(),
+        optional("name") => String.t() | atom(),
         required("policyId") => String.t() | atom(),
         required("policyStoreId") => String.t() | atom()
       }
@@ -778,6 +827,18 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      create_policy_store_alias_input() :: %{
+        required("aliasName") => String.t() | atom(),
+        required("policyStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type create_policy_store_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_open_id_connect_configuration() :: %{
         "entityIdPrefix" => String.t() | atom(),
         "groupConfiguration" => update_open_id_connect_group_configuration(),
@@ -881,6 +942,21 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type get_policy_store_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policy_store_alias_output() :: %{
+        "aliasArn" => String.t() | atom(),
+        "aliasName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "policyStoreId" => String.t() | atom(),
+        "state" => list(any())
+      }
+      
+  """
+  @type get_policy_store_alias_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1058,6 +1134,7 @@ defmodule AWS.VerifiedPermissions do
       
       create_policy_input() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         required("definition") => list(),
         required("policyStoreId") => String.t() | atom()
       }
@@ -1121,6 +1198,7 @@ defmodule AWS.VerifiedPermissions do
       
       update_policy_template_input() :: %{
         optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         required("policyStoreId") => String.t() | atom(),
         required("policyTemplateId") => String.t() | atom(),
         required("statement") => String.t() | atom()
@@ -1150,12 +1228,25 @@ defmodule AWS.VerifiedPermissions do
       create_policy_template_input() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         required("policyStoreId") => String.t() | atom(),
         required("statement") => String.t() | atom()
       }
       
   """
   @type create_policy_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policy_store_aliases_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyStoreAliases" => list(policy_store_alias_item())
+      }
+      
+  """
+  @type list_policy_store_aliases_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1316,6 +1407,7 @@ defmodule AWS.VerifiedPermissions do
         "createdDate" => non_neg_integer(),
         "description" => String.t() | atom(),
         "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
         "policyStoreId" => String.t() | atom(),
         "policyTemplateId" => String.t() | atom(),
         "statement" => String.t() | atom()
@@ -1460,6 +1552,17 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      delete_policy_store_alias_input() :: %{
+        required("aliasName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_policy_store_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       open_id_connect_group_configuration() :: %{
         "groupClaim" => String.t() | atom(),
         "groupEntityType" => String.t() | atom()
@@ -1523,6 +1626,19 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      list_policy_store_aliases_input() :: %{
+        optional("filter") => policy_store_alias_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_policy_store_aliases_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_policy_output() :: %{
         "actions" => list(action_identifier()),
         "createdDate" => non_neg_integer(),
@@ -1566,6 +1682,20 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      create_policy_store_alias_output() :: %{
+        "aliasArn" => String.t() | atom(),
+        "aliasName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "policyStoreId" => String.t() | atom()
+      }
+      
+  """
+  @type create_policy_store_alias_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_policy_output() :: %{}
       
   """
@@ -1593,6 +1723,7 @@ defmodule AWS.VerifiedPermissions do
         "createdDate" => non_neg_integer(),
         "definition" => list(),
         "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
         "policyId" => String.t() | atom(),
         "policyStoreId" => String.t() | atom(),
         "policyType" => list(any())
@@ -1676,6 +1807,7 @@ defmodule AWS.VerifiedPermissions do
         "definition" => list(),
         "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
         "policyId" => String.t() | atom(),
         "policyStoreId" => String.t() | atom(),
         "policyType" => list(any()),
@@ -1702,6 +1834,11 @@ defmodule AWS.VerifiedPermissions do
 
   @type create_policy_store_errors() :: service_quota_exceeded_exception() | conflict_exception()
 
+  @type create_policy_store_alias_errors() ::
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_policy_template_errors() ::
           service_quota_exceeded_exception()
           | resource_not_found_exception()
@@ -1713,6 +1850,8 @@ defmodule AWS.VerifiedPermissions do
 
   @type delete_policy_store_errors() :: invalid_state_exception()
 
+  @type delete_policy_store_alias_errors() :: invalid_state_exception()
+
   @type delete_policy_template_errors() :: resource_not_found_exception() | conflict_exception()
 
   @type get_identity_source_errors() :: resource_not_found_exception()
@@ -1720,6 +1859,8 @@ defmodule AWS.VerifiedPermissions do
   @type get_policy_errors() :: resource_not_found_exception()
 
   @type get_policy_store_errors() :: resource_not_found_exception()
+
+  @type get_policy_store_alias_errors() :: resource_not_found_exception()
 
   @type get_policy_template_errors() :: resource_not_found_exception()
 
@@ -1969,6 +2110,33 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
+  Creates a policy store alias for the specified policy store.
+
+  A policy store alias is an alternative identifier that you can use to reference
+  a policy store in API operations.
+
+  This operation is idempotent. If multiple CreatePolicyStoreAlias requests are
+  made where the `aliasName` and `policyStoreId` fields are the same between the
+  requests, subsequent requests will be ignored. For each duplicate
+  CreatePolicyStoreAlias request, a Success response will be returned and a new
+  policy store alias will not be created.
+
+  Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
+  few seconds for a new or changed element to propagate through the service and be
+  visible in the results of other Verified Permissions operations.
+  """
+  @spec create_policy_store_alias(map(), create_policy_store_alias_input(), list()) ::
+          {:ok, create_policy_store_alias_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_policy_store_alias_errors()}
+  def create_policy_store_alias(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePolicyStoreAlias", input, options)
+  end
+
+  @doc """
   Creates a policy template.
 
   A template can use placeholders for the principal and resource. A template must
@@ -2050,6 +2218,29 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
+  Deletes the specified policy store alias.
+
+  This operation is idempotent. If you specify a policy store alias that does not
+  exist, the request response will still return a successful HTTP 200 status code.
+
+  When a policy store alias is deleted, it enters the `PendingDeletion` state.
+  When a policy store alias is in the `PendingDeletion` state, new policy store
+  aliases cannot be created with the same name. If the policy store alias is used
+  in an API that has a `policyStoreId` field, the operation will fail with a
+  `ResourceNotFound` exception.
+  """
+  @spec delete_policy_store_alias(map(), delete_policy_store_alias_input(), list()) ::
+          {:ok, delete_policy_store_alias_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_policy_store_alias_errors()}
+  def delete_policy_store_alias(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePolicyStoreAlias", input, options)
+  end
+
+  @doc """
   Deletes the specified policy template from the policy store.
 
   This operation also deletes any policies that were created from the specified
@@ -2107,6 +2298,20 @@ defmodule AWS.VerifiedPermissions do
     meta = metadata()
 
     Request.request_post(client, meta, "GetPolicyStore", input, options)
+  end
+
+  @doc """
+  Retrieves details about the specified policy store alias.
+  """
+  @spec get_policy_store_alias(map(), get_policy_store_alias_input(), list()) ::
+          {:ok, get_policy_store_alias_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_store_alias_errors()}
+  def get_policy_store_alias(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPolicyStoreAlias", input, options)
   end
 
   @doc """
@@ -2216,6 +2421,20 @@ defmodule AWS.VerifiedPermissions do
     meta = metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
+  end
+
+  @doc """
+  Returns a paginated list of all policy store aliases in the calling Amazon Web
+  Services account.
+  """
+  @spec list_policy_store_aliases(map(), list_policy_store_aliases_input(), list()) ::
+          {:ok, list_policy_store_aliases_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_policy_store_aliases(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPolicyStoreAliases", input, options)
   end
 
   @doc """

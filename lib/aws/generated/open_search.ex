@@ -2824,6 +2824,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      prometheus_direct_query_data_source() :: %{
+        "RoleArn" => String.t() | atom(),
+        "WorkspaceArn" => String.t() | atom()
+      }
+
+  """
+  @type prometheus_direct_query_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_domains_for_package_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -3324,10 +3336,10 @@ defmodule AWS.OpenSearch do
       add_direct_query_data_source_request() :: %{
         optional("DataSourceAccessPolicy") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("OpenSearchArns") => list(String.t() | atom()),
         optional("TagList") => list(tag()),
         required("DataSourceName") => String.t() | atom(),
-        required("DataSourceType") => list(),
-        required("OpenSearchArns") => list(String.t() | atom())
+        required("DataSourceType") => list()
       }
 
   """
@@ -3365,8 +3377,8 @@ defmodule AWS.OpenSearch do
       update_direct_query_data_source_request() :: %{
         optional("DataSourceAccessPolicy") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
-        required("DataSourceType") => list(),
-        required("OpenSearchArns") => list(String.t() | atom())
+        optional("OpenSearchArns") => list(String.t() | atom()),
+        required("DataSourceType") => list()
       }
 
   """

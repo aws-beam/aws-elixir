@@ -284,7 +284,8 @@ defmodule AWS.Lightsail do
         "protocol" => list(any()),
         "resourceType" => list(any()),
         "status" => list(any()),
-        "supportCode" => String.t() | atom()
+        "supportCode" => String.t() | atom(),
+        "tags" => list(tag())
       }
       
   """
@@ -2022,6 +2023,7 @@ defmodule AWS.Lightsail do
   ## Example:
       
       create_contact_method_request() :: %{
+        optional("tags") => list(tag()),
         required("contactEndpoint") => String.t() | atom(),
         required("protocol") => list(any())
       }

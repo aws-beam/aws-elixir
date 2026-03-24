@@ -248,6 +248,21 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      start_run_batch_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type start_run_batch_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_sequence_store_response() :: %{
         "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
@@ -320,6 +335,23 @@ defmodule AWS.Omics do
 
   """
   @type get_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_setting() :: %{
+        "name" => String.t() | atom(),
+        "outputBucketOwnerId" => String.t() | atom(),
+        "outputUri" => String.t() | atom(),
+        "parameters" => any(),
+        "priority" => [integer()],
+        "runSettingId" => String.t() | atom(),
+        "runTags" => map()
+      }
+
+  """
+  @type inline_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -793,6 +825,23 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      submission_summary() :: %{
+        "failedCancelSubmissionCount" => [integer()],
+        "failedDeleteSubmissionCount" => [integer()],
+        "failedStartSubmissionCount" => [integer()],
+        "pendingStartSubmissionCount" => [integer()],
+        "successfulCancelSubmissionCount" => [integer()],
+        "successfulDeleteSubmissionCount" => [integer()],
+        "successfulStartSubmissionCount" => [integer()]
+      }
+
+  """
+  @type submission_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       upload_read_set_part_response() :: %{
         "checksum" => [String.t() | atom()]
       }
@@ -903,6 +952,34 @@ defmodule AWS.Omics do
 
   """
   @type delete_run_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      default_run_setting() :: %{
+        "cacheBehavior" => String.t() | atom(),
+        "cacheId" => String.t() | atom(),
+        "logLevel" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "outputBucketOwnerId" => String.t() | atom(),
+        "outputUri" => String.t() | atom(),
+        "parameters" => any(),
+        "priority" => [integer()],
+        "retentionMode" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "runGroupId" => String.t() | atom(),
+        "runTags" => map(),
+        "storageCapacity" => [integer()],
+        "storageType" => String.t() | atom(),
+        "workflowId" => String.t() | atom(),
+        "workflowOwnerId" => String.t() | atom(),
+        "workflowType" => String.t() | atom(),
+        "workflowVersionName" => String.t() | atom()
+      }
+
+  """
+  @type default_run_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1058,8 +1135,20 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      cancel_run_batch_request() :: %{
+        required("batchId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_run_batch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       run_list_item() :: %{
         "arn" => String.t() | atom(),
+        "batchId" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -1330,6 +1419,24 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      run_summary() :: %{
+        "cancelledRunCount" => [integer()],
+        "completedRunCount" => [integer()],
+        "deletedRunCount" => [integer()],
+        "failedRunCount" => [integer()],
+        "pendingRunCount" => [integer()],
+        "runningRunCount" => [integer()],
+        "startingRunCount" => [integer()],
+        "stoppingRunCount" => [integer()]
+      }
+
+  """
+  @type run_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_read_set_metadata_response() :: %{
         "arn" => String.t() | atom(),
         "creationJobId" => String.t() | atom(),
@@ -1407,6 +1514,27 @@ defmodule AWS.Omics do
 
   """
   @type get_annotation_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_runs_in_batch_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "runs" => list(run_batch_list_item())
+      }
+
+  """
+  @type list_runs_in_batch_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_batch_request() :: %{}
+
+  """
+  @type delete_batch_request() :: %{}
 
   @typedoc """
 
@@ -1624,6 +1752,31 @@ defmodule AWS.Omics do
 
   """
   @type sequence_store_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_batch_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "defaultRunSetting" => default_run_setting(),
+        "failedTime" => non_neg_integer(),
+        "failureReason" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "processedTime" => non_neg_integer(),
+        "runSummary" => run_summary(),
+        "status" => String.t() | atom(),
+        "submissionSummary" => submission_summary(),
+        "submittedTime" => non_neg_integer(),
+        "tags" => map(),
+        "totalRuns" => [integer()],
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type get_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2114,6 +2267,15 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      cancel_run_batch_response() :: %{}
+
+  """
+  @type cancel_run_batch_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
@@ -2241,6 +2403,21 @@ defmodule AWS.Omics do
 
   """
   @type get_run_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_runs_in_batch_request() :: %{
+        optional("maxItems") => [integer()],
+        optional("runId") => [String.t() | atom()],
+        optional("runSettingId") => [String.t() | atom()],
+        optional("startingToken") => String.t() | atom(),
+        optional("submissionStatus") => String.t() | atom()
+      }
+
+  """
+  @type list_runs_in_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2386,6 +2563,22 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      batch_list_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "totalRuns" => [integer()],
+        "workflowId" => String.t() | atom()
+      }
+
+  """
+  @type batch_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_workflow_versions_response() :: %{
         "items" => list(workflow_version_list_item()),
         "nextToken" => String.t() | atom()
@@ -2413,6 +2606,17 @@ defmodule AWS.Omics do
 
   """
   @type update_annotation_store_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_run_batch_request() :: %{
+        required("batchId") => String.t() | atom()
+      }
+
+  """
+  @type delete_run_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2833,6 +3037,21 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      list_batch_request() :: %{
+        optional("maxItems") => [integer()],
+        optional("name") => String.t() | atom(),
+        optional("runGroupId") => String.t() | atom(),
+        optional("startingToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_batch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -2898,6 +3117,15 @@ defmodule AWS.Omics do
 
   """
   @type start_annotation_import_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_run_batch_response() :: %{}
+
+  """
+  @type delete_run_batch_response() :: %{}
 
   @typedoc """
 
@@ -3195,6 +3423,15 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      get_batch_request() :: %{}
+
+  """
+  @type get_batch_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_share_request() :: %{}
 
   """
@@ -3259,6 +3496,18 @@ defmodule AWS.Omics do
 
   """
   @type list_read_set_upload_parts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_batch_response() :: %{
+        "items" => list(batch_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3443,6 +3692,7 @@ defmodule AWS.Omics do
         "storageType" => String.t() | atom(),
         "status" => String.t() | atom(),
         "stopTime" => non_neg_integer(),
+        "batchId" => String.t() | atom(),
         "resourceDigests" => map(),
         "workflowOwnerId" => String.t() | atom()
       }
@@ -3542,6 +3792,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_runs_request() :: %{
+        optional("batchId") => String.t() | atom(),
         optional("maxResults") => [integer()],
         optional("name") => String.t() | atom(),
         optional("runGroupId") => String.t() | atom(),
@@ -3573,6 +3824,23 @@ defmodule AWS.Omics do
 
   """
   @type get_variant_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_batch_list_item() :: %{
+        "runArn" => String.t() | atom(),
+        "runId" => String.t() | atom(),
+        "runInternalUuid" => String.t() | atom(),
+        "runSettingId" => String.t() | atom(),
+        "submissionFailureMessage" => String.t() | atom(),
+        "submissionFailureReason" => String.t() | atom(),
+        "submissionStatus" => String.t() | atom()
+      }
+
+  """
+  @type run_batch_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3629,6 +3897,21 @@ defmodule AWS.Omics do
 
   """
   @type get_annotation_import_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_run_batch_request() :: %{
+        optional("batchName") => String.t() | atom(),
+        optional("tags") => map(),
+        required("batchRunSettings") => list(),
+        required("defaultRunSetting") => default_run_setting(),
+        required("requestId") => String.t() | atom()
+      }
+
+  """
+  @type start_run_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3801,6 +4084,16 @@ defmodule AWS.Omics do
           | conflict_exception()
           | request_timeout_exception()
 
+  @type cancel_run_batch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
   @type cancel_variant_import_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3936,6 +4229,16 @@ defmodule AWS.Omics do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_batch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
   @type delete_reference_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3955,6 +4258,16 @@ defmodule AWS.Omics do
           | request_timeout_exception()
 
   @type delete_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
+  @type delete_run_batch_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4059,6 +4372,14 @@ defmodule AWS.Omics do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type get_batch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | request_timeout_exception()
 
   @type get_read_set_errors() ::
           range_not_satisfiable_exception()
@@ -4257,6 +4578,13 @@ defmodule AWS.Omics do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_batch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | request_timeout_exception()
+
   @type list_multipart_read_set_uploads_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4363,6 +4691,16 @@ defmodule AWS.Omics do
           | request_timeout_exception()
 
   @type list_runs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
+  @type list_runs_in_batch_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4486,6 +4824,16 @@ defmodule AWS.Omics do
           | request_timeout_exception()
 
   @type start_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
+  @type start_run_batch_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4733,12 +5081,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Cancels an annotation import job.
@@ -4808,12 +5155,49 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Cancels all runs within a specified batch.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  This operation prevents not-yet-submitted runs from starting and submits
+  `CancelRun` requests for runs that have already started.
+
+  Cancel is only allowed on batches in `PENDING`, `SUBMITTING`, or `INPROGRESS`
+  state. Cancel operations are non-atomic and may be partially successful. Use
+  `GetBatch` to review `successfulCancelSubmissionCount` and
+  `failedCancelSubmissionCount` in the `submissionSummary`. Only one cancel or
+  delete operation per batch is allowed at a time.
+  """
+  @spec cancel_run_batch(map(), cancel_run_batch_request(), list()) ::
+          {:ok, cancel_run_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_run_batch_errors()}
+  def cancel_run_batch(%Client{} = client, input, options \\ []) do
+    url_path = "/runBatch/cancel"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
+
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Cancels a variant import job.
@@ -4902,12 +5286,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Creates an annotation store.
@@ -5238,12 +5621,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Creates a variant store.
@@ -5385,12 +5767,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Deletes an annotation store.
@@ -5467,6 +5848,43 @@ defmodule AWS.Omics do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes a run batch resource and its associated metadata.
+
+  This operation does not delete the individual workflow runs. To delete the runs,
+  call `DeleteRunBatch` before calling `DeleteBatch`.
+
+  `DeleteBatch` requires the batch to be in a terminal state: `PROCESSED`,
+  `FAILED`, `CANCELLED`, or `RUNS_DELETED`. After `DeleteBatch` completes, the
+  batch metadata is no longer accessible. You cannot call `GetBatch`,
+  `ListRunsInBatch`, `DeleteRunBatch`, or `CancelRunBatch` on a deleted batch.
+  """
+  @spec delete_batch(map(), String.t() | atom(), delete_batch_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_batch_errors()}
+  def delete_batch(%Client{} = client, batch_id, input, options \\ []) do
+    url_path = "/runBatch/#{AWS.Util.encode_uri(batch_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -5591,6 +6009,43 @@ defmodule AWS.Omics do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes the individual workflow runs within a batch.
+
+  This operation is separate from `DeleteBatch`, which removes the batch metadata.
+
+  Delete is only allowed on batches in `PROCESSED` or `CANCELLED` state. Delete
+  operations are non-atomic and may be partially successful. Use `GetBatch` to
+  review `successfulDeleteSubmissionCount` and `failedDeleteSubmissionCount` in
+  the `submissionSummary`. Only one cancel or delete operation per batch is
+  allowed at a time.
+  """
+  @spec delete_run_batch(map(), delete_run_batch_request(), list()) ::
+          {:ok, delete_run_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_run_batch_errors()}
+  def delete_run_batch(%Client{} = client, input, options \\ []) do
+    url_path = "/runBatch/delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -5782,12 +6237,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Deletes a variant store.
@@ -5905,12 +6359,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Gets information about an annotation import job.
@@ -5931,12 +6384,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Gets information about an annotation store.
@@ -5972,6 +6424,25 @@ defmodule AWS.Omics do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves details and current status for a specific run batch, including
+  submission progress and run execution counts.
+  """
+  @spec get_batch(map(), String.t() | atom(), list()) ::
+          {:ok, get_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_batch_errors()}
+  def get_batch(%Client{} = client, batch_id, options \\ []) do
+    url_path = "/runBatch/#{AWS.Util.encode_uri(batch_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6388,12 +6859,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Gets information about a variant import job.
@@ -6414,12 +6884,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Gets information about a variant store.
@@ -6558,12 +7027,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Retrieves a list of annotation import jobs.
@@ -6641,12 +7109,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Retrieves a list of annotation stores.
@@ -6681,6 +7148,78 @@ defmodule AWS.Omics do
       options,
       200
     )
+  end
+
+  @doc """
+  Returns a list of run batches in your account, with optional filtering by
+  status, name, or run group.
+
+  Results are paginated. Only one filter per call is supported.
+  """
+  @spec list_batch(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_batch_errors()}
+  def list_batch(
+        %Client{} = client,
+        max_items \\ nil,
+        name \\ nil,
+        run_group_id \\ nil,
+        starting_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/runBatch"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(run_group_id) do
+        [{"runGroupId", run_group_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -7220,6 +7759,7 @@ defmodule AWS.Omics do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_runs_response(), any()}
@@ -7228,6 +7768,7 @@ defmodule AWS.Omics do
           | {:error, list_runs_errors()}
   def list_runs(
         %Client{} = client,
+        batch_id \\ nil,
         max_results \\ nil,
         name \\ nil,
         run_group_id \\ nil,
@@ -7270,6 +7811,88 @@ defmodule AWS.Omics do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(batch_id) do
+        [{"batchId", batch_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a paginated list of individual workflow runs within a specific batch.
+
+  Use this operation to map each `runSettingId` to its HealthOmics-generated
+  `runId`, and to check the submission status of each run. Only one filter per
+  call is supported.
+  """
+  @spec list_runs_in_batch(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_runs_in_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_runs_in_batch_errors()}
+  def list_runs_in_batch(
+        %Client{} = client,
+        batch_id,
+        max_items \\ nil,
+        run_id \\ nil,
+        run_setting_id \\ nil,
+        starting_token \\ nil,
+        submission_status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/runBatch/#{AWS.Util.encode_uri(batch_id)}/run"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(submission_status) do
+        [{"submissionStatus", submission_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(run_setting_id) do
+        [{"runSettingId", run_setting_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(run_id) do
+        [{"runId", run_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
       else
         query_params
       end
@@ -7373,12 +7996,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Retrieves a list of variant import jobs.
@@ -7416,12 +8038,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Retrieves a list of variant stores.
@@ -7618,12 +8239,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Starts an annotation import job.
@@ -7900,12 +8520,49 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Starts a batch of workflow runs.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  You can group up to 100,000 runs into a single batch that share a common
+  configuration defined in `defaultRunSetting`. Per-run overrides can be provided
+  either inline via `inlineSettings` (up to 100 runs) or via a JSON file stored in
+  Amazon S3 via `s3UriSettings` (up to 100,000 runs).
+
+  `StartRunBatch` validates common fields synchronously and returns immediately
+  with a batch ID and status `PENDING`. Runs are submitted gradually and
+  asynchronously at a rate governed by your `StartRun` throughput quota.
+  """
+  @spec start_run_batch(map(), start_run_batch_request(), list()) ::
+          {:ok, start_run_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_run_batch_errors()}
+  def start_run_batch(%Client{} = client, input, options \\ []) do
+    url_path = "/runBatch"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
+
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Starts a variant import job.
@@ -8000,12 +8657,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Updates an annotation store.
@@ -8197,12 +8853,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Amazon Web Services HealthOmics variant stores and annotation stores will no
-  longer be open to new customers starting November 7, 2025.
+  Amazon Web Services HealthOmics variant stores and annotation stores are no
+  longer open to new customers.
 
-  If you would like to use variant stores or annotation stores, sign up prior to
-  that date. Existing customers can continue to use the service as normal. For
-  more information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
+  Existing customers can continue to use the service as normal. For more
+  information, see [ Amazon Web Services HealthOmics variant store and annotation store availability
   change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html).
 
   Updates a variant store.

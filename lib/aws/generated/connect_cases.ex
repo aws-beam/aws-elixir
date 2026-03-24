@@ -928,6 +928,18 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      comment_update_content() :: %{
+        "body" => String.t() | atom(),
+        "contentType" => String.t() | atom()
+      }
+
+  """
+  @type comment_update_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_layout_response() :: %{
         required("layoutArn") => String.t() | atom(),
         required("layoutId") => String.t() | atom()
@@ -1037,6 +1049,24 @@ defmodule AWS.ConnectCases do
 
   """
   @type get_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_related_item_response() :: %{
+        "associationTime" => non_neg_integer(),
+        "content" => list(),
+        "createdBy" => list(),
+        "lastUpdatedUser" => list(),
+        "relatedItemArn" => String.t() | atom(),
+        "relatedItemId" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type update_related_item_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1333,6 +1363,18 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      update_related_item_request() :: %{
+        optional("performedBy") => list(),
+        required("content") => list()
+      }
+
+  """
+  @type update_related_item_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       field_option() :: %{
         "active" => [boolean()],
         "name" => String.t() | atom(),
@@ -1428,6 +1470,17 @@ defmodule AWS.ConnectCases do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_update_content() :: %{
+        "fields" => list(field_value())
+      }
+
+  """
+  @type custom_update_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2136,6 +2189,13 @@ defmodule AWS.ConnectCases do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type update_related_item_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type update_template_errors() ::
           throttling_exception()
@@ -3814,6 +3874,76 @@ defmodule AWS.ConnectCases do
   def update_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the content of a related item associated with a case.
+
+  The following related item types are supported:
+
+    * **Comment** - Update the text content of an existing comment
+
+    * **Custom** - Update the fields of a custom related item. You can
+  add, modify, and remove fields from a custom related item. There's a quota for
+  the number of fields allowed in a Custom type related item. See [Amazon Connect Cases
+  quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas).
+
+  ## Important things to know
+
+    * When updating a Custom related item, all existing and new fields,
+  and their associated values should be included in the request. Fields not
+  included as part of this request will be removed.
+
+    * If you provide a value for `performedBy.userArn` you must also
+  have
+  [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html) permission on the ARN of the user that you provide.
+
+    * [System case
+  fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html#system-case-fields)
+  cannot be used in a custom related item.
+
+  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec update_related_item(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_related_item_request(),
+          list()
+        ) ::
+          {:ok, update_related_item_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_related_item_errors()}
+  def update_related_item(
+        %Client{} = client,
+        case_id,
+        domain_id,
+        related_item_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items/#{AWS.Util.encode_uri(related_item_id)}"
 
     headers = []
     custom_headers = []

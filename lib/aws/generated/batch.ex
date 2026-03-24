@@ -444,6 +444,7 @@ defmodule AWS.Batch do
   ## Example:
 
       ec2_configuration() :: %{
+        "batchImageStatus" => String.t() | atom(),
         "imageIdOverride" => String.t() | atom(),
         "imageKubernetesVersion" => String.t() | atom(),
         "imageType" => String.t() | atom()

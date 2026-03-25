@@ -110,6 +110,18 @@ defmodule AWS.PCS do
 
   ## Example:
       
+      cgroup_custom_setting() :: %{
+        "parameterName" => [String.t() | atom()],
+        "parameterValue" => [String.t() | atom()]
+      }
+      
+  """
+  @type cgroup_custom_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       slurm_rest_request() :: %{
         "mode" => list(any())
       }
@@ -143,9 +155,11 @@ defmodule AWS.PCS do
       
       update_cluster_slurm_configuration_request() :: %{
         "accounting" => update_accounting_request(),
+        "cgroupCustomSettings" => list(cgroup_custom_setting()),
         "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting()),
-        "slurmRest" => update_slurm_rest_request()
+        "slurmRest" => update_slurm_rest_request(),
+        "slurmdbdCustomSettings" => list(slurmdbd_custom_setting())
       }
       
   """
@@ -263,10 +277,12 @@ defmodule AWS.PCS do
       cluster_slurm_configuration() :: %{
         "accounting" => accounting(),
         "authKey" => slurm_auth_key(),
+        "cgroupCustomSettings" => list(cgroup_custom_setting()),
         "jwtAuth" => jwt_auth(),
         "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting()),
-        "slurmRest" => slurm_rest()
+        "slurmRest" => slurm_rest(),
+        "slurmdbdCustomSettings" => list(slurmdbd_custom_setting())
       }
       
   """
@@ -803,9 +819,11 @@ defmodule AWS.PCS do
       
       cluster_slurm_configuration_request() :: %{
         "accounting" => accounting_request(),
+        "cgroupCustomSettings" => list(cgroup_custom_setting()),
         "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting()),
-        "slurmRest" => slurm_rest_request()
+        "slurmRest" => slurm_rest_request(),
+        "slurmdbdCustomSettings" => list(slurmdbd_custom_setting())
       }
       
   """
@@ -891,6 +909,18 @@ defmodule AWS.PCS do
       
   """
   @type instance_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      slurmdbd_custom_setting() :: %{
+        "parameterName" => [String.t() | atom()],
+        "parameterValue" => [String.t() | atom()]
+      }
+      
+  """
+  @type slurmdbd_custom_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

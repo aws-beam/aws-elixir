@@ -411,6 +411,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       list_browser_profiles_request() :: %{
         optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
         optional("nextToken") => String.t() | atom()
       }
 
@@ -1519,6 +1520,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
+        optional("filesystemConfigurations") => list(list()),
         optional("lifecycleConfiguration") => lifecycle_configuration(),
         optional("protocolConfiguration") => protocol_configuration(),
         optional("requestHeaderConfiguration") => list(),
@@ -1617,6 +1619,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
+        optional("filesystemConfigurations") => list(list()),
         optional("lifecycleConfiguration") => lifecycle_configuration(),
         optional("metadataConfiguration") => runtime_metadata_configuration(),
         optional("protocolConfiguration") => protocol_configuration(),
@@ -3078,6 +3081,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "description" => String.t() | atom(),
         "environmentVariables" => map(),
         "failureReason" => [String.t() | atom()],
+        "filesystemConfigurations" => list(list()),
         "lastUpdatedAt" => non_neg_integer(),
         "lifecycleConfiguration" => lifecycle_configuration(),
         "metadataConfiguration" => runtime_metadata_configuration(),
@@ -3941,6 +3945,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type code_interpreter_network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_storage_configuration() :: %{
+        "mountPath" => String.t() | atom()
+      }
+
+  """
+  @type session_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

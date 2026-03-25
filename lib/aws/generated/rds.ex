@@ -60,7 +60,9 @@ defmodule AWS.RDS do
         optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t() | atom(),
+        optional("EnableVPCNetworking") => boolean(),
         optional("EngineMode") => String.t() | atom(),
+        optional("EnableInternetAccessGateway") => boolean(),
         optional("NetworkType") => String.t() | atom(),
         optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("RdsCustomClusterConfiguration") => rds_custom_cluster_configuration(),
@@ -1759,7 +1761,9 @@ defmodule AWS.RDS do
         optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t() | atom(),
+        optional("EnableVPCNetworking") => boolean(),
         optional("EngineMode") => String.t() | atom(),
+        optional("EnableInternetAccessGateway") => boolean(),
         optional("NetworkType") => String.t() | atom(),
         optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("RdsCustomClusterConfiguration") => rds_custom_cluster_configuration(),
@@ -4832,6 +4836,7 @@ defmodule AWS.RDS do
         optional("PreferredBackupWindow") => String.t() | atom(),
         optional("MonitoringInterval") => integer(),
         optional("MasterUsername") => String.t() | atom(),
+        optional("WithExpressConfiguration") => boolean(),
         optional("DomainIAMRoleName") => String.t() | atom(),
         optional("Domain") => String.t() | atom(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
@@ -5842,6 +5847,7 @@ defmodule AWS.RDS do
         "Iops" => integer(),
         "ScalingConfigurationInfo" => scaling_configuration_info(),
         "MonitoringInterval" => integer(),
+        "VPCNetworkingEnabled" => boolean(),
         "ClusterScalabilityType" => list(any()),
         "CloneGroupId" => String.t() | atom(),
         "AwsBackupRecoveryPointArn" => String.t() | atom(),
@@ -5856,6 +5862,7 @@ defmodule AWS.RDS do
         "ActivityStreamMode" => list(any()),
         "ReadReplicaIdentifiers" => list(String.t() | atom()),
         "CopyTagsToSnapshot" => boolean(),
+        "InternetAccessGatewayEnabled" => boolean(),
         "RdsCustomClusterConfiguration" => rds_custom_cluster_configuration(),
         "ServerlessV2ScalingConfiguration" => serverless_v2_scaling_configuration_info(),
         "DBClusterInstanceClass" => String.t() | atom(),
@@ -9637,6 +9644,11 @@ defmodule AWS.RDS do
   as the source. For more information about Multi-AZ DB clusters, see [Multi-AZ DB cluster
   deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
   in the *Amazon RDS User Guide*.
+
+  You can use the `WithExpressConfiguration` parameter to create an Aurora DB
+  Cluster with express configuration and create cluster in seconds. Express
+  configuration provides a cluster with a writer instance and feature specific
+  values set to all other input parameters of this API.
   """
   @spec create_db_cluster(map(), create_db_cluster_message(), list()) ::
           {:ok, create_db_cluster_result(), any()}
@@ -12431,6 +12443,16 @@ defmodule AWS.RDS do
   configuration. If you don't specify a security group, the new DB cluster is
   associated with the default security group.
 
+  You can use the `EnableVPCNetworking` and `EnableInternetAccessGateway`
+  parameters together to restore an Aurora PostgreSQL cluster without VPC
+  networking and with internet-based connectivity. These two parameters must
+  always be specified together. Set `EnableVPCNetworking` to `false` to disable
+  the VPC network interface (ENI) for the cluster. `EnableInternetAccessGateway`
+  enables internet-based connectivity through an internet access gateway. IAM
+  database authentication is required and must be enabled using
+  `EnableIAMDatabaseAuthentication`. Once the cluster is restored, you need to
+  modify the DB cluster to update `MasterUserAuthenticationType` to `iam-db-auth`.
+
   This operation only restores the DB cluster, not the DB instances for that DB
   cluster. You must invoke the `CreateDBInstance` operation to create DB instances
   for the restored DB cluster, specifying the identifier of the restored DB
@@ -12469,6 +12491,16 @@ defmodule AWS.RDS do
   `RestoreType` is set to `copy-on-write`, the restore may occur in a different
   Availability Zone (AZ) from the original DB cluster. The AZ where RDS restores
   the DB cluster depends on the AZs in the specified subnet group.
+
+  You can use the `EnableVPCNetworking` and `EnableInternetAccessGateway`
+  parameters together to restore an Aurora PostgreSQL cluster without VPC
+  networking and with internet-based connectivity. These two parameters must
+  always be specified together. Set `EnableVPCNetworking` to `false` to disable
+  the VPC network interface (ENI) for the cluster. `EnableInternetAccessGateway`
+  enables internet-based connectivity through an internet access gateway. IAM
+  database authentication is required and must be enabled using
+  `EnableIAMDatabaseAuthentication`. Once the cluster is restored, you need to
+  modify the DB cluster to update `MasterUserAuthenticationType` to `iam-db-auth`.
 
   For Aurora, this operation only restores the DB cluster, not the DB instances
   for that DB cluster. You must invoke the `CreateDBInstance` operation to create

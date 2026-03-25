@@ -1585,6 +1585,7 @@ defmodule AWS.OpenSearchServerless do
       update_collection_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => [String.t() | atom()],
+        optional("vectorOptions") => vector_options(),
         required("id") => String.t() | atom()
       }
       
@@ -1676,7 +1677,8 @@ defmodule AWS.OpenSearchServerless do
         "lastModifiedDate" => [float()],
         "name" => String.t() | atom(),
         "status" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "type" => String.t() | atom(),
+        "vectorOptions" => vector_options()
       }
       
   """

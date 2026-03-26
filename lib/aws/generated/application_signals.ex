@@ -287,6 +287,7 @@ defmodule AWS.ApplicationSignals do
         "DependencyConfig" => dependency_config(),
         "EvaluationType" => list(any()),
         "KeyAttributes" => map(),
+        "MetricSource" => metric_source(),
         "MetricSourceType" => list(any()),
         "Name" => String.t() | atom(),
         "OperationName" => String.t() | atom()
@@ -313,6 +314,7 @@ defmodule AWS.ApplicationSignals do
         "KeyAttributes" => map(),
         "MetricDataQueries" => list(metric_data_query()),
         "MetricName" => String.t() | atom(),
+        "MetricSource" => metric_source(),
         "MetricType" => list(any()),
         "OperationName" => String.t() | atom(),
         "PeriodSeconds" => integer(),
@@ -345,6 +347,7 @@ defmodule AWS.ApplicationSignals do
         optional("IncludeLinkedAccounts") => [boolean()],
         optional("KeyAttributes") => map(),
         optional("MaxResults") => integer(),
+        optional("MetricSource") => metric_source(),
         optional("MetricSourceTypes") => list(list(any())()),
         optional("NextToken") => String.t() | atom(),
         optional("OperationName") => String.t() | atom(),
@@ -524,6 +527,7 @@ defmodule AWS.ApplicationSignals do
         "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
         "MetricDataQueries" => list(metric_data_query()),
+        "MetricSource" => metric_source(),
         "MetricType" => list(any()),
         "OperationName" => String.t() | atom()
       }
@@ -538,6 +542,8 @@ defmodule AWS.ApplicationSignals do
       request_based_service_level_indicator_metric_config() :: %{
         "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
+        "MetricName" => String.t() | atom(),
+        "MetricSource" => metric_source(),
         "MetricType" => list(any()),
         "MonitoredRequestCountMetric" => list(),
         "OperationName" => String.t() | atom(),
@@ -658,6 +664,18 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_source() :: %{
+        "MetricSourceAttributes" => map(),
+        "MetricSourceKeyAttributes" => map()
+      }
+
+  """
+  @type metric_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -977,6 +995,7 @@ defmodule AWS.ApplicationSignals do
       request_based_service_level_indicator_metric() :: %{
         "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
+        "MetricSource" => metric_source(),
         "MetricType" => list(any()),
         "MonitoredRequestCountMetric" => list(),
         "OperationName" => String.t() | atom(),

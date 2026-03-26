@@ -44,6 +44,39 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      list_agreement_payment_requests_input() :: %{
+        optional("agreementId") => String.t() | atom(),
+        optional("agreementType") => String.t() | atom(),
+        optional("catalog") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any()),
+        required("partyType") => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_payment_requests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_agreement_payment_request_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("agreementId") => String.t() | atom(),
+        required("chargeAmount") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("termId") => String.t() | atom()
+      }
+      
+  """
+  @type send_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_agreement_terms_output() :: %{
         "acceptedTerms" => list(list()),
         "nextToken" => String.t() | atom()
@@ -116,12 +149,45 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      get_agreement_payment_request_output() :: %{
+        "agreementId" => String.t() | atom(),
+        "chargeAmount" => String.t() | atom(),
+        "chargeId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "currencyCode" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "paymentRequestId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusMessage" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type get_agreement_payment_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       acceptor() :: %{
         "accountId" => String.t() | atom()
       }
       
   """
   @type acceptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_agreement_payment_request_input() :: %{
+        required("agreementId") => String.t() | atom(),
+        required("paymentRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,6 +201,24 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type document_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_agreement_payment_request_output() :: %{
+        "agreementId" => String.t() | atom(),
+        "chargeAmount" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "currencyCode" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "paymentRequestId" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type send_agreement_payment_request_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -154,6 +238,20 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type agreement_view_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "requestId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,6 +299,18 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type usage_based_pricing_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_payment_requests_output() :: %{
+        "items" => list(payment_request_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_payment_requests_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -404,6 +514,25 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      payment_request_summary() :: %{
+        "agreementId" => String.t() | atom(),
+        "chargeAmount" => String.t() | atom(),
+        "chargeId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "currencyCode" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "paymentRequestId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type payment_request_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       constraints() :: %{
         "multipleDimensionSelection" => String.t() | atom(),
         "quantityConfiguration" => String.t() | atom()
@@ -506,6 +635,18 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      get_agreement_payment_request_input() :: %{
+        required("agreementId") => String.t() | atom(),
+        required("paymentRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       free_trial_pricing_term() :: %{
         "duration" => String.t() | atom(),
         "grants" => list(grant_item()),
@@ -557,6 +698,25 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      cancel_agreement_payment_request_output() :: %{
+        "agreementId" => String.t() | atom(),
+        "chargeAmount" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "currencyCode" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "paymentRequestId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type cancel_agreement_payment_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       variable_payment_term_configuration() :: %{
         "expirationDuration" => String.t() | atom(),
         "paymentRequestApprovalStrategy" => list(any())
@@ -591,7 +751,22 @@ defmodule AWS.MarketplaceAgreement do
   """
   @type resource() :: %{(String.t() | atom()) => any()}
 
+  @type cancel_agreement_payment_request_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type describe_agreement_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_agreement_payment_request_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -605,11 +780,25 @@ defmodule AWS.MarketplaceAgreement do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_agreement_payment_requests_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type search_agreements_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type send_agreement_payment_request_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -628,6 +817,27 @@ defmodule AWS.MarketplaceAgreement do
   end
 
   @doc """
+  Allows sellers (proposers) to cancel a payment request that is in
+  `PENDING_APPROVAL` status.
+
+  Once cancelled, the payment request transitions to `CANCELLED` status and can no
+  longer be accepted or rejected by the buyer.
+
+  Only payment requests in `PENDING_APPROVAL` status can be cancelled. A
+  `ConflictException` is thrown if the payment request is in any other status.
+  """
+  @spec cancel_agreement_payment_request(map(), cancel_agreement_payment_request_input(), list()) ::
+          {:ok, cancel_agreement_payment_request_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_agreement_payment_request_errors()}
+  def cancel_agreement_payment_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelAgreementPaymentRequest", input, options)
+  end
+
+  @doc """
   Provides details about an agreement, such as the proposer, acceptor, start date,
   and end date.
   """
@@ -640,6 +850,29 @@ defmodule AWS.MarketplaceAgreement do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAgreement", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information about a specific payment request.
+
+  Both sellers (proposers) and buyers (acceptors) can use this operation to view
+  payment requests associated with their agreements. The response includes the
+  current status, charge details, timestamps, and the charge ID if the request has
+  been approved.
+
+  The calling identity must be either the acceptor or proposer of the payment
+  request. A `ResourceNotFoundException` is returned if the payment request does
+  not exist.
+  """
+  @spec get_agreement_payment_request(map(), get_agreement_payment_request_input(), list()) ::
+          {:ok, get_agreement_payment_request_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agreement_payment_request_errors()}
+  def get_agreement_payment_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAgreementPaymentRequest", input, options)
   end
 
   @doc """
@@ -671,6 +904,28 @@ defmodule AWS.MarketplaceAgreement do
     meta = metadata()
 
     Request.request_post(client, meta, "GetAgreementTerms", input, options)
+  end
+
+  @doc """
+  Lists payment requests available to you as a seller or buyer.
+
+  Both sellers (proposers) and buyers (acceptors) can use this operation to find
+  payment requests by specifying their party type and applying optional
+  parameters.
+
+  `PartyType` is a required parameter. A `ValidationException` is returned if
+  `PartyType` is not provided. Pagination is supported through `maxResults` (1-50,
+  default 50) and `nextToken` parameters.
+  """
+  @spec list_agreement_payment_requests(map(), list_agreement_payment_requests_input(), list()) ::
+          {:ok, list_agreement_payment_requests_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_agreement_payment_requests_errors()}
+  def list_agreement_payment_requests(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAgreementPaymentRequests", input, options)
   end
 
   @doc """
@@ -768,5 +1023,27 @@ defmodule AWS.MarketplaceAgreement do
     meta = metadata()
 
     Request.request_post(client, meta, "SearchAgreements", input, options)
+  end
+
+  @doc """
+  Allows sellers (proposers) to submit a payment request to buyers (acceptors) for
+  a specific charge amount for an agreement that includes a `VariablePaymentTerm`.
+
+  The payment request is created in `PENDING_APPROVAL` status, at which point the
+  buyer can accept or reject it.
+
+  The agreement must be active and have a `VariablePaymentTerm` to support payment
+  requests. The `chargeAmount` must not exceed the remaining available balance
+  under the `VariablePaymentTerm` `maxTotalChargeAmount`.
+  """
+  @spec send_agreement_payment_request(map(), send_agreement_payment_request_input(), list()) ::
+          {:ok, send_agreement_payment_request_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_agreement_payment_request_errors()}
+  def send_agreement_payment_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendAgreementPaymentRequest", input, options)
   end
 end

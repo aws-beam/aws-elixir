@@ -449,11 +449,11 @@ defmodule AWS.SageMaker do
       
       create_inference_component_input() :: %{
         optional("RuntimeConfig") => inference_component_runtime_config(),
+        optional("Specification") => inference_component_specification(),
         optional("Tags") => list(tag()),
         optional("VariantName") => String.t() | atom(),
         required("EndpointName") => String.t() | atom(),
-        required("InferenceComponentName") => String.t() | atom(),
-        required("Specification") => inference_component_specification()
+        required("InferenceComponentName") => String.t() | atom()
       }
       
   """

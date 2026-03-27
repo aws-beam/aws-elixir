@@ -2942,6 +2942,7 @@ defmodule AWS.EMR do
         required("Name") => String.t() | atom(),
         optional("AutoScalingRole") => String.t() | atom(),
         optional("KerberosAttributes") => kerberos_attributes(),
+        optional("StepExecutionRoleArn") => String.t() | atom(),
         optional("EbsRootVolumeIops") => integer(),
         optional("AmiVersion") => String.t() | atom(),
         optional("ServiceRole") => String.t() | atom(),

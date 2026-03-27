@@ -665,6 +665,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      query_parameter() :: %{
+        "defaultValue" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type query_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_log_events_request() :: %{
         optional("entity") => entity(),
         optional("sequenceToken") => String.t() | atom(),
@@ -2697,6 +2710,7 @@ defmodule AWS.CloudWatchLogs do
       put_query_definition_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("logGroupNames") => list(String.t() | atom()),
+        optional("parameters") => list(query_parameter()),
         optional("queryDefinitionId") => String.t() | atom(),
         optional("queryLanguage") => list(any()),
         required("name") => String.t() | atom(),
@@ -3397,6 +3411,8 @@ defmodule AWS.CloudWatchLogs do
       
       s3_configuration() :: %{
         "destinationIdentifier" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
         "roleArn" => String.t() | atom()
       }
       
@@ -3803,6 +3819,7 @@ defmodule AWS.CloudWatchLogs do
         "lastModified" => float(),
         "logGroupNames" => list(String.t() | atom()),
         "name" => String.t() | atom(),
+        "parameters" => list(query_parameter()),
         "queryDefinitionId" => String.t() | atom(),
         "queryLanguage" => list(any()),
         "queryString" => String.t() | atom()
@@ -8381,7 +8398,7 @@ defmodule AWS.CloudWatchLogs do
   For a cross-account `StartQuery`
   operation, the query definition must be defined in the monitoring account.
 
-  You can have up to 30 concurrent CloudWatch Logs insights queries, including
+  You can have up to 100 concurrent CloudWatch Logs insights queries, including
   queries
   that have been added to dashboards.
   """

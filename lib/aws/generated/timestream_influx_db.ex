@@ -125,6 +125,7 @@ defmodule AWS.TimestreamInfluxDB do
         optional("dbParameterGroupIdentifier") => String.t() | atom(),
         optional("failoverMode") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("maintenanceSchedule") => maintenance_schedule(),
         optional("port") => integer(),
         required("dbClusterId") => String.t() | atom()
       }
@@ -150,9 +151,12 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "instanceModes" => list(list(any())()),
+        "lastMaintenanceTime" => [non_neg_integer()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t() | atom()],
@@ -200,6 +204,19 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_configuration() :: %{
+        "dedicatedCompactor" => [boolean()],
+        "ingestQueryInstances" => [integer()],
+        "queryOnlyInstances" => [integer()]
+      }
+      
+  """
+  @type cluster_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -286,9 +303,12 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "instanceModes" => list(list(any())()),
+        "lastMaintenanceTime" => [non_neg_integer()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t() | atom()],
@@ -359,6 +379,7 @@ defmodule AWS.TimestreamInfluxDB do
         optional("deploymentType") => list(any()),
         optional("failoverMode") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("maintenanceSchedule") => maintenance_schedule(),
         optional("networkType") => list(any()),
         optional("organization") => String.t() | atom(),
         optional("password") => String.t() | atom(),
@@ -424,6 +445,7 @@ defmodule AWS.TimestreamInfluxDB do
         optional("dbStorageType") => list(any()),
         optional("deploymentType") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("maintenanceSchedule") => maintenance_schedule(),
         optional("port") => integer(),
         required("identifier") => String.t() | atom()
       }
@@ -461,6 +483,7 @@ defmodule AWS.TimestreamInfluxDB do
       get_db_cluster_output() :: %{
         "allocatedStorage" => integer(),
         "arn" => String.t() | atom(),
+        "clusterConfiguration" => cluster_configuration(),
         "dbInstanceType" => list(any()),
         "dbParameterGroupIdentifier" => String.t() | atom(),
         "dbStorageType" => list(any()),
@@ -470,9 +493,12 @@ defmodule AWS.TimestreamInfluxDB do
         "failoverMode" => list(any()),
         "id" => String.t() | atom(),
         "influxAuthParametersSecretArn" => [String.t() | atom()],
+        "lastMaintenanceTime" => [non_neg_integer()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "readerEndpoint" => [String.t() | atom()],
@@ -536,9 +562,12 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "instanceModes" => list(list(any())()),
+        "lastMaintenanceTime" => [non_neg_integer()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t() | atom()],
@@ -673,9 +702,12 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "instanceModes" => list(list(any())()),
+        "lastMaintenanceTime" => [non_neg_integer()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t() | atom()],
@@ -705,9 +737,12 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t() | atom()],
         "instanceMode" => list(any()),
         "instanceModes" => list(list(any())()),
+        "lastMaintenanceTime" => [non_neg_integer()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
+        "maintenanceSchedule" => maintenance_schedule(),
         "name" => String.t() | atom(),
         "networkType" => list(any()),
+        "nextMaintenanceTime" => [non_neg_integer()],
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t() | atom()],
@@ -798,6 +833,18 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      maintenance_schedule() :: %{
+        "preferredMaintenanceWindow" => String.t() | atom(),
+        "timezone" => String.t() | atom()
+      }
+      
+  """
+  @type maintenance_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -942,6 +989,7 @@ defmodule AWS.TimestreamInfluxDB do
         optional("dbStorageType") => list(any()),
         optional("deploymentType") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("maintenanceSchedule") => maintenance_schedule(),
         optional("networkType") => list(any()),
         optional("organization") => String.t() | atom(),
         optional("port") => integer(),

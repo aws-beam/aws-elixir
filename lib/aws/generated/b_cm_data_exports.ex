@@ -281,6 +281,7 @@ defmodule AWS.BCMDataExports do
       
       s3_destination() :: %{
         "S3Bucket" => String.t() | atom(),
+        "S3BucketOwner" => String.t() | atom(),
         "S3OutputConfigurations" => s3_output_configurations(),
         "S3Prefix" => String.t() | atom(),
         "S3Region" => String.t() | atom()

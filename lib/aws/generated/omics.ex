@@ -630,6 +630,15 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      get_configuration_request() :: %{}
+
+  """
+  @type get_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_annotation_store_response() :: %{
         "status" => String.t() | atom()
       }
@@ -753,6 +762,18 @@ defmodule AWS.Omics do
 
   """
   @type list_variant_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configurations_response() :: %{
+        "items" => list(configuration_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1393,6 +1414,29 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      list_configurations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("startingToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_configurations_response() :: %{
+        "vpcConfig" => vpc_config_response()
+      }
+
+  """
+  @type run_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_references_response() :: %{
         "nextToken" => String.t() | atom(),
         "references" => list(reference_list_item())
@@ -1729,6 +1773,24 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      get_configuration_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "runConfigurations" => run_configurations_response(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type get_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_sequence_stores_response() :: %{
         "nextToken" => String.t() | atom(),
         "sequenceStores" => list(sequence_store_detail())
@@ -1890,6 +1952,15 @@ defmodule AWS.Omics do
 
   """
   @type create_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_request() :: %{}
+
+  """
+  @type delete_configuration_request() :: %{}
 
   @typedoc """
 
@@ -2225,6 +2296,18 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      vpc_config() :: %{
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_s3_access_policy_response() :: %{
         "s3AccessPointArn" => String.t() | atom(),
         "storeId" => String.t() | atom(),
@@ -2249,6 +2332,21 @@ defmodule AWS.Omics do
 
   """
   @type create_workflow_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("requestId") => String.t() | atom(),
+        required("runConfigurations") => run_configurations()
+      }
+
+  """
+  @type create_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2282,6 +2380,19 @@ defmodule AWS.Omics do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_details() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2481,6 +2592,24 @@ defmodule AWS.Omics do
 
   """
   @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "runConfigurations" => run_configurations_response(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type create_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3122,6 +3251,21 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      configuration_list_item() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type configuration_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_run_batch_response() :: %{}
 
   """
@@ -3368,11 +3512,26 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      vpc_config_response() :: %{
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_run_request() :: %{
         optional("cacheBehavior") => String.t() | atom(),
         optional("cacheId") => String.t() | atom(),
+        optional("configurationName") => String.t() | atom(),
         optional("logLevel") => String.t() | atom(),
         optional("name") => String.t() | atom(),
+        optional("networkingMode") => String.t() | atom(),
         optional("parameters") => any(),
         optional("priority") => [integer()],
         optional("retentionMode") => String.t() | atom(),
@@ -3662,12 +3821,14 @@ defmodule AWS.Omics do
         "id" => String.t() | atom(),
         "accelerators" => String.t() | atom(),
         "workflowVersionName" => String.t() | atom(),
+        "networkingMode" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "runGroupId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "logLevel" => String.t() | atom(),
         "workflowType" => String.t() | atom(),
         "startedBy" => String.t() | atom(),
+        "configuration" => configuration_details(),
         "roleArn" => String.t() | atom(),
         "digest" => String.t() | atom(),
         "runOutputUri" => String.t() | atom(),
@@ -3691,6 +3852,7 @@ defmodule AWS.Omics do
         "cacheBehavior" => String.t() | atom(),
         "storageType" => String.t() | atom(),
         "status" => String.t() | atom(),
+        "vpcConfig" => vpc_config_response(),
         "stopTime" => non_neg_integer(),
         "batchId" => String.t() | atom(),
         "resourceDigests" => map(),
@@ -3777,7 +3939,9 @@ defmodule AWS.Omics do
 
       start_run_response() :: %{
         "arn" => String.t() | atom(),
+        "configuration" => configuration_details(),
         "id" => String.t() | atom(),
+        "networkingMode" => [String.t() | atom()],
         "runOutputUri" => String.t() | atom(),
         "status" => String.t() | atom(),
         "tags" => map(),
@@ -3802,6 +3966,17 @@ defmodule AWS.Omics do
 
   """
   @type list_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_configurations() :: %{
+        "vpcConfig" => vpc_config()
+      }
+
+  """
+  @type run_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4129,6 +4304,16 @@ defmodule AWS.Omics do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
   @type create_multipart_read_set_upload_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4230,6 +4415,16 @@ defmodule AWS.Omics do
           | conflict_exception()
 
   @type delete_batch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
+  @type delete_configuration_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4379,6 +4574,16 @@ defmodule AWS.Omics do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | request_timeout_exception()
+
+  @type get_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | request_timeout_exception()
 
   @type get_read_set_errors() ::
@@ -4583,6 +4788,16 @@ defmodule AWS.Omics do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | request_timeout_exception()
+
+  @type list_configurations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | request_timeout_exception()
 
   @type list_multipart_read_set_uploads_errors() ::
@@ -5356,6 +5571,35 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Create a new configuration.
+  """
+  @spec create_configuration(map(), create_configuration_request(), list()) ::
+          {:ok, create_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_configuration_errors()}
+  def create_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Initiates a multipart read set upload for uploading partitioned source files
   into a sequence store.
 
@@ -5869,6 +6113,35 @@ defmodule AWS.Omics do
           | {:error, delete_batch_errors()}
   def delete_batch(%Client{} = client, batch_id, input, options \\ []) do
     url_path = "/runBatch/#{AWS.Util.encode_uri(batch_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Delete an existing configuration.
+  """
+  @spec delete_configuration(map(), String.t() | atom(), delete_configuration_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_configuration_errors()}
+  def delete_configuration(%Client{} = client, name, input, options \\ []) do
+    url_path = "/configuration/#{AWS.Util.encode_uri(name)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -6439,6 +6712,24 @@ defmodule AWS.Omics do
           | {:error, get_batch_errors()}
   def get_batch(%Client{} = client, batch_id, options \\ []) do
     url_path = "/runBatch/#{AWS.Util.encode_uri(batch_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieve configuration details for specified name.
+  """
+  @spec get_configuration(map(), String.t() | atom(), list()) ::
+          {:ok, get_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_configuration_errors()}
+  def get_configuration(%Client{} = client, name, options \\ []) do
+    url_path = "/configuration/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -7213,6 +7504,43 @@ defmodule AWS.Omics do
     query_params =
       if !is_nil(max_items) do
         [{"maxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List all configurations for the account.
+  """
+  @spec list_configurations(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_configurations_errors()}
+  def list_configurations(
+        %Client{} = client,
+        max_results \\ nil,
+        starting_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/configuration"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end

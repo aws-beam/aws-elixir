@@ -985,6 +985,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      lambda_evaluator_config() :: %{
+        "lambdaArn" => String.t() | atom(),
+        "lambdaTimeoutInSeconds" => [integer()]
+      }
+
+  """
+  @type lambda_evaluator_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_resource_policy_response() :: %{
         "policy" => String.t() | atom()
       }
@@ -5327,8 +5339,9 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Creates a custom evaluator for agent quality assessment.
 
-  Custom evaluators use LLM-as-a-Judge configurations with user-defined prompts,
-  rating scales, and model settings to evaluate agent performance at tool call,
+  Custom evaluators can use either LLM-as-a-Judge configurations with user-defined
+  prompts, rating scales, and model settings, or code-based configurations with
+  customer-managed Lambda functions to evaluate agent performance at tool call,
   trace, or session levels.
   """
   @spec create_evaluator(map(), create_evaluator_request(), list()) ::

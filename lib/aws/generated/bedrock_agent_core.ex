@@ -496,6 +496,7 @@ defmodule AWS.BedrockAgentCore do
         "language" => list(any()),
         "path" => String.t() | atom(),
         "paths" => list(String.t() | atom()),
+        "runtime" => list(any()),
         "taskId" => String.t() | atom()
       }
 

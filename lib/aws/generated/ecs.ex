@@ -2644,6 +2644,7 @@ defmodule AWS.ECS do
         "ec2InstanceProfileArn" => String.t() | atom(),
         "instanceMetadataTagsPropagation" => boolean(),
         "instanceRequirements" => instance_requirements_request(),
+        "localStorageConfiguration" => managed_instances_local_storage_configuration(),
         "monitoring" => list(any()),
         "networkConfiguration" => managed_instances_network_configuration(),
         "storageConfiguration" => managed_instances_storage_configuration()
@@ -3040,6 +3041,17 @@ defmodule AWS.ECS do
       
   """
   @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_instances_local_storage_configuration() :: %{
+        "useLocalStorage" => boolean()
+      }
+      
+  """
+  @type managed_instances_local_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4007,6 +4019,7 @@ defmodule AWS.ECS do
         "fipsEnabled" => boolean(),
         "instanceMetadataTagsPropagation" => boolean(),
         "instanceRequirements" => instance_requirements_request(),
+        "localStorageConfiguration" => managed_instances_local_storage_configuration(),
         "monitoring" => list(any()),
         "networkConfiguration" => managed_instances_network_configuration(),
         "storageConfiguration" => managed_instances_storage_configuration()

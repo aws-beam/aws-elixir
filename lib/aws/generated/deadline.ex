@@ -833,6 +833,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       customer_managed_fleet_configuration() :: %{
+        "autoScalingConfiguration" => customer_managed_auto_scaling_configuration(),
         "mode" => list(any()),
         "storageProfileId" => String.t() | atom(),
         "tagPropagationMode" => list(any()),
@@ -859,6 +860,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       service_managed_ec2_fleet_configuration() :: %{
+        "autoScalingConfiguration" => service_managed_ec2_auto_scaling_configuration(),
         "instanceCapabilities" => service_managed_ec2_instance_capabilities(),
         "instanceMarketOptions" => service_managed_ec2_instance_market_options(),
         "storageProfileId" => String.t() | atom(),
@@ -3231,6 +3233,19 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      customer_managed_auto_scaling_configuration() :: %{
+        "scaleOutWorkersPerMinute" => integer(),
+        "standbyWorkerCount" => integer(),
+        "workerIdleDurationSeconds" => integer()
+      }
+
+  """
+  @type customer_managed_auto_scaling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_queue_fleet_association_response() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
@@ -3397,6 +3412,19 @@ defmodule AWS.Deadline do
 
   """
   @type delete_limit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_managed_ec2_auto_scaling_configuration() :: %{
+        "scaleOutWorkersPerMinute" => integer(),
+        "standbyWorkerCount" => integer(),
+        "workerIdleDurationSeconds" => integer()
+      }
+
+  """
+  @type service_managed_ec2_auto_scaling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

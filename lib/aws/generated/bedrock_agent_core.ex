@@ -71,6 +71,7 @@ defmodule AWS.BedrockAgentCore do
         "evaluatorId" => String.t() | atom(),
         "evaluatorName" => String.t() | atom(),
         "explanation" => String.t() | atom(),
+        "ignoredReferenceInputFields" => list(String.t() | atom()),
         "label" => [String.t() | atom()],
         "tokenUsage" => token_usage(),
         "value" => [float()]
@@ -686,6 +687,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type start_memory_extraction_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_reference_input() :: %{
+        "assertions" => list(list()),
+        "context" => list(),
+        "expectedResponse" => list(),
+        "expectedTrajectory" => evaluation_expected_trajectory()
+      }
+
+  """
+  @type evaluation_reference_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1519,6 +1534,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      evaluation_expected_trajectory() :: %{
+        "toolNames" => list(String.t() | atom())
+      }
+
+  """
+  @type evaluation_expected_trajectory() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_sessions_output() :: %{
         "nextToken" => String.t() | atom(),
         "sessionSummaries" => list(session_summary())
@@ -1618,6 +1644,7 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       evaluate_request() :: %{
+        optional("evaluationReferenceInputs") => list(evaluation_reference_input()),
         optional("evaluationTarget") => list(),
         required("evaluationInput") => list()
       }
@@ -2903,10 +2930,20 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Executes a command in a runtime session container.
+  Executes a command in a runtime session container and streams the output back to
+  the caller.
 
-  Returns streaming output with contentStart, contentDelta, and contentStop
-  events.
+  This operation allows you to run shell commands within the agent runtime
+  environment and receive real-time streaming responses including standard output
+  and standard error.
+
+  To invoke a command, you must specify the agent runtime ARN and a runtime
+  session ID. The command execution supports streaming responses, allowing you to
+  receive output as it becomes available through `contentStart`, `contentDelta`,
+  and `contentStop` events.
+
+  To use this operation, you must have the
+  `bedrock-agentcore:InvokeAgentRuntimeCommand` permission.
   """
   @spec invoke_agent_runtime_command(
           map(),

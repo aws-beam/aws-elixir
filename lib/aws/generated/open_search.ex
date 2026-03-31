@@ -21,6 +21,19 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      insight_field() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type insight_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       add_data_source_response() :: %{
         "Message" => String.t() | atom()
       }
@@ -157,6 +170,21 @@ defmodule AWS.OpenSearch do
 
   """
   @type describe_domain_auto_tunes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_insights_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortOrder") => list(any()),
+        optional("TimeRange") => insight_time_range(),
+        required("Entity") => insight_entity()
+      }
+
+  """
+  @type list_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,6 +379,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type describe_domain_change_progress_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_insight_details_response() :: %{
+        "Fields" => list(insight_field())
+      }
+
+  """
+  @type describe_insight_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -694,6 +733,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type domain_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_insights_response() :: %{
+        "Insights" => list(insight()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1542,6 +1593,19 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      describe_insight_details_request() :: %{
+        optional("ShowHtmlContent") => boolean(),
+        required("Entity") => insight_entity(),
+        required("InsightId") => String.t() | atom()
+      }
+
+  """
+  @type describe_insight_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_upgrade_history_response() :: %{
         "NextToken" => String.t() | atom(),
         "UpgradeHistories" => list(upgrade_history())
@@ -2189,6 +2253,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      insight_entity() :: %{
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type insight_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       advanced_security_options_input() :: %{
         "AnonymousAuthEnabled" => boolean(),
         "Enabled" => boolean(),
@@ -2332,6 +2408,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type cognito_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_time_range() :: %{
+        "From" => float(),
+        "To" => float()
+      }
+
+  """
+  @type insight_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3564,6 +3652,24 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      insight() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t() | atom(),
+        "InsightId" => String.t() | atom(),
+        "IsExperimental" => boolean(),
+        "Priority" => list(any()),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "UpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_domain_maintenances_response() :: %{
         "DomainMaintenances" => list(domain_maintenance_details()),
         "NextToken" => String.t() | atom()
@@ -4204,6 +4310,14 @@ defmodule AWS.OpenSearch do
   @type describe_inbound_connections_errors() ::
           invalid_pagination_token_exception() | disabled_operation_exception()
 
+  @type describe_insight_details_errors() ::
+          limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
   @type describe_instance_type_limits_errors() ::
           limit_exceeded_exception()
           | base_exception()
@@ -4367,6 +4481,14 @@ defmodule AWS.OpenSearch do
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+
+  @type list_insights_errors() ::
+          limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type list_instance_type_details_errors() ::
           base_exception()
@@ -5658,6 +5780,40 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Describes the details of an existing insight for an Amazon OpenSearch Service
+  domain.
+
+  Returns detailed fields associated with the specified insight, such as text
+  descriptions
+  and metric data.
+  """
+  @spec describe_insight_details(map(), describe_insight_details_request(), list()) ::
+          {:ok, describe_insight_details_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_insight_details_errors()}
+  def describe_insight_details(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/insight-details"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Describes the instance count, storage, and master node limits for a given
   OpenSearch
   or Elasticsearch version and instance type.
@@ -6495,6 +6651,40 @@ defmodule AWS.OpenSearch do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists insights for an Amazon OpenSearch Service domain or Amazon Web Services
+  account.
+
+  Returns a paginated list of insights based on the specified entity, filters,
+  time range,
+  and sort order.
+  """
+  @spec list_insights(map(), list_insights_request(), list()) ::
+          {:ok, list_insights_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_insights_errors()}
+  def list_insights(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/insights"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

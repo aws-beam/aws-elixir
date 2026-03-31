@@ -2812,6 +2812,21 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      production_variant_managed_instance_scaling_scale_in_policy() :: %{
+        "CooldownInMinutes" => integer(),
+        "MaximumStepSize" => integer(),
+        "Strategy" => list(any())
+      }
+      
+  """
+  @type production_variant_managed_instance_scaling_scale_in_policy() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       delete_mlflow_tracking_server_response() :: %{
         "TrackingServerArn" => String.t() | atom()
       }
@@ -6570,6 +6585,18 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_model_package_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_component_availability_zone_balance() :: %{
+        "EnforcementMode" => list(any()),
+        "MaxImbalance" => integer()
+      }
+      
+  """
+  @type inference_component_availability_zone_balance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11969,6 +11996,7 @@ defmodule AWS.SageMaker do
         "Container" => inference_component_container_specification_summary(),
         "DataCacheConfig" => inference_component_data_cache_config_summary(),
         "ModelName" => String.t() | atom(),
+        "SchedulingConfig" => inference_component_scheduling_config(),
         "StartupParameters" => inference_component_startup_parameters()
       }
       
@@ -15853,6 +15881,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      inference_component_scheduling_config() :: %{
+        "AvailabilityZoneBalance" => inference_component_availability_zone_balance(),
+        "PlacementStrategy" => list(any())
+      }
+      
+  """
+  @type inference_component_scheduling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_code_repository_input() :: %{
         optional("Tags") => list(tag()),
         required("CodeRepositoryName") => String.t() | atom(),
@@ -18424,6 +18464,7 @@ defmodule AWS.SageMaker do
         "Container" => inference_component_container_specification(),
         "DataCacheConfig" => inference_component_data_cache_config(),
         "ModelName" => String.t() | atom(),
+        "SchedulingConfig" => inference_component_scheduling_config(),
         "StartupParameters" => inference_component_startup_parameters()
       }
       
@@ -18601,6 +18642,7 @@ defmodule AWS.SageMaker do
       production_variant_managed_instance_scaling() :: %{
         "MaxInstanceCount" => integer(),
         "MinInstanceCount" => integer(),
+        "ScaleInPolicy" => production_variant_managed_instance_scaling_scale_in_policy(),
         "Status" => list(any())
       }
       

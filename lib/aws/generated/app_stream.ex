@@ -357,6 +357,7 @@ defmodule AWS.AppStream do
       create_stack_request() :: %{
         optional("AccessEndpoints") => list(access_endpoint()),
         optional("ApplicationSettings") => application_settings(),
+        optional("ContentRedirection") => content_redirection(),
         optional("Description") => String.t() | atom(),
         optional("DisplayName") => String.t() | atom(),
         optional("EmbedHostDomains") => list(String.t() | atom()),
@@ -921,6 +922,19 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      url_redirection_config() :: %{
+        "AllowedUrls" => list(String.t() | atom()),
+        "DeniedUrls" => list(String.t() | atom()),
+        "Enabled" => boolean()
+      }
+      
+  """
+  @type url_redirection_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_app_block_builder_request() :: %{
         required("Name") => String.t() | atom()
       }
@@ -1062,6 +1076,7 @@ defmodule AWS.AppStream do
         "AccessEndpoints" => list(access_endpoint()),
         "ApplicationSettings" => application_settings_response(),
         "Arn" => String.t() | atom(),
+        "ContentRedirection" => content_redirection(),
         "CreatedTime" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "DisplayName" => String.t() | atom(),
@@ -2583,6 +2598,17 @@ defmodule AWS.AppStream do
       
   """
   @type describe_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      content_redirection() :: %{
+        "HostToClient" => url_redirection_config()
+      }
+      
+  """
+  @type content_redirection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

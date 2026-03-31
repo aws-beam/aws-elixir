@@ -336,7 +336,9 @@ defmodule AWS.PartnerCentralAccount do
   ## Example:
       
       business_verification_response() :: %{
-        "BusinessVerificationDetails" => business_verification_details()
+        "BusinessVerificationDetails" => business_verification_details(),
+        "CompletionUrl" => String.t() | atom(),
+        "CompletionUrlExpiresAt" => non_neg_integer()
       }
       
   """
@@ -1244,6 +1246,7 @@ defmodule AWS.PartnerCentralAccount do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -1284,6 +1287,7 @@ defmodule AWS.PartnerCentralAccount do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 

@@ -334,6 +334,21 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      create_lookup_table_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("tags") => map(),
+        required("lookupTableName") => String.t() | atom(),
+        required("tableBody") => String.t() | atom()
+      }
+      
+  """
+  @type create_lookup_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       open_search_data_source() :: %{
         "dataSourceName" => String.t() | atom(),
         "status" => open_search_resource_status()
@@ -367,6 +382,19 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type create_export_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_lookup_tables_request() :: %{
+        optional("lookupTableNamePrefix") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_lookup_tables_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,6 +615,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      get_lookup_table_request() :: %{
+        required("lookupTableArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_lookup_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       type_converter_entry() :: %{
         "key" => String.t() | atom(),
         "type" => list(any())
@@ -715,6 +754,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type data_already_accepted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_lookup_tables_response() :: %{
+        "lookupTables" => list(lookup_table()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_lookup_tables_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1656,6 +1707,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      delete_lookup_table_request() :: %{
+        required("lookupTableArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_lookup_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       aggregate_log_group_summary() :: %{
         "groupingIdentifiers" => list(grouping_identifier()),
         "logGroupCount" => integer()
@@ -1904,6 +1966,24 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type delivery_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lookup_table() :: %{
+        "description" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "lastUpdatedTime" => float(),
+        "lookupTableArn" => String.t() | atom(),
+        "lookupTableName" => String.t() | atom(),
+        "recordsCount" => float(),
+        "sizeBytes" => float(),
+        "tableFields" => list(String.t() | atom())
+      }
+      
+  """
+  @type lookup_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2445,6 +2525,23 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      get_lookup_table_response() :: %{
+        "description" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "lastUpdatedTime" => float(),
+        "lookupTableArn" => String.t() | atom(),
+        "lookupTableName" => String.t() | atom(),
+        "sizeBytes" => float(),
+        "tableBody" => String.t() | atom()
+      }
+      
+  """
+  @type get_lookup_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_log_groups_response() :: %{
         "logGroups" => list(log_group()),
         "nextToken" => String.t() | atom()
@@ -2743,6 +2840,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      create_lookup_table_response() :: %{
+        "createdAt" => float(),
+        "lookupTableArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_lookup_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       metric_transformation() :: %{
         "defaultValue" => float(),
         "dimensions" => map(),
@@ -2893,6 +3002,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type start_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_lookup_table_response() :: %{
+        "lastUpdatedTime" => float(),
+        "lookupTableArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_lookup_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3418,6 +3539,20 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_lookup_table_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        required("lookupTableArn") => String.t() | atom(),
+        required("tableBody") => String.t() | atom()
+      }
+      
+  """
+  @type update_lookup_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4240,6 +4375,14 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
 
+  @type create_lookup_table_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+
   @type create_scheduled_query_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4329,6 +4472,12 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type delete_lookup_table_errors() ::
+          invalid_parameter_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type delete_metric_filter_errors() ::
           invalid_parameter_exception()
@@ -4445,6 +4594,12 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
 
+  @type describe_lookup_tables_errors() ::
+          invalid_parameter_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
   @type describe_metric_filters_errors() ::
           invalid_parameter_exception()
           | service_unavailable_exception()
@@ -4554,6 +4709,12 @@ defmodule AWS.CloudWatchLogs do
   @type get_log_record_errors() ::
           limit_exceeded_exception()
           | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_lookup_table_errors() ::
+          invalid_parameter_exception()
+          | access_denied_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
 
@@ -4816,6 +4977,13 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type update_lookup_table_errors() ::
+          validation_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type update_scheduled_query_errors() ::
           throttling_exception()
@@ -5291,6 +5459,29 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Creates a lookup table by uploading CSV data.
+
+  You can use lookup tables to enrich log
+  data in CloudWatch Logs Insights queries with reference data such as user
+  details, application
+  names, or error descriptions.
+
+  The table name must be unique within your account and Region. The CSV content
+  must include
+  a header row with column names, use UTF-8 encoding, and not exceed 10 MB.
+  """
+  @spec create_lookup_table(map(), create_lookup_table_request(), list()) ::
+          {:ok, create_lookup_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_lookup_table_errors()}
+  def create_lookup_table(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLookupTable", input, options)
+  end
+
+  @doc """
   Creates a scheduled query that runs CloudWatch Logs Insights queries at regular
   intervals.
 
@@ -5604,6 +5795,26 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteLogStream", input, options)
+  end
+
+  @doc """
+  Deletes a lookup table permanently.
+
+  This operation cannot be undone.
+
+  Queries that reference a deleted table will return an error. Before deleting a
+  lookup
+  table, review any saved queries or dashboards that may reference it.
+  """
+  @spec delete_lookup_table(map(), delete_lookup_table_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_lookup_table_errors()}
+  def delete_lookup_table(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLookupTable", input, options)
   end
 
   @doc """
@@ -6042,6 +6253,24 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeLogStreams", input, options)
+  end
+
+  @doc """
+  Retrieves metadata about lookup tables in your account.
+
+  You can optionally filter the
+  results by table name prefix. Results are sorted by table name in ascending
+  order.
+  """
+  @spec describe_lookup_tables(map(), describe_lookup_tables_request(), list()) ::
+          {:ok, describe_lookup_tables_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_lookup_tables_errors()}
+  def describe_lookup_tables(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeLookupTables", input, options)
   end
 
   @doc """
@@ -6580,6 +6809,20 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "GetLogRecord", input, options)
+  end
+
+  @doc """
+  Retrieves the full content of a lookup table, including the CSV data.
+  """
+  @spec get_lookup_table(map(), get_lookup_table_request(), list()) ::
+          {:ok, get_lookup_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_lookup_table_errors()}
+  def get_lookup_table(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetLookupTable", input, options)
   end
 
   @doc """
@@ -8660,6 +8903,27 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateLogAnomalyDetector", input, options)
+  end
+
+  @doc """
+  Updates an existing lookup table by replacing all of its CSV content.
+
+  After the update
+  completes, queries that use this table will use the new data.
+
+  This is a full replacement operation. All existing content is replaced with the
+  new CSV
+  data.
+  """
+  @spec update_lookup_table(map(), update_lookup_table_request(), list()) ::
+          {:ok, update_lookup_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_lookup_table_errors()}
+  def update_lookup_table(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLookupTable", input, options)
   end
 
   @doc """

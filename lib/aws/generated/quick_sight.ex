@@ -693,6 +693,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      start_automation_job_request() :: %{
+        optional("InputPayload") => String.t() | atom()
+      }
+
+  """
+  @type start_automation_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       topic_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
@@ -1370,6 +1381,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      o_auth_client_credentials() :: %{
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type o_auth_client_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       numerical_aggregation_function() :: %{
         "PercentileAggregation" => percentile_aggregation(),
         "SimpleNumericalAggregation" => list(any())
@@ -2037,7 +2061,8 @@ defmodule AWS.QuickSight do
         "Options" => asset_options(),
         "ParameterDeclarations" => list(parameter_declaration()),
         "Sheets" => list(sheet_definition()),
-        "StaticFiles" => list(static_file())
+        "StaticFiles" => list(static_file()),
+        "TooltipSheets" => list(tooltip_sheet_definition())
       }
 
   """
@@ -2550,6 +2575,7 @@ defmodule AWS.QuickSight do
       tooltip_options() :: %{
         "FieldBasedTooltip" => field_based_tooltip(),
         "SelectedTooltipType" => list(any()),
+        "SheetTooltip" => sheet_tooltip(),
         "TooltipVisibility" => list(any())
       }
 
@@ -5238,7 +5264,8 @@ defmodule AWS.QuickSight do
         "ParameterDeclarations" => list(parameter_declaration()),
         "QueryExecutionOptions" => query_execution_options(),
         "Sheets" => list(sheet_definition()),
-        "StaticFiles" => list(static_file())
+        "StaticFiles" => list(static_file()),
+        "TooltipSheets" => list(tooltip_sheet_definition())
       }
 
   """
@@ -6218,7 +6245,8 @@ defmodule AWS.QuickSight do
         "ParameterDeclarations" => list(parameter_declaration()),
         "QueryExecutionOptions" => query_execution_options(),
         "Sheets" => list(sheet_definition()),
-        "StaticFiles" => list(static_file())
+        "StaticFiles" => list(static_file()),
+        "TooltipSheets" => list(tooltip_sheet_definition())
       }
 
   """
@@ -6303,7 +6331,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_inline_visualization() :: %{
-        "DataBars" => data_bars_options()
+        "DataBars" => data_bars_options(),
+        "Sparklines" => sparklines_options()
       }
 
   """
@@ -7257,6 +7286,22 @@ defmodule AWS.QuickSight do
 
   """
   @type minimum_label_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tooltip_sheet_definition() :: %{
+        "Images" => list(sheet_image()),
+        "Layouts" => list(layout()),
+        "Name" => String.t() | atom(),
+        "SheetId" => String.t() | atom(),
+        "TextBoxes" => list(sheet_text_box()),
+        "Visuals" => list(visual())
+      }
+
+  """
+  @type tooltip_sheet_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10874,6 +10919,7 @@ defmodule AWS.QuickSight do
         "CopySourceArn" => String.t() | atom(),
         "CredentialPair" => credential_pair(),
         "KeyPairCredentials" => key_pair_credentials(),
+        "OAuthClientCredentials" => o_auth_client_credentials(),
         "SecretArn" => String.t() | atom(),
         "WebProxyCredentials" => web_proxy_credentials()
       }
@@ -13228,6 +13274,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      start_automation_job_response() :: %{
+        "Arn" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type start_automation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       donut_center_options() :: %{
         "LabelVisibility" => list(any())
       }
@@ -13851,11 +13911,31 @@ defmodule AWS.QuickSight do
         "SortConfiguration" => table_sort_configuration(),
         "TableInlineVisualizations" => list(table_inline_visualization()),
         "TableOptions" => table_options(),
+        "Tooltip" => tooltip_options(),
         "TotalOptions" => total_options()
       }
 
   """
   @type table_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sparklines_options() :: %{
+        "AllPointsMarker" => line_chart_marker_style_settings(),
+        "FieldId" => String.t() | atom(),
+        "LineColor" => String.t() | atom(),
+        "LineInterpolation" => list(any()),
+        "MaxValueMarker" => line_chart_marker_style_settings(),
+        "MinValueMarker" => line_chart_marker_style_settings(),
+        "VisualType" => list(any()),
+        "XAxisField" => dimension_field(),
+        "YAxisBehavior" => list(any())
+      }
+
+  """
+  @type sparklines_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14995,6 +15075,24 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_automation_job_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "EndedAt" => [non_neg_integer()],
+        "InputPayload" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "OutputPayload" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()],
+        "StartedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type describe_automation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       decal_settings() :: %{
         "DecalColor" => String.t() | atom(),
         "DecalPatternType" => list(any()),
@@ -15246,6 +15344,17 @@ defmodule AWS.QuickSight do
 
   """
   @type update_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sheet_tooltip() :: %{
+        "SheetId" => String.t() | atom()
+      }
+
+  """
+  @type sheet_tooltip() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16885,6 +16994,18 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_automation_job_request() :: %{
+        optional("IncludeInputPayload") => boolean(),
+        optional("IncludeOutputPayload") => boolean()
+      }
+
+  """
+  @type describe_automation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18535,6 +18656,7 @@ defmodule AWS.QuickSight do
         "PaginatedReportOptions" => pivot_table_paginated_report_options(),
         "SortConfiguration" => pivot_table_sort_configuration(),
         "TableOptions" => pivot_table_options(),
+        "Tooltip" => tooltip_options(),
         "TotalOptions" => pivot_table_total_options()
       }
 
@@ -19444,6 +19566,7 @@ defmodule AWS.QuickSight do
         "CanvaAgentAction" => list(any()),
         "UseComprehendAction" => list(any()),
         "UseNewRelicAction" => list(any()),
+        "ShareSpaces" => list(any()),
         "MSTeamsAction" => list(any()),
         "HuggingFaceAction" => list(any()),
         "ShareFactSetAction" => list(any()),
@@ -19492,6 +19615,7 @@ defmodule AWS.QuickSight do
         "ShareComprehendAction" => list(any()),
         "CreateAndUpdateHuggingFaceAction" => list(any()),
         "ExportToCsv" => list(any()),
+        "CreateSpaces" => list(any()),
         "CreateAndUpdateDashboardEmailReports" => list(any()),
         "UseAmazonBedrockFSAction" => list(any()),
         "NewRelicAction" => list(any()),
@@ -19547,6 +19671,7 @@ defmodule AWS.QuickSight do
         "CreateAndUpdateHubspotAction" => list(any()),
         "CreateSharedFolders" => list(any()),
         "JiraAction" => list(any()),
+        "ShareChatAgents" => list(any()),
         "UseSAPBillOfMaterialAction" => list(any()),
         "SAPMaterialStockAction" => list(any()),
         "ShareSandPGlobalEnergyAction" => list(any()),
@@ -20797,6 +20922,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | unsupported_user_edition_exception()
 
+  @type describe_automation_job_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type describe_brand_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -21661,6 +21793,14 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | conflict_exception()
           | unsupported_user_edition_exception()
+
+  @type start_automation_job_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
 
   @type start_dashboard_snapshot_job_errors() ::
           limit_exceeded_exception()
@@ -25259,6 +25399,59 @@ defmodule AWS.QuickSight do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the status and details of a specified automation job, including its
+  status and outputs.
+  """
+  @spec describe_automation_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, describe_automation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_automation_job_errors()}
+  def describe_automation_job(
+        %Client{} = client,
+        automation_group_id,
+        automation_id,
+        aws_account_id,
+        job_id,
+        include_input_payload \\ nil,
+        include_output_payload \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/automation-groups/#{AWS.Util.encode_uri(automation_group_id)}/automations/#{AWS.Util.encode_uri(automation_id)}/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(include_output_payload) do
+        [{"includeOutputPayload", include_output_payload} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_input_payload) do
+        [{"includeInputPayload", include_input_payload} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -29511,6 +29704,53 @@ defmodule AWS.QuickSight do
           | {:error, start_asset_bundle_import_job_errors()}
   def start_asset_bundle_import_job(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs/import"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a new job for a specified automation.
+
+  The job runs the automation with the provided input payload.
+  """
+  @spec start_automation_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          start_automation_job_request(),
+          list()
+        ) ::
+          {:ok, start_automation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_automation_job_errors()}
+  def start_automation_job(
+        %Client{} = client,
+        automation_group_id,
+        automation_id,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/automation-groups/#{AWS.Util.encode_uri(automation_group_id)}/automations/#{AWS.Util.encode_uri(automation_id)}/jobs"
+
     headers = []
     custom_headers = []
     query_params = []

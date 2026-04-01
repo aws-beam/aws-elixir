@@ -1877,6 +1877,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       get_data_access_request() :: %{
+        optional("AuditContext") => String.t() | atom(),
         optional("DurationSeconds") => integer(),
         optional("Privilege") => list(any()),
         optional("TargetType") => list(any()),
@@ -7060,6 +7061,7 @@ defmodule AWS.S3Control do
   @spec get_data_access(
           map(),
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom(),
@@ -7072,6 +7074,7 @@ defmodule AWS.S3Control do
           | {:error, term()}
   def get_data_access(
         %Client{} = client,
+        audit_context \\ nil,
         duration_seconds \\ nil,
         permission,
         privilege \\ nil,
@@ -7123,6 +7126,13 @@ defmodule AWS.S3Control do
     query_params =
       if !is_nil(duration_seconds) do
         [{"durationSeconds", duration_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(audit_context) do
+        [{"auditContext", audit_context} | query_params]
       else
         query_params
       end

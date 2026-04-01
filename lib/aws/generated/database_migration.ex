@@ -2033,9 +2033,11 @@ defmodule AWS.DatabaseMigration do
       ibm_db2_luw_data_provider_settings() :: %{
         "CertificateArn" => String.t() | atom(),
         "DatabaseName" => String.t() | atom(),
+        "EncryptionAlgorithm" => integer(),
         "Port" => integer(),
         "S3AccessRoleArn" => String.t() | atom(),
         "S3Path" => String.t() | atom(),
+        "SecurityMechanism" => integer(),
         "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }

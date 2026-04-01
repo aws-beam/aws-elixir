@@ -53,6 +53,18 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      dns_name_filter() :: %{
+        "ComparisonOperator" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type dns_name_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       revoke_certificate_request() :: %{
         required("CertificateArn") => String.t() | atom(),
         required("RevocationReason") => list(any())
@@ -60,6 +72,21 @@ defmodule AWS.ACM do
       
   """
   @type revoke_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_certificates_request() :: %{
+        optional("FilterStatement") => list(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type search_certificates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -373,12 +400,62 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      other_name() :: %{
+        "ObjectIdentifier" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type other_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      distinguished_name() :: %{
+        "CommonName" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "CustomAttributes" => list(custom_attribute()),
+        "DistinguishedNameQualifier" => String.t() | atom(),
+        "DomainComponents" => list(String.t() | atom()),
+        "GenerationQualifier" => String.t() | atom(),
+        "GivenName" => String.t() | atom(),
+        "Initials" => String.t() | atom(),
+        "Locality" => String.t() | atom(),
+        "Organization" => String.t() | atom(),
+        "OrganizationalUnit" => String.t() | atom(),
+        "Pseudonym" => String.t() | atom(),
+        "SerialNumber" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "Surname" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type distinguished_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       request_certificate_response() :: %{
         "CertificateArn" => String.t() | atom()
       }
       
   """
   @type request_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      common_name_filter() :: %{
+        "ComparisonOperator" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type common_name_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -437,6 +514,41 @@ defmodule AWS.ACM do
       
   """
   @type add_tags_to_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acm_certificate_metadata() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ExportOption" => list(any()),
+        "Exported" => boolean(),
+        "ImportedAt" => non_neg_integer(),
+        "InUse" => boolean(),
+        "IssuedAt" => non_neg_integer(),
+        "ManagedBy" => list(any()),
+        "RenewalEligibility" => list(any()),
+        "RenewalStatus" => list(any()),
+        "RevokedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "ValidationMethod" => list(any())
+      }
+      
+  """
+  @type acm_certificate_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      timestamp_range() :: %{
+        "End" => non_neg_integer(),
+        "Start" => non_neg_integer()
+      }
+      
+  """
+  @type timestamp_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -513,11 +625,31 @@ defmodule AWS.ACM do
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t() | atom()
+        "message" => String.t() | atom(),
+        "throttlingReasons" => list(throttling_reason())
       }
       
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      x509_attributes() :: %{
+        "ExtendedKeyUsages" => list(list(any())()),
+        "Issuer" => distinguished_name(),
+        "KeyAlgorithm" => list(any()),
+        "KeyUsages" => list(list(any())()),
+        "NotAfter" => non_neg_integer(),
+        "NotBefore" => non_neg_integer(),
+        "SerialNumber" => String.t() | atom(),
+        "Subject" => distinguished_name(),
+        "SubjectAlternativeNames" => list(list())
+      }
+      
+  """
+  @type x509_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -602,6 +734,30 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      throttling_reason() :: %{
+        "reason" => String.t() | atom(),
+        "resource" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_attribute() :: %{
+        "ObjectIdentifier" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type custom_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_tag_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -620,6 +776,19 @@ defmodule AWS.ACM do
       
   """
   @type get_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_search_result() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "CertificateMetadata" => list(),
+        "X509Attributes" => x509_attributes()
+      }
+      
+  """
+  @type certificate_search_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -692,6 +861,18 @@ defmodule AWS.ACM do
   """
   @type certificate_detail() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      search_certificates_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Results" => list(certificate_search_result())
+      }
+      
+  """
+  @type search_certificates_response() :: %{(String.t() | atom()) => any()}
+
   @type add_tags_to_certificate_errors() ::
           too_many_tags_exception()
           | invalid_tag_exception()
@@ -712,7 +893,8 @@ defmodule AWS.ACM do
   @type describe_certificate_errors() :: resource_not_found_exception() | invalid_arn_exception()
 
   @type export_certificate_errors() ::
-          resource_not_found_exception()
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_arn_exception()
           | request_in_progress_exception()
 
@@ -729,6 +911,7 @@ defmodule AWS.ACM do
           | limit_exceeded_exception()
           | invalid_parameter_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | invalid_arn_exception()
           | tag_policy_exception()
 
@@ -778,6 +961,9 @@ defmodule AWS.ACM do
           | conflict_exception()
           | invalid_arn_exception()
           | resource_in_use_exception()
+
+  @type search_certificates_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type update_certificate_options_errors() ::
           limit_exceeded_exception()
@@ -836,14 +1022,26 @@ defmodule AWS.ACM do
   @doc """
   Deletes a certificate and its associated private key.
 
-  If this action succeeds, the certificate no longer appears in the list that can
-  be displayed by calling the `ListCertificates` action or be retrieved by calling
-  the `GetCertificate` action. The certificate will not be available for use by
-  Amazon Web Services services integrated with ACM.
+  If this action succeeds, the certificate is not available for use by Amazon Web
+  Services services integrated with ACM. Deleting a certificate is eventually
+  consistent. The may be a short delay before the certificate no longer appears in
+  the list that can be displayed by calling the `ListCertificates` action or be
+  retrieved by calling the `GetCertificate` action.
 
   You cannot delete an ACM certificate that is being used by another Amazon Web
-  Services service. To delete a certificate that is in use, the certificate
-  association must first be removed.
+  Services service. To delete a certificate that is in use, you must first remove
+  the certificate association using the console or the CLI for the associated
+  service.
+
+  Deleting a certificate issued by a private certificate authority (CA) has no
+  effect on the CA. You will continue to be charged for the CA until it is
+  deleted. For more information, see [ Deleting Your Private CA](https://docs.aws.amazon.com/privateca/latest/userguide/PCADeleteCA.html) in
+  the *Private Certificate Authority User Guide*.
+
+  Deleting a certificate issued by a private certificate authority (CA) has no
+  effect on the CA. You will continue to be charged for the CA until it is
+  deleted. For more information, see [Deleting your private CA](https://docs.aws.amazon.com/privateca/latest/userguide/PCADeleteCA.html) in
+  the *Amazon Web Services Private Certificate Authority User Guide*.
   """
   @spec delete_certificate(map(), delete_certificate_request(), list()) ::
           {:ok, nil, any()}
@@ -876,7 +1074,7 @@ defmodule AWS.ACM do
 
   @doc """
   Exports a private certificate issued by a private certificate authority (CA) or
-  public certificate for use anywhere.
+  a public certificate for use anywhere.
 
   The exported file contains the certificate, the certificate chain, and the
   encrypted private key associated with the public key that is embedded in the
@@ -886,6 +1084,8 @@ defmodule AWS.ACM do
   For information about exporting and formatting a certificate using the ACM
   console or CLI, see [Export a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/export-private.html)
   and [Export a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/export-public-certificate).
+
+  ACM public certificates created prior to June 17, 2025 cannot be exported.
   """
   @spec export_certificate(map(), export_certificate_request(), list()) ::
           {:ok, export_certificate_response(), any()}
@@ -1086,8 +1286,8 @@ defmodule AWS.ACM do
   Renews an [eligible ACM certificate](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html).
 
   In order to renew your Amazon Web Services Private CA certificates with ACM, you
-  must first [grant the ACM service principal permission to do so](https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html).
-  For more information, see [Testing Managed Renewal](https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html)
+  must first [grant the ACM service principal permission to do so](https://docs.aws.amazon.com/privateca/latest/userguide/assign-permissions.html#PcaPermissions).
+  For more information, see [Testing Managed Renewal](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html)
   in the ACM User Guide.
   """
   @spec renew_certificate(map(), renew_certificate_request(), list()) ::
@@ -1162,6 +1362,9 @@ defmodule AWS.ACM do
   Revokes a public ACM certificate.
 
   You can only revoke certificates that have been previously exported.
+
+  Once a certificate is revoked, you cannot reuse the certificate. Revoking a
+  certificate is permanent.
   """
   @spec revoke_certificate(map(), revoke_certificate_request(), list()) ::
           {:ok, revoke_certificate_response(), any()}
@@ -1172,6 +1375,25 @@ defmodule AWS.ACM do
     meta = metadata()
 
     Request.request_post(client, meta, "RevokeCertificate", input, options)
+  end
+
+  @doc """
+  Retrieves a list of certificates matching search criteria.
+
+  You can filter certificates by X.509 attributes and ACM specific properties like
+  certificate status, type and renewal eligibility. This operation provides more
+  flexible filtering than `ListCertificates` by supporting complex filter
+  statements.
+  """
+  @spec search_certificates(map(), search_certificates_request(), list()) ::
+          {:ok, search_certificates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_certificates_errors()}
+  def search_certificates(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchCertificates", input, options)
   end
 
   @doc """

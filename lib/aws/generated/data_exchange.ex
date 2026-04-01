@@ -4,41 +4,29 @@
 defmodule AWS.DataExchange do
   @moduledoc """
   AWS Data Exchange is a service that makes it easy for AWS customers to exchange
-  data in
-  the cloud.
+  data in the cloud.
 
   You can use the AWS Data Exchange APIs to create, update, manage, and access
   file-based data set in the AWS Cloud.
 
   As a subscriber, you can view and access the data sets that you have an
-  entitlement to
-  through a subscription. You can use the APIs to download or copy your entitled
-  data sets to
-  Amazon Simple Storage Service (Amazon S3) for use across a variety of AWS
-  analytics and
-  machine learning services.
+  entitlement to through a subscription. You can use the APIs to download or copy
+  your entitled data sets to Amazon Simple Storage Service (Amazon S3) for use
+  across a variety of AWS analytics and machine learning services.
 
   As a provider, you can create and manage your data sets that you would like to
-  publish
-  to a product. Being able to package and provide your data sets into products
-  requires a few
-  steps to determine eligibility. For more information, visit the *AWS Data
-  Exchange
-  User Guide*.
+  publish to a product. Being able to package and provide your data sets into
+  products requires a few steps to determine eligibility. For more information,
+  visit the *AWS Data Exchange User Guide*.
 
   A data set is a collection of data that can be changed or updated over time.
-  Data sets
-  can be updated using revisions, which represent a new version or incremental
-  change to a
-  data set. A revision contains one or more assets. An asset in AWS Data Exchange
-  is a piece
-  of data that can be stored as an Amazon S3 object, Redshift datashare, API
-  Gateway API, AWS
-  Lake Formation data permission, or Amazon S3 data access. The asset can be a
-  structured
-  data file, an image file, or some other data file. Jobs are asynchronous import
-  or export
-  operations used to create or copy assets.
+  Data sets can be updated using revisions, which represent a new version or
+  incremental change to a data set. A revision contains one or more assets. An
+  asset in AWS Data Exchange is a piece of data that can be stored as an Amazon S3
+  object, Redshift datashare, API Gateway API, AWS Lake Formation data permission,
+  or Amazon S3 data access. The asset can be a structured data file, an image
+  file, or some other data file. Jobs are asynchronous import or export operations
+  used to create or copy assets.
   """
 
   alias AWS.Client
@@ -248,6 +236,7 @@ defmodule AWS.DataExchange do
 
       create_job_response() :: %{
         optional("Arn") => String.t() | atom(),
+        optional("AssetConfiguration") => asset_configuration(),
         optional("CreatedAt") => non_neg_integer(),
         optional("Details") => response_details(),
         optional("Errors") => list(job_error()),
@@ -488,6 +477,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       create_job_request() :: %{
+        optional("AssetConfiguration") => asset_configuration(),
         required("Details") => request_details(),
         required("Type") => String.t() | atom()
       }
@@ -583,6 +573,17 @@ defmodule AWS.DataExchange do
 
   """
   @type lake_formation_tag_policy_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_configuration() :: %{
+        "Tags" => list(tag())
+      }
+
+  """
+  @type asset_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -833,6 +834,18 @@ defmodule AWS.DataExchange do
 
   ## Example:
 
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_set_request() :: %{
         optional("Tags") => map(),
         required("AssetType") => String.t() | atom(),
@@ -1069,6 +1082,7 @@ defmodule AWS.DataExchange do
         optional("Name") => String.t() | atom(),
         optional("RevisionId") => String.t() | atom(),
         optional("SourceId") => String.t() | atom(),
+        optional("Tags") => map(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
@@ -1440,6 +1454,7 @@ defmodule AWS.DataExchange do
 
       get_job_response() :: %{
         optional("Arn") => String.t() | atom(),
+        optional("AssetConfiguration") => asset_configuration(),
         optional("CreatedAt") => non_neg_integer(),
         optional("Details") => response_details(),
         optional("Errors") => list(job_error()),
@@ -1759,6 +1774,7 @@ defmodule AWS.DataExchange do
 
       job_entry() :: %{
         "Arn" => String.t() | atom(),
+        "AssetConfiguration" => asset_configuration(),
         "CreatedAt" => non_neg_integer(),
         "Details" => response_details(),
         "Errors" => list(job_error()),
@@ -2261,8 +2277,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation cancels a job.
 
-  Jobs can be cancelled only when they are in the WAITING
-  state.
+  Jobs can be cancelled only when they are in the WAITING state.
   """
   @spec cancel_job(map(), String.t() | atom(), cancel_job_request(), list()) ::
           {:ok, nil, any()}
@@ -2807,9 +2822,8 @@ defmodule AWS.DataExchange do
   @doc """
   This operation lists your data sets.
 
-  When listing by origin OWNED, results are sorted by
-  CreatedAt in descending order. When listing by origin ENTITLED, there is no
-  order.
+  When listing by origin OWNED, results are sorted by CreatedAt in descending
+  order. When listing by origin ENTITLED, there is no order.
   """
   @spec list_data_sets(
           map(),
@@ -3127,8 +3141,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation invokes an API Gateway API asset.
 
-  The request is proxied to the
-  provider’s API Gateway API.
+  The request is proxied to the provider’s API Gateway API.
   """
   @spec send_api_asset(map(), send_api_asset_request(), list()) ::
           {:ok, send_api_asset_response(), any()}

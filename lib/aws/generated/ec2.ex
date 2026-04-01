@@ -34480,9 +34480,11 @@ defmodule AWS.EC2 do
   instance
   store volumes is not preserved.
 
-  This action is not applicable for Linux/Unix instances or Windows instances that
-  are
-  backed by Amazon EBS.
+  This action is no longer supported. To create an AMI, use
+  [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html).  For more information, see [
+  Create an Amazon EBS-backed
+  AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
+  in the *Amazon EC2 User Guide*.
   """
   @spec bundle_instance(map(), bundle_instance_request(), list()) ::
           {:ok, bundle_instance_result(), any()}

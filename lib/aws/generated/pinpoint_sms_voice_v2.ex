@@ -61,6 +61,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      rcs_agent_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type rcs_agent_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_phone_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
@@ -186,6 +198,26 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      update_rcs_agent_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "OptOutListName" => String.t() | atom(),
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
+      }
+      
+  """
+  @type update_rcs_agent_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       request_sender_id_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("DeletionProtectionEnabled") => [boolean()],
@@ -303,6 +335,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       verified_destination_number_information() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DestinationPhoneNumber" => String.t() | atom(),
+        "RcsAgentId" => [String.t() | atom()],
         "Status" => String.t() | atom(),
         "VerifiedDestinationNumberArn" => [String.t() | atom()],
         "VerifiedDestinationNumberId" => [String.t() | atom()]
@@ -440,6 +473,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type verified_destination_number_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rcs_agent_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("OptOutListName") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_rcs_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,6 +803,60 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      delete_notify_message_spend_limit_override_request() :: %{}
+      
+  """
+  @type delete_notify_message_spend_limit_override_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      testing_agent_information() :: %{
+        "RegistrationId" => [String.t() | atom()],
+        "Status" => String.t() | atom(),
+        "TestingAgentId" => [String.t() | atom()]
+      }
+      
+  """
+  @type testing_agent_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      country_launch_status_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type country_launch_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      template_variable_metadata() :: %{
+        "DefaultValue" => [String.t() | atom()],
+        "Description" => [String.t() | atom()],
+        "MaxLength" => [integer()],
+        "MaxValue" => [integer()],
+        "MinValue" => [integer()],
+        "Pattern" => [String.t() | atom()],
+        "Required" => [boolean()],
+        "Sample" => [String.t() | atom()],
+        "Source" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type template_variable_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_event_destination_request() :: %{
         required("ConfigurationSetName") => String.t() | atom(),
         required("EventDestinationName") => String.t() | atom()
@@ -763,6 +864,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type delete_event_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rcs_agent_request() :: %{
+        required("RcsAgentId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_rcs_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -824,6 +936,25 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      send_notify_text_message_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("Context") => map(),
+        optional("DryRun") => [boolean()],
+        optional("MessageFeedbackEnabled") => [boolean()],
+        optional("TemplateId") => String.t() | atom(),
+        optional("TimeToLive") => integer(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("NotifyConfigurationId") => String.t() | atom(),
+        required("TemplateVariables") => map()
+      }
+      
+  """
+  @type send_notify_text_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       release_sender_id_result() :: %{
         "IsoCountryCode" => String.t() | atom(),
         "MessageTypes" => list(String.t() | atom()),
@@ -836,6 +967,38 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type release_sender_id_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_notify_configuration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DefaultTemplateId") => String.t() | atom(),
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("EnabledCountries") => list(String.t() | atom()),
+        optional("PoolId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("DisplayName") => String.t() | atom(),
+        required("EnabledChannels") => list(String.t() | atom()),
+        required("UseCase") => String.t() | atom()
+      }
+      
+  """
+  @type create_notify_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_notify_voice_message_result() :: %{
+        "MessageId" => [String.t() | atom()],
+        "ResolvedMessageBody" => [String.t() | atom()],
+        "TemplateId" => String.t() | atom()
+      }
+      
+  """
+  @type send_notify_voice_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -894,11 +1057,35 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      list_notify_countries_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotifyCountries" => list(notify_country_information())
+      }
+      
+  """
+  @type list_notify_countries_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_notify_configurations_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotifyConfigurations" => list(notify_configuration_information())
+      }
+      
+  """
+  @type describe_notify_configurations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_pool_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("DeletionProtectionEnabled") => [boolean()],
+        optional("IsoCountryCode") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("IsoCountryCode") => String.t() | atom(),
         required("MessageType") => String.t() | atom(),
         required("OriginationIdentity") => String.t() | atom()
       }
@@ -1038,6 +1225,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      set_notify_message_spend_limit_override_request() :: %{
+        required("MonthlyLimit") => float()
+      }
+      
+  """
+  @type set_notify_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_text_message_spend_limit_override_request() :: %{}
       
   """
@@ -1064,6 +1262,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       registration_attachments_information() :: %{
         "AttachmentStatus" => String.t() | atom(),
         "AttachmentUploadErrorReason" => String.t() | atom(),
+        "AttachmentUrl" => [String.t() | atom()],
         "CreatedTimestamp" => [non_neg_integer()],
         "RegistrationAttachmentArn" => [String.t() | atom()],
         "RegistrationAttachmentId" => [String.t() | atom()]
@@ -1121,6 +1320,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      rcs_agent_information() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "OptOutListName" => String.t() | atom(),
+        "PoolId" => [String.t() | atom()],
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TestingAgent" => testing_agent_information(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
+      }
+      
+  """
+  @type rcs_agent_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_registrations_request() :: %{
         optional("Filters") => list(registration_filter()),
         optional("MaxResults") => integer(),
@@ -1161,6 +1382,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @type put_protect_configuration_rule_set_number_override_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rcs_agent_request() :: %{
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("OptOutListName") => String.t() | atom(),
+        optional("SelfManagedOptOutsEnabled") => [boolean()],
+        optional("TwoWayChannelArn") => String.t() | atom(),
+        optional("TwoWayChannelRole") => String.t() | atom(),
+        optional("TwoWayEnabled") => [boolean()],
+        required("RcsAgentId") => String.t() | atom()
+      }
+      
+  """
+  @type update_rcs_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,6 +1470,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type set_voice_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_notify_templates_request() :: %{
+        optional("Filters") => list(notify_template_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TemplateIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_notify_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1459,6 +1711,65 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      create_notify_configuration_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DefaultTemplateId" => String.t() | atom(),
+        "DeletionProtectionEnabled" => [boolean()],
+        "DisplayName" => String.t() | atom(),
+        "EnabledChannels" => list(String.t() | atom()),
+        "EnabledCountries" => list(String.t() | atom()),
+        "NotifyConfigurationArn" => String.t() | atom(),
+        "NotifyConfigurationId" => String.t() | atom(),
+        "PoolId" => [String.t() | atom()],
+        "RejectionReason" => [String.t() | atom()],
+        "Status" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "Tier" => String.t() | atom(),
+        "TierUpgradeStatus" => String.t() | atom(),
+        "UseCase" => String.t() | atom()
+      }
+      
+  """
+  @type create_notify_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_template_information() :: %{
+        "Channels" => list(String.t() | atom()),
+        "Content" => String.t() | atom(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "LanguageCode" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SupportedCountries" => list(String.t() | atom()),
+        "SupportedVoiceIds" => list(String.t() | atom()),
+        "TemplateId" => String.t() | atom(),
+        "TemplateType" => String.t() | atom(),
+        "TierAccess" => list(String.t() | atom()),
+        "Variables" => map(),
+        "Version" => integer()
+      }
+      
+  """
+  @type notify_template_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      carrier_status_information() :: %{
+        "CarrierName" => [String.t() | atom()],
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type carrier_status_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       sender_id_filter() :: %{
         "Name" => String.t() | atom(),
         "Values" => list(String.t() | atom())
@@ -1466,6 +1777,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type sender_id_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_configuration_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type notify_configuration_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1558,6 +1881,26 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      delete_rcs_agent_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "OptOutListName" => String.t() | atom(),
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
+      }
+      
+  """
+  @type delete_rcs_agent_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       set_default_message_feedback_enabled_request() :: %{
         required("ConfigurationSetName") => String.t() | atom(),
         required("MessageFeedbackEnabled") => [boolean()]
@@ -1565,6 +1908,30 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type set_default_message_feedback_enabled_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_notify_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type set_notify_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_notify_text_message_result() :: %{
+        "MessageId" => [String.t() | atom()],
+        "ResolvedMessageBody" => [String.t() | atom()],
+        "TemplateId" => String.t() | atom()
+      }
+      
+  """
+  @type send_notify_text_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1616,6 +1983,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      describe_rcs_agent_country_launch_status_result() :: %{
+        "CountryLaunchStatus" => list(country_launch_status_information()),
+        "NextToken" => String.t() | atom(),
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()]
+      }
+      
+  """
+  @type describe_rcs_agent_country_launch_status_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_pool_origination_identities_request() :: %{
         optional("Filters") => list(pool_origination_identities_filter()),
         optional("MaxResults") => integer(),
@@ -1644,6 +2025,21 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type registration_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      country_launch_status_information() :: %{
+        "CarrierStatus" => list(carrier_status_information()),
+        "IsoCountryCode" => String.t() | atom(),
+        "RcsPlatformId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type country_launch_status_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1693,6 +2089,30 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type keyword_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notify_configuration_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DefaultTemplateId" => String.t() | atom(),
+        "DeletionProtectionEnabled" => [boolean()],
+        "DisplayName" => String.t() | atom(),
+        "EnabledChannels" => list(String.t() | atom()),
+        "EnabledCountries" => list(String.t() | atom()),
+        "NotifyConfigurationArn" => String.t() | atom(),
+        "NotifyConfigurationId" => String.t() | atom(),
+        "PoolId" => [String.t() | atom()],
+        "RejectionReason" => [String.t() | atom()],
+        "Status" => String.t() | atom(),
+        "Tier" => String.t() | atom(),
+        "TierUpgradeStatus" => String.t() | atom(),
+        "UseCase" => String.t() | atom()
+      }
+      
+  """
+  @type update_notify_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2048,6 +2468,48 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      update_notify_configuration_request() :: %{
+        optional("DefaultTemplateId") => String.t() | atom(),
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("EnabledChannels") => list(String.t() | atom()),
+        optional("EnabledCountries") => list(String.t() | atom()),
+        optional("PoolId") => String.t() | atom(),
+        required("NotifyConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type update_notify_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_notify_countries_request() :: %{
+        optional("Channels") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Tier") => String.t() | atom(),
+        optional("UseCases") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_notify_countries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_notify_configuration_request() :: %{
+        required("NotifyConfigurationId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_notify_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       send_destination_number_verification_code_result() :: %{
         "MessageId" => [String.t() | atom()]
       }
@@ -2165,6 +2627,22 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      notify_country_information() :: %{
+        "CountryName" => [String.t() | atom()],
+        "CustomerOwnedIdentityRequired" => [boolean()],
+        "IsoCountryCode" => String.t() | atom(),
+        "SupportedChannels" => list(String.t() | atom()),
+        "SupportedTiers" => list(String.t() | atom()),
+        "SupportedUseCases" => list(String.t() | atom())
+      }
+      
+  """
+  @type notify_country_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_registration_associations_result() :: %{
         "NextToken" => String.t() | atom(),
         "RegistrationArn" => [String.t() | atom()],
@@ -2251,6 +2729,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type send_text_message_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_notify_configurations_request() :: %{
+        optional("Filters") => list(notify_configuration_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("NotifyConfigurationIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_notify_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2511,6 +3003,30 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      delete_notify_configuration_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DefaultTemplateId" => String.t() | atom(),
+        "DeletionProtectionEnabled" => [boolean()],
+        "DisplayName" => String.t() | atom(),
+        "EnabledChannels" => list(String.t() | atom()),
+        "EnabledCountries" => list(String.t() | atom()),
+        "NotifyConfigurationArn" => String.t() | atom(),
+        "NotifyConfigurationId" => String.t() | atom(),
+        "PoolId" => [String.t() | atom()],
+        "RejectionReason" => [String.t() | atom()],
+        "Status" => String.t() | atom(),
+        "Tier" => String.t() | atom(),
+        "TierUpgradeStatus" => String.t() | atom(),
+        "UseCase" => String.t() | atom()
+      }
+      
+  """
+  @type delete_notify_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_registration_attachments_request() :: %{
         optional("Filters") => list(registration_attachment_filter()),
         optional("MaxResults") => integer(),
@@ -2567,6 +3083,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      describe_notify_templates_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "NotifyTemplates" => list(notify_template_information())
+      }
+      
+  """
+  @type describe_notify_templates_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
         "Message" => [String.t() | atom()],
@@ -2606,9 +3134,29 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      send_notify_voice_message_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("Context") => map(),
+        optional("DryRun") => [boolean()],
+        optional("MessageFeedbackEnabled") => [boolean()],
+        optional("TemplateId") => String.t() | atom(),
+        optional("TimeToLive") => integer(),
+        optional("VoiceId") => String.t() | atom(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("NotifyConfigurationId") => String.t() | atom(),
+        required("TemplateVariables") => map()
+      }
+      
+  """
+  @type send_notify_voice_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_origination_identity_request() :: %{
         optional("ClientToken") => String.t() | atom(),
-        required("IsoCountryCode") => String.t() | atom(),
+        optional("IsoCountryCode") => String.t() | atom(),
         required("OriginationIdentity") => String.t() | atom(),
         required("PoolId") => String.t() | atom()
       }
@@ -2662,7 +3210,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       disassociate_origination_identity_request() :: %{
         optional("ClientToken") => String.t() | atom(),
-        required("IsoCountryCode") => String.t() | atom(),
+        optional("IsoCountryCode") => String.t() | atom(),
         required("OriginationIdentity") => String.t() | atom(),
         required("PoolId") => String.t() | atom()
       }
@@ -2700,12 +3248,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       create_verified_destination_number_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("RcsAgentId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("DestinationPhoneNumber") => String.t() | atom()
       }
       
   """
   @type create_verified_destination_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rcs_agents_request() :: %{
+        optional("Filters") => list(rcs_agent_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("RcsAgentIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_rcs_agents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2798,6 +3362,29 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      delete_notify_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type delete_notify_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rcs_agents_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RcsAgents" => list(rcs_agent_information())
+      }
+      
+  """
+  @type describe_rcs_agents_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_phone_numbers_result() :: %{
         "NextToken" => String.t() | atom(),
         "PhoneNumbers" => list(phone_number_information())
@@ -2862,6 +3449,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type delete_account_default_protect_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_template_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type notify_template_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3029,6 +3628,21 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      describe_rcs_agent_country_launch_status_request() :: %{
+        optional("Filters") => list(country_launch_status_filter()),
+        optional("IsoCountryCodes") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("RcsAgentId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_rcs_agent_country_launch_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       protect_configuration_information() :: %{
         "AccountDefault" => [boolean()],
         "CreatedTimestamp" => [non_neg_integer()],
@@ -3153,6 +3767,30 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      notify_configuration_information() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DefaultTemplateId" => String.t() | atom(),
+        "DeletionProtectionEnabled" => [boolean()],
+        "DisplayName" => String.t() | atom(),
+        "EnabledChannels" => list(String.t() | atom()),
+        "EnabledCountries" => list(String.t() | atom()),
+        "NotifyConfigurationArn" => String.t() | atom(),
+        "NotifyConfigurationId" => String.t() | atom(),
+        "PoolId" => [String.t() | atom()],
+        "RejectionReason" => [String.t() | atom()],
+        "Status" => String.t() | atom(),
+        "Tier" => String.t() | atom(),
+        "TierUpgradeStatus" => String.t() | atom(),
+        "UseCase" => String.t() | atom()
+      }
+      
+  """
+  @type notify_configuration_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       set_default_message_type_result() :: %{
         "ConfigurationSetArn" => [String.t() | atom()],
         "ConfigurationSetName" => String.t() | atom(),
@@ -3268,6 +3906,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       create_verified_destination_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DestinationPhoneNumber" => String.t() | atom(),
+        "RcsAgentId" => [String.t() | atom()],
         "Status" => String.t() | atom(),
         "Tags" => list(tag()),
         "VerifiedDestinationNumberArn" => [String.t() | atom()],
@@ -3365,6 +4004,27 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @type delete_protect_configuration_rule_set_number_override_result() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rcs_agent_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "OptOutListName" => String.t() | atom(),
+        "RcsAgentArn" => [String.t() | atom()],
+        "RcsAgentId" => [String.t() | atom()],
+        "SelfManagedOptOutsEnabled" => [boolean()],
+        "Status" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
+        "TwoWayEnabled" => [boolean()]
+      }
+      
+  """
+  @type create_rcs_agent_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3471,6 +4131,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_notify_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_opt_out_list_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3494,6 +4163,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_rcs_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type create_registration_errors() ::
@@ -3536,6 +4214,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type delete_account_default_protect_configuration_errors() ::
@@ -3587,6 +4266,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type delete_notify_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_notify_message_spend_limit_override_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type delete_opt_out_list_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3625,6 +4318,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type delete_rcs_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_registration_errors() ::
           throttling_exception()
@@ -3703,6 +4404,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type describe_notify_configurations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_notify_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type describe_opt_out_lists_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3732,6 +4447,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
 
   @type describe_protect_configurations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_rcs_agent_country_launch_status_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_rcs_agents_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3842,6 +4571,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_notify_countries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_pool_origination_identities_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3899,6 +4634,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type put_registration_field_value_errors() ::
@@ -3967,6 +4703,24 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type send_notify_text_message_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type send_notify_voice_message_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type send_text_message_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4019,6 +4773,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type set_notify_message_spend_limit_override_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type set_text_message_spend_limit_override_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4062,6 +4822,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_notify_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_phone_number_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4091,6 +4859,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type update_rcs_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_sender_id_errors() ::
           throttling_exception()
@@ -4230,6 +5006,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Creates a new notify configuration for managed messaging.
+
+  A notify configuration defines the settings for sending templated messages,
+  including the display name, use case, enabled channels, and enabled countries.
+  """
+  @spec create_notify_configuration(map(), create_notify_configuration_request(), list()) ::
+          {:ok, create_notify_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_notify_configuration_errors()}
+  def create_notify_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateNotifyConfiguration", input, options)
+  end
+
+  @doc """
   Creates a new opt-out list.
 
   If the opt-out list name already exists, an error is returned.
@@ -4297,6 +5090,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateProtectConfiguration", input, options)
+  end
+
+  @doc """
+  Creates a new RCS agent for sending rich messages through the RCS channel.
+
+  The RCS agent serves as an origination identity for sending RCS messages to your
+  recipients.
+  """
+  @spec create_rcs_agent(map(), create_rcs_agent_request(), list()) ::
+          {:ok, create_rcs_agent_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_rcs_agent_errors()}
+  def create_rcs_agent(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRcsAgent", input, options)
   end
 
   @doc """
@@ -4527,6 +5337,47 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Deletes an existing notify configuration.
+
+  If deletion protection is enabled, an error is returned.
+  """
+  @spec delete_notify_configuration(map(), delete_notify_configuration_request(), list()) ::
+          {:ok, delete_notify_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_notify_configuration_errors()}
+  def delete_notify_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNotifyConfiguration", input, options)
+  end
+
+  @doc """
+  Deletes an account-level monthly spending limit override for sending notify
+  messages.
+
+  Deleting a spend limit override will set the `EnforcedLimit` to equal the
+  `MaxLimit`, which is controlled by Amazon Web Services. For more information on
+  spend limits (quotas) see [Quotas
+  ](https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html) in the
+  *End User Messaging SMS User Guide*.
+  """
+  @spec delete_notify_message_spend_limit_override(
+          map(),
+          delete_notify_message_spend_limit_override_request(),
+          list()
+        ) ::
+          {:ok, delete_notify_message_spend_limit_override_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_notify_message_spend_limit_override_errors()}
+  def delete_notify_message_spend_limit_override(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteNotifyMessageSpendLimitOverride", input, options)
+  end
+
+  @doc """
   Deletes an existing opt-out list.
 
   All opted out phone numbers in the opt-out list are deleted.
@@ -4632,6 +5483,22 @@ defmodule AWS.PinpointSMSVoiceV2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Deletes an existing RCS agent.
+
+  If deletion protection is enabled, an error is returned.
+  """
+  @spec delete_rcs_agent(map(), delete_rcs_agent_request(), list()) ::
+          {:ok, delete_rcs_agent_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_rcs_agent_errors()}
+  def delete_rcs_agent(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRcsAgent", input, options)
   end
 
   @doc """
@@ -4855,6 +5722,52 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Describes the specified notify configurations or all notify configurations in
+  your account.
+
+  If you specify notify configuration IDs, the output includes information for
+  only the specified notify configurations. If you specify filters, the output
+  includes information for only those notify configurations that meet the filter
+  criteria. If you don't specify notify configuration IDs or filters, the output
+  includes information for all notify configurations.
+
+  If you specify a notify configuration ID that isn't valid, an error is returned.
+  """
+  @spec describe_notify_configurations(map(), describe_notify_configurations_request(), list()) ::
+          {:ok, describe_notify_configurations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_notify_configurations_errors()}
+  def describe_notify_configurations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeNotifyConfigurations", input, options)
+  end
+
+  @doc """
+  Describes the specified notify templates or all notify templates in your
+  account.
+
+  If you specify template IDs, the output includes information for only the
+  specified notify templates. If you specify filters, the output includes
+  information for only those notify templates that meet the filter criteria. If
+  you don't specify template IDs or filters, the output includes information for
+  all notify templates.
+
+  If you specify a template ID that isn't valid, an error is returned.
+  """
+  @spec describe_notify_templates(map(), describe_notify_templates_request(), list()) ::
+          {:ok, describe_notify_templates_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_notify_templates_errors()}
+  def describe_notify_templates(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeNotifyTemplates", input, options)
+  end
+
+  @doc """
   Describes the specified opt-out list or all opt-out lists in your account.
 
   If you specify opt-out list names, the output includes information for only the
@@ -4961,6 +5874,45 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeProtectConfigurations", input, options)
+  end
+
+  @doc """
+  Retrieves the per-country launch status of an RCS agent, including carrier-level
+  details for each country.
+  """
+  @spec describe_rcs_agent_country_launch_status(
+          map(),
+          describe_rcs_agent_country_launch_status_request(),
+          list()
+        ) ::
+          {:ok, describe_rcs_agent_country_launch_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_rcs_agent_country_launch_status_errors()}
+  def describe_rcs_agent_country_launch_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRcsAgentCountryLaunchStatus", input, options)
+  end
+
+  @doc """
+  Retrieves the specified RCS agents or all RCS agents associated with your Amazon
+  Web Services account.
+
+  If you specify RCS agent IDs, the output includes information for only the
+  specified RCS agents. If you specify filters, the output includes information
+  for only those RCS agents that meet the filter criteria. If you don't specify
+  RCS agent IDs or filters, the output includes information for all RCS agents.
+  """
+  @spec describe_rcs_agents(map(), describe_rcs_agents_request(), list()) ::
+          {:ok, describe_rcs_agents_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_rcs_agents_errors()}
+  def describe_rcs_agents(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRcsAgents", input, options)
   end
 
   @doc """
@@ -5238,6 +6190,22 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
+  end
+
+  @doc """
+  Lists countries that support notify messaging.
+
+  You can optionally filter by channel, use case, or tier.
+  """
+  @spec list_notify_countries(map(), list_notify_countries_request(), list()) ::
+          {:ok, list_notify_countries_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_notify_countries_errors()}
+  def list_notify_countries(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListNotifyCountries", input, options)
   end
 
   @doc """
@@ -5542,6 +6510,36 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Sends a templated text message through a notify configuration to a recipient's
+  phone number.
+  """
+  @spec send_notify_text_message(map(), send_notify_text_message_request(), list()) ::
+          {:ok, send_notify_text_message_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_notify_text_message_errors()}
+  def send_notify_text_message(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendNotifyTextMessage", input, options)
+  end
+
+  @doc """
+  Sends a templated voice message through a notify configuration to a recipient's
+  phone number.
+  """
+  @spec send_notify_voice_message(map(), send_notify_voice_message_request(), list()) ::
+          {:ok, send_notify_voice_message_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_notify_voice_message_errors()}
+  def send_notify_voice_message(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendNotifyVoiceMessage", input, options)
+  end
+
+  @doc """
   Creates a new text message and sends it to a recipient's phone number.
 
   SendTextMessage only sends an SMS message to one recipient each time it is
@@ -5682,6 +6680,27 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Sets an account level monthly spend limit override for sending notify messages.
+
+  The requested spend limit must be less than or equal to the `MaxLimit`, which is
+  set by Amazon Web Services.
+  """
+  @spec set_notify_message_spend_limit_override(
+          map(),
+          set_notify_message_spend_limit_override_request(),
+          list()
+        ) ::
+          {:ok, set_notify_message_spend_limit_override_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, set_notify_message_spend_limit_override_errors()}
+  def set_notify_message_spend_limit_override(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetNotifyMessageSpendLimitOverride", input, options)
+  end
+
+  @doc """
   Sets an account level monthly spend limit override for sending text messages.
 
   The requested spend limit must be less than or equal to the `MaxLimit`, which is
@@ -5797,6 +6816,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Updates an existing notify configuration.
+
+  You can update the default template, pool association, enabled channels, enabled
+  countries, and deletion protection settings.
+  """
+  @spec update_notify_configuration(map(), update_notify_configuration_request(), list()) ::
+          {:ok, update_notify_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_notify_configuration_errors()}
+  def update_notify_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateNotifyConfiguration", input, options)
+  end
+
+  @doc """
   Updates the configuration of an existing origination phone number.
 
   You can update the opt-out list, enable or disable two-way messaging, change the
@@ -5868,6 +6904,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateProtectConfigurationCountryRuleSet", input, options)
+  end
+
+  @doc """
+  Updates the configuration of an existing RCS agent.
+
+  You can update the opt-out list, deletion protection, two-way messaging
+  settings, and self-managed opt-outs configuration.
+  """
+  @spec update_rcs_agent(map(), update_rcs_agent_request(), list()) ::
+          {:ok, update_rcs_agent_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_rcs_agent_errors()}
+  def update_rcs_agent(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRcsAgent", input, options)
   end
 
   @doc """

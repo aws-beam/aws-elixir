@@ -1086,6 +1086,7 @@ defmodule AWS.Organizations do
         "JoinedMethod" => list(any()),
         "JoinedTimestamp" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "Paths" => list(String.t() | atom()),
         "State" => list(any()),
         "Status" => list(any())
       }
@@ -1862,7 +1863,8 @@ defmodule AWS.Organizations do
       organizational_unit() :: %{
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom()
       }
       
   """

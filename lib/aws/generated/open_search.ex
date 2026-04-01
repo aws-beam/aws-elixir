@@ -139,6 +139,20 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      register_capability_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "capabilityConfig" => list(),
+        "capabilityName" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type register_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_package_scope_request() :: %{
         required("Operation") => list(any()),
         required("PackageID") => String.t() | atom(),
@@ -342,6 +356,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type direct_query_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_capability_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type deregister_capability_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -694,6 +719,21 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      get_capability_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "capabilityConfig" => list(),
+        "capabilityName" => String.t() | atom(),
+        "failures" => list(capability_failure()),
+        "status" => list(any())
+      }
+
+  """
+  @type get_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       saml_idp() :: %{
         "EntityId" => String.t() | atom(),
         "MetadataContent" => String.t() | atom()
@@ -954,6 +994,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      register_capability_request() :: %{
+        required("capabilityConfig") => list(),
+        required("capabilityName") => String.t() | atom()
+      }
+
+  """
+  @type register_capability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       additional_limit() :: %{
         "LimitName" => String.t() | atom(),
         "LimitValues" => list(String.t() | atom())
@@ -1142,6 +1194,15 @@ defmodule AWS.OpenSearch do
 
   """
   @type cognito_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_config() :: %{}
+
+  """
+  @type a_i_config() :: %{}
 
   @typedoc """
 
@@ -1476,6 +1537,15 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      deregister_capability_request() :: %{}
+
+  """
+  @type deregister_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       s3_vectors_engine() :: %{
         "Enabled" => boolean()
       }
@@ -1576,6 +1646,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type cancel_domain_config_change_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1737,6 +1818,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type connection_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_failure() :: %{
+        "details" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type capability_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3909,6 +4002,15 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      get_capability_request() :: %{}
+
+  """
+  @type get_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       associate_package_response() :: %{
         "DomainPackageDetails" => domain_package_details()
       }
@@ -4258,6 +4360,14 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | disabled_operation_exception()
 
+  @type deregister_capability_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | disabled_operation_exception()
+
   @type describe_domain_errors() ::
           base_exception()
           | validation_exception()
@@ -4373,6 +4483,13 @@ defmodule AWS.OpenSearch do
   @type get_application_errors() ::
           base_exception()
           | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type get_capability_errors() ::
+          validation_exception()
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
@@ -4550,6 +4667,15 @@ defmodule AWS.OpenSearch do
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+
+  @type register_capability_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | disabled_operation_exception()
 
   @type reject_inbound_connection_errors() ::
           resource_not_found_exception() | disabled_operation_exception()
@@ -5503,6 +5629,51 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Deregisters a capability from an OpenSearch UI application.
+
+  This operation removes the capability and its associated configuration.
+  """
+  @spec deregister_capability(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          deregister_capability_request(),
+          list()
+        ) ::
+          {:ok, deregister_capability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, deregister_capability_errors()}
+  def deregister_capability(
+        %Client{} = client,
+        application_id,
+        capability_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(application_id)}/capability/deregister/#{AWS.Util.encode_uri(capability_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Describes the domain configuration for the specified Amazon OpenSearch Service
   domain,
   including the domain ID, domain service endpoint, and domain ARN.
@@ -6144,6 +6315,27 @@ defmodule AWS.OpenSearch do
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, id, options \\ []) do
     url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a registered capability for an OpenSearch UI
+  application, including its configuration and current status.
+  """
+  @spec get_capability(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_capability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_capability_errors()}
+  def get_capability(%Client{} = client, application_id, capability_name, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(application_id)}/capability/#{AWS.Util.encode_uri(capability_name)}"
+
     headers = []
     query_params = []
 
@@ -7072,6 +7264,42 @@ defmodule AWS.OpenSearch do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Registers a capability for an OpenSearch UI application.
+
+  Use this operation to enable specific capabilities, such as AI features, for a
+  given application. The capability configuration defines the type and settings of
+  the capability to register. For more information about the AI features, see
+  [Agentic AI for OpenSearch UI](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-ai-assistant.html).
+  """
+  @spec register_capability(map(), String.t() | atom(), register_capability_request(), list()) ::
+          {:ok, register_capability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_capability_errors()}
+  def register_capability(%Client{} = client, application_id, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(application_id)}/capability/register"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

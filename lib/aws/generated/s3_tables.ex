@@ -123,6 +123,20 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      iceberg_schema_v2() :: %{
+        "fields" => list(schema_v2_field()),
+        "identifierFieldIds" => list([integer()]()),
+        "schemaId" => [integer()],
+        "type" => list(any())
+      }
+
+  """
+  @type iceberg_schema_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_table_metadata_location_request() :: %{
         required("metadataLocation") => String.t() | atom(),
         required("versionToken") => String.t() | atom()
@@ -655,6 +669,7 @@ defmodule AWS.S3Tables do
         "partitionSpec" => iceberg_partition_spec(),
         "properties" => map(),
         "schema" => iceberg_schema(),
+        "schemaV2" => iceberg_schema_v2(),
         "writeOrder" => iceberg_sort_order()
       }
 
@@ -683,6 +698,21 @@ defmodule AWS.S3Tables do
 
   """
   @type list_tables_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_v2_field() :: %{
+        "doc" => [String.t() | atom()],
+        "id" => [integer()],
+        "name" => [String.t() | atom()],
+        "required" => [boolean()],
+        "type" => [any()]
+      }
+
+  """
+  @type schema_v2_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

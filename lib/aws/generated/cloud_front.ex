@@ -3905,6 +3905,7 @@ defmodule AWS.CloudFront do
 
       update_anycast_ip_list_request() :: %{
         optional("IpAddressType") => list(any()),
+        optional("IpamCidrConfigs") => list(ipam_cidr_config()),
         required("IfMatch") => String.t() | atom()
       }
 

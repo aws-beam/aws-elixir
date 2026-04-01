@@ -296,6 +296,7 @@ defmodule AWS.MailManager do
         optional("IngressPointName") => String.t() | atom(),
         optional("RuleSetId") => String.t() | atom(),
         optional("StatusToUpdate") => list(any()),
+        optional("TlsPolicy") => list(any()),
         optional("TrafficPolicyId") => String.t() | atom(),
         required("IngressPointId") => String.t() | atom()
       }
@@ -562,6 +563,21 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      invoke_lambda_action() :: %{
+        "ActionFailurePolicy" => list(any()),
+        "FunctionArn" => String.t() | atom(),
+        "InvocationType" => list(any()),
+        "RetryTimeMinutes" => integer(),
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type invoke_lambda_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_traffic_policies_response() :: %{
         "NextToken" => String.t() | atom(),
         "TrafficPolicies" => list(traffic_policy())
@@ -688,6 +704,7 @@ defmodule AWS.MailManager do
         "NetworkConfiguration" => list(),
         "RuleSetId" => String.t() | atom(),
         "Status" => list(any()),
+        "TlsPolicy" => list(any()),
         "TrafficPolicyId" => String.t() | atom(),
         "Type" => list(any())
       }
@@ -978,6 +995,17 @@ defmodule AWS.MailManager do
       
   """
   @type sns_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tls_auth_configuration() :: %{
+        "TrustStore" => trust_store()
+      }
+      
+  """
+  @type tls_auth_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1868,6 +1896,7 @@ defmodule AWS.MailManager do
         optional("IngressPointConfiguration") => list(),
         optional("NetworkConfiguration") => list(),
         optional("Tags") => list(tag()),
+        optional("TlsPolicy") => list(any()),
         required("IngressPointName") => String.t() | atom(),
         required("RuleSetId") => String.t() | atom(),
         required("TrafficPolicyId") => String.t() | atom(),
@@ -2134,7 +2163,8 @@ defmodule AWS.MailManager do
       
       ingress_point_auth_configuration() :: %{
         "IngressPointPasswordConfiguration" => ingress_point_password_configuration(),
-        "SecretArn" => String.t() | atom()
+        "SecretArn" => String.t() | atom(),
+        "TlsAuthConfiguration" => tls_auth_configuration()
       }
       
   """
@@ -2177,6 +2207,7 @@ defmodule AWS.MailManager do
   ## Example:
       
       get_ingress_point_request() :: %{
+        optional("IncludeTrustStoreContents") => list(any()),
         required("IngressPointId") => String.t() | atom()
       }
       
@@ -2251,6 +2282,23 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      bounce_action() :: %{
+        "ActionFailurePolicy" => list(any()),
+        "DiagnosticMessage" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Sender" => String.t() | atom(),
+        "SmtpReplyCode" => String.t() | atom(),
+        "StatusCode" => String.t() | atom()
+      }
+      
+  """
+  @type bounce_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_header_action() :: %{
         "HeaderName" => String.t() | atom(),
         "HeaderValue" => String.t() | atom()
@@ -2275,6 +2323,19 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      trust_store() :: %{
+        "CAContent" => String.t() | atom(),
+        "CrlContent" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type trust_store() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_address_list_response() :: %{
         "AddressListId" => String.t() | atom()
       }
@@ -2289,7 +2350,10 @@ defmodule AWS.MailManager do
           | conflict_exception()
 
   @type create_addon_subscription_errors() ::
-          validation_exception() | service_quota_exceeded_exception() | conflict_exception()
+          throttling_exception()
+          | validation_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
 
   @type create_address_list_errors() ::
           throttling_exception()
@@ -2328,7 +2392,10 @@ defmodule AWS.MailManager do
   @type delete_addon_subscription_errors() :: validation_exception() | conflict_exception()
 
   @type delete_address_list_errors() ::
-          throttling_exception() | access_denied_exception() | conflict_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | conflict_exception()
 
   @type delete_archive_errors() ::
           throttling_exception()
@@ -2352,6 +2419,7 @@ defmodule AWS.MailManager do
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_addon_instance_errors() :: validation_exception() | resource_not_found_exception()
 
@@ -2457,6 +2525,7 @@ defmodule AWS.MailManager do
           | access_denied_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type start_address_list_import_job_errors() ::
           throttling_exception()

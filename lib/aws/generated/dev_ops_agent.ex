@@ -31,6 +31,7 @@ defmodule AWS.DevOpsAgent do
       get_account_usage_output() :: %{
         "monthlyAccountEvaluationHours" => usage_metric(),
         "monthlyAccountInvestigationHours" => usage_metric(),
+        "monthlyAccountOnDemandHours" => usage_metric(),
         "monthlyAccountSystemLearningHours" => usage_metric(),
         "usagePeriodEndTime" => non_neg_integer(),
         "usagePeriodStartTime" => non_neg_integer()
@@ -401,18 +402,6 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      m_s_teams_transmission_target() :: %{
-        "opsOncallTarget" => m_s_teams_channel(),
-        "opsSRETarget" => m_s_teams_channel()
-      }
-
-  """
-  @type m_s_teams_transmission_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       datadog_service_details() :: %{
         "authorizationConfig" => list(),
         "description" => String.t() | atom(),
@@ -485,17 +474,6 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type grafana_service_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_chat_for_case_request() :: %{
-        optional("clientToken") => [String.t() | atom()]
-      }
-
-  """
-  @type initiate_chat_for_case_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -700,19 +678,6 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      m_c_p_server_sig_v4_authorization_config() :: %{
-        "region" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "service" => [String.t() | atom()]
-      }
-
-  """
-  @type m_c_p_server_sig_v4_authorization_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       goal() :: %{
         "agentSpaceArn" => [String.t() | atom()],
         "content" => goal_content(),
@@ -805,19 +770,6 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type registered_git_lab_service_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_support_level_response() :: %{
-        "activeSubscription" => [boolean()],
-        "mosaicSupportLevel" => support_level(),
-        "supportLevel" => support_level()
-      }
-
-  """
-  @type describe_support_level_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -974,17 +926,6 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type slack_transmission_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_chat_for_case_response() :: %{
-        "chatParticipantConnection" => chat_participant_connection()
-      }
-
-  """
-  @type initiate_chat_for_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1155,22 +1096,6 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type git_lab_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      registered_m_c_p_server_sig_v4_details() :: %{
-        "description" => String.t() | atom(),
-        "endpoint" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "region" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "service" => [String.t() | atom()]
-      }
-
-  """
-  @type registered_m_c_p_server_sig_v4_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1352,19 +1277,6 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      m_s_teams_configuration() :: %{
-        "teamId" => String.t() | atom(),
-        "teamName" => [String.t() | atom()],
-        "transmissionTarget" => m_s_teams_transmission_target()
-      }
-
-  """
-  @type m_s_teams_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       get_agent_space_input() :: %{}
 
   """
@@ -1432,15 +1344,6 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type delete_agent_space_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_support_level_request() :: %{}
-
-  """
-  @type describe_support_level_request() :: %{}
 
   @typedoc """
 
@@ -1658,20 +1561,6 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      m_c_p_server_sig_v4_service_details() :: %{
-        "authorizationConfig" => m_c_p_server_sig_v4_authorization_config(),
-        "description" => String.t() | atom(),
-        "endpoint" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type m_c_p_server_sig_v4_service_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       user_reference() :: %{
         "userId" => [String.t() | atom()],
         "userType" => list(any())
@@ -1839,19 +1728,6 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      end_chat_for_case_response() :: %{
-        "errorMessage" => [String.t() | atom()],
-        "executionId" => [String.t() | atom()],
-        "isDisconnected" => [boolean()]
-      }
-
-  """
-  @type end_chat_for_case_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       m_c_p_server_details() :: %{
         "authorizationConfig" => list(),
         "description" => String.t() | atom(),
@@ -1977,18 +1853,6 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      m_s_teams_channel() :: %{
-        "channelId" => String.t() | atom(),
-        "channelName" => [String.t() | atom()]
-      }
-
-  """
-  @type m_s_teams_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       recommendation_content() :: %{
         "spec" => [String.t() | atom()],
         "summary" => [String.t() | atom()]
@@ -2008,19 +1872,6 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type list_journal_records_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      end_chat_for_case_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("reason") => [String.t() | atom()],
-        optional("requester") => [String.t() | atom()]
-      }
-
-  """
-  @type end_chat_for_case_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2116,19 +1967,6 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      chat_participant_connection() :: %{
-        "initialContactId" => [String.t() | atom()],
-        "participantId" => [String.t() | atom()],
-        "participantToken" => [String.t() | atom()]
-      }
-
-  """
-  @type chat_participant_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       registered_azure_dev_ops_service_details() :: %{
         "organizationName" => [String.t() | atom()]
       }
@@ -2204,18 +2042,6 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type slack_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      support_level() :: %{
-        "code" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type support_level() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2591,13 +2417,6 @@ defmodule AWS.DevOpsAgent do
           | internal_server_exception()
           | resource_not_found_exception()
 
-  @type describe_support_level_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-
   @type disable_operator_app_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2615,13 +2434,6 @@ defmodule AWS.DevOpsAgent do
           | validation_exception()
           | internal_server_exception()
           | identity_center_service_exception()
-
-  @type end_chat_for_case_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type get_account_usage_errors() ::
           throttling_exception()
@@ -2665,14 +2477,6 @@ defmodule AWS.DevOpsAgent do
           | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-
-  @type initiate_chat_for_case_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type list_agent_spaces_errors() ::
           throttling_exception() | validation_exception() | internal_server_exception()
@@ -2849,8 +2653,6 @@ defmodule AWS.DevOpsAgent do
 
   @doc """
   Authorize Ingestion Hub subscription operation.
-
-  Looks to see if the derived accountId from FAS has an AgentSpace.
   """
   @spec allow_vended_log_delivery_for_resource(
           map(),
@@ -3152,43 +2954,6 @@ defmodule AWS.DevOpsAgent do
   end
 
   @doc """
-  Describe the support level of a CloudSmith customer account.
-  """
-  @spec describe_support_level(
-          map(),
-          String.t() | atom(),
-          String.t() | atom(),
-          describe_support_level_request(),
-          list()
-        ) ::
-          {:ok, describe_support_level_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, describe_support_level_errors()}
-  def describe_support_level(%Client{} = client, agent_space_id, task_id, input, options \\ []) do
-    url_path =
-      "/support/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/tasks/#{AWS.Util.encode_uri(task_id)}/supportLevel"
-
-    headers = []
-    custom_headers = []
-    query_params = []
-
-    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
-
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      custom_headers ++ headers,
-      input,
-      options,
-      201
-    )
-  end
-
-  @doc """
   Disable the Operator App for the specified AgentSpace
   """
   @spec disable_operator_app(map(), String.t() | atom(), disable_operator_app_input(), list()) ::
@@ -3283,43 +3048,6 @@ defmodule AWS.DevOpsAgent do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.")
-
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      custom_headers ++ headers,
-      input,
-      options,
-      200
-    )
-  end
-
-  @doc """
-  End a chat session for a support case in the specified agent space
-  """
-  @spec end_chat_for_case(
-          map(),
-          String.t() | atom(),
-          String.t() | atom(),
-          end_chat_for_case_request(),
-          list()
-        ) ::
-          {:ok, end_chat_for_case_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, end_chat_for_case_errors()}
-  def end_chat_for_case(%Client{} = client, agent_space_id, task_id, input, options \\ []) do
-    url_path =
-      "/support/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/tasks/#{AWS.Util.encode_uri(task_id)}/end-chat-for-case"
-
-    headers = []
-    custom_headers = []
-    query_params = []
-
-    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
 
     Request.request_rest(
       client,
@@ -3483,43 +3211,6 @@ defmodule AWS.DevOpsAgent do
     meta = metadata() |> Map.put_new(:host_prefix, "cp.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
-  end
-
-  @doc """
-  Initiate a chat for support case in the specified agent space
-  """
-  @spec initiate_chat_for_case(
-          map(),
-          String.t() | atom(),
-          String.t() | atom(),
-          initiate_chat_for_case_request(),
-          list()
-        ) ::
-          {:ok, initiate_chat_for_case_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, initiate_chat_for_case_errors()}
-  def initiate_chat_for_case(%Client{} = client, agent_space_id, task_id, input, options \\ []) do
-    url_path =
-      "/support/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/tasks/#{AWS.Util.encode_uri(task_id)}/chats"
-
-    headers = []
-    custom_headers = []
-    query_params = []
-
-    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
-
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      custom_headers ++ headers,
-      input,
-      options,
-      201
-    )
   end
 
   @doc """

@@ -5029,6 +5029,7 @@ defmodule AWS.Bedrock do
       model_invocation_job_summary() :: %{
         "clientRequestToken" => String.t() | atom(),
         "endTime" => non_neg_integer(),
+        "errorRecordCount" => float(),
         "inputDataConfig" => list(),
         "jobArn" => String.t() | atom(),
         "jobExpirationTime" => non_neg_integer(),
@@ -5038,10 +5039,13 @@ defmodule AWS.Bedrock do
         "modelId" => String.t() | atom(),
         "modelInvocationType" => list(any()),
         "outputDataConfig" => list(),
+        "processedRecordCount" => float(),
         "roleArn" => String.t() | atom(),
         "status" => list(any()),
         "submitTime" => non_neg_integer(),
+        "successRecordCount" => float(),
         "timeoutDurationInHours" => integer(),
+        "totalRecordCount" => float(),
         "vpcConfig" => vpc_config()
       }
 
@@ -5438,6 +5442,7 @@ defmodule AWS.Bedrock do
       get_model_invocation_job_response() :: %{
         "clientRequestToken" => String.t() | atom(),
         "endTime" => non_neg_integer(),
+        "errorRecordCount" => float(),
         "inputDataConfig" => list(),
         "jobArn" => String.t() | atom(),
         "jobExpirationTime" => non_neg_integer(),
@@ -5447,10 +5452,13 @@ defmodule AWS.Bedrock do
         "modelId" => String.t() | atom(),
         "modelInvocationType" => list(any()),
         "outputDataConfig" => list(),
+        "processedRecordCount" => float(),
         "roleArn" => String.t() | atom(),
         "status" => list(any()),
         "submitTime" => non_neg_integer(),
+        "successRecordCount" => float(),
         "timeoutDurationInHours" => integer(),
+        "totalRecordCount" => float(),
         "vpcConfig" => vpc_config()
       }
 

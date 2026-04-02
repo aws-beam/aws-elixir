@@ -167,6 +167,17 @@ defmodule AWS.MedicalImaging do
 
   ## Example:
 
+      not_acceptable_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type not_acceptable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_image_set_versions_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom()
@@ -344,6 +355,7 @@ defmodule AWS.MedicalImaging do
 
       update_image_set_metadata_request() :: %{
         optional("force") => [boolean()],
+        optional("includeStudyImageSets") => [boolean()],
         required("latestVersionId") => String.t() | atom(),
         required("updateImageSetMetadataUpdates") => list()
       }
@@ -710,6 +722,17 @@ defmodule AWS.MedicalImaging do
 
   ## Example:
 
+      bad_request_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_image_set_metadata_response() :: %{
         "createdAt" => non_neg_integer(),
         "datastoreId" => String.t() | atom(),
@@ -880,12 +903,14 @@ defmodule AWS.MedicalImaging do
           | resource_not_found_exception()
 
   @type get_image_frame_errors() ::
-          throttling_exception()
+          bad_request_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | not_acceptable_exception()
 
   @type get_image_set_errors() ::
           throttling_exception()
@@ -1652,6 +1677,7 @@ defmodule AWS.MedicalImaging do
     {query_params, input} =
       [
         {"force", "force"},
+        {"includeStudyImageSets", "includeStudyImageSets"},
         {"latestVersionId", "latestVersion"}
       ]
       |> Request.build_params(input)

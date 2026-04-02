@@ -1247,6 +1247,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      session_filter() :: %{
+        "eventFilter" => list(any())
+      }
+
+  """
+  @type session_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       event() :: %{
         "actorId" => String.t() | atom(),
         "branch" => branch(),
@@ -1800,6 +1811,7 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       list_sessions_input() :: %{
+        optional("filter") => session_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }

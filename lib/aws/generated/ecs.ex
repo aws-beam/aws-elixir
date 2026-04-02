@@ -138,6 +138,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      list_daemon_deployments_response() :: %{
+        "daemonDeployments" => list(daemon_deployment_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_daemon_deployments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_service_deployments_request() :: %{
         optional("cluster") => String.t() | atom(),
         optional("createdAt") => created_at(),
@@ -361,6 +373,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      daemon_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type daemon_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       inference_accelerator() :: %{
         "deviceName" => String.t() | atom(),
         "deviceType" => String.t() | atom()
@@ -382,6 +405,19 @@ defmodule AWS.ECS do
       
   """
   @type managed_metric_alarm() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_circuit_breaker() :: %{
+        "failureCount" => integer(),
+        "status" => list(any()),
+        "threshold" => integer()
+      }
+      
+  """
+  @type daemon_circuit_breaker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -559,6 +595,19 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      daemon_deployment_alarms() :: %{
+        "alarmNames" => list(String.t() | atom()),
+        "status" => list(any()),
+        "triggeredAlarmNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type daemon_deployment_alarms() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       task_override() :: %{
         "containerOverrides" => list(container_override()),
         "cpu" => String.t() | atom(),
@@ -619,6 +668,18 @@ defmodule AWS.ECS do
       
   """
   @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_daemon_task_definitions_response() :: %{
+        "daemonTaskDefinitions" => list(daemon_task_definition_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_daemon_task_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -827,6 +888,19 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      daemon_revision_detail() :: %{
+        "arn" => String.t() | atom(),
+        "capacityProviders" => list(daemon_capacity_provider()),
+        "totalRunningCount" => integer()
+      }
+      
+  """
+  @type daemon_revision_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_deployment_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -888,6 +962,20 @@ defmodule AWS.ECS do
       
   """
   @type service_revision_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_deployment_revision_detail() :: %{
+        "arn" => String.t() | atom(),
+        "capacityProviders" => list(daemon_deployment_capacity_provider()),
+        "totalDrainingInstanceCount" => integer(),
+        "totalRunningInstanceCount" => integer()
+      }
+      
+  """
+  @type daemon_deployment_revision_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -984,6 +1072,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      list_daemons_response() :: %{
+        "daemonSummariesList" => list(daemon_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_daemons_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_express_gateway_service_request() :: %{
         optional("include") => list(list(any())()),
         required("serviceArn") => String.t() | atom()
@@ -991,6 +1091,17 @@ defmodule AWS.ECS do
       
   """
   @type describe_express_gateway_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_daemon_deployments_request() :: %{
+        required("daemonDeploymentArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_daemon_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1006,6 +1117,31 @@ defmodule AWS.ECS do
       
   """
   @type list_task_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_daemon_task_definition_request() :: %{
+        required("daemonTaskDefinition") => String.t() | atom()
+      }
+      
+  """
+  @type delete_daemon_task_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_rollback() :: %{
+        "reason" => String.t() | atom(),
+        "rollbackCapacityProviders" => list(String.t() | atom()),
+        "rollbackTargetDaemonRevisionArn" => String.t() | atom(),
+        "startedAt" => non_neg_integer()
+      }
+      
+  """
+  @type daemon_rollback() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,6 +1173,18 @@ defmodule AWS.ECS do
       
   """
   @type task_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_alarm_configuration() :: %{
+        "alarmNames" => list(String.t() | atom()),
+        "enable" => boolean()
+      }
+      
+  """
+  @type daemon_alarm_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1074,6 +1222,17 @@ defmodule AWS.ECS do
       
   """
   @type delete_task_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_daemon_response() :: %{
+        "daemon" => daemon_detail()
+      }
+      
+  """
+  @type describe_daemon_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1205,6 +1364,36 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      daemon_detail() :: %{
+        "clusterArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "currentRevisions" => list(daemon_revision_detail()),
+        "daemonArn" => String.t() | atom(),
+        "deploymentArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type daemon_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_deployment_configuration() :: %{
+        "alarms" => daemon_alarm_configuration(),
+        "bakeTimeInMinutes" => integer(),
+        "drainPercent" => float()
+      }
+      
+  """
+  @type daemon_deployment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cluster_configuration() :: %{
         "executeCommandConfiguration" => execute_command_configuration(),
         "managedStorageConfiguration" => managed_storage_configuration()
@@ -1301,6 +1490,25 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      daemon_revision() :: %{
+        "clusterArn" => String.t() | atom(),
+        "containerImages" => list(daemon_container_image()),
+        "createdAt" => non_neg_integer(),
+        "daemonArn" => String.t() | atom(),
+        "daemonRevisionArn" => String.t() | atom(),
+        "daemonTaskDefinitionArn" => String.t() | atom(),
+        "enableECSManagedTags" => boolean(),
+        "enableExecuteCommand" => boolean(),
+        "propagateTags" => list(any())
+      }
+      
+  """
+  @type daemon_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       task_managed_ebs_volume_termination_policy() :: %{
         "deleteOnTermination" => boolean()
       }
@@ -1323,12 +1531,35 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      describe_daemon_task_definition_response() :: %{
+        "daemonTaskDefinition" => daemon_task_definition()
+      }
+      
+  """
+  @type describe_daemon_task_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_express_gateway_service_request() :: %{
         required("serviceArn") => String.t() | atom()
       }
       
   """
   @type delete_express_gateway_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_capacity_provider() :: %{
+        "arn" => String.t() | atom(),
+        "runningCount" => integer()
+      }
+      
+  """
+  @type daemon_capacity_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1351,6 +1582,20 @@ defmodule AWS.ECS do
       
   """
   @type unsupported_feature_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "daemonArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type daemon_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1439,6 +1684,36 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      list_daemon_task_definitions_request() :: %{
+        optional("family") => String.t() | atom(),
+        optional("familyPrefix") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("revision") => list(any()),
+        optional("sort") => list(any()),
+        optional("status") => list(any())
+      }
+      
+  """
+  @type list_daemon_task_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_container_image() :: %{
+        "containerName" => String.t() | atom(),
+        "image" => String.t() | atom(),
+        "imageDigest" => String.t() | atom()
+      }
+      
+  """
+  @type daemon_container_image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_cluster_request() :: %{
         optional("capacityProviders") => list(String.t() | atom()),
         optional("clusterName") => String.t() | atom(),
@@ -1508,6 +1783,20 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      daemon_linux_parameters() :: %{
+        "capabilities" => kernel_capabilities(),
+        "devices" => list(device()),
+        "initProcessEnabled" => boolean(),
+        "tmpfs" => list(tmpfs())
+      }
+      
+  """
+  @type daemon_linux_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       client_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -1552,6 +1841,23 @@ defmodule AWS.ECS do
       
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_daemon_request() :: %{
+        optional("deploymentConfiguration") => daemon_deployment_configuration(),
+        optional("enableECSManagedTags") => boolean(),
+        optional("enableExecuteCommand") => boolean(),
+        optional("propagateTags") => list(any()),
+        required("capacityProviderArns") => list(String.t() | atom()),
+        required("daemonArn") => String.t() | atom(),
+        required("daemonTaskDefinitionArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_daemon_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1664,6 +1970,20 @@ defmodule AWS.ECS do
       
   """
   @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_daemon_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "daemonArn" => String.t() | atom(),
+        "deploymentArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type create_daemon_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1791,6 +2111,26 @@ defmodule AWS.ECS do
       
   """
   @type attachment_state_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_deployment_summary() :: %{
+        "clusterArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "daemonArn" => String.t() | atom(),
+        "daemonDeploymentArn" => String.t() | atom(),
+        "finishedAt" => non_neg_integer(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "stoppedAt" => non_neg_integer(),
+        "targetDaemonRevisionArn" => String.t() | atom()
+      }
+      
+  """
+  @type daemon_deployment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2085,6 +2425,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      describe_daemon_deployments_response() :: %{
+        "daemonDeployments" => list(daemon_deployment()),
+        "failures" => list(failure())
+      }
+      
+  """
+  @type describe_daemon_deployments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       secret() :: %{
         "name" => String.t() | atom(),
         "valueFrom" => String.t() | atom()
@@ -2273,6 +2625,18 @@ defmodule AWS.ECS do
       
   """
   @type managed_log_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_volume() :: %{
+        "host" => host_volume_properties(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type daemon_volume() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2492,6 +2856,7 @@ defmodule AWS.ECS do
         "compatibilities" => list(list(any())()),
         "containerDefinitions" => list(container_definition()),
         "cpu" => String.t() | atom(),
+        "deleteRequestedAt" => non_neg_integer(),
         "deregisteredAt" => non_neg_integer(),
         "enableFaultInjection" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
@@ -2530,6 +2895,17 @@ defmodule AWS.ECS do
       
   """
   @type list_container_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_daemon_request() :: %{
+        required("daemonArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_daemon_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2591,6 +2967,24 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      register_daemon_task_definition_request() :: %{
+        optional("cpu") => String.t() | atom(),
+        optional("executionRoleArn") => String.t() | atom(),
+        optional("memory") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("taskRoleArn") => String.t() | atom(),
+        optional("volumes") => list(daemon_volume()),
+        required("containerDefinitions") => list(daemon_container_definition()),
+        required("family") => String.t() | atom()
+      }
+      
+  """
+  @type register_daemon_task_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ebs_tag_specification() :: %{
         "propagateTags" => list(any()),
         "resourceType" => list(any()),
@@ -2634,6 +3028,21 @@ defmodule AWS.ECS do
       
   """
   @type discover_poll_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_task_definition_summary() :: %{
+        "arn" => String.t() | atom(),
+        "deleteRequestedAt" => non_neg_integer(),
+        "registeredAt" => non_neg_integer(),
+        "registeredBy" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type daemon_task_definition_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2710,6 +3119,21 @@ defmodule AWS.ECS do
       
   """
   @type update_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_daemon_deployments_request() :: %{
+        optional("createdAt") => created_at(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(list(any())()),
+        required("daemonArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_daemon_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2857,6 +3281,20 @@ defmodule AWS.ECS do
       
   """
   @type list_task_definition_families_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_daemons_request() :: %{
+        optional("capacityProviderArns") => list(String.t() | atom()),
+        optional("clusterArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_daemons_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3057,6 +3495,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      register_daemon_task_definition_response() :: %{
+        "daemonTaskDefinitionArn" => String.t() | atom()
+      }
+      
+  """
+  @type register_daemon_task_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       missing_version_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -3083,6 +3532,21 @@ defmodule AWS.ECS do
       
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_daemon_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "daemonArn" => String.t() | atom(),
+        "deploymentArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type update_daemon_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3155,6 +3619,19 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      daemon_deployment_capacity_provider() :: %{
+        "arn" => String.t() | atom(),
+        "drainingInstanceCount" => integer(),
+        "runningInstanceCount" => integer()
+      }
+      
+  """
+  @type daemon_deployment_capacity_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       e_c_s_express_gateway_service() :: %{
         "activeConfigurations" => list(express_gateway_service_configuration()),
         "cluster" => String.t() | atom(),
@@ -3202,6 +3679,26 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      create_daemon_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("clusterArn") => String.t() | atom(),
+        optional("deploymentConfiguration") => daemon_deployment_configuration(),
+        optional("enableECSManagedTags") => boolean(),
+        optional("enableExecuteCommand") => boolean(),
+        optional("propagateTags") => list(any()),
+        optional("tags") => list(tag()),
+        required("capacityProviderArns") => list(String.t() | atom()),
+        required("daemonName") => String.t() | atom(),
+        required("daemonTaskDefinitionArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_daemon_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_clusters_response() :: %{
         "clusters" => list(cluster()),
         "failures" => list(failure())
@@ -3209,6 +3706,17 @@ defmodule AWS.ECS do
       
   """
   @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_daemon_request() :: %{
+        required("daemonArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_daemon_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3360,6 +3868,29 @@ defmodule AWS.ECS do
       
   """
   @type delete_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_task_definition() :: %{
+        "containerDefinitions" => list(daemon_container_definition()),
+        "cpu" => String.t() | atom(),
+        "daemonTaskDefinitionArn" => String.t() | atom(),
+        "deleteRequestedAt" => non_neg_integer(),
+        "executionRoleArn" => String.t() | atom(),
+        "family" => String.t() | atom(),
+        "memory" => String.t() | atom(),
+        "registeredAt" => non_neg_integer(),
+        "registeredBy" => String.t() | atom(),
+        "revision" => integer(),
+        "status" => list(any()),
+        "taskRoleArn" => String.t() | atom(),
+        "volumes" => list(daemon_volume())
+      }
+      
+  """
+  @type daemon_task_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3562,6 +4093,7 @@ defmodule AWS.ECS do
       list_tasks_request() :: %{
         optional("cluster") => String.t() | atom(),
         optional("containerInstance") => String.t() | atom(),
+        optional("daemonName") => String.t() | atom(),
         optional("desiredStatus") => list(any()),
         optional("family") => String.t() | atom(),
         optional("launchType") => list(any()),
@@ -3598,6 +4130,17 @@ defmodule AWS.ECS do
       
   """
   @type describe_capacity_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_daemon_task_definition_response() :: %{
+        "daemonTaskDefinitionArn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_daemon_task_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3669,6 +4212,17 @@ defmodule AWS.ECS do
       
   """
   @type service_connect_client_alias() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_daemon_task_definition_request() :: %{
+        required("daemonTaskDefinition") => String.t() | atom()
+      }
+      
+  """
+  @type describe_daemon_task_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3891,6 +4445,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      daemon_not_active_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type daemon_not_active_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_attributes_request() :: %{
         optional("attributeName") => String.t() | atom(),
         optional("attributeValue") => String.t() | atom(),
@@ -3902,6 +4467,18 @@ defmodule AWS.ECS do
       
   """
   @type list_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_daemon_revisions_response() :: %{
+        "daemonRevisions" => list(daemon_revision()),
+        "failures" => list(failure())
+      }
+      
+  """
+  @type describe_daemon_revisions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3961,6 +4538,45 @@ defmodule AWS.ECS do
       
   """
   @type total_local_storage_g_b_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      daemon_container_definition() :: %{
+        "command" => list(String.t() | atom()),
+        "cpu" => integer(),
+        "dependsOn" => list(container_dependency()),
+        "entryPoint" => list(String.t() | atom()),
+        "environment" => list(key_value_pair()),
+        "environmentFiles" => list(environment_file()),
+        "essential" => boolean(),
+        "firelensConfiguration" => firelens_configuration(),
+        "healthCheck" => health_check(),
+        "image" => String.t() | atom(),
+        "interactive" => boolean(),
+        "linuxParameters" => daemon_linux_parameters(),
+        "logConfiguration" => log_configuration(),
+        "memory" => integer(),
+        "memoryReservation" => integer(),
+        "mountPoints" => list(mount_point()),
+        "name" => String.t() | atom(),
+        "privileged" => boolean(),
+        "pseudoTerminal" => boolean(),
+        "readonlyRootFilesystem" => boolean(),
+        "repositoryCredentials" => repository_credentials(),
+        "restartPolicy" => container_restart_policy(),
+        "secrets" => list(secret()),
+        "startTimeout" => integer(),
+        "stopTimeout" => integer(),
+        "systemControls" => list(system_control()),
+        "ulimits" => list(ulimit()),
+        "user" => String.t() | atom(),
+        "workingDirectory" => String.t() | atom()
+      }
+      
+  """
+  @type daemon_container_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4183,6 +4799,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      describe_daemon_revisions_request() :: %{
+        required("daemonRevisionArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_daemon_revisions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_connect_tls_certificate_authority() :: %{
         "awsPcaAuthorityArn" => String.t() | atom()
       }
@@ -4229,6 +4856,30 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      daemon_deployment() :: %{
+        "alarms" => daemon_deployment_alarms(),
+        "circuitBreaker" => daemon_circuit_breaker(),
+        "clusterArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "daemonDeploymentArn" => String.t() | atom(),
+        "deploymentConfiguration" => daemon_deployment_configuration(),
+        "finishedAt" => non_neg_integer(),
+        "rollback" => daemon_rollback(),
+        "sourceDaemonRevisions" => list(daemon_deployment_revision_detail()),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "stoppedAt" => non_neg_integer(),
+        "targetDaemonRevision" => daemon_deployment_revision_detail()
+      }
+      
+  """
+  @type daemon_deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       firelens_configuration() :: %{
         "options" => map(),
         "type" => list(any())
@@ -4266,6 +4917,21 @@ defmodule AWS.ECS do
       
   """
   @type updated_express_gateway_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_daemon_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "daemonArn" => String.t() | atom(),
+        "deploymentArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type delete_daemon_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4535,6 +5201,15 @@ defmodule AWS.ECS do
           | client_exception()
           | namespace_not_found_exception()
 
+  @type create_daemon_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | platform_unknown_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | cluster_not_found_exception()
+
   @type create_express_gateway_service_errors() ::
           server_exception()
           | platform_task_definition_incompatibility_exception()
@@ -4595,6 +5270,22 @@ defmodule AWS.ECS do
           | cluster_not_found_exception()
           | update_in_progress_exception()
 
+  @type delete_daemon_errors() ::
+          daemon_not_active_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | cluster_not_found_exception()
+          | daemon_not_found_exception()
+
+  @type delete_daemon_task_definition_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+
   @type delete_express_gateway_service_errors() ::
           server_exception()
           | invalid_parameter_exception()
@@ -4653,6 +5344,37 @@ defmodule AWS.ECS do
           | invalid_parameter_exception()
           | client_exception()
           | cluster_not_found_exception()
+
+  @type describe_daemon_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | cluster_not_found_exception()
+          | daemon_not_found_exception()
+
+  @type describe_daemon_deployments_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | cluster_not_found_exception()
+
+  @type describe_daemon_revisions_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | cluster_not_found_exception()
+
+  @type describe_daemon_task_definition_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
 
   @type describe_express_gateway_service_errors() ::
           server_exception()
@@ -4739,6 +5461,28 @@ defmodule AWS.ECS do
           | client_exception()
           | cluster_not_found_exception()
 
+  @type list_daemon_deployments_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | cluster_not_found_exception()
+
+  @type list_daemon_task_definitions_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+
+  @type list_daemons_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | cluster_not_found_exception()
+
   @type list_service_deployments_errors() ::
           server_exception()
           | invalid_parameter_exception()
@@ -4800,6 +5544,13 @@ defmodule AWS.ECS do
 
   @type register_container_instance_errors() ::
           server_exception() | invalid_parameter_exception() | client_exception()
+
+  @type register_daemon_task_definition_errors() ::
+          limit_exceeded_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
 
   @type register_task_definition_errors() ::
           server_exception() | invalid_parameter_exception() | client_exception()
@@ -4901,6 +5652,17 @@ defmodule AWS.ECS do
           | invalid_parameter_exception()
           | client_exception()
           | cluster_not_found_exception()
+
+  @type update_daemon_errors() ::
+          daemon_not_active_exception()
+          | server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | platform_unknown_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | cluster_not_found_exception()
+          | daemon_not_found_exception()
 
   @type update_express_gateway_service_errors() ::
           server_exception()
@@ -5015,6 +5777,34 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
+  end
+
+  @doc """
+  Creates a new daemon in the specified cluster and capacity providers.
+
+  A daemon deploys cross-cutting software agents such as security monitoring,
+  telemetry, and logging independently across your Amazon ECS infrastructure.
+
+  Amazon ECS deploys exactly one daemon task on each container instance of the
+  specified capacity providers. When a container instance registers with the
+  cluster, Amazon ECS automatically starts daemon tasks. Amazon ECS starts a
+  daemon task before scheduling other tasks.
+
+  Daemons are essential for instance health - if a daemon task stops, Amazon ECS
+  automatically drains and replaces that container instance.
+
+  ECS Managed Daemons is only supported for Amazon ECS Managed Instances Capacity
+  Providers.
+  """
+  @spec create_daemon(map(), create_daemon_request(), list()) ::
+          {:ok, create_daemon_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_daemon_errors()}
+  def create_daemon(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDaemon", input, options)
   end
 
   @doc """
@@ -5354,6 +6144,49 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Deletes the specified daemon.
+
+  The daemon must be in an `ACTIVE` state to be deleted. Deleting a daemon stops
+  all running daemon tasks on the associated container instances. Amazon ECS
+  drains existing container instances and provisions new instances without the
+  deleted daemon. Amazon ECS automatically launches replacement tasks for your
+  Amazon ECS services.
+
+  ECS Managed Daemons is only supported for Amazon ECS Managed Instances Capacity
+  Providers.
+  """
+  @spec delete_daemon(map(), delete_daemon_request(), list()) ::
+          {:ok, delete_daemon_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_daemon_errors()}
+  def delete_daemon(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDaemon", input, options)
+  end
+
+  @doc """
+  Deletes the specified daemon task definition.
+
+  After a daemon task definition is deleted, no new daemons can be created using
+  this definition. Existing daemons that reference the deleted daemon task
+  definition continue to run.
+
+  A daemon task definition must be in an `ACTIVE` state to be deleted.
+  """
+  @spec delete_daemon_task_definition(map(), delete_daemon_task_definition_request(), list()) ::
+          {:ok, delete_daemon_task_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_daemon_task_definition_errors()}
+  def delete_daemon_task_definition(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDaemonTaskDefinition", input, options)
+  end
+
+  @doc """
   Deletes an Express service and removes all associated Amazon Web Services
   resources.
 
@@ -5580,6 +6413,75 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeContainerInstances", input, options)
+  end
+
+  @doc """
+  Describes the specified daemon.
+  """
+  @spec describe_daemon(map(), describe_daemon_request(), list()) ::
+          {:ok, describe_daemon_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_daemon_errors()}
+  def describe_daemon(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDaemon", input, options)
+  end
+
+  @doc """
+  Describes one or more of your daemon deployments.
+
+  A daemon deployment orchestrates the progressive rollout of daemon task updates
+  across container instances managed by the daemon's capacity providers. Each
+  deployment includes circuit breaker and alarm-based rollback capabilities.
+  """
+  @spec describe_daemon_deployments(map(), describe_daemon_deployments_request(), list()) ::
+          {:ok, describe_daemon_deployments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_daemon_deployments_errors()}
+  def describe_daemon_deployments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDaemonDeployments", input, options)
+  end
+
+  @doc """
+  Describes one or more of your daemon revisions.
+
+  A daemon revision is a snapshot of a daemon's configuration at the time a
+  deployment was initiated. It captures the daemon task definition, container
+  images, tag propagation, and execute command settings. Daemon revisions are
+  immutable.
+  """
+  @spec describe_daemon_revisions(map(), describe_daemon_revisions_request(), list()) ::
+          {:ok, describe_daemon_revisions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_daemon_revisions_errors()}
+  def describe_daemon_revisions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDaemonRevisions", input, options)
+  end
+
+  @doc """
+  Describes a daemon task definition.
+
+  You can specify a `family` and `revision` to find information about a specific
+  daemon task definition, or you can simply specify the family to find the latest
+  `ACTIVE` revision in that family.
+  """
+  @spec describe_daemon_task_definition(map(), describe_daemon_task_definition_request(), list()) ::
+          {:ok, describe_daemon_task_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_daemon_task_definition_errors()}
+  def describe_daemon_task_definition(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDaemonTaskDefinition", input, options)
   end
 
   @doc """
@@ -5843,6 +6745,55 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Returns a list of daemon deployments for a specified daemon.
+
+  You can filter the results by status or creation time.
+  """
+  @spec list_daemon_deployments(map(), list_daemon_deployments_request(), list()) ::
+          {:ok, list_daemon_deployments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_daemon_deployments_errors()}
+  def list_daemon_deployments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDaemonDeployments", input, options)
+  end
+
+  @doc """
+  Returns a list of daemon task definitions that are registered to your account.
+
+  You can filter the results by family name, status, or both to find daemon task
+  definitions that match your criteria.
+  """
+  @spec list_daemon_task_definitions(map(), list_daemon_task_definitions_request(), list()) ::
+          {:ok, list_daemon_task_definitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_daemon_task_definitions_errors()}
+  def list_daemon_task_definitions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDaemonTaskDefinitions", input, options)
+  end
+
+  @doc """
+  Returns a list of daemons.
+
+  You can filter the results by cluster or capacity provider.
+  """
+  @spec list_daemons(map(), list_daemons_request(), list()) ::
+          {:ok, list_daemons_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_daemons_errors()}
+  def list_daemons(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDaemons", input, options)
+  end
+
+  @doc """
   This operation lists all the service deployments that meet the specified filter
   criteria.
 
@@ -6081,6 +7032,32 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "RegisterContainerInstance", input, options)
+  end
+
+  @doc """
+  Registers a new daemon task definition from the supplied `family` and
+  `containerDefinitions`.
+
+  Optionally, you can add data volumes to your containers with the `volumes`
+  parameter. For more information, see [Daemon task definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/daemon-task-definitions.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  A daemon task definition is a template that describes the containers that form a
+  daemon. Daemons deploy cross-cutting software agents such as security
+  monitoring, telemetry, and logging across your Amazon ECS infrastructure.
+
+  Each time you call `RegisterDaemonTaskDefinition`, a new revision of the daemon
+  task definition is created. You can't modify a revision after you register it.
+  """
+  @spec register_daemon_task_definition(map(), register_daemon_task_definition_request(), list()) ::
+          {:ok, register_daemon_task_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_daemon_task_definition_errors()}
+  def register_daemon_task_definition(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterDaemonTaskDefinition", input, options)
   end
 
   @doc """
@@ -6501,6 +7478,36 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateContainerInstancesState", input, options)
+  end
+
+  @doc """
+  Updates the specified daemon.
+
+  When you update a daemon, a new deployment is triggered that progressively rolls
+  out the changes to the container instances associated with the daemon's capacity
+  providers. For more information, see [Daemon deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/daemon-deployments.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  Amazon ECS drains existing container instances and provisions new instances with
+  the updated daemon. Amazon ECS automatically launches replacement tasks for your
+  services.
+
+  Updating a daemon triggers a rolling deployment that drains and replaces
+  container instances. Plan updates during maintenance windows to minimize impact
+  on running services.
+
+  ECS Managed Daemons is only supported for Amazon ECS Managed Instances Capacity
+  Providers.
+  """
+  @spec update_daemon(map(), update_daemon_request(), list()) ::
+          {:ok, update_daemon_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_daemon_errors()}
+  def update_daemon(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDaemon", input, options)
   end
 
   @doc """

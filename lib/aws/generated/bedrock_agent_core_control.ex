@@ -735,6 +735,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      iam_credential_provider() :: %{
+        "region" => [String.t() | atom()],
+        "service" => [String.t() | atom()]
+      }
+
+  """
+  @type iam_credential_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       decryption_failure() :: %{
         "message" => [String.t() | atom()]
       }
@@ -1040,6 +1052,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "lastSynchronizedAt" => non_neg_integer(),
         "metadataConfiguration" => metadata_configuration(),
         "name" => String.t() | atom(),
+        "privateEndpoint" => list(),
+        "privateEndpointManagedResources" => list(managed_resource_details()),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
         "targetConfiguration" => list(),
@@ -1330,6 +1344,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
         optional("metadataConfiguration") => metadata_configuration(),
+        optional("privateEndpoint") => list(),
         required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }
@@ -1388,6 +1403,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "lastSynchronizedAt" => non_neg_integer(),
         "metadataConfiguration" => metadata_configuration(),
         "name" => String.t() | atom(),
+        "privateEndpoint" => list(),
+        "privateEndpointManagedResources" => list(managed_resource_details()),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
         "targetConfiguration" => list(),
@@ -1746,6 +1763,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "lastSynchronizedAt" => non_neg_integer(),
         "metadataConfiguration" => metadata_configuration(),
         "name" => String.t() | atom(),
+        "privateEndpoint" => list(),
+        "privateEndpointManagedResources" => list(managed_resource_details()),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
         "targetConfiguration" => list(),
@@ -2292,6 +2311,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type episodic_override_extraction_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_resource_details() :: %{
+        "domain" => String.t() | atom(),
+        "resourceAssociationArn" => String.t() | atom(),
+        "resourceGatewayArn" => String.t() | atom()
+      }
+
+  """
+  @type managed_resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3068,6 +3100,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "lastSynchronizedAt" => non_neg_integer(),
         "metadataConfiguration" => metadata_configuration(),
         "name" => String.t() | atom(),
+        "privateEndpoint" => list(),
+        "privateEndpointManagedResources" => list(managed_resource_details()),
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
         "targetConfiguration" => list(),
@@ -3603,6 +3637,22 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_online_evaluation_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_lattice_resource() :: %{
+        "endpointIpAddressType" => list(any()),
+        "routingDomain" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "tags" => map(),
+        "vpcIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type managed_lattice_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4180,6 +4230,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
         optional("metadataConfiguration") => metadata_configuration(),
+        optional("privateEndpoint") => list(),
         required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }

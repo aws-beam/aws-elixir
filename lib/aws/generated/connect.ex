@@ -33386,6 +33386,12 @@ defmodule AWS.Connect do
   across Amazon Web Services Regions
   ](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html)
   in the *Amazon Connect Administrator Guide*.
+
+  ## Important things to know
+
+    *
+  Invoke the UpdateTrafficDistribution API in the region that should handle
+  traffic.
   """
   @spec update_traffic_distribution(
           map(),

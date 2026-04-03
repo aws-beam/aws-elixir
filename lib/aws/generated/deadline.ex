@@ -80,6 +80,15 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      priority_fifo_scheduling_configuration() :: %{}
+
+  """
+  @type priority_fifo_scheduling_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       start_sessions_statistics_aggregation_response() :: %{
         "aggregationId" => String.t() | atom()
       }
@@ -187,6 +196,7 @@ defmodule AWS.Deadline do
         "queueId" => String.t() | atom(),
         "requiredFileSystemLocationNames" => list(String.t() | atom()),
         "roleArn" => String.t() | atom(),
+        "schedulingConfiguration" => list(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom()
@@ -535,6 +545,17 @@ defmodule AWS.Deadline do
 
   """
   @type disassociate_member_from_queue_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      priority_balanced_scheduling_configuration() :: %{
+        "renderingTaskBuffer" => integer()
+      }
+
+  """
+  @type priority_balanced_scheduling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1306,7 +1327,8 @@ defmodule AWS.Deadline do
         optional("jobRunAsUser") => job_run_as_user(),
         optional("requiredFileSystemLocationNamesToAdd") => list(String.t() | atom()),
         optional("requiredFileSystemLocationNamesToRemove") => list(String.t() | atom()),
-        optional("roleArn") => String.t() | atom()
+        optional("roleArn") => String.t() | atom(),
+        optional("schedulingConfiguration") => list()
       }
 
   """
@@ -1613,6 +1635,15 @@ defmodule AWS.Deadline do
 
   """
   @type put_metered_product_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduling_max_priority_override_always_schedule_first() :: %{}
+
+  """
+  @type scheduling_max_priority_override_always_schedule_first() :: %{}
 
   @typedoc """
 
@@ -2607,6 +2638,7 @@ defmodule AWS.Deadline do
         optional("jobRunAsUser") => job_run_as_user(),
         optional("requiredFileSystemLocationNames") => list(String.t() | atom()),
         optional("roleArn") => String.t() | atom(),
+        optional("schedulingConfiguration") => list(),
         optional("tags") => map(),
         required("displayName") => String.t() | atom()
       }
@@ -4358,6 +4390,23 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      weighted_balanced_scheduling_configuration() :: %{
+        "errorWeight" => float(),
+        "maxPriorityOverride" => list(),
+        "minPriorityOverride" => list(),
+        "priorityWeight" => float(),
+        "renderingTaskBuffer" => integer(),
+        "renderingTaskWeight" => float(),
+        "submissionTimeWeight" => float()
+      }
+
+  """
+  @type weighted_balanced_scheduling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       monitor_summary() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
@@ -4585,6 +4634,15 @@ defmodule AWS.Deadline do
 
   """
   @type fleet_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduling_min_priority_override_always_schedule_last() :: %{}
+
+  """
+  @type scheduling_min_priority_override_always_schedule_last() :: %{}
 
   @type associate_member_to_farm_errors() ::
           throttling_exception()

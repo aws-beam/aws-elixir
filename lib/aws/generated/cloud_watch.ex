@@ -336,6 +336,15 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      start_o_tel_enrichment_output() :: %{}
+      
+  """
+  @type start_o_tel_enrichment_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       limit_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
@@ -505,6 +514,15 @@ defmodule AWS.CloudWatch do
       
   """
   @type mute_targets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_o_tel_enrichment_input() :: %{}
+      
+  """
+  @type start_o_tel_enrichment_input() :: %{}
 
   @typedoc """
 
@@ -764,9 +782,13 @@ defmodule AWS.CloudWatch do
         optional("ActionsEnabled") => boolean(),
         optional("AlarmActions") => list(String.t() | atom()),
         optional("AlarmDescription") => String.t() | atom(),
+        optional("ComparisonOperator") => list(any()),
         optional("DatapointsToAlarm") => integer(),
         optional("Dimensions") => list(dimension()),
         optional("EvaluateLowSampleCountPercentile") => String.t() | atom(),
+        optional("EvaluationCriteria") => list(),
+        optional("EvaluationInterval") => integer(),
+        optional("EvaluationPeriods") => integer(),
         optional("ExtendedStatistic") => String.t() | atom(),
         optional("InsufficientDataActions") => list(String.t() | atom()),
         optional("MetricName") => String.t() | atom(),
@@ -780,13 +802,20 @@ defmodule AWS.CloudWatch do
         optional("ThresholdMetricId") => String.t() | atom(),
         optional("TreatMissingData") => String.t() | atom(),
         optional("Unit") => list(any()),
-        required("AlarmName") => String.t() | atom(),
-        required("ComparisonOperator") => list(any()),
-        required("EvaluationPeriods") => integer()
+        required("AlarmName") => String.t() | atom()
       }
       
   """
   @type put_metric_alarm_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_o_tel_enrichment_input() :: %{}
+      
+  """
+  @type stop_o_tel_enrichment_input() :: %{}
 
   @typedoc """
 
@@ -818,6 +847,15 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      stop_o_tel_enrichment_output() :: %{}
+      
+  """
+  @type stop_o_tel_enrichment_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       insight_rule_metric_datapoint() :: %{
         "Average" => float(),
         "MaxContributorValue" => float(),
@@ -831,6 +869,19 @@ defmodule AWS.CloudWatch do
       
   """
   @type insight_rule_metric_datapoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alarm_prom_q_l_criteria() :: %{
+        "PendingPeriod" => integer(),
+        "Query" => String.t() | atom(),
+        "RecoveryPeriod" => integer()
+      }
+      
+  """
+  @type alarm_prom_q_l_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -999,6 +1050,15 @@ defmodule AWS.CloudWatch do
       
   """
   @type invalid_format_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_o_tel_enrichment_input() :: %{}
+      
+  """
+  @type get_o_tel_enrichment_input() :: %{}
 
   @typedoc """
 
@@ -1517,6 +1577,8 @@ defmodule AWS.CloudWatch do
         "DatapointsToAlarm" => integer(),
         "Dimensions" => list(dimension()),
         "EvaluateLowSampleCountPercentile" => String.t() | atom(),
+        "EvaluationCriteria" => list(),
+        "EvaluationInterval" => integer(),
         "EvaluationPeriods" => integer(),
         "EvaluationState" => list(any()),
         "ExtendedStatistic" => String.t() | atom(),
@@ -1650,6 +1712,17 @@ defmodule AWS.CloudWatch do
       
   """
   @type put_dashboard_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_o_tel_enrichment_output() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_o_tel_enrichment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2664,6 +2737,26 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Returns the current status of vended metric enrichment for the account,
+  including
+  whether CloudWatch vended metrics are enriched with resource ARN and resource
+  tag
+  labels and queryable using PromQL.
+
+  For the list of supported resources, see
+  [Supported AWS infrastructure metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html).
+  """
+  @spec get_o_tel_enrichment(map(), get_o_tel_enrichment_input(), list()) ::
+          {:ok, get_o_tel_enrichment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_o_tel_enrichment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOTelEnrichment", input, options)
+  end
+
+  @doc """
   Lists alarm mute rules in your Amazon Web Services account and region.
 
   You can filter the results by alarm name to find all mute rules targeting a
@@ -2821,7 +2914,7 @@ defmodule AWS.CloudWatch do
   specific alarms named "WebServerCPUAlarm" and "DatabaseConnectionAlarm", you
   would create an IAM policy with one statement granting
   `cloudwatch:PutAlarmMuteRule` on the alarm mute rule resource
-  (`arn:aws:cloudwatch:[REGION]:123456789012:alarm-mute:*`), and another statement granting `cloudwatch:PutAlarmMuteRule` on the targeted alarm resources
+  (`arn:aws:cloudwatch:[REGION]:123456789012:alarm-mute-rule:*`), and another statement granting `cloudwatch:PutAlarmMuteRule` on the targeted alarm resources
   (`arn:aws:cloudwatch:[REGION]:123456789012:alarm:WebServerCPUAlarm` and
   `arn:aws:cloudwatch:[REGION]:123456789012:alarm:DatabaseConnectionAlarm`).
 
@@ -3042,7 +3135,8 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Creates or updates an alarm and associates it with the specified metric, metric
-  math expression, anomaly detection model, or Metrics Insights query.
+  math expression, anomaly detection model, Metrics Insights query, or PromQL
+  query.
 
   For more
   information about using a Metrics Insights query for an alarm, see [Create alarms on Metrics Insights
@@ -3051,7 +3145,8 @@ defmodule AWS.CloudWatch do
   Alarms based on anomaly detection models cannot have Auto Scaling actions.
 
   When this operation creates an alarm, the alarm state is immediately set to
-  `INSUFFICIENT_DATA`. The alarm is then evaluated and its state is set
+  `INSUFFICIENT_DATA`. For PromQL alarms, the alarm state is instead
+  immediately set to `OK`. The alarm is then evaluated and its state is set
   appropriately. Any actions associated with the new state are then executed.
 
   When you update an existing alarm, its state is left unchanged, but the update
@@ -3318,6 +3413,30 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Enables enrichment and PromQL access for CloudWatch vended metrics for
+  [supported AWS resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html)
+  in the account.
+
+  Once enabled, metrics that
+  contain a resource identifier dimension (for example, EC2
+  `CPUUtilization` with an `InstanceId` dimension) are enriched
+  with resource ARN and resource tag labels and become queryable using
+  PromQL.
+
+  Before calling this operation, you must enable resource tags on telemetry for
+  your account. For more information, see [Enable resource tags on telemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html).
+  """
+  @spec start_o_tel_enrichment(map(), start_o_tel_enrichment_input(), list()) ::
+          {:ok, start_o_tel_enrichment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def start_o_tel_enrichment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartOTelEnrichment", input, options)
+  end
+
+  @doc """
   Stops the streaming of metrics for one or more of your metric streams.
   """
   @spec stop_metric_streams(map(), stop_metric_streams_input(), list()) ::
@@ -3329,6 +3448,25 @@ defmodule AWS.CloudWatch do
     meta = metadata()
 
     Request.request_post(client, meta, "StopMetricStreams", input, options)
+  end
+
+  @doc """
+  Disables enrichment and PromQL access for CloudWatch vended metrics for
+  [supported AWS resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html)
+  in the account.
+
+  After disabling, these metrics
+  are no longer enriched with resource ARN and resource tag labels, and cannot be
+  queried using PromQL.
+  """
+  @spec stop_o_tel_enrichment(map(), stop_o_tel_enrichment_input(), list()) ::
+          {:ok, stop_o_tel_enrichment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def stop_o_tel_enrichment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopOTelEnrichment", input, options)
   end
 
   @doc """

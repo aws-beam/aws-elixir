@@ -245,6 +245,15 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      drain_session_instance_result() :: %{}
+      
+  """
+  @type drain_session_instance_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_app_block_builder_result() :: %{
         "AppBlockBuilder" => app_block_builder()
       }
@@ -1155,6 +1164,9 @@ defmodule AWS.AppStream do
         "AvailableUserSessions" => integer(),
         "Desired" => integer(),
         "DesiredUserSessions" => integer(),
+        "DrainModeActiveUserSessions" => integer(),
+        "DrainModeUnusedUserSessions" => integer(),
+        "Draining" => integer(),
         "InUse" => integer(),
         "Running" => integer()
       }
@@ -1599,6 +1611,17 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      drain_session_instance_request() :: %{
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type drain_session_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       storage_connector() :: %{
         "ConnectorType" => list(any()),
         "Domains" => list(String.t() | atom()),
@@ -1832,6 +1855,7 @@ defmodule AWS.AppStream do
         "ConnectionState" => list(any()),
         "FleetName" => String.t() | atom(),
         "Id" => String.t() | atom(),
+        "InstanceDrainStatus" => list(any()),
         "InstanceId" => String.t() | atom(),
         "MaxExpirationTime" => non_neg_integer(),
         "NetworkAccessConfiguration" => network_access_configuration(),
@@ -3525,6 +3549,11 @@ defmodule AWS.AppStream do
           | resource_not_found_exception()
           | invalid_parameter_combination_exception()
 
+  @type drain_session_instance_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
   @type enable_user_errors() ::
           invalid_account_status_exception() | resource_not_found_exception()
 
@@ -4754,6 +4783,24 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "DisassociateSoftwareFromImageBuilder", input, options)
+  end
+
+  @doc """
+  Drains the instance hosting the specified streaming session.
+
+  The instance stops accepting new sessions while existing sessions continue
+  uninterrupted. Once all sessions end, the instance is reclaimed and replaced.
+  This only applies to multi-session fleets.
+  """
+  @spec drain_session_instance(map(), drain_session_instance_request(), list()) ::
+          {:ok, drain_session_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, drain_session_instance_errors()}
+  def drain_session_instance(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DrainSessionInstance", input, options)
   end
 
   @doc """

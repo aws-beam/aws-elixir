@@ -231,6 +231,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      o_auth2_authorization_data() :: %{
+        "authorizationUrl" => [String.t() | atom()],
+        "userId" => [String.t() | atom()]
+      }
+
+  """
+  @type o_auth2_authorization_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       browser_summary() :: %{
         "browserArn" => String.t() | atom(),
         "browserId" => String.t() | atom(),
@@ -1045,6 +1057,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       get_gateway_target_response() :: %{
+        "authorizationData" => list(),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
@@ -1396,6 +1409,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_gateway_target_response() :: %{
+        "authorizationData" => list(),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
@@ -1756,6 +1770,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_gateway_target_response() :: %{
+        "authorizationData" => list(),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
@@ -3093,6 +3108,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       gateway_target() :: %{
+        "authorizationData" => list(),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
         "description" => String.t() | atom(),
@@ -3934,7 +3950,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       mcp_server_target_configuration() :: %{
-        "endpoint" => [String.t() | atom()]
+        "endpoint" => [String.t() | atom()],
+        "mcpToolSchema" => list()
       }
 
   """
@@ -5979,6 +5996,10 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @doc """
   Deletes a gateway target.
+
+  You cannot delete a target that is in a pending authorization state
+  (`CREATE_PENDING_AUTH`, `UPDATE_PENDING_AUTH`, or `SYNCHRONIZE_PENDING_AUTH`).
+  Wait for the authorization to complete or fail before deleting the target.
   """
   @spec delete_gateway_target(
           map(),
@@ -7516,7 +7537,16 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  The gateway targets.
+  Synchronizes the gateway targets by fetching the latest tool definitions from
+  the target endpoints.
+
+  You cannot synchronize a target that is in a pending authorization state
+  (`CREATE_PENDING_AUTH`, `UPDATE_PENDING_AUTH`, or `SYNCHRONIZE_PENDING_AUTH`).
+  Wait for the authorization to complete or fail before synchronizing.
+
+  You cannot synchronize a target that has a static tool schema (`mcpToolSchema`)
+  configured. Remove the static schema through an `UpdateGatewayTarget` call to
+  enable dynamic tool synchronization.
   """
   @spec synchronize_gateway_targets(
           map(),
@@ -7790,6 +7820,10 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @doc """
   Updates an existing gateway target.
+
+  You cannot update a target that is in a pending authorization state
+  (`CREATE_PENDING_AUTH`, `UPDATE_PENDING_AUTH`, or `SYNCHRONIZE_PENDING_AUTH`).
+  Wait for the authorization to complete or fail before updating the target.
   """
   @spec update_gateway_target(
           map(),

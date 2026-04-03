@@ -2099,6 +2099,7 @@ defmodule AWS.CloudWatchLogs do
       csv() :: %{
         "columns" => list(String.t() | atom()),
         "delimiter" => String.t() | atom(),
+        "destination" => String.t() | atom(),
         "quoteCharacter" => String.t() | atom(),
         "source" => String.t() | atom()
       }

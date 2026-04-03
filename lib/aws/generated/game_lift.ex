@@ -4346,6 +4346,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       game_session() :: %{
+        "ComputeName" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "CreatorId" => String.t() | atom(),
         "CurrentPlayerSessionCount" => integer(),

@@ -1281,7 +1281,7 @@ defmodule AWS.GeoPlaces do
           | {:error, term()}
           | {:error, autocomplete_errors()}
   def autocomplete(%Client{} = client, input, options \\ []) do
-    url_path = "/autocomplete"
+    url_path = "/v2/autocomplete"
     headers = []
     custom_headers = []
 
@@ -1332,7 +1332,7 @@ defmodule AWS.GeoPlaces do
           | {:error, term()}
           | {:error, geocode_errors()}
   def geocode(%Client{} = client, input, options \\ []) do
-    url_path = "/geocode"
+    url_path = "/v2/geocode"
     headers = []
     custom_headers = []
 
@@ -1397,7 +1397,7 @@ defmodule AWS.GeoPlaces do
         political_view \\ nil,
         options \\ []
       ) do
-    url_path = "/place/#{AWS.Util.encode_uri(place_id)}"
+    url_path = "/v2/place/#{AWS.Util.encode_uri(place_id)}"
     headers = []
     query_params = []
 
@@ -1467,7 +1467,7 @@ defmodule AWS.GeoPlaces do
           | {:error, term()}
           | {:error, reverse_geocode_errors()}
   def reverse_geocode(%Client{} = client, input, options \\ []) do
-    url_path = "/reverse-geocode"
+    url_path = "/v2/reverse-geocode"
     headers = []
     custom_headers = []
 
@@ -1517,7 +1517,7 @@ defmodule AWS.GeoPlaces do
           | {:error, term()}
           | {:error, search_nearby_errors()}
   def search_nearby(%Client{} = client, input, options \\ []) do
-    url_path = "/search-nearby"
+    url_path = "/v2/search-nearby"
     headers = []
     custom_headers = []
 
@@ -1564,7 +1564,7 @@ defmodule AWS.GeoPlaces do
           | {:error, term()}
           | {:error, search_text_errors()}
   def search_text(%Client{} = client, input, options \\ []) do
-    url_path = "/search-text"
+    url_path = "/v2/search-text"
     headers = []
     custom_headers = []
 
@@ -1620,7 +1620,7 @@ defmodule AWS.GeoPlaces do
           | {:error, term()}
           | {:error, suggest_errors()}
   def suggest(%Client{} = client, input, options \\ []) do
-    url_path = "/suggest"
+    url_path = "/v2/suggest"
     headers = []
     custom_headers = []
 

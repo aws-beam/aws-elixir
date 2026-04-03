@@ -113,6 +113,30 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      update_data_automation_library_response() :: %{
+        "libraryArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_automation_library_entities_response() :: %{
+        "entities" => list(list()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_automation_library_entities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sensitive_data_configuration() :: %{
         "detectionMode" => list(any()),
         "detectionScope" => list(list(any())()),
@@ -197,6 +221,17 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      data_automation_library_item() :: %{
+        "libraryArn" => String.t() | atom()
+      }
+
+  """
+  @type data_automation_library_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       override_configuration() :: %{
         "audio" => audio_override_configuration(),
         "document" => document_override_configuration(),
@@ -225,6 +260,7 @@ defmodule AWS.BedrockDataAutomation do
 
       update_data_automation_project_request() :: %{
         optional("customOutputConfiguration") => custom_output_configuration(),
+        optional("dataAutomationLibraryConfiguration") => data_automation_library_configuration(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("overrideConfiguration") => override_configuration(),
         optional("projectDescription") => String.t() | atom(),
@@ -257,6 +293,7 @@ defmodule AWS.BedrockDataAutomation do
 
       list_data_automation_projects_request() :: %{
         optional("blueprintFilter") => blueprint_filter(),
+        optional("libraryFilter") => data_automation_library_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("projectStageFilter") => list(any()),
@@ -362,6 +399,19 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      invoke_data_automation_library_ingestion_job_response() :: %{
+        "jobArn" => String.t() | atom()
+      }
+
+  """
+  @type invoke_data_automation_library_ingestion_job_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       create_data_automation_project_response() :: %{
         "projectArn" => String.t() | atom(),
         "projectStage" => list(any()),
@@ -421,12 +471,47 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      delete_data_automation_library_response() :: %{
+        "libraryArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_entities_info() :: %{
+        "entityIds" => list(String.t() | atom())
+      }
+
+  """
+  @type delete_entities_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       document_extraction_granularity() :: %{
         "types" => list(list(any())())
       }
 
   """
   @type document_extraction_granularity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      phrase() :: %{
+        "displayAsText" => String.t() | atom(),
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type phrase() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,6 +525,17 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type copy_blueprint_stage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_automation_library_filter() :: %{
+        "libraryArn" => String.t() | atom()
+      }
+
+  """
+  @type data_automation_library_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -462,6 +558,15 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_library_entity_request() :: %{}
+
+  """
+  @type get_data_automation_library_entity_request() :: %{}
 
   @typedoc """
 
@@ -537,12 +642,34 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      get_data_automation_library_response() :: %{
+        "library" => data_automation_library()
+      }
+
+  """
+  @type get_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       document_output_additional_file_format() :: %{
         "state" => list(any())
       }
 
   """
   @type document_output_additional_file_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_library_entity_response() :: %{
+        "entity" => list()
+      }
+
+  """
+  @type get_data_automation_library_entity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,6 +689,7 @@ defmodule AWS.BedrockDataAutomation do
       create_data_automation_project_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("customOutputConfiguration") => custom_output_configuration(),
+        optional("dataAutomationLibraryConfiguration") => data_automation_library_configuration(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("overrideConfiguration") => override_configuration(),
         optional("projectDescription") => String.t() | atom(),
@@ -585,6 +713,19 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_automation_libraries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("projectFilter") => data_automation_project_filter()
+      }
+
+  """
+  @type list_data_automation_libraries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -621,6 +762,20 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type audio_extraction_category() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_automation_library_ingestion_jobs_response() :: %{
+        "jobs" => list(data_automation_library_ingestion_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_automation_library_ingestion_jobs_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -674,9 +829,33 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      data_automation_library_configuration() :: %{
+        "libraries" => list(data_automation_library_item())
+      }
+
+  """
+  @type data_automation_library_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_configuration() :: %{
+        "inlinePayload" => list(),
+        "s3Object" => s3_object()
+      }
+
+  """
+  @type input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_automation_project() :: %{
         "creationTime" => non_neg_integer(),
         "customOutputConfiguration" => custom_output_configuration(),
+        "dataAutomationLibraryConfiguration" => data_automation_library_configuration(),
         "kmsEncryptionContext" => map(),
         "kmsKeyId" => String.t() | atom(),
         "lastModifiedTime" => non_neg_integer(),
@@ -692,6 +871,15 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type data_automation_project() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_automation_library_request() :: %{}
+
+  """
+  @type delete_data_automation_library_request() :: %{}
 
   @typedoc """
 
@@ -743,6 +931,15 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      get_data_automation_library_request() :: %{}
+
+  """
+  @type get_data_automation_library_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_blueprint_request() :: %{
         optional("blueprintStage") => list(any()),
         optional("encryptionConfiguration") => encryption_configuration(),
@@ -751,6 +948,32 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type update_blueprint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_configuration() :: %{
+        "eventBridgeConfiguration" => event_bridge_configuration()
+      }
+
+  """
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vocabulary_entity() :: %{
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "language" => list(any()),
+        "lastModifiedTime" => non_neg_integer(),
+        "phrases" => list(phrase())
+      }
+
+  """
+  @type vocabulary_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,6 +1009,17 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_configuration() :: %{
+        "eventBridgeEnabled" => [boolean()]
+      }
+
+  """
+  @type event_bridge_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -834,6 +1068,17 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_configuration() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -907,6 +1152,21 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      create_data_automation_library_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("libraryDescription") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("libraryName") => String.t() | atom()
+      }
+
+  """
+  @type create_data_automation_library_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => String.t() | atom()
@@ -975,6 +1235,37 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      invoke_data_automation_library_ingestion_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("notificationConfiguration") => notification_configuration(),
+        optional("tags") => list(tag()),
+        required("entityType") => list(any()),
+        required("inputConfiguration") => input_configuration(),
+        required("operationType") => list(any()),
+        required("outputConfiguration") => output_configuration()
+      }
+
+  """
+  @type invoke_data_automation_library_ingestion_job_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_automation_library_entities_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_automation_library_entities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_blueprint_optimization_status_response() :: %{
         "errorMessage" => [String.t() | atom()],
         "errorType" => [String.t() | atom()],
@@ -1031,6 +1322,20 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      vocabulary_entity_info() :: %{
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "language" => list(any()),
+        "phrases" => list(phrase())
+      }
+
+  """
+  @type vocabulary_entity_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       image_extraction_category() :: %{
         "state" => list(any()),
         "types" => list(list(any())())
@@ -1054,6 +1359,18 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      entity_type_info() :: %{
+        "entityMetadata" => String.t() | atom(),
+        "entityType" => list(any())
+      }
+
+  """
+  @type entity_type_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_automation_project_filter() :: %{
         "projectArn" => String.t() | atom(),
         "projectStage" => list(any())
@@ -1061,6 +1378,59 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type data_automation_project_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_automation_library() :: %{
+        "creationTime" => non_neg_integer(),
+        "entityTypes" => list(entity_type_info()),
+        "kmsEncryptionContext" => map(),
+        "kmsKeyId" => String.t() | atom(),
+        "libraryArn" => String.t() | atom(),
+        "libraryDescription" => String.t() | atom(),
+        "libraryName" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type data_automation_library() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_automation_library_ingestion_job_summary() :: %{
+        "completionTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "entityType" => list(any()),
+        "jobArn" => String.t() | atom(),
+        "jobStatus" => list(any()),
+        "operationType" => list(any())
+      }
+
+  """
+  @type data_automation_library_ingestion_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_automation_library_ingestion_job() :: %{
+        "completionTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "entityType" => list(any()),
+        "errorMessage" => [String.t() | atom()],
+        "errorType" => [String.t() | atom()],
+        "jobArn" => String.t() | atom(),
+        "jobStatus" => list(any()),
+        "operationType" => list(any()),
+        "outputConfiguration" => output_configuration()
+      }
+
+  """
+  @type data_automation_library_ingestion_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1077,6 +1447,17 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      get_data_automation_library_ingestion_job_response() :: %{
+        "job" => data_automation_library_ingestion_job()
+      }
+
+  """
+  @type get_data_automation_library_ingestion_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_data_automation_project_request() :: %{
         optional("projectStage") => list(any())
       }
@@ -1088,10 +1469,43 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      list_data_automation_library_ingestion_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_automation_library_ingestion_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_automation_library_ingestion_job_request() :: %{}
+
+  """
+  @type get_data_automation_library_ingestion_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_data_automation_project_request() :: %{}
 
   """
   @type delete_data_automation_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_automation_library_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("libraryDescription") => String.t() | atom()
+      }
+
+  """
+  @type update_data_automation_library_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1156,6 +1570,33 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      vocabulary_entity_summary() :: %{
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "language" => list(any()),
+        "lastModifiedTime" => non_neg_integer(),
+        "numOfPhrases" => [integer()]
+      }
+
+  """
+  @type vocabulary_entity_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_automation_library_response() :: %{
+        "libraryArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_data_automation_library_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       document_output_format() :: %{
         "additionalFileFormat" => document_output_additional_file_format(),
         "textFormat" => document_output_text_format()
@@ -1163,6 +1604,31 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type document_output_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_automation_libraries_response() :: %{
+        "libraries" => list(data_automation_library_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_automation_libraries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_automation_library_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "libraryArn" => String.t() | atom(),
+        "libraryName" => String.t() | atom()
+      }
+
+  """
+  @type data_automation_library_summary() :: %{(String.t() | atom()) => any()}
 
   @type copy_blueprint_stage_errors() ::
           throttling_exception()
@@ -1187,6 +1653,14 @@ defmodule AWS.BedrockDataAutomation do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
+  @type create_data_automation_library_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type create_data_automation_project_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1201,6 +1675,14 @@ defmodule AWS.BedrockDataAutomation do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type delete_data_automation_library_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_data_automation_project_errors() ::
           throttling_exception()
@@ -1223,6 +1705,27 @@ defmodule AWS.BedrockDataAutomation do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_data_automation_library_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_data_automation_library_entity_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_data_automation_library_ingestion_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_data_automation_project_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1238,7 +1741,36 @@ defmodule AWS.BedrockDataAutomation do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
+  @type invoke_data_automation_library_ingestion_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type list_blueprints_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_data_automation_libraries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_data_automation_library_entities_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_data_automation_library_ingestion_jobs_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1275,6 +1807,14 @@ defmodule AWS.BedrockDataAutomation do
           | resource_not_found_exception()
 
   @type update_blueprint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_data_automation_library_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1400,6 +1940,35 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
+  Creates an Amazon Bedrock Data Automation Library
+  """
+  @spec create_data_automation_library(map(), create_data_automation_library_request(), list()) ::
+          {:ok, create_data_automation_library_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_data_automation_library_errors()}
+  def create_data_automation_library(%Client{} = client, input, options \\ []) do
+    url_path = "/data-automation-libraries/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates an Amazon Bedrock Data Automation Project
   """
   @spec create_data_automation_project(map(), create_data_automation_project_request(), list()) ::
@@ -1446,6 +2015,40 @@ defmodule AWS.BedrockDataAutomation do
         {"blueprintVersion", "blueprintVersion"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an existing Amazon Bedrock Data Automation Library
+  """
+  @spec delete_data_automation_library(
+          map(),
+          String.t() | atom(),
+          delete_data_automation_library_request(),
+          list()
+        ) ::
+          {:ok, delete_data_automation_library_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_data_automation_library_errors()}
+  def delete_data_automation_library(%Client{} = client, library_arn, input, options \\ []) do
+    url_path = "/data-automation-libraries/#{AWS.Util.encode_uri(library_arn)}/"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -1560,6 +2163,128 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
+  Gets an existing Amazon Bedrock Data Automation Library
+  """
+  @spec get_data_automation_library(
+          map(),
+          String.t() | atom(),
+          get_data_automation_library_request(),
+          list()
+        ) ::
+          {:ok, get_data_automation_library_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_automation_library_errors()}
+  def get_data_automation_library(%Client{} = client, library_arn, input, options \\ []) do
+    url_path = "/data-automation-libraries/#{AWS.Util.encode_uri(library_arn)}/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets an existing entity based on entity type from the library
+  """
+  @spec get_data_automation_library_entity(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          get_data_automation_library_entity_request(),
+          list()
+        ) ::
+          {:ok, get_data_automation_library_entity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_automation_library_entity_errors()}
+  def get_data_automation_library_entity(
+        %Client{} = client,
+        entity_id,
+        entity_type,
+        library_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-automation-libraries/#{AWS.Util.encode_uri(library_arn)}/entityType/#{AWS.Util.encode_uri(entity_type)}/entities/#{AWS.Util.encode_uri(entity_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  API used to get status of data automation library ingestion job
+  """
+  @spec get_data_automation_library_ingestion_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          get_data_automation_library_ingestion_job_request(),
+          list()
+        ) ::
+          {:ok, get_data_automation_library_ingestion_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_automation_library_ingestion_job_errors()}
+  def get_data_automation_library_ingestion_job(
+        %Client{} = client,
+        job_arn,
+        library_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-automation-libraries/#{AWS.Util.encode_uri(library_arn)}/library-ingestion-jobs/#{AWS.Util.encode_uri(job_arn)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets an existing Amazon Bedrock Data Automation Project
   """
   @spec get_data_automation_project(
@@ -1627,6 +2352,47 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
+  Async API: Invoke data automation library ingestion job
+  """
+  @spec invoke_data_automation_library_ingestion_job(
+          map(),
+          String.t() | atom(),
+          invoke_data_automation_library_ingestion_job_request(),
+          list()
+        ) ::
+          {:ok, invoke_data_automation_library_ingestion_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_data_automation_library_ingestion_job_errors()}
+  def invoke_data_automation_library_ingestion_job(
+        %Client{} = client,
+        library_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-automation-libraries/#{AWS.Util.encode_uri(library_arn)}/library-ingestion-jobs/"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Lists all existing Amazon Bedrock Data Automation Blueprints
   """
   @spec list_blueprints(map(), list_blueprints_request(), list()) ::
@@ -1636,6 +2402,119 @@ defmodule AWS.BedrockDataAutomation do
           | {:error, list_blueprints_errors()}
   def list_blueprints(%Client{} = client, input, options \\ []) do
     url_path = "/blueprints/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all existing Amazon Bedrock Data Automation Libraries
+  """
+  @spec list_data_automation_libraries(map(), list_data_automation_libraries_request(), list()) ::
+          {:ok, list_data_automation_libraries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_automation_libraries_errors()}
+  def list_data_automation_libraries(%Client{} = client, input, options \\ []) do
+    url_path = "/data-automation-libraries/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all stored entities in the library
+  """
+  @spec list_data_automation_library_entities(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list_data_automation_library_entities_request(),
+          list()
+        ) ::
+          {:ok, list_data_automation_library_entities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_automation_library_entities_errors()}
+  def list_data_automation_library_entities(
+        %Client{} = client,
+        entity_type,
+        library_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-automation-libraries/#{AWS.Util.encode_uri(library_arn)}/entityType/#{AWS.Util.encode_uri(entity_type)}/entities/"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all data automation library ingestion jobs
+  """
+  @spec list_data_automation_library_ingestion_jobs(
+          map(),
+          String.t() | atom(),
+          list_data_automation_library_ingestion_jobs_request(),
+          list()
+        ) ::
+          {:ok, list_data_automation_library_ingestion_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_automation_library_ingestion_jobs_errors()}
+  def list_data_automation_library_ingestion_jobs(
+        %Client{} = client,
+        library_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/data-automation-libraries/#{AWS.Util.encode_uri(library_arn)}/library-ingestion-jobs/"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -1781,6 +2660,40 @@ defmodule AWS.BedrockDataAutomation do
           | {:error, update_blueprint_errors()}
   def update_blueprint(%Client{} = client, blueprint_arn, input, options \\ []) do
     url_path = "/blueprints/#{AWS.Util.encode_uri(blueprint_arn)}/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing Amazon Bedrock Data Automation Library
+  """
+  @spec update_data_automation_library(
+          map(),
+          String.t() | atom(),
+          update_data_automation_library_request(),
+          list()
+        ) ::
+          {:ok, update_data_automation_library_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_data_automation_library_errors()}
+  def update_data_automation_library(%Client{} = client, library_arn, input, options \\ []) do
+    url_path = "/data-automation-libraries/#{AWS.Util.encode_uri(library_arn)}/"
     headers = []
     custom_headers = []
     query_params = []

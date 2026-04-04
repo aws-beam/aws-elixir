@@ -313,6 +313,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_resource_policy_response() :: %{}
+
+  """
+  @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_inference_profiles_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -1201,6 +1210,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_resource_policy_response() :: %{
+        "resourcePolicy" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_custom_model_deployment_request() :: %{}
 
   """
@@ -1337,6 +1357,7 @@ defmodule AWS.Bedrock do
         "inputTags" => list(any()),
         "modelEnforcement" => model_enforcement(),
         "owner" => String.t() | atom(),
+        "selectiveContentGuarding" => selective_content_guarding(),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => [String.t() | atom()]
       }
@@ -3309,6 +3330,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       filter_attribute() :: %{
         "key" => String.t() | atom(),
         "value" => any()
@@ -3759,6 +3789,18 @@ defmodule AWS.Bedrock do
 
   """
   @type update_custom_model_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("resourcePolicy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4608,6 +4650,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      selective_content_guarding() :: %{
+        "messages" => list(any()),
+        "system" => list(any())
+      }
+
+  """
+  @type selective_content_guarding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_prompt_routers_response() :: %{
         "nextToken" => String.t() | atom(),
         "promptRouterSummaries" => list(prompt_router_summary())
@@ -4665,6 +4719,17 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_topic_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4884,6 +4949,15 @@ defmodule AWS.Bedrock do
   @type automated_reasoning_policy_add_rule_from_natural_language_annotation() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{}
+
+  """
+  @type delete_resource_policy_request() :: %{}
 
   @typedoc """
 
@@ -5282,8 +5356,8 @@ defmodule AWS.Bedrock do
       account_enforced_guardrail_inference_input_configuration() :: %{
         "guardrailIdentifier" => String.t() | atom(),
         "guardrailVersion" => String.t() | atom(),
-        "inputTags" => list(any()),
-        "modelEnforcement" => model_enforcement()
+        "modelEnforcement" => model_enforcement(),
+        "selectiveContentGuarding" => selective_content_guarding()
       }
 
   """
@@ -5768,6 +5842,13 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type deregister_marketplace_model_endpoint_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5940,6 +6021,13 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_use_case_for_model_access_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6096,6 +6184,13 @@ defmodule AWS.Bedrock do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type put_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
 
   @type put_use_case_for_model_access_errors() ::
           throttling_exception()
@@ -7542,6 +7637,40 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Deletes a previously created Bedrock resource policy.
+  """
+  @spec delete_resource_policy(
+          map(),
+          String.t() | atom(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deregisters an endpoint for a model from Amazon Bedrock Marketplace.
 
   This operation removes the endpoint's association with Amazon Bedrock but does
@@ -8174,6 +8303,24 @@ defmodule AWS.Bedrock do
           | {:error, get_provisioned_model_throughput_errors()}
   def get_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the resource policy document for a Bedrock resource
+  """
+  @spec get_resource_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -9800,6 +9947,35 @@ defmodule AWS.Bedrock do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Adds a resource policy for a Bedrock resource.
+  """
+  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/resource-policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 

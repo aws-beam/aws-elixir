@@ -4096,12 +4096,15 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       query_info() :: %{
+        "bytesScanned" => float(),
         "createTime" => float(),
         "logGroupName" => String.t() | atom(),
+        "queryDuration" => float(),
         "queryId" => String.t() | atom(),
         "queryLanguage" => list(any()),
         "queryString" => String.t() | atom(),
-        "status" => list(any())
+        "status" => list(any()),
+        "userIdentity" => String.t() | atom()
       }
       
   """

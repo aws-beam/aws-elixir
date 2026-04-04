@@ -505,6 +505,7 @@ defmodule AWS.Lightsail do
         optional("datapointsToAlarm") => integer(),
         optional("notificationEnabled") => boolean(),
         optional("notificationTriggers") => list(list(any())()),
+        optional("tags") => list(tag()),
         optional("treatMissingData") => list(any()),
         required("alarmName") => String.t() | atom(),
         required("comparisonOperator") => list(any()),
@@ -1060,6 +1061,7 @@ defmodule AWS.Lightsail do
         "state" => list(any()),
         "statistic" => list(any()),
         "supportCode" => String.t() | atom(),
+        "tags" => list(tag()),
         "threshold" => float(),
         "treatMissingData" => list(any()),
         "unit" => list(any())
@@ -7762,6 +7764,10 @@ defmodule AWS.Lightsail do
   Regions, and SMS text messages cannot be sent to some countries/regions. For
   more information,
   see [Notifications in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications).
+
+  The `create contact method` operation supports tag-based access control via
+  request
+  tags. For more information, see the [Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_contact_method(map(), create_contact_method_request(), list()) ::
           {:ok, create_contact_method_result(), any()}
@@ -10222,6 +10228,9 @@ defmodule AWS.Lightsail do
   overwrites the previous configuration of the alarm. The alarm is then evaluated
   with the
   updated configuration.
+
+  The `put alarm` operation supports tag-based access control via request
+  tags. For more information, see the [Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec put_alarm(map(), put_alarm_request(), list()) ::
           {:ok, put_alarm_result(), any()}

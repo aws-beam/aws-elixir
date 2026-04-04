@@ -2362,7 +2362,8 @@ defmodule AWS.BedrockAgent do
       tool_specification() :: %{
         "description" => String.t() | atom(),
         "inputSchema" => list(),
-        "name" => String.t() | atom()
+        "name" => String.t() | atom(),
+        "strict" => [boolean()]
       }
 
   """

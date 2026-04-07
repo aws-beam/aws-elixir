@@ -509,6 +509,7 @@ defmodule AWS.Transfer do
         optional("AccessRole") => String.t() | atom(),
         optional("As2Config") => as2_connector_config(),
         optional("EgressConfig") => list(),
+        optional("IpAddressType") => list(any()),
         optional("LoggingRole") => String.t() | atom(),
         optional("SecurityPolicyName") => String.t() | atom(),
         optional("SftpConfig") => sftp_connector_config(),
@@ -1976,6 +1977,7 @@ defmodule AWS.Transfer do
       create_connector_request() :: %{
         optional("As2Config") => as2_connector_config(),
         optional("EgressConfig") => list(),
+        optional("IpAddressType") => list(any()),
         optional("LoggingRole") => String.t() | atom(),
         optional("SecurityPolicyName") => String.t() | atom(),
         optional("SftpConfig") => sftp_connector_config(),
@@ -2637,6 +2639,7 @@ defmodule AWS.Transfer do
         "EgressConfig" => list(),
         "EgressType" => list(any()),
         "ErrorMessage" => String.t() | atom(),
+        "IpAddressType" => list(any()),
         "LoggingRole" => String.t() | atom(),
         "SecurityPolicyName" => String.t() | atom(),
         "ServiceManagedEgressIpAddresses" => list(String.t() | atom()),

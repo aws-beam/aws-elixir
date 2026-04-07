@@ -576,7 +576,8 @@ defmodule AWS.MediaTailor do
         optional("RecurringPrefetchConfiguration") => recurring_prefetch_configuration(),
         optional("Retrieval") => prefetch_retrieval(),
         optional("ScheduleType") => list(any()),
-        optional("StreamId") => String.t() | atom()
+        optional("StreamId") => String.t() | atom(),
+        optional("Tags") => map()
       }
 
   """
@@ -622,6 +623,7 @@ defmodule AWS.MediaTailor do
         optional("ProgramName") => String.t() | atom(),
         optional("ScheduledStartTime") => non_neg_integer(),
         optional("SourceLocationName") => String.t() | atom(),
+        optional("Tags") => map(),
         optional("VodSourceName") => String.t() | atom()
       }
 
@@ -795,7 +797,8 @@ defmodule AWS.MediaTailor do
         optional("RecurringPrefetchConfiguration") => recurring_prefetch_configuration(),
         optional("Retrieval") => prefetch_retrieval(),
         optional("ScheduleType") => list(any()),
-        optional("StreamId") => String.t() | atom()
+        optional("StreamId") => String.t() | atom(),
+        optional("Tags") => map()
       }
 
   """
@@ -1005,7 +1008,8 @@ defmodule AWS.MediaTailor do
         optional("RecurringPrefetchConfiguration") => recurring_prefetch_configuration(),
         optional("Retrieval") => prefetch_retrieval(),
         optional("ScheduleType") => list(any()),
-        optional("StreamId") => String.t() | atom()
+        optional("StreamId") => String.t() | atom(),
+        optional("Tags") => map()
       }
 
   """
@@ -1132,6 +1136,7 @@ defmodule AWS.MediaTailor do
         optional("ProgramName") => String.t() | atom(),
         optional("ScheduledStartTime") => non_neg_integer(),
         optional("SourceLocationName") => String.t() | atom(),
+        optional("Tags") => map(),
         optional("VodSourceName") => String.t() | atom()
       }
 
@@ -1197,6 +1202,7 @@ defmodule AWS.MediaTailor do
         optional("AdBreaks") => list(ad_break()),
         optional("AudienceMedia") => list(audience_media()),
         optional("LiveSourceName") => String.t() | atom(),
+        optional("Tags") => map(),
         optional("VodSourceName") => String.t() | atom(),
         required("ScheduleConfiguration") => schedule_configuration(),
         required("SourceLocationName") => String.t() | atom()
@@ -1551,6 +1557,7 @@ defmodule AWS.MediaTailor do
         optional("ProgramName") => String.t() | atom(),
         optional("ScheduledStartTime") => non_neg_integer(),
         optional("SourceLocationName") => String.t() | atom(),
+        optional("Tags") => map(),
         optional("VodSourceName") => String.t() | atom()
       }
 
@@ -1921,7 +1928,8 @@ defmodule AWS.MediaTailor do
         "RecurringPrefetchConfiguration" => recurring_prefetch_configuration(),
         "Retrieval" => prefetch_retrieval(),
         "ScheduleType" => list(any()),
-        "StreamId" => String.t() | atom()
+        "StreamId" => String.t() | atom(),
+        "Tags" => map()
       }
 
   """

@@ -264,6 +264,21 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_task_identifier() :: %{
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "stepId" => String.t() | atom(),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_task_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_queues_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -487,6 +502,17 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_step_request() :: %{
+        required("identifiers") => list(batch_get_step_identifier())
+      }
+
+  """
+  @type batch_get_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       string_list_filter_expression() :: %{
         "name" => String.t() | atom(),
         "operator" => list(any()),
@@ -570,6 +596,17 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_job_request() :: %{
+        required("identifiers") => list(batch_get_job_identifier())
+      }
+
+  """
+  @type batch_get_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_queue_fleet_associations_response() :: %{
         "nextToken" => String.t() | atom(),
         "queueFleetAssociations" => list(queue_fleet_association_summary())
@@ -589,6 +626,18 @@ defmodule AWS.Deadline do
 
   """
   @type list_sessions_for_worker_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_job_response() :: %{
+        "errors" => list(batch_get_job_error()),
+        "jobs" => list(batch_get_job_item())
+      }
+
+  """
+  @type batch_get_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -730,6 +779,32 @@ defmodule AWS.Deadline do
 
   """
   @type v_cpu_count_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_session_identifier() :: %{
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_session_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("jobs") => list(batch_update_job_item())
+      }
+
+  """
+  @type batch_update_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,6 +965,17 @@ defmodule AWS.Deadline do
 
   """
   @type service_managed_ec2_fleet_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_task_response() :: %{
+        "errors" => list(batch_update_task_error())
+      }
+
+  """
+  @type batch_update_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1452,6 +1538,18 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_update_task_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("tasks") => list(batch_update_task_item())
+      }
+
+  """
+  @type batch_update_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_managed_ec2_instance_capabilities() :: %{
         "acceleratorCapabilities" => accelerator_capabilities(),
         "allowedInstanceTypes" => list(String.t() | atom()),
@@ -1717,6 +1815,37 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_step_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "dependencyCounts" => dependency_counts(),
+        "description" => String.t() | atom(),
+        "endedAt" => non_neg_integer(),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "lifecycleStatus" => list(any()),
+        "lifecycleStatusMessage" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "parameterSpace" => parameter_space(),
+        "queueId" => String.t() | atom(),
+        "requiredCapabilities" => step_required_capabilities(),
+        "startedAt" => non_neg_integer(),
+        "stepId" => String.t() | atom(),
+        "targetTaskRunStatus" => list(any()),
+        "taskFailureRetryCount" => integer(),
+        "taskRunStatus" => list(any()),
+        "taskRunStatusCounts" => map(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_step_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_member() :: %{
         "farmId" => String.t() | atom(),
         "identityStoreId" => String.t() | atom(),
@@ -1833,6 +1962,27 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_update_job_item() :: %{
+        "description" => String.t() | atom(),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "lifecycleStatus" => list(any()),
+        "maxFailedTasksCount" => integer(),
+        "maxRetriesPerTask" => integer(),
+        "maxWorkerCount" => integer(),
+        "name" => String.t() | atom(),
+        "priority" => integer(),
+        "queueId" => String.t() | atom(),
+        "targetTaskRunStatus" => list(any())
+      }
+
+  """
+  @type batch_update_job_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_jobs_request() :: %{
         optional("filterExpressions") => search_grouped_filter_expressions(),
         optional("pageSize") => integer(),
@@ -1921,6 +2071,31 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_session_item() :: %{
+        "endedAt" => non_neg_integer(),
+        "farmId" => String.t() | atom(),
+        "fleetId" => String.t() | atom(),
+        "hostProperties" => host_properties_response(),
+        "jobId" => String.t() | atom(),
+        "lifecycleStatus" => list(any()),
+        "log" => log_configuration(),
+        "queueId" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "targetLifecycleStatus" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom(),
+        "workerId" => String.t() | atom(),
+        "workerLog" => log_configuration()
+      }
+
+  """
+  @type batch_get_session_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       assigned_environment_enter_session_action_definition() :: %{
         "environmentId" => String.t() | atom()
       }
@@ -1979,6 +2154,22 @@ defmodule AWS.Deadline do
 
   """
   @type accelerator_capabilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_task_item() :: %{
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "stepId" => String.t() | atom(),
+        "targetRunStatus" => list(any()),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type batch_update_task_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2138,6 +2329,17 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_task_request() :: %{
+        required("identifiers") => list(batch_get_task_identifier())
+      }
+
+  """
+  @type batch_get_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_metered_products_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -2195,6 +2397,18 @@ defmodule AWS.Deadline do
 
   """
   @type job_details_identifiers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_step_response() :: %{
+        "errors" => list(batch_get_step_error()),
+        "steps" => list(batch_get_step_item())
+      }
+
+  """
+  @type batch_get_step_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2337,6 +2551,41 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_job_item() :: %{
+        "attachments" => attachments(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "endedAt" => non_neg_integer(),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "lifecycleStatus" => list(any()),
+        "lifecycleStatusMessage" => String.t() | atom(),
+        "maxFailedTasksCount" => integer(),
+        "maxRetriesPerTask" => integer(),
+        "maxWorkerCount" => integer(),
+        "name" => String.t() | atom(),
+        "parameters" => map(),
+        "priority" => integer(),
+        "queueId" => String.t() | atom(),
+        "sourceJobId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "storageProfileId" => String.t() | atom(),
+        "targetTaskRunStatus" => list(any()),
+        "taskFailureRetryCount" => integer(),
+        "taskRunStatus" => list(any()),
+        "taskRunStatusCounts" => map(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_job_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_queue_environment_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("priority") => integer(),
@@ -2383,6 +2632,19 @@ defmodule AWS.Deadline do
 
   """
   @type list_job_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_job_identifier() :: %{
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "queueId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_job_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2512,6 +2774,31 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_session_action_item() :: %{
+        "acquiredLimits" => list(acquired_limit()),
+        "definition" => list(),
+        "endedAt" => non_neg_integer(),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "manifests" => list(task_run_manifest_properties_response()),
+        "processExitCode" => integer(),
+        "progressMessage" => String.t() | atom(),
+        "progressPercent" => float(),
+        "queueId" => String.t() | atom(),
+        "sessionActionId" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "workerUpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type batch_get_session_action_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_sessions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -2600,6 +2887,22 @@ defmodule AWS.Deadline do
 
   """
   @type environment_exit_session_action_definition_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_step_error() :: %{
+        "code" => list(any()),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "stepId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_step_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2779,10 +3082,43 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_worker_identifier() :: %{
+        "farmId" => String.t() | atom(),
+        "fleetId" => String.t() | atom(),
+        "workerId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_worker_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_member_from_job_request() :: %{}
 
   """
   @type disassociate_member_from_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_worker_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "farmId" => String.t() | atom(),
+        "fleetId" => String.t() | atom(),
+        "hostProperties" => host_properties_response(),
+        "log" => log_configuration(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom(),
+        "workerId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_worker_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2797,6 +3133,34 @@ defmodule AWS.Deadline do
 
   """
   @type step_details_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_job_response() :: %{
+        "errors" => list(batch_update_job_error())
+      }
+
+  """
+  @type batch_update_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_task_error() :: %{
+        "code" => list(any()),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "stepId" => String.t() | atom(),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type batch_update_task_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2864,12 +3228,37 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_session_action_identifier() :: %{
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "sessionActionId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_session_action_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_farm_response() :: %{
         "farmId" => String.t() | atom()
       }
 
   """
   @type create_farm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_session_request() :: %{
+        required("identifiers") => list(batch_get_session_identifier())
+      }
+
+  """
+  @type batch_get_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2945,6 +3334,17 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_worker_request() :: %{
+        required("identifiers") => list(batch_get_worker_identifier())
+      }
+
+  """
+  @type batch_get_worker_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       accelerator_total_memory_mi_b_range() :: %{
         "max" => integer(),
         "min" => integer()
@@ -3006,6 +3406,18 @@ defmodule AWS.Deadline do
 
   """
   @type user_jobs_first() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_task_response() :: %{
+        "errors" => list(batch_get_task_error()),
+        "tasks" => list(batch_get_task_item())
+      }
+
+  """
+  @type batch_get_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3265,6 +3677,32 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_session_action_request() :: %{
+        required("identifiers") => list(batch_get_session_action_identifier())
+      }
+
+  """
+  @type batch_get_session_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_job_error() :: %{
+        "code" => list(any()),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "queueId" => String.t() | atom()
+      }
+
+  """
+  @type batch_update_job_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       customer_managed_auto_scaling_configuration() :: %{
         "scaleOutWorkersPerMinute" => integer(),
         "standbyWorkerCount" => integer(),
@@ -3352,6 +3790,21 @@ defmodule AWS.Deadline do
 
   """
   @type statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_worker_error() :: %{
+        "code" => list(any()),
+        "farmId" => String.t() | atom(),
+        "fleetId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "workerId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_worker_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3638,6 +4091,7 @@ defmodule AWS.Deadline do
         "displayName" => String.t() | atom(),
         "identityCenterApplicationArn" => String.t() | atom(),
         "identityCenterInstanceArn" => String.t() | atom(),
+        "identityCenterRegion" => String.t() | atom(),
         "monitorId" => String.t() | atom(),
         "roleArn" => String.t() | atom(),
         "subdomain" => String.t() | atom(),
@@ -3665,6 +4119,21 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_job_error() :: %{
+        "code" => list(any()),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "queueId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_job_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       parameter_sort_expression() :: %{
         "name" => String.t() | atom(),
         "sortOrder" => list(any())
@@ -3672,6 +4141,32 @@ defmodule AWS.Deadline do
 
   """
   @type parameter_sort_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_task_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "endedAt" => non_neg_integer(),
+        "failureRetryCount" => integer(),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "latestSessionActionId" => String.t() | atom(),
+        "parameters" => map(),
+        "queueId" => String.t() | atom(),
+        "runStatus" => list(any()),
+        "startedAt" => non_neg_integer(),
+        "stepId" => String.t() | atom(),
+        "targetRunStatus" => list(any()),
+        "taskId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_task_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3722,6 +4217,18 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_session_action_response() :: %{
+        "errors" => list(batch_get_session_action_error()),
+        "sessionActions" => list(batch_get_session_action_item())
+      }
+
+  """
+  @type batch_get_session_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_queues_response() :: %{
         "nextToken" => String.t() | atom(),
         "queues" => list(queue_summary())
@@ -3729,6 +4236,22 @@ defmodule AWS.Deadline do
 
   """
   @type list_queues_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_session_error() :: %{
+        "code" => list(any()),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_session_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3939,6 +4462,32 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_step_identifier() :: %{
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "stepId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_step_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_session_response() :: %{
+        "errors" => list(batch_get_session_error()),
+        "sessions" => list(batch_get_session_item())
+      }
+
+  """
+  @type batch_get_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_storage_profile_for_queue_request() :: %{}
 
   """
@@ -4014,6 +4563,22 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_session_action_error() :: %{
+        "code" => list(any()),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "sessionActionId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_session_action_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_license_endpoint_request() :: %{}
 
   """
@@ -4038,6 +4603,7 @@ defmodule AWS.Deadline do
 
       create_monitor_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("identityCenterRegion") => String.t() | atom(),
         optional("tags") => map(),
         required("displayName") => String.t() | atom(),
         required("identityCenterInstanceArn") => String.t() | atom(),
@@ -4413,6 +4979,7 @@ defmodule AWS.Deadline do
         "displayName" => String.t() | atom(),
         "identityCenterApplicationArn" => String.t() | atom(),
         "identityCenterInstanceArn" => String.t() | atom(),
+        "identityCenterRegion" => String.t() | atom(),
         "monitorId" => String.t() | atom(),
         "roleArn" => String.t() | atom(),
         "subdomain" => String.t() | atom(),
@@ -4517,6 +5084,18 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      batch_get_worker_response() :: %{
+        "errors" => list(batch_get_worker_error()),
+        "workers" => list(batch_get_worker_item())
+      }
+
+  """
+  @type batch_get_worker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       farm_member() :: %{
         "farmId" => String.t() | atom(),
         "identityStoreId" => String.t() | atom(),
@@ -4580,6 +5159,23 @@ defmodule AWS.Deadline do
 
   """
   @type list_farms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_task_error() :: %{
+        "code" => list(any()),
+        "farmId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "queueId" => String.t() | atom(),
+        "stepId" => String.t() | atom(),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_task_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4713,12 +5309,60 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type batch_get_job_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+
   @type batch_get_job_entity_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+
+  @type batch_get_session_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+
+  @type batch_get_session_action_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+
+  @type batch_get_step_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+
+  @type batch_get_task_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+
+  @type batch_get_worker_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+
+  @type batch_update_job_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+
+  @type batch_update_task_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type copy_job_template_errors() ::
           throttling_exception()
@@ -5785,6 +6429,42 @@ defmodule AWS.Deadline do
   end
 
   @doc """
+  Retrieves multiple jobs in a single request.
+
+  This is a batch version of the `GetJob` API.
+
+  The result of getting each job is reported individually in the response. Because
+  the batch request can result in a combination of successful and unsuccessful
+  actions, you should check for batch errors even when the call returns an HTTP
+  status code of 200.
+  """
+  @spec batch_get_job(map(), batch_get_job_request(), list()) ::
+          {:ok, batch_get_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_job_errors()}
+  def batch_get_job(%Client{} = client, input, options \\ []) do
+    url_path = "/2023-10-12/batch-get-job"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Get batched job details for a worker.
   """
   @spec batch_get_job_entity(
@@ -5813,6 +6493,276 @@ defmodule AWS.Deadline do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves multiple sessions in a single request.
+
+  This is a batch version of the `GetSession` API.
+
+  The result of getting each session is reported individually in the response.
+  Because the batch request can result in a combination of successful and
+  unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of 200.
+  """
+  @spec batch_get_session(map(), batch_get_session_request(), list()) ::
+          {:ok, batch_get_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_session_errors()}
+  def batch_get_session(%Client{} = client, input, options \\ []) do
+    url_path = "/2023-10-12/batch-get-session"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves multiple session actions in a single request.
+
+  This is a batch version of the `GetSessionAction` API.
+
+  The result of getting each session action is reported individually in the
+  response. Because the batch request can result in a combination of successful
+  and unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of 200.
+  """
+  @spec batch_get_session_action(map(), batch_get_session_action_request(), list()) ::
+          {:ok, batch_get_session_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_session_action_errors()}
+  def batch_get_session_action(%Client{} = client, input, options \\ []) do
+    url_path = "/2023-10-12/batch-get-session-action"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves multiple steps in a single request.
+
+  This is a batch version of the `GetStep` API.
+
+  The result of getting each step is reported individually in the response.
+  Because the batch request can result in a combination of successful and
+  unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of 200.
+  """
+  @spec batch_get_step(map(), batch_get_step_request(), list()) ::
+          {:ok, batch_get_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_step_errors()}
+  def batch_get_step(%Client{} = client, input, options \\ []) do
+    url_path = "/2023-10-12/batch-get-step"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves multiple tasks in a single request.
+
+  This is a batch version of the `GetTask` API.
+
+  The result of getting each task is reported individually in the response.
+  Because the batch request can result in a combination of successful and
+  unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of 200.
+  """
+  @spec batch_get_task(map(), batch_get_task_request(), list()) ::
+          {:ok, batch_get_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_task_errors()}
+  def batch_get_task(%Client{} = client, input, options \\ []) do
+    url_path = "/2023-10-12/batch-get-task"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves multiple workers in a single request.
+
+  This is a batch version of the `GetWorker` API.
+
+  The result of getting each worker is reported individually in the response.
+  Because the batch request can result in a combination of successful and
+  unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of 200.
+  """
+  @spec batch_get_worker(map(), batch_get_worker_request(), list()) ::
+          {:ok, batch_get_worker_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_worker_errors()}
+  def batch_get_worker(%Client{} = client, input, options \\ []) do
+    url_path = "/2023-10-12/batch-get-worker"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates multiple jobs in a single request.
+
+  This is a batch version of the `UpdateJob` API.
+
+  The result of updating each job is reported individually in the response.
+  Because the batch request can result in a combination of successful and
+  unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of 200.
+
+  When you change the status of a job to `ARCHIVED`, the job can't be scheduled or
+  archived.
+
+  An archived job and its steps and tasks are deleted after 120 days. The job
+  can't be recovered.
+  """
+  @spec batch_update_job(map(), batch_update_job_request(), list()) ::
+          {:ok, batch_update_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_update_job_errors()}
+  def batch_update_job(%Client{} = client, input, options \\ []) do
+    url_path = "/2023-10-12/batch-update-job"
+
+    {headers, input} =
+      [
+        {"clientToken", "X-Amz-Client-Token"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates multiple tasks in a single request.
+
+  This is a batch version of the `UpdateTask` API.
+
+  The result of updating each task is reported individually in the response.
+  Because the batch request can result in a combination of successful and
+  unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of 200.
+  """
+  @spec batch_update_task(map(), batch_update_task_request(), list()) ::
+          {:ok, batch_update_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_update_task_errors()}
+  def batch_update_task(%Client{} = client, input, options \\ []) do
+    url_path = "/2023-10-12/batch-update-task"
+
+    {headers, input} =
+      [
+        {"clientToken", "X-Amz-Client-Token"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

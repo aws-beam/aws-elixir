@@ -168,6 +168,7 @@ defmodule AWS.DLM do
   ## Example:
 
       fast_restore_rule() :: %{
+        "AvailabilityZoneIds" => list(String.t() | atom()),
         "AvailabilityZones" => list(String.t() | atom()),
         "Count" => integer(),
         "Interval" => integer(),

@@ -351,16 +351,19 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-  `GetStaticMap` provides high-quality static map images with customizable
-  options.
+  This operation is not supported in `ap-southeast-1` and `ap-southeast-5` regions
+  for
+  [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
 
-  You can modify the map's appearance and overlay additional information. It's an
-  ideal solution for applications requiring tailored static map snapshots.
+  `GetStaticMap` provides high-quality static map images with customizable
+  options. You can modify the map's appearance and overlay additional information.
+  It's an ideal solution for applications requiring tailored static map snapshots.
 
   For more information, see the following topics in the *Amazon Location Service
   Developer Guide*:
 
-    * [Static maps](https://docs.aws.amazon.com/location/latest/developerguide/static-maps.html)
+    * [Static
+  maps](https://docs.aws.amazon.com/location/latest/developerguide/static-maps.html)
 
     * [Customize static maps](https://docs.aws.amazon.com/location/latest/developerguide/customizing-static-maps.html)
 
@@ -686,7 +689,7 @@ defmodule AWS.GeoMaps do
   @doc """
   `GetTile` returns a tile.
 
-  Map tiles are used by clients to render a map. they're addressed using a grid
+  Map tiles are used by clients to render a map. They're addressed using a grid
   arrangement with an X coordinate, Y coordinate, and Z (zoom) level.
 
   For more information, see

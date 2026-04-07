@@ -407,6 +407,18 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      list_policy_preview_jobs_response() :: %{
+        "analysisReports" => list(policy_preview_analysis_report()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_policy_preview_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_access_analysis_rule_criteria() :: %{
         "accountIds" => list([String.t() | atom()]()),
         "resourceArns" => list([String.t() | atom()]()),
@@ -530,6 +542,17 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      start_policy_preview_job_response() :: %{
+        "jobId" => String.t() | atom()
+      }
+
+  """
+  @type start_policy_preview_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       check_no_new_access_request() :: %{
         required("existingPolicyDocument") => String.t() | atom(),
         required("newPolicyDocument") => String.t() | atom(),
@@ -567,6 +590,15 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      cancel_policy_preview_job_response() :: %{}
+
+  """
+  @type cancel_policy_preview_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_analyzers_response() :: %{
         "analyzers" => list(analyzer_summary()),
         "nextToken" => String.t() | atom()
@@ -574,6 +606,19 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type list_analyzers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_configuration() :: %{
+        "jobType" => String.t() | atom(),
+        "policyDocumentsList" => list([String.t() | atom()]()),
+        "targetId" => String.t() | atom()
+      }
+
+  """
+  @type policy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -619,6 +664,19 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type cancel_policy_generation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_preview_job_parameters() :: %{
+        "endTime" => non_neg_integer(),
+        "policyConfigurations" => list(policy_configuration()),
+        "startTime" => non_neg_integer()
+      }
+
+  """
+  @type policy_preview_job_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -752,6 +810,17 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      create_policy_preview_configuration_response() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type create_policy_preview_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => [String.t() | atom()],
         "resourceId" => [String.t() | atom()],
@@ -805,6 +874,22 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      policy_preview_analysis_report() :: %{
+        "completedAt" => non_neg_integer(),
+        "jobId" => String.t() | atom(),
+        "outputS3Uri" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "submittedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_preview_analysis_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       policy_generation_details() :: %{
         "principalArn" => String.t() | atom()
       }
@@ -822,6 +907,21 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type ecr_repository_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_policy_preview_job_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("endTime") => non_neg_integer(),
+        required("outputS3Uri") => String.t() | atom(),
+        required("policyConfigurations") => list(policy_configuration()),
+        required("startTime") => non_neg_integer()
+      }
+
+  """
+  @type start_policy_preview_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -875,6 +975,49 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      create_policy_preview_configuration_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("scope") => String.t() | atom()
+      }
+
+  """
+  @type create_policy_preview_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_preview_configuration_response() :: %{}
+
+  """
+  @type delete_policy_preview_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_policy_preview_job_request() :: %{}
+
+  """
+  @type cancel_policy_preview_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_preview_jobs_request() :: %{
+        optional("filters") => map(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_preview_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validate_policy_finding() :: %{
         "findingDetails" => [String.t() | atom()],
         "findingType" => String.t() | atom(),
@@ -922,6 +1065,20 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type analyzed_resource_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_preview_configuration() :: %{
+        "createdAt" => non_neg_integer(),
+        "scope" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_preview_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1174,6 +1331,21 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      policy_preview_job_details() :: %{
+        "completedAt" => non_neg_integer(),
+        "jobError" => job_error(),
+        "jobStatus" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "submittedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_preview_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kms_key_configuration() :: %{
         "grants" => list(kms_grant_configuration()),
         "keyPolicies" => map()
@@ -1226,6 +1398,17 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      delete_policy_preview_configuration_request() :: %{
+        optional("clientToken") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_policy_preview_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dynamodb_table_configuration() :: %{
         "tablePolicy" => String.t() | atom()
       }
@@ -1244,6 +1427,20 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_preview_job_response() :: %{
+        "jobDetails" => policy_preview_job_details(),
+        "jobId" => String.t() | atom(),
+        "jobParameters" => policy_preview_job_parameters(),
+        "outputS3Uri" => String.t() | atom()
+      }
+
+  """
+  @type get_policy_preview_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1314,6 +1511,17 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type start_policy_generation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_preview_configuration_response() :: %{
+        "policyPreviewConfigurations" => list(policy_preview_configuration())
+      }
+
+  """
+  @type get_policy_preview_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1627,6 +1835,15 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      get_policy_preview_configuration_request() :: %{}
+
+  """
+  @type get_policy_preview_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       rds_db_snapshot_configuration() :: %{
         "attributes" => map(),
         "kmsKeyId" => String.t() | atom()
@@ -1817,6 +2034,15 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type list_findings_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_preview_job_request() :: %{}
+
+  """
+  @type get_policy_preview_job_request() :: %{}
 
   @typedoc """
 
@@ -2036,6 +2262,13 @@ defmodule AWS.AccessAnalyzer do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type cancel_policy_preview_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type check_access_not_granted_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2086,6 +2319,14 @@ defmodule AWS.AccessAnalyzer do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_policy_preview_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type delete_analyzer_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2094,6 +2335,13 @@ defmodule AWS.AccessAnalyzer do
           | resource_not_found_exception()
 
   @type delete_archive_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_policy_preview_configuration_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2168,6 +2416,20 @@ defmodule AWS.AccessAnalyzer do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type get_policy_preview_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_policy_preview_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_access_preview_findings_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2222,6 +2484,12 @@ defmodule AWS.AccessAnalyzer do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_policy_preview_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_tags_for_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2230,6 +2498,14 @@ defmodule AWS.AccessAnalyzer do
           | resource_not_found_exception()
 
   @type start_policy_generation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type start_policy_preview_job_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2347,6 +2623,42 @@ defmodule AWS.AccessAnalyzer do
           | {:error, cancel_policy_generation_errors()}
   def cancel_policy_generation(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/policy/generation/#{AWS.Util.encode_uri(job_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Cancels an in-progress policy preview job.
+
+  Jobs that are already completed, failed, or canceled cannot be canceled.
+  """
+  @spec cancel_policy_preview_job(
+          map(),
+          String.t() | atom(),
+          cancel_policy_preview_job_request(),
+          list()
+        ) ::
+          {:ok, cancel_policy_preview_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_policy_preview_job_errors()}
+  def cancel_policy_preview_job(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/policy/preview/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -2557,6 +2869,42 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
+  Creates a policy preview configuration for your account.
+
+  The configuration enables IAM Access Analyzer to collect and store CloudTrail
+  authorization events needed for policy preview analysis.
+  """
+  @spec create_policy_preview_configuration(
+          map(),
+          create_policy_preview_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_policy_preview_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_policy_preview_configuration_errors()}
+  def create_policy_preview_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/policy/preview-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified analyzer.
 
   When you delete an analyzer, IAM Access Analyzer is disabled for the account or
@@ -2612,6 +2960,47 @@ defmodule AWS.AccessAnalyzer do
     url_path =
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
 
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the policy preview configuration for your account.
+
+  After deletion, IAM Access Analyzer will stop collecting CloudTrail
+  authorization events for policy preview analysis.
+  """
+  @spec delete_policy_preview_configuration(
+          map(),
+          delete_policy_preview_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_policy_preview_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_policy_preview_configuration_errors()}
+  def delete_policy_preview_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/policy/preview-configuration"
     headers = []
     custom_headers = []
 
@@ -2993,6 +3382,48 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
+  Retrieves the policy preview configuration for your account.
+  """
+  @spec get_policy_preview_configuration(map(), list()) ::
+          {:ok, get_policy_preview_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_preview_configuration_errors()}
+  def get_policy_preview_configuration(%Client{} = client, options \\ []) do
+    url_path = "/policy/preview-configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the metadata, parameters, and status for a policy preview job.
+
+  Use this operation to monitor job progress and retrieve the Amazon S3 location
+  of the completed analysis report.
+
+  Job data has a time-to-live (TTL) of 14 days and will be deleted after
+  expiration.
+  """
+  @spec get_policy_preview_job(map(), String.t() | atom(), list()) ::
+          {:ok, get_policy_preview_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_preview_job_errors()}
+  def get_policy_preview_job(%Client{} = client, job_id, options \\ []) do
+    url_path = "/policy/preview/#{AWS.Util.encode_uri(job_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of access preview findings generated by the specified access
   preview.
   """
@@ -3332,6 +3763,60 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
+  Lists all policy preview jobs with optional filtering by job status or target
+  ID.
+
+  Results are paginated for efficient retrieval of large result sets.
+  """
+  @spec list_policy_preview_jobs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_policy_preview_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_policy_preview_jobs_errors()}
+  def list_policy_preview_jobs(
+        %Client{} = client,
+        filters \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/policy/preview"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filters) do
+        [{"filters", filters} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of tags applied to the specified resource.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
@@ -3359,6 +3844,43 @@ defmodule AWS.AccessAnalyzer do
           | {:error, start_policy_generation_errors()}
   def start_policy_generation(%Client{} = client, input, options \\ []) do
     url_path = "/policy/generation"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a policy preview analysis job to evaluate the impact of Service Control
+  Policies (SCPs) before deployment.
+
+  The analysis uses historical CloudTrail authorization events to identify
+  potential access denials, helping you prevent service disruptions.
+
+  The job analyzes CloudTrail events within a specified time window and generates
+  a report identifying which events would be denied by the proposed policy. The
+  report is stored in the specified Amazon S3 location.
+  """
+  @spec start_policy_preview_job(map(), start_policy_preview_job_request(), list()) ::
+          {:ok, start_policy_preview_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_policy_preview_job_errors()}
+  def start_policy_preview_job(%Client{} = client, input, options \\ []) do
+    url_path = "/policy/preview"
     headers = []
     custom_headers = []
     query_params = []

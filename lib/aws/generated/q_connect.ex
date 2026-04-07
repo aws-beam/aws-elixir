@@ -1717,6 +1717,7 @@ defmodule AWS.QConnect do
         "assistantId" => String.t() | atom(),
         "attributes" => span_attributes(),
         "endTimestamp" => [non_neg_integer()],
+        "originRequestId" => String.t() | atom(),
         "parentSpanId" => String.t() | atom(),
         "requestId" => String.t() | atom(),
         "sessionId" => String.t() | atom(),
@@ -4089,6 +4090,7 @@ defmodule AWS.QConnect do
         optional("conversationContext") => conversation_context(),
         optional("metadata") => map(),
         optional("orchestratorUseCase") => String.t() | atom(),
+        optional("originRequestId") => String.t() | atom(),
         required("message") => message_input(),
         required("type") => String.t() | atom()
       }

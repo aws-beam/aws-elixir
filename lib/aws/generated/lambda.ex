@@ -1259,6 +1259,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      s3_files_mount_connectivity_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type s3_files_mount_connectivity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       snap_start_timeout_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
@@ -2341,6 +2353,18 @@ defmodule AWS.Lambda do
 
   """
   @type list_layer_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_files_mount_failure_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type s3_files_mount_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3851,6 +3875,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      s3_files_mount_timeout_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type s3_files_mount_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       concurrency() :: %{
         optional("ReservedConcurrentExecutions") => integer()
       }
@@ -4264,6 +4300,7 @@ defmodule AWS.Lambda do
 
   @type invoke_errors() ::
           snap_start_exception()
+          | s3_files_mount_timeout_exception()
           | resource_conflict_exception()
           | resource_not_ready_exception()
           | invalid_subnet_id_exception()
@@ -4280,6 +4317,7 @@ defmodule AWS.Lambda do
           | invalid_zip_file_exception()
           | kms_access_denied_exception()
           | request_too_large_exception()
+          | s3_files_mount_failure_exception()
           | subnet_ip_address_limit_reached_exception()
           | service_exception()
           | invalid_parameter_value_exception()
@@ -4290,6 +4328,7 @@ defmodule AWS.Lambda do
           | recursive_invocation_exception()
           | serialized_request_entity_too_large_exception()
           | snap_start_timeout_exception()
+          | s3_files_mount_connectivity_exception()
           | too_many_requests_exception()
           | snap_start_not_ready_exception()
           | ec2_access_denied_exception()
@@ -4306,6 +4345,7 @@ defmodule AWS.Lambda do
 
   @type invoke_with_response_stream_errors() ::
           snap_start_exception()
+          | s3_files_mount_timeout_exception()
           | resource_conflict_exception()
           | resource_not_ready_exception()
           | invalid_subnet_id_exception()
@@ -4322,6 +4362,7 @@ defmodule AWS.Lambda do
           | invalid_zip_file_exception()
           | kms_access_denied_exception()
           | request_too_large_exception()
+          | s3_files_mount_failure_exception()
           | subnet_ip_address_limit_reached_exception()
           | service_exception()
           | invalid_parameter_value_exception()
@@ -4331,6 +4372,7 @@ defmodule AWS.Lambda do
           | recursive_invocation_exception()
           | serialized_request_entity_too_large_exception()
           | snap_start_timeout_exception()
+          | s3_files_mount_connectivity_exception()
           | too_many_requests_exception()
           | snap_start_not_ready_exception()
           | ec2_access_denied_exception()

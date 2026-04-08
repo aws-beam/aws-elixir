@@ -3452,7 +3452,8 @@ defmodule AWS.ECS do
         "efsVolumeConfiguration" => e_f_s_volume_configuration(),
         "fsxWindowsFileServerVolumeConfiguration" => f_sx_windows_file_server_volume_configuration(),
         "host" => host_volume_properties(),
-        "name" => String.t() | atom()
+        "name" => String.t() | atom(),
+        "s3filesVolumeConfiguration" => s3_files_volume_configuration()
       }
       
   """
@@ -4467,6 +4468,20 @@ defmodule AWS.ECS do
       
   """
   @type list_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_files_volume_configuration() :: %{
+        "accessPointArn" => String.t() | atom(),
+        "fileSystemArn" => String.t() | atom(),
+        "rootDirectory" => String.t() | atom(),
+        "transitEncryptionPort" => integer()
+      }
+      
+  """
+  @type s3_files_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -119,6 +119,33 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      mouse_drag_arguments() :: %{
+        "button" => list(any()),
+        "endX" => [integer()],
+        "endY" => [integer()],
+        "startX" => [integer()],
+        "startY" => [integer()]
+      }
+
+  """
+  @type mouse_drag_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_press_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type key_press_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_create_memory_records_input() :: %{
         optional("clientToken") => [String.t() | atom()],
         required("records") => list(memory_record_create_input())
@@ -139,6 +166,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mouse_scroll_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type mouse_scroll_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -251,6 +290,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type invoke_agent_runtime_command_request_body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_browser_request() :: %{
+        required("action") => list(),
+        required("sessionId") => String.t() | atom()
+      }
+
+  """
+  @type invoke_browser_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -430,6 +481,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      mouse_click_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type mouse_click_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_browser_session_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("traceId") => [String.t() | atom()],
@@ -460,6 +523,30 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type stop_runtime_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mouse_drag_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type mouse_drag_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_browser_response() :: %{
+        "result" => list(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type invoke_browser_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -614,6 +701,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      key_shortcut_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type key_shortcut_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       content_start_event() :: %{}
 
   """
@@ -725,6 +824,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      screenshot_arguments() :: %{
+        "format" => list(any())
+      }
+
+  """
+  @type screenshot_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -778,6 +888,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      mouse_move_arguments() :: %{
+        "x" => [integer()],
+        "y" => [integer()]
+      }
+
+  """
+  @type mouse_move_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_event_input() :: %{}
 
   """
@@ -806,6 +928,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type filter_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_type_arguments() :: %{
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type key_type_arguments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -891,6 +1024,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      mouse_move_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type mouse_move_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory_record_summary() :: %{
         "content" => list(),
         "createdAt" => [non_neg_integer()],
@@ -915,6 +1060,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_events_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_type_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type key_type_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1075,6 +1232,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type stop_browser_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_press_arguments() :: %{
+        "key" => [String.t() | atom()],
+        "presses" => [integer()]
+      }
+
+  """
+  @type key_press_arguments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1276,6 +1445,19 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      screenshot_result() :: %{
+        "data" => [binary()],
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type screenshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_events_input() :: %{
         optional("filter") => filter_input(),
         optional("includePayloads") => [boolean()],
@@ -1367,6 +1549,20 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      mouse_click_arguments() :: %{
+        "button" => list(any()),
+        "clickCount" => [integer()],
+        "x" => [integer()],
+        "y" => [integer()]
+      }
+
+  """
+  @type mouse_click_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       secrets_manager_location() :: %{
         "secretArn" => String.t() | atom()
       }
@@ -1439,6 +1635,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      key_shortcut_arguments() :: %{
+        "keys" => list([String.t() | atom()]())
+      }
+
+  """
+  @type key_shortcut_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       complete_resource_token_auth_response() :: %{}
 
   """
@@ -1503,6 +1710,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type browser_extension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mouse_scroll_arguments() :: %{
+        "deltaX" => [integer()],
+        "deltaY" => [integer()],
+        "x" => [integer()],
+        "y" => [integer()]
+      }
+
+  """
+  @type mouse_scroll_arguments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2029,6 +2250,14 @@ defmodule AWS.BedrockAgentCore do
   @type invoke_agent_runtime_command_errors() ::
           runtime_client_error()
           | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type invoke_browser_errors() ::
+          throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -3021,6 +3250,66 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  Invokes an operating system-level action on a browser session in Amazon Bedrock
+  AgentCore.
+
+  This operation provides direct OS-level control over browser sessions, enabling
+  mouse actions, keyboard input, and screenshots that the WebSocket-based Chrome
+  DevTools Protocol (CDP) cannot handle — such as interacting with print dialogs,
+  context menus, and JavaScript alerts.
+
+  You send a request with exactly one action in the `BrowserAction` union, and
+  receive a corresponding result in the `BrowserActionResult` union.
+
+  The following operations are related to `InvokeBrowser`:
+
+    *
+  [StartBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html)     *
+  [GetBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html)
+
+    *
+  [StopBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html)
+  """
+  @spec invoke_browser(map(), String.t() | atom(), invoke_browser_request(), list()) ::
+          {:ok, invoke_browser_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_browser_errors()}
+  def invoke_browser(%Client{} = client, browser_identifier, input, options \\ []) do
+    url_path = "/browsers/#{AWS.Util.encode_uri(browser_identifier)}/sessions/invoke"
+
+    {headers, input} =
+      [
+        {"sessionId", "x-amzn-browser-session-id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amzn-browser-session-id", "sessionId"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Executes code within an active code interpreter session in Amazon Bedrock
   AgentCore.
 
@@ -3355,6 +3644,8 @@ defmodule AWS.BedrockAgentCore do
   We recommend using pagination to ensure that the operation returns quickly and
   successfully.
 
+  Empty sessions are automatically deleted after one day.
+
   To use this operation, you must have the `bedrock-agentcore:ListSessions`
   permission.
   """
@@ -3515,6 +3806,9 @@ defmodule AWS.BedrockAgentCore do
     *
   [SaveBrowserSessionProfile](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_SaveBrowserSessionProfile.html)     *
   [StopBrowserSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html)
+
+    *
+  [InvokeBrowser](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeBrowser.html)
   """
   @spec start_browser_session(map(), String.t() | atom(), start_browser_session_request(), list()) ::
           {:ok, start_browser_session_response(), any()}

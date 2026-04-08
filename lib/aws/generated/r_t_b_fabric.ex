@@ -179,11 +179,13 @@ defmodule AWS.RTBFabric do
 
       accept_link_response() :: %{
         "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "direction" => list(any()),
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
         "peerGatewayId" => String.t() | atom(),
         "pendingFlowModules" => list(module_configuration()),
         "status" => list(any()),
@@ -233,6 +235,7 @@ defmodule AWS.RTBFabric do
 
       get_inbound_external_link_response() :: %{
         "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "domainName" => String.t() | atom(),
         "flowModules" => list(module_configuration()),
@@ -255,6 +258,8 @@ defmodule AWS.RTBFabric do
       create_responder_gateway_request() :: %{
         optional("description") => [String.t() | atom()],
         optional("domainName") => String.t() | atom(),
+        optional("gatewayType") => list(any()),
+        optional("listenerConfig") => listener_config(),
         optional("managedEndpointConfiguration") => list(),
         optional("tags") => map(),
         optional("trustStoreConfiguration") => trust_store_configuration(),
@@ -324,12 +329,14 @@ defmodule AWS.RTBFabric do
 
       create_link_response() :: %{
         "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "customerProvidedId" => [String.t() | atom()],
         "direction" => list(any()),
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
         "peerGatewayId" => String.t() | atom(),
         "pendingFlowModules" => list(module_configuration()),
         "status" => list(any()),
@@ -419,6 +426,7 @@ defmodule AWS.RTBFabric do
         optional("attributes") => link_attributes(),
         optional("httpResponderAllowed") => [boolean()],
         optional("tags") => map(),
+        optional("timeoutInMillis") => float(),
         required("logSettings") => link_log_settings(),
         required("peerGatewayId") => String.t() | atom()
       }
@@ -475,13 +483,16 @@ defmodule AWS.RTBFabric do
 
       list_links_response_structure() :: %{
         "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "direction" => list(any()),
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
         "peerGatewayId" => String.t() | atom(),
         "pendingFlowModules" => list(module_configuration()),
+        "publicEndpoint" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map(),
         "updatedAt" => [non_neg_integer()]
@@ -516,16 +527,19 @@ defmodule AWS.RTBFabric do
 
       get_link_response() :: %{
         "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "direction" => list(any()),
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
+        "httpResponderAllowed" => [boolean()],
         "linkId" => String.t() | atom(),
         "logSettings" => link_log_settings(),
         "peerGatewayId" => String.t() | atom(),
         "pendingFlowModules" => list(module_configuration()),
         "status" => list(any()),
         "tags" => map(),
+        "timeoutInMillis" => float(),
         "updatedAt" => [non_neg_integer()]
       }
 
@@ -549,10 +563,14 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       get_outbound_external_link_response() :: %{
+        "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
+        "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
         "logSettings" => link_log_settings(),
+        "pendingFlowModules" => list(module_configuration()),
         "publicEndpoint" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map(),
@@ -583,8 +601,11 @@ defmodule AWS.RTBFabric do
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
         "domainName" => String.t() | atom(),
+        "externalInboundEndpoint" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
+        "gatewayType" => list(any()),
         "inboundLinksCount" => [integer()],
+        "listenerConfig" => listener_config(),
         "managedEndpointConfiguration" => list(),
         "port" => [integer()],
         "protocol" => list(any()),
@@ -723,6 +744,7 @@ defmodule AWS.RTBFabric do
       update_responder_gateway_request() :: %{
         optional("description") => [String.t() | atom()],
         optional("domainName") => String.t() | atom(),
+        optional("listenerConfig") => listener_config(),
         optional("managedEndpointConfiguration") => list(),
         optional("trustStoreConfiguration") => trust_store_configuration(),
         required("clientToken") => [String.t() | atom()],
@@ -798,11 +820,13 @@ defmodule AWS.RTBFabric do
 
       reject_link_response() :: %{
         "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "direction" => list(any()),
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
         "peerGatewayId" => String.t() | atom(),
         "pendingFlowModules" => list(module_configuration()),
         "status" => list(any()),
@@ -973,12 +997,25 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       create_responder_gateway_response() :: %{
+        "externalInboundEndpoint" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
+        "listenerConfig" => listener_config(),
         "status" => list(any())
       }
 
   """
   @type create_responder_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listener_config() :: %{
+        "protocols" => list(list(any())())
+      }
+
+  """
+  @type listener_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -995,6 +1032,7 @@ defmodule AWS.RTBFabric do
 
       accept_link_request() :: %{
         optional("attributes") => link_attributes(),
+        optional("timeoutInMillis") => float(),
         required("logSettings") => link_log_settings()
       }
 
@@ -1018,7 +1056,8 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       update_link_request() :: %{
-        optional("logSettings") => link_log_settings()
+        optional("logSettings") => link_log_settings(),
+        optional("timeoutInMillis") => float()
       }
 
   """

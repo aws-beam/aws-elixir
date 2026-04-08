@@ -300,6 +300,7 @@ defmodule AWS.EKS do
         optional("taints") => list(taint()),
         optional("updateConfig") => nodegroup_update_config(),
         optional("version") => String.t() | atom(),
+        optional("warmPoolConfig") => warm_pool_config(),
         required("nodeRole") => String.t() | atom(),
         required("nodegroupName") => String.t() | atom(),
         required("subnets") => list(String.t() | atom())
@@ -380,7 +381,8 @@ defmodule AWS.EKS do
         optional("nodeRepairConfig") => node_repair_config(),
         optional("scalingConfig") => nodegroup_scaling_config(),
         optional("taints") => update_taints_payload(),
-        optional("updateConfig") => nodegroup_update_config()
+        optional("updateConfig") => nodegroup_update_config(),
+        optional("warmPoolConfig") => warm_pool_config()
       }
 
   """
@@ -687,7 +689,8 @@ defmodule AWS.EKS do
         "tags" => map(),
         "taints" => list(taint()),
         "updateConfig" => nodegroup_update_config(),
-        "version" => String.t() | atom()
+        "version" => String.t() | atom(),
+        "warmPoolConfig" => warm_pool_config()
       }
 
   """
@@ -3197,6 +3200,21 @@ defmodule AWS.EKS do
 
   """
   @type describe_eks_anywhere_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      warm_pool_config() :: %{
+        "enabled" => boolean(),
+        "maxGroupPreparedCapacity" => integer(),
+        "minSize" => integer(),
+        "poolState" => list(any()),
+        "reuseOnScaleIn" => boolean()
+      }
+
+  """
+  @type warm_pool_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

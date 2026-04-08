@@ -3242,6 +3242,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_manager_monitored_tag_key() :: %{
+        "CapacityManagerProvided" => boolean(),
+        "EarliestDatapointTimestamp" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "TagKey" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_manager_monitored_tag_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_ipam_byoasn_request() :: %{
         optional("DryRun") => boolean(),
         required("Asn") => String.t() | atom(),
@@ -10678,6 +10693,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_capacity_manager_monitored_tag_keys_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_capacity_manager_monitored_tag_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_security_group_rules_result() :: %{
         "NextToken" => String.t() | atom(),
         "SecurityGroupRules" => list(security_group_rule())
@@ -16317,6 +16345,17 @@ defmodule AWS.EC2 do
       
   """
   @type create_vpn_connection_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_capacity_manager_monitored_tag_keys_result() :: %{
+        "CapacityManagerTagKeys" => list(capacity_manager_monitored_tag_key())
+      }
+      
+  """
+  @type update_capacity_manager_monitored_tag_keys_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -25020,6 +25059,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_manager_tag_dimension() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_manager_tag_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       blob_attribute_value() :: %{
         optional("Value") => binary()
       }
@@ -29124,6 +29175,7 @@ defmodule AWS.EC2 do
       
       capacity_manager_dimension() :: %{
         "AccountId" => String.t() | atom(),
+        "AccountName" => String.t() | atom(),
         "AvailabilityZoneId" => String.t() | atom(),
         "InstanceFamily" => String.t() | atom(),
         "InstancePlatform" => String.t() | atom(),
@@ -29139,6 +29191,7 @@ defmodule AWS.EC2 do
         "ReservationType" => list(any()),
         "ReservationUnusedFinancialOwner" => String.t() | atom(),
         "ResourceRegion" => String.t() | atom(),
+        "Tags" => list(capacity_manager_tag_dimension()),
         "Tenancy" => list(any())
       }
       
@@ -29375,6 +29428,18 @@ defmodule AWS.EC2 do
       
   """
   @type release_hosts_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capacity_manager_monitored_tag_keys_result() :: %{
+        "CapacityManagerTagKeys" => list(capacity_manager_monitored_tag_key()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_capacity_manager_monitored_tag_keys_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30271,6 +30336,20 @@ defmodule AWS.EC2 do
       
   """
   @type bundle_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_capacity_manager_monitored_tag_keys_request() :: %{
+        optional("ActivateTagKeys") => list(String.t() | atom()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("DeactivateTagKeys") => list(String.t() | atom()),
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type update_capacity_manager_monitored_tag_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -45602,6 +45681,28 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+
+  Retrieves the tag keys that are currently being monitored by EC2 Capacity
+  Manager.
+
+  Monitored tag keys are included as dimensions in capacity metric data, enabling
+  you to group and filter metrics by tag values.
+  """
+  @spec get_capacity_manager_monitored_tag_keys(
+          map(),
+          get_capacity_manager_monitored_tag_keys_request(),
+          list()
+        ) ::
+          {:ok, get_capacity_manager_monitored_tag_keys_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_capacity_manager_monitored_tag_keys(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCapacityManagerMonitoredTagKeys", input, options)
+  end
+
+  @doc """
   Gets usage information about a Capacity Reservation.
 
   If the Capacity Reservation is
@@ -51050,6 +51151,27 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "UnmonitorInstances", input, options)
+  end
+
+  @doc """
+
+  Activates or deactivates tag keys for monitoring by EC2 Capacity Manager.
+
+  Activated tag keys are included as dimensions in capacity metric data, enabling
+  you to group and filter metrics by tag values.
+  """
+  @spec update_capacity_manager_monitored_tag_keys(
+          map(),
+          update_capacity_manager_monitored_tag_keys_request(),
+          list()
+        ) ::
+          {:ok, update_capacity_manager_monitored_tag_keys_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def update_capacity_manager_monitored_tag_keys(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCapacityManagerMonitoredTagKeys", input, options)
   end
 
   @doc """

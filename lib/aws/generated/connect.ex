@@ -6115,7 +6115,8 @@ defmodule AWS.Connect do
         "HierarchyGroups" => hierarchy_groups(),
         "Id" => String.t() | atom(),
         "PreviewEndTimestamp" => non_neg_integer(),
-        "StateTransitions" => list(state_transition())
+        "StateTransitions" => list(state_transition()),
+        "VoiceEnhancementMode" => list(any())
       }
 
   """

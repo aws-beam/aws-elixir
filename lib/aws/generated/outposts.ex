@@ -107,6 +107,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_assets_input() :: %{
+        optional("AssetTypeFilter") => list(list(any())()),
         optional("HostIdFilter") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -2160,6 +2161,7 @@ defmodule AWS.Outposts do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_assets_output(), any()}
@@ -2169,6 +2171,7 @@ defmodule AWS.Outposts do
   def list_assets(
         %Client{} = client,
         outpost_identifier,
+        asset_type_filter \\ nil,
         host_id_filter \\ nil,
         max_results \\ nil,
         next_token \\ nil,
@@ -2203,6 +2206,13 @@ defmodule AWS.Outposts do
     query_params =
       if !is_nil(host_id_filter) do
         [{"HostIdFilter", host_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_type_filter) do
+        [{"AssetTypeFilter", asset_type_filter} | query_params]
       else
         query_params
       end

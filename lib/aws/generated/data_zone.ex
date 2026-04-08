@@ -559,6 +559,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       s3_properties_patch() :: %{
+        "registerS3AccessGrantLocation" => [boolean()],
         "s3AccessGrantLocationId" => String.t() | atom(),
         "s3Uri" => String.t() | atom()
       }
@@ -1860,6 +1861,7 @@ defmodule AWS.DataZone do
 
       update_connection_input() :: %{
         optional("awsLocation") => aws_location(),
+        optional("configurations") => list(configuration()),
         optional("description") => String.t() | atom(),
         optional("props") => list()
       }
@@ -2156,6 +2158,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_connection_output() :: %{
+        "configurations" => list(configuration()),
         "connectionId" => String.t() | atom(),
         "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
@@ -2225,6 +2228,18 @@ defmodule AWS.DataZone do
 
   """
   @type list_policy_grants_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration() :: %{
+        "classification" => [String.t() | atom()],
+        "properties" => map()
+      }
+
+  """
+  @type configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4071,6 +4086,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       get_connection_output() :: %{
+        "configurations" => list(configuration()),
         "connectionCredentials" => connection_credentials(),
         "connectionId" => String.t() | atom(),
         "description" => String.t() | atom(),
@@ -4796,6 +4812,7 @@ defmodule AWS.DataZone do
 
       s3_properties_output() :: %{
         "errorMessage" => [String.t() | atom()],
+        "registerS3AccessGrantLocation" => [boolean()],
         "s3AccessGrantLocationId" => String.t() | atom(),
         "s3Uri" => String.t() | atom(),
         "status" => list(any())
@@ -4853,6 +4870,7 @@ defmodule AWS.DataZone do
       spark_glue_properties_input() :: %{
         "additionalArgs" => spark_glue_args(),
         "glueConnectionName" => [String.t() | atom()],
+        "glueConnectionNames" => list(String.t() | atom()),
         "glueVersion" => [String.t() | atom()],
         "idleTimeout" => [integer()],
         "javaVirtualEnv" => [String.t() | atom()],
@@ -6618,6 +6636,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       connection_summary() :: %{
+        "configurations" => list(configuration()),
         "connectionId" => String.t() | atom(),
         "domainId" => String.t() | atom(),
         "domainUnitId" => String.t() | atom(),
@@ -6866,6 +6885,7 @@ defmodule AWS.DataZone do
       spark_glue_properties_output() :: %{
         "additionalArgs" => spark_glue_args(),
         "glueConnectionName" => [String.t() | atom()],
+        "glueConnectionNames" => list(String.t() | atom()),
         "glueVersion" => [String.t() | atom()],
         "idleTimeout" => [integer()],
         "javaVirtualEnv" => [String.t() | atom()],
@@ -7519,6 +7539,7 @@ defmodule AWS.DataZone do
         "enableTrustedIdentityPropagation" => [boolean()],
         "glueConnection" => glue_connection(),
         "glueConnectionName" => [String.t() | atom()],
+        "glueConnectionNames" => list(String.t() | atom()),
         "host" => [String.t() | atom()],
         "port" => [integer()],
         "protocol" => list(any()),
@@ -7934,6 +7955,7 @@ defmodule AWS.DataZone do
       create_connection_input() :: %{
         optional("awsLocation") => aws_location(),
         optional("clientToken") => [String.t() | atom()],
+        optional("configurations") => list(configuration()),
         optional("description") => String.t() | atom(),
         optional("enableTrustedIdentityPropagation") => [boolean()],
         optional("environmentIdentifier") => String.t() | atom(),
@@ -8524,6 +8546,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_connection_output() :: %{
+        "configurations" => list(configuration()),
         "connectionId" => String.t() | atom(),
         "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
@@ -8660,6 +8683,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       s3_properties_input() :: %{
+        "registerS3AccessGrantLocation" => [boolean()],
         "s3AccessGrantLocationId" => String.t() | atom(),
         "s3Uri" => String.t() | atom()
       }

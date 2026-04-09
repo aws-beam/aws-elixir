@@ -147,6 +147,8 @@ defmodule AWS.IVSRealTime do
         "ingestProtocol" => list(any()),
         "name" => String.t() | atom(),
         "participantId" => String.t() | atom(),
+        "redundantIngest" => boolean(),
+        "redundantIngestCredentials" => list(redundant_ingest_credential()),
         "stageArn" => String.t() | atom(),
         "state" => String.t() | atom(),
         "streamKey" => String.t() | atom(),
@@ -269,6 +271,7 @@ defmodule AWS.IVSRealTime do
         "browserName" => String.t() | atom(),
         "browserVersion" => String.t() | atom(),
         "firstJoinTime" => non_neg_integer(),
+        "ingestConfigurationArn" => String.t() | atom(),
         "ispName" => String.t() | atom(),
         "osName" => String.t() | atom(),
         "osVersion" => String.t() | atom(),
@@ -278,6 +281,7 @@ defmodule AWS.IVSRealTime do
         "recordingS3BucketName" => String.t() | atom(),
         "recordingS3Prefix" => String.t() | atom(),
         "recordingState" => String.t() | atom(),
+        "redundantIngest" => boolean(),
         "replicationState" => String.t() | atom(),
         "replicationType" => String.t() | atom(),
         "sdkVersion" => String.t() | atom(),
@@ -347,6 +351,7 @@ defmodule AWS.IVSRealTime do
         optional("attributes") => map(),
         optional("insecureIngest") => boolean(),
         optional("name") => String.t() | atom(),
+        optional("redundantIngest") => boolean(),
         optional("stageArn") => String.t() | atom(),
         optional("tags") => map(),
         optional("userId") => String.t() | atom(),
@@ -463,9 +468,11 @@ defmodule AWS.IVSRealTime do
 
       participant_summary() :: %{
         "firstJoinTime" => non_neg_integer(),
+        "ingestConfigurationArn" => String.t() | atom(),
         "participantId" => String.t() | atom(),
         "published" => boolean(),
         "recordingState" => String.t() | atom(),
+        "redundantIngest" => boolean(),
         "replicationState" => String.t() | atom(),
         "replicationType" => String.t() | atom(),
         "sourceSessionId" => String.t() | atom(),
@@ -579,6 +586,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       update_ingest_configuration_request() :: %{
+        optional("redundantIngest") => boolean(),
         optional("stageArn") => String.t() | atom(),
         required("arn") => String.t() | atom()
       }
@@ -1227,6 +1235,7 @@ defmodule AWS.IVSRealTime do
         "ingestProtocol" => list(any()),
         "name" => String.t() | atom(),
         "participantId" => String.t() | atom(),
+        "redundantIngest" => boolean(),
         "stageArn" => String.t() | atom(),
         "state" => String.t() | atom(),
         "userId" => String.t() | atom()
@@ -1649,6 +1658,18 @@ defmodule AWS.IVSRealTime do
 
   """
   @type delete_storage_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redundant_ingest_credential() :: %{
+        "participantId" => String.t() | atom(),
+        "streamKey" => String.t() | atom()
+      }
+
+  """
+  @type redundant_ingest_credential() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

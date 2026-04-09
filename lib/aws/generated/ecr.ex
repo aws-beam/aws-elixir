@@ -874,6 +874,17 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      unable_to_list_upstream_image_referrers_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unable_to_list_upstream_image_referrers_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_account_setting_request() :: %{
         required("name") => String.t() | atom(),
         required("value") => String.t() | atom()
@@ -3010,6 +3021,7 @@ defmodule AWS.ECR do
           | server_exception()
           | validation_exception()
           | invalid_parameter_exception()
+          | unable_to_list_upstream_image_referrers_exception()
 
   @type list_images_errors() ::
           repository_not_found_exception() | server_exception() | invalid_parameter_exception()

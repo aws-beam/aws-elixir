@@ -94,6 +94,21 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      create_renewal_output() :: %{
+        "MonthlyRecurringPrice" => float(),
+        "OutpostId" => String.t() | atom(),
+        "PaymentOption" => list(any()),
+        "PaymentTerm" => list(any()),
+        "UpfrontPrice" => float()
+      }
+
+  """
+  @type create_renewal_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_connection_response() :: %{
         "ConnectionId" => String.t() | atom(),
         "UnderlayIpAddress" => String.t() | atom()
@@ -190,6 +205,20 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      create_renewal_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("OutpostIdentifier") => String.t() | atom(),
+        required("PaymentOption") => list(any()),
+        required("PaymentTerm") => list(any())
+      }
+
+  """
+  @type create_renewal_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_outpost_supported_instance_types_output() :: %{
         "InstanceTypes" => list(instance_type_item()),
         "NextToken" => String.t() | atom()
@@ -209,6 +238,18 @@ defmodule AWS.Outposts do
 
   """
   @type line_item_asset_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pricing_option() :: %{
+        "PricingType" => list(any()),
+        "SubscriptionPricingDetails" => subscription_pricing_details()
+      }
+
+  """
+  @type pricing_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -358,6 +399,20 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      subscription_pricing_details() :: %{
+        "MonthlyRecurringPrice" => float(),
+        "PaymentOption" => list(any()),
+        "PaymentTerm" => list(any()),
+        "UpfrontPrice" => float()
+      }
+
+  """
+  @type subscription_pricing_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rack_physical_properties() :: %{
         "FiberOpticCableType" => list(any()),
         "MaximumSupportedWeightLbs" => list(any()),
@@ -380,6 +435,8 @@ defmodule AWS.Outposts do
       get_outpost_billing_information_output() :: %{
         "ContractEndDate" => String.t() | atom(),
         "NextToken" => String.t() | atom(),
+        "PaymentOption" => list(any()),
+        "PaymentTerm" => list(any()),
         "Subscriptions" => list(subscription())
       }
 
@@ -474,6 +531,18 @@ defmodule AWS.Outposts do
 
   """
   @type start_outpost_decommission_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_renewal_pricing_output() :: %{
+        "PricingOptions" => list(pricing_option()),
+        "PricingResult" => list(any())
+      }
+
+  """
+  @type get_renewal_pricing_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,6 +711,15 @@ defmodule AWS.Outposts do
 
   """
   @type start_outpost_decommission_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_renewal_pricing_input() :: %{}
+
+  """
+  @type get_renewal_pricing_input() :: %{}
 
   @typedoc """
 
@@ -1350,6 +1428,12 @@ defmodule AWS.Outposts do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_renewal_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
   @type create_site_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1408,6 +1492,12 @@ defmodule AWS.Outposts do
           | not_found_exception()
 
   @type get_outpost_supported_instance_types_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
+  @type get_renewal_pricing_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -1653,6 +1743,35 @@ defmodule AWS.Outposts do
           | {:error, create_outpost_errors()}
   def create_outpost(%Client{} = client, input, options \\ []) do
     url_path = "/outposts"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a renewal contract for the specified Outpost.
+  """
+  @spec create_renewal(map(), create_renewal_input(), list()) ::
+          {:ok, create_renewal_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_renewal_errors()}
+  def create_renewal(%Client{} = client, input, options \\ []) do
+    url_path = "/renewals"
     headers = []
     custom_headers = []
     query_params = []
@@ -2013,6 +2132,24 @@ defmodule AWS.Outposts do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets all available renewal pricing options for the specified Outpost.
+  """
+  @spec get_renewal_pricing(map(), String.t() | atom(), list()) ::
+          {:ok, get_renewal_pricing_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_renewal_pricing_errors()}
+  def get_renewal_pricing(%Client{} = client, outpost_identifier, options \\ []) do
+    url_path = "/outpost/#{AWS.Util.encode_uri(outpost_identifier)}/renewal-pricing"
+    headers = []
+    query_params = []
 
     meta = metadata()
 

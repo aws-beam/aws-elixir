@@ -425,6 +425,7 @@ defmodule AWS.MediaLive do
       output_destination() :: %{
         "Id" => String.t() | atom(),
         "LogicalInterfaceNames" => list(String.t() | atom()),
+        "MediaConnectRouterSettings" => list(media_connect_router_output_destination_settings()),
         "MediaPackageSettings" => list(media_package_output_destination_settings()),
         "MultiplexSettings" => multiplex_program_channel_destination_settings(),
         "Settings" => list(output_destination_settings()),
@@ -788,6 +789,17 @@ defmodule AWS.MediaLive do
 
   """
   @type describe_channel_placement_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_router_group_settings() :: %{
+        "AvailabilityZones" => list(String.t() | atom())
+      }
+
+  """
+  @type media_connect_router_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2657,6 +2669,7 @@ defmodule AWS.MediaLive do
         "CmafIngestGroupSettings" => cmaf_ingest_group_settings(),
         "FrameCaptureGroupSettings" => frame_capture_group_settings(),
         "HlsGroupSettings" => hls_group_settings(),
+        "MediaConnectRouterGroupSettings" => media_connect_router_group_settings(),
         "MediaPackageGroupSettings" => media_package_group_settings(),
         "MsSmoothGroupSettings" => ms_smooth_group_settings(),
         "MultiplexGroupSettings" => multiplex_group_settings(),
@@ -4398,6 +4411,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      media_connect_router_container_settings() :: %{
+        "M2tsSettings" => m2ts_settings()
+      }
+
+  """
+  @type media_connect_router_container_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multicast_source() :: %{
         "SourceIp" => String.t() | atom(),
         "Url" => String.t() | atom()
@@ -4766,6 +4790,7 @@ defmodule AWS.MediaLive do
         "CmafIngestOutputSettings" => cmaf_ingest_output_settings(),
         "FrameCaptureOutputSettings" => frame_capture_output_settings(),
         "HlsOutputSettings" => hls_output_settings(),
+        "MediaConnectRouterOutputSettings" => media_connect_router_output_settings(),
         "MediaPackageOutputSettings" => media_package_output_settings(),
         "MsSmoothOutputSettings" => ms_smooth_output_settings(),
         "MultiplexOutputSettings" => multiplex_output_settings(),
@@ -4796,7 +4821,8 @@ defmodule AWS.MediaLive do
         optional("LogLevel") => list(any()),
         optional("Maintenance") => maintenance_update_settings(),
         optional("Name") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom()
+        optional("RoleArn") => String.t() | atom(),
+        optional("SpecialRouterSettings") => special_router_settings()
       }
 
   """
@@ -6570,12 +6596,37 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      media_connect_router_output_destination_settings() :: %{
+        "EncryptionType" => list(any()),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type media_connect_router_output_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pipeline_pause_state_settings() :: %{
         "PipelineId" => list(any())
       }
 
   """
   @type pipeline_pause_state_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_router_output_settings() :: %{
+        "ConnectedRouterInputs" => media_connect_router_output_connection_map(),
+        "ContainerSettings" => media_connect_router_container_settings(),
+        "Destination" => output_location_ref()
+      }
+
+  """
+  @type media_connect_router_output_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7442,6 +7493,18 @@ defmodule AWS.MediaLive do
 
   """
   @type list_multiplex_alerts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_router_output_connection_map() :: %{
+        "Pipeline0" => String.t() | atom(),
+        "Pipeline1" => String.t() | atom()
+      }
+
+  """
+  @type media_connect_router_output_connection_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

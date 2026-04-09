@@ -28,6 +28,7 @@ defmodule AWS.Drs do
 
       update_failback_replication_configuration_request() :: %{
         optional("bandwidthThrottling") => float(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("usePrivateIP") => [boolean()],
         required("recoveryInstanceID") => String.t() | atom()
@@ -221,6 +222,7 @@ defmodule AWS.Drs do
         optional("defaultLargeStagingDiskType") => String.t() | atom(),
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("pitPolicy") => list(p_i_t_policy_rule()),
         optional("replicationServerInstanceType") => String.t() | atom(),
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
@@ -278,6 +280,7 @@ defmodule AWS.Drs do
         optional("defaultLargeStagingDiskType") => String.t() | atom(),
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("pitPolicy") => list(p_i_t_policy_rule()),
         optional("replicationServerInstanceType") => String.t() | atom(),
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
@@ -402,21 +405,22 @@ defmodule AWS.Drs do
   ## Example:
 
       create_replication_configuration_template_request() :: %{
+        optional("associateDefaultSecurityGroup") => [boolean()],
         optional("autoReplicateNewDisks") => [boolean()],
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t() | atom(),
+        optional("defaultLargeStagingDiskType") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("replicationServerInstanceType") => String.t() | atom(),
         optional("tags") => map(),
-        required("associateDefaultSecurityGroup") => [boolean()],
+        optional("useDedicatedReplicationServer") => [boolean()],
         required("bandwidthThrottling") => float(),
-        required("createPublicIP") => [boolean()],
-        required("dataPlaneRouting") => String.t() | atom(),
-        required("defaultLargeStagingDiskType") => String.t() | atom(),
         required("ebsEncryption") => String.t() | atom(),
         required("pitPolicy") => list(p_i_t_policy_rule()),
-        required("replicationServerInstanceType") => String.t() | atom(),
         required("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         required("stagingAreaSubnetId") => String.t() | atom(),
-        required("stagingAreaTags") => map(),
-        required("useDedicatedReplicationServer") => [boolean()]
+        required("stagingAreaTags") => map()
       }
 
   """
@@ -791,6 +795,7 @@ defmodule AWS.Drs do
         optional("defaultLargeStagingDiskType") => String.t() | atom(),
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("pitPolicy") => list(p_i_t_policy_rule()),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
@@ -1499,6 +1504,7 @@ defmodule AWS.Drs do
 
       get_failback_replication_configuration_response() :: %{
         optional("bandwidthThrottling") => float(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("usePrivateIP") => [boolean()],
         required("recoveryInstanceID") => String.t() | atom()
@@ -1706,9 +1712,11 @@ defmodule AWS.Drs do
   ## Example:
 
       job_log_event_data() :: %{
+        "attemptCount" => float(),
         "conversionProperties" => conversion_properties(),
         "conversionServerID" => String.t() | atom(),
         "eventResourceData" => list(),
+        "maxAttemptsCount" => float(),
         "rawError" => String.t() | atom(),
         "sourceServerID" => String.t() | atom(),
         "targetInstanceID" => String.t() | atom()
@@ -1790,6 +1798,7 @@ defmodule AWS.Drs do
         optional("defaultLargeStagingDiskType") => String.t() | atom(),
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("pitPolicy") => list(p_i_t_policy_rule()),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
@@ -3325,12 +3334,11 @@ defmodule AWS.Drs do
 
   @doc """
   Returns a list of source servers on a staging account that are extensible, which
-  means that:
-  a.
+  means that: a.
 
-  The source server is not already extended into this Account.
-  b. The source server on the Account we’re reading from is not an extension of
-  another source server.
+  The source server is not already extended into this Account. b. The source
+  server on the Account we’re reading from is not an extension of another source
+  server.
   """
   @spec list_extensible_source_servers(map(), list_extensible_source_servers_request(), list()) ::
           {:ok, list_extensible_source_servers_response(), any()}
@@ -3510,9 +3518,8 @@ defmodule AWS.Drs do
   instances that originated in EC2.
 
   For recovery instances on target region - starts replication back to origin
-  region.
-  For failback instances on origin region - starts replication to target region to
-  re-protect them.
+  region. For failback instances on origin region - starts replication to target
+  region to re-protect them.
   """
   @spec reverse_replication(map(), reverse_replication_request(), list()) ::
           {:ok, reverse_replication_response(), any()}

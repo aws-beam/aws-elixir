@@ -60,9 +60,9 @@ defmodule AWS.BCMDashboards do
       
       update_dashboard_request() :: %{
         optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
         optional("widgets") => list(widget()),
-        required("arn") => String.t() | atom()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
@@ -79,6 +79,19 @@ defmodule AWS.BCMDashboards do
       
   """
   @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_scheduled_report_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("resourceTags") => list(resource_tag()),
+        required("scheduledReport") => scheduled_report_input()
+      }
+      
+  """
+  @type create_scheduled_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -146,6 +159,40 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
+      schedule_period() :: %{
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer()
+      }
+      
+  """
+  @type schedule_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_report() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dashboardArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "healthStatus" => health_status(),
+        "lastExecutionAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "scheduleConfig" => schedule_config(),
+        "scheduledReportExecutionRoleArn" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "widgetDateRangeOverride" => date_time_range(),
+        "widgetIds" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type scheduled_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("resourceArn") => String.t() | atom(),
         required("resourceTagKeys") => list(String.t() | atom())
@@ -183,10 +230,52 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
+      update_scheduled_report_request() :: %{
+        optional("clearWidgetDateRangeOverride") => [boolean()],
+        optional("clearWidgetIds") => [boolean()],
+        optional("dashboardArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("scheduleConfig") => schedule_config(),
+        optional("scheduledReportExecutionRoleArn") => String.t() | atom(),
+        optional("widgetDateRangeOverride") => date_time_range(),
+        optional("widgetIds") => list([String.t() | atom()]()),
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type update_scheduled_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_report_response() :: %{
+        "scheduledReport" => scheduled_report()
+      }
+      
+  """
+  @type get_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       table_display_config_struct() :: %{}
       
   """
   @type table_display_config_struct() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -222,6 +311,23 @@ defmodule AWS.BCMDashboards do
       
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_report_input() :: %{
+        "dashboardArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "scheduleConfig" => schedule_config(),
+        "scheduledReportExecutionRoleArn" => String.t() | atom(),
+        "widgetDateRangeOverride" => date_time_range(),
+        "widgetIds" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type scheduled_report_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -330,12 +436,52 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
+      health_status() :: %{
+        "lastRefreshedAt" => non_neg_integer(),
+        "statusCode" => list(any()),
+        "statusReasons" => list(list(any())())
+      }
+      
+  """
+  @type health_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_dashboard_request() :: %{
         required("arn") => String.t() | atom()
       }
       
   """
   @type delete_dashboard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_scheduled_report_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("dryRun") => [boolean()],
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type execute_scheduled_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule_config() :: %{
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleExpressionTimeZone" => String.t() | atom(),
+        "schedulePeriod" => schedule_period(),
+        "state" => list(any())
+      }
+      
+  """
+  @type schedule_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -399,6 +545,17 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
+      update_scheduled_report_response() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type update_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -414,6 +571,29 @@ defmodule AWS.BCMDashboards do
       
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_report_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_scheduled_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_reports_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "scheduledReports" => list(scheduled_report_summary())
+      }
+      
+  """
+  @type list_scheduled_reports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,6 +662,41 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
+      execute_scheduled_report_response() :: %{
+        "executionTriggered" => [boolean()],
+        "healthStatus" => health_status()
+      }
+      
+  """
+  @type execute_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scheduled_report_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type get_scheduled_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scheduled_reports_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_scheduled_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reservation_coverage_query() :: %{
         "filter" => expression(),
         "granularity" => list(any()),
@@ -514,6 +729,28 @@ defmodule AWS.BCMDashboards do
 
   ## Example:
       
+      create_scheduled_report_response() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type create_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scheduled_report_response() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_scheduled_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_dashboards_response() :: %{
         "dashboards" => list(dashboard_reference()),
         "nextToken" => String.t() | atom()
@@ -521,6 +758,24 @@ defmodule AWS.BCMDashboards do
       
   """
   @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_report_summary() :: %{
+        "arn" => String.t() | atom(),
+        "dashboardArn" => String.t() | atom(),
+        "healthStatus" => health_status(),
+        "name" => String.t() | atom(),
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleExpressionTimeZone" => String.t() | atom(),
+        "state" => list(any()),
+        "widgetIds" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type scheduled_report_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -544,11 +799,34 @@ defmodule AWS.BCMDashboards do
           | internal_server_exception()
           | service_quota_exceeded_exception()
 
+  @type create_scheduled_report_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type delete_dashboard_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type delete_scheduled_report_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type execute_scheduled_report_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_dashboard_errors() ::
           throttling_exception()
@@ -564,7 +842,20 @@ defmodule AWS.BCMDashboards do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_scheduled_report_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_dashboards_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_scheduled_reports_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -594,6 +885,14 @@ defmodule AWS.BCMDashboards do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type update_scheduled_report_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -630,6 +929,24 @@ defmodule AWS.BCMDashboards do
   end
 
   @doc """
+  Creates a new scheduled report for a dashboard.
+
+  A scheduled report automatically generates and delivers dashboard snapshots on a
+  recurring schedule. Reports are delivered within 15 minutes of the scheduled
+  delivery time.
+  """
+  @spec create_scheduled_report(map(), create_scheduled_report_request(), list()) ::
+          {:ok, create_scheduled_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_scheduled_report_errors()}
+  def create_scheduled_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateScheduledReport", input, options)
+  end
+
+  @doc """
   Deletes a specified dashboard.
 
   This action cannot be undone.
@@ -643,6 +960,44 @@ defmodule AWS.BCMDashboards do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteDashboard", input, options)
+  end
+
+  @doc """
+  Deletes a specified scheduled report.
+
+  This is an irreversible operation.
+  """
+  @spec delete_scheduled_report(map(), delete_scheduled_report_request(), list()) ::
+          {:ok, delete_scheduled_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_scheduled_report_errors()}
+  def delete_scheduled_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteScheduledReport", input, options)
+  end
+
+  @doc """
+  Triggers an immediate execution of a scheduled report, outside of its regular
+  schedule.
+
+  The scheduled report must be in `ENABLED` state. Calling this operation on a
+  `DISABLED` scheduled report returns a `ValidationException`.
+
+  If a `clientToken` is provided, the service uses it for idempotency. Requests
+  with the same client token will not trigger a new execution within the same
+  minute.
+  """
+  @spec execute_scheduled_report(map(), execute_scheduled_report_request(), list()) ::
+          {:ok, execute_scheduled_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, execute_scheduled_report_errors()}
+  def execute_scheduled_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteScheduledReport", input, options)
   end
 
   @doc """
@@ -676,6 +1031,20 @@ defmodule AWS.BCMDashboards do
   end
 
   @doc """
+  Retrieves the configuration and metadata of a specified scheduled report.
+  """
+  @spec get_scheduled_report(map(), get_scheduled_report_request(), list()) ::
+          {:ok, get_scheduled_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_scheduled_report_errors()}
+  def get_scheduled_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetScheduledReport", input, options)
+  end
+
+  @doc """
   Returns a list of all dashboards in your account.
   """
   @spec list_dashboards(map(), list_dashboards_request(), list()) ::
@@ -687,6 +1056,20 @@ defmodule AWS.BCMDashboards do
     meta = metadata()
 
     Request.request_post(client, meta, "ListDashboards", input, options)
+  end
+
+  @doc """
+  Returns a list of scheduled reports in your account.
+  """
+  @spec list_scheduled_reports(map(), list_scheduled_reports_request(), list()) ::
+          {:ok, list_scheduled_reports_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_scheduled_reports_errors()}
+  def list_scheduled_reports(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListScheduledReports", input, options)
   end
 
   @doc """
@@ -744,5 +1127,23 @@ defmodule AWS.BCMDashboards do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateDashboard", input, options)
+  end
+
+  @doc """
+  Updates an existing scheduled report's properties, including its name,
+  description, schedule configuration, and widget settings.
+
+  Only the parameters included in the request are updated; all other properties
+  remain unchanged.
+  """
+  @spec update_scheduled_report(map(), update_scheduled_report_request(), list()) ::
+          {:ok, update_scheduled_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_scheduled_report_errors()}
+  def update_scheduled_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateScheduledReport", input, options)
   end
 end

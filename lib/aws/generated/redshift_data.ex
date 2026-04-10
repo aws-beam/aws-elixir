@@ -221,6 +221,7 @@ defmodule AWS.RedshiftData do
         optional("ClusterIdentifier") => String.t() | atom(),
         optional("Database") => String.t() | atom(),
         optional("DbUser") => String.t() | atom(),
+        optional("Parameters") => list(sql_parameter()),
         optional("ResultFormat") => String.t() | atom(),
         optional("SecretArn") => String.t() | atom(),
         optional("SessionId") => String.t() | atom(),

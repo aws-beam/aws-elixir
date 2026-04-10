@@ -119,6 +119,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      a2a_descriptor() :: %{
+        "agentCard" => agent_card_definition()
+      }
+
+  """
+  @type a2a_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       mouse_drag_arguments() :: %{
         "button" => list(any()),
         "endX" => [integer()],
@@ -278,6 +289,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_browser_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_descriptor() :: %{
+        "inlineContent" => String.t() | atom()
+      }
+
+  """
+  @type custom_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -933,12 +955,44 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      registry_record_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "descriptorType" => list(any()),
+        "descriptors" => descriptors(),
+        "name" => String.t() | atom(),
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type registry_record_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       key_type_arguments() :: %{
         "text" => [String.t() | atom()]
       }
 
   """
   @type key_type_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_registry_records_response() :: %{
+        "registryRecords" => list(registry_record_summary())
+      }
+
+  """
+  @type search_registry_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1300,6 +1354,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      tools_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "protocolVersion" => String.t() | atom()
+      }
+
+  """
+  @type tools_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       save_browser_session_profile_response() :: %{
         "browserIdentifier" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
@@ -1358,6 +1424,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      server_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type server_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_workload_access_token_for_user_id_request() :: %{
         required("userId") => String.t() | atom(),
         required("workloadName") => String.t() | atom()
@@ -1365,6 +1443,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_workload_access_token_for_user_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mcp_descriptor() :: %{
+        "server" => server_definition(),
+        "tools" => tools_definition()
+      }
+
+  """
+  @type mcp_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1387,6 +1477,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_memory_record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_registry_records_request() :: %{
+        optional("filters") => any(),
+        optional("maxResults") => [integer()],
+        required("registryIds") => list(String.t() | atom()),
+        required("searchQuery") => [String.t() | atom()]
+      }
+
+  """
+  @type search_registry_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1467,6 +1571,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_events_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      skill_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type skill_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1789,6 +1905,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      agent_card_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type agent_card_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_code_interpreter_session_response() :: %{
         "certificates" => list(certificate()),
         "codeInterpreterIdentifier" => [String.t() | atom()],
@@ -1875,6 +2003,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      skill_md_definition() :: %{
+        "inlineContent" => String.t() | atom()
+      }
+
+  """
+  @type skill_md_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluate_request() :: %{
         optional("evaluationReferenceInputs") => list(evaluation_reference_input()),
         optional("evaluationTarget") => list(),
@@ -1946,6 +2085,20 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      descriptors() :: %{
+        "a2a" => a2a_descriptor(),
+        "agentSkills" => agent_skills_descriptor(),
+        "custom" => custom_descriptor(),
+        "mcp" => mcp_descriptor()
+      }
+
+  """
+  @type descriptors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_event_output() :: %{
         "event" => event()
       }
@@ -1991,6 +2144,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type update_browser_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_skills_descriptor() :: %{
+        "skillDefinition" => skill_definition(),
+        "skillMd" => skill_md_definition()
+      }
+
+  """
+  @type agent_skills_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2347,6 +2512,14 @@ defmodule AWS.BedrockAgentCore do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type search_registry_records_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type start_browser_session_errors() ::
           throttling_exception()
@@ -3776,6 +3949,38 @@ defmodule AWS.BedrockAgentCore do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches for registry records using semantic, lexical, or hybrid queries.
+
+  Returns metadata for matching records ordered by relevance within the specified
+  registry.
+  """
+  @spec search_registry_records(map(), search_registry_records_request(), list()) ::
+          {:ok, search_registry_records_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_registry_records_errors()}
+  def search_registry_records(%Client{} = client, input, options \\ []) do
+    url_path = "/registry-records/search"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -3017,6 +3017,15 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      media_live_channel_router_input_stream_details() :: %{}
+
+  """
+  @type media_live_channel_router_input_stream_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_request() :: %{}
 
   """
@@ -3763,6 +3772,20 @@ defmodule AWS.MediaConnect do
 
   """
   @type deregister_gateway_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_live_channel_router_input_configuration() :: %{
+        "MediaLiveChannelArn" => String.t() | atom(),
+        "MediaLiveChannelOutputName" => [String.t() | atom()],
+        "MediaLivePipelineId" => list(any()),
+        "SourceTransitDecryption" => media_live_transit_encryption()
+      }
+
+  """
+  @type media_live_channel_router_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

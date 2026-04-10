@@ -135,12 +135,53 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_registry_record_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("descriptors") => descriptors(),
+        optional("recordVersion") => String.t() | atom(),
+        optional("synchronizationConfiguration") => synchronization_configuration(),
+        optional("synchronizationType") => list(any()),
+        required("descriptorType") => list(any()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_registry_record_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       time_based_trigger_input() :: %{
         "idleSessionTimeout" => [integer()]
       }
 
   """
   @type time_based_trigger_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_registry_records_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "registryRecords" => list(registry_record_summary())
+      }
+
+  """
+  @type list_registry_records_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_mcp_descriptor() :: %{
+        "optionalValue" => updated_mcp_descriptor_fields()
+      }
+
+  """
+  @type updated_mcp_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,6 +217,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type memory_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a2a_descriptor() :: %{
+        "agentCard" => agent_card_definition()
+      }
+
+  """
+  @type a2a_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -217,6 +269,39 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type included_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registry_record_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "descriptorType" => list(any()),
+        "descriptors" => descriptors(),
+        "name" => String.t() | atom(),
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "recordVersion" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "synchronizationConfiguration" => synchronization_configuration(),
+        "synchronizationType" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_registry_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      submit_registry_record_for_approval_request() :: %{}
+
+  """
+  @type submit_registry_record_for_approval_request() :: %{}
 
   @typedoc """
 
@@ -421,6 +506,28 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      updated_descriptors() :: %{
+        "optionalValue" => updated_descriptors_union()
+      }
+
+  """
+  @type updated_descriptors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_descriptor() :: %{
+        "inlineContent" => String.t() | atom()
+      }
+
+  """
+  @type custom_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_browser_profiles_request() :: %{
         optional("maxResults") => integer(),
         optional("name") => String.t() | atom(),
@@ -494,6 +601,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registry_record_iam_credential_provider() :: %{
+        "region" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "service" => String.t() | atom()
+      }
+
+  """
+  @type registry_record_iam_credential_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -584,6 +704,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_registry_request() :: %{}
+
+  """
+  @type delete_registry_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_online_evaluation_config_response() :: %{
         "executionStatus" => list(any()),
         "failureReason" => [String.t() | atom()],
@@ -618,6 +747,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_workload_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registry_record_request() :: %{}
+
+  """
+  @type get_registry_record_request() :: %{}
 
   @typedoc """
 
@@ -747,6 +885,22 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_registry_record_status_response() :: %{
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_registry_record_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       iam_credential_provider() :: %{
         "region" => [String.t() | atom()],
         "service" => [String.t() | atom()]
@@ -754,6 +908,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type iam_credential_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_registry_response() :: %{
+        "registryArn" => String.t() | atom()
+      }
+
+  """
+  @type create_registry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -782,6 +947,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type code_interpreter_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registry_request() :: %{}
+
+  """
+  @type get_registry_request() :: %{}
 
   @typedoc """
 
@@ -880,6 +1054,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      updated_tools_definition() :: %{
+        "optionalValue" => tools_definition()
+      }
+
+  """
+  @type updated_tools_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_policy_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -955,6 +1140,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      registry_record_o_auth_credential_provider() :: %{
+        "customParameters" => map(),
+        "grantType" => list(any()),
+        "providerArn" => String.t() | atom(),
+        "scopes" => list([String.t() | atom()]())
+      }
+
+  """
+  @type registry_record_o_auth_credential_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       summary_consolidation_override() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -995,6 +1194,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      updated_skill_md_definition() :: %{
+        "optionalValue" => skill_md_definition()
+      }
+
+  """
+  @type updated_skill_md_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       episodic_override_reflection_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()],
@@ -1016,6 +1226,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type lambda_evaluator_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_a2a_descriptor() :: %{
+        "optionalValue" => a2a_descriptor()
+      }
+
+  """
+  @type updated_a2a_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1081,6 +1302,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      submit_registry_record_for_approval_response() :: %{
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type submit_registry_record_for_approval_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       episodic_override_configuration_input() :: %{
         "consolidation" => episodic_override_consolidation_configuration_input(),
         "extraction" => episodic_override_extraction_configuration_input(),
@@ -1138,6 +1374,38 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type online_evaluation_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_registry_request() :: %{
+        optional("approvalConfiguration") => updated_approval_configuration(),
+        optional("authorizerConfiguration") => updated_authorizer_configuration(),
+        optional("description") => updated_description(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_registry_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_registry_record_request() :: %{
+        optional("description") => updated_description(),
+        optional("descriptorType") => list(any()),
+        optional("descriptors") => updated_descriptors(),
+        optional("name") => String.t() | atom(),
+        optional("recordVersion") => String.t() | atom(),
+        optional("synchronizationConfiguration") => updated_synchronization_configuration(),
+        optional("synchronizationType") => updated_synchronization_type(),
+        optional("triggerSynchronization") => [boolean()]
+      }
+
+  """
+  @type update_registry_record_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1408,6 +1676,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      approval_configuration() :: %{
+        "autoApproval" => [boolean()]
+      }
+
+  """
+  @type approval_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_gateway_target_response() :: %{
         "authorizationData" => list(),
         "createdAt" => non_neg_integer(),
@@ -1470,6 +1749,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_policy_engine_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_agent_skills_descriptor_fields() :: %{
+        "skillDefinition" => updated_skill_definition(),
+        "skillMd" => updated_skill_md_definition()
+      }
+
+  """
+  @type updated_agent_skills_descriptor_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1718,6 +2009,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_registry_record_response() :: %{
+        "recordArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_registry_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_online_evaluation_config_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -1925,6 +2228,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      registry_record_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "descriptorType" => list(any()),
+        "name" => String.t() | atom(),
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "recordVersion" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type registry_record_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       included_oauth2_provider_config_output() :: %{
         "clientId" => String.t() | atom(),
         "oauthDiscovery" => list()
@@ -2005,6 +2328,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_code_interpreter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_registry_records_request() :: %{
+        optional("descriptorType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_registry_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2404,6 +2742,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      updated_server_definition() :: %{
+        "optionalValue" => server_definition()
+      }
+
+  """
+  @type updated_server_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_policy_generations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -2481,6 +2830,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_registry_record_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "descriptorType" => list(any()),
+        "descriptors" => descriptors(),
+        "name" => String.t() | atom(),
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "recordVersion" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "synchronizationConfiguration" => synchronization_configuration(),
+        "synchronizationType" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_registry_record_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2638,6 +3011,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      updated_synchronization_type() :: %{
+        "optionalValue" => list(any())
+      }
+
+  """
+  @type updated_synchronization_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       salesforce_oauth2_provider_config_output() :: %{
         "clientId" => String.t() | atom(),
         "oauthDiscovery" => list()
@@ -2772,6 +3156,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      tools_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "protocolVersion" => String.t() | atom()
+      }
+
+  """
+  @type tools_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       o_auth_credential_provider() :: %{
         "customParameters" => map(),
         "defaultReturnUrl" => String.t() | atom(),
@@ -2856,6 +3252,39 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      server_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type server_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_registry_response() :: %{
+        "approvalConfiguration" => approval_configuration(),
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_browser_profile_response() :: %{
         "createdAt" => non_neg_integer(),
         "profileArn" => String.t() | atom(),
@@ -2909,6 +3338,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_api_key_credential_providers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mcp_descriptor() :: %{
+        "server" => server_definition(),
+        "tools" => tools_definition()
+      }
+
+  """
+  @type mcp_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2968,6 +3409,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_synchronization_configuration() :: %{
+        "optionalValue" => synchronization_configuration()
+      }
+
+  """
+  @type updated_synchronization_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3162,6 +3614,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      updated_custom_descriptor() :: %{
+        "optionalValue" => custom_descriptor()
+      }
+
+  """
+  @type updated_custom_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_api_key_credential_provider_request() :: %{
         required("apiKey") => String.t() | atom(),
         required("name") => String.t() | atom()
@@ -3169,6 +3632,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_agent_skills_descriptor() :: %{
+        "optionalValue" => updated_agent_skills_descriptor_fields()
+      }
+
+  """
+  @type updated_agent_skills_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3204,6 +3678,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      skill_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type skill_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3247,6 +3733,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_registries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "registries" => list(registry_summary())
+      }
+
+  """
+  @type list_registries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3387,6 +3885,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_registry_record_status_request() :: %{
+        required("status") => list(any()),
+        required("statusReason") => [String.t() | atom()]
+      }
+
+  """
+  @type update_registry_record_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_evaluator_response() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
@@ -3482,6 +3992,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_registries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_registries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -3551,6 +4074,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_registry_record_request() :: %{}
+
+  """
+  @type delete_registry_record_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       secrets_manager_location() :: %{
         "secretArn" => String.t() | atom()
       }
@@ -3562,12 +4094,35 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      updated_skill_definition() :: %{
+        "optionalValue" => skill_definition()
+      }
+
+  """
+  @type updated_skill_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       output_config() :: %{
         "cloudWatchConfig" => cloud_watch_output_config()
       }
 
   """
   @type output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_mcp_descriptor_fields() :: %{
+        "server" => updated_server_definition(),
+        "tools" => updated_tools_definition()
+      }
+
+  """
+  @type updated_mcp_descriptor_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3588,6 +4143,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type agent_runtime_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registry_record_credential_provider_configuration() :: %{
+        "credentialProvider" => list(),
+        "credentialProviderType" => list(any())
+      }
+
+  """
+  @type registry_record_credential_provider_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3707,6 +4274,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_evaluators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_registry_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type delete_registry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3898,6 +4476,52 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_registry_request() :: %{
+        optional("approvalConfiguration") => approval_configuration(),
+        optional("authorizerConfiguration") => list(),
+        optional("authorizerType") => list(any()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_registry_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_registry_record_response() :: %{}
+
+  """
+  @type delete_registry_record_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registry_response() :: %{
+        "approvalConfiguration" => approval_configuration(),
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_resource_policy_response() :: %{
         "policy" => String.t() | atom()
       }
@@ -3944,6 +4568,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type protocol_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_card_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type agent_card_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4040,6 +4676,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      updated_authorizer_configuration() :: %{
+        "optionalValue" => list()
+      }
+
+  """
+  @type updated_authorizer_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_browser_request() :: %{}
 
   """
@@ -4074,6 +4721,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type policy_engine() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      skill_md_definition() :: %{
+        "inlineContent" => String.t() | atom()
+      }
+
+  """
+  @type skill_md_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4183,6 +4841,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      descriptors() :: %{
+        "a2a" => a2a_descriptor(),
+        "agentSkills" => agent_skills_descriptor(),
+        "custom" => custom_descriptor(),
+        "mcp" => mcp_descriptor()
+      }
+
+  """
+  @type descriptors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_token_vault_request() :: %{
         optional("tokenVaultId") => String.t() | atom()
       }
@@ -4238,6 +4910,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_approval_configuration() :: %{
+        "optionalValue" => approval_configuration()
+      }
+
+  """
+  @type updated_approval_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4304,6 +4987,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      from_url_synchronization_configuration() :: %{
+        "credentialProviderConfigurations" => list(registry_record_credential_provider_configuration()),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type from_url_synchronization_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_gateways_response() :: %{
         "items" => list(gateway_summary()),
         "nextToken" => String.t() | atom()
@@ -4323,6 +5018,37 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type recording_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_skills_descriptor() :: %{
+        "skillDefinition" => skill_definition(),
+        "skillMd" => skill_md_definition()
+      }
+
+  """
+  @type agent_skills_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registry_summary() :: %{
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type registry_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4421,6 +5147,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      updated_descriptors_union() :: %{
+        "a2a" => updated_a2a_descriptor(),
+        "agentSkills" => updated_agent_skills_descriptor(),
+        "custom" => updated_custom_descriptor(),
+        "mcp" => updated_mcp_descriptor()
+      }
+
+  """
+  @type updated_descriptors_union() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_gateway_targets_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -4508,6 +5248,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_memories_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synchronization_configuration() :: %{
+        "fromUrl" => from_url_synchronization_configuration()
+      }
+
+  """
+  @type synchronization_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4648,6 +5399,23 @@ defmodule AWS.BedrockAgentCoreControl do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_registry_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_registry_record_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_workload_identity_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4761,6 +5529,22 @@ defmodule AWS.BedrockAgentCoreControl do
           | conflict_exception()
 
   @type delete_policy_engine_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_registry_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_registry_record_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4891,6 +5675,21 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type get_registry_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_registry_record_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_resource_policy_errors() ::
           throttling_exception()
@@ -5026,6 +5825,20 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_registries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_registry_records_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type list_tags_for_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5063,6 +5876,14 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type submit_registry_record_for_approval_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -5186,6 +6007,31 @@ defmodule AWS.BedrockAgentCoreControl do
           | conflict_exception()
 
   @type update_policy_engine_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_registry_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_registry_record_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_registry_record_status_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5658,6 +6504,82 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, create_policy_engine_errors()}
   def create_policy_engine(%Client{} = client, input, options \\ []) do
     url_path = "/policy-engines"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a new registry in your Amazon Web Services account.
+
+  A registry serves as a centralized catalog for organizing and managing registry
+  records, including MCP servers, A2A agents, agent skills, and custom resource
+  types.
+
+  If you specify `CUSTOM_JWT` as the `authorizerType`, you must provide an
+  `authorizerConfiguration`.
+  """
+  @spec create_registry(map(), create_registry_request(), list()) ::
+          {:ok, create_registry_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_registry_errors()}
+  def create_registry(%Client{} = client, input, options \\ []) do
+    url_path = "/registries"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a new registry record within the specified registry.
+
+  A registry record represents an individual AI resource's metadata in the
+  registry. This could be an MCP server (and associated tools), A2A agent, agent
+  skill, or a custom resource with a custom schema.
+
+  The record is processed asynchronously and returns HTTP 202 Accepted.
+  """
+  @spec create_registry_record(
+          map(),
+          String.t() | atom(),
+          create_registry_record_request(),
+          list()
+        ) ::
+          {:ok, create_registry_record_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_registry_record_errors()}
+  def create_registry_record(%Client{} = client, registry_id, input, options \\ []) do
+    url_path = "/registries/#{AWS.Util.encode_uri(registry_id)}/records"
     headers = []
     custom_headers = []
     query_params = []
@@ -6224,6 +7146,78 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Deletes a registry.
+
+  The registry must contain zero records before it can be deleted. This operation
+  initiates the deletion process asynchronously.
+  """
+  @spec delete_registry(map(), String.t() | atom(), delete_registry_request(), list()) ::
+          {:ok, delete_registry_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_registry_errors()}
+  def delete_registry(%Client{} = client, registry_id, input, options \\ []) do
+    url_path = "/registries/#{AWS.Util.encode_uri(registry_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes a registry record.
+
+  The record's status transitions to `DELETING` and the record is removed
+  asynchronously.
+  """
+  @spec delete_registry_record(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_registry_record_request(),
+          list()
+        ) ::
+          {:ok, delete_registry_record_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_registry_record_errors()}
+  def delete_registry_record(%Client{} = client, record_id, registry_id, input, options \\ []) do
+    url_path =
+      "/registries/#{AWS.Util.encode_uri(registry_id)}/records/#{AWS.Util.encode_uri(record_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the resource-based policy for a specified resource.
 
   This feature is currently available only for AgentCore Runtime and Gateway.
@@ -6626,6 +7620,44 @@ defmodule AWS.BedrockAgentCoreControl do
       ) do
     url_path =
       "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-generations/#{AWS.Util.encode_uri(policy_generation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a specific registry.
+  """
+  @spec get_registry(map(), String.t() | atom(), list()) ::
+          {:ok, get_registry_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_registry_errors()}
+  def get_registry(%Client{} = client, registry_id, options \\ []) do
+    url_path = "/registries/#{AWS.Util.encode_uri(registry_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a specific registry record.
+  """
+  @spec get_registry_record(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_registry_record_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_registry_record_errors()}
+  def get_registry_record(%Client{} = client, record_id, registry_id, options \\ []) do
+    url_path =
+      "/registries/#{AWS.Util.encode_uri(registry_id)}/records/#{AWS.Util.encode_uri(record_id)}"
 
     headers = []
     query_params = []
@@ -7379,6 +8411,134 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Lists all registries in the account.
+
+  You can optionally filter results by status using the `status` parameter.
+  """
+  @spec list_registries(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_registries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_registries_errors()}
+  def list_registries(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/registries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists registry records within a registry.
+
+  You can optionally filter results using the `name`, `status`, and
+  `descriptorType` parameters. When multiple filters are specified, they are
+  combined using AND logic.
+  """
+  @spec list_registry_records(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_registry_records_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_registry_records_errors()}
+  def list_registry_records(
+        %Client{} = client,
+        registry_id,
+        descriptor_type \\ nil,
+        max_results \\ nil,
+        name \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/registries/#{AWS.Util.encode_uri(registry_id)}/records"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(descriptor_type) do
+        [{"descriptorType", descriptor_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the tags associated with the specified resource.
 
   This feature is currently available only for AgentCore Runtime, Browser, Browser
@@ -7517,6 +8677,52 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, start_policy_generation_errors()}
   def start_policy_generation(%Client{} = client, policy_engine_id, input, options \\ []) do
     url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-generations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Submits a registry record for approval.
+
+  This transitions the record from `DRAFT` status to `PENDING_APPROVAL` status. If
+  the registry has auto-approval enabled, the record is automatically approved.
+  """
+  @spec submit_registry_record_for_approval(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          submit_registry_record_for_approval_request(),
+          list()
+        ) ::
+          {:ok, submit_registry_record_for_approval_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, submit_registry_record_for_approval_errors()}
+  def submit_registry_record_for_approval(
+        %Client{} = client,
+        record_id,
+        registry_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/registries/#{AWS.Util.encode_uri(registry_id)}/records/#{AWS.Util.encode_uri(record_id)}/submit-for-approval"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -8025,6 +9231,124 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, update_policy_engine_errors()}
   def update_policy_engine(%Client{} = client, policy_engine_id, input, options \\ []) do
     url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates an existing registry.
+
+  This operation uses PATCH semantics, so you only need to specify the fields you
+  want to change.
+  """
+  @spec update_registry(map(), String.t() | atom(), update_registry_request(), list()) ::
+          {:ok, update_registry_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_registry_errors()}
+  def update_registry(%Client{} = client, registry_id, input, options \\ []) do
+    url_path = "/registries/#{AWS.Util.encode_uri(registry_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates an existing registry record.
+
+  This operation uses PATCH semantics, so you only need to specify the fields you
+  want to change. The update is processed asynchronously and returns HTTP 202
+  Accepted.
+  """
+  @spec update_registry_record(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_registry_record_request(),
+          list()
+        ) ::
+          {:ok, update_registry_record_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_registry_record_errors()}
+  def update_registry_record(%Client{} = client, record_id, registry_id, input, options \\ []) do
+    url_path =
+      "/registries/#{AWS.Util.encode_uri(registry_id)}/records/#{AWS.Util.encode_uri(record_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates the status of a registry record.
+
+  Use this operation to approve, reject, or deprecate a registry record.
+  """
+  @spec update_registry_record_status(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_registry_record_status_request(),
+          list()
+        ) ::
+          {:ok, update_registry_record_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_registry_record_status_errors()}
+  def update_registry_record_status(
+        %Client{} = client,
+        record_id,
+        registry_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/registries/#{AWS.Util.encode_uri(registry_id)}/records/#{AWS.Util.encode_uri(record_id)}/status"
+
     headers = []
     custom_headers = []
     query_params = []

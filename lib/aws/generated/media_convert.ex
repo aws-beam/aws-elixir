@@ -277,6 +277,7 @@ defmodule AWS.MediaConvert do
       container() :: %{
         "Duration" => float(),
         "Format" => list(any()),
+        "StartTimecode" => String.t() | atom(),
         "Tracks" => list(track())
       }
 
@@ -1215,6 +1216,7 @@ defmodule AWS.MediaConvert do
         "ImageInserter" => image_inserter(),
         "InputClippings" => list(input_clipping()),
         "InputScanType" => list(any()),
+        "MultiViewSettings" => list(multi_view_settings()),
         "Position" => rectangle(),
         "ProgramNumber" => integer(),
         "PsiControl" => list(any()),
@@ -1550,6 +1552,7 @@ defmodule AWS.MediaConvert do
         "ImageInserter" => image_inserter(),
         "InputClippings" => list(input_clipping()),
         "InputScanType" => list(any()),
+        "MultiViewSettings" => list(multi_view_settings()),
         "Position" => rectangle(),
         "ProgramNumber" => integer(),
         "PsiControl" => list(any()),
@@ -2915,6 +2918,17 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      multi_view_settings() :: %{
+        "Input" => multi_view_input()
+      }
+
+  """
+  @type multi_view_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_job_template_response() :: %{
         "JobTemplate" => job_template()
       }
@@ -3105,6 +3119,17 @@ defmodule AWS.MediaConvert do
 
   """
   @type ms_smooth_additional_manifest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_view_input() :: %{
+        "FileInput" => String.t() | atom()
+      }
+
+  """
+  @type multi_view_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

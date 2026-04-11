@@ -3743,9 +3743,11 @@ defmodule AWS.SageMaker do
   ## Example:
       
       batch_add_cluster_nodes_error() :: %{
+        "AvailabilityZones" => list(String.t() | atom()),
         "ErrorCode" => list(any()),
         "FailedCount" => integer(),
         "InstanceGroupName" => String.t() | atom(),
+        "InstanceTypes" => list(list(any())()),
         "Message" => String.t() | atom()
       }
       
@@ -5199,6 +5201,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      start_cluster_health_check_response() :: %{
+        "ClusterArn" => String.t() | atom()
+      }
+      
+  """
+  @type start_cluster_health_check_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image_config() :: %{
         "RepositoryAccessMode" => list(any()),
         "RepositoryAuthConfig" => repository_auth_config()
@@ -5805,6 +5818,19 @@ defmodule AWS.SageMaker do
       
   """
   @type list_labeling_jobs_for_workteam_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_instance_type_detail() :: %{
+        "CurrentCount" => integer(),
+        "InstanceType" => list(any()),
+        "ThreadsPerCore" => integer()
+      }
+      
+  """
+  @type cluster_instance_type_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7042,6 +7068,18 @@ defmodule AWS.SageMaker do
       
   """
   @type inference_execution_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_instance_requirement_details() :: %{
+        "CurrentInstanceTypes" => list(list(any())()),
+        "DesiredInstanceTypes" => list(list(any())())
+      }
+      
+  """
+  @type cluster_instance_requirement_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11597,8 +11635,10 @@ defmodule AWS.SageMaker do
   ## Example:
       
       add_cluster_node_specification() :: %{
+        "AvailabilityZones" => list(String.t() | atom()),
         "IncrementTargetCountBy" => integer(),
-        "InstanceGroupName" => String.t() | atom()
+        "InstanceGroupName" => String.t() | atom(),
+        "InstanceTypes" => list(list(any())())
       }
       
   """
@@ -14739,6 +14779,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      start_cluster_health_check_request() :: %{
+        required("ClusterName") => String.t() | atom(),
+        required("DeepHealthCheckConfigurations") => list(instance_group_health_check_configuration())
+      }
+      
+  """
+  @type start_cluster_health_check_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_package_validation_profile() :: %{
         "ProfileName" => String.t() | atom(),
         "TransformJobDefinition" => transform_job_definition()
@@ -15427,6 +15479,19 @@ defmodule AWS.SageMaker do
       
   """
   @type update_mlflow_tracking_server_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_group_health_check_configuration() :: %{
+        "DeepHealthChecks" => list(list(any())()),
+        "InstanceGroupName" => String.t() | atom(),
+        "InstanceIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type instance_group_health_check_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16518,6 +16583,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_instance_requirements() :: %{
+        "InstanceTypes" => list(list(any())())
+      }
+      
+  """
+  @type cluster_instance_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_context_response() :: %{
         "ContextArn" => String.t() | atom()
       }
@@ -16680,6 +16756,7 @@ defmodule AWS.SageMaker do
         "ImageId" => String.t() | atom(),
         "InstanceCount" => integer(),
         "InstanceGroupName" => String.t() | atom(),
+        "InstanceRequirements" => cluster_instance_requirements(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
         "KubernetesConfig" => cluster_kubernetes_config(),
@@ -16701,7 +16778,9 @@ defmodule AWS.SageMaker do
   ## Example:
       
       node_addition_result() :: %{
+        "AvailabilityZones" => list(String.t() | atom()),
         "InstanceGroupName" => String.t() | atom(),
+        "InstanceTypes" => list(list(any())()),
         "NodeLogicalId" => String.t() | atom(),
         "Status" => list(any())
       }
@@ -19348,8 +19427,10 @@ defmodule AWS.SageMaker do
         "DesiredImageId" => String.t() | atom(),
         "ExecutionRole" => String.t() | atom(),
         "InstanceGroupName" => String.t() | atom(),
+        "InstanceRequirements" => cluster_instance_requirement_details(),
         "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
+        "InstanceTypeDetails" => list(cluster_instance_type_detail()),
         "KubernetesConfig" => cluster_kubernetes_config_details(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "MinCount" => integer(),
@@ -20691,6 +20772,8 @@ defmodule AWS.SageMaker do
 
   @type send_pipeline_execution_step_success_errors() ::
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
+  @type start_cluster_health_check_errors() :: resource_not_found()
 
   @type start_inference_experiment_errors() :: conflict_exception() | resource_not_found()
 
@@ -26636,6 +26719,27 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "SendPipelineExecutionStepSuccess", input, options)
+  end
+
+  @doc """
+  Start deep health checks for a SageMaker HyperPod cluster.
+
+  You can use
+  [DescribeClusterNode](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterNode.html) API to track progress of the deep health checks. The unhealthy nodes will be
+  automatically rebooted or replaced. Please see [ Resilience-related Kubernetes
+  labels by SageMaker
+  HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-resiliency-node-labels.html)
+  for details.
+  """
+  @spec start_cluster_health_check(map(), start_cluster_health_check_request(), list()) ::
+          {:ok, start_cluster_health_check_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_cluster_health_check_errors()}
+  def start_cluster_health_check(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartClusterHealthCheck", input, options)
   end
 
   @doc """

@@ -93,7 +93,10 @@ defmodule AWS.ObservabilityAdmin do
 
       get_telemetry_rule_output() :: %{
         "CreatedTimeStamp" => [float()],
+        "HomeRegion" => String.t() | atom(),
+        "IsReplicated" => boolean(),
         "LastUpdateTimeStamp" => [float()],
+        "RegionStatuses" => list(region_status()),
         "RuleArn" => String.t() | atom(),
         "RuleName" => String.t() | atom(),
         "TelemetryRule" => telemetry_rule()
@@ -123,6 +126,18 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      start_telemetry_evaluation_input() :: %{
+        optional("AllRegions") => boolean(),
+        optional("Regions") => list(String.t() | atom())
+      }
+
+  """
+  @type start_telemetry_evaluation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       test_telemetry_pipeline_output() :: %{
         "Results" => list(pipeline_output())
       }
@@ -147,6 +162,8 @@ defmodule AWS.ObservabilityAdmin do
 
       get_telemetry_evaluation_status_for_organization_output() :: %{
         "FailureReason" => String.t() | atom(),
+        "HomeRegion" => String.t() | atom(),
+        "RegionStatuses" => list(region_status()),
         "Status" => list(any())
       }
 
@@ -219,6 +236,8 @@ defmodule AWS.ObservabilityAdmin do
 
       get_telemetry_evaluation_status_output() :: %{
         "FailureReason" => String.t() | atom(),
+        "HomeRegion" => String.t() | atom(),
+        "RegionStatuses" => list(region_status()),
         "Status" => list(any())
       }
 
@@ -445,7 +464,10 @@ defmodule AWS.ObservabilityAdmin do
 
       get_telemetry_rule_for_organization_output() :: %{
         "CreatedTimeStamp" => [float()],
+        "HomeRegion" => String.t() | atom(),
+        "IsReplicated" => boolean(),
         "LastUpdateTimeStamp" => [float()],
+        "RegionStatuses" => list(region_status()),
         "RuleArn" => String.t() | atom(),
         "RuleName" => String.t() | atom(),
         "TelemetryRule" => telemetry_rule()
@@ -640,6 +662,18 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      start_telemetry_evaluation_for_organization_input() :: %{
+        optional("AllRegions") => boolean(),
+        optional("Regions") => list(String.t() | atom())
+      }
+
+  """
+  @type start_telemetry_evaluation_for_organization_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       encryption() :: %{
         "KmsKeyArn" => String.t() | atom(),
         "SseAlgorithm" => list(any())
@@ -782,6 +816,20 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      region_status() :: %{
+        "FailureReason" => [String.t() | atom()],
+        "Region" => String.t() | atom(),
+        "RuleArn" => String.t() | atom(),
+        "Status" => [String.t() | atom()]
+      }
+
+  """
+  @type region_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1163,7 +1211,9 @@ defmodule AWS.ObservabilityAdmin do
   ## Example:
 
       telemetry_rule() :: %{
+        "AllRegions" => boolean(),
         "DestinationConfiguration" => telemetry_destination_configuration(),
+        "Regions" => list(String.t() | atom()),
         "ResourceType" => list(any()),
         "Scope" => [String.t() | atom()],
         "SelectionCriteria" => [String.t() | atom()],
@@ -2573,7 +2623,7 @@ defmodule AWS.ObservabilityAdmin do
   This action begins onboarding the caller Amazon Web Services account to the
   telemetry config feature.
   """
-  @spec start_telemetry_evaluation(map(), %{}, list()) ::
+  @spec start_telemetry_evaluation(map(), start_telemetry_evaluation_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2603,7 +2653,11 @@ defmodule AWS.ObservabilityAdmin do
   This actions begins onboarding the organization and all member accounts to the
   telemetry config feature.
   """
-  @spec start_telemetry_evaluation_for_organization(map(), %{}, list()) ::
+  @spec start_telemetry_evaluation_for_organization(
+          map(),
+          start_telemetry_evaluation_for_organization_input(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

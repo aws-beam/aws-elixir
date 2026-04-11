@@ -78,6 +78,17 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      m_c_p_server_configuration() :: %{
+        "tools" => list([String.t() | atom()]())
+      }
+
+  """
+  @type m_c_p_server_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registered_grafana_server_details() :: %{
         "authorizationMethod" => list(any()),
         "endpoint" => [String.t() | atom()]
@@ -448,6 +459,15 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type goal_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      m_c_p_server_splunk_configuration() :: %{}
+
+  """
+  @type m_c_p_server_splunk_configuration() :: %{}
 
   @typedoc """
 
@@ -1632,6 +1652,15 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type service_now_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      m_c_p_server_datadog_configuration() :: %{}
+
+  """
+  @type m_c_p_server_datadog_configuration() :: %{}
 
   @typedoc """
 

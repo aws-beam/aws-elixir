@@ -903,6 +903,24 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      health_check_config() :: %{
+        "healthyThresholdCount" => [integer()],
+        "intervalSeconds" => [integer()],
+        "path" => [String.t() | atom()],
+        "port" => [integer()],
+        "protocol" => list(any()),
+        "statusCodeMatcher" => String.t() | atom(),
+        "timeoutMs" => [integer()],
+        "unhealthyThresholdCount" => [integer()]
+      }
+
+  """
+  @type health_check_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -940,6 +958,7 @@ defmodule AWS.RTBFabric do
 
       auto_scaling_groups_configuration() :: %{
         "autoScalingGroupNames" => list(String.t() | atom()),
+        "healthCheckConfig" => health_check_config(),
         "roleArn" => [String.t() | atom()]
       }
 

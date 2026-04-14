@@ -559,6 +559,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      organizational_unit_not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type organizational_unit_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_route53_hosted_zone_details() :: %{
         "HostedZone" => aws_route53_hosted_zone_object_details(),
         "NameServers" => list(String.t() | atom()),
@@ -1321,6 +1333,18 @@ defmodule AWS.SecurityHub do
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_organization_scope() :: %{
+        "OrganizationId" => String.t() | atom(),
+        "OrganizationalUnitId" => String.t() | atom()
+      }
+
+  """
+  @type aws_organization_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2984,6 +3008,17 @@ defmodule AWS.SecurityHub do
 
   """
   @type automation_rules_finding_fields_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_scopes() :: %{
+        "AwsOrganizations" => list(aws_organization_scope())
+      }
+
+  """
+  @type resource_scopes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5896,6 +5931,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      organization_not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type organization_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_dms_endpoint_details() :: %{
         "CertificateArn" => String.t() | atom(),
         "DatabaseName" => String.t() | atom(),
@@ -7552,6 +7599,7 @@ defmodule AWS.SecurityHub do
         optional("Filters") => resources_filters(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
+        optional("Scopes") => resource_scopes(),
         optional("SortCriteria") => list(sort_criterion())
       }
 
@@ -8477,6 +8525,7 @@ defmodule AWS.SecurityHub do
 
       get_finding_statistics_v2_request() :: %{
         optional("MaxStatisticResults") => integer(),
+        optional("Scopes") => finding_scopes(),
         optional("SortOrder") => list(any()),
         required("GroupByRules") => list(group_by_rule())
       }
@@ -9754,6 +9803,17 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      finding_scopes() :: %{
+        "AwsOrganizations" => list(aws_organization_scope())
+      }
+
+  """
+  @type finding_scopes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       connector_summary() :: %{
         "ConnectorArn" => String.t() | atom(),
         "ConnectorId" => String.t() | atom(),
@@ -10343,6 +10403,7 @@ defmodule AWS.SecurityHub do
         optional("Filters") => ocsf_finding_filters(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
+        optional("Scopes") => finding_scopes(),
         optional("SortCriteria") => list(sort_criterion())
       }
 
@@ -11323,6 +11384,7 @@ defmodule AWS.SecurityHub do
 
       get_resources_statistics_v2_request() :: %{
         optional("MaxStatisticResults") => integer(),
+        optional("Scopes") => resource_scopes(),
         optional("SortOrder") => list(any()),
         required("GroupByRules") => list(resource_group_by_rule())
       }
@@ -14259,7 +14321,9 @@ defmodule AWS.SecurityHub do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | organization_not_found_exception()
           | conflict_exception()
+          | organizational_unit_not_found_exception()
 
   @type get_findings_errors() ::
           limit_exceeded_exception()
@@ -14278,7 +14342,9 @@ defmodule AWS.SecurityHub do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | organization_not_found_exception()
           | conflict_exception()
+          | organizational_unit_not_found_exception()
 
   @type get_insight_results_errors() ::
           limit_exceeded_exception()
@@ -14319,8 +14385,10 @@ defmodule AWS.SecurityHub do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | organization_not_found_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | organizational_unit_not_found_exception()
 
   @type get_resources_trends_v2_errors() ::
           throttling_exception()
@@ -14333,8 +14401,10 @@ defmodule AWS.SecurityHub do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | organization_not_found_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | organizational_unit_not_found_exception()
 
   @type get_security_control_definition_errors() ::
           limit_exceeded_exception()
@@ -15133,20 +15203,30 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Used by customers to update information about their investigation into a
-  finding.
+  Updates information about a customer's investigation into a finding.
 
-  Requested by delegated administrator accounts or member accounts.
   Delegated administrator accounts can update findings for their account and their
-  member accounts.
-  Member accounts can update findings for their account. `BatchUpdateFindings` and
-  `BatchUpdateFindingV2` both use `securityhub:BatchUpdateFindings` in the
-  `Action` element of an IAM policy statement.
+  member accounts. Member accounts can update findings for their own account.
+
+  `BatchUpdateFindings` and `BatchUpdateFindingsV2` both use
+  `securityhub:BatchUpdateFindings` in the `Action` element of an IAM policy
+  statement.
   You must have permission to perform the `securityhub:BatchUpdateFindings`
   action.
+  You can configure IAM policies to restrict access to specific finding fields or
+  field values by using the `securityhub:OCSFSyntaxPath/` condition key, where ``
+  is one of the following supported fields: `SeverityId`, `StatusId`, or
+  `Comment`.
+
+  To prevent a user from updating a specific field, use a `Null` condition with
+  `securityhub:OCSFSyntaxPath/` set to `"false"`.
+  To prevent a user from setting a field to a specific value, use a `StringEquals`
+  condition with `securityhub:OCSFSyntaxPath/` set to the disallowed value or list
+  of values.
+
   Updates from `BatchUpdateFindingsV2` don't affect the value of
-  f`inding_info.modified_time`, `finding_info.modified_time_dt`, `time`, `time_dt
-  for a finding`.
+  `finding_info.modified_time`, `finding_info.modified_time_dt`, `time`, or
+  `time_dt` for a finding.
   """
   @spec batch_update_findings_v2(map(), batch_update_findings_v2_request(), list()) ::
           {:ok, batch_update_findings_v2_response(), any()}
@@ -16906,9 +16986,15 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns aggregated statistical data about findings.
 
-  `GetFindingStatisticsV2` use `securityhub:GetAdhocInsightResults` in the
+  You can use the `Scopes` parameter to define the data boundary for the query.
+  Currently, `Scopes` supports `AwsOrganizations`, which lets you aggregate
+  findings from your entire organization or from specific organizational units.
+  Only the delegated administrator account can use `Scopes`.
+
+  `GetFindingStatisticsV2` uses `securityhub:GetAdhocInsightResults` in the
   `Action` element of an IAM policy statement.
-  You must have permission to perform the `s` action.
+  You must have permission to perform the `securityhub:GetAdhocInsightResults`
+  action.
   """
   @spec get_finding_statistics_v2(map(), get_finding_statistics_v2_request(), list()) ::
           {:ok, get_finding_statistics_v2_response(), any()}
@@ -17001,7 +17087,17 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Return a list of findings that match the specified criteria.
+  Returns a list of findings that match the specified criteria.
+
+  You can use the `Scopes` parameter to define the data boundary for the query.
+  Currently, `Scopes` supports `AwsOrganizations`, which lets you retrieve
+  findings from your entire organization or from specific organizational units.
+  Only the delegated administrator account can use `Scopes`.
+
+  You can use the `Filters` parameter to refine results based on finding
+  attributes. You can use `Scopes` and `Filters` independently or together. When
+  both are provided, `Scopes` narrows the data set first, and then `Filters`
+  refines results within that scoped data set.
 
   `GetFindings` and `GetFindingsV2` both use `securityhub:GetFindings` in the
   `Action` element of an IAM policy statement.
@@ -17184,6 +17280,11 @@ defmodule AWS.SecurityHub do
   @doc """
   Retrieves statistical information about Amazon Web Services resources and their
   associated security findings.
+
+  You can use the `Scopes` parameter to define the data boundary for the query.
+  Currently, `Scopes` supports `AwsOrganizations`, which lets you aggregate
+  resources from your entire organization or from specific organizational units.
+  Only the delegated administrator account can use `Scopes`.
   """
   @spec get_resources_statistics_v2(map(), get_resources_statistics_v2_request(), list()) ::
           {:ok, get_resources_statistics_v2_response(), any()}
@@ -17245,6 +17346,16 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns a list of resources.
+
+  You can use the `Scopes` parameter to define the data boundary for the query.
+  Currently, `Scopes` supports `AwsOrganizations`, which lets you retrieve
+  resources from your entire organization or from specific organizational units.
+  Only the delegated administrator account can use `Scopes`.
+
+  You can use the `Filters` parameter to refine results based on resource
+  attributes. You can use `Scopes` and `Filters` independently or together. When
+  both are provided, `Scopes` narrows the data set first, and then `Filters`
+  refines results within that scoped data set.
   """
   @spec get_resources_v2(map(), get_resources_v2_request(), list()) ::
           {:ok, get_resources_v2_response(), any()}

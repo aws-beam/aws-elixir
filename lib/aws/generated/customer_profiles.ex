@@ -982,6 +982,17 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      segment_sort() :: %{
+        "Attributes" => list(sort_attribute())
+      }
+
+  """
+  @type segment_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_recommender_filter_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
@@ -1793,6 +1804,7 @@ defmodule AWS.CustomerProfiles do
         "SegmentDefinitionArn" => String.t() | atom(),
         "SegmentDefinitionName" => String.t() | atom(),
         "SegmentGroups" => segment_group(),
+        "SegmentSort" => segment_sort(),
         "SegmentSqlQuery" => String.t() | atom(),
         "SegmentType" => list(any()),
         "Tags" => map()
@@ -3347,6 +3359,7 @@ defmodule AWS.CustomerProfiles do
       create_segment_definition_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("SegmentGroups") => segment_group(),
+        optional("SegmentSort") => segment_sort(),
         optional("SegmentSqlQuery") => String.t() | atom(),
         optional("Tags") => map(),
         required("DisplayName") => String.t() | atom()
@@ -4068,6 +4081,20 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_segment_estimate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sort_attribute() :: %{
+        "DataType" => list(any()),
+        "Name" => String.t() | atom(),
+        "Order" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type sort_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

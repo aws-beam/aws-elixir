@@ -1389,6 +1389,26 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      update_monitor_settings_request() :: %{
+        required("settings") => map()
+      }
+
+  """
+  @type update_monitor_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_monitor_settings_request() :: %{}
+
+  """
+  @type get_monitor_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       ec2_ebs_volume() :: %{
         "iops" => integer(),
         "sizeGiB" => integer(),
@@ -1983,6 +2003,15 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      update_monitor_settings_response() :: %{}
+
+  """
+  @type update_monitor_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_jobs_request() :: %{
         optional("filterExpressions") => search_grouped_filter_expressions(),
         optional("pageSize") => integer(),
@@ -2055,6 +2084,17 @@ defmodule AWS.Deadline do
 
   """
   @type list_storage_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_monitor_settings_response() :: %{
+        "settings" => map()
+      }
+
+  """
+  @type get_monitor_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5645,6 +5685,13 @@ defmodule AWS.Deadline do
           | access_denied_exception()
           | resource_not_found_exception()
 
+  @type get_monitor_settings_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type get_queue_errors() ::
           throttling_exception()
           | internal_server_error_exception()
@@ -6020,6 +6067,13 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
 
   @type update_monitor_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type update_monitor_settings_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | validation_exception()
@@ -8153,6 +8207,24 @@ defmodule AWS.Deadline do
           | {:error, get_monitor_errors()}
   def get_monitor(%Client{} = client, monitor_id, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the settings for a Deadline Cloud monitor.
+  """
+  @spec get_monitor_settings(map(), String.t() | atom(), list()) ::
+          {:ok, get_monitor_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_monitor_settings_errors()}
+  def get_monitor_settings(%Client{} = client, monitor_id, options \\ []) do
+    url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}/settings"
     headers = []
     query_params = []
 
@@ -10429,6 +10501,43 @@ defmodule AWS.Deadline do
           | {:error, update_monitor_errors()}
   def update_monitor(%Client{} = client, monitor_id, input, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the settings for a Deadline Cloud monitor.
+
+  Keys present in the request are upserted; keys absent are left unchanged. Send
+  an empty string value to delete a key.
+  """
+  @spec update_monitor_settings(
+          map(),
+          String.t() | atom(),
+          update_monitor_settings_request(),
+          list()
+        ) ::
+          {:ok, update_monitor_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_monitor_settings_errors()}
+  def update_monitor_settings(%Client{} = client, monitor_id, input, options \\ []) do
+    url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}/settings"
     headers = []
     custom_headers = []
     query_params = []

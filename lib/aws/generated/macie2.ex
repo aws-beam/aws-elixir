@@ -2315,6 +2315,7 @@ defmodule AWS.Macie2 do
 
       s3_destination() :: %{
         "bucketName" => String.t() | atom(),
+        "expectedBucketOwner" => String.t() | atom(),
         "keyPrefix" => String.t() | atom(),
         "kmsKeyArn" => String.t() | atom()
       }

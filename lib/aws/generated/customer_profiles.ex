@@ -421,6 +421,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_recommender_schemas_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecommenderSchemas" => list(recommender_schema_summary())
+      }
+
+  """
+  @type list_recommender_schemas_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_domain_object_type_request() :: %{}
 
   """
@@ -436,6 +448,19 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type detect_profile_object_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender_schema_field() :: %{
+        "ContentType" => list(any()),
+        "FeatureType" => list(any()),
+        "TargetFieldName" => String.t() | atom()
+      }
+
+  """
+  @type recommender_schema_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -537,6 +562,7 @@ defmodule AWS.CustomerProfiles do
       create_recommender_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("RecommenderConfig") => recommender_config(),
+        optional("RecommenderSchemaName") => String.t() | atom(),
         optional("Tags") => map(),
         required("RecommenderRecipeName") => list(any())
       }
@@ -697,6 +723,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      delete_recommender_schema_response() :: %{}
+
+  """
+  @type delete_recommender_schema_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_event_trigger_response() :: %{
         "Message" => String.t() | atom()
       }
@@ -722,6 +757,7 @@ defmodule AWS.CustomerProfiles do
 
       create_recommender_filter_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("RecommenderSchemaName") => String.t() | atom(),
         optional("Tags") => map(),
         required("RecommenderFilterExpression") => String.t() | atom()
       }
@@ -934,6 +970,29 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      recommender_schema_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Fields" => map(),
+        "RecommenderSchemaName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type recommender_schema_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_schema_request() :: %{}
+
+  """
+  @type get_recommender_schema_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       address_dimension() :: %{
         "City" => profile_dimension(),
         "Country" => profile_dimension(),
@@ -999,6 +1058,7 @@ defmodule AWS.CustomerProfiles do
         "FailureReason" => [String.t() | atom()],
         "RecommenderFilterExpression" => String.t() | atom(),
         "RecommenderFilterName" => String.t() | atom(),
+        "RecommenderSchemaName" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map()
       }
@@ -1096,6 +1156,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type event_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_schema_request() :: %{
+        optional("Tags") => map(),
+        required("Fields") => map()
+      }
+
+  """
+  @type create_recommender_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1539,6 +1611,7 @@ defmodule AWS.CustomerProfiles do
         "RecipeName" => list(any()),
         "RecommenderConfig" => recommender_config(),
         "RecommenderName" => String.t() | atom(),
+        "RecommenderSchemaName" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map()
       }
@@ -1556,6 +1629,22 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type workflow_step_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_schema_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Fields" => map(),
+        "RecommenderSchemaArn" => String.t() | atom(),
+        "RecommenderSchemaName" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type create_recommender_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2026,6 +2115,20 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_rule_based_matches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_schema_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Fields" => map(),
+        "RecommenderSchemaName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_recommender_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3018,6 +3121,7 @@ defmodule AWS.CustomerProfiles do
         "FailureReason" => [String.t() | atom()],
         "RecommenderFilterExpression" => String.t() | atom(),
         "RecommenderFilterName" => String.t() | atom(),
+        "RecommenderSchemaName" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map()
       }
@@ -3157,6 +3261,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_segment_snapshot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommender_schemas_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recommender_schemas_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3522,6 +3638,7 @@ defmodule AWS.CustomerProfiles do
 
       recommender_config() :: %{
         "EventsConfig" => events_config(),
+        "IncludedColumns" => map(),
         "InferenceConfig" => inference_config(),
         "TrainingFrequency" => integer()
       }
@@ -3540,6 +3657,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type batch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recommender_schema_request() :: %{}
+
+  """
+  @type delete_recommender_schema_request() :: %{}
 
   @typedoc """
 
@@ -4237,6 +4363,7 @@ defmodule AWS.CustomerProfiles do
         "RecommenderConfig" => recommender_config(),
         "RecommenderName" => String.t() | atom(),
         "RecommenderRecipeName" => list(any()),
+        "RecommenderSchemaName" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map(),
         "TrainingMetrics" => list(training_metrics())
@@ -4653,6 +4780,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type create_recommender_schema_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type create_segment_definition_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -4766,6 +4900,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type delete_recommender_filter_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_recommender_schema_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -4913,6 +5054,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type get_recommender_filter_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_recommender_schema_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -5113,6 +5261,13 @@ defmodule AWS.CustomerProfiles do
           | throttling_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_recommender_schemas_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_recommenders_errors() ::
           bad_request_exception()
@@ -5802,6 +5957,52 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Creates a recommender schema.
+
+  A recommender schema defines the set of data columns available for training
+  recommenders and filters under a domain.
+  """
+  @spec create_recommender_schema(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_recommender_schema_request(),
+          list()
+        ) ::
+          {:ok, create_recommender_schema_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_recommender_schema_errors()}
+  def create_recommender_schema(
+        %Client{} = client,
+        domain_name,
+        recommender_schema_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/recommender-schemas/#{AWS.Util.encode_uri(recommender_schema_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a segment definition associated to the given domain.
   """
   @spec create_segment_definition(
@@ -6434,6 +6635,49 @@ defmodule AWS.CustomerProfiles do
       ) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/recommender-filters/#{AWS.Util.encode_uri(recommender_filter_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a recommender schema from a domain.
+  """
+  @spec delete_recommender_schema(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_recommender_schema_request(),
+          list()
+        ) ::
+          {:ok, delete_recommender_schema_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_recommender_schema_errors()}
+  def delete_recommender_schema(
+        %Client{} = client,
+        domain_name,
+        recommender_schema_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/recommender-schemas/#{AWS.Util.encode_uri(recommender_schema_name)}"
 
     headers = []
     custom_headers = []
@@ -7171,6 +7415,31 @@ defmodule AWS.CustomerProfiles do
       ) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/recommender-filters/#{AWS.Util.encode_uri(recommender_filter_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a specific recommender schema in a domain.
+  """
+  @spec get_recommender_schema(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_recommender_schema_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_recommender_schema_errors()}
+  def get_recommender_schema(
+        %Client{} = client,
+        domain_name,
+        recommender_schema_name,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/recommender-schemas/#{AWS.Util.encode_uri(recommender_schema_name)}"
 
     headers = []
     query_params = []
@@ -8245,6 +8514,50 @@ defmodule AWS.CustomerProfiles do
         options \\ []
       ) do
     url_path = "/recommender-recipes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of recommender schemas in the specified domain.
+  """
+  @spec list_recommender_schemas(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_recommender_schemas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_recommender_schemas_errors()}
+  def list_recommender_schemas(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/recommender-schemas"
     headers = []
     query_params = []
 

@@ -621,6 +621,8 @@ defmodule AWS.DataZone do
         "domainId" => String.t() | atom(),
         "groupName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "rolePrincipalArn" => [String.t() | atom()],
+        "rolePrincipalId" => [String.t() | atom()],
         "status" => list(any())
       }
 
@@ -949,6 +951,7 @@ defmodule AWS.DataZone do
         "failureReasons" => list(project_deletion_error()),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "projectCategory" => [String.t() | atom()],
         "projectStatus" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
@@ -1128,6 +1131,8 @@ defmodule AWS.DataZone do
         "domainId" => String.t() | atom(),
         "groupName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "rolePrincipalArn" => [String.t() | atom()],
+        "rolePrincipalId" => [String.t() | atom()],
         "status" => list(any())
       }
 
@@ -1914,6 +1919,8 @@ defmodule AWS.DataZone do
         "domainId" => String.t() | atom(),
         "groupName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "rolePrincipalArn" => [String.t() | atom()],
+        "rolePrincipalId" => [String.t() | atom()],
         "status" => list(any())
       }
 
@@ -2052,6 +2059,7 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
+        "projectCategory" => [String.t() | atom()],
         "projectProfileId" => String.t() | atom(),
         "projectStatus" => list(any()),
         "resourceTags" => list(resource_tag()),
@@ -2504,6 +2512,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_user_profile_input() :: %{
+        optional("sessionName") => [String.t() | atom()],
         optional("type") => list(any()),
         required("status") => list(any())
       }
@@ -2856,12 +2865,12 @@ defmodule AWS.DataZone do
       create_domain_input() :: %{
         optional("clientToken") => [String.t() | atom()],
         optional("description") => [String.t() | atom()],
+        optional("domainExecutionRole") => String.t() | atom(),
         optional("domainVersion") => list(any()),
         optional("kmsKeyIdentifier") => String.t() | atom(),
         optional("serviceRole") => String.t() | atom(),
         optional("singleSignOn") => single_sign_on(),
         optional("tags") => map(),
-        required("domainExecutionRole") => String.t() | atom(),
         required("name") => [String.t() | atom()]
       }
 
@@ -3131,6 +3140,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       get_user_profile_input() :: %{
+        optional("sessionName") => [String.t() | atom()],
         optional("type") => list(any())
       }
 
@@ -3299,7 +3309,9 @@ defmodule AWS.DataZone do
 
       iam_user_profile_details() :: %{
         "arn" => [String.t() | atom()],
-        "principalId" => [String.t() | atom()]
+        "groupProfileId" => [String.t() | atom()],
+        "principalId" => [String.t() | atom()],
+        "sessionName" => [String.t() | atom()]
       }
 
   """
@@ -3383,6 +3395,7 @@ defmodule AWS.DataZone do
 
       create_user_profile_input() :: %{
         optional("clientToken") => [String.t() | atom()],
+        optional("sessionName") => [String.t() | atom()],
         optional("userType") => list(any()),
         required("userIdentifier") => String.t() | atom()
       }
@@ -5549,6 +5562,9 @@ defmodule AWS.DataZone do
         optional("description") => String.t() | atom(),
         optional("domainUnitId") => String.t() | atom(),
         optional("glossaryTerms") => list(String.t() | atom()),
+        optional("membershipAssignments") => list(project_membership_assignment()),
+        optional("projectCategory") => [String.t() | atom()],
+        optional("projectExecutionRole") => String.t() | atom(),
         optional("projectProfileId") => String.t() | atom(),
         optional("resourceTags") => map(),
         optional("userParameters") => list(environment_configuration_user_parameter()),
@@ -5701,6 +5717,18 @@ defmodule AWS.DataZone do
 
   """
   @type disassociate_governed_terms_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_membership_assignment() :: %{
+        "designation" => list(any()),
+        "member" => list()
+      }
+
+  """
+  @type project_membership_assignment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6262,6 +6290,7 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
+        "projectCategory" => [String.t() | atom()],
         "projectProfileId" => String.t() | atom(),
         "projectStatus" => list(any()),
         "resourceTags" => list(resource_tag()),
@@ -6324,7 +6353,8 @@ defmodule AWS.DataZone do
 
       create_group_profile_input() :: %{
         optional("clientToken") => [String.t() | atom()],
-        required("groupIdentifier") => String.t() | atom()
+        optional("groupIdentifier") => String.t() | atom(),
+        optional("rolePrincipalArn") => [String.t() | atom()]
       }
 
   """
@@ -6550,6 +6580,7 @@ defmodule AWS.DataZone do
         optional("maxResults") => integer(),
         optional("name") => String.t() | atom(),
         optional("nextToken") => String.t() | atom(),
+        optional("projectCategory") => [String.t() | atom()],
         optional("userIdentifier") => [String.t() | atom()]
       }
 
@@ -7034,6 +7065,7 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
+        "projectCategory" => [String.t() | atom()],
         "projectProfileId" => String.t() | atom(),
         "projectStatus" => list(any()),
         "resourceTags" => list(resource_tag()),
@@ -8491,6 +8523,8 @@ defmodule AWS.DataZone do
         "domainId" => String.t() | atom(),
         "groupName" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "rolePrincipalArn" => [String.t() | atom()],
+        "rolePrincipalId" => [String.t() | atom()],
         "status" => list(any())
       }
 
@@ -14125,6 +14159,7 @@ defmodule AWS.DataZone do
           String.t() | atom(),
           String.t() | atom(),
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_user_profile_output(), any()}
@@ -14135,6 +14170,7 @@ defmodule AWS.DataZone do
         %Client{} = client,
         domain_identifier,
         user_identifier,
+        session_name \\ nil,
         type \\ nil,
         options \\ []
       ) do
@@ -14147,6 +14183,13 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(type) do
         [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(session_name) do
+        [{"sessionName", session_name} | query_params]
       else
         query_params
       end
@@ -15901,6 +15944,7 @@ defmodule AWS.DataZone do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_projects_output(), any()}
@@ -15914,6 +15958,7 @@ defmodule AWS.DataZone do
         max_results \\ nil,
         name \\ nil,
         next_token \\ nil,
+        project_category \\ nil,
         user_identifier \\ nil,
         options \\ []
       ) do
@@ -15924,6 +15969,13 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(user_identifier) do
         [{"userIdentifier", user_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(project_category) do
+        [{"projectCategory", project_category} | query_params]
       else
         query_params
       end

@@ -390,6 +390,7 @@ defmodule AWS.AppStream do
         optional("AccessEndpoints") => list(access_endpoint()),
         optional("ApplicationSettings") => application_settings(),
         optional("AttributesToDelete") => list(list(any())()),
+        optional("ContentRedirection") => content_redirection(),
         optional("DeleteStorageConnectors") => boolean(),
         optional("Description") => String.t() | atom(),
         optional("DisplayName") => String.t() | atom(),

@@ -1003,6 +1003,7 @@ defmodule AWS.MediaConvert do
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "LastUpdated" => non_neg_integer(),
+        "MaximumConcurrentFeeds" => integer(),
         "Name" => String.t() | atom(),
         "PricingPlan" => list(any()),
         "ProgressingJobsCount" => integer(),
@@ -1043,6 +1044,7 @@ defmodule AWS.MediaConvert do
       update_queue_request() :: %{
         optional("ConcurrentJobs") => integer(),
         optional("Description") => String.t() | atom(),
+        optional("MaximumConcurrentFeeds") => integer(),
         optional("ReservationPlanSettings") => reservation_plan_settings(),
         optional("Status") => list(any())
       }
@@ -1967,6 +1969,18 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      elemental_inference_feed() :: %{
+        "Arn" => String.t() | atom(),
+        "FeedManagementState" => list(any())
+      }
+
+  """
+  @type elemental_inference_feed() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_destination_settings() :: %{
         "AccessControl" => s3_destination_access_control(),
         "Encryption" => s3_encryption_settings(),
@@ -2213,6 +2227,7 @@ defmodule AWS.MediaConvert do
       create_queue_request() :: %{
         optional("ConcurrentJobs") => integer(),
         optional("Description") => String.t() | atom(),
+        optional("MaximumConcurrentFeeds") => integer(),
         optional("PricingPlan") => list(any()),
         optional("ReservationPlanSettings") => reservation_plan_settings(),
         optional("Status") => list(any()),
@@ -2803,6 +2818,18 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      elemental_inference_configuration() :: %{
+        "Features" => list(list(any())()),
+        "Feeds" => list(elemental_inference_feed())
+      }
+
+  """
+  @type elemental_inference_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cmaf_additional_manifest() :: %{
         "ManifestNameModifier" => String.t() | atom(),
         "SelectedOutputs" => list(String.t() | atom())
@@ -3196,6 +3223,7 @@ defmodule AWS.MediaConvert do
         "ClientRequestToken" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "CurrentPhase" => list(any()),
+        "ElementalInferenceConfiguration" => elemental_inference_configuration(),
         "ErrorCode" => integer(),
         "ErrorMessage" => String.t() | atom(),
         "HopDestinations" => list(hop_destination()),

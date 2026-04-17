@@ -423,6 +423,23 @@ defmodule AWS.RDS do
 
   ## Example:
       
+      describe_serverless_v2_platform_versions_message() :: %{
+        optional("DefaultOnly") => boolean(),
+        optional("Engine") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("IncludeAll") => boolean(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("ServerlessV2PlatformVersion") => String.t() | atom()
+      }
+      
+  """
+  @type describe_serverless_v2_platform_versions_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       snapshot_quota_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
@@ -1052,6 +1069,18 @@ defmodule AWS.RDS do
       
   """
   @type reboot_db_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_v2_platform_versions_message() :: %{
+        "Marker" => String.t() | atom(),
+        "ServerlessV2PlatformVersions" => list(serverless_v2_platform_version_info())
+      }
+      
+  """
+  @type serverless_v2_platform_versions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5173,6 +5202,22 @@ defmodule AWS.RDS do
       
   """
   @type create_db_parameter_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_v2_platform_version_info() :: %{
+        "Engine" => String.t() | atom(),
+        "IsDefault" => boolean(),
+        "ServerlessV2FeaturesSupport" => serverless_v2_features_support(),
+        "ServerlessV2PlatformVersion" => String.t() | atom(),
+        "ServerlessV2PlatformVersionDescription" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_v2_platform_version_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11328,6 +11373,23 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedDBInstancesOfferings", input, options)
+  end
+
+  @doc """
+  Describes the properties of specific platform versions for Aurora Serverless v2.
+  """
+  @spec describe_serverless_v2_platform_versions(
+          map(),
+          describe_serverless_v2_platform_versions_message(),
+          list()
+        ) ::
+          {:ok, serverless_v2_platform_versions_message(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_serverless_v2_platform_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServerlessV2PlatformVersions", input, options)
   end
 
   @doc """

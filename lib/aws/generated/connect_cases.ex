@@ -2195,6 +2195,7 @@ defmodule AWS.ConnectCases do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
   @type update_template_errors() ::

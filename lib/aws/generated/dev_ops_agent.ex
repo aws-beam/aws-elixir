@@ -1387,8 +1387,8 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       create_chat_request() :: %{
-        optional("userType") => list(any()),
-        required("userId") => String.t() | atom()
+        optional("userId") => String.t() | atom(),
+        optional("userType") => list(any())
       }
 
   """
@@ -1502,19 +1502,6 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
-      allow_vended_log_delivery_for_resource_input() :: %{
-        optional("logType") => [String.t() | atom()],
-        required("deliverySourceArn") => [String.t() | atom()],
-        required("resourceArnBeingAuthorized") => [String.t() | atom()]
-      }
-
-  """
-  @type allow_vended_log_delivery_for_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       send_message_response_created_event() :: %{
         "responseId" => [String.t() | atom()],
         "sequenceNumber" => [integer()]
@@ -1530,7 +1517,7 @@ defmodule AWS.DevOpsAgent do
       list_chats_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()],
-        required("userId") => String.t() | atom()
+        optional("userId") => String.t() | atom()
       }
 
   """
@@ -1709,17 +1696,6 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type m_c_p_server_grafana_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      allow_vended_log_delivery_for_resource_output() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type allow_vended_log_delivery_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2039,9 +2015,9 @@ defmodule AWS.DevOpsAgent do
 
       send_message_request() :: %{
         optional("context") => send_message_context(),
+        optional("userId") => String.t() | atom(),
         required("content") => String.t() | atom(),
-        required("executionId") => String.t() | atom(),
-        required("userId") => String.t() | atom()
+        required("executionId") => String.t() | atom()
       }
 
   """
@@ -2678,38 +2654,6 @@ defmodule AWS.DevOpsAgent do
       signing_name: "aidevops",
       target_prefix: nil
     }
-  end
-
-  @doc """
-  Authorize Ingestion Hub subscription operation.
-  """
-  @spec allow_vended_log_delivery_for_resource(
-          map(),
-          allow_vended_log_delivery_for_resource_input(),
-          list()
-        ) ::
-          {:ok, allow_vended_log_delivery_for_resource_output(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-  def allow_vended_log_delivery_for_resource(%Client{} = client, input, options \\ []) do
-    url_path = "/allow-vended-log-delivery-for-resource"
-    headers = []
-    custom_headers = []
-    query_params = []
-
-    meta = metadata() |> Map.put_new(:host_prefix, "cp.")
-
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      custom_headers ++ headers,
-      input,
-      options,
-      200
-    )
   end
 
   @doc """
@@ -3351,7 +3295,7 @@ defmodule AWS.DevOpsAgent do
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
-          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_chats_response(), any()}
@@ -3363,7 +3307,7 @@ defmodule AWS.DevOpsAgent do
         agent_space_id,
         max_results \\ nil,
         next_token \\ nil,
-        user_id,
+        user_id \\ nil,
         options \\ []
       ) do
     url_path = "/agents/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/chat/list"

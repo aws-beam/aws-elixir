@@ -1353,6 +1353,7 @@ defmodule AWS.AutoScaling do
       auto_scaling_instance_details() :: %{
         "AutoScalingGroupName" => String.t() | atom(),
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "HealthStatus" => String.t() | atom(),
         "ImageId" => String.t() | atom(),
         "InstanceId" => String.t() | atom(),
@@ -1611,6 +1612,7 @@ defmodule AWS.AutoScaling do
         optional("MixedInstancesPolicy") => mixed_instances_policy(),
         optional("Context") => String.t() | atom(),
         required("MinSize") => integer(),
+        optional("AvailabilityZoneIds") => list(String.t() | atom()),
         optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
         optional("PlacementGroup") => String.t() | atom(),
         optional("CapacityReservationSpecification") => capacity_reservation_specification(),
@@ -1872,6 +1874,7 @@ defmodule AWS.AutoScaling do
       
       instance() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "HealthStatus" => String.t() | atom(),
         "ImageId" => String.t() | atom(),
         "InstanceId" => String.t() | atom(),
@@ -2073,6 +2076,7 @@ defmodule AWS.AutoScaling do
         "AutoScalingGroupName" => String.t() | atom(),
         "PredictedCapacity" => integer(),
         "TargetGroupARNs" => list(String.t() | atom()),
+        "AvailabilityZoneIds" => list(String.t() | atom()),
         "MixedInstancesPolicy" => mixed_instances_policy(),
         "CreatedTime" => non_neg_integer(),
         "NewInstancesProtectedFromScaleIn" => boolean(),
@@ -2190,6 +2194,7 @@ defmodule AWS.AutoScaling do
       
       update_auto_scaling_group_type() :: %{
         optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
+        optional("AvailabilityZoneIds") => list(String.t() | atom()),
         optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
         optional("AvailabilityZones") => list(String.t() | atom()),
         optional("CapacityRebalance") => boolean(),

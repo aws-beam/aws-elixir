@@ -882,8 +882,9 @@ defmodule AWS.BedrockAgentCore do
       list_memory_records_input() :: %{
         optional("maxResults") => integer(),
         optional("memoryStrategyId") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        required("namespace") => String.t() | atom()
+        optional("namespace") => String.t() | atom(),
+        optional("namespacePath") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
@@ -1183,8 +1184,9 @@ defmodule AWS.BedrockAgentCore do
 
       retrieve_memory_records_input() :: %{
         optional("maxResults") => integer(),
+        optional("namespace") => String.t() | atom(),
+        optional("namespacePath") => String.t() | atom(),
         optional("nextToken") => String.t() | atom(),
-        required("namespace") => String.t() | atom(),
         required("searchCriteria") => search_criteria()
       }
 

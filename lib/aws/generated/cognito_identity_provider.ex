@@ -861,6 +861,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       web_authn_configuration_type() :: %{
+        "FactorConfiguration" => list(any()),
         "RelyingPartyId" => String.t() | atom(),
         "UserVerification" => list(any())
       }
@@ -3091,6 +3092,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      web_authn_mfa_settings_type() :: %{
+        "Enabled" => boolean()
+      }
+      
+  """
+  @type web_authn_mfa_settings_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_user_pool_domain_request() :: %{
         required("Domain") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom()
@@ -4472,6 +4484,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("EmailMfaSettings") => email_mfa_settings_type(),
         optional("SMSMfaSettings") => sms_mfa_settings_type(),
         optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
+        optional("WebAuthnMfaSettings") => web_authn_mfa_settings_type(),
         required("UserPoolId") => String.t() | atom(),
         required("Username") => String.t() | atom()
       }
@@ -4694,6 +4707,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("EmailMfaSettings") => email_mfa_settings_type(),
         optional("SMSMfaSettings") => sms_mfa_settings_type(),
         optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
+        optional("WebAuthnMfaSettings") => web_authn_mfa_settings_type(),
         required("AccessToken") => String.t() | atom()
       }
       

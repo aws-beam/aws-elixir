@@ -6790,7 +6790,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_log_object_errors()}
   def get_log_object(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "streaming-")
+    meta = metadata() |> Map.put_new(:host_prefix, "stream-")
 
     Request.request_post(client, meta, "GetLogObject", input, options)
   end
@@ -8581,7 +8581,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, start_live_tail_errors()}
   def start_live_tail(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "streaming-")
+    meta = metadata() |> Map.put_new(:host_prefix, "stream-")
 
     Request.request_post(client, meta, "StartLiveTail", input, options)
   end

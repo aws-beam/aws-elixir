@@ -167,6 +167,34 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      list_antennas_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_antennas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ground_station_reservation_list_item() :: %{
+        "antennaName" => String.t() | atom(),
+        "endTime" => [non_neg_integer()],
+        "groundStationId" => String.t() | atom(),
+        "reservationDetails" => list(),
+        "reservationType" => list(any()),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type ground_station_reservation_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dataflow_endpoint_config() :: %{
         "dataflowEndpointName" => [String.t() | atom()],
         "dataflowEndpointRegion" => [String.t() | atom()]
@@ -268,6 +296,7 @@ defmodule AWS.GroundStation do
         "startTime" => [non_neg_integer()],
         "tags" => map(),
         "trackingOverrides" => tracking_overrides(),
+        "version" => contact_version(),
         "visibilityEndTime" => [non_neg_integer()],
         "visibilityStartTime" => [non_neg_integer()]
       }
@@ -362,6 +391,17 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      tle_program_track_settings() :: %{
+        "ephemerisId" => String.t() | atom()
+      }
+
+  """
+  @type tle_program_track_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       spectrum_config() :: %{
         "bandwidth" => frequency_bandwidth(),
         "centerFrequency" => frequency(),
@@ -433,6 +473,24 @@ defmodule AWS.GroundStation do
 
   """
   @type ephemeris_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_version() :: %{
+        "activated" => [non_neg_integer()],
+        "created" => [non_neg_integer()],
+        "failureCodes" => list(list(any())()),
+        "failureMessage" => [String.t() | atom()],
+        "lastUpdated" => [non_neg_integer()],
+        "status" => list(any()),
+        "superseded" => [non_neg_integer()],
+        "versionId" => integer()
+      }
+
+  """
+  @type contact_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -777,12 +835,35 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      maintenance_reservation_details() :: %{
+        "maintenanceType" => list(any())
+      }
+
+  """
+  @type maintenance_reservation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ground_station_reservations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "reservationList" => list(ground_station_reservation_list_item())
+      }
+
+  """
+  @type list_ground_station_reservations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -823,6 +904,29 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      oem_program_track_settings() :: %{
+        "ephemerisId" => String.t() | atom()
+      }
+
+  """
+  @type oem_program_track_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_contact_response() :: %{
+        "contactId" => String.t() | atom(),
+        "versionId" => integer()
+      }
+
+  """
+  @type update_contact_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_data() :: %{
         "contactId" => String.t() | atom(),
         "contactStatus" => list(any()),
@@ -838,6 +942,7 @@ defmodule AWS.GroundStation do
         "satelliteArn" => String.t() | atom(),
         "startTime" => [non_neg_integer()],
         "tags" => map(),
+        "version" => contact_version(),
         "visibilityEndTime" => [non_neg_integer()],
         "visibilityStartTime" => [non_neg_integer()]
       }
@@ -907,7 +1012,8 @@ defmodule AWS.GroundStation do
   ## Example:
 
       contact_id_response() :: %{
-        "contactId" => String.t() | atom()
+        "contactId" => String.t() | atom(),
+        "versionId" => integer()
       }
 
   """
@@ -925,6 +1031,35 @@ defmodule AWS.GroundStation do
 
   """
   @type update_agent_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_contact_version_response() :: %{
+        "contactId" => String.t() | atom(),
+        "contactStatus" => list(any()),
+        "dataflowList" => list(dataflow_detail()),
+        "endTime" => [non_neg_integer()],
+        "ephemeris" => ephemeris_response_data(),
+        "errorMessage" => [String.t() | atom()],
+        "groundStation" => [String.t() | atom()],
+        "maximumElevation" => elevation(),
+        "missionProfileArn" => String.t() | atom(),
+        "postPassEndTime" => [non_neg_integer()],
+        "prePassStartTime" => [non_neg_integer()],
+        "region" => [String.t() | atom()],
+        "satelliteArn" => String.t() | atom(),
+        "startTime" => [non_neg_integer()],
+        "tags" => map(),
+        "trackingOverrides" => tracking_overrides(),
+        "version" => contact_version(),
+        "visibilityEndTime" => [non_neg_integer()],
+        "visibilityStartTime" => [non_neg_integer()]
+      }
+
+  """
+  @type describe_contact_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,6 +1154,17 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      contact_reservation_details() :: %{
+        "contactId" => String.t() | atom()
+      }
+
+  """
+  @type contact_reservation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_minute_usage_response() :: %{
         "estimatedMinutesRemaining" => [integer()],
         "isReservedMinutesCustomer" => [boolean()],
@@ -1069,6 +1215,18 @@ defmodule AWS.GroundStation do
 
   """
   @type dataflow_endpoint_group_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contact_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_contact_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1125,6 +1283,19 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      antenna_list_item() :: %{
+        "antennaName" => String.t() | atom(),
+        "groundStationName" => String.t() | atom(),
+        "region" => String.t() | atom()
+      }
+
+  """
+  @type antenna_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kinesis_data_stream_data() :: %{
         "kinesisDataStreamArn" => String.t() | atom(),
         "kinesisRoleArn" => String.t() | atom()
@@ -1160,6 +1331,18 @@ defmodule AWS.GroundStation do
 
   """
   @type delete_ephemeris_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contact_versions_response() :: %{
+        "contactVersionsList" => list(contact_version()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_contact_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1293,6 +1476,19 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      update_contact_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("satelliteArn") => String.t() | atom(),
+        optional("trackingOverrides") => tracking_overrides()
+      }
+
+  """
+  @type update_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_satellites_response() :: %{
         "nextToken" => String.t() | atom(),
         "satellites" => list(satellite_list_item())
@@ -1330,6 +1526,18 @@ defmodule AWS.GroundStation do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_antennas_response() :: %{
+        "antennaList" => list(antenna_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_antennas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1475,6 +1683,15 @@ defmodule AWS.GroundStation do
 
   ## Example:
 
+      describe_contact_version_request() :: %{}
+
+  """
+  @type describe_contact_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_dataflow_endpoint_groups_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -1567,6 +1784,21 @@ defmodule AWS.GroundStation do
 
   """
   @type discovery_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ground_station_reservations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("reservationTypes") => list(list(any())()),
+        required("endTime") => [non_neg_integer()],
+        required("startTime") => [non_neg_integer()]
+      }
+
+  """
+  @type list_ground_station_reservations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1763,6 +1995,9 @@ defmodule AWS.GroundStation do
   @type describe_contact_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
+  @type describe_contact_version_errors() ::
+          invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
+
   @type describe_ephemeris_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
@@ -1787,7 +2022,12 @@ defmodule AWS.GroundStation do
   @type get_satellite_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
+  @type list_antennas_errors() :: invalid_parameter_exception() | dependency_exception()
+
   @type list_configs_errors() ::
+          invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
+
+  @type list_contact_versions_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
 
   @type list_contacts_errors() ::
@@ -1798,6 +2038,9 @@ defmodule AWS.GroundStation do
 
   @type list_ephemerides_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
+
+  @type list_ground_station_reservations_errors() ::
+          invalid_parameter_exception() | dependency_exception()
 
   @type list_ground_stations_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
@@ -1831,6 +2074,12 @@ defmodule AWS.GroundStation do
 
   @type update_config_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
+
+  @type update_contact_errors() ::
+          invalid_parameter_exception()
+          | resource_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | dependency_exception()
 
   @type update_ephemeris_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
@@ -2214,6 +2463,26 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+  Describes a specific version of a contact.
+  """
+  @spec describe_contact_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_contact_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_contact_version_errors()}
+  def describe_contact_version(%Client{} = client, contact_id, version_id, options \\ []) do
+    url_path =
+      "/contact/#{AWS.Util.encode_uri(contact_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieve information about an existing ephemeris.
   """
   @spec describe_ephemeris(map(), String.t() | atom(), list()) ::
@@ -2377,6 +2646,50 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
+  Returns a list of antennas at a specified ground station.
+  """
+  @spec list_antennas(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_antennas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_antennas_errors()}
+  def list_antennas(
+        %Client{} = client,
+        ground_station_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/groundstation/#{AWS.Util.encode_uri(ground_station_id)}/antenna"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of `Config` objects.
   """
   @spec list_configs(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
@@ -2386,6 +2699,50 @@ defmodule AWS.GroundStation do
           | {:error, list_configs_errors()}
   def list_configs(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/config"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of versions for a specified contact.
+  """
+  @spec list_contact_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_contact_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_contact_versions_errors()}
+  def list_contact_versions(
+        %Client{} = client,
+        contact_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}/versions"
     headers = []
     query_params = []
 
@@ -2515,6 +2872,77 @@ defmodule AWS.GroundStation do
       options,
       200
     )
+  end
+
+  @doc """
+  Returns a list of reservations for a specified ground station.
+  """
+  @spec list_ground_station_reservations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_ground_station_reservations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_ground_station_reservations_errors()}
+  def list_ground_station_reservations(
+        %Client{} = client,
+        ground_station_id,
+        end_time,
+        max_results \\ nil,
+        next_token \\ nil,
+        reservation_types \\ nil,
+        start_time,
+        options \\ []
+      ) do
+    url_path = "/groundstation/#{AWS.Util.encode_uri(ground_station_id)}/reservation"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(reservation_types) do
+        [{"reservationTypes", reservation_types} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2838,6 +3266,35 @@ defmodule AWS.GroundStation do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a specific contact.
+  """
+  @spec update_contact(map(), String.t() | atom(), update_contact_request(), list()) ::
+          {:ok, update_contact_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_contact_errors()}
+  def update_contact(%Client{} = client, contact_id, input, options \\ []) do
+    url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}/versions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

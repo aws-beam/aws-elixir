@@ -1100,6 +1100,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_network_interface() :: %{
+        "InterfaceType" => list(any())
+      }
+      
+  """
+  @type cluster_network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_mlflow_app_response() :: %{
         "Arn" => String.t() | atom()
       }
@@ -15344,6 +15355,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_network_interface_details() :: %{
+        "InterfaceType" => list(any())
+      }
+      
+  """
+  @type cluster_network_interface_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_pipeline_execution_response() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
@@ -16169,6 +16191,7 @@ defmodule AWS.SageMaker do
       
       cluster_life_cycle_config() :: %{
         "OnCreate" => String.t() | atom(),
+        "OnInitComplete" => String.t() | atom(),
         "SourceS3Uri" => String.t() | atom()
       }
       
@@ -16762,6 +16785,7 @@ defmodule AWS.SageMaker do
         "KubernetesConfig" => cluster_kubernetes_config(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "MinInstanceCount" => integer(),
+        "NetworkInterface" => cluster_network_interface(),
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
         "ScheduledUpdateConfig" => scheduled_update_config(),
@@ -19434,6 +19458,7 @@ defmodule AWS.SageMaker do
         "KubernetesConfig" => cluster_kubernetes_config_details(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "MinCount" => integer(),
+        "NetworkInterface" => cluster_network_interface_details(),
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
         "ScheduledUpdateConfig" => scheduled_update_config(),
@@ -19893,6 +19918,7 @@ defmodule AWS.SageMaker do
         "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
+        "NetworkInterface" => cluster_network_interface_details(),
         "NodeLogicalId" => String.t() | atom(),
         "OverrideVpcConfig" => vpc_config(),
         "Placement" => cluster_instance_placement(),

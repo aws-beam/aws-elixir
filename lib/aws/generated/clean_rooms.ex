@@ -27,6 +27,7 @@ defmodule AWS.CleanRooms do
 
       protected_job_worker_compute_configuration() :: %{
         "number" => [integer()],
+        "properties" => list(),
         "type" => list(any())
       }
 

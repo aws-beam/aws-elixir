@@ -5001,7 +5001,7 @@ defmodule AWS.Neptune do
 
   A secondary
   cluster becomes a normal standalone cluster with read-write capability
-  instead of being read-only, and no longer receives data from a the
+  instead of being read-only, and no longer receives data from the
   primary cluster.
   """
   @spec remove_from_global_cluster(map(), remove_from_global_cluster_message(), list()) ::

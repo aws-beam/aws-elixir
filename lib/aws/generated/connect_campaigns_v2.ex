@@ -91,6 +91,7 @@ defmodule AWS.ConnectCampaignsV2 do
         "communicationTimeConfig" => communication_time_config(),
         "connectCampaignFlowArn" => String.t() | atom(),
         "connectInstanceId" => String.t() | atom(),
+        "entryLimitsConfig" => entry_limits_config(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "schedule" => schedule(),
@@ -432,6 +433,18 @@ defmodule AWS.ConnectCampaignsV2 do
 
   """
   @type successful_profile_outbound_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      entry_limits_config() :: %{
+        "maxEntryCount" => [integer()],
+        "minEntryInterval" => String.t() | atom()
+      }
+
+  """
+  @type entry_limits_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,6 +804,15 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      delete_campaign_entry_limits_request() :: %{}
+
+  """
+  @type delete_campaign_entry_limits_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       schedule() :: %{
         "endTime" => non_neg_integer(),
         "refreshFrequency" => String.t() | atom(),
@@ -939,6 +961,7 @@ defmodule AWS.ConnectCampaignsV2 do
         optional("communicationLimitsOverride") => communication_limits_config(),
         optional("communicationTimeConfig") => communication_time_config(),
         optional("connectCampaignFlowArn") => String.t() | atom(),
+        optional("entryLimitsConfig") => entry_limits_config(),
         optional("schedule") => schedule(),
         optional("source") => list(),
         optional("tags") => map(),
@@ -1104,6 +1127,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      update_campaign_entry_limits_request() :: %{
+        required("entryLimitsConfig") => entry_limits_config()
+      }
+
+  """
+  @type update_campaign_entry_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       profile_outbound_request() :: %{
         "clientToken" => String.t() | atom(),
         "expirationTime" => non_neg_integer(),
@@ -1245,6 +1279,7 @@ defmodule AWS.ConnectCampaignsV2 do
         "channelSubtypes" => list(String.t() | atom()),
         "connectCampaignFlowArn" => String.t() | atom(),
         "connectInstanceId" => String.t() | atom(),
+        "entryLimitsConfig" => entry_limits_config(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "schedule" => schedule(),
@@ -1341,6 +1376,14 @@ defmodule AWS.ConnectCampaignsV2 do
           | invalid_campaign_state_exception()
 
   @type delete_campaign_communication_time_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | invalid_campaign_state_exception()
+
+  @type delete_campaign_entry_limits_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -1531,6 +1574,14 @@ defmodule AWS.ConnectCampaignsV2 do
           | invalid_campaign_state_exception()
 
   @type update_campaign_communication_time_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | invalid_campaign_state_exception()
+
+  @type update_campaign_entry_limits_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -1752,6 +1803,42 @@ defmodule AWS.ConnectCampaignsV2 do
         {"config", "config"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the entry limits config for a campaign.
+
+  This API is idempotent.
+  """
+  @spec delete_campaign_entry_limits(
+          map(),
+          String.t() | atom(),
+          delete_campaign_entry_limits_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_campaign_entry_limits_errors()}
+  def delete_campaign_entry_limits(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/entry-limits"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -2564,6 +2651,42 @@ defmodule AWS.ConnectCampaignsV2 do
           | {:error, update_campaign_communication_time_errors()}
   def update_campaign_communication_time(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/communication-time"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the entry limits config for a campaign.
+
+  This API is idempotent.
+  """
+  @spec update_campaign_entry_limits(
+          map(),
+          String.t() | atom(),
+          update_campaign_entry_limits_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_campaign_entry_limits_errors()}
+  def update_campaign_entry_limits(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/entry-limits"
     headers = []
     custom_headers = []
     query_params = []

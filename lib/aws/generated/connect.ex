@@ -11446,10 +11446,10 @@ defmodule AWS.Connect do
   ## Example:
 
       list_test_case_executions_request() :: %{
-        optional("EndTime") => non_neg_integer(),
+        optional("EndTime") => float(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer(),
+        optional("StartTime") => float(),
         optional("Status") => list(any()),
         optional("TestCaseId") => String.t() | atom(),
         optional("TestCaseName") => String.t() | atom()

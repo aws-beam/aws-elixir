@@ -2234,6 +2234,18 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      register_image_options() :: %{
+        "secureBootEnabled" => boolean(),
+        "uefiData" => String.t() | atom()
+      }
+
+  """
+  @type register_image_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_image_policy_request() :: %{
         required("imageArn") => String.t() | atom(),
         required("policy") => String.t() | atom()
@@ -3458,7 +3470,9 @@ defmodule AWS.Imagebuilder do
         optional("description") => String.t() | atom(),
         optional("executionRole") => String.t() | atom(),
         optional("loggingConfiguration") => image_logging_configuration(),
+        optional("registerImageOptions") => register_image_options(),
         optional("tags") => map(),
+        optional("windowsConfiguration") => windows_configuration(),
         required("clientToken") => String.t() | atom(),
         required("infrastructureConfigurationArn") => String.t() | atom(),
         required("name") => String.t() | atom(),
@@ -3650,6 +3664,17 @@ defmodule AWS.Imagebuilder do
 
   """
   @type infrastructure_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      windows_configuration() :: %{
+        "imageIndex" => float()
+      }
+
+  """
+  @type windows_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

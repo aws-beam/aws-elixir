@@ -593,6 +593,7 @@ defmodule AWS.QuickSight do
 
       filter_list_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
+        "ControlSortConfigurations" => list(control_sort_configuration()),
         "DisplayOptions" => list_control_display_options(),
         "FilterControlId" => String.t() | atom(),
         "SelectableValues" => filter_selectable_values(),
@@ -3318,6 +3319,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       athena_parameters() :: %{
+        "ConsumerAccountRoleArn" => String.t() | atom(),
         "IdentityCenterConfiguration" => identity_center_configuration(),
         "RoleArn" => String.t() | atom(),
         "WorkGroup" => String.t() | atom()
@@ -3775,6 +3777,17 @@ defmodule AWS.QuickSight do
 
   """
   @type geospatial_point_style() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dashboard_customization_summary_configurations() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type dashboard_customization_summary_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5063,6 +5076,18 @@ defmodule AWS.QuickSight do
 
   """
   @type create_vpc_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_sort_configuration() :: %{
+        "ControlColumnSort" => aggregation_sort_configuration(),
+        "SelectableValuesSort" => selectable_values_sort()
+      }
+
+  """
+  @type control_sort_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6468,6 +6493,7 @@ defmodule AWS.QuickSight do
 
       parameter_list_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
+        "ControlSortConfigurations" => list(control_sort_configuration()),
         "DisplayOptions" => list_control_display_options(),
         "ParameterControlId" => String.t() | atom(),
         "SelectableValues" => parameter_selectable_values(),
@@ -8049,6 +8075,7 @@ defmodule AWS.QuickSight do
       registered_user_dashboard_feature_configurations() :: %{
         "AmazonQInQuickSight" => amazon_q_in_quick_sight_dashboard_configurations(),
         "Bookmarks" => bookmarks_configurations(),
+        "DashboardCustomizationSummary" => dashboard_customization_summary_configurations(),
         "RecentSnapshots" => recent_snapshots_configurations(),
         "Schedules" => schedules_configurations(),
         "SharedView" => shared_view_configurations(),
@@ -8335,6 +8362,17 @@ defmodule AWS.QuickSight do
 
   """
   @type geospatial_window_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      selectable_values_sort() :: %{
+        "Direction" => list(any())
+      }
+
+  """
+  @type selectable_values_sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9806,6 +9844,7 @@ defmodule AWS.QuickSight do
       parameter_drop_down_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "CommitMode" => list(any()),
+        "ControlSortConfigurations" => list(control_sort_configuration()),
         "DisplayOptions" => drop_down_control_display_options(),
         "ParameterControlId" => String.t() | atom(),
         "SelectableValues" => parameter_selectable_values(),
@@ -11493,6 +11532,7 @@ defmodule AWS.QuickSight do
 
       default_filter_drop_down_control_options() :: %{
         "CommitMode" => list(any()),
+        "ControlSortConfigurations" => list(control_sort_configuration()),
         "DisplayOptions" => drop_down_control_display_options(),
         "SelectableValues" => filter_selectable_values(),
         "Type" => list(any())
@@ -11749,6 +11789,7 @@ defmodule AWS.QuickSight do
       filter_drop_down_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "CommitMode" => list(any()),
+        "ControlSortConfigurations" => list(control_sort_configuration()),
         "DisplayOptions" => drop_down_control_display_options(),
         "FilterControlId" => String.t() | atom(),
         "SelectableValues" => filter_selectable_values(),
@@ -12702,6 +12743,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      s3_tables_parameters() :: %{
+        "TableBucketArn" => String.t() | atom()
+      }
+
+  """
+  @type s3_tables_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generative_authoring_configurations() :: %{
         "Enabled" => boolean()
       }
@@ -12987,6 +13039,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       default_filter_list_control_options() :: %{
+        "ControlSortConfigurations" => list(control_sort_configuration()),
         "DisplayOptions" => list_control_display_options(),
         "SelectableValues" => filter_selectable_values(),
         "Type" => list(any())
@@ -13094,6 +13147,7 @@ defmodule AWS.QuickSight do
 
       registered_user_console_feature_configurations() :: %{
         "AmazonQInQuickSight" => amazon_q_in_quick_sight_console_configurations(),
+        "DashboardCustomizationSummary" => dashboard_customization_summary_configurations(),
         "RecentSnapshots" => recent_snapshots_configurations(),
         "Schedules" => schedules_configurations(),
         "SharedView" => shared_view_configurations(),
@@ -19754,6 +19808,7 @@ defmodule AWS.QuickSight do
         "ShareSAPBusinessPartnerAction" => list(any()),
         "ShareSharePointAction" => list(any()),
         "CreateAndUpdateBambooHRAction" => list(any()),
+        "GenerateAnalyses" => list(any()),
         "SelfUpgradeUserRole" => list(any()),
         "CreateAndUpdateGithubAction" => list(any()),
         "UseHuggingFaceAction" => list(any()),

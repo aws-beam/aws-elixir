@@ -572,7 +572,7 @@ defmodule AWS.STS do
       hostname: nil,
       protocol: "query",
       service_id: "STS",
-      signature_version: "v4",
+      signature_version: "aws.auth#sigv4",
       signing_name: "sts",
       target_prefix: "AWSSecurityTokenServiceV20110615"
     }

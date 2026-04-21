@@ -4587,6 +4587,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       mcp_server_target_configuration() :: %{
         "endpoint" => [String.t() | atom()],
+        "listingMode" => list(any()),
         "mcpToolSchema" => list()
       }
 

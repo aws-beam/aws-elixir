@@ -14,6 +14,17 @@ defmodule AWS.Location do
 
   ## Example:
 
+      cancel_job_request() :: %{
+        required("JobId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_device_position_request() :: %{}
 
   """
@@ -149,6 +160,17 @@ defmodule AWS.Location do
 
   """
   @type batch_put_geofence_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_action_options() :: %{
+        "ValidateAddress" => validate_address_action_options()
+      }
+
+  """
+  @type job_action_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,6 +364,19 @@ defmodule AWS.Location do
 
   ## Example:
 
+      list_jobs_request() :: %{
+        optional("Filter") => jobs_filter(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_keys_response() :: %{
         optional("NextToken") => String.t() | atom(),
         required("Entries") => list(list_keys_response_entry())
@@ -377,6 +412,20 @@ defmodule AWS.Location do
 
   """
   @type list_route_calculators_response_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_job_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "JobArn" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type start_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,6 +493,18 @@ defmodule AWS.Location do
 
   ## Example:
 
+      list_jobs_response() :: %{
+        "Entries" => list(list_jobs_response_entry()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_key_request() :: %{
         optional("ForceDelete") => [boolean()]
       }
@@ -487,6 +548,29 @@ defmodule AWS.Location do
 
   """
   @type put_geofence_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_response_entry() :: %{
+        "Action" => String.t() | atom(),
+        "ActionOptions" => job_action_options(),
+        "CreatedAt" => non_neg_integer(),
+        "EndedAt" => non_neg_integer(),
+        "Error" => job_error(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "InputOptions" => job_input_options(),
+        "JobArn" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutputOptions" => job_output_options(),
+        "Status" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type list_jobs_response_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -631,6 +715,17 @@ defmodule AWS.Location do
 
   """
   @type get_map_sprites_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jobs_filter() :: %{
+        "JobStatus" => String.t() | atom()
+      }
+
+  """
+  @type jobs_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1197,6 +1292,29 @@ defmodule AWS.Location do
 
   ## Example:
 
+      validate_address_action_options() :: %{
+        "AdditionalFeatures" => list(String.t() | atom())
+      }
+
+  """
+  @type validate_address_action_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_input_options() :: %{
+        "Format" => String.t() | atom(),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type job_input_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_geofence_collection_request() :: %{}
 
   """
@@ -1263,6 +1381,24 @@ defmodule AWS.Location do
 
   """
   @type update_place_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_job_request() :: %{
+        optional("ActionOptions") => job_action_options(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Action") => String.t() | atom(),
+        required("ExecutionRoleArn") => String.t() | atom(),
+        required("InputOptions") => job_input_options(),
+        required("OutputOptions") => job_output_options()
+      }
+
+  """
+  @type start_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1636,6 +1772,30 @@ defmodule AWS.Location do
 
   ## Example:
 
+      get_job_response() :: %{
+        "Action" => String.t() | atom(),
+        "ActionOptions" => job_action_options(),
+        "CreatedAt" => non_neg_integer(),
+        "EndedAt" => non_neg_integer(),
+        "Error" => job_error(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "InputOptions" => job_input_options(),
+        "JobArn" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutputOptions" => job_output_options(),
+        "Status" => String.t() | atom(),
+        "Tags" => map(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()),
         "Message" => [String.t() | atom()],
@@ -1688,6 +1848,15 @@ defmodule AWS.Location do
 
   """
   @type get_place_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_request() :: %{}
+
+  """
+  @type get_job_request() :: %{}
 
   @typedoc """
 
@@ -2093,6 +2262,19 @@ defmodule AWS.Location do
 
   ## Example:
 
+      cancel_job_response() :: %{
+        "JobArn" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type cancel_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_geofence_request() :: %{}
 
   """
@@ -2275,6 +2457,18 @@ defmodule AWS.Location do
 
   ## Example:
 
+      job_error() :: %{
+        "Code" => String.t() | atom(),
+        "Messages" => list(String.t() | atom())
+      }
+
+  """
+  @type job_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_evaluate_geofences_error() :: %{
         "DeviceId" => String.t() | atom(),
         "Error" => batch_item_error(),
@@ -2415,6 +2609,18 @@ defmodule AWS.Location do
 
   ## Example:
 
+      job_output_options() :: %{
+        "Format" => String.t() | atom(),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type job_output_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_delete_device_position_history_request() :: %{
         required("DeviceIds") => list(String.t() | atom())
       }
@@ -2486,6 +2692,12 @@ defmodule AWS.Location do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type cancel_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type create_geofence_collection_errors() ::
           throttling_exception()
@@ -2654,6 +2866,13 @@ defmodule AWS.Location do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_map_glyphs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2707,6 +2926,12 @@ defmodule AWS.Location do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_keys_errors() ::
           throttling_exception()
@@ -2780,6 +3005,12 @@ defmodule AWS.Location do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type start_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type tag_resource_errors() ::
           throttling_exception()
@@ -3305,6 +3536,41 @@ defmodule AWS.Location do
       |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "routes.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  `CancelJob` cancels a job that is currently running or pending.
+
+  If the job is already in a terminal state (`Completed`, `Failed`, or
+  `Cancelled`), the operation returns successfully with the current status.
+
+  For more information, see [Job concepts](https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html)
+  in the *Amazon Location Service Developer Guide*.
+  """
+  @spec cancel_job(map(), cancel_job_request(), list()) ::
+          {:ok, cancel_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_job_errors()}
+  def cancel_job(%Client{} = client, input, options \\ []) do
+    url_path = "/metadata/v0/jobs/cancel-job"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
 
     Request.request_rest(
       client,
@@ -4216,6 +4482,28 @@ defmodule AWS.Location do
   end
 
   @doc """
+  `GetJob` retrieves detailed information about a specific job, including its
+  current status, configuration, and error information if the job failed.
+
+  For more information, see [Job concepts](https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html)
+  in the *Amazon Location Service Developer Guide*.
+  """
+  @spec get_job(map(), String.t() | atom(), list()) ::
+          {:ok, get_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_job_errors()}
+  def get_job(%Client{} = client, job_id, options \\ []) do
+    url_path = "/metadata/v0/jobs/#{AWS.Util.encode_uri(job_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   This operation is no longer current and may be deprecated in the future.
 
   We recommend upgrading to [ `GetGlyphs`
@@ -4635,6 +4923,39 @@ defmodule AWS.Location do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  `ListJobs` retrieves a list of jobs with optional filtering and pagination
+  support.
+
+  For more information, see [Job concepts](https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html)
+  in the *Amazon Location Service Developer Guide*.
+  """
+  @spec list_jobs(map(), list_jobs_request(), list()) ::
+          {:ok, list_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_jobs_errors()}
+  def list_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/metadata/v0/jobs/list-jobs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
 
     Request.request_rest(
       client,
@@ -5142,6 +5463,41 @@ defmodule AWS.Location do
       |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "places.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  `StartJob` starts a new asynchronous bulk processing job.
+
+  You specify the input data location in Amazon S3, the action to perform, and the
+  output location where results are written.
+
+  For more information, see [Job concepts](https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html)
+  in the *Amazon Location Service Developer Guide*.
+  """
+  @spec start_job(map(), start_job_request(), list()) ::
+          {:ok, start_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_job_errors()}
+  def start_job(%Client{} = client, input, options \\ []) do
+    url_path = "/metadata/v0/jobs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "metadata.")
 
     Request.request_rest(
       client,

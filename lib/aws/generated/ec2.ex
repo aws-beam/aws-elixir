@@ -524,6 +524,7 @@ defmodule AWS.EC2 do
         "Origin" => String.t() | atom(),
         "Status" => client_vpn_route_status(),
         "TargetSubnet" => String.t() | atom(),
+        "TransitGatewayAttachmentId" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
       
@@ -2124,6 +2125,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      transit_gateway_configuration_input_structure() :: %{
+        "AvailabilityZoneIds" => list(String.t() | atom()),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "TransitGatewayId" => String.t() | atom()
+      }
+      
+  """
+  @type transit_gateway_configuration_input_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_transit_gateway_prefix_list_reference_request() :: %{
         optional("Blackhole") => boolean(),
         optional("DryRun") => boolean(),
@@ -3664,10 +3678,12 @@ defmodule AWS.EC2 do
   ## Example:
       
       associate_client_vpn_target_network_request() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
         optional("ClientToken") => String.t() | atom(),
         optional("DryRun") => boolean(),
-        required("ClientVpnEndpointId") => String.t() | atom(),
-        required("SubnetId") => String.t() | atom()
+        optional("SubnetId") => String.t() | atom(),
+        required("ClientVpnEndpointId") => String.t() | atom()
       }
       
   """
@@ -7035,6 +7051,22 @@ defmodule AWS.EC2 do
       
   """
   @type client_route_enforcement_response_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transit_gateway_configuration_describe_endpoint_structure() :: %{
+        "AvailabilityZoneIds" => list(String.t() | atom()),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "TransitGatewayAttachmentId" => String.t() | atom(),
+        "TransitGatewayId" => String.t() | atom()
+      }
+      
+  """
+  @type transit_gateway_configuration_describe_endpoint_structure() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -11370,6 +11402,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      reject_transit_gateway_client_vpn_attachment_result() :: %{
+        "TransitGatewayClientVpnAttachment" => transit_gateway_client_vpn_attachment()
+      }
+      
+  """
+  @type reject_transit_gateway_client_vpn_attachment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deprovision_ipam_pool_cidr_result() :: %{
         "IpamPoolCidr" => ipam_pool_cidr()
       }
@@ -11420,6 +11463,8 @@ defmodule AWS.EC2 do
       
       target_network() :: %{
         "AssociationId" => String.t() | atom(),
+        "AvailabilityZoneIds" => list(String.t() | atom()),
+        "AvailabilityZones" => list(String.t() | atom()),
         "ClientVpnEndpointId" => String.t() | atom(),
         "SecurityGroups" => list(String.t() | atom()),
         "Status" => association_status(),
@@ -13125,6 +13170,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_transit_gateway_client_vpn_attachment_result() :: %{
+        "TransitGatewayClientVpnAttachment" => transit_gateway_client_vpn_attachment()
+      }
+      
+  """
+  @type delete_transit_gateway_client_vpn_attachment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_security_groups_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -14557,6 +14613,17 @@ defmodule AWS.EC2 do
       
   """
   @type fast_launch_snapshot_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_transit_gateway_client_vpn_attachment_result() :: %{
+        "TransitGatewayClientVpnAttachment" => transit_gateway_client_vpn_attachment()
+      }
+      
+  """
+  @type accept_transit_gateway_client_vpn_attachment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18731,6 +18798,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_transit_gateway_client_vpn_attachment_request() :: %{
+        optional("DryRun") => boolean(),
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_transit_gateway_client_vpn_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       create_transit_gateway_prefix_list_reference_result() :: %{
         "TransitGatewayPrefixListReference" => transit_gateway_prefix_list_reference()
       }
@@ -21417,9 +21498,9 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("DryRun") => boolean(),
+        optional("TargetVpcSubnetId") => String.t() | atom(),
         required("ClientVpnEndpointId") => String.t() | atom(),
-        required("DestinationCidrBlock") => String.t() | atom(),
-        required("TargetVpcSubnetId") => String.t() | atom()
+        required("DestinationCidrBlock") => String.t() | atom()
       }
       
   """
@@ -21479,6 +21560,7 @@ defmodule AWS.EC2 do
         optional("ServerCertificateArn") => String.t() | atom(),
         optional("SessionTimeoutHours") => integer(),
         optional("SplitTunnel") => boolean(),
+        optional("TransitGatewayConfiguration") => transit_gateway_configuration_input_structure(),
         optional("VpcId") => String.t() | atom(),
         optional("VpnPort") => integer(),
         required("ClientVpnEndpointId") => String.t() | atom()
@@ -22446,6 +22528,7 @@ defmodule AWS.EC2 do
         "Status" => client_vpn_endpoint_status(),
         "Tags" => list(tag()),
         "TrafficIpAddressType" => list(any()),
+        "TransitGatewayConfiguration" => transit_gateway_configuration_describe_endpoint_structure(),
         "TransportProtocol" => list(any()),
         "VpcId" => String.t() | atom(),
         "VpnPort" => integer(),
@@ -24762,6 +24845,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      accept_transit_gateway_client_vpn_attachment_request() :: %{
+        optional("DryRun") => boolean(),
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type accept_transit_gateway_client_vpn_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       transit_gateway_metering_policy_rule() :: %{
         "DestinationCidrBlock" => String.t() | atom(),
         "DestinationPortRange" => String.t() | atom(),
@@ -26522,6 +26619,22 @@ defmodule AWS.EC2 do
       
   """
   @type get_ipam_pool_allocations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transit_gateway_client_vpn_attachment() :: %{
+        "ClientVpnEndpointId" => String.t() | atom(),
+        "ClientVpnOwnerId" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "State" => list(any()),
+        "TransitGatewayAttachmentId" => String.t() | atom(),
+        "TransitGatewayId" => String.t() | atom()
+      }
+      
+  """
+  @type transit_gateway_client_vpn_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29751,6 +29864,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      reject_transit_gateway_client_vpn_attachment_request() :: %{
+        optional("DryRun") => boolean(),
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type reject_transit_gateway_client_vpn_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       modify_transit_gateway_vpc_attachment_result() :: %{
         "TransitGatewayVpcAttachment" => transit_gateway_vpc_attachment()
       }
@@ -30731,6 +30858,7 @@ defmodule AWS.EC2 do
         optional("SplitTunnel") => boolean(),
         optional("TagSpecifications") => list(tag_specification()),
         optional("TrafficIpAddressType") => list(any()),
+        optional("TransitGatewayConfiguration") => transit_gateway_configuration_input_structure(),
         optional("TransportProtocol") => list(any()),
         optional("VpcId") => String.t() | atom(),
         optional("VpnPort") => integer(),
@@ -33475,6 +33603,26 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "AcceptReservedInstancesExchangeQuote", input, options)
+  end
+
+  @doc """
+  Accepts a Transit Gateway attachment request for a Client VPN endpoint.
+
+  The Transit Gateway owner must accept the attachment request before the Client
+  VPN endpoint can route traffic through the Transit Gateway.
+  """
+  @spec accept_transit_gateway_client_vpn_attachment(
+          map(),
+          accept_transit_gateway_client_vpn_attachment_request(),
+          list()
+        ) ::
+          {:ok, accept_transit_gateway_client_vpn_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def accept_transit_gateway_client_vpn_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptTransitGatewayClientVpnAttachment", input, options)
   end
 
   @doc """
@@ -38990,6 +39138,26 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransitGateway", input, options)
+  end
+
+  @doc """
+  Deletes a Transit Gateway attachment for a Client VPN endpoint.
+
+  The Transit Gateway owner can delete the attachment to remove the association
+  between the Client VPN endpoint and the Transit Gateway.
+  """
+  @spec delete_transit_gateway_client_vpn_attachment(
+          map(),
+          delete_transit_gateway_client_vpn_attachment_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_client_vpn_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_transit_gateway_client_vpn_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTransitGatewayClientVpnAttachment", input, options)
   end
 
   @doc """
@@ -49702,6 +49870,26 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Rejects a Transit Gateway attachment request for a Client VPN endpoint.
+
+  The Transit Gateway owner can reject the attachment request to prevent the
+  Client VPN endpoint from routing traffic through the Transit Gateway.
+  """
+  @spec reject_transit_gateway_client_vpn_attachment(
+          map(),
+          reject_transit_gateway_client_vpn_attachment_request(),
+          list()
+        ) ::
+          {:ok, reject_transit_gateway_client_vpn_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def reject_transit_gateway_client_vpn_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RejectTransitGatewayClientVpnAttachment", input, options)
   end
 
   @doc """

@@ -19,6 +19,47 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      vm_entitlement() :: %{
+        "connectorId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "errorDetail" => error_detail(),
+        "lastSyncedAt" => [non_neg_integer()],
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "stoppedAt" => [non_neg_integer()],
+        "type" => list(any()),
+        "vmId" => String.t() | atom(),
+        "vmName" => String.t() | atom()
+      }
+      
+  """
+  @type vm_entitlement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector() :: %{
+        "applianceFqdn" => String.t() | atom(),
+        "checks" => list(connector_check()),
+        "connectorId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "environmentId" => String.t() | atom(),
+        "modifiedAt" => [non_neg_integer()],
+        "secretArn" => String.t() | atom(),
+        "state" => list(any()),
+        "stateDetails" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+      
+  """
+  @type connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("resourceArn") => String.t() | atom(),
         required("tags") => map()
@@ -53,6 +94,19 @@ defmodule AWS.Evs do
       
   """
   @type associate_eip_to_vlan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_connector_request() :: %{
+        optional("applianceFqdn") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("secretIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type update_environment_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -101,6 +155,20 @@ defmodule AWS.Evs do
       
   """
   @type host_info_for_create() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_check() :: %{
+        "impairedSince" => [non_neg_integer()],
+        "lastCheckAttempt" => [non_neg_integer()],
+        "result" => list(any()),
+        "type" => list(any())
+      }
+      
+  """
+  @type connector_check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -203,12 +271,49 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      list_environment_connectors_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_environment_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_policy_exception() :: %{
         "message" => [String.t() | atom()]
       }
       
   """
   @type tag_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_environment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("applianceFqdn") => String.t() | atom(),
+        required("secretIdentifier") => String.t() | atom(),
+        required("type") => list(any())
+      }
+      
+  """
+  @type create_environment_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_entitlement_response() :: %{
+        "entitlements" => list(vm_entitlement())
+      }
+      
+  """
+  @type delete_entitlement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,6 +373,17 @@ defmodule AWS.Evs do
       
   """
   @type associate_eip_to_vlan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_entitlement_response() :: %{
+        "entitlements" => list(vm_entitlement())
+      }
+      
+  """
+  @type create_entitlement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,6 +472,29 @@ defmodule AWS.Evs do
       
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vm_entitlements_response() :: %{
+        "entitlements" => list(vm_entitlement()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_vm_entitlements_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_environment_connector_response() :: %{
+        "connector" => connector()
+      }
+      
+  """
+  @type create_environment_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -452,6 +591,18 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      delete_environment_connector_response() :: %{
+        "connector" => connector(),
+        "environmentSummary" => environment_summary()
+      }
+      
+  """
+  @type delete_environment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       license_info() :: %{
         "solutionKey" => String.t() | atom(),
         "vsanKey" => String.t() | atom()
@@ -531,6 +682,29 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      delete_environment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+      
+  """
+  @type delete_environment_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_detail() :: %{
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()]
+      }
+      
+  """
+  @type error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_eip_from_vlan_request() :: %{
         optional("clientToken") => String.t() | atom(),
         required("associationId") => String.t() | atom(),
@@ -566,6 +740,17 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      update_environment_connector_response() :: %{
+        "connector" => connector()
+      }
+      
+  """
+  @type update_environment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
@@ -590,6 +775,21 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      delete_entitlement_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("connectorId") => String.t() | atom(),
+        required("entitlementType") => list(any()),
+        required("environmentId") => String.t() | atom(),
+        required("vmIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_entitlement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       throttling_exception() :: %{
         "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
@@ -609,6 +809,33 @@ defmodule AWS.Evs do
       
   """
   @type list_environments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environment_connectors_response() :: %{
+        "connectors" => list(connector()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_environment_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vm_entitlements_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("connectorId") => String.t() | atom(),
+        required("entitlementType") => list(any()),
+        required("environmentId") => String.t() | atom()
+      }
+      
+  """
+  @type list_vm_entitlements_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,14 +940,41 @@ defmodule AWS.Evs do
   """
   @type delete_environment_host_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      create_entitlement_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("connectorId") => String.t() | atom(),
+        required("entitlementType") => list(any()),
+        required("environmentId") => String.t() | atom(),
+        required("vmIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_entitlement_request() :: %{(String.t() | atom()) => any()}
+
   @type associate_eip_to_vlan_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
+
+  @type create_entitlement_errors() ::
           throttling_exception() | validation_exception() | resource_not_found_exception()
 
   @type create_environment_errors() :: validation_exception()
 
+  @type create_environment_connector_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
+
   @type create_environment_host_errors() :: throttling_exception() | validation_exception()
 
+  @type delete_entitlement_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
+
   @type delete_environment_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type delete_environment_connector_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
 
   @type delete_environment_host_errors() ::
           validation_exception() | resource_not_found_exception()
@@ -732,6 +986,9 @@ defmodule AWS.Evs do
 
   @type get_versions_errors() :: throttling_exception() | internal_server_exception()
 
+  @type list_environment_connectors_errors() ::
+          validation_exception() | resource_not_found_exception()
+
   @type list_environment_hosts_errors() :: validation_exception() | resource_not_found_exception()
 
   @type list_environment_vlans_errors() :: validation_exception() | resource_not_found_exception()
@@ -740,6 +997,8 @@ defmodule AWS.Evs do
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
+  @type list_vm_entitlements_errors() :: validation_exception() | resource_not_found_exception()
+
   @type tag_resource_errors() ::
           too_many_tags_exception()
           | service_quota_exceeded_exception()
@@ -747,6 +1006,9 @@ defmodule AWS.Evs do
           | tag_policy_exception()
 
   @type untag_resource_errors() :: resource_not_found_exception() | tag_policy_exception()
+
+  @type update_environment_connector_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
 
   def metadata do
     %{
@@ -781,6 +1043,24 @@ defmodule AWS.Evs do
   end
 
   @doc """
+  Creates a Windows Server License entitlement for virtual machines in an Amazon
+  EVS environment using the provided vCenter Server connector.
+
+  This is an asynchronous operation. Amazon EVS validates the specified virtual
+  machines before starting usage tracking.
+  """
+  @spec create_entitlement(map(), create_entitlement_request(), list()) ::
+          {:ok, create_entitlement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_entitlement_errors()}
+  def create_entitlement(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEntitlement", input, options)
+  end
+
+  @doc """
   Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager,
   NSX Manager, and vCenter Server.
 
@@ -809,6 +1089,24 @@ defmodule AWS.Evs do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironment", input, options)
+  end
+
+  @doc """
+  Creates a connector for an Amazon EVS environment.
+
+  A connector establishes a connection to a VCF appliance, such as vCenter, using
+  a fully qualified domain name and an Amazon Web Services Secrets Manager secret
+  that stores the appliance credentials.
+  """
+  @spec create_environment_connector(map(), create_environment_connector_request(), list()) ::
+          {:ok, create_environment_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_environment_connector_errors()}
+  def create_environment_connector(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateEnvironmentConnector", input, options)
   end
 
   @doc """
@@ -845,6 +1143,23 @@ defmodule AWS.Evs do
   end
 
   @doc """
+  Deletes a Windows Server License entitlement for virtual machines in an Amazon
+  EVS environment.
+
+  Deleting an entitlement stops usage tracking for the specified virtual machines.
+  """
+  @spec delete_entitlement(map(), delete_entitlement_request(), list()) ::
+          {:ok, delete_entitlement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_entitlement_errors()}
+  def delete_entitlement(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEntitlement", input, options)
+  end
+
+  @doc """
   Deletes an Amazon EVS environment.
 
   Amazon EVS environments will only be enabled for deletion once the hosts are
@@ -864,6 +1179,23 @@ defmodule AWS.Evs do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironment", input, options)
+  end
+
+  @doc """
+  Deletes a connector from an Amazon EVS environment.
+
+  Before deleting a connector, you must remove all entitlements that are
+  associated with the same vCenter.
+  """
+  @spec delete_environment_connector(map(), delete_environment_connector_request(), list()) ::
+          {:ok, delete_environment_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_environment_connector_errors()}
+  def delete_environment_connector(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteEnvironmentConnector", input, options)
   end
 
   @doc """
@@ -933,6 +1265,23 @@ defmodule AWS.Evs do
   end
 
   @doc """
+  Lists the connectors within an environment.
+
+  Returns the status of each connector and its applicable checks, among other
+  connector details.
+  """
+  @spec list_environment_connectors(map(), list_environment_connectors_request(), list()) ::
+          {:ok, list_environment_connectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_environment_connectors_errors()}
+  def list_environment_connectors(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEnvironmentConnectors", input, options)
+  end
+
+  @doc """
   List the hosts within an environment.
   """
   @spec list_environment_hosts(map(), list_environment_hosts_request(), list()) ::
@@ -990,6 +1339,24 @@ defmodule AWS.Evs do
   end
 
   @doc """
+  Lists the Windows Server License entitlements for virtual machines in an Amazon
+  EVS environment.
+
+  Returns existing entitlements for virtual machines associated with the specified
+  environment and connector.
+  """
+  @spec list_vm_entitlements(map(), list_vm_entitlements_request(), list()) ::
+          {:ok, list_vm_entitlements_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_vm_entitlements_errors()}
+  def list_vm_entitlements(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVmEntitlements", input, options)
+  end
+
+  @doc """
   Associates the specified tags to an Amazon EVS resource with the specified
   `resourceArn`.
 
@@ -1023,5 +1390,24 @@ defmodule AWS.Evs do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates a connector for an Amazon EVS environment.
+
+  You can update the Amazon Web Services Secrets Manager secret ARN or the
+  appliance FQDN to reconfigure the connector metadata.
+
+  You cannot update both the secret and the FQDN in the same request.
+  """
+  @spec update_environment_connector(map(), update_environment_connector_request(), list()) ::
+          {:ok, update_environment_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_environment_connector_errors()}
+  def update_environment_connector(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEnvironmentConnector", input, options)
   end
 end

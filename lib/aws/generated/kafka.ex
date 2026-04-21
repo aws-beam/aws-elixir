@@ -154,6 +154,17 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      kafka_cluster_client_authentication() :: %{
+        "SaslScram" => kafka_cluster_sasl_scram_authentication()
+      }
+
+  """
+  @type kafka_cluster_client_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_vpc_connection_response() :: %{
         "Authentication" => String.t() | atom(),
         "ClientSubnets" => list(String.t() | atom()),
@@ -359,6 +370,18 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      replicator_cloud_watch_logs() :: %{
+        "Enabled" => boolean(),
+        "LogGroup" => String.t() | atom()
+      }
+
+  """
+  @type replicator_cloud_watch_logs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cluster_operation_v2_summary() :: %{
         "ClusterArn" => String.t() | atom(),
         "ClusterType" => list(any()),
@@ -378,10 +401,13 @@ defmodule AWS.Kafka do
 
       update_replication_info_request() :: %{
         optional("ConsumerGroupReplication") => consumer_group_replication_update(),
+        optional("LogDelivery") => log_delivery(),
+        optional("SourceKafkaClusterArn") => String.t() | atom(),
+        optional("SourceKafkaClusterId") => String.t() | atom(),
+        optional("TargetKafkaClusterArn") => String.t() | atom(),
+        optional("TargetKafkaClusterId") => String.t() | atom(),
         optional("TopicReplication") => topic_replication_update(),
-        required("CurrentVersion") => String.t() | atom(),
-        required("SourceKafkaClusterArn") => String.t() | atom(),
-        required("TargetKafkaClusterArn") => String.t() | atom()
+        required("CurrentVersion") => String.t() | atom()
       }
 
   """
@@ -488,6 +514,7 @@ defmodule AWS.Kafka do
 
       kafka_cluster_summary() :: %{
         "AmazonMskCluster" => amazon_msk_cluster(),
+        "ApacheKafkaCluster" => apache_kafka_cluster(),
         "KafkaClusterAlias" => String.t() | atom()
       }
 
@@ -858,6 +885,7 @@ defmodule AWS.Kafka do
 
       create_replicator_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("LogDelivery") => log_delivery(),
         optional("Tags") => map(),
         required("KafkaClusters") => list(kafka_cluster()),
         required("ReplicationInfoList") => list(replication_info()),
@@ -906,6 +934,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       consumer_group_replication() :: %{
+        "ConsumerGroupOffsetSyncMode" => list(any()),
         "ConsumerGroupsToExclude" => list(String.t() | atom()),
         "ConsumerGroupsToReplicate" => list(String.t() | atom()),
         "DetectAndCopyNewConsumerGroups" => boolean(),
@@ -953,6 +982,9 @@ defmodule AWS.Kafka do
 
       kafka_cluster() :: %{
         "AmazonMskCluster" => amazon_msk_cluster(),
+        "ApacheKafkaCluster" => apache_kafka_cluster(),
+        "ClientAuthentication" => kafka_cluster_client_authentication(),
+        "EncryptionInTransit" => kafka_cluster_encryption_in_transit(),
         "VpcConfig" => kafka_cluster_client_vpc_config()
       }
 
@@ -1253,10 +1285,35 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      kafka_cluster_encryption_in_transit() :: %{
+        "EncryptionType" => list(any()),
+        "RootCaCertificate" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_encryption_in_transit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_configuration_request() :: %{}
 
   """
   @type delete_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      replicator_s3() :: %{
+        "Bucket" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "Prefix" => String.t() | atom()
+      }
+
+  """
+  @type replicator_s3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1323,6 +1380,18 @@ defmodule AWS.Kafka do
 
   """
   @type vpc_connection_info_serverless() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      apache_kafka_cluster() :: %{
+        "ApacheKafkaClusterId" => String.t() | atom(),
+        "BootstrapBrokerString" => String.t() | atom()
+      }
+
+  """
+  @type apache_kafka_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2086,6 +2155,31 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      replicator_log_delivery() :: %{
+        "CloudWatchLogs" => replicator_cloud_watch_logs(),
+        "Firehose" => replicator_firehose(),
+        "S3" => replicator_s3()
+      }
+
+  """
+  @type replicator_log_delivery() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replicator_firehose() :: %{
+        "DeliveryStream" => String.t() | atom(),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type replicator_firehose() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_broker_count_response() :: %{
         "ClusterArn" => String.t() | atom(),
         "ClusterOperationArn" => String.t() | atom()
@@ -2245,6 +2339,17 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      log_delivery() :: %{
+        "ReplicatorLogDelivery" => replicator_log_delivery()
+      }
+
+  """
+  @type log_delivery() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_topic_response() :: %{
         "Status" => list(any()),
         "TopicArn" => String.t() | atom(),
@@ -2282,11 +2387,24 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      kafka_cluster_sasl_scram_authentication() :: %{
+        "Mechanism" => list(any()),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_sasl_scram_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_replicator_response() :: %{
         "CreationTime" => non_neg_integer(),
         "CurrentVersion" => String.t() | atom(),
         "IsReplicatorReference" => boolean(),
         "KafkaClusters" => list(kafka_cluster_description()),
+        "LogDelivery" => log_delivery(),
         "ReplicationInfoList" => list(replication_info_description()),
         "ReplicatorArn" => String.t() | atom(),
         "ReplicatorDescription" => String.t() | atom(),
@@ -2319,6 +2437,9 @@ defmodule AWS.Kafka do
 
       kafka_cluster_description() :: %{
         "AmazonMskCluster" => amazon_msk_cluster(),
+        "ApacheKafkaCluster" => apache_kafka_cluster(),
+        "ClientAuthentication" => kafka_cluster_client_authentication(),
+        "EncryptionInTransit" => kafka_cluster_encryption_in_transit(),
         "KafkaClusterAlias" => String.t() | atom(),
         "VpcConfig" => kafka_cluster_client_vpc_config()
       }
@@ -2696,8 +2817,10 @@ defmodule AWS.Kafka do
       replication_info() :: %{
         "ConsumerGroupReplication" => consumer_group_replication(),
         "SourceKafkaClusterArn" => String.t() | atom(),
+        "SourceKafkaClusterId" => String.t() | atom(),
         "TargetCompressionType" => list(any()),
         "TargetKafkaClusterArn" => String.t() | atom(),
+        "TargetKafkaClusterId" => String.t() | atom(),
         "TopicReplication" => topic_replication()
       }
 

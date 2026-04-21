@@ -406,6 +406,7 @@ defmodule AWS.ApplicationSignals do
 
       create_service_level_objective_input() :: %{
         optional("BurnRateConfigurations") => list(burn_rate_configuration()),
+        optional("CreateRecommendedSlo") => [boolean()],
         optional("Description") => String.t() | atom(),
         optional("Goal") => goal(),
         optional("RequestBasedSliConfig") => request_based_service_level_indicator_config(),

@@ -1212,6 +1212,7 @@ defmodule AWS.ObservabilityAdmin do
 
       telemetry_rule() :: %{
         "AllRegions" => boolean(),
+        "AllowFieldUpdates" => [boolean()],
         "DestinationConfiguration" => telemetry_destination_configuration(),
         "Regions" => list(String.t() | atom()),
         "ResourceType" => list(any()),

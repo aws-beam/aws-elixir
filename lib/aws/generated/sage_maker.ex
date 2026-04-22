@@ -90,6 +90,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      stop_a_i_recommendation_job_response() :: %{
+        "AIRecommendationJobArn" => String.t() | atom()
+      }
+      
+  """
+  @type stop_a_i_recommendation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_context_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Properties") => map(),
@@ -727,6 +738,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      delete_a_i_benchmark_job_response() :: %{
+        "AIBenchmarkJobArn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_a_i_benchmark_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_devices_request() :: %{
         optional("DeviceFleetName") => String.t() | atom(),
         optional("LatestHeartbeatAfter") => non_neg_integer(),
@@ -1227,6 +1249,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_a_i_recommendation_job_request() :: %{
+        required("AIRecommendationJobName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_a_i_recommendation_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_app_image_config_response() :: %{
         "AppImageConfigArn" => String.t() | atom()
       }
@@ -1403,6 +1436,22 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_recommendation() :: %{
+        "AIBenchmarkJobArn" => String.t() | atom(),
+        "DeploymentConfiguration" => a_i_recommendation_deployment_configuration(),
+        "ExpectedPerformance" => list(a_i_recommendation_performance_metric()),
+        "ModelDetails" => a_i_recommendation_model_details(),
+        "OptimizationDetails" => list(a_i_recommendation_optimization_detail()),
+        "RecommendationDescription" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_app_image_config_response() :: %{
         "AppImageConfigArn" => String.t() | atom(),
         "AppImageConfigName" => String.t() | atom(),
@@ -1498,6 +1547,33 @@ defmodule AWS.SageMaker do
       
   """
   @type list_cluster_nodes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_a_i_recommendation_job_response() :: %{
+        "AIRecommendationJobArn" => String.t() | atom(),
+        "AIRecommendationJobName" => String.t() | atom(),
+        "AIRecommendationJobStatus" => list(any()),
+        "AIWorkloadConfigIdentifier" => String.t() | atom(),
+        "ComputeSpec" => a_i_recommendation_compute_spec(),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "FailureReason" => String.t() | atom(),
+        "InferenceSpecification" => a_i_recommendation_inference_specification(),
+        "ModelSource" => list(),
+        "OptimizeModel" => boolean(),
+        "OutputConfig" => a_i_recommendation_output_result(),
+        "PerformanceTarget" => a_i_recommendation_performance_target(),
+        "Recommendations" => list(a_i_recommendation()),
+        "RoleArn" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type describe_a_i_recommendation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1642,6 +1718,18 @@ defmodule AWS.SageMaker do
       
   """
   @type categorical_parameter_range_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_a_i_recommendation_jobs_response() :: %{
+        "AIRecommendationJobs" => list(a_i_recommendation_job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_a_i_recommendation_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2189,6 +2277,21 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_recommendation_job_summary() :: %{
+        "AIRecommendationJobArn" => String.t() | atom(),
+        "AIRecommendationJobName" => String.t() | atom(),
+        "AIRecommendationJobStatus" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer()
+      }
+      
+  """
+  @type a_i_recommendation_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_processing_job_request() :: %{
         required("ProcessingJobName") => String.t() | atom()
       }
@@ -2538,6 +2641,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      stop_a_i_benchmark_job_response() :: %{
+        "AIBenchmarkJobArn" => String.t() | atom()
+      }
+      
+  """
+  @type stop_a_i_benchmark_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       derived_information() :: %{
         "DerivedDataInputConfig" => String.t() | atom()
       }
@@ -2646,6 +2760,24 @@ defmodule AWS.SageMaker do
       
   """
   @type list_model_card_export_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_a_i_benchmark_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
+  """
+  @type list_a_i_benchmark_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3319,6 +3451,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_workload_s3_data_source() :: %{
+        "S3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_workload_s3_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "ModelArn" => String.t() | atom(),
@@ -3494,6 +3637,23 @@ defmodule AWS.SageMaker do
       
   """
   @type list_model_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_a_i_benchmark_job_request() :: %{
+        optional("NetworkConfig") => a_i_benchmark_network_config(),
+        optional("Tags") => list(tag()),
+        required("AIBenchmarkJobName") => String.t() | atom(),
+        required("AIWorkloadConfigIdentifier") => String.t() | atom(),
+        required("BenchmarkTarget") => list(),
+        required("OutputConfig") => a_i_benchmark_output_config(),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_a_i_benchmark_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3953,6 +4113,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_a_i_benchmark_job_response() :: %{
+        "AIBenchmarkJobArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_a_i_benchmark_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_endpoint_config_input() :: %{
         required("EndpointConfigName") => String.t() | atom()
       }
@@ -3974,6 +4145,19 @@ defmodule AWS.SageMaker do
       
   """
   @type flow_definition_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_recommendation_instance_detail() :: %{
+        "CopyCountPerInstance" => integer(),
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any())
+      }
+      
+  """
+  @type a_i_recommendation_instance_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4158,6 +4342,17 @@ defmodule AWS.SageMaker do
       
   """
   @type create_trial_component_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_a_i_workload_config_request() :: %{
+        required("AIWorkloadConfigName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_a_i_workload_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5728,6 +5923,23 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_a_i_workload_configs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type list_a_i_workload_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_metrics() :: %{
         "Bias" => bias(),
         "Explainability" => explainability(),
@@ -5749,6 +5961,18 @@ defmodule AWS.SageMaker do
       
   """
   @type list_notebook_instance_lifecycle_configs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_recommendation_output_config() :: %{
+        "ModelPackageGroupIdentifier" => String.t() | atom(),
+        "S3OutputLocation" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_recommendation_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5793,6 +6017,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      stop_a_i_benchmark_job_request() :: %{
+        required("AIBenchmarkJobName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_a_i_benchmark_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_trial_component_response() :: %{
         "TrialArn" => String.t() | atom(),
         "TrialComponentArn" => String.t() | atom()
@@ -5811,6 +6046,17 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_notebook_instance_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_recommendation_inference_specification() :: %{
+        "Framework" => list(any())
+      }
+      
+  """
+  @type a_i_recommendation_inference_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6290,6 +6536,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_recommendation_compute_spec() :: %{
+        "CapacityReservationConfig" => a_i_capacity_reservation_config(),
+        "InstanceTypes" => list(list(any())())
+      }
+      
+  """
+  @type a_i_recommendation_compute_spec() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_association_request() :: %{
         required("DestinationArn") => String.t() | atom(),
         required("SourceArn") => String.t() | atom()
@@ -6370,6 +6628,17 @@ defmodule AWS.SageMaker do
       
   """
   @type user_profile_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_a_i_benchmark_job_request() :: %{
+        required("AIBenchmarkJobName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_a_i_benchmark_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7238,6 +7507,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      delete_a_i_workload_config_response() :: %{
+        "AIWorkloadConfigArn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_a_i_workload_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_hubs_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -7342,6 +7622,17 @@ defmodule AWS.SageMaker do
       
   """
   @type compilation_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_a_i_workload_config_request() :: %{
+        required("AIWorkloadConfigName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_a_i_workload_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7452,6 +7743,20 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_model_package_group_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_a_i_workload_config_request() :: %{
+        optional("AIWorkloadConfigs") => a_i_workload_configs(),
+        optional("DatasetConfig") => list(),
+        optional("Tags") => list(tag()),
+        required("AIWorkloadConfigName") => String.t() | atom()
+      }
+      
+  """
+  @type create_a_i_workload_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9171,6 +9476,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_workload_config_summary() :: %{
+        "AIWorkloadConfigArn" => String.t() | atom(),
+        "AIWorkloadConfigName" => String.t() | atom(),
+        "CreationTime" => non_neg_integer()
+      }
+      
+  """
+  @type a_i_workload_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_project_input() :: %{
         required("ProjectName") => String.t() | atom()
       }
@@ -9785,6 +10103,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_recommendation_constraint() :: %{
+        "Metric" => list(any())
+      }
+      
+  """
+  @type a_i_recommendation_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       code_repository() :: %{
         "RepositoryUrl" => String.t() | atom()
       }
@@ -9887,6 +10216,17 @@ defmodule AWS.SageMaker do
       
   """
   @type endpoint_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_recommendation_performance_target() :: %{
+        "Constraints" => list(a_i_recommendation_constraint())
+      }
+      
+  """
+  @type a_i_recommendation_performance_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10455,6 +10795,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_model_source_s3() :: %{
+        "S3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_model_source_s3() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       continuous_parameter_range_specification() :: %{
         "MaxValue" => String.t() | atom(),
         "MinValue" => String.t() | atom()
@@ -10632,6 +10983,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_capacity_reservation_config() :: %{
+        "CapacityReservationPreference" => list(any()),
+        "MlReservationArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type a_i_capacity_reservation_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pipeline_experiment_config() :: %{
         "ExperimentName" => String.t() | atom(),
         "TrialName" => String.t() | atom()
@@ -10651,6 +11014,17 @@ defmodule AWS.SageMaker do
       
   """
   @type candidate_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_a_i_recommendation_job_request() :: %{
+        required("AIRecommendationJobName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_a_i_recommendation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10722,6 +11096,18 @@ defmodule AWS.SageMaker do
       
   """
   @type recommendation_job_resource_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_recommendation_deployment_s3_channel() :: %{
+        "ChannelName" => String.t() | atom(),
+        "Uri" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_recommendation_deployment_s3_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11105,6 +11491,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_benchmark_inference_component() :: %{
+        "Identifier" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_benchmark_inference_component() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       partner_app_config() :: %{
         "AdminUsers" => list(String.t() | atom()),
         "Arguments" => map(),
@@ -11161,6 +11558,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_a_i_recommendation_job_response() :: %{
+        "AIRecommendationJobArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_a_i_recommendation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       profiler_rule_evaluation_status() :: %{
         "LastModifiedTime" => non_neg_integer(),
         "RuleConfigurationName" => String.t() | atom(),
@@ -11171,6 +11579,18 @@ defmodule AWS.SageMaker do
       
   """
   @type profiler_rule_evaluation_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_recommendation_optimization_detail() :: %{
+        "OptimizationConfig" => map(),
+        "OptimizationType" => list(any())
+      }
+      
+  """
+  @type a_i_recommendation_optimization_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11251,6 +11671,17 @@ defmodule AWS.SageMaker do
       
   """
   @type categorical_parameter_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_workload_configs() :: %{
+        "WorkloadSpec" => list()
+      }
+      
+  """
+  @type a_i_workload_configs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11351,6 +11782,26 @@ defmodule AWS.SageMaker do
       
   """
   @type create_presigned_domain_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_a_i_recommendation_job_request() :: %{
+        optional("ComputeSpec") => a_i_recommendation_compute_spec(),
+        optional("InferenceSpecification") => a_i_recommendation_inference_specification(),
+        optional("OptimizeModel") => boolean(),
+        optional("Tags") => list(tag()),
+        required("AIRecommendationJobName") => String.t() | atom(),
+        required("AIWorkloadConfigIdentifier") => String.t() | atom(),
+        required("ModelSource") => list(),
+        required("OutputConfig") => a_i_recommendation_output_config(),
+        required("PerformanceTarget") => a_i_recommendation_performance_target(),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_a_i_recommendation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11712,6 +12163,24 @@ defmodule AWS.SageMaker do
       
   """
   @type infra_check_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_a_i_recommendation_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
+  """
+  @type list_a_i_recommendation_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12322,6 +12791,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_a_i_benchmark_jobs_response() :: %{
+        "AIBenchmarkJobs" => list(a_i_benchmark_job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_a_i_benchmark_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_inference_experiment_response() :: %{
         "InferenceExperimentArn" => String.t() | atom()
       }
@@ -12704,6 +13185,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_a_i_workload_configs_response() :: %{
+        "AIWorkloadConfigs" => list(a_i_workload_config_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_a_i_workload_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       parallelism_configuration() :: %{
         "MaxParallelExecutionSteps" => integer()
       }
@@ -12985,6 +13478,17 @@ defmodule AWS.SageMaker do
       
   """
   @type create_labeling_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_a_i_recommendation_job_response() :: %{
+        "AIRecommendationJobArn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_a_i_recommendation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13365,6 +13869,29 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_a_i_benchmark_job_response() :: %{
+        "AIBenchmarkJobArn" => String.t() | atom(),
+        "AIBenchmarkJobName" => String.t() | atom(),
+        "AIBenchmarkJobStatus" => list(any()),
+        "AIWorkloadConfigIdentifier" => String.t() | atom(),
+        "BenchmarkTarget" => list(),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "FailureReason" => String.t() | atom(),
+        "NetworkConfig" => a_i_benchmark_network_config(),
+        "OutputConfig" => a_i_benchmark_output_result(),
+        "RoleArn" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type describe_a_i_benchmark_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cfn_update_template_provider() :: %{
         "Parameters" => list(cfn_stack_update_parameter()),
         "TemplateName" => String.t() | atom(),
@@ -13577,6 +14104,18 @@ defmodule AWS.SageMaker do
       
   """
   @type label_counters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_benchmark_output_result() :: %{
+        "CloudWatchLogs" => list(a_i_cloud_watch_logs()),
+        "S3OutputLocation" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_benchmark_output_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14408,6 +14947,17 @@ defmodule AWS.SageMaker do
       
   """
   @type create_user_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_a_i_recommendation_job_request() :: %{
+        required("AIRecommendationJobName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_a_i_recommendation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15304,6 +15854,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_a_i_workload_config_response() :: %{
+        "AIWorkloadConfigArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_a_i_workload_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_mlflow_tracking_server_request() :: %{
         optional("AutomaticModelRegistration") => boolean(),
         optional("MlflowVersion") => String.t() | atom(),
@@ -15462,6 +16023,22 @@ defmodule AWS.SageMaker do
       
   """
   @type target_platform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_a_i_workload_config_response() :: %{
+        "AIWorkloadConfigArn" => String.t() | atom(),
+        "AIWorkloadConfigName" => String.t() | atom(),
+        "AIWorkloadConfigs" => a_i_workload_configs(),
+        "CreationTime" => non_neg_integer(),
+        "DatasetConfig" => list(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type describe_a_i_workload_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16116,6 +16693,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_recommendation_output_result() :: %{
+        "ModelPackageGroupIdentifier" => String.t() | atom(),
+        "S3OutputLocation" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_recommendation_output_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_workforce_response() :: %{
         "Workforce" => workforce()
       }
@@ -16322,6 +16911,17 @@ defmodule AWS.SageMaker do
       
   """
   @type auto_ml_job_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_workload_data_source() :: %{
+        "S3DataSource" => a_i_workload_s3_data_source()
+      }
+      
+  """
+  @type a_i_workload_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16560,6 +17160,19 @@ defmodule AWS.SageMaker do
       
   """
   @type debug_hook_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_benchmark_endpoint() :: %{
+        "Identifier" => String.t() | atom(),
+        "InferenceComponents" => list(a_i_benchmark_inference_component()),
+        "TargetContainerHostname" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_benchmark_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17253,6 +17866,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_benchmark_output_config() :: %{
+        "S3OutputLocation" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_benchmark_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       bedrock_provisioned_model_throughput_metadata() :: %{
         "Arn" => String.t() | atom()
       }
@@ -17900,6 +18524,33 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_a_i_benchmark_job_request() :: %{
+        required("AIBenchmarkJobName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_a_i_benchmark_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_benchmark_job_summary() :: %{
+        "AIBenchmarkJobArn" => String.t() | atom(),
+        "AIBenchmarkJobName" => String.t() | atom(),
+        "AIBenchmarkJobStatus" => list(any()),
+        "AIWorkloadConfigName" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer()
+      }
+      
+  """
+  @type a_i_benchmark_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       transform_input() :: %{
         "CompressionType" => list(any()),
         "ContentType" => String.t() | atom(),
@@ -18153,6 +18804,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_recommendation_model_details() :: %{
+        "InferenceSpecificationName" => String.t() | atom(),
+        "InstanceDetails" => list(a_i_recommendation_instance_detail()),
+        "ModelPackageArn" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_recommendation_model_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_context_response() :: %{
         "ContextArn" => String.t() | atom()
       }
@@ -18200,6 +18864,18 @@ defmodule AWS.SageMaker do
       
   """
   @type labeling_job_sns_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_workload_input_data_config() :: %{
+        "ChannelName" => String.t() | atom(),
+        "DataSource" => a_i_workload_data_source()
+      }
+      
+  """
+  @type a_i_workload_input_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18281,7 +18957,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_benchmark_network_config() :: %{
+        "VpcConfig" => vpc_config()
+      }
+      
+  """
+  @type a_i_benchmark_network_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_package_container_definition() :: %{
+        "AdditionalModelDataSources" => list(additional_model_data_source()),
         "AdditionalS3DataSource" => additional_s3_data_source(),
         "BaseModel" => base_model(),
         "ContainerHostname" => String.t() | atom(),
@@ -19114,6 +19802,22 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_recommendation_deployment_configuration() :: %{
+        "CopyCountPerInstance" => integer(),
+        "EnvironmentVariables" => map(),
+        "ImageUri" => String.t() | atom(),
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "S3" => list(a_i_recommendation_deployment_s3_channel())
+      }
+      
+  """
+  @type a_i_recommendation_deployment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       mlflow_configuration() :: %{
         "MlflowExperimentName" => String.t() | atom(),
         "MlflowResourceArn" => String.t() | atom()
@@ -19169,6 +19873,20 @@ defmodule AWS.SageMaker do
       
   """
   @type workspace_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_recommendation_performance_metric() :: %{
+        "Metric" => String.t() | atom(),
+        "Stat" => String.t() | atom(),
+        "Unit" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_recommendation_performance_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19665,6 +20383,18 @@ defmodule AWS.SageMaker do
       
   """
   @type update_partner_app_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_i_cloud_watch_logs() :: %{
+        "LogGroupArn" => String.t() | atom(),
+        "LogStreamName" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_cloud_watch_logs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -20369,6 +21099,14 @@ defmodule AWS.SageMaker do
 
   @type batch_replace_cluster_nodes_errors() :: resource_not_found()
 
+  @type create_a_i_benchmark_job_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type create_a_i_recommendation_job_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type create_a_i_workload_config_errors() :: resource_limit_exceeded() | resource_in_use()
+
   @type create_action_errors() :: resource_limit_exceeded()
 
   @type create_app_errors() :: resource_limit_exceeded() | resource_in_use()
@@ -20509,6 +21247,12 @@ defmodule AWS.SageMaker do
 
   @type create_workteam_errors() :: resource_limit_exceeded() | resource_in_use()
 
+  @type delete_a_i_benchmark_job_errors() :: resource_not_found()
+
+  @type delete_a_i_recommendation_job_errors() :: resource_not_found()
+
+  @type delete_a_i_workload_config_errors() :: resource_in_use() | resource_not_found()
+
   @type delete_action_errors() :: resource_not_found()
 
   @type delete_algorithm_errors() :: conflict_exception()
@@ -20602,6 +21346,12 @@ defmodule AWS.SageMaker do
   @type delete_user_profile_errors() :: resource_in_use() | resource_not_found()
 
   @type delete_workteam_errors() :: resource_limit_exceeded()
+
+  @type describe_a_i_benchmark_job_errors() :: resource_not_found()
+
+  @type describe_a_i_recommendation_job_errors() :: resource_not_found()
+
+  @type describe_a_i_workload_config_errors() :: resource_not_found()
 
   @type describe_action_errors() :: resource_not_found()
 
@@ -20813,6 +21563,10 @@ defmodule AWS.SageMaker do
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
   @type start_session_errors() :: resource_limit_exceeded() | resource_not_found()
+
+  @type stop_a_i_benchmark_job_errors() :: resource_not_found()
+
+  @type stop_a_i_recommendation_job_errors() :: resource_not_found()
 
   @type stop_auto_ml_job_errors() :: resource_not_found()
 
@@ -21176,6 +21930,59 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "BatchReplaceClusterNodes", input, options)
+  end
+
+  @doc """
+  Creates a benchmark job that runs performance benchmarks against inference
+  infrastructure using a predefined AI workload configuration.
+
+  The benchmark job measures metrics such as latency, throughput, and cost for
+  your generative AI inference endpoints.
+  """
+  @spec create_a_i_benchmark_job(map(), create_a_i_benchmark_job_request(), list()) ::
+          {:ok, create_a_i_benchmark_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_a_i_benchmark_job_errors()}
+  def create_a_i_benchmark_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAIBenchmarkJob", input, options)
+  end
+
+  @doc """
+  Creates a recommendation job that generates intelligent optimization
+  recommendations for generative AI inference deployments.
+
+  The job analyzes your model, workload configuration, and performance targets to
+  recommend optimal instance types, model optimization techniques (such as
+  quantization and speculative decoding), and deployment configurations.
+  """
+  @spec create_a_i_recommendation_job(map(), create_a_i_recommendation_job_request(), list()) ::
+          {:ok, create_a_i_recommendation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_a_i_recommendation_job_errors()}
+  def create_a_i_recommendation_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAIRecommendationJob", input, options)
+  end
+
+  @doc """
+  Creates a reusable AI workload configuration that defines datasets, data
+  sources, and benchmark tool settings for consistent performance testing of
+  generative AI inference deployments on Amazon SageMaker AI.
+  """
+  @spec create_a_i_workload_config(map(), create_a_i_workload_config_request(), list()) ::
+          {:ok, create_a_i_workload_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_a_i_workload_config_errors()}
+  def create_a_i_workload_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAIWorkloadConfig", input, options)
   end
 
   @doc """
@@ -22998,6 +23805,50 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes the specified AI benchmark job.
+  """
+  @spec delete_a_i_benchmark_job(map(), delete_a_i_benchmark_job_request(), list()) ::
+          {:ok, delete_a_i_benchmark_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_a_i_benchmark_job_errors()}
+  def delete_a_i_benchmark_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAIBenchmarkJob", input, options)
+  end
+
+  @doc """
+  Deletes the specified AI recommendation job.
+  """
+  @spec delete_a_i_recommendation_job(map(), delete_a_i_recommendation_job_request(), list()) ::
+          {:ok, delete_a_i_recommendation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_a_i_recommendation_job_errors()}
+  def delete_a_i_recommendation_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAIRecommendationJob", input, options)
+  end
+
+  @doc """
+  Deletes the specified AI workload configuration.
+
+  You cannot delete a configuration that is referenced by an active benchmark job.
+  """
+  @spec delete_a_i_workload_config(map(), delete_a_i_workload_config_request(), list()) ::
+          {:ok, delete_a_i_workload_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_a_i_workload_config_errors()}
+  def delete_a_i_workload_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAIWorkloadConfig", input, options)
+  end
+
+  @doc """
   Deletes an action.
   """
   @spec delete_action(map(), delete_action_request(), list()) ::
@@ -23991,6 +24842,52 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeregisterDevices", input, options)
+  end
+
+  @doc """
+  Returns details of an AI benchmark job, including its status, configuration,
+  target endpoint, and timing information.
+  """
+  @spec describe_a_i_benchmark_job(map(), describe_a_i_benchmark_job_request(), list()) ::
+          {:ok, describe_a_i_benchmark_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_a_i_benchmark_job_errors()}
+  def describe_a_i_benchmark_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAIBenchmarkJob", input, options)
+  end
+
+  @doc """
+  Returns details of an AI recommendation job, including its status, model source,
+  performance targets, optimization recommendations, and deployment
+  configurations.
+  """
+  @spec describe_a_i_recommendation_job(map(), describe_a_i_recommendation_job_request(), list()) ::
+          {:ok, describe_a_i_recommendation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_a_i_recommendation_job_errors()}
+  def describe_a_i_recommendation_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAIRecommendationJob", input, options)
+  end
+
+  @doc """
+  Returns details of an AI workload configuration, including the dataset
+  configuration, benchmark tool settings, tags, and creation time.
+  """
+  @spec describe_a_i_workload_config(map(), describe_a_i_workload_config_request(), list()) ::
+          {:ok, describe_a_i_workload_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_a_i_workload_config_errors()}
+  def describe_a_i_workload_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAIWorkloadConfig", input, options)
   end
 
   @doc """
@@ -25310,6 +26207,54 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "ImportHubContent", input, options)
+  end
+
+  @doc """
+  Returns a list of AI benchmark jobs in your account.
+
+  You can filter the results by name, status, and creation time, and sort the
+  results. The response is paginated.
+  """
+  @spec list_a_i_benchmark_jobs(map(), list_a_i_benchmark_jobs_request(), list()) ::
+          {:ok, list_a_i_benchmark_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_a_i_benchmark_jobs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAIBenchmarkJobs", input, options)
+  end
+
+  @doc """
+  Returns a list of AI recommendation jobs in your account.
+
+  You can filter the results by name, status, and creation time, and sort the
+  results. The response is paginated.
+  """
+  @spec list_a_i_recommendation_jobs(map(), list_a_i_recommendation_jobs_request(), list()) ::
+          {:ok, list_a_i_recommendation_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_a_i_recommendation_jobs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAIRecommendationJobs", input, options)
+  end
+
+  @doc """
+  Returns a list of AI workload configurations in your account.
+
+  You can filter the results by name and creation time, and sort the results. The
+  response is paginated.
+  """
+  @spec list_a_i_workload_configs(map(), list_a_i_workload_configs_request(), list()) ::
+          {:ok, list_a_i_workload_configs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_a_i_workload_configs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAIWorkloadConfigs", input, options)
   end
 
   @doc """
@@ -26872,6 +27817,34 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "StartSession", input, options)
+  end
+
+  @doc """
+  Stops a running AI benchmark job.
+  """
+  @spec stop_a_i_benchmark_job(map(), stop_a_i_benchmark_job_request(), list()) ::
+          {:ok, stop_a_i_benchmark_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_a_i_benchmark_job_errors()}
+  def stop_a_i_benchmark_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopAIBenchmarkJob", input, options)
+  end
+
+  @doc """
+  Stops a running AI recommendation job.
+  """
+  @spec stop_a_i_recommendation_job(map(), stop_a_i_recommendation_job_request(), list()) ::
+          {:ok, stop_a_i_recommendation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_a_i_recommendation_job_errors()}
+  def stop_a_i_recommendation_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopAIRecommendationJob", input, options)
   end
 
   @doc """

@@ -638,6 +638,7 @@ defmodule AWS.ECS do
   ## Example:
       
       create_managed_instances_provider_configuration() :: %{
+        "autoRepairConfiguration" => auto_repair_configuration(),
         "infrastructureOptimization" => infrastructure_optimization(),
         "infrastructureRoleArn" => String.t() | atom(),
         "instanceLaunchTemplate" => instance_launch_template(),
@@ -1433,6 +1434,7 @@ defmodule AWS.ECS do
   ## Example:
       
       managed_instances_provider() :: %{
+        "autoRepairConfiguration" => auto_repair_configuration(),
         "infrastructureOptimization" => infrastructure_optimization(),
         "infrastructureRoleArn" => String.t() | atom(),
         "instanceLaunchTemplate" => instance_launch_template(),
@@ -2502,6 +2504,7 @@ defmodule AWS.ECS do
         "lastStatusChange" => non_neg_integer(),
         "lastUpdated" => non_neg_integer(),
         "status" => list(any()),
+        "statusReason" => String.t() | atom(),
         "type" => list(any())
       }
       
@@ -2643,6 +2646,7 @@ defmodule AWS.ECS do
   ## Example:
       
       update_managed_instances_provider_configuration() :: %{
+        "autoRepairConfiguration" => auto_repair_configuration(),
         "infrastructureOptimization" => infrastructure_optimization(),
         "infrastructureRoleArn" => String.t() | atom(),
         "instanceLaunchTemplate" => instance_launch_template_update(),
@@ -3480,6 +3484,17 @@ defmodule AWS.ECS do
       
   """
   @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_repair_configuration() :: %{
+        "actionsStatus" => list(any())
+      }
+      
+  """
+  @type auto_repair_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

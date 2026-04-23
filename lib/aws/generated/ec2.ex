@@ -1520,6 +1520,7 @@ defmodule AWS.EC2 do
         "AvailabilityZoneId" => String.t() | atom(),
         "Events" => list(volume_status_event()),
         "InitializationStatusDetails" => initialization_status_details(),
+        "Operator" => operator_response(),
         "OutpostArn" => String.t() | atom(),
         "VolumeId" => String.t() | atom(),
         "VolumeStatus" => volume_status_info()
@@ -1811,6 +1812,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
         optional("IncludeAllInstances") => boolean(),
+        optional("IncludeManagedResources") => boolean(),
         optional("InstanceIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -6126,6 +6128,7 @@ defmodule AWS.EC2 do
       describe_volumes_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("VolumeIds") => list(String.t() | atom())
@@ -12415,6 +12418,7 @@ defmodule AWS.EC2 do
       describe_network_interfaces_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxResults") => integer(),
         optional("NetworkInterfaceIds") => list(String.t() | atom()),
         optional("NextToken") => String.t() | atom()
@@ -13769,6 +13773,7 @@ defmodule AWS.EC2 do
       describe_launch_templates_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
+        optional("IncludeManagedResources") => boolean(),
         optional("LaunchTemplateIds") => list(String.t() | atom()),
         optional("LaunchTemplateNames") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
@@ -14230,6 +14235,17 @@ defmodule AWS.EC2 do
       
   """
   @type hibernation_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_managed_resource_visibility_result() :: %{
+        "Visibility" => managed_resource_visibility_settings()
+      }
+      
+  """
+  @type modify_managed_resource_visibility_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15647,6 +15663,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_managed_resource_visibility_request() :: %{
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type get_managed_resource_visibility_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_instance_metadata_options_request() :: %{
         optional("DryRun") => boolean(),
         optional("HttpEndpoint") => list(any()),
@@ -16521,6 +16548,7 @@ defmodule AWS.EC2 do
       describe_instances_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
+        optional("IncludeManagedResources") => boolean(),
         optional("InstanceIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -22273,6 +22301,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_managed_resource_visibility_result() :: %{
+        "Visibility" => managed_resource_visibility_settings()
+      }
+      
+  """
+  @type get_managed_resource_visibility_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_transit_gateway_vpc_attachment_request_options() :: %{
         "ApplianceModeSupport" => list(any()),
         "DnsSupport" => list(any()),
@@ -23008,6 +23047,18 @@ defmodule AWS.EC2 do
       
   """
   @type fast_launch_launch_template_specification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_managed_resource_visibility_request() :: %{
+        optional("DefaultVisibility") => list(any()),
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type modify_managed_resource_visibility_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -26397,6 +26448,7 @@ defmodule AWS.EC2 do
       describe_launch_template_versions_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
+        optional("IncludeManagedResources") => boolean(),
         optional("LaunchTemplateId") => String.t() | atom(),
         optional("LaunchTemplateName") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -27703,6 +27755,7 @@ defmodule AWS.EC2 do
       volume_modification() :: %{
         "EndTime" => non_neg_integer(),
         "ModificationState" => list(any()),
+        "Operator" => operator_response(),
         "OriginalIops" => integer(),
         "OriginalMultiAttachEnabled" => boolean(),
         "OriginalSize" => integer(),
@@ -28194,9 +28247,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      managed_resource_visibility_settings() :: %{
+        "DefaultVisibility" => list(any())
+      }
+      
+  """
+  @type managed_resource_visibility_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_volume_status_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("VolumeIds") => list(String.t() | atom())
@@ -32941,6 +33006,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       operator_response() :: %{
+        "HiddenByDefault" => boolean(),
         "Managed" => boolean(),
         "Principal" => String.t() | atom()
       }
@@ -46611,6 +46677,22 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Retrieves the managed resource visibility configuration for the account.
+
+  The response
+  indicates whether managed resources are hidden or visible by default.
+  """
+  @spec get_managed_resource_visibility(map(), get_managed_resource_visibility_request(), list()) ::
+          {:ok, get_managed_resource_visibility_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_managed_resource_visibility(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetManagedResourceVisibility", input, options)
+  end
+
+  @doc """
   Gets the findings for the specified Network Access Scope analysis.
   """
   @spec get_network_insights_access_scope_analysis_findings(
@@ -48370,6 +48452,29 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyManagedPrefixList", input, options)
+  end
+
+  @doc """
+  Modifies the managed resource visibility configuration for the account.
+
+  Use this
+  operation to control whether managed resources are hidden or visible by default.
+  Visibility settings are account-wide and affect all IAM principals uniformly.
+  Hidden
+  resources remain fully operational and billable.
+  """
+  @spec modify_managed_resource_visibility(
+          map(),
+          modify_managed_resource_visibility_request(),
+          list()
+        ) ::
+          {:ok, modify_managed_resource_visibility_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_managed_resource_visibility(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyManagedResourceVisibility", input, options)
   end
 
   @doc """

@@ -263,9 +263,14 @@ defmodule AWS.S3 do
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "ChecksumSHA1" => String.t() | atom(),
         "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
         "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "ETag" => String.t() | atom(),
         "LastModified" => non_neg_integer()
       }
@@ -316,6 +321,7 @@ defmodule AWS.S3 do
 
       write_get_object_response_request() :: %{
         optional("VersionId") => String.t() | atom(),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
         optional("ChecksumCRC32C") => String.t() | atom(),
         optional("Expires") => String.t() | atom(),
         optional("Body") => binary(),
@@ -327,6 +333,7 @@ defmodule AWS.S3 do
         optional("SSECustomerAlgorithm") => String.t() | atom(),
         optional("ContentRange") => String.t() | atom(),
         optional("TagCount") => integer(),
+        optional("ChecksumSHA512") => String.t() | atom(),
         optional("Restore") => String.t() | atom(),
         optional("BucketKeyEnabled") => boolean(),
         optional("SSECustomerKeyMD5") => String.t() | atom(),
@@ -340,6 +347,7 @@ defmodule AWS.S3 do
         optional("ServerSideEncryption") => list(any()),
         optional("ErrorCode") => String.t() | atom(),
         optional("ContentEncoding") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
         optional("StatusCode") => integer(),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
         optional("ContentType") => String.t() | atom(),
@@ -353,6 +361,8 @@ defmodule AWS.S3 do
         optional("Expiration") => String.t() | atom(),
         required("RequestToken") => String.t() | atom(),
         optional("StorageClass") => list(any()),
+        optional("ChecksumXXHASH64") => String.t() | atom(),
+        optional("ChecksumXXHASH3") => String.t() | atom(),
         optional("SSEKMSKeyId") => String.t() | atom(),
         optional("ObjectLockMode") => list(any()),
         optional("AcceptRanges") => String.t() | atom()
@@ -564,8 +574,13 @@ defmodule AWS.S3 do
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "ChecksumSHA1" => String.t() | atom(),
         "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "ETag" => String.t() | atom(),
         "RequestCharged" => list(any()),
         "SSECustomerAlgorithm" => String.t() | atom(),
@@ -725,6 +740,7 @@ defmodule AWS.S3 do
       head_object_output() :: %{
         "ContentLength" => float(),
         "VersionId" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
         "Expiration" => String.t() | atom(),
         "BucketKeyEnabled" => boolean(),
         "SSEKMSKeyId" => String.t() | atom(),
@@ -735,9 +751,11 @@ defmodule AWS.S3 do
         "ArchiveStatus" => list(any()),
         "WebsiteRedirectLocation" => String.t() | atom(),
         "DeleteMarker" => boolean(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "AcceptRanges" => String.t() | atom(),
         "ServerSideEncryption" => list(any()),
         "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "CacheControl" => String.t() | atom(),
         "ObjectLockLegalHoldStatus" => list(any()),
         "ChecksumType" => list(any()),
@@ -752,6 +770,7 @@ defmodule AWS.S3 do
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
         "Metadata" => map(),
         "PartsCount" => integer(),
         "ChecksumSHA256" => String.t() | atom(),
@@ -760,7 +779,8 @@ defmodule AWS.S3 do
         "Restore" => String.t() | atom(),
         "ContentRange" => String.t() | atom(),
         "SSECustomerAlgorithm" => String.t() | atom(),
-        "ContentLanguage" => String.t() | atom()
+        "ContentLanguage" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom()
       }
 
   """
@@ -976,8 +996,13 @@ defmodule AWS.S3 do
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "ChecksumSHA1" => String.t() | atom(),
         "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "ETag" => String.t() | atom(),
         "LastModified" => non_neg_integer()
       }
@@ -1062,8 +1087,13 @@ defmodule AWS.S3 do
         optional("ChecksumCRC32") => String.t() | atom(),
         optional("ChecksumCRC32C") => String.t() | atom(),
         optional("ChecksumCRC64NVME") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
         optional("ChecksumSHA1") => String.t() | atom(),
         optional("ChecksumSHA256") => String.t() | atom(),
+        optional("ChecksumSHA512") => String.t() | atom(),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
+        optional("ChecksumXXHASH3") => String.t() | atom(),
+        optional("ChecksumXXHASH64") => String.t() | atom(),
         optional("ContentLength") => float(),
         optional("ContentMD5") => String.t() | atom(),
         optional("ExpectedBucketOwner") => String.t() | atom(),
@@ -1214,9 +1244,14 @@ defmodule AWS.S3 do
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "ChecksumSHA1" => String.t() | atom(),
         "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
         "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "ETag" => String.t() | atom(),
         "Expiration" => String.t() | atom(),
         "RequestCharged" => list(any()),
@@ -1556,6 +1591,7 @@ defmodule AWS.S3 do
 
       put_object_request() :: %{
         optional("GrantRead") => String.t() | atom(),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
         optional("IfNoneMatch") => String.t() | atom(),
         optional("ChecksumCRC32C") => String.t() | atom(),
         optional("Expires") => String.t() | atom(),
@@ -1567,6 +1603,7 @@ defmodule AWS.S3 do
         optional("ExpectedBucketOwner") => String.t() | atom(),
         optional("ACL") => list(any()),
         optional("WebsiteRedirectLocation") => String.t() | atom(),
+        optional("ChecksumSHA512") => String.t() | atom(),
         optional("BucketKeyEnabled") => boolean(),
         optional("SSECustomerKeyMD5") => String.t() | atom(),
         optional("ContentDisposition") => String.t() | atom(),
@@ -1578,6 +1615,7 @@ defmodule AWS.S3 do
         optional("ChecksumAlgorithm") => list(any()),
         optional("ServerSideEncryption") => list(any()),
         optional("ContentEncoding") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
         optional("GrantWriteACP") => String.t() | atom(),
         optional("ContentType") => String.t() | atom(),
@@ -1591,6 +1629,8 @@ defmodule AWS.S3 do
         optional("ObjectLockLegalHoldStatus") => list(any()),
         optional("SSEKMSEncryptionContext") => String.t() | atom(),
         optional("StorageClass") => list(any()),
+        optional("ChecksumXXHASH64") => String.t() | atom(),
+        optional("ChecksumXXHASH3") => String.t() | atom(),
         optional("SSEKMSKeyId") => String.t() | atom(),
         optional("ObjectLockMode") => list(any()),
         optional("SSECustomerKey") => String.t() | atom()
@@ -2417,8 +2457,13 @@ defmodule AWS.S3 do
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "ChecksumSHA1" => String.t() | atom(),
         "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "ETag" => String.t() | atom(),
         "PartNumber" => integer()
       }
@@ -2734,6 +2779,7 @@ defmodule AWS.S3 do
       get_object_output() :: %{
         "ContentLength" => float(),
         "VersionId" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
         "Expiration" => String.t() | atom(),
         "BucketKeyEnabled" => boolean(),
         "SSEKMSKeyId" => String.t() | atom(),
@@ -2744,9 +2790,11 @@ defmodule AWS.S3 do
         "Body" => binary(),
         "WebsiteRedirectLocation" => String.t() | atom(),
         "DeleteMarker" => boolean(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "AcceptRanges" => String.t() | atom(),
         "ServerSideEncryption" => list(any()),
         "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "CacheControl" => String.t() | atom(),
         "ObjectLockLegalHoldStatus" => list(any()),
         "ChecksumType" => list(any()),
@@ -2761,6 +2809,7 @@ defmodule AWS.S3 do
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
         "Metadata" => map(),
         "PartsCount" => integer(),
         "ChecksumSHA256" => String.t() | atom(),
@@ -2769,7 +2818,8 @@ defmodule AWS.S3 do
         "Restore" => String.t() | atom(),
         "ContentRange" => String.t() | atom(),
         "SSECustomerAlgorithm" => String.t() | atom(),
-        "ContentLanguage" => String.t() | atom()
+        "ContentLanguage" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom()
       }
 
   """
@@ -2849,9 +2899,14 @@ defmodule AWS.S3 do
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "ChecksumSHA1" => String.t() | atom(),
         "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
         "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "ETag" => String.t() | atom(),
         "Expiration" => String.t() | atom(),
         "Key" => String.t() | atom(),
@@ -3084,9 +3139,14 @@ defmodule AWS.S3 do
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "ChecksumSHA1" => String.t() | atom(),
         "ChecksumSHA256" => String.t() | atom(),
-        "ChecksumType" => list(any())
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom()
       }
 
   """
@@ -3579,8 +3639,13 @@ defmodule AWS.S3 do
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "ChecksumSHA1" => String.t() | atom(),
         "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "ETag" => String.t() | atom(),
         "LastModified" => non_neg_integer(),
         "PartNumber" => integer(),
@@ -3621,8 +3686,13 @@ defmodule AWS.S3 do
         "ChecksumCRC32" => String.t() | atom(),
         "ChecksumCRC32C" => String.t() | atom(),
         "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
         "ChecksumSHA1" => String.t() | atom(),
         "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
         "PartNumber" => integer(),
         "Size" => float()
       }
@@ -4489,9 +4559,14 @@ defmodule AWS.S3 do
         optional("ChecksumCRC32") => String.t() | atom(),
         optional("ChecksumCRC32C") => String.t() | atom(),
         optional("ChecksumCRC64NVME") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
         optional("ChecksumSHA1") => String.t() | atom(),
         optional("ChecksumSHA256") => String.t() | atom(),
+        optional("ChecksumSHA512") => String.t() | atom(),
         optional("ChecksumType") => list(any()),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
+        optional("ChecksumXXHASH3") => String.t() | atom(),
+        optional("ChecksumXXHASH64") => String.t() | atom(),
         optional("ExpectedBucketOwner") => String.t() | atom(),
         optional("IfMatch") => String.t() | atom(),
         optional("IfNoneMatch") => String.t() | atom(),
@@ -5215,9 +5290,14 @@ defmodule AWS.S3 do
         {"ChecksumCRC32", "x-amz-checksum-crc32"},
         {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
         {"ChecksumCRC64NVME", "x-amz-checksum-crc64nvme"},
+        {"ChecksumMD5", "x-amz-checksum-md5"},
         {"ChecksumSHA1", "x-amz-checksum-sha1"},
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
+        {"ChecksumSHA512", "x-amz-checksum-sha512"},
         {"ChecksumType", "x-amz-checksum-type"},
+        {"ChecksumXXHASH128", "x-amz-checksum-xxhash128"},
+        {"ChecksumXXHASH3", "x-amz-checksum-xxhash3"},
+        {"ChecksumXXHASH64", "x-amz-checksum-xxhash64"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"IfMatch", "If-Match"},
         {"IfNoneMatch", "If-None-Match"},
@@ -7242,11 +7322,30 @@ defmodule AWS.S3 do
   end
 
   @doc """
-
-  This operation is not supported for directory buckets.
-
   Deletes an S3 Inventory configuration (identified by the inventory ID) from the
   bucket.
+
+  **Directory buckets ** - For directory buckets, you must make requests for this
+  API operation to the Regional endpoint. These endpoints support path-style
+  requests in the format
+
+  ```
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
+
+  ```
+
+  . Virtual-hosted-style requests aren't supported.
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  in the
+  *Amazon S3 User Guide*.
+
+  ## Definitions
+
+  ### Permissions
 
   To use this operation, you must have permissions to perform the
   `s3:PutInventoryConfiguration` action. The bucket owner has this permission by
@@ -7254,6 +7353,29 @@ defmodule AWS.S3 do
   bucket owner can grant this permission to others. For more information about
   permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
+
+    
+
+  **General purpose bucket permissions** - The
+  `s3:PutInventoryConfiguration` permission is required in a policy. For more
+  information
+  about general purpose buckets permissions, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html)
+  in the *Amazon S3 User Guide*.
+
+    
+
+  **Directory bucket permissions** - To grant access to
+  this API operation, you must have the `s3express:PutInventoryConfiguration`
+  permission in
+  an IAM identity-based policy instead of a bucket policy.
+  For more information about directory bucket policies and permissions, see
+  [Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html)
+  in the *Amazon S3 User Guide*.
+
+  ### HTTP Host header syntax
+
+  **Directory buckets ** - The HTTP Host header syntax is
+  `s3express-control.*region-code*.amazonaws.com`.
 
   For information about the Amazon S3 inventory feature, see [Amazon S3 Inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html).
 
@@ -9245,19 +9367,61 @@ defmodule AWS.S3 do
   end
 
   @doc """
-
-  This operation is not supported for directory buckets.
-
   Returns an S3 Inventory configuration (identified by the inventory configuration
   ID) from the
   bucket.
 
+  **Directory buckets ** - For directory buckets, you must make requests for this
+  API operation to the Regional endpoint. These endpoints support path-style
+  requests in the format
+
+  ```
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
+
+  ```
+
+  . Virtual-hosted-style requests aren't supported.
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  in the
+  *Amazon S3 User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
   To use this operation, you must have permissions to perform the
   `s3:GetInventoryConfiguration` action. The bucket owner has this permission by
-  default and
-  can grant this permission to others. For more information about permissions, see
-  [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  default. The
+  bucket owner can grant this permission to others. For more information about
+  permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
+
+    
+
+  **General purpose bucket permissions** - The
+  `s3:GetInventoryConfiguration` permission is required in a policy. For more
+  information
+  about general purpose buckets permissions, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html)
+  in the *Amazon S3 User Guide*.
+
+    
+
+  **Directory bucket permissions** - To grant access to
+  this API operation, you must have the `s3express:GetInventoryConfiguration`
+  permission in
+  an IAM identity-based policy instead of a bucket policy.
+  For more information about directory bucket policies and permissions, see
+  [Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html)
+  in the *Amazon S3 User Guide*.
+
+  ### HTTP Host header syntax
+
+  **Directory buckets ** - The HTTP Host header syntax is
+  `s3express-control.*region-code*.amazonaws.com`.
 
   For information about the Amazon S3 inventory feature, see [Amazon S3 Inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html).
 
@@ -10917,6 +11081,7 @@ defmodule AWS.S3 do
           {"x-amz-delete-marker", "DeleteMarker"},
           {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
           {"x-amz-restore", "Restore"},
+          {"x-amz-checksum-sha512", "ChecksumSHA512"},
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"Content-Type", "ContentType"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
@@ -10927,6 +11092,7 @@ defmodule AWS.S3 do
           {"Content-Language", "ContentLanguage"},
           {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
           {"Content-Encoding", "ContentEncoding"},
           {"x-amz-checksum-sha256", "ChecksumSHA256"},
           {"ETag", "ETag"},
@@ -10937,11 +11103,14 @@ defmodule AWS.S3 do
           {"x-amz-expiration", "Expiration"},
           {"x-amz-replication-status", "ReplicationStatus"},
           {"Cache-Control", "CacheControl"},
+          {"x-amz-checksum-md5", "ChecksumMD5"},
           {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
           {"x-amz-checksum-type", "ChecksumType"},
           {"x-amz-missing-meta", "MissingMeta"},
           {"Content-Length", "ContentLength"},
           {"x-amz-object-lock-mode", "ObjectLockMode"},
+          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
           {"Content-Disposition", "ContentDisposition"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption", "ServerSideEncryption"},
@@ -12292,6 +12461,7 @@ defmodule AWS.S3 do
           {"x-amz-delete-marker", "DeleteMarker"},
           {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
           {"x-amz-restore", "Restore"},
+          {"x-amz-checksum-sha512", "ChecksumSHA512"},
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"Content-Type", "ContentType"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
@@ -12302,6 +12472,7 @@ defmodule AWS.S3 do
           {"Content-Language", "ContentLanguage"},
           {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
           {"Content-Encoding", "ContentEncoding"},
           {"x-amz-checksum-sha256", "ChecksumSHA256"},
           {"ETag", "ETag"},
@@ -12313,11 +12484,14 @@ defmodule AWS.S3 do
           {"x-amz-expiration", "Expiration"},
           {"x-amz-replication-status", "ReplicationStatus"},
           {"Cache-Control", "CacheControl"},
+          {"x-amz-checksum-md5", "ChecksumMD5"},
           {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
           {"x-amz-checksum-type", "ChecksumType"},
           {"x-amz-missing-meta", "MissingMeta"},
           {"Content-Length", "ContentLength"},
           {"x-amz-object-lock-mode", "ObjectLockMode"},
+          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
           {"Content-Disposition", "ContentDisposition"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption", "ServerSideEncryption"},
@@ -12517,11 +12691,9 @@ defmodule AWS.S3 do
   end
 
   @doc """
+  Returns a list of S3 Inventory configurations for the bucket.
 
-  This operation is not supported for directory buckets.
-
-  Returns a list of S3 Inventory configurations for the bucket. You can have up to
-  1,000 inventory
+  You can have up to 1,000 inventory
   configurations per bucket.
 
   This action supports list pagination and does not return more than 100
@@ -12535,12 +12707,57 @@ defmodule AWS.S3 do
   by passing
   the value in continuation-token in the request to `GET` the next page.
 
+  **Directory buckets ** - For directory buckets, you must make requests for this
+  API operation to the Regional endpoint. These endpoints support path-style
+  requests in the format
+
+  ```
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
+
+  ```
+
+  . Virtual-hosted-style requests aren't supported.
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  in the
+  *Amazon S3 User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
   To use this operation, you must have permissions to perform the
   `s3:GetInventoryConfiguration` action. The bucket owner has this permission by
   default. The
   bucket owner can grant this permission to others. For more information about
   permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
+
+    
+
+  **General purpose bucket permissions** - The
+  `s3:GetInventoryConfiguration` permission is required in a policy. For more
+  information
+  about general purpose buckets permissions, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html)
+  in the *Amazon S3 User Guide*.
+
+    
+
+  **Directory bucket permissions** - To grant access to
+  this API operation, you must have the `s3express:GetInventoryConfiguration`
+  permission in
+  an IAM identity-based policy instead of a bucket policy.
+  For more information about directory bucket policies and permissions, see
+  [Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html)
+  in the *Amazon S3 User Guide*.
+
+  ### HTTP Host header syntax
+
+  **Directory buckets ** - The HTTP Host header syntax is
+  `s3express-control.*region-code*.amazonaws.com`.
 
   For information about the Amazon S3 inventory feature, see [Amazon S3 Inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html)
 
@@ -14927,13 +15144,11 @@ defmodule AWS.S3 do
   end
 
   @doc """
-
-  This operation is not supported for directory buckets.
-
   This implementation of the `PUT` action adds an S3 Inventory configuration
   (identified by
-  the inventory ID) to the bucket. You can have up to 1,000 inventory
-  configurations per bucket.
+  the inventory ID) to the bucket.
+
+  You can have up to 1,000 inventory configurations per bucket.
 
   Amazon S3 inventory generates inventories of the objects in the bucket on a
   daily or weekly basis, and
@@ -14959,6 +15174,24 @@ defmodule AWS.S3 do
   [ Granting Permissions for Amazon S3 Inventory and Storage Class
   Analysis](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9).
 
+  **Directory buckets ** - For directory buckets, you must make requests for this
+  API operation to the Regional endpoint. These endpoints support path-style
+  requests in the format
+
+  ```
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
+
+  ```
+
+  . Virtual-hosted-style requests aren't supported.
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  in the
+  *Amazon S3 User Guide*.
+
   ## Definitions
 
   ### Permissions
@@ -14974,8 +15207,26 @@ defmodule AWS.S3 do
   bucket can also access
   all object metadata fields that are available in the inventory report.
 
+    
+
+  **General purpose bucket permissions** - The
+  `s3:PutInventoryConfiguration` permission is required in a policy. For more
+  information
+  about general purpose buckets permissions, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html)
+  in the *Amazon S3 User Guide*.
+
+    
+
+  **Directory bucket permissions** - To grant access to
+  this API operation, you must have the `s3express:PutInventoryConfiguration`
+  permission in
+  an IAM identity-based policy instead of a bucket policy.
+  For more information about directory bucket policies and permissions, see
+  [Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html)
+  in the *Amazon S3 User Guide*.
+
   To restrict access to an inventory report, see [Restricting access to an Amazon S3 Inventory
-  report](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-10)
+  report](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-s3-inventory)
   in the
   *Amazon S3 User Guide*. For more information about the metadata fields available
   in S3 Inventory, see [Amazon S3 Inventory lists](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html#storage-inventory-contents)
@@ -14984,6 +15235,11 @@ defmodule AWS.S3 do
   and [Identity and access management in Amazon
   S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
   in the *Amazon S3 User Guide*.
+
+  ### HTTP Host header syntax
+
+  **Directory buckets ** - The HTTP Host header syntax is
+  `s3express-control.*region-code*.amazonaws.com`.
 
   `PutBucketInventoryConfiguration` has the following special errors:
 
@@ -16685,6 +16941,7 @@ defmodule AWS.S3 do
         {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
         {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
         {"RequestPayer", "x-amz-request-payer"},
+        {"ChecksumSHA512", "x-amz-checksum-sha512"},
         {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
         {"ContentType", "Content-Type"},
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
@@ -16695,6 +16952,7 @@ defmodule AWS.S3 do
         {"ContentLanguage", "Content-Language"},
         {"ChecksumCRC64NVME", "x-amz-checksum-crc64nvme"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
+        {"ChecksumXXHASH3", "x-amz-checksum-xxhash3"},
         {"ContentEncoding", "Content-Encoding"},
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
         {"IfMatch", "If-Match"},
@@ -16705,10 +16963,13 @@ defmodule AWS.S3 do
         {"GrantWriteACP", "x-amz-grant-write-acp"},
         {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
         {"CacheControl", "Cache-Control"},
+        {"ChecksumMD5", "x-amz-checksum-md5"},
         {"StorageClass", "x-amz-storage-class"},
         {"GrantRead", "x-amz-grant-read"},
+        {"ChecksumXXHASH64", "x-amz-checksum-xxhash64"},
         {"ContentLength", "Content-Length"},
         {"ObjectLockMode", "x-amz-object-lock-mode"},
+        {"ChecksumXXHASH128", "x-amz-checksum-xxhash128"},
         {"ContentDisposition", "Content-Disposition"},
         {"ServerSideEncryption", "x-amz-server-side-encryption"},
         {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
@@ -16735,9 +16996,14 @@ defmodule AWS.S3 do
           {"x-amz-checksum-crc32", "ChecksumCRC32"},
           {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
           {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
+          {"x-amz-checksum-md5", "ChecksumMD5"},
           {"x-amz-checksum-sha1", "ChecksumSHA1"},
           {"x-amz-checksum-sha256", "ChecksumSHA256"},
+          {"x-amz-checksum-sha512", "ChecksumSHA512"},
           {"x-amz-checksum-type", "ChecksumType"},
+          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
+          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
+          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
           {"ETag", "ETag"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-request-charged", "RequestCharged"},
@@ -18776,8 +19042,13 @@ defmodule AWS.S3 do
         {"ChecksumCRC32", "x-amz-checksum-crc32"},
         {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
         {"ChecksumCRC64NVME", "x-amz-checksum-crc64nvme"},
+        {"ChecksumMD5", "x-amz-checksum-md5"},
         {"ChecksumSHA1", "x-amz-checksum-sha1"},
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
+        {"ChecksumSHA512", "x-amz-checksum-sha512"},
+        {"ChecksumXXHASH128", "x-amz-checksum-xxhash128"},
+        {"ChecksumXXHASH3", "x-amz-checksum-xxhash3"},
+        {"ChecksumXXHASH64", "x-amz-checksum-xxhash64"},
         {"ContentLength", "Content-Length"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
@@ -18806,8 +19077,13 @@ defmodule AWS.S3 do
           {"x-amz-checksum-crc32", "ChecksumCRC32"},
           {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
           {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
+          {"x-amz-checksum-md5", "ChecksumMD5"},
           {"x-amz-checksum-sha1", "ChecksumSHA1"},
           {"x-amz-checksum-sha256", "ChecksumSHA256"},
+          {"x-amz-checksum-sha512", "ChecksumSHA512"},
+          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
+          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
+          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
           {"ETag", "ETag"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
@@ -19262,6 +19538,7 @@ defmodule AWS.S3 do
         {"RequestToken", "x-amz-request-token"},
         {"Restore", "x-amz-fwd-header-x-amz-restore"},
         {"RequestRoute", "x-amz-request-route"},
+        {"ChecksumSHA512", "x-amz-fwd-header-x-amz-checksum-sha512"},
         {"StatusCode", "x-amz-fwd-status"},
         {"BucketKeyEnabled", "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"},
         {"ContentType", "x-amz-fwd-header-Content-Type"},
@@ -19273,6 +19550,7 @@ defmodule AWS.S3 do
         {"ChecksumCRC64NVME", "x-amz-fwd-header-x-amz-checksum-crc64nvme"},
         {"SSECustomerAlgorithm",
          "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"},
+        {"ChecksumXXHASH3", "x-amz-fwd-header-x-amz-checksum-xxhash3"},
         {"ContentEncoding", "x-amz-fwd-header-Content-Encoding"},
         {"ChecksumSHA256", "x-amz-fwd-header-x-amz-checksum-sha256"},
         {"ETag", "x-amz-fwd-header-ETag"},
@@ -19284,10 +19562,13 @@ defmodule AWS.S3 do
         {"Expiration", "x-amz-fwd-header-x-amz-expiration"},
         {"ReplicationStatus", "x-amz-fwd-header-x-amz-replication-status"},
         {"CacheControl", "x-amz-fwd-header-Cache-Control"},
+        {"ChecksumMD5", "x-amz-fwd-header-x-amz-checksum-md5"},
         {"StorageClass", "x-amz-fwd-header-x-amz-storage-class"},
+        {"ChecksumXXHASH64", "x-amz-fwd-header-x-amz-checksum-xxhash64"},
         {"MissingMeta", "x-amz-fwd-header-x-amz-missing-meta"},
         {"ContentLength", "Content-Length"},
         {"ObjectLockMode", "x-amz-fwd-header-x-amz-object-lock-mode"},
+        {"ChecksumXXHASH128", "x-amz-fwd-header-x-amz-checksum-xxhash128"},
         {"ContentDisposition", "x-amz-fwd-header-Content-Disposition"},
         {"RequestCharged", "x-amz-fwd-header-x-amz-request-charged"},
         {"ServerSideEncryption", "x-amz-fwd-header-x-amz-server-side-encryption"},

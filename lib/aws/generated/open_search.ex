@@ -1208,6 +1208,20 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      rollback_service_software_options() :: %{
+        "CurrentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "NewVersion" => String.t() | atom(),
+        "RollbackAvailable" => boolean()
+      }
+
+  """
+  @type rollback_service_software_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_scheduled_actions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -1886,6 +1900,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type delete_inbound_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_service_software_update_response() :: %{
+        "RollbackServiceSoftwareOptions" => rollback_service_software_options()
+      }
+
+  """
+  @type rollback_service_software_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3189,7 +3214,8 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       software_update_options() :: %{
-        "AutoSoftwareUpdateEnabled" => boolean()
+        "AutoSoftwareUpdateEnabled" => boolean(),
+        "UseLatestServiceSoftwareForBlueGreen" => boolean()
       }
 
   """
@@ -3991,6 +4017,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      rollback_service_software_update_request() :: %{
+        required("DomainName") => String.t() | atom()
+      }
+
+  """
+  @type rollback_service_software_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_direct_query_data_source_response() :: %{
         "DataSourceArn" => String.t() | atom()
       }
@@ -4683,6 +4720,13 @@ defmodule AWS.OpenSearch do
   @type remove_tags_errors() :: base_exception() | validation_exception() | internal_exception()
 
   @type revoke_vpc_endpoint_access_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type rollback_service_software_update_errors() ::
           base_exception()
           | validation_exception()
           | internal_exception()
@@ -7397,6 +7441,43 @@ defmodule AWS.OpenSearch do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Rolls back a service software update for a domain to the previous version.
+
+  For more
+  information, see [Service software updates in Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html).
+  """
+  @spec rollback_service_software_update(
+          map(),
+          rollback_service_software_update_request(),
+          list()
+        ) ::
+          {:ok, rollback_service_software_update_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, rollback_service_software_update_errors()}
+  def rollback_service_software_update(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/rollback"
     headers = []
     custom_headers = []
     query_params = []

@@ -40,6 +40,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_remote_mcp_config() :: %{
+        "headers" => map(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type harness_remote_mcp_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conversational() :: %{
         "content" => list(),
         "role" => list(any())
@@ -416,6 +428,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_content_block_start_event() :: %{
+        "contentBlockIndex" => [integer()],
+        "start" => list()
+      }
+
+  """
+  @type harness_content_block_start_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_agent_runtime_command_response() :: %{
         "baggage" => [String.t() | atom()],
         "contentType" => [String.t() | atom()],
@@ -510,6 +534,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type mouse_click_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_gateway_config() :: %{
+        "gatewayArn" => String.t() | atom(),
+        "outboundAuth" => list()
+      }
+
+  """
+  @type harness_agent_core_gateway_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,6 +721,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_message() :: %{
+        "content" => list(list()),
+        "role" => list(any())
+      }
+
+  """
+  @type harness_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_update_memory_records_output() :: %{
         "failedRecords" => list(memory_record_output()),
         "successfulRecords" => list(memory_record_output())
@@ -692,6 +740,34 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type batch_update_memory_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool_result_block() :: %{
+        "content" => list(list()),
+        "status" => list(any()),
+        "toolUseId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type harness_tool_result_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool_use_block_start() :: %{
+        "name" => String.t() | atom(),
+        "serverName" => [String.t() | atom()],
+        "toolUseId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type harness_tool_use_block_start() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -730,6 +806,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type key_shortcut_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_inline_function_config() :: %{
+        "description" => String.t() | atom(),
+        "inputSchema" => any()
+      }
+
+  """
+  @type harness_inline_function_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -889,6 +977,21 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_memory_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_token_usage() :: %{
+        "cacheReadInputTokens" => [integer()],
+        "cacheWriteInputTokens" => [integer()],
+        "inputTokens" => [integer()],
+        "outputTokens" => [integer()],
+        "totalTokens" => [integer()]
+      }
+
+  """
+  @type harness_token_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1067,6 +1170,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_tool_result_block_start() :: %{
+        "status" => list(any()),
+        "toolUseId" => String.t() | atom()
+      }
+
+  """
+  @type harness_tool_result_block_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_card_request() :: %{
         optional("qualifier") => [String.t() | atom()],
         optional("runtimeSessionId") => String.t() | atom()
@@ -1086,6 +1201,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type mouse_move_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_browser_config() :: %{
+        "browserArn" => String.t() | atom()
+      }
+
+  """
+  @type harness_agent_core_browser_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1293,6 +1419,44 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_gemini_model_config() :: %{
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topK" => integer(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_gemini_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_harness_request() :: %{
+        optional("actorId") => [String.t() | atom()],
+        optional("allowedTools") => list(String.t() | atom()),
+        optional("maxIterations") => [integer()],
+        optional("maxTokens") => [integer()],
+        optional("model") => list(),
+        optional("skills") => list(list()),
+        optional("systemPrompt") => list(list()),
+        optional("timeoutSeconds") => [integer()],
+        optional("tools") => list(harness_tool()),
+        required("harnessArn") => String.t() | atom(),
+        required("messages") => list(harness_message()),
+        required("runtimeSessionId") => String.t() | atom()
+      }
+
+  """
+  @type invoke_harness_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       key_press_arguments() :: %{
         "key" => [String.t() | atom()],
         "presses" => [integer()]
@@ -1300,6 +1464,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type key_press_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_content_block_delta_event() :: %{
+        "contentBlockIndex" => [integer()],
+        "delta" => list()
+      }
+
+  """
+  @type harness_content_block_delta_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1316,6 +1492,29 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type tool_result_structured_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_metadata_event() :: %{
+        "metrics" => harness_stream_metrics(),
+        "usage" => harness_token_usage()
+      }
+
+  """
+  @type harness_metadata_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_content_block_stop_event() :: %{
+        "contentBlockIndex" => [integer()]
+      }
+
+  """
+  @type harness_content_block_stop_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1363,6 +1562,21 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type tools_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_credential_provider() :: %{
+        "customParameters" => map(),
+        "defaultReturnUrl" => String.t() | atom(),
+        "grantType" => list(any()),
+        "providerArn" => String.t() | atom(),
+        "scopes" => list(String.t() | atom())
+      }
+
+  """
+  @type o_auth_credential_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1462,6 +1676,19 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_tool() :: %{
+        "config" => list(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type harness_tool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -1479,6 +1706,21 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_memory_record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool_use_block() :: %{
+        "input" => any(),
+        "name" => String.t() | atom(),
+        "serverName" => [String.t() | atom()],
+        "toolUseId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type harness_tool_use_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1590,6 +1832,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_message_stop_event() :: %{
+        "stopReason" => list(any())
+      }
+
+  """
+  @type harness_message_stop_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory_record() :: %{
         "content" => list(),
         "createdAt" => [non_neg_integer()],
@@ -1601,6 +1854,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type memory_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_message_start_event() :: %{
+        "role" => list(any())
+      }
+
+  """
+  @type harness_message_start_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1618,6 +1882,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type create_event_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_reasoning_text_block() :: %{
+        "signature" => [String.t() | atom()],
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type harness_reasoning_text_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1687,6 +1963,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type secrets_manager_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool_use_block_delta() :: %{
+        "input" => String.t() | atom()
+      }
+
+  """
+  @type harness_tool_use_block_delta() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1799,6 +2086,20 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_bedrock_model_config() :: %{
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_bedrock_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -1828,6 +2129,21 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type browser_extension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_open_ai_model_config() :: %{
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_open_ai_model_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1936,6 +2252,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      invoke_harness_response() :: %{
+        "stream" => list()
+      }
+
+  """
+  @type invoke_harness_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_actors_output() :: %{
         "actorSummaries" => list(actor_summary()),
         "nextToken" => String.t() | atom()
@@ -2011,6 +2338,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type skill_md_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_stream_metrics() :: %{
+        "latencyMs" => [float()]
+      }
+
+  """
+  @type harness_stream_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2181,6 +2519,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type delete_memory_record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_code_interpreter_config() :: %{
+        "codeInterpreterArn" => String.t() | atom()
+      }
+
+  """
+  @type harness_agent_core_code_interpreter_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2439,6 +2788,13 @@ defmodule AWS.BedrockAgentCore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type invoke_harness_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_actors_errors() ::
           validation_exception()
@@ -3542,6 +3898,46 @@ defmodule AWS.BedrockAgentCore do
         :response_header_parameters,
         [{"x-amzn-code-interpreter-session-id", "sessionId"}]
       )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Operation to invoke a Harness.
+  """
+  @spec invoke_harness(map(), invoke_harness_request(), list()) ::
+          {:ok, invoke_harness_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_harness_errors()}
+  def invoke_harness(%Client{} = client, input, options \\ []) do
+    url_path = "/harnesses/invoke"
+
+    {headers, input} =
+      [
+        {"runtimeSessionId", "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"harnessArn", "harnessArn"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

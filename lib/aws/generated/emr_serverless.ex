@@ -79,6 +79,27 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      session_summary() :: %{
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "releaseLabel" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_monitoring_configuration() :: %{
         "encryptionKeyArn" => String.t() | atom(),
         "logUri" => String.t() | atom()
@@ -86,6 +107,17 @@ defmodule AWS.EMRServerless do
 
   """
   @type s3_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_response() :: %{
+        "session" => session()
+      }
+
+  """
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,6 +171,22 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      start_session_request() :: %{
+        optional("configurationOverrides") => session_configuration_overrides(),
+        optional("idleTimeoutMinutes") => float(),
+        optional("name") => String.t() | atom(),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom()
+      }
+
+  """
+  @type start_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       initial_capacity_config() :: %{
         "workerConfiguration" => worker_resource_config(),
         "workerCount" => float()
@@ -146,6 +194,21 @@ defmodule AWS.EMRServerless do
 
   """
   @type initial_capacity_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_endpoint_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "authToken" => String.t() | atom(),
+        "authTokenExpiresAt" => non_neg_integer(),
+        "endpoint" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type get_session_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -235,6 +298,15 @@ defmodule AWS.EMRServerless do
 
   """
   @type list_job_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_endpoint_request() :: %{}
+
+  """
+  @type get_session_endpoint_request() :: %{}
 
   @typedoc """
 
@@ -351,12 +423,32 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      session_configuration_overrides() :: %{
+        "runtimeConfiguration" => list(configuration())
+      }
+
+  """
+  @type session_configuration_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       auto_start_config() :: %{
         "enabled" => [boolean()]
       }
 
   """
   @type auto_start_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_request() :: %{}
+
+  """
+  @type get_session_request() :: %{}
 
   @typedoc """
 
@@ -385,6 +477,15 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      terminate_session_request() :: %{}
+
+  """
+  @type terminate_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       job_run_execution_iam_policy() :: %{
         "policy" => String.t() | atom(),
         "policyArns" => list(String.t() | atom())
@@ -392,6 +493,30 @@ defmodule AWS.EMRServerless do
 
   """
   @type job_run_execution_iam_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_session_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type terminate_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sessions" => list(session_summary())
+      }
+
+  """
+  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,6 +712,21 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      list_sessions_request() :: %{
+        optional("createdAtAfter") => non_neg_integer(),
+        optional("createdAtBefore") => non_neg_integer(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("states") => list(String.t() | atom())
+      }
+
+  """
+  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_application_response() :: %{
         optional("name") => String.t() | atom(),
         required("applicationId") => String.t() | atom(),
@@ -600,8 +740,40 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      session() :: %{
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "billedResourceUtilization" => resource_utilization(),
+        "configurationOverrides" => session_configuration_overrides(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "endedAt" => non_neg_integer(),
+        "executionRoleArn" => String.t() | atom(),
+        "idleSince" => non_neg_integer(),
+        "idleTimeoutMinutes" => float(),
+        "name" => String.t() | atom(),
+        "networkConfiguration" => network_configuration(),
+        "releaseLabel" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "tags" => map(),
+        "totalExecutionDurationSeconds" => [float()],
+        "totalResourceUtilization" => total_resource_utilization(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       interactive_configuration() :: %{
         "livyEndpointEnabled" => [boolean()],
+        "sessionEnabled" => [boolean()],
         "studioEnabled" => [boolean()]
       }
 
@@ -780,10 +952,34 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      start_session_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type start_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_application_response() :: %{}
 
   """
   @type stop_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_dashboard_response() :: %{
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -838,6 +1034,18 @@ defmodule AWS.EMRServerless do
 
   """
   @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_dashboard_request() :: %{
+        required("resourceId") => String.t() | atom(),
+        required("resourceType") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -998,12 +1206,24 @@ defmodule AWS.EMRServerless do
   @type get_job_run_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type get_resource_dashboard_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_session_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_session_endpoint_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
   @type list_applications_errors() :: validation_exception() | internal_server_exception()
 
   @type list_job_run_attempts_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_job_runs_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_sessions_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
@@ -1020,10 +1240,20 @@ defmodule AWS.EMRServerless do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type start_session_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type stop_application_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type terminate_session_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() ::
@@ -1259,6 +1489,102 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
+  Returns a URL that you can use to access the application UIs for a specified
+  resource, such as a session.
+
+  For resources in a running state, the application UI is a live user interface
+  such as the Spark web UI. For terminated resources, the application UI is a
+  persistent application user interface such as the Spark History Server.
+
+  The URL is valid for one hour after you generate it. To access the application
+  UI after that hour elapses, you must invoke the API again to generate a new URL.
+  """
+  @spec get_resource_dashboard(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_resource_dashboard_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_dashboard_errors()}
+  def get_resource_dashboard(
+        %Client{} = client,
+        application_id,
+        resource_id,
+        resource_type,
+        options \\ []
+      ) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dashboard"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_id) do
+        [{"resourceId", resource_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Displays detailed information about a session.
+  """
+  @spec get_session(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_session_errors()}
+  def get_session(%Client{} = client, application_id, session_id, options \\ []) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the session endpoint URL and a time-limited authentication token for the
+  specified session.
+
+  Use the endpoint and token to connect a client to the session. Call this
+  operation again when the authentication token expires to obtain a new token.
+  """
+  @spec get_session_endpoint(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_session_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_session_endpoint_errors()}
+  def get_session_endpoint(%Client{} = client, application_id, session_id, options \\ []) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/endpoint"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists applications based on a set of parameters.
   """
   @spec list_applications(
@@ -1438,6 +1764,79 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
+  Lists sessions for the specified application.
+
+  You can filter sessions by state and creation time.
+  """
+  @spec list_sessions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sessions_errors()}
+  def list_sessions(
+        %Client{} = client,
+        application_id,
+        created_at_after \\ nil,
+        created_at_before \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        states \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/sessions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(states) do
+        [{"states", states} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_at_before) do
+        [{"createdAtBefore", created_at_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_at_after) do
+        [{"createdAtAfter", created_at_after} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the tags assigned to the resources.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
@@ -1494,6 +1893,39 @@ defmodule AWS.EMRServerless do
           | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates and starts a new session on the specified application.
+
+  The application must be in the `STARTED` state or have `AutoStart` enabled, and
+  have interactive sessions enabled. This operation is supported for EMR release
+  7.13.0 and later.
+  """
+  @spec start_session(map(), String.t() | atom(), start_session_request(), list()) ::
+          {:ok, start_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_session_errors()}
+  def start_session(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/sessions"
     headers = []
     custom_headers = []
     query_params = []
@@ -1572,6 +2004,47 @@ defmodule AWS.EMRServerless do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Terminates the specified session.
+
+  After you terminate a session, it enters the `TERMINATING` state and then the
+  `TERMINATED` state. You can still access the Spark History Server for a
+  terminated session through the `GetResourceDashboard` operation.
+  """
+  @spec terminate_session(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          terminate_session_request(),
+          list()
+        ) ::
+          {:ok, terminate_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, terminate_session_errors()}
+  def terminate_session(%Client{} = client, application_id, session_id, input, options \\ []) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,

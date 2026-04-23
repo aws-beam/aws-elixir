@@ -3146,6 +3146,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       get_position_estimate_request() :: %{
+        optional("AdvancedConfiguration") => advanced_configuration(),
         optional("CellTowers") => cell_towers(),
         optional("Gnss") => gnss(),
         optional("Ip") => ip(),
@@ -3247,6 +3248,17 @@ defmodule AWS.IoTWireless do
 
   """
   @type disassociate_wireless_gateway_from_thing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_configuration() :: %{
+        "WiFiCellular" => wi_fi_cellular()
+      }
+
+  """
+  @type advanced_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3507,6 +3519,17 @@ defmodule AWS.IoTWireless do
 
   """
   @type wcdma_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wi_fi_cellular() :: %{
+        "ConfidencePercent" => integer()
+      }
+
+  """
+  @type wi_fi_cellular() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

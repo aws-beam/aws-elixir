@@ -1091,6 +1091,8 @@ defmodule AWS.Batch do
         "repositoryCredentials" => repository_credentials(),
         "resourceRequirements" => list(resource_requirement()),
         "secrets" => list(secret()),
+        "startTimeout" => integer(),
+        "stopTimeout" => integer(),
         "ulimits" => list(ulimit()),
         "user" => String.t() | atom()
       }
@@ -2104,7 +2106,8 @@ defmodule AWS.Batch do
       volume() :: %{
         "efsVolumeConfiguration" => e_f_s_volume_configuration(),
         "host" => host(),
-        "name" => String.t() | atom()
+        "name" => String.t() | atom(),
+        "s3filesVolumeConfiguration" => s3_files_volume_configuration()
       }
 
   """
@@ -2580,6 +2583,20 @@ defmodule AWS.Batch do
 
   """
   @type list_consumable_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_files_volume_configuration() :: %{
+        "accessPointArn" => String.t() | atom(),
+        "fileSystemArn" => String.t() | atom(),
+        "rootDirectory" => String.t() | atom(),
+        "transitEncryptionPort" => integer()
+      }
+
+  """
+  @type s3_files_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3115,6 +3132,8 @@ defmodule AWS.Batch do
         "repositoryCredentials" => repository_credentials(),
         "resourceRequirements" => list(resource_requirement()),
         "secrets" => list(secret()),
+        "startTimeout" => integer(),
+        "stopTimeout" => integer(),
         "ulimits" => list(ulimit()),
         "user" => String.t() | atom()
       }

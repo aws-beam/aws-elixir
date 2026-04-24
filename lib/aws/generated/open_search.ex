@@ -916,7 +916,8 @@ defmodule AWS.OpenSearch do
 
       authorized_principal() :: %{
         "Principal" => String.t() | atom(),
-        "PrincipalType" => list(any())
+        "PrincipalType" => list(any()),
+        "ServiceOptions" => service_options()
       }
 
   """
@@ -1032,6 +1033,7 @@ defmodule AWS.OpenSearch do
       identity_center_options_input() :: %{
         "EnabledAPIAccess" => boolean(),
         "IdentityCenterInstanceARN" => String.t() | atom(),
+        "IdentityCenterInstanceRegion" => String.t() | atom(),
         "RolesKey" => list(any()),
         "SubjectKey" => list(any())
       }
@@ -2328,6 +2330,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      service_options() :: %{
+        "SupportedRegions" => list(String.t() | atom())
+      }
+
+  """
+  @type service_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_application_response() :: %{}
 
   """
@@ -2448,6 +2461,7 @@ defmodule AWS.OpenSearch do
         "EnabledAPIAccess" => boolean(),
         "IdentityCenterApplicationARN" => String.t() | atom(),
         "IdentityCenterInstanceARN" => String.t() | atom(),
+        "IdentityCenterInstanceRegion" => String.t() | atom(),
         "IdentityStoreId" => String.t() | atom(),
         "RolesKey" => list(any()),
         "SubjectKey" => list(any())
@@ -3080,7 +3094,8 @@ defmodule AWS.OpenSearch do
 
       authorize_vpc_endpoint_access_request() :: %{
         optional("Account") => String.t() | atom(),
-        optional("Service") => list(any())
+        optional("Service") => list(any()),
+        optional("ServiceOptions") => service_options()
       }
 
   """
@@ -3416,7 +3431,8 @@ defmodule AWS.OpenSearch do
 
       revoke_vpc_endpoint_access_request() :: %{
         optional("Account") => String.t() | atom(),
-        optional("Service") => list(any())
+        optional("Service") => list(any()),
+        optional("ServiceOptions") => service_options()
       }
 
   """

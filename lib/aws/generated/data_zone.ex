@@ -2036,6 +2036,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      lakehouse_properties_input() :: %{
+        "glueLineageSyncEnabled" => [boolean()]
+      }
+
+  """
+  @type lakehouse_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       redshift_self_grant_status_output() :: %{
         "selfGrantStatusDetails" => list(self_grant_status_detail())
       }
@@ -6649,6 +6660,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      lakehouse_properties_output() :: %{
+        "glueLineageSyncEnabled" => [boolean()]
+      }
+
+  """
+  @type lakehouse_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       subscribed_asset_listing() :: %{
         "assetScope" => asset_scope(),
         "entityId" => String.t() | atom(),
@@ -8389,6 +8411,17 @@ defmodule AWS.DataZone do
 
   """
   @type create_subscription_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lakehouse_properties_patch() :: %{
+        "glueLineageSyncEnabled" => [boolean()]
+      }
+
+  """
+  @type lakehouse_properties_patch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

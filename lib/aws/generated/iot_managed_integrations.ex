@@ -128,7 +128,8 @@ defmodule AWS.IoTManagedIntegrations do
         "ClaimCertificatePrivateKey" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "ProvisioningType" => list(any())
+        "ProvisioningType" => list(any()),
+        "Status" => list(any())
       }
 
   """
@@ -1847,7 +1848,8 @@ defmodule AWS.IoTManagedIntegrations do
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "ProvisioningType" => list(any())
+        "ProvisioningType" => list(any()),
+        "Status" => list(any())
       }
 
   """
@@ -2766,6 +2768,7 @@ defmodule AWS.IoTManagedIntegrations do
         "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "ProvisioningType" => list(any()),
+        "Status" => list(any()),
         "Tags" => map()
       }
 
@@ -2985,6 +2988,7 @@ defmodule AWS.IoTManagedIntegrations do
           | internal_server_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
 
   @type deregister_account_association_errors() ::
@@ -3786,10 +3790,9 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Create a provisioning profile for a device to execute the provisioning flows
-  using a provisioning template.
+  Create a provisioning profile for executing device provisioning flows.
 
-  The provisioning template is a document that defines the set of resources and
+  The provisioning profile is a document that defines the set of resources and
   policies applied to a device during the provisioning process.
   """
   @spec create_provisioning_profile(map(), create_provisioning_profile_request(), list()) ::
@@ -4595,7 +4598,7 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  Get a provisioning profile by template name.
+  Get details of a provisioning profile.
   """
   @spec get_provisioning_profile(map(), String.t() | atom(), list()) ::
           {:ok, get_provisioning_profile_response(), any()}

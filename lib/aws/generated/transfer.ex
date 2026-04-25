@@ -1415,6 +1415,7 @@ defmodule AWS.Transfer do
   ## Example:
       
       update_web_app_vpc_config() :: %{
+        "IpAddressType" => list(any()),
         "SubnetIds" => list(String.t() | atom())
       }
       
@@ -2070,6 +2071,7 @@ defmodule AWS.Transfer do
   ## Example:
       
       web_app_vpc_config() :: %{
+        "IpAddressType" => list(any()),
         "SecurityGroupIds" => list(String.t() | atom()),
         "SubnetIds" => list(String.t() | atom()),
         "VpcId" => String.t() | atom()

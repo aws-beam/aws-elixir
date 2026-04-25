@@ -891,6 +891,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_attached_files_configuration_response() :: %{
+        "AttachmentScope" => list(any()),
+        "ExtensionConfiguration" => extension_configuration(),
+        "InstanceId" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MaximumSizeLimitInBytes" => float()
+      }
+
+  """
+  @type update_attached_files_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_users_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t() | atom(),
@@ -1076,6 +1091,17 @@ defmodule AWS.Connect do
 
   """
   @type list_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extension_configuration() :: %{
+        "AllowedExtensions" => list(allowed_extension())
+      }
+
+  """
+  @type extension_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1293,6 +1319,15 @@ defmodule AWS.Connect do
 
   """
   @type disassociate_security_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_attached_files_configuration_request() :: %{}
+
+  """
+  @type describe_attached_files_configuration_request() :: %{}
 
   @typedoc """
 
@@ -3212,6 +3247,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      attached_files_configuration() :: %{
+        "AttachmentScope" => list(any()),
+        "ExtensionConfiguration" => extension_configuration(),
+        "InstanceId" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MaximumSizeLimitInBytes" => float()
+      }
+
+  """
+  @type attached_files_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_outbound_voice_contact_response() :: %{
         "ContactId" => String.t() | atom()
       }
@@ -4182,6 +4232,20 @@ defmodule AWS.Connect do
 
   """
   @type participant_details_to_add() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attached_files_configuration_summary() :: %{
+        "AttachmentScope" => list(any()),
+        "ExtensionConfiguration" => extension_configuration(),
+        "InstanceId" => String.t() | atom(),
+        "MaximumSizeLimitInBytes" => float()
+      }
+
+  """
+  @type attached_files_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6508,6 +6572,18 @@ defmodule AWS.Connect do
 
   """
   @type security_profiles_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_attached_files_configuration_request() :: %{
+        optional("ExtensionConfiguration") => extension_configuration(),
+        optional("MaximumSizeLimitInBytes") => float()
+      }
+
+  """
+  @type update_attached_files_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9683,6 +9759,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_attached_files_configurations_response() :: %{
+        "AttachedFilesConfigurations" => list(attached_files_configuration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_attached_files_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_flow_module_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter()
       }
@@ -10860,6 +10948,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_attached_files_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_attached_files_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       test_case_entry_point() :: %{
         "ChatEntryPointParameters" => chat_entry_point_parameters(),
         "Type" => list(any()),
@@ -11638,6 +11738,17 @@ defmodule AWS.Connect do
 
   """
   @type hierarchy_level_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      allowed_extension() :: %{
+        "Extension" => String.t() | atom()
+      }
+
+  """
+  @type allowed_extension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14646,6 +14757,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_attached_files_configuration_response() :: %{
+        "AttachedFilesConfiguration" => attached_files_configuration()
+      }
+
+  """
+  @type describe_attached_files_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_rule_response() :: %{
         "Rule" => rule()
       }
@@ -16202,6 +16324,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type describe_attached_files_configuration_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type describe_authentication_profile_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -16729,6 +16858,13 @@ defmodule AWS.Connect do
           throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_attached_files_configurations_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
@@ -17653,6 +17789,13 @@ defmodule AWS.Connect do
           | throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_attached_files_configuration_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
@@ -22819,6 +22962,41 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Describes the attached files configuration for the specified Amazon Connect
+  instance and attachment scope.
+
+  If a custom configuration exists for the specified attachment scope, the custom
+  configuration is returned. If no custom configuration exists, the default
+  configuration values for that attachment scope are returned.
+  """
+  @spec describe_attached_files_configuration(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_attached_files_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_attached_files_configuration_errors()}
+  def describe_attached_files_configuration(
+        %Client{} = client,
+        attachment_scope,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/attached-files-configurations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(attachment_scope)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
@@ -25630,6 +25808,55 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(contact_id) do
         [{"contactId", contact_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Provides summary information about the attached files configurations for the
+  specified Amazon Connect instance.
+
+  This API returns effective configurations (custom overrides or defaults) for
+  each attachment scope. If no custom configuration exists for a scope, the
+  default configuration values are returned.
+  """
+  @spec list_attached_files_configurations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_attached_files_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_attached_files_configurations_errors()}
+  def list_attached_files_configurations(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/attached-files-configurations/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -31264,6 +31491,54 @@ defmodule AWS.Connect do
   def update_agent_status(%Client{} = client, agent_status_id, instance_id, input, options \\ []) do
     url_path =
       "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the attached files configuration for the specified Amazon Connect
+  instance and attachment scope.
+
+  If no instance-specific configuration exists, this operation creates one.
+  Partial updates are supported—only specified fields are updated, while
+  unspecified fields retain their current values.
+  """
+  @spec update_attached_files_configuration(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_attached_files_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_attached_files_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_attached_files_configuration_errors()}
+  def update_attached_files_configuration(
+        %Client{} = client,
+        attachment_scope,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/attached-files-configurations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(attachment_scope)}"
 
     headers = []
     custom_headers = []

@@ -218,7 +218,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "clientSecretArn" => secret(),
         "credentialProviderArn" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "oauth2ProviderConfigOutput" => list()
+        "oauth2ProviderConfigOutput" => list(),
+        "status" => list(any())
       }
 
   """
@@ -2692,7 +2693,9 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom(),
-        "oauthDiscovery" => list()
+        "oauthDiscovery" => list(),
+        "privateEndpoint" => list(),
+        "privateEndpointOverrides" => list(private_endpoint_override())
       }
 
   """
@@ -2756,7 +2759,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
       custom_oauth2_provider_config_output() :: %{
         "clientId" => String.t() | atom(),
-        "oauthDiscovery" => list()
+        "oauthDiscovery" => list(),
+        "privateEndpoint" => list(),
+        "privateEndpointOverrides" => list(private_endpoint_override())
       }
 
   """
@@ -3149,6 +3154,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      private_endpoint_override() :: %{
+        "domain" => String.t() | atom(),
+        "privateEndpoint" => list()
+      }
+
+  """
+  @type private_endpoint_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_policy_generation_assets_response() :: %{
         "nextToken" => String.t() | atom(),
         "policyGenerationAssets" => list(policy_generation_asset())
@@ -3308,7 +3325,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "credentialProviderVendor" => list(any()),
         "lastUpdatedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
-        "oauth2ProviderConfigOutput" => list()
+        "oauth2ProviderConfigOutput" => list(),
+        "status" => list(any())
       }
 
   """
@@ -4147,9 +4165,11 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdTime" => [non_neg_integer()],
         "credentialProviderArn" => String.t() | atom(),
         "credentialProviderVendor" => list(any()),
+        "failureReason" => [String.t() | atom()],
         "lastUpdatedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
-        "oauth2ProviderConfigOutput" => list()
+        "oauth2ProviderConfigOutput" => list(),
+        "status" => list(any())
       }
 
   """
@@ -4348,7 +4368,9 @@ defmodule AWS.BedrockAgentCoreControl do
         "allowedClients" => list(String.t() | atom()),
         "allowedScopes" => list(String.t() | atom()),
         "customClaims" => list(custom_claim_validation_type()),
-        "discoveryUrl" => String.t() | atom()
+        "discoveryUrl" => String.t() | atom(),
+        "privateEndpoint" => list(),
+        "privateEndpointOverrides" => list(private_endpoint_override())
       }
 
   """
@@ -4549,22 +4571,6 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_online_evaluation_configs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_lattice_resource() :: %{
-        "endpointIpAddressType" => list(any()),
-        "routingDomain" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom()),
-        "tags" => map(),
-        "vpcIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type managed_lattice_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5384,6 +5390,22 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      managed_vpc_resource() :: %{
+        "endpointIpAddressType" => list(any()),
+        "routingDomain" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "tags" => map(),
+        "vpcIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type managed_vpc_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_gateways_response() :: %{
         "items" => list(gateway_summary()),
         "nextToken" => String.t() | atom()
@@ -5949,6 +5971,7 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
 
   @type delete_online_evaluation_config_errors() ::

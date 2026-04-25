@@ -528,6 +528,7 @@ defmodule AWS.CloudWatchLogs do
       
       get_query_results_response() :: %{
         "encryptionKey" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
         "queryLanguage" => list(any()),
         "results" => list(list(result_field())()),
         "statistics" => query_statistics(),
@@ -808,6 +809,8 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       get_query_results_request() :: %{
+        optional("maxItems") => integer(),
+        optional("nextToken") => String.t() | atom(),
         required("queryId") => String.t() | atom()
       }
       

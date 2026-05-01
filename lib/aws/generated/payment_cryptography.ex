@@ -72,6 +72,19 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      associate_mpa_team_input() :: %{
+        optional("RequesterComment") => String.t() | atom(),
+        required("Action") => String.t() | atom(),
+        required("MpaTeamArn") => String.t() | atom()
+      }
+      
+  """
+  @type associate_mpa_team_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disable_default_key_replication_regions_input() :: %{
         required("ReplicationRegions") => list(String.t() | atom())
       }
@@ -123,6 +136,18 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type list_keys_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_output() :: %{
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -191,6 +216,7 @@ defmodule AWS.PaymentCryptography do
         optional("Enabled") => [boolean()],
         optional("KeyCheckValueAlgorithm") => String.t() | atom(),
         optional("ReplicationRegions") => list(String.t() | atom()),
+        optional("RequesterComment") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("KeyMaterial") => list()
       }
@@ -266,6 +292,18 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      put_resource_policy_output() :: %{
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       restore_key_input() :: %{
         required("KeyIdentifier") => String.t() | atom()
       }
@@ -316,6 +354,28 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type start_key_usage_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_input() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_mpa_team_association_input() :: %{
+        required("Action") => String.t() | atom()
+      }
+      
+  """
+  @type get_mpa_team_association_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -485,6 +545,18 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      put_resource_policy_input() :: %{
+        required("Policy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_key_replication_regions_input() :: %{
         required("KeyIdentifier") => String.t() | atom(),
         required("ReplicationRegions") => list(String.t() | atom())
@@ -555,6 +627,18 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      disassociate_mpa_team_input() :: %{
+        optional("RequesterComment") => String.t() | atom(),
+        required("Action") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_mpa_team_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_alias_input() :: %{
         optional("KeyArn") => String.t() | atom(),
         required("AliasName") => String.t() | atom()
@@ -584,6 +668,17 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_mpa_team_association_output() :: %{
+        "MpaTeamAssociation" => mpa_team_association()
+      }
+      
+  """
+  @type get_mpa_team_association_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,6 +800,29 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      delete_resource_policy_output() :: %{}
+      
+  """
+  @type delete_resource_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      mpa_status() :: %{
+        "InitiationDate" => non_neg_integer(),
+        "MpaSessionArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type mpa_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_certificate_signing_request_output() :: %{
         "CertificateSigningRequest" => String.t() | atom()
       }
@@ -790,6 +908,20 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      mpa_team_association() :: %{
+        "Action" => String.t() | atom(),
+        "AssociationState" => String.t() | atom(),
+        "MpaStatus" => mpa_status(),
+        "MpaTeamArn" => String.t() | atom()
+      }
+      
+  """
+  @type mpa_team_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_input() :: %{
         required("ResourceArn") => String.t() | atom(),
         required("TagKeys") => list(String.t() | atom())
@@ -797,6 +929,17 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_input() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -914,6 +1057,7 @@ defmodule AWS.PaymentCryptography do
         "KeyCheckValueAlgorithm" => String.t() | atom(),
         "KeyOrigin" => String.t() | atom(),
         "KeyState" => String.t() | atom(),
+        "MpaStatus" => mpa_status(),
         "MultiRegionKeyType" => String.t() | atom(),
         "PrimaryRegion" => String.t() | atom(),
         "ReplicationStatus" => map(),
@@ -924,6 +1068,17 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_mpa_team_output() :: %{
+        "MpaTeamAssociation" => mpa_team_association()
+      }
+      
+  """
+  @type associate_mpa_team_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -971,6 +1126,17 @@ defmodule AWS.PaymentCryptography do
       
   """
   @type enable_default_key_replication_regions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      public_policy_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+      
+  """
+  @type public_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,6 +1212,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      disassociate_mpa_team_output() :: %{
+        "MpaTeamAssociation" => mpa_team_association()
+      }
+      
+  """
+  @type disassociate_mpa_team_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_key_output() :: %{
         "Key" => key()
       }
@@ -1099,6 +1276,16 @@ defmodule AWS.PaymentCryptography do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type associate_mpa_team_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_alias_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1137,11 +1324,30 @@ defmodule AWS.PaymentCryptography do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type disable_default_key_replication_regions_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disassociate_mpa_team_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
@@ -1197,6 +1403,16 @@ defmodule AWS.PaymentCryptography do
           | service_unavailable_exception()
           | resource_not_found_exception()
 
+  @type get_mpa_team_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type get_parameters_for_export_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1218,6 +1434,14 @@ defmodule AWS.PaymentCryptography do
           | conflict_exception()
 
   @type get_public_key_certificate_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_resource_policy_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1258,6 +1482,17 @@ defmodule AWS.PaymentCryptography do
           | internal_server_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
+
+  @type put_resource_policy_errors() ::
+          public_policy_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type remove_key_replication_regions_errors() ::
           throttling_exception()
@@ -1358,8 +1593,9 @@ defmodule AWS.PaymentCryptography do
   multiple regions in a single operation, and the key will be available for use in
   those regions once replication is complete.
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
@@ -1379,6 +1615,32 @@ defmodule AWS.PaymentCryptography do
     meta = metadata()
 
     Request.request_post(client, meta, "AddKeyReplicationRegions", input, options)
+  end
+
+  @doc """
+  Associates a Multi-Party Approval (MPA) team with a protected operation.
+
+  For more information, see [Multi-Party Approval](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/mpa.html)
+  in the *Amazon Web Services Payment Cryptography User Guide.*
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [DisassociateMpaTeam](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DisassociateMpaTeam.html)     *
+  [GetMpaTeamAssociation](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetMpaTeamAssociation.html)
+  """
+  @spec associate_mpa_team(map(), associate_mpa_team_input(), list()) ::
+          {:ok, associate_mpa_team_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_mpa_team_errors()}
+  def associate_mpa_team(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateMpaTeam", input, options)
   end
 
   @doc """
@@ -1545,16 +1807,18 @@ defmodule AWS.PaymentCryptography do
   You should delete a key only when you are sure that you don't need to use it
   anymore and no other parties are utilizing this key. If you aren't sure,
   consider deactivating it instead by calling
-  [StopKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html).  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  [StopKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html).  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based
+  policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
     *
-  [RestoreKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_RestoreKey.html)
+  [RestoreKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_RestoreKey.html)     *
+  [StartKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html)
 
     *
-  [StartKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html)     *
   [StopKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html)
   """
   @spec delete_key(map(), delete_key_input(), list()) ::
@@ -1566,6 +1830,30 @@ defmodule AWS.PaymentCryptography do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteKey", input, options)
+  end
+
+  @doc """
+  Removes the resource-based policy attached to an Amazon Web Services Payment
+  Cryptography key.
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [PutResourcePolicy](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_PutResourcePolicy.html)     *
+  [GetResourcePolicy](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetResourcePolicy.html)
+  """
+  @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
+          {:ok, delete_resource_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
 
   @doc """
@@ -1607,6 +1895,30 @@ defmodule AWS.PaymentCryptography do
     meta = metadata()
 
     Request.request_post(client, meta, "DisableDefaultKeyReplicationRegions", input, options)
+  end
+
+  @doc """
+  Removes the association between a Multi-Party Approval (MPA) team and a
+  protected operation.
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [AssociateMpaTeam](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_AssociateMpaTeam.html)     *
+  [GetMpaTeamAssociation](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetMpaTeamAssociation.html)
+  """
+  @spec disassociate_mpa_team(map(), disassociate_mpa_team_input(), list()) ::
+          {:ok, disassociate_mpa_team_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_mpa_team_errors()}
+  def disassociate_mpa_team(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateMpaTeam", input, options)
   end
 
   @doc """
@@ -1827,8 +2139,9 @@ defmodule AWS.PaymentCryptography do
   returns the working key as a TR-31 WrappedKeyBlock, where the wrapping key is
   the ECDH derived key.
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
@@ -1928,8 +2241,9 @@ defmodule AWS.PaymentCryptography do
   Returns key metadata including attributes, state, and timestamps, but does not
   return the actual cryptographic key material.
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
@@ -1949,6 +2263,30 @@ defmodule AWS.PaymentCryptography do
     meta = metadata()
 
     Request.request_post(client, meta, "GetKey", input, options)
+  end
+
+  @doc """
+  Returns the Multi-Party Approval (MPA) team association for a protected
+  operation.
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [AssociateMpaTeam](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_AssociateMpaTeam.html)     *
+  [DisassociateMpaTeam](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DisassociateMpaTeam.html)
+  """
+  @spec get_mpa_team_association(map(), get_mpa_team_association_input(), list()) ::
+          {:ok, get_mpa_team_association_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_mpa_team_association_errors()}
+  def get_mpa_team_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMpaTeamAssociation", input, options)
   end
 
   @doc """
@@ -2032,8 +2370,9 @@ defmodule AWS.PaymentCryptography do
   encrypt messages and verify signatures outside of Amazon Web Services Payment
   Cryptography
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
   """
   @spec get_public_key_certificate(map(), get_public_key_certificate_input(), list()) ::
           {:ok, get_public_key_certificate_output(), any()}
@@ -2044,6 +2383,30 @@ defmodule AWS.PaymentCryptography do
     meta = metadata()
 
     Request.request_post(client, meta, "GetPublicKeyCertificate", input, options)
+  end
+
+  @doc """
+  Returns the resource-based policy attached to an Amazon Web Services Payment
+  Cryptography key.
+
+  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [PutResourcePolicy](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_PutResourcePolicy.html)     *
+  [DeleteResourcePolicy](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteResourcePolicy.html)
+  """
+  @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
+          {:ok, get_resource_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
 
   @doc """
@@ -2222,15 +2585,15 @@ defmodule AWS.PaymentCryptography do
     * `CertificateAuthorityPublicKeyIdentifier`: The `keyARN` of the CA
   that signed the public key certificate of the receiving ECC key pair.
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based
+  policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
     *
-  [ExportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html)
-
-    *
+  [ExportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html)     *
   [GetParametersForImport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html)
   """
   @spec import_key(map(), import_key_input(), list()) ::
@@ -2327,8 +2690,9 @@ defmodule AWS.PaymentCryptography do
   no NextToken (or an empty or null value), that means there are no more tags to
   get.
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
@@ -2348,6 +2712,38 @@ defmodule AWS.PaymentCryptography do
   end
 
   @doc """
+  Attaches or replaces a resource-based policy on an Amazon Web Services Payment
+  Cryptography key.
+
+  A resource-based policy can grant cross-account access to your key.
+
+  If the policy would grant public access, the request fails with a
+  `PublicPolicyException`.
+
+  To remove a resource-based policy from a key, use
+  [DeleteResourcePolicy](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteResourcePolicy.html).  **Cross-account use:** This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+  [GetResourcePolicy](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetResourcePolicy.html)
+
+    *
+  [DeleteResourcePolicy](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteResourcePolicy.html)
+  """
+  @spec put_resource_policy(map(), put_resource_policy_input(), list()) ::
+          {:ok, put_resource_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
+  end
+
+  @doc """
   Removes Replication Regions from an existing Amazon Web Services Payment
   Cryptography key, disabling the key's availability for cryptographic operations
   in the specified Amazon Web Services Regions.
@@ -2360,8 +2756,9 @@ defmodule AWS.PaymentCryptography do
   Ensure that no active cryptographic operations or applications depend on the key
   in the regions you're removing before performing this operation.
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
@@ -2390,8 +2787,9 @@ defmodule AWS.PaymentCryptography do
   be deleted. After `Key` is restored, the `KeyState` is `CREATE_COMPLETE`, and
   the value for `deletePendingTimestamp` is removed.
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
@@ -2417,8 +2815,10 @@ defmodule AWS.PaymentCryptography do
   Enables an Amazon Web Services Payment Cryptography key, which makes it active
   for cryptographic operations within Amazon Web Services Payment Cryptography
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access.
+
+  For more information, see [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
@@ -2444,8 +2844,9 @@ defmodule AWS.PaymentCryptography do
   [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html) to deactivate a key. You can enable the key in the future by calling
   [StartKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html).
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
@@ -2475,15 +2876,15 @@ defmodule AWS.PaymentCryptography do
   new tag key and a tag value. To edit a tag, specify an existing tag key and a
   new tag value. You can also add tags to an Amazon Web Services Payment
   Cryptography key when you create it with
-  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html).  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html).  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based
+  policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 
     *
-  [ListTagsForResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html)
-
-    *
+  [ListTagsForResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html)     *
   [UntagResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UntagResource.html)
   """
   @spec tag_resource(map(), tag_resource_input(), list()) ::
@@ -2503,8 +2904,9 @@ defmodule AWS.PaymentCryptography do
   Tagging or untagging an Amazon Web Services Payment Cryptography key can allow
   or deny permission to the key.
 
-  **Cross-account use:** This operation can't be used across different Amazon Web
-  Services accounts.
+  **Cross-account use:** This operation supports cross-account use when the key
+  has a resource-based policy that grants access. For more information, see
+  [Resource-based policies](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html).
 
   ## Related operations:
 

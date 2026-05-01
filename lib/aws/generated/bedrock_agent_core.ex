@@ -448,6 +448,7 @@ defmodule AWS.BedrockAgentCore do
       memory_record_create_input() :: %{
         "content" => list(),
         "memoryStrategyId" => String.t() | atom(),
+        "metadata" => map(),
         "namespaces" => list(String.t() | atom()),
         "requestIdentifier" => String.t() | atom(),
         "timestamp" => [non_neg_integer()]
@@ -656,6 +657,7 @@ defmodule AWS.BedrockAgentCore do
         "content" => list(),
         "memoryRecordId" => String.t() | atom(),
         "memoryStrategyId" => String.t() | atom(),
+        "metadata" => map(),
         "namespaces" => list(String.t() | atom()),
         "timestamp" => [non_neg_integer()]
       }
@@ -1212,10 +1214,12 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       get_resource_oauth2_token_request() :: %{
+        optional("audiences") => list(String.t() | atom()),
         optional("customParameters") => map(),
         optional("customState") => String.t() | atom(),
         optional("forceAuthentication") => [boolean()],
         optional("resourceOauth2ReturnUrl") => String.t() | atom(),
+        optional("resources") => list(String.t() | atom()),
         optional("sessionUri") => String.t() | atom(),
         required("oauth2Flow") => list(any()),
         required("resourceCredentialProviderName") => String.t() | atom(),
@@ -1266,6 +1270,7 @@ defmodule AWS.BedrockAgentCore do
       list_memory_records_input() :: %{
         optional("maxResults") => integer(),
         optional("memoryStrategyId") => String.t() | atom(),
+        optional("metadataFilters") => list(memory_metadata_filter_expression()),
         optional("namespace") => String.t() | atom(),
         optional("namespacePath") => String.t() | atom(),
         optional("nextToken") => String.t() | atom()

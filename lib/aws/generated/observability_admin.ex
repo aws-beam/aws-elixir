@@ -276,6 +276,7 @@ defmodule AWS.ObservabilityAdmin do
         "DestinationType" => list(any()),
         "ELBLoadBalancerLoggingParameters" => e_lb_load_balancer_logging_parameters(),
         "LogDeliveryParameters" => log_delivery_parameters(),
+        "MskMonitoringParameters" => msk_monitoring_parameters(),
         "RetentionInDays" => integer(),
         "VPCFlowLogParameters" => vpc_flow_log_parameters(),
         "WAFLoggingParameters" => w_a_f_logging_parameters()
@@ -558,6 +559,17 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      msk_monitoring_parameters() :: %{
+        "EnhancedMonitoring" => list(any())
+      }
+
+  """
+  @type msk_monitoring_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

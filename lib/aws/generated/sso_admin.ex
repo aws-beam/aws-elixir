@@ -1152,6 +1152,7 @@ defmodule AWS.SSOAdmin do
         "CreatedDate" => non_neg_integer(),
         "CreatedFrom" => String.t() | atom(),
         "Description" => String.t() | atom(),
+        "IdentityStoreArn" => String.t() | atom(),
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "PortalOptions" => portal_options(),
@@ -1463,7 +1464,9 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       create_application_response() :: %{
-        "ApplicationArn" => String.t() | atom()
+        "ApplicationArn" => String.t() | atom(),
+        "IdentityStoreArn" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom()
       }
       
   """
@@ -2472,6 +2475,7 @@ defmodule AWS.SSOAdmin do
         "CreatedDate" => non_neg_integer(),
         "CreatedFrom" => String.t() | atom(),
         "Description" => String.t() | atom(),
+        "IdentityStoreArn" => String.t() | atom(),
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "PortalOptions" => portal_options(),

@@ -254,6 +254,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "configuration" => strategy_configuration(),
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom()),
@@ -555,6 +556,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("encryptionKeyArn") => String.t() | atom(),
+        optional("indexedKeys") => list(indexed_key()),
         optional("memoryExecutionRoleArn") => String.t() | atom(),
         optional("memoryStrategies") => list(list()),
         optional("streamDeliveryResources") => stream_delivery_resources(),
@@ -572,6 +574,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       summary_memory_strategy_input() :: %{
         "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
@@ -828,6 +831,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      indexed_key() :: %{
+        "key" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type indexed_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_registry_request() :: %{}
 
   """
@@ -871,6 +886,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_workload_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      string_list_validation() :: %{
+        "allowedValues" => list(String.t() | atom()),
+        "maxItems" => [integer()]
+      }
+
+  """
+  @type string_list_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -941,6 +968,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type api_gateway_target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      string_validation() :: %{
+        "allowedValues" => list(String.t() | atom())
+      }
+
+  """
+  @type string_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1265,6 +1303,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       semantic_memory_strategy_input() :: %{
         "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
@@ -1355,6 +1394,7 @@ defmodule AWS.BedrockAgentCoreControl do
       custom_memory_strategy_input() :: %{
         "configuration" => list(),
         "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
@@ -1380,6 +1420,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       episodic_override_reflection_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
         "modelId" => [String.t() | atom()],
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
@@ -1451,6 +1492,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       episodic_reflection_configuration() :: %{
+        "memoryRecordSchema" => memory_record_schema(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
@@ -1924,6 +1966,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_memory_input() :: %{
+        optional("addIndexedKeys") => list(indexed_key()),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("eventExpiryDuration") => [integer()],
@@ -2238,6 +2281,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       episodic_memory_strategy_input() :: %{
         "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom()),
@@ -2428,6 +2472,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      llm_extraction_config() :: %{
+        "definition" => String.t() | atom(),
+        "llmExtractionInstruction" => String.t() | atom(),
+        "validation" => list()
+      }
+
+  """
+  @type llm_extraction_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_gateway_rule_response() :: %{
         "ruleId" => String.t() | atom(),
         "status" => list(any())
@@ -2568,6 +2625,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      on_behalf_of_token_exchange_config_type() :: %{
+        "grantType" => list(any()),
+        "tokenExchangeGrantTypeConfig" => token_exchange_grant_type_config_type()
+      }
+
+  """
+  @type on_behalf_of_token_exchange_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_workload_identity_request() :: %{
         optional("allowedResourceOauth2ReturnUrls") => list(String.t() | atom()),
         optional("tags") => map(),
@@ -2623,6 +2692,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       episodic_reflection_configuration_input() :: %{
+        "memoryRecordSchema" => memory_record_schema(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
       }
@@ -2733,6 +2803,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       episodic_reflection_override() :: %{
         "appendToPrompt" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
         "modelId" => [String.t() | atom()],
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
@@ -2937,9 +3008,11 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       custom_oauth2_provider_config_input() :: %{
+        "clientAuthenticationMethod" => list(any()),
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom(),
         "oauthDiscovery" => list(),
+        "onBehalfOfTokenExchangeConfig" => on_behalf_of_token_exchange_config_type(),
         "privateEndpoint" => list(),
         "privateEndpointOverrides" => list(private_endpoint_override())
       }
@@ -3018,8 +3091,10 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       custom_oauth2_provider_config_output() :: %{
+        "clientAuthenticationMethod" => list(any()),
         "clientId" => String.t() | atom(),
         "oauthDiscovery" => list(),
+        "onBehalfOfTokenExchangeConfig" => on_behalf_of_token_exchange_config_type(),
         "privateEndpoint" => list(),
         "privateEndpointOverrides" => list(private_endpoint_override())
       }
@@ -4008,6 +4083,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       user_preference_memory_strategy_input() :: %{
         "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
         "name" => String.t() | atom(),
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
@@ -4015,6 +4091,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type user_preference_memory_strategy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory_record_schema() :: %{
+        "metadataSchema" => list(metadata_schema_entry())
+      }
+
+  """
+  @type memory_record_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4208,6 +4295,7 @@ defmodule AWS.BedrockAgentCoreControl do
       modify_memory_strategy_input() :: %{
         "configuration" => modify_strategy_configuration(),
         "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
         "memoryStrategyId" => [String.t() | atom()],
         "namespaceTemplates" => list(String.t() | atom()),
         "namespaces" => list(String.t() | atom())
@@ -5505,6 +5593,31 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      metadata_schema_entry() :: %{
+        "extractionConfig" => list(),
+        "key" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_schema_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_exchange_grant_type_config_type() :: %{
+        "actorTokenContent" => list(any()),
+        "actorTokenScopes" => list(String.t() | atom())
+      }
+
+  """
+  @type token_exchange_grant_type_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_preference_consolidation_override() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -5654,6 +5767,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "eventExpiryDuration" => [integer()],
         "failureReason" => [String.t() | atom()],
         "id" => String.t() | atom(),
+        "indexedKeys" => list(indexed_key()),
         "memoryExecutionRoleArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any()),
@@ -5664,6 +5778,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type memory() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      number_validation() :: %{
+        "maxValue" => [float()],
+        "minValue" => [float()]
+      }
+
+  """
+  @type number_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

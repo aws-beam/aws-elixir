@@ -1420,7 +1420,8 @@ defmodule AWS.Route53GlobalResolver do
         optional("description") => String.t() | atom(),
         optional("ipAddressType") => list(any()),
         optional("name") => String.t() | atom(),
-        optional("observabilityRegion") => String.t() | atom()
+        optional("observabilityRegion") => String.t() | atom(),
+        optional("regions") => list(String.t() | atom())
       }
 
   """
@@ -1925,6 +1926,7 @@ defmodule AWS.Route53GlobalResolver do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_dns_view_errors() ::
           throttling_exception()

@@ -822,6 +822,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      network_config() :: %{
+        "networkAccessType" => list(any()),
+        "securityGroupIds" => list([String.t() | atom()]()),
+        "subnetIds" => list([String.t() | atom()]()),
+        "vpcId" => [String.t() | atom()]
+      }
+
+  """
+  @type network_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_account_pool_output() :: %{
         "accountSource" => list(),
         "createdAt" => [non_neg_integer()],
@@ -1285,6 +1299,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_notebook_run_input() :: %{}
+
+  """
+  @type get_notebook_run_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       associate_governed_terms_output() :: %{}
 
   """
@@ -1309,6 +1332,29 @@ defmodule AWS.DataZone do
 
   """
   @type domain_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notebook_run_summary() :: %{
+        "completedAt" => [non_neg_integer()],
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "notebookId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "scheduleId" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "triggerSource" => trigger_source(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type notebook_run_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2954,6 +3000,23 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_notebook_runs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("notebookIdentifier") => String.t() | atom(),
+        optional("scheduleIdentifier") => String.t() | atom(),
+        optional("sortOrder") => list(any()),
+        optional("status") => list(any()),
+        required("owningProjectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_notebook_runs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_subscription_request_details_input() :: %{}
 
   """
@@ -3418,6 +3481,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      package_config() :: %{
+        "packageManager" => list(any()),
+        "packageSpecification" => [String.t() | atom()]
+      }
+
+  """
+  @type package_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_environment_blueprint_configuration_input() :: %{}
 
   """
@@ -3690,6 +3765,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      environment_config() :: %{
+        "imageVersion" => [String.t() | atom()],
+        "packageConfig" => package_config()
+      }
+
+  """
+  @type environment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_rule_input() :: %{
         optional("revision") => String.t() | atom()
       }
@@ -3953,6 +4040,18 @@ defmodule AWS.DataZone do
 
   """
   @type create_data_source_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger_source() :: %{
+        "name" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type trigger_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4314,6 +4413,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      notebook_run_error() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type notebook_run_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reject_subscription_request_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
@@ -4370,6 +4480,26 @@ defmodule AWS.DataZone do
 
   """
   @type configurable_environment_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_notebook_run_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("computeConfiguration") => compute_config(),
+        optional("metadata") => map(),
+        optional("networkConfiguration") => network_config(),
+        optional("parameters") => map(),
+        optional("scheduleIdentifier") => String.t() | atom(),
+        optional("timeoutConfiguration") => timeout_config(),
+        optional("triggerSource") => trigger_source(),
+        required("notebookIdentifier") => String.t() | atom(),
+        required("owningProjectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type start_notebook_run_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4629,6 +4759,17 @@ defmodule AWS.DataZone do
 
   """
   @type sage_maker_run_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_notebook_run_input() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type stop_notebook_run_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6058,6 +6199,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      storage_config() :: %{
+        "kmsKeyArn" => String.t() | atom(),
+        "projectS3Path" => String.t() | atom()
+      }
+
+  """
+  @type storage_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       physical_connection_requirements() :: %{
         "availabilityZone" => [String.t() | atom()],
         "securityGroupIdList" => list([String.t() | atom()]()),
@@ -6350,6 +6503,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      timeout_config() :: %{
+        "runTimeoutInMinutes" => [integer()]
+      }
+
+  """
+  @type timeout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       in_expression() :: %{
         "columnName" => [String.t() | atom()],
         "values" => list([String.t() | atom()]())
@@ -6473,6 +6637,18 @@ defmodule AWS.DataZone do
 
   """
   @type data_source_run_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compute_config() :: %{
+        "environmentVersion" => [String.t() | atom()],
+        "instanceType" => String.t() | atom()
+      }
+
+  """
+  @type compute_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6655,6 +6831,38 @@ defmodule AWS.DataZone do
 
   """
   @type accept_predictions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_notebook_run_output() :: %{
+        "cellOrder" => list(cell_information()),
+        "completedAt" => [non_neg_integer()],
+        "computeConfiguration" => compute_config(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentConfiguration" => environment_config(),
+        "error" => notebook_run_error(),
+        "id" => String.t() | atom(),
+        "metadata" => map(),
+        "networkConfiguration" => network_config(),
+        "notebookId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "parameters" => map(),
+        "scheduleId" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "storageConfiguration" => storage_config(),
+        "timeoutConfiguration" => timeout_config(),
+        "triggerSource" => trigger_source(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type get_notebook_run_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6949,6 +7157,18 @@ defmodule AWS.DataZone do
 
   """
   @type spark_glue_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notebook_runs_output() :: %{
+        "items" => list(notebook_run_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_notebook_runs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7797,6 +8017,38 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      start_notebook_run_output() :: %{
+        "cellOrder" => list(cell_information()),
+        "completedAt" => [non_neg_integer()],
+        "computeConfiguration" => compute_config(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentConfiguration" => environment_config(),
+        "error" => notebook_run_error(),
+        "id" => String.t() | atom(),
+        "metadata" => map(),
+        "networkConfiguration" => network_config(),
+        "notebookId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "parameters" => map(),
+        "scheduleId" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "storageConfiguration" => storage_config(),
+        "timeoutConfiguration" => timeout_config(),
+        "triggerSource" => trigger_source(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type start_notebook_run_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_types_for_rule() :: %{
         "selectionMode" => list(any()),
         "specificAssetTypes" => list(String.t() | atom())
@@ -8091,6 +8343,20 @@ defmodule AWS.DataZone do
 
   """
   @type create_project_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_notebook_run_output() :: %{
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type stop_notebook_run_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8563,6 +8829,15 @@ defmodule AWS.DataZone do
 
   """
   @type create_group_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cell_information() :: %{}
+
+  """
+  @type cell_information() :: %{}
 
   @typedoc """
 
@@ -9657,6 +9932,13 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_notebook_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_project_errors() ::
           throttling_exception()
           | validation_exception()
@@ -9865,6 +10147,12 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_notebook_runs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_notifications_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -10063,6 +10351,23 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_notebook_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_notebook_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -13964,6 +14269,26 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Gets the details of a notebook run in an Amazon DataZone domain.
+  """
+  @spec get_notebook_run(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_notebook_run_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_notebook_run_errors()}
+  def get_notebook_run(%Client{} = client, domain_identifier, identifier, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/notebook-runs/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a project in Amazon DataZone.
   """
   @spec get_project(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -15658,6 +15983,95 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(status) do
         [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists notebook runs in an Amazon DataZone domain.
+  """
+  @spec list_notebook_runs(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_notebook_runs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_notebook_runs_errors()}
+  def list_notebook_runs(
+        %Client{} = client,
+        domain_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        notebook_identifier \\ nil,
+        owning_project_identifier,
+        schedule_identifier \\ nil,
+        sort_order \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/notebook-runs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(schedule_identifier) do
+        [{"scheduleIdentifier", schedule_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owning_project_identifier) do
+        [{"owningProjectIdentifier", owning_project_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(notebook_identifier) do
+        [{"notebookIdentifier", notebook_identifier} | query_params]
       else
         query_params
       end
@@ -17480,6 +17894,76 @@ defmodule AWS.DataZone do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a notebook run in an Amazon DataZone domain.
+
+  A notebook run represents the execution of a Amazon DataZone notebook within a
+  project. You can configure compute, network, timeout, and environment settings
+  for the run.
+  """
+  @spec start_notebook_run(map(), String.t() | atom(), start_notebook_run_input(), list()) ::
+          {:ok, start_notebook_run_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_notebook_run_errors()}
+  def start_notebook_run(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/notebook-runs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Stops a running notebook run in an Amazon DataZone domain.
+  """
+  @spec stop_notebook_run(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          stop_notebook_run_input(),
+          list()
+        ) ::
+          {:ok, stop_notebook_run_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_notebook_run_errors()}
+  def stop_notebook_run(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/notebook-runs/#{AWS.Util.encode_uri(identifier)}/stop"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -2033,7 +2033,8 @@ defmodule AWS.Kafka do
   ## Example:
 
       update_connectivity_request() :: %{
-        required("ConnectivityInfo") => connectivity_info(),
+        optional("ConnectivityInfo") => connectivity_info(),
+        optional("ZookeeperAccess") => zookeeper_access(),
         required("CurrentVersion") => String.t() | atom()
       }
 
@@ -2322,6 +2323,17 @@ defmodule AWS.Kafka do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      zookeeper_access() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type zookeeper_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2633,7 +2645,8 @@ defmodule AWS.Kafka do
         "NumberOfBrokerNodes" => integer(),
         "OpenMonitoring" => open_monitoring(),
         "Rebalancing" => rebalancing(),
-        "StorageMode" => list(any())
+        "StorageMode" => list(any()),
+        "ZookeeperAccess" => zookeeper_access()
       }
 
   """

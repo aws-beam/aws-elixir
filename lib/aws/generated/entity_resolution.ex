@@ -718,6 +718,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       rule_condition_properties() :: %{
+        "matchingConfig" => matching_config(),
         "rules" => list(rule_condition())
       }
 
@@ -1629,6 +1630,17 @@ defmodule AWS.EntityResolution do
 
   """
   @type get_match_id_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matching_config() :: %{
+        "enableTransitiveMatching" => [boolean()]
+      }
+
+  """
+  @type matching_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

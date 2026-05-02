@@ -1156,6 +1156,7 @@ defmodule AWS.QConnect do
         "usageInputTokens" => [integer()],
         "aiAgentName" => String.t() | atom(),
         "temperature" => [float()],
+        "timeToFirstTokenMs" => [integer()],
         "responseModel" => String.t() | atom(),
         "errorType" => String.t() | atom(),
         "aiAgentVersion" => [integer()],
@@ -1432,6 +1433,17 @@ defmodule AWS.QConnect do
 
   """
   @type delete_message_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      span_reasoning_value() :: %{
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type span_reasoning_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1725,7 +1737,8 @@ defmodule AWS.QConnect do
         "spanName" => String.t() | atom(),
         "spanType" => String.t() | atom(),
         "startTimestamp" => [non_neg_integer()],
-        "status" => String.t() | atom()
+        "status" => String.t() | atom(),
+        "statusDescription" => String.t() | atom()
       }
 
   """

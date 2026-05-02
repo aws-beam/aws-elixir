@@ -459,6 +459,7 @@ defmodule AWS.QuickSight do
 
       filter_date_time_picker_control() :: %{
         "CommitMode" => list(any()),
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => date_time_picker_control_display_options(),
         "FilterControlId" => String.t() | atom(),
         "SourceFilterId" => String.t() | atom(),
@@ -594,6 +595,7 @@ defmodule AWS.QuickSight do
       filter_list_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "ControlSortConfigurations" => list(control_sort_configuration()),
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => list_control_display_options(),
         "FilterControlId" => String.t() | atom(),
         "SelectableValues" => filter_selectable_values(),
@@ -1000,6 +1002,18 @@ defmodule AWS.QuickSight do
 
   """
   @type untag_column_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_title_font_configuration() :: %{
+        "FontConfiguration" => font_configuration(),
+        "TextAlignment" => list(any())
+      }
+
+  """
+  @type control_title_font_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1580,6 +1594,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       parameter_text_area_control() :: %{
+        "ControlTitleFormatText" => control_title_format_text(),
         "Delimiter" => String.t() | atom(),
         "DisplayOptions" => text_area_control_display_options(),
         "ParameterControlId" => String.t() | atom(),
@@ -3471,6 +3486,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       parameter_text_field_control() :: %{
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => text_field_control_display_options(),
         "ParameterControlId" => String.t() | atom(),
         "SourceParameterName" => String.t() | atom(),
@@ -4162,6 +4178,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filter_slider_control() :: %{
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => slider_control_display_options(),
         "FilterControlId" => String.t() | atom(),
         "MaximumValue" => float(),
@@ -6494,6 +6511,7 @@ defmodule AWS.QuickSight do
       parameter_list_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "ControlSortConfigurations" => list(control_sort_configuration()),
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => list_control_display_options(),
         "ParameterControlId" => String.t() | atom(),
         "SelectableValues" => parameter_selectable_values(),
@@ -7564,6 +7582,7 @@ defmodule AWS.QuickSight do
 
       filter_relative_date_time_control() :: %{
         "CommitMode" => list(any()),
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => relative_date_time_control_display_options(),
         "FilterControlId" => String.t() | atom(),
         "SourceFilterId" => String.t() | atom(),
@@ -9378,6 +9397,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       parameter_date_time_picker_control() :: %{
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => date_time_picker_control_display_options(),
         "ParameterControlId" => String.t() | atom(),
         "SourceParameterName" => String.t() | atom(),
@@ -9599,6 +9619,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       parameter_slider_control() :: %{
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => slider_control_display_options(),
         "MaximumValue" => float(),
         "MinimumValue" => float(),
@@ -9845,6 +9866,7 @@ defmodule AWS.QuickSight do
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "CommitMode" => list(any()),
         "ControlSortConfigurations" => list(control_sort_configuration()),
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => drop_down_control_display_options(),
         "ParameterControlId" => String.t() | atom(),
         "SelectableValues" => parameter_selectable_values(),
@@ -10249,6 +10271,7 @@ defmodule AWS.QuickSight do
 
       default_filter_control_configuration() :: %{
         "ControlOptions" => default_filter_control_options(),
+        "ControlTitleFormatText" => control_title_format_text(),
         "Title" => String.t() | atom()
       }
 
@@ -10716,6 +10739,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filter_text_field_control() :: %{
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => text_field_control_display_options(),
         "FilterControlId" => String.t() | atom(),
         "SourceFilterId" => String.t() | atom(),
@@ -10989,6 +11013,18 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_theme_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_title_format_text() :: %{
+        "PlainText" => String.t() | atom(),
+        "RichText" => String.t() | atom()
+      }
+
+  """
+  @type control_title_format_text() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11790,6 +11826,7 @@ defmodule AWS.QuickSight do
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "CommitMode" => list(any()),
         "ControlSortConfigurations" => list(control_sort_configuration()),
+        "ControlTitleFormatText" => control_title_format_text(),
         "DisplayOptions" => drop_down_control_display_options(),
         "FilterControlId" => String.t() | atom(),
         "SelectableValues" => filter_selectable_values(),
@@ -13191,6 +13228,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       o_auth_parameters() :: %{
+        "IdentityProviderCACertificatesBundleS3Uri" => String.t() | atom(),
         "IdentityProviderResourceUri" => String.t() | atom(),
         "IdentityProviderVpcConnectionProperties" => vpc_connection_properties(),
         "OAuthScope" => String.t() | atom(),
@@ -17371,6 +17409,7 @@ defmodule AWS.QuickSight do
       typography() :: %{
         "AxisLabelFontConfiguration" => font_configuration(),
         "AxisTitleFontConfiguration" => font_configuration(),
+        "ControlTitleFontConfiguration" => control_title_font_configuration(),
         "DataLabelFontConfiguration" => font_configuration(),
         "FontFamilies" => list(font()),
         "LegendTitleFontConfiguration" => font_configuration(),
@@ -17403,6 +17442,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       get_identity_context_request() :: %{
+        optional("ContextRegion") => String.t() | atom(),
         optional("Namespace") => String.t() | atom(),
         optional("SessionExpiresAt") => [non_neg_integer()],
         required("UserIdentifier") => list()
@@ -17925,6 +17965,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filter_text_area_control() :: %{
+        "ControlTitleFormatText" => control_title_format_text(),
         "Delimiter" => String.t() | atom(),
         "DisplayOptions" => text_area_control_display_options(),
         "FilterControlId" => String.t() | atom(),
@@ -19754,6 +19795,7 @@ defmodule AWS.QuickSight do
         "UseComprehendMedicalAction" => list(any()),
         "CreateAndUpdateSmartsheetAction" => list(any()),
         "SAPBillOfMaterialAction" => list(any()),
+        "Scenario" => list(any()),
         "Dashboard" => list(any()),
         "MondayAction" => list(any()),
         "ShareServiceNowAction" => list(any()),
@@ -19774,6 +19816,7 @@ defmodule AWS.QuickSight do
         "NotionAction" => list(any()),
         "CreateAndUpdateCanvaAgentAction" => list(any()),
         "PerformFlowUiTask" => list(any()),
+        "Story" => list(any()),
         "Action" => list(any()),
         "ServiceNowAction" => list(any()),
         "UseGenericHTTPAction" => list(any()),

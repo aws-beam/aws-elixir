@@ -1706,6 +1706,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_dashboard_input() :: %{
+        optional("Tags") => list(tag()),
         required("DashboardBody") => String.t() | atom(),
         required("DashboardName") => String.t() | atom()
       }
@@ -1888,10 +1889,7 @@ defmodule AWS.CloudWatch do
           | missing_required_parameter_exception()
 
   @type delete_dashboards_errors() ::
-          internal_service_fault()
-          | invalid_parameter_value_exception()
-          | conflict_exception()
-          | dashboard_not_found_error()
+          internal_service_fault() | invalid_parameter_value_exception() | conflict_exception()
 
   @type delete_insight_rules_errors() ::
           invalid_parameter_value_exception() | missing_required_parameter_exception()
@@ -2145,7 +2143,9 @@ defmodule AWS.CloudWatch do
   Deletes all dashboards that you specify.
 
   You can specify up to 100 dashboards to
-  delete. If there is an error during this call, no dashboards are deleted.
+  delete. If there is an error during this call, the operation attempts to delete
+  as many
+  dashboards as possible.
   """
   @spec delete_dashboards(map(), delete_dashboards_input(), list()) ::
           {:ok, delete_dashboards_output(), any()}
@@ -2744,7 +2744,7 @@ defmodule AWS.CloudWatch do
   labels and queryable using PromQL.
 
   For the list of supported resources, see
-  [Supported AWS infrastructure metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html).
+  [Supported Amazon Web Services infrastructure metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html).
   """
   @spec get_o_tel_enrichment(map(), get_o_tel_enrichment_input(), list()) ::
           {:ok, get_o_tel_enrichment_output(), any()}
@@ -2875,8 +2875,8 @@ defmodule AWS.CloudWatch do
   @doc """
   Displays the tags associated with a CloudWatch resource.
 
-  Currently, alarms and
-  Contributor Insights rules support tagging.
+  Currently, alarms,
+  dashboards, metric streams and Contributor Insights rules support tagging.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -3414,7 +3414,7 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Enables enrichment and PromQL access for CloudWatch vended metrics for
-  [supported AWS resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html)
+  [supported Amazon Web Services resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html)
   in the account.
 
   Once enabled, metrics that
@@ -3452,7 +3452,7 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Disables enrichment and PromQL access for CloudWatch vended metrics for
-  [supported AWS resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html)
+  [supported Amazon Web Services resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html)
   in the account.
 
   After disabling, these metrics
@@ -3472,9 +3472,9 @@ defmodule AWS.CloudWatch do
   @doc """
   Assigns one or more tags (key-value pairs) to the specified CloudWatch resource.
 
-  Currently, the only CloudWatch resources that can be tagged are alarms and
-  Contributor
-  Insights rules.
+  Currently, the only CloudWatch resources that can be tagged are alarms,
+  dashboards,
+  metric streams and Contributor Insights rules.
 
   Tags can help you organize and categorize your resources. You can also use them
   to
@@ -3508,6 +3508,9 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Removes one or more tags from the specified resource.
+
+  Currently, alarms, dashboards,
+  metric streams and Contributor Insights rules support tagging.
   """
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}

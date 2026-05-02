@@ -365,6 +365,7 @@ defmodule AWS.AppStream do
       
       create_stack_request() :: %{
         optional("AccessEndpoints") => list(access_endpoint()),
+        optional("AgentAccessConfig") => agent_access_config(),
         optional("ApplicationSettings") => application_settings(),
         optional("ContentRedirection") => content_redirection(),
         optional("Description") => String.t() | atom(),
@@ -388,6 +389,7 @@ defmodule AWS.AppStream do
       
       update_stack_request() :: %{
         optional("AccessEndpoints") => list(access_endpoint()),
+        optional("AgentAccessConfig") => agent_access_config_for_update(),
         optional("ApplicationSettings") => application_settings(),
         optional("AttributesToDelete") => list(list(any())()),
         optional("ContentRedirection") => content_redirection(),
@@ -1084,6 +1086,7 @@ defmodule AWS.AppStream do
       
       stack() :: %{
         "AccessEndpoints" => list(access_endpoint()),
+        "AgentAccessConfig" => agent_access_config(),
         "ApplicationSettings" => application_settings_response(),
         "Arn" => String.t() | atom(),
         "ContentRedirection" => content_redirection(),
@@ -1668,6 +1671,18 @@ defmodule AWS.AppStream do
       
   """
   @type describe_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agent_access_setting() :: %{
+        "AgentAction" => list(any()),
+        "Permission" => list(any())
+      }
+      
+  """
+  @type agent_access_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2639,6 +2654,21 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      agent_access_config_for_update() :: %{
+        "S3BucketArn" => String.t() | atom(),
+        "ScreenImageFormat" => list(any()),
+        "ScreenResolution" => list(any()),
+        "ScreenshotsUploadEnabled" => boolean(),
+        "Settings" => list(agent_access_setting())
+      }
+      
+  """
+  @type agent_access_config_for_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_usage_report_subscription_result() :: %{
         "S3BucketName" => String.t() | atom(),
         "Schedule" => list(any())
@@ -2944,6 +2974,21 @@ defmodule AWS.AppStream do
       
   """
   @type admin_app_license_usage_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agent_access_config() :: %{
+        "S3BucketArn" => String.t() | atom(),
+        "ScreenImageFormat" => list(any()),
+        "ScreenResolution" => list(any()),
+        "ScreenshotsUploadEnabled" => boolean(),
+        "Settings" => list(agent_access_setting())
+      }
+      
+  """
+  @type agent_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

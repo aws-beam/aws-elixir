@@ -1420,8 +1420,10 @@ defmodule AWS.CloudWatchLogs do
         "allowedSuffixPathFields" => list(String.t() | atom()),
         "defaultDeliveryConfigValues" => configuration_template_delivery_config_values(),
         "deliveryDestinationType" => list(any()),
+        "deliverySourceConfiguration" => list(delivery_source_configuration_schema()),
         "logType" => String.t() | atom(),
         "resourceType" => String.t() | atom(),
+        "s3TablesIntegration" => s3_tables_integration(),
         "service" => String.t() | atom()
       }
       
@@ -1558,6 +1560,22 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type create_import_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_source_configuration_schema() :: %{
+        "defaultValue" => String.t() | atom(),
+        "keyName" => String.t() | atom(),
+        "maxValue" => float(),
+        "minValue" => float(),
+        "supportedValues" => list(String.t() | atom()),
+        "valueType" => list(any())
+      }
+      
+  """
+  @type delivery_source_configuration_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2236,6 +2254,7 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       put_delivery_source_request() :: %{
+        optional("deliverySourceConfiguration") => map(),
         optional("tags") => map(),
         required("logType") => String.t() | atom(),
         required("name") => String.t() | atom(),
@@ -3576,6 +3595,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      s3_tables_integration() :: %{
+        "datasourceName" => String.t() | atom(),
+        "datasourceType" => String.t() | atom()
+      }
+      
+  """
+  @type s3_tables_integration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_resource_policy_response() :: %{
         "resourcePolicy" => resource_policy(),
         "revisionId" => String.t() | atom()
@@ -3706,10 +3737,13 @@ defmodule AWS.CloudWatchLogs do
       
       delivery_source() :: %{
         "arn" => String.t() | atom(),
+        "deliverySourceConfiguration" => map(),
         "logType" => String.t() | atom(),
         "name" => String.t() | atom(),
         "resourceArns" => list(String.t() | atom()),
         "service" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => list(any()),
         "tags" => map()
       }
       

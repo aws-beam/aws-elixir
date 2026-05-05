@@ -23053,8 +23053,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_managed_resource_visibility_request() :: %{
-        optional("DefaultVisibility") => list(any()),
-        optional("DryRun") => boolean()
+        optional("DryRun") => boolean(),
+        required("DefaultVisibility") => list(any())
       }
       
   """
@@ -26654,6 +26654,7 @@ defmodule AWS.EC2 do
         optional("LocalIpv6NetworkCidr") => String.t() | atom(),
         optional("RemoteIpv4NetworkCidr") => String.t() | atom(),
         optional("RemoteIpv6NetworkCidr") => String.t() | atom(),
+        optional("TunnelBandwidth") => list(any()),
         required("VpnConnectionId") => String.t() | atom()
       }
       

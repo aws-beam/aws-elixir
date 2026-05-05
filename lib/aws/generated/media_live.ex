@@ -4581,6 +4581,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      media_connect_router_output_connection() :: %{
+        "RouterInputArn" => String.t() | atom()
+      }
+
+  """
+  @type media_connect_router_output_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       nielsen_c_b_e_t() :: %{
         "CbetCheckDigitString" => String.t() | atom(),
         "CbetStepaside" => list(any()),
@@ -6929,6 +6940,7 @@ defmodule AWS.MediaLive do
         "ActiveMotionGraphicsActionName" => String.t() | atom(),
         "ActiveMotionGraphicsUri" => String.t() | atom(),
         "ChannelEngineVersion" => channel_engine_version_response(),
+        "MediaConnectRouterOutputConnectionMap" => map(),
         "PipelineId" => String.t() | atom()
       }
 

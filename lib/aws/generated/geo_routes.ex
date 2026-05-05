@@ -138,7 +138,7 @@ defmodule AWS.GeoRoutes do
       snap_to_roads_request() :: %{
         optional("Key") => String.t() | atom(),
         optional("SnapRadius") => float(),
-        optional("SnappedGeometryFormat") => String.t() | atom(),
+        optional("SnappedGeometryFormat") => list(any()),
         optional("TravelMode") => String.t() | atom(),
         optional("TravelModeOptions") => road_snap_travel_mode_options(),
         required("TracePoints") => list(road_snap_trace_point())
@@ -387,7 +387,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       waypoint_optimization_access_hours_entry() :: %{
-        "DayOfWeek" => String.t() | atom(),
+        "DayOfWeek" => list(any()),
         "TimeOfDay" => String.t() | atom()
       }
 
@@ -440,7 +440,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       waypoint_optimization_clustering_options() :: %{
-        "Algorithm" => String.t() | atom(),
+        "Algorithm" => list(any()),
         "DrivingDistanceOptions" => waypoint_optimization_driving_distance_options()
       }
 
@@ -542,7 +542,7 @@ defmodule AWS.GeoRoutes do
         "Notices" => list(road_snap_notice()),
         "PricingBucket" => [String.t() | atom()],
         "SnappedGeometry" => road_snap_snapped_geometry(),
-        "SnappedGeometryFormat" => String.t() | atom(),
+        "SnappedGeometryFormat" => list(any()),
         "SnappedTracePoints" => list(road_snap_snapped_trace_point())
       }
 
@@ -771,7 +771,7 @@ defmodule AWS.GeoRoutes do
         optional("DepartureTime") => String.t() | atom(),
         optional("Destination") => list([float()]()),
         optional("DestinationOptions") => isoline_destination_options(),
-        optional("IsolineGeometryFormat") => String.t() | atom(),
+        optional("IsolineGeometryFormat") => list(any()),
         optional("IsolineGranularity") => isoline_granularity_options(),
         optional("Key") => String.t() | atom(),
         optional("OptimizeIsolineFor") => String.t() | atom(),
@@ -1820,11 +1820,11 @@ defmodule AWS.GeoRoutes do
         optional("DestinationOptions") => route_destination_options(),
         optional("Driver") => route_driver_options(),
         optional("Exclude") => route_exclusion_options(),
-        optional("InstructionsMeasurementSystem") => String.t() | atom(),
+        optional("InstructionsMeasurementSystem") => list(any()),
         optional("Key") => String.t() | atom(),
         optional("Languages") => list(String.t() | atom()),
         optional("LegAdditionalFeatures") => list(String.t() | atom()),
-        optional("LegGeometryFormat") => String.t() | atom(),
+        optional("LegGeometryFormat") => list(any()),
         optional("MaxAlternatives") => [integer()],
         optional("OptimizeRoutingFor") => String.t() | atom(),
         optional("OriginOptions") => route_origin_options(),
@@ -2099,7 +2099,7 @@ defmodule AWS.GeoRoutes do
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()),
         "Message" => [String.t() | atom()],
-        "Reason" => String.t() | atom()
+        "Reason" => list(any())
       }
 
   """
@@ -2573,7 +2573,7 @@ defmodule AWS.GeoRoutes do
       calculate_isolines_response() :: %{
         "ArrivalTime" => String.t() | atom(),
         "DepartureTime" => String.t() | atom(),
-        "IsolineGeometryFormat" => String.t() | atom(),
+        "IsolineGeometryFormat" => list(any()),
         "Isolines" => list(isoline()),
         "PricingBucket" => [String.t() | atom()],
         "SnappedDestination" => list([float()]()),
@@ -2617,7 +2617,7 @@ defmodule AWS.GeoRoutes do
   ## Example:
 
       calculate_routes_response() :: %{
-        "LegGeometryFormat" => String.t() | atom(),
+        "LegGeometryFormat" => list(any()),
         "Notices" => list(route_response_notice()),
         "PricingBucket" => [String.t() | atom()],
         "Routes" => list(route())

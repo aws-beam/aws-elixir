@@ -74,6 +74,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      streaming_configuration() :: %{
+        "enableResponseStreaming" => [boolean()]
+      }
+
+  """
+  @type streaming_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       lambda_interceptor_configuration() :: %{
         "arn" => String.t() | atom()
       }
@@ -1988,6 +1999,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_configuration() :: %{
+        "sessionTimeoutInSeconds" => [integer()]
+      }
+
+  """
+  @type session_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5232,6 +5254,8 @@ defmodule AWS.BedrockAgentCoreControl do
       m_c_p_gateway_configuration() :: %{
         "instructions" => String.t() | atom(),
         "searchType" => list(any()),
+        "sessionConfiguration" => session_configuration(),
+        "streamingConfiguration" => streaming_configuration(),
         "supportedVersions" => list(String.t() | atom())
       }
 

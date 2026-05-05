@@ -147,7 +147,7 @@ defmodule AWS.VPCLattice do
         "resourceConfigurationGroupId" => String.t() | atom(),
         "resourceGatewayId" => String.t() | atom(),
         "status" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "type" => list(any())
       }
 
   """
@@ -329,8 +329,11 @@ defmodule AWS.VPCLattice do
         "ipAddressType" => String.t() | atom(),
         "ipv4AddressesPerEni" => integer(),
         "lastUpdatedAt" => non_neg_integer(),
+        "managedBy" => [String.t() | atom()],
         "name" => String.t() | atom(),
+        "resourceConfigDnsResolution" => String.t() | atom(),
         "securityGroupIds" => list(String.t() | atom()),
+        "serviceManaged" => [boolean()],
         "status" => String.t() | atom(),
         "subnetIds" => list(String.t() | atom()),
         "vpcId" => String.t() | atom()
@@ -478,7 +481,7 @@ defmodule AWS.VPCLattice do
         "resourceConfigurationGroupId" => String.t() | atom(),
         "resourceGatewayId" => String.t() | atom(),
         "status" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "type" => list(any())
       }
 
   """
@@ -611,6 +614,7 @@ defmodule AWS.VPCLattice do
         optional("clientToken") => String.t() | atom(),
         optional("ipAddressType") => String.t() | atom(),
         optional("ipv4AddressesPerEni") => integer(),
+        optional("resourceConfigDnsResolution") => String.t() | atom(),
         optional("securityGroupIds") => list(String.t() | atom()),
         optional("subnetIds") => list(String.t() | atom()),
         optional("tags") => map(),
@@ -859,6 +863,7 @@ defmodule AWS.VPCLattice do
         "ipAddressType" => String.t() | atom(),
         "ipv4AddressesPerEni" => integer(),
         "name" => String.t() | atom(),
+        "resourceConfigDnsResolution" => String.t() | atom(),
         "securityGroupIds" => list(String.t() | atom()),
         "status" => String.t() | atom(),
         "subnetIds" => list(String.t() | atom()),
@@ -942,7 +947,7 @@ defmodule AWS.VPCLattice do
         "resourceConfigurationGroupId" => String.t() | atom(),
         "resourceGatewayId" => String.t() | atom(),
         "status" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "type" => list(any())
       }
 
   """
@@ -1100,6 +1105,7 @@ defmodule AWS.VPCLattice do
         "ipv4AddressesPerEni" => integer(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
+        "resourceConfigDnsResolution" => String.t() | atom(),
         "securityGroupIds" => list(String.t() | atom()),
         "status" => String.t() | atom(),
         "subnetIds" => list(String.t() | atom()),
@@ -1989,7 +1995,7 @@ defmodule AWS.VPCLattice do
         optional("resourceGatewayIdentifier") => String.t() | atom(),
         optional("tags") => map(),
         required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
+        required("type") => list(any())
       }
 
   """
@@ -2600,7 +2606,7 @@ defmodule AWS.VPCLattice do
         "resourceConfigurationGroupId" => String.t() | atom(),
         "resourceGatewayId" => String.t() | atom(),
         "status" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "type" => list(any())
       }
 
   """

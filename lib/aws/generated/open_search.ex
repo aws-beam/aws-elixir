@@ -698,6 +698,7 @@ defmodule AWS.OpenSearch do
 
       vpc_derived_info() :: %{
         "AvailabilityZones" => list(String.t() | atom()),
+        "EgressEnabled" => boolean(),
         "SecurityGroupIds" => list(String.t() | atom()),
         "SubnetIds" => list(String.t() | atom()),
         "VPCId" => String.t() | atom()
@@ -3456,6 +3457,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       vpc_options() :: %{
+        "EgressEnabled" => boolean(),
         "SecurityGroupIds" => list(String.t() | atom()),
         "SubnetIds" => list(String.t() | atom())
       }

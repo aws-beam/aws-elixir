@@ -50,6 +50,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       start_d_i_c_o_m_import_job_request() :: %{
+        optional("importConfiguration") => list(),
         optional("inputOwnerAccountId") => String.t() | atom(),
         optional("jobName") => String.t() | atom(),
         required("clientToken") => String.t() | atom(),
@@ -178,6 +179,19 @@ defmodule AWS.MedicalImaging do
 
   ## Example:
 
+      dicom_metadata_mapping() :: %{
+        "metadataFilePath" => String.t() | atom(),
+        "seriesInstanceUID" => String.t() | atom(),
+        "studyInstanceUID" => String.t() | atom()
+      }
+
+  """
+  @type dicom_metadata_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_image_set_versions_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom()
@@ -245,6 +259,17 @@ defmodule AWS.MedicalImaging do
 
   """
   @type image_frame_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dicom_json_metadata_import_configuration() :: %{
+        "dicomMetadataMappings" => list(dicom_metadata_mapping())
+      }
+
+  """
+  @type dicom_json_metadata_import_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -443,6 +468,7 @@ defmodule AWS.MedicalImaging do
         "dataAccessRoleArn" => String.t() | atom(),
         "datastoreId" => String.t() | atom(),
         "endedAt" => non_neg_integer(),
+        "importConfiguration" => list(),
         "inputS3Uri" => String.t() | atom(),
         "jobId" => String.t() | atom(),
         "jobName" => String.t() | atom(),
@@ -1549,9 +1575,11 @@ defmodule AWS.MedicalImaging do
   @doc """
   Start importing bulk data into an `ACTIVE` data store.
 
-  The import job imports DICOM P10 files found in the S3 prefix specified by the
-  `inputS3Uri` parameter. The import job stores processing results in the file
-  specified by the `outputS3Uri` parameter.
+  The import job imports DICOM P10 files or enhances existing DICOM files with
+  JSON metadata. The `importConfiguration` parameter specifies the import type.
+  The data is found in the S3 prefix specified by the `inputS3Uri` parameter. The
+  import job stores processing results in the file specified by the `outputS3Uri`
+  parameter.
   """
   @spec start_d_i_c_o_m_import_job(
           map(),

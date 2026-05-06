@@ -4544,6 +4544,7 @@ defmodule AWS.CloudFront do
       create_key_value_store_request() :: %{
         optional("Comment") => String.t() | atom(),
         optional("ImportSource") => import_source(),
+        optional("Tags") => tags(),
         required("Name") => String.t() | atom()
       }
 
@@ -6931,6 +6932,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       create_function_request() :: %{
+        optional("Tags") => tags(),
         required("FunctionCode") => binary(),
         required("FunctionConfig") => function_config(),
         required("Name") => String.t() | atom()

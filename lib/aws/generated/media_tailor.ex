@@ -81,6 +81,20 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      sequential_executor_configuration() :: %{
+        "FunctionList" => list(function_ref()),
+        "Output" => map(),
+        "Runtime" => list(any()),
+        "TimeoutMilliseconds" => integer()
+      }
+
+  """
+  @type sequential_executor_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_channel_policy_response() :: %{}
 
   """
@@ -102,6 +116,22 @@ defmodule AWS.MediaTailor do
 
   """
   @type vod_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_function_request() :: %{
+        optional("CustomOutputConfiguration") => custom_output_configuration(),
+        optional("Description") => String.t() | atom(),
+        optional("HttpRequestConfiguration") => http_request_configuration(),
+        optional("SequentialExecutorConfiguration") => sequential_executor_configuration(),
+        optional("Tags") => map(),
+        required("FunctionType") => list(any())
+      }
+
+  """
+  @type put_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -220,6 +250,18 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      list_functions_response() :: %{
+        "Items" => list(function()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_functions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_playback_configuration_request() :: %{}
 
   """
@@ -256,6 +298,7 @@ defmodule AWS.MediaTailor do
         "CdnConfiguration" => cdn_configuration(),
         "ConfigurationAliases" => map(),
         "DashConfiguration" => dash_configuration(),
+        "FunctionMapping" => map(),
         "HlsConfiguration" => hls_configuration(),
         "InsertionMode" => list(any()),
         "LivePreRollConfiguration" => live_pre_roll_configuration(),
@@ -443,6 +486,24 @@ defmodule AWS.MediaTailor do
 
   """
   @type recurring_retrieval() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CustomOutputConfiguration" => custom_output_configuration(),
+        "Description" => String.t() | atom(),
+        "FunctionId" => String.t() | atom(),
+        "FunctionType" => list(any()),
+        "HttpRequestConfiguration" => http_request_configuration(),
+        "SequentialExecutorConfiguration" => sequential_executor_configuration(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_function_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -707,6 +768,15 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      get_function_request() :: %{}
+
+  """
+  @type get_function_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_playback_configuration_request() :: %{}
 
   """
@@ -808,6 +878,15 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      delete_function_request() :: %{}
+
+  """
+  @type delete_function_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_channel_policy_response() :: %{}
 
   """
@@ -894,6 +973,15 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      delete_function_response() :: %{}
+
+  """
+  @type delete_function_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       schedule_entry() :: %{
         "ApproximateDurationSeconds" => float(),
         "ApproximateStartTime" => non_neg_integer(),
@@ -927,6 +1015,36 @@ defmodule AWS.MediaTailor do
 
   """
   @type create_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mediatailor_function() :: %{
+        "Arn" => String.t() | atom(),
+        "CustomOutputConfiguration" => custom_output_configuration(),
+        "Description" => String.t() | atom(),
+        "FunctionId" => String.t() | atom(),
+        "FunctionType" => list(any()),
+        "HttpRequestConfiguration" => http_request_configuration(),
+        "SequentialExecutorConfiguration" => sequential_executor_configuration(),
+        "Tags" => map()
+      }
+
+  """
+  @type mediatailor_function() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_ref() :: %{
+        "FunctionId" => String.t() | atom(),
+        "RunCondition" => String.t() | atom()
+      }
+
+  """
+  @type function_ref() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -991,6 +1109,24 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      put_function_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CustomOutputConfiguration" => custom_output_configuration(),
+        "Description" => String.t() | atom(),
+        "FunctionId" => String.t() | atom(),
+        "FunctionType" => list(any()),
+        "HttpRequestConfiguration" => http_request_configuration(),
+        "SequentialExecutorConfiguration" => sequential_executor_configuration(),
+        "Tags" => map()
+      }
+
+  """
+  @type put_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_channels_response() :: %{
         optional("Items") => list(channel()),
         optional("NextToken") => String.t() | atom()
@@ -1041,7 +1177,8 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       manifest_service_interaction_log() :: %{
-        "ExcludeEventTypes" => list(list(any())())
+        "ExcludeEventTypes" => list(list(any())()),
+        "PublishOptInEventTypes" => list(list(any())())
       }
 
   """
@@ -1158,6 +1295,18 @@ defmodule AWS.MediaTailor do
 
   """
   @type ad_break() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_functions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_functions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1290,6 +1439,7 @@ defmodule AWS.MediaTailor do
         optional("CdnConfiguration") => cdn_configuration(),
         optional("ConfigurationAliases") => map(),
         optional("DashConfiguration") => dash_configuration(),
+        optional("FunctionMapping") => map(),
         optional("HlsConfiguration") => hls_configuration(),
         optional("InsertionMode") => list(any()),
         optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
@@ -1527,6 +1677,7 @@ defmodule AWS.MediaTailor do
         optional("CdnConfiguration") => cdn_configuration(),
         optional("ConfigurationAliases") => map(),
         optional("DashConfiguration") => dash_configuration_for_put(),
+        optional("FunctionMapping") => map(),
         optional("InsertionMode") => list(any()),
         optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
         optional("ManifestProcessingRules") => manifest_processing_rules(),
@@ -1728,6 +1879,7 @@ defmodule AWS.MediaTailor do
         optional("CdnConfiguration") => cdn_configuration(),
         optional("ConfigurationAliases") => map(),
         optional("DashConfiguration") => dash_configuration(),
+        optional("FunctionMapping") => map(),
         optional("HlsConfiguration") => hls_configuration(),
         optional("InsertionMode") => list(any()),
         optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
@@ -1796,6 +1948,18 @@ defmodule AWS.MediaTailor do
 
   """
   @type access_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_output_configuration() :: %{
+        "Output" => map(),
+        "Runtime" => list(any())
+      }
+
+  """
+  @type custom_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1967,6 +2131,23 @@ defmodule AWS.MediaTailor do
 
   """
   @type describe_live_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      http_request_configuration() :: %{
+        "Body" => String.t() | atom(),
+        "Headers" => map(),
+        "MethodType" => list(any()),
+        "Output" => map(),
+        "RequestTimeoutMilliseconds" => integer(),
+        "Runtime" => list(any()),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type http_request_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2359,6 +2540,39 @@ defmodule AWS.MediaTailor do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes a function.
+
+  MediaTailor prevents deletion of a function that is still referenced by a
+  playback configuration or by another function. Remove all references before
+  deleting. For more information about functions, see [Working with functions](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html)
+  in the *MediaTailor User Guide*.
+  """
+  @spec delete_function(map(), String.t() | atom(), delete_function_request(), list()) ::
+          {:ok, delete_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_function(%Client{} = client, function_id, input, options \\ []) do
+    url_path = "/function/#{AWS.Util.encode_uri(function_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -2798,6 +3012,26 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
+  Retrieves the configuration and metadata for a function.
+
+  For more information about functions, see [Working with functions](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html)
+  in the *MediaTailor User Guide*.
+  """
+  @spec get_function(map(), String.t() | atom(), list()) ::
+          {:ok, get_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_function(%Client{} = client, function_id, options \\ []) do
+    url_path = "/function/#{AWS.Util.encode_uri(function_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a playback configuration.
 
   For information about MediaTailor configurations, see [Working with configurations in AWS Elemental
@@ -2915,6 +3149,40 @@ defmodule AWS.MediaTailor do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves all functions associated with your AWS account in the current Region.
+
+  For more information about functions, see [Working with functions](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html)
+  in the *MediaTailor User Guide*.
+  """
+  @spec list_functions(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_functions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_functions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/functions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
@@ -3167,6 +3435,38 @@ defmodule AWS.MediaTailor do
           | {:error, term()}
   def put_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates or updates a function.
+
+  A function defines reusable logic that MediaTailor executes at lifecycle hooks
+  during ad insertion. For more information about functions, see [Working with functions](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html)
+  in the *MediaTailor User Guide*.
+  """
+  @spec put_function(map(), String.t() | atom(), put_function_request(), list()) ::
+          {:ok, put_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def put_function(%Client{} = client, function_id, input, options \\ []) do
+    url_path = "/function/#{AWS.Util.encode_uri(function_id)}"
     headers = []
     custom_headers = []
     query_params = []

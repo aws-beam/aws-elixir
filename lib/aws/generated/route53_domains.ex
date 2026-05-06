@@ -482,6 +482,7 @@ defmodule AWS.Route53Domains do
         optional("AuthCode") => String.t() | atom(),
         optional("AutoRenew") => boolean(),
         optional("BillingContact") => contact_detail(),
+        optional("DurationInYears") => integer(),
         optional("IdnLangCode") => String.t() | atom(),
         optional("Nameservers") => list(nameserver()),
         optional("PrivacyProtectAdminContact") => boolean(),
@@ -490,7 +491,6 @@ defmodule AWS.Route53Domains do
         optional("PrivacyProtectTechContact") => boolean(),
         required("AdminContact") => contact_detail(),
         required("DomainName") => String.t() | atom(),
-        required("DurationInYears") => integer(),
         required("RegistrantContact") => contact_detail(),
         required("TechContact") => contact_detail()
       }
@@ -787,6 +787,18 @@ defmodule AWS.Route53Domains do
       
   """
   @type update_domain_contact_privacy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_l_d_in_maintenance() :: %{
+        "message" => String.t() | atom(),
+        "tld" => String.t() | atom()
+      }
+      
+  """
+  @type t_l_d_in_maintenance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1161,9 +1173,11 @@ defmodule AWS.Route53Domains do
   @type cancel_domain_transfer_to_another_aws_account_errors() ::
           unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
 
-  @type check_domain_availability_errors() :: unsupported_t_l_d() | invalid_input()
+  @type check_domain_availability_errors() ::
+          t_l_d_in_maintenance() | unsupported_t_l_d() | invalid_input()
 
-  @type check_domain_transferability_errors() :: unsupported_t_l_d() | invalid_input()
+  @type check_domain_transferability_errors() ::
+          t_l_d_in_maintenance() | unsupported_t_l_d() | invalid_input()
 
   @type delete_domain_errors() ::
           t_l_d_rules_violation() | duplicate_request() | unsupported_t_l_d() | invalid_input()
@@ -1202,7 +1216,8 @@ defmodule AWS.Route53Domains do
 
   @type get_domain_detail_errors() :: unsupported_t_l_d() | invalid_input()
 
-  @type get_domain_suggestions_errors() :: unsupported_t_l_d() | invalid_input()
+  @type get_domain_suggestions_errors() ::
+          t_l_d_in_maintenance() | unsupported_t_l_d() | invalid_input()
 
   @type get_operation_detail_errors() :: invalid_input()
 
@@ -1215,7 +1230,11 @@ defmodule AWS.Route53Domains do
   @type list_tags_for_domain_errors() ::
           unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
 
-  @type push_domain_errors() :: unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+  @type push_domain_errors() ::
+          t_l_d_in_maintenance()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
 
   @type register_domain_errors() ::
           domain_limit_exceeded()
@@ -1236,11 +1255,15 @@ defmodule AWS.Route53Domains do
           | invalid_input()
 
   @type resend_contact_reachability_email_errors() ::
-          unsupported_t_l_d() | operation_limit_exceeded() | invalid_input()
+          t_l_d_in_maintenance()
+          | unsupported_t_l_d()
+          | operation_limit_exceeded()
+          | invalid_input()
 
-  @type resend_operation_authorization_errors() :: invalid_input()
+  @type resend_operation_authorization_errors() :: t_l_d_in_maintenance() | invalid_input()
 
-  @type retrieve_domain_auth_code_errors() :: unsupported_t_l_d() | invalid_input()
+  @type retrieve_domain_auth_code_errors() ::
+          t_l_d_in_maintenance() | unsupported_t_l_d() | invalid_input()
 
   @type transfer_domain_errors() ::
           domain_limit_exceeded()
@@ -1453,7 +1476,8 @@ defmodule AWS.Route53Domains do
   When the registration has been deleted, we'll send you a confirmation to the
   registrant contact. The email will come from
   `noreply@domainnameverification.net` or
-  `noreply@registrar.amazon.com`.
+  `noreply@emailverification.info` or
+  `noreply@registrar.amazon`.
   """
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}

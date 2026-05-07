@@ -12,58 +12,37 @@ defmodule AWS.MWAA do
 
   ## Endpoints
 
-    *
-
-  `api.airflow.{region}.amazonaws.com` - This endpoint is used for environment
+    * `api.airflow.{region}.amazonaws.com` (use
+  `api.airflow.{region}.api.aws` for IPv6) - This endpoint is used for environment
   management.
 
       *
-
-  [CreateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateEnvironment.html) 
-
-      *
-
+  [CreateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateEnvironment.html)       *
   [DeleteEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_DeleteEnvironment.html)
 
       *
-
-  [GetEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_GetEnvironment.html) 
-
-      *
-
+  [GetEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_GetEnvironment.html)       *
   [ListEnvironments](https://docs.aws.amazon.com/mwaa/latest/API/API_ListEnvironments.html)
 
       *
-
-  [ListTagsForResource](https://docs.aws.amazon.com/mwaa/latest/API/API_ListTagsForResource.html) 
-
-      *
-
+  [ListTagsForResource](https://docs.aws.amazon.com/mwaa/latest/API/API_ListTagsForResource.html)       *
   [TagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_TagResource.html)
 
       *
-
-  [UntagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_UntagResource.html) 
-
-      *
-
+  [UntagResource](https://docs.aws.amazon.com/mwaa/latest/API/API_UntagResource.html)       *
   [UpdateEnvironment](https://docs.aws.amazon.com/mwaa/latest/API/API_UpdateEnvironment.html)
 
-    *
-
-  `env.airflow.{region}.amazonaws.com` - This endpoint is used to operate the
+    * `env.airflow.{region}.amazonaws.com` (use
+  `env.airflow.{region}.api.aws` for IPv6) - This endpoint is used to operate the
   Airflow environment.
 
       *
-
   [CreateCliToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateCliToken.html )
 
       *
-
   [CreateWebLoginToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html)
 
       *
-
   [InvokeRestApi](https://docs.aws.amazon.com/mwaa/latest/API/API_InvokeRestApi.html) 
 
   ## Regions
@@ -417,6 +396,17 @@ defmodule AWS.MWAA do
 
   ## Example:
 
+      service_unavailable_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_rest_api_request() :: %{
         optional("Body") => any(),
         optional("QueryParameters") => [any()],
@@ -637,7 +627,8 @@ defmodule AWS.MWAA do
 
   @type create_cli_token_errors() :: resource_not_found_exception()
 
-  @type create_environment_errors() :: validation_exception() | internal_server_exception()
+  @type create_environment_errors() ::
+          validation_exception() | internal_server_exception() | service_unavailable_exception()
 
   @type create_web_login_token_errors() ::
           validation_exception()
@@ -646,7 +637,10 @@ defmodule AWS.MWAA do
           | resource_not_found_exception()
 
   @type delete_environment_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          validation_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type get_environment_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
@@ -673,7 +667,10 @@ defmodule AWS.MWAA do
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type update_environment_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          validation_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -839,8 +836,7 @@ defmodule AWS.MWAA do
   @doc """
   Invokes the Apache Airflow REST API on the webserver with the specified inputs.
 
-  To
-  learn more, see [Using the Apache Airflow REST API](https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html)
+  To learn more, see [Using the Apache Airflow REST API](https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html)
   """
   @spec invoke_rest_api(map(), String.t() | atom(), invoke_rest_api_request(), list()) ::
           {:ok, invoke_rest_api_response(), any()}
@@ -922,7 +918,6 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-
   **Internal only**.
 
   Publishes environment health metrics to Amazon CloudWatch.

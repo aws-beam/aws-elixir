@@ -2751,6 +2751,22 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      get_recommended_policy_v2_response() :: %{
+        "Error" => recommendation_error(),
+        "NextToken" => String.t() | atom(),
+        "RecommendationSteps" => list(list()),
+        "RecommendationType" => list(any()),
+        "ResourceArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_recommended_policy_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_iam_user_policy() :: %{
         "PolicyName" => String.t() | atom()
       }
@@ -4901,6 +4917,15 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      generate_recommended_policy_v2_response() :: %{}
+
+  """
+  @type generate_recommended_policy_v2_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       aws_waf_regional_rule_details() :: %{
         "MetricName" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -5725,6 +5750,21 @@ defmodule AWS.SecurityHub do
 
   """
   @type disassociate_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_permissions_recommendation_step() :: %{
+        "ExistingPolicy" => String.t() | atom(),
+        "ExistingPolicyId" => String.t() | atom(),
+        "PolicyUpdatedAt" => non_neg_integer(),
+        "RecommendedAction" => String.t() | atom(),
+        "RecommendedPolicy" => String.t() | atom()
+      }
+
+  """
+  @type unused_permissions_recommendation_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7275,10 +7315,34 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      recommendation_error() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type recommendation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disable_import_findings_for_product_request() :: %{}
 
   """
   @type disable_import_findings_for_product_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommended_policy_v2_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_recommended_policy_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11516,6 +11580,15 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      generate_recommended_policy_v2_request() :: %{}
+
+  """
+  @type generate_recommended_policy_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_aggregator_v2_request() :: %{}
 
   """
@@ -12058,6 +12131,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       date_range() :: %{
+        "Comparison" => list(any()),
         "Unit" => list(any()),
         "Value" => integer()
       }
@@ -14249,6 +14323,14 @@ defmodule AWS.SecurityHub do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type generate_recommended_policy_v2_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+
   @type get_administrator_account_errors() ::
           limit_exceeded_exception()
           | internal_exception()
@@ -14379,6 +14461,14 @@ defmodule AWS.SecurityHub do
           | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+
+  @type get_recommended_policy_v2_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
 
   @type get_resources_statistics_v2_errors() ::
           throttling_exception()
@@ -16746,6 +16836,42 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Begins the recommended policy generation to remediate a Security Hub finding.
+
+  `GenerateRecommendedPolicyV2` only supports findings for unused permissions.
+  """
+  @spec generate_recommended_policy_v2(
+          map(),
+          String.t() | atom(),
+          generate_recommended_policy_v2_request(),
+          list()
+        ) ::
+          {:ok, generate_recommended_policy_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, generate_recommended_policy_v2_errors()}
+  def generate_recommended_policy_v2(%Client{} = client, metadata_uid, input, options \\ []) do
+    url_path = "/recommendedPolicyV2/#{AWS.Util.encode_uri(metadata_uid)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Provides the details for the Security Hub CSPM administrator account for the
   current member account.
 
@@ -17275,6 +17401,52 @@ defmodule AWS.SecurityHub do
       options,
       200
     )
+  end
+
+  @doc """
+  Retrieves the recommended policy to remediate a Security Hub finding.
+
+  `GetRecommendedPolicyV2` only supports findings for unused permissions.
+  """
+  @spec get_recommended_policy_v2(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_recommended_policy_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_recommended_policy_v2_errors()}
+  def get_recommended_policy_v2(
+        %Client{} = client,
+        metadata_uid,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/recommendedPolicyV2/#{AWS.Util.encode_uri(metadata_uid)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """

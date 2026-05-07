@@ -123,6 +123,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       bot_locale_import_specification() :: %{
+        "audioFillerSettings" => audio_filler_settings(),
         "botId" => String.t() | atom(),
         "botVersion" => String.t() | atom(),
         "localeId" => String.t() | atom(),
@@ -5147,6 +5148,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       describe_bot_locale_response() :: %{
+        "audioFillerSettings" => audio_filler_settings(),
         "botId" => String.t() | atom(),
         "botLocaleHistoryEvents" => list(bot_locale_history_event()),
         "botLocaleStatus" => list(any()),
@@ -5724,6 +5726,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       create_bot_locale_response() :: %{
+        "audioFillerSettings" => audio_filler_settings(),
         "botId" => String.t() | atom(),
         "botLocaleStatus" => list(any()),
         "botVersion" => String.t() | atom(),
@@ -5762,6 +5765,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       update_bot_locale_request() :: %{
+        optional("audioFillerSettings") => audio_filler_settings(),
         optional("description") => String.t() | atom(),
         optional("generativeAISettings") => generative_a_i_settings(),
         optional("speechDetectionSensitivity") => list(any()),
@@ -5917,6 +5921,21 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
 
+      audio_filler_settings() :: %{
+        "audioType" => list(any()),
+        "enabled" => boolean(),
+        "minimumPlayDurationInMilliseconds" => integer(),
+        "responseDeliveryDelayInMilliseconds" => integer(),
+        "startDelayInMilliseconds" => integer()
+      }
+
+  """
+  @type audio_filler_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_export_response() :: %{
         "creationDateTime" => non_neg_integer(),
         "exportId" => String.t() | atom(),
@@ -6031,6 +6050,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       update_bot_locale_response() :: %{
+        "audioFillerSettings" => audio_filler_settings(),
         "botId" => String.t() | atom(),
         "botLocaleStatus" => list(any()),
         "botVersion" => String.t() | atom(),
@@ -6391,6 +6411,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       create_bot_locale_request() :: %{
+        optional("audioFillerSettings") => audio_filler_settings(),
         optional("description") => String.t() | atom(),
         optional("generativeAISettings") => generative_a_i_settings(),
         optional("speechDetectionSensitivity") => list(any()),

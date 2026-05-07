@@ -3098,6 +3098,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      s3_files_access_point_configuration() :: %{
+        "accessPointArn" => String.t() | atom(),
+        "mountPath" => String.t() | atom()
+      }
+
+  """
+  @type s3_files_access_point_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       configuration_bundle_summary() :: %{
         "bundleArn" => String.t() | atom(),
         "bundleId" => String.t() | atom(),
@@ -5056,6 +5068,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_online_evaluation_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      efs_access_point_configuration() :: %{
+        "accessPointArn" => String.t() | atom(),
+        "mountPath" => String.t() | atom()
+      }
+
+  """
+  @type efs_access_point_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

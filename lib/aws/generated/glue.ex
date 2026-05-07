@@ -4521,6 +4521,7 @@ defmodule AWS.Glue do
       
       data_quality_ruleset_evaluation_run_filter() :: %{
         "DataSource" => data_source(),
+        "RulesetName" => String.t() | atom(),
         "StartedAfter" => non_neg_integer(),
         "StartedBefore" => non_neg_integer()
       }
@@ -10438,6 +10439,7 @@ defmodule AWS.Glue do
       data_quality_evaluation_run_additional_run_options() :: %{
         "CloudWatchMetricsEnabled" => boolean(),
         "CompositeRuleEvaluationMethod" => list(any()),
+        "CustomLogGroupPrefix" => String.t() | atom(),
         "ResultsS3Prefix" => String.t() | atom()
       }
       

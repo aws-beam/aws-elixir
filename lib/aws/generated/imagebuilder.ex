@@ -4278,7 +4278,11 @@ defmodule AWS.Imagebuilder do
           | invalid_version_number_exception()
 
   @type import_disk_image_errors() ::
-          service_unavailable_exception() | service_exception() | client_exception()
+          access_denied_exception()
+          | service_unavailable_exception()
+          | service_exception()
+          | client_exception()
+          | too_many_requests_exception()
 
   @type import_vm_image_errors() ::
           service_unavailable_exception() | service_exception() | client_exception()

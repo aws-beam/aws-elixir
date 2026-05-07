@@ -11440,6 +11440,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_node_summary() :: %{
+        "ImageVersionStatus" => list(any()),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceId" => [String.t() | atom()],
         "InstanceStatus" => cluster_instance_status_details(),
@@ -20215,6 +20216,7 @@ defmodule AWS.SageMaker do
         "CurrentImageId" => String.t() | atom(),
         "DesiredImageId" => String.t() | atom(),
         "ExecutionRole" => String.t() | atom(),
+        "ImageVersionStatus" => list(any()),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceRequirements" => cluster_instance_requirement_details(),
         "InstanceStorageConfigs" => list(list()),
@@ -20686,6 +20688,7 @@ defmodule AWS.SageMaker do
         "CapacityType" => list(any()),
         "CurrentImageId" => String.t() | atom(),
         "DesiredImageId" => String.t() | atom(),
+        "ImageVersionStatus" => list(any()),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceId" => [String.t() | atom()],
         "InstanceStatus" => cluster_instance_status_details(),

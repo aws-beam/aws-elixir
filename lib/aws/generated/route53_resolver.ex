@@ -799,6 +799,8 @@ defmodule AWS.Route53Resolver do
   ## Example:
       
       create_resolver_endpoint_request() :: %{
+        optional("Dns64Enabled") => boolean(),
+        optional("Ipv6InternetAccessEnabled") => boolean(),
         optional("Name") => String.t() | atom(),
         optional("OutpostArn") => String.t() | atom(),
         optional("PreferredInstanceType") => String.t() | atom(),
@@ -1344,9 +1346,11 @@ defmodule AWS.Route53Resolver do
         "CreationTime" => String.t() | atom(),
         "CreatorRequestId" => String.t() | atom(),
         "Direction" => list(any()),
+        "Dns64Enabled" => boolean(),
         "HostVPCId" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "IpAddressCount" => integer(),
+        "Ipv6InternetAccessEnabled" => boolean(),
         "ModificationTime" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "OutpostArn" => String.t() | atom(),
@@ -1837,6 +1841,8 @@ defmodule AWS.Route53Resolver do
   ## Example:
       
       update_resolver_endpoint_request() :: %{
+        optional("Dns64Enabled") => boolean(),
+        optional("Ipv6InternetAccessEnabled") => boolean(),
         optional("Name") => String.t() | atom(),
         optional("Protocols") => list(list(any())()),
         optional("ResolverEndpointType") => list(any()),
@@ -2451,6 +2457,7 @@ defmodule AWS.Route53Resolver do
   @type delete_resolver_rule_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_error_exception()
           | resource_in_use_exception()
@@ -2482,6 +2489,7 @@ defmodule AWS.Route53Resolver do
   @type disassociate_resolver_rule_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_error_exception()
 

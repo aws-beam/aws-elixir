@@ -162,6 +162,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       entity() :: %{
+        "BillingEntity" => list(any()),
         "InvoicingEntity" => String.t() | atom()
       }
       
@@ -265,6 +266,7 @@ defmodule AWS.Invoicing do
       invoice_summaries_filter() :: %{
         "BillingPeriod" => billing_period(),
         "InvoicingEntity" => String.t() | atom(),
+        "ReceiverRole" => list(any()),
         "TimeInterval" => date_interval()
       }
       
@@ -444,15 +446,23 @@ defmodule AWS.Invoicing do
       invoice_summary() :: %{
         "AccountId" => String.t() | atom(),
         "BaseCurrencyAmount" => invoice_currency_amount(),
+        "BillSourceAccounts" => list(String.t() | atom()),
+        "BillSourceAccountsTotalCount" => [integer()],
+        "BillType" => list(any()),
         "BillingPeriod" => billing_period(),
+        "CommercialInvoiceId" => String.t() | atom(),
         "DueDate" => [non_neg_integer()],
+        "EinvoiceDeliveryStatus" => list(any()),
         "Entity" => entity(),
+        "InvoiceFrequency" => list(any()),
         "InvoiceId" => String.t() | atom(),
         "InvoiceType" => list(any()),
         "IssuedDate" => [non_neg_integer()],
         "OriginalInvoiceId" => String.t() | atom(),
         "PaymentCurrencyAmount" => invoice_currency_amount(),
         "PurchaseOrderNumber" => String.t() | atom(),
+        "ReceiverRole" => list(any()),
+        "TaxAuthorityStatus" => list(any()),
         "TaxCurrencyAmount" => invoice_currency_amount()
       }
       
@@ -825,6 +835,8 @@ defmodule AWS.Invoicing do
   ## Example:
       
       supplemental_document() :: %{
+        "DocumentId" => String.t() | atom(),
+        "DocumentType" => list(any()),
         "DocumentUrl" => String.t() | atom(),
         "DocumentUrlExpirationDate" => [non_neg_integer()]
       }
@@ -1228,11 +1240,13 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
-  Creates a procurement portal preference configuration for e-invoice delivery and
-  purchase order retrieval.
+  * **This feature API is subject to changing at any time.
 
-  This preference defines how invoices are delivered to a procurement portal and
-  how purchase orders are retrieved.
+  For more information, see the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Betas and Previews).** *
+
+  Creates a procurement portal preference configuration for e-invoice delivery and
+  purchase order retrieval. This preference defines how invoices are delivered to
+  a procurement portal and how purchase orders are retrieved.
   """
   @spec create_procurement_portal_preference(
           map(),
@@ -1264,10 +1278,12 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
-  Deletes an existing procurement portal preference.
+  * **This feature API is subject to changing at any time.
 
-  This action cannot be undone. Active e-invoice delivery and PO retrieval
-  configurations will be terminated.
+  For more information, see the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Betas and Previews).** *
+
+  Deletes an existing procurement portal preference. This action cannot be undone.
+  Active e-invoice delivery and PO retrieval configurations will be terminated.
   """
   @spec delete_procurement_portal_preference(
           map(),
@@ -1320,6 +1336,10 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
+  * **This feature API is subject to changing at any time.
+
+  For more information, see the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Betas and Previews).** *
+
   Retrieves the details of a specific procurement portal preference configuration.
   """
   @spec get_procurement_portal_preference(
@@ -1367,6 +1387,10 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
+  * **This feature API is subject to changing at any time.
+
+  For more information, see the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Betas and Previews).** *
+
   Retrieves a list of procurement portal preferences associated with the Amazon
   Web Services account.
   """
@@ -1400,10 +1424,12 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
-  Updates an existing procurement portal preference configuration.
+  * **This feature API is subject to changing at any time.
 
-  This operation can modify settings for e-invoice delivery and purchase order
-  retrieval.
+  For more information, see the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Betas and Previews).** *
+
+  Updates an existing procurement portal preference configuration. This operation
+  can modify settings for e-invoice delivery and purchase order retrieval.
   """
   @spec put_procurement_portal_preference(
           map(),
@@ -1464,6 +1490,10 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
+  * **This feature API is subject to changing at any time.
+
+  For more information, see the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Betas and Previews).** *
+
   Updates the status of a procurement portal preference, including the activation
   state of e-invoice delivery and purchase order retrieval features.
   """

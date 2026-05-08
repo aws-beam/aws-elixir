@@ -16,6 +16,24 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      payment_session() :: %{
+        "availableLimits" => available_limits(),
+        "createdAt" => non_neg_integer(),
+        "expiryTimeInMinutes" => [integer()],
+        "limits" => session_limits(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentSessionId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type payment_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       branch() :: %{
         "name" => String.t() | atom(),
         "rootEventId" => String.t() | atom()
@@ -59,6 +77,23 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type harness_remote_mcp_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_instrument_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentConnectorId") => String.t() | atom(),
+        required("paymentInstrumentDetails") => list(),
+        required("paymentInstrumentType") => list(any()),
+        required("paymentManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type create_payment_instrument_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -433,6 +468,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      list_payment_instruments_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "paymentInstruments" => list(payment_instrument_summary())
+      }
+
+  """
+  @type list_payment_instruments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       content_stop_event() :: %{
         "exitCode" => [integer()],
         "status" => list(any())
@@ -759,6 +806,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      linked_account_developer_jwt() :: %{
+        "kid" => String.t() | atom(),
+        "sub" => [String.t() | atom()]
+      }
+
+  """
+  @type linked_account_developer_jwt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_runtime_session_response() :: %{
         "runtimeSessionId" => String.t() | atom(),
         "statusCode" => integer()
@@ -783,6 +842,20 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      get_payment_session_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom(),
+        required("paymentSessionId") => String.t() | atom()
+      }
+
+  """
+  @type get_payment_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       mouse_drag_result() :: %{
         "error" => [String.t() | atom()],
         "status" => list(any())
@@ -802,6 +875,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type invoke_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_instrument_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type delete_payment_instrument_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,6 +974,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      coinbase_cdp_token_response_output() :: %{
+        "bearerToken" => String.t() | atom(),
+        "walletAuthToken" => String.t() | atom()
+      }
+
+  """
+  @type coinbase_cdp_token_response_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_memory_extraction_jobs_input() :: %{
         optional("filter") => extraction_job_filter_input(),
         optional("maxResults") => [integer()],
@@ -898,6 +994,24 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_memory_extraction_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_instrument_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "paymentConnectorId" => String.t() | atom(),
+        "paymentInstrumentId" => String.t() | atom(),
+        "paymentInstrumentType" => list(any()),
+        "paymentManagerArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type payment_instrument_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -939,6 +1053,24 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      process_payment_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentInput") => list(),
+        required("paymentInstrumentId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom(),
+        required("paymentSessionId") => String.t() | atom(),
+        required("paymentType") => list(any())
+      }
+
+  """
+  @type process_payment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       harness_message() :: %{
         "content" => list(list()),
         "role" => list(any())
@@ -971,6 +1103,19 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type batch_update_memory_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_payment_token_request() :: %{
+        required("paymentTokenRequest") => list(),
+        required("resourceCredentialProviderName") => String.t() | atom(),
+        required("workloadIdentityToken") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_payment_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1094,6 +1239,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type content_start_event() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_session_response() :: %{
+        "paymentSession" => payment_session()
+      }
+
+  """
+  @type get_payment_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1283,6 +1439,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      amount() :: %{
+        "currency" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type amount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_recommendation_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -1337,6 +1505,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type mouse_move_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_instrument_balance_response() :: %{
+        "paymentInstrumentId" => String.t() | atom(),
+        "tokenBalance" => token_balance()
+      }
+
+  """
+  @type get_payment_instrument_balance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1421,6 +1601,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type a_b_test_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stripe_privy_token_response_output() :: %{
+        "appId" => String.t() | atom(),
+        "authorizationSignature" => String.t() | atom(),
+        "basicAuthToken" => String.t() | atom(),
+        "requestExpiry" => [float()]
+      }
+
+  """
+  @type stripe_privy_token_response_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1648,6 +1842,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      create_payment_session_response() :: %{
+        "paymentSession" => payment_session()
+      }
+
+  """
+  @type create_payment_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       key_type_result() :: %{
         "error" => [String.t() | atom()],
         "status" => list(any())
@@ -1719,6 +1924,23 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type batch_create_memory_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_instrument_balance_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("chain") => list(any()),
+        required("paymentConnectorId") => String.t() | atom(),
+        required("paymentInstrumentId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom(),
+        required("token") => list(any())
+      }
+
+  """
+  @type get_payment_instrument_balance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1799,6 +2021,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type configuration_bundle_tool_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stripe_privy_token_request_input() :: %{
+        "includeAuthorizationSignature" => [boolean()],
+        "requestBody" => String.t() | atom(),
+        "requestHost" => String.t() | atom(),
+        "requestPath" => String.t() | atom()
+      }
+
+  """
+  @type stripe_privy_token_request_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2009,6 +2245,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_authentication() :: %{
+        "emailAddress" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "sub" => [String.t() | atom()],
+        "username" => [String.t() | atom()]
+      }
+
+  """
+  @type o_auth2_authentication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2267,6 +2517,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      list_payment_sessions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "paymentSessions" => list(payment_session_summary())
+      }
+
+  """
+  @type list_payment_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_runtime_session_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("qualifier") => [String.t() | atom()],
@@ -2306,6 +2568,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type tool_description_text_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_payment_token_response() :: %{
+        "paymentTokenResponse" => list()
+      }
+
+  """
+  @type get_resource_payment_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2470,6 +2743,20 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      delete_payment_instrument_request() :: %{
+        optional("userId") => String.t() | atom(),
+        required("paymentConnectorId") => String.t() | atom(),
+        required("paymentInstrumentId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_payment_instrument_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_batch_evaluation_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -2481,6 +2768,19 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type start_batch_evaluation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_session_request() :: %{
+        optional("userId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom(),
+        required("paymentSessionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_payment_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2575,6 +2875,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type session_metadata_shape() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      embedded_crypto_wallet() :: %{
+        "linkedAccounts" => list(list()),
+        "network" => list(any()),
+        "redirectUrl" => [String.t() | atom()],
+        "walletAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type embedded_crypto_wallet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2741,6 +3055,21 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      token_balance() :: %{
+        "amount" => [String.t() | atom()],
+        "chain" => list(any()),
+        "decimals" => [integer()],
+        "network" => list(any()),
+        "token" => list(any())
+      }
+
+  """
+  @type token_balance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_browser_sessions_response() :: %{
         "items" => list(browser_session_summary()),
         "nextToken" => String.t() | atom()
@@ -2806,6 +3135,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      crypto_x402_payment_input() :: %{
+        "payload" => any(),
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type crypto_x402_payment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_code_interpreter_session_response() :: %{
         "codeInterpreterIdentifier" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
@@ -2838,6 +3179,21 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type cloud_watch_logs_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coinbase_cdp_token_request_input() :: %{
+        "includeWalletAuthToken" => [boolean()],
+        "requestBody" => String.t() | atom(),
+        "requestHost" => String.t() | atom(),
+        "requestMethod" => list(any()),
+        "requestPath" => String.t() | atom()
+      }
+
+  """
+  @type coinbase_cdp_token_request_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3003,6 +3359,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      get_payment_instrument_response() :: %{
+        "paymentInstrument" => payment_instrument()
+      }
+
+  """
+  @type get_payment_instrument_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_actors_output() :: %{
         "actorSummaries" => list(actor_summary()),
         "nextToken" => String.t() | atom()
@@ -3021,6 +3388,22 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_workload_access_token_for_user_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_instruments_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("paymentConnectorId") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type list_payment_instruments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3048,6 +3431,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type delete_event_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      linked_account_email() :: %{
+        "emailAddress" => String.t() | atom()
+      }
+
+  """
+  @type linked_account_email() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3101,6 +3495,21 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      get_payment_instrument_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("paymentConnectorId") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentInstrumentId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type get_payment_instrument_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       harness_stream_metrics() :: %{
         "latencyMs" => [float()]
       }
@@ -3131,6 +3540,25 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_resource_api_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      process_payment_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "paymentInstrumentId" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentOutput" => list(),
+        "paymentSessionId" => String.t() | atom(),
+        "paymentType" => list(any()),
+        "processPaymentId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type process_payment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3220,6 +3648,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      available_limits() :: %{
+        "availableSpendAmount" => amount(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type available_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_criteria() :: %{
         "memoryStrategyId" => String.t() | atom(),
         "metadataFilters" => list(memory_metadata_filter_expression()),
@@ -3229,6 +3669,37 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type search_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_session_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("limits") => session_limits(),
+        optional("userId") => String.t() | atom(),
+        required("expiryTimeInMinutes") => [integer()],
+        required("paymentManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type create_payment_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_sessions_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type list_payment_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3254,6 +3725,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type update_browser_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_session_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type delete_payment_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3320,6 +3802,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      linked_account_sms() :: %{
+        "phoneNumber" => String.t() | atom()
+      }
+
+  """
+  @type linked_account_sms() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_skills_descriptor() :: %{
         "skillDefinition" => skill_definition(),
         "skillMd" => skill_md_definition()
@@ -3355,6 +3848,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      crypto_x402_payment_output() :: %{
+        "payload" => any(),
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type crypto_x402_payment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       target_ref() :: %{
         "name" => String.t() | atom()
       }
@@ -3372,6 +3877,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type harness_agent_core_code_interpreter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_instrument_response() :: %{
+        "paymentInstrument" => payment_instrument()
+      }
+
+  """
+  @type create_payment_instrument_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3424,6 +3940,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_limits() :: %{
+        "maxSpendAmount" => amount()
+      }
+
+  """
+  @type session_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3507,6 +4034,25 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      payment_instrument() :: %{
+        "createdAt" => non_neg_integer(),
+        "paymentConnectorId" => String.t() | atom(),
+        "paymentInstrumentDetails" => list(),
+        "paymentInstrumentId" => String.t() | atom(),
+        "paymentInstrumentType" => list(any()),
+        "paymentManagerArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type payment_instrument() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       extraction_job() :: %{
         "jobId" => [String.t() | atom()]
       }
@@ -3525,6 +4071,22 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type a_b_test_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_session_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "expiryTimeInMinutes" => [integer()],
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentSessionId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type payment_session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3588,6 +4150,22 @@ defmodule AWS.BedrockAgentCore do
           | throttled_exception()
           | retryable_conflict_exception()
 
+  @type create_payment_instrument_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_payment_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type delete_a_b_test_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3623,6 +4201,20 @@ defmodule AWS.BedrockAgentCore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | throttled_exception()
+
+  @type delete_payment_instrument_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_payment_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type delete_recommendation_errors() ::
           throttling_exception()
@@ -3700,6 +4292,27 @@ defmodule AWS.BedrockAgentCore do
           | resource_not_found_exception()
           | throttled_exception()
 
+  @type get_payment_instrument_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_payment_instrument_balance_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_payment_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_recommendation_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3716,6 +4329,14 @@ defmodule AWS.BedrockAgentCore do
           | unauthorized_exception()
 
   @type get_resource_oauth2_token_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type get_resource_payment_token_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3852,6 +4473,18 @@ defmodule AWS.BedrockAgentCore do
           | resource_not_found_exception()
           | throttled_exception()
 
+  @type list_payment_instruments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_payment_sessions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_recommendations_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3866,6 +4499,14 @@ defmodule AWS.BedrockAgentCore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | throttled_exception()
+
+  @type process_payment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
 
   @type retrieve_memory_records_errors() ::
           validation_exception()
@@ -4214,6 +4855,78 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  Create a new payment instrument for a connector
+  """
+  @spec create_payment_instrument(map(), create_payment_instrument_request(), list()) ::
+          {:ok, create_payment_instrument_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_payment_instrument_errors()}
+  def create_payment_instrument(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/createPaymentInstrument"
+
+    {headers, input} =
+      [
+        {"agentName", "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name"},
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Create a new payment manager session
+  """
+  @spec create_payment_session(map(), create_payment_session_request(), list()) ::
+          {:ok, create_payment_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_payment_session_errors()}
+  def create_payment_session(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/createPaymentSession"
+
+    {headers, input} =
+      [
+        {"agentName", "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name"},
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Deletes an A/B test and its associated gateway rules.
   """
   @spec delete_a_b_test(map(), String.t() | atom(), delete_a_b_test_request(), list()) ::
@@ -4361,6 +5074,120 @@ defmodule AWS.BedrockAgentCore do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Delete a payment instrument
+
+  Marks a payment instrument as deleted by updating its status to DELETED.
+
+  This is a soft delete
+  operation that preserves the record in the database for audit and compliance
+  purposes. The record
+  remains queryable for audit purposes but is excluded from normal list and get
+  operations.
+
+  Deleting an already-deleted or non-existent instrument returns
+  ResourceNotFoundException (404).
+
+  Authorization: The caller must own the instrument (accountId, userId, and
+  paymentManagerId must match).
+  If authorization fails, a 403 Forbidden error is returned.
+
+  Timestamp Management: The updatedAt timestamp is set to the current time, while
+  createdAt is preserved.
+  The version field is incremented for optimistic locking.
+
+  Errors:
+  - ResourceNotFoundException: The instrument does not exist or is already deleted
+  - AccessDeniedException: The caller is not authorized to delete this instrument
+  - ValidationException: Required fields are missing or invalid
+  - InternalServerException: An unexpected server error occurred
+  """
+  @spec delete_payment_instrument(map(), delete_payment_instrument_request(), list()) ::
+          {:ok, delete_payment_instrument_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_payment_instrument_errors()}
+  def delete_payment_instrument(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/deletePaymentInstrument"
+
+    {headers, input} =
+      [
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Delete a payment manager session
+
+  Permanently removes a payment session record from the database.
+
+  This is a hard delete operation
+  that removes the session completely.
+
+  Deleting a non-existent or already-deleted session returns
+  ResourceNotFoundException (404).
+
+  Authorization: The caller must own the session (accountId, userId, and
+  paymentManagerId must match).
+  If authorization fails, a 403 Forbidden error is returned.
+
+  Errors:
+  - ResourceNotFoundException: The session does not exist or has already been
+  deleted
+  - AccessDeniedException: The caller is not authorized to delete this session
+  - ValidationException: Required fields are missing or invalid
+  - InternalServerException: An unexpected server error occurred
+  """
+  @spec delete_payment_session(map(), delete_payment_session_request(), list()) ::
+          {:ok, delete_payment_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_payment_session_errors()}
+  def delete_payment_session(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/deletePaymentSession"
+
+    {headers, input} =
+      [
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -4668,6 +5495,114 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  Get a payment instrument by ID
+  """
+  @spec get_payment_instrument(map(), get_payment_instrument_request(), list()) ::
+          {:ok, get_payment_instrument_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_payment_instrument_errors()}
+  def get_payment_instrument(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/getPaymentInstrument"
+
+    {headers, input} =
+      [
+        {"agentName", "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name"},
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Get the balance of a payment instrument
+  """
+  @spec get_payment_instrument_balance(map(), get_payment_instrument_balance_request(), list()) ::
+          {:ok, get_payment_instrument_balance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_payment_instrument_balance_errors()}
+  def get_payment_instrument_balance(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/getPaymentInstrumentBalance"
+
+    {headers, input} =
+      [
+        {"agentName", "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name"},
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Get a payment session
+  """
+  @spec get_payment_session(map(), get_payment_session_request(), list()) ::
+          {:ok, get_payment_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_payment_session_errors()}
+  def get_payment_session(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/getPaymentSession"
+
+    {headers, input} =
+      [
+        {"agentName", "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name"},
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves detailed information about a recommendation, including its
   configuration, status, and results.
   """
@@ -4725,6 +5660,36 @@ defmodule AWS.BedrockAgentCore do
           | {:error, get_resource_oauth2_token_errors()}
   def get_resource_oauth2_token(%Client{} = client, input, options \\ []) do
     url_path = "/identities/oauth2/token"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Generates authentication tokens for payment providers that use vendor-specific
+  authentication mechanisms.
+  """
+  @spec get_resource_payment_token(map(), get_resource_payment_token_request(), list()) ::
+          {:ok, get_resource_payment_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_payment_token_errors()}
+  def get_resource_payment_token(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/payment/token"
     headers = []
     custom_headers = []
     query_params = []
@@ -5516,6 +6481,78 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  List payment instruments for a manager
+  """
+  @spec list_payment_instruments(map(), list_payment_instruments_request(), list()) ::
+          {:ok, list_payment_instruments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_payment_instruments_errors()}
+  def list_payment_instruments(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/listPaymentInstruments"
+
+    {headers, input} =
+      [
+        {"agentName", "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name"},
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List payment manager sessions
+  """
+  @spec list_payment_sessions(map(), list_payment_sessions_request(), list()) ::
+          {:ok, list_payment_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_payment_sessions_errors()}
+  def list_payment_sessions(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/listPaymentSessions"
+
+    {headers, input} =
+      [
+        {"agentName", "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name"},
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all recommendations in the account, with optional filtering by status.
   """
   @spec list_recommendations(
@@ -5593,6 +6630,42 @@ defmodule AWS.BedrockAgentCore do
       "/memories/#{AWS.Util.encode_uri(memory_id)}/actor/#{AWS.Util.encode_uri(actor_id)}/sessions"
 
     headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Process a payment transaction
+  """
+  @spec process_payment(map(), process_payment_request(), list()) ::
+          {:ok, process_payment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, process_payment_errors()}
+  def process_payment(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/processPayment"
+
+    {headers, input} =
+      [
+        {"agentName", "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name"},
+        {"userId", "X-Amzn-Bedrock-AgentCore-Payments-User-Id"}
+      ]
+      |> Request.build_params(input)
+
     custom_headers = []
     query_params = []
 

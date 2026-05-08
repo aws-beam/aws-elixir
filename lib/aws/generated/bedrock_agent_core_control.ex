@@ -74,6 +74,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_payment_manager_request() :: %{
+        optional("authorizerConfiguration") => list(),
+        optional("authorizerType") => list(any()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_payment_manager_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       streaming_configuration() :: %{
         "enableResponseStreaming" => [boolean()]
       }
@@ -146,6 +161,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_payment_manager_request() :: %{
+        optional("authorizerConfiguration") => list(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("authorizerType") => list(any()),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_payment_manager_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_agent_runtime_endpoint_request() :: %{
         optional("agentRuntimeVersion") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
@@ -199,6 +231,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      payment_credential_provider_item() :: %{
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type payment_credential_provider_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_registry_records_response() :: %{
         "nextToken" => String.t() | atom(),
         "registryRecords" => list(registry_record_summary())
@@ -222,6 +269,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      stripe_privy_configuration_input() :: %{
+        "appId" => String.t() | atom(),
+        "appSecret" => String.t() | atom(),
+        "authorizationId" => String.t() | atom(),
+        "authorizationPrivateKey" => String.t() | atom()
+      }
+
+  """
+  @type stripe_privy_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       harness_agent_core_memory_configuration() :: %{
         "actorId" => [String.t() | atom()],
         "arn" => String.t() | atom(),
@@ -240,6 +301,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_configuration_bundle_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_connectors_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_payment_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -299,6 +372,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_payment_manager_response() :: %{
+        "authorizerType" => list(any()),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type update_payment_manager_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -598,6 +689,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_payment_credential_provider_request() :: %{
+        required("credentialProviderVendor") => list(any()),
+        required("name") => String.t() | atom(),
+        required("providerConfigurationInput") => list()
+      }
+
+  """
+  @type update_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kms_configuration() :: %{
         "keyType" => list(any()),
         "kmsKeyArn" => String.t() | atom()
@@ -655,6 +759,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_payment_credential_provider_response() :: %{}
+
+  """
+  @type delete_payment_credential_provider_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_browser_profiles_request() :: %{
         optional("maxResults") => integer(),
         optional("name") => String.t() | atom(),
@@ -663,6 +776,28 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_browser_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_manager_response() :: %{
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type get_payment_manager_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1044,6 +1179,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_payment_credential_provider_request() :: %{
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type delete_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       weighted_route() :: %{
         "trafficSplit" => list(target_traffic_split_entry())
       }
@@ -1223,6 +1369,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type encryption_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("credentialProviderConfigurations") => list(list()),
+        required("name") => String.t() | atom(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_payment_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1564,6 +1725,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type episodic_override_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stripe_privy_configuration_output() :: %{
+        "appId" => String.t() | atom(),
+        "appSecretArn" => secret(),
+        "authorizationId" => String.t() | atom(),
+        "authorizationPrivateKeyArn" => secret()
+      }
+
+  """
+  @type stripe_privy_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1976,6 +2151,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_payment_manager_request() :: %{}
+
+  """
+  @type get_payment_manager_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_memory_input() :: %{
         optional("addIndexedKeys") => list(indexed_key()),
         optional("clientToken") => String.t() | atom(),
@@ -1999,6 +2183,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_connector_summary() :: %{
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentConnectorId" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type payment_connector_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2136,6 +2335,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_payment_credential_provider_request() :: %{
+        optional("tags") => map(),
+        required("credentialProviderVendor") => list(any()),
+        required("name") => String.t() | atom(),
+        required("providerConfigurationInput") => list()
+      }
+
+  """
+  @type create_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_online_evaluation_configs_response() :: %{
         "nextToken" => [String.t() | atom()],
         "onlineEvaluationConfigs" => list(online_evaluation_config_summary())
@@ -2167,6 +2380,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_gateway_target_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_payment_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2278,6 +2502,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_agent_runtime_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_connector_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "credentialProviderConfigurations" => list(list()),
+        "name" => String.t() | atom(),
+        "paymentConnectorId" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type create_payment_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2647,6 +2888,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_payment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("credentialProviderConfigurations") => list(list()),
+        optional("description") => String.t() | atom(),
+        optional("type") => list(any())
+      }
+
+  """
+  @type update_payment_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       on_behalf_of_token_exchange_config_type() :: %{
         "grantType" => list(any()),
         "tokenExchangeGrantTypeConfig" => token_exchange_grant_type_config_type()
@@ -2679,6 +2934,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type policy_generation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coinbase_cdp_configuration_input() :: %{
+        "apiKeyId" => String.t() | atom(),
+        "apiKeySecret" => String.t() | atom(),
+        "walletSecret" => String.t() | atom()
+      }
+
+  """
+  @type coinbase_cdp_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2965,6 +3233,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_payment_manager_response() :: %{
+        "paymentManagerId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_payment_manager_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       oauth2_credential_provider_item() :: %{
         "createdTime" => [non_neg_integer()],
         "credentialProviderArn" => String.t() | atom(),
@@ -2986,6 +3266,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_credential_provider_configuration() :: %{
+        "credentialProviderArn" => String.t() | atom()
+      }
+
+  """
+  @type payment_credential_provider_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3089,6 +3380,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_payment_credential_provider_response() :: %{
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "providerConfigurationOutput" => list(),
+        "tags" => map()
+      }
+
+  """
+  @type get_payment_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_runtime_endpoint_request() :: %{}
 
   """
@@ -3185,6 +3493,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_payment_manager_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_payment_manager_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       vpc_config() :: %{
         "securityGroups" => list(String.t() | atom()),
         "subnets" => list(String.t() | atom())
@@ -3192,6 +3511,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_credential_providers_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_payment_credential_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3882,6 +4213,22 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_payment_credential_provider_response() :: %{
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "providerConfigurationOutput" => list()
+      }
+
+  """
+  @type update_payment_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       slack_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom()
@@ -4165,6 +4512,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_payment_connector_response() :: %{
+        "credentialProviderConfigurations" => list(list()),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentConnectorId" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type update_payment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       microsoft_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom(),
@@ -4255,6 +4619,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_credential_providers_response() :: %{
+        "credentialProviders" => list(payment_credential_provider_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_payment_credential_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4451,6 +4827,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_manager_response() :: %{
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type create_payment_manager_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4860,6 +5256,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_payment_connector_response() :: %{
+        "paymentConnectorId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_payment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       custom_j_w_t_authorizer_configuration() :: %{
         "allowedAudience" => list(String.t() | atom()),
         "allowedClients" => list(String.t() | atom()),
@@ -5105,6 +5513,33 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_credential_provider_response() :: %{
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "name" => String.t() | atom(),
+        "providerConfigurationOutput" => list()
+      }
+
+  """
+  @type create_payment_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coinbase_cdp_configuration_output() :: %{
+        "apiKeyId" => String.t() | atom(),
+        "apiKeySecretArn" => secret(),
+        "walletSecretArn" => secret()
+      }
+
+  """
+  @type coinbase_cdp_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5449,6 +5884,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_payment_credential_provider_request() :: %{
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type get_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_registry_request() :: %{
         optional("approvalConfiguration") => approval_configuration(),
         optional("authorizerConfiguration") => list(),
@@ -5529,6 +5975,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type agent_runtime() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_connector_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "credentialProviderConfigurations" => list(list()),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentConnectorId" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type get_payment_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5615,6 +6079,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type google_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_connectors_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "paymentConnectors" => list(payment_connector_summary())
+      }
+
+  """
+  @type list_payment_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5909,6 +6385,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_agent_runtime_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_connector_request() :: %{}
+
+  """
+  @type get_payment_connector_request() :: %{}
 
   @typedoc """
 
@@ -6250,6 +6735,25 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      payment_manager_summary() :: %{
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type payment_manager_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluator_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
@@ -6304,6 +6808,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_configuration_bundles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_managers_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "paymentManagers" => list(payment_manager_summary())
+      }
+
+  """
+  @type list_payment_managers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_managers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_payment_managers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6613,6 +7141,36 @@ defmodule AWS.BedrockAgentCoreControl do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_payment_connector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_payment_credential_provider_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_limit_exceeded_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | encryption_failure()
+          | decryption_failure()
+          | unauthorized_exception()
+
+  @type create_payment_manager_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type create_policy_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6776,6 +7334,28 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_payment_connector_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_payment_credential_provider_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type delete_payment_manager_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_policy_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6933,6 +7513,29 @@ defmodule AWS.BedrockAgentCoreControl do
           | unauthorized_exception()
 
   @type get_online_evaluation_config_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_payment_connector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_payment_credential_provider_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | decryption_failure()
+          | unauthorized_exception()
+
+  @type get_payment_manager_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -7103,6 +7706,26 @@ defmodule AWS.BedrockAgentCoreControl do
           | unauthorized_exception()
 
   @type list_online_evaluation_configs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_payment_connectors_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_payment_credential_providers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type list_payment_managers_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -7324,6 +7947,36 @@ defmodule AWS.BedrockAgentCoreControl do
           | unauthorized_exception()
 
   @type update_online_evaluation_config_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_payment_connector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_payment_credential_provider_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | encryption_failure()
+          | decryption_failure()
+          | unauthorized_exception()
+
+  @type update_payment_manager_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -7854,6 +8507,113 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, create_online_evaluation_config_errors()}
   def create_online_evaluation_config(%Client{} = client, input, options \\ []) do
     url_path = "/online-evaluation-configs/create"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a new payment connector for a payment manager.
+
+  A payment connector integrates with a supported payment provider to enable
+  payment processing capabilities.
+  """
+  @spec create_payment_connector(
+          map(),
+          String.t() | atom(),
+          create_payment_connector_request(),
+          list()
+        ) ::
+          {:ok, create_payment_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_payment_connector_errors()}
+  def create_payment_connector(%Client{} = client, payment_manager_id, input, options \\ []) do
+    url_path = "/payments/managers/#{AWS.Util.encode_uri(payment_manager_id)}/connectors"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a new payment credential provider for storing authentication credentials
+  used by payment connectors to communicate with external payment providers.
+  """
+  @spec create_payment_credential_provider(
+          map(),
+          create_payment_credential_provider_request(),
+          list()
+        ) ::
+          {:ok, create_payment_credential_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_payment_credential_provider_errors()}
+  def create_payment_credential_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/CreatePaymentCredentialProvider"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new payment manager in your Amazon Web Services account.
+
+  A payment manager serves as the top-level resource for managing payment
+  processing capabilities, including payment connectors that integrate with
+  supported payment providers.
+
+  If you specify `CUSTOM_JWT` as the `authorizerType`, you must provide an
+  `authorizerConfiguration`.
+  """
+  @spec create_payment_manager(map(), create_payment_manager_request(), list()) ::
+          {:ok, create_payment_manager_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_payment_manager_errors()}
+  def create_payment_manager(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/managers"
     headers = []
     custom_headers = []
     query_params = []
@@ -8604,6 +9364,130 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Deletes a payment connector.
+  """
+  @spec delete_payment_connector(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_payment_connector_request(),
+          list()
+        ) ::
+          {:ok, delete_payment_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_payment_connector_errors()}
+  def delete_payment_connector(
+        %Client{} = client,
+        payment_connector_id,
+        payment_manager_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/payments/managers/#{AWS.Util.encode_uri(payment_manager_id)}/connectors/#{AWS.Util.encode_uri(payment_connector_id)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes a payment credential provider and its associated stored credentials.
+  """
+  @spec delete_payment_credential_provider(
+          map(),
+          delete_payment_credential_provider_request(),
+          list()
+        ) ::
+          {:ok, delete_payment_credential_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_payment_credential_provider_errors()}
+  def delete_payment_credential_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/DeletePaymentCredentialProvider"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a payment manager.
+
+  All payment connectors associated with the payment manager must be deleted
+  before the payment manager can be deleted. This operation initiates the deletion
+  process asynchronously.
+  """
+  @spec delete_payment_manager(
+          map(),
+          String.t() | atom(),
+          delete_payment_manager_request(),
+          list()
+        ) ::
+          {:ok, delete_payment_manager_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_payment_manager_errors()}
+  def delete_payment_manager(%Client{} = client, payment_manager_id, input, options \\ []) do
+    url_path = "/payments/managers/#{AWS.Util.encode_uri(payment_manager_id)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes an existing policy from the AgentCore Policy system.
 
   Once deleted, the policy can no longer be used for agent behavior control and
@@ -9170,6 +10054,78 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, get_online_evaluation_config_errors()}
   def get_online_evaluation_config(%Client{} = client, online_evaluation_config_id, options \\ []) do
     url_path = "/online-evaluation-configs/#{AWS.Util.encode_uri(online_evaluation_config_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a specific payment connector.
+  """
+  @spec get_payment_connector(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_payment_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_payment_connector_errors()}
+  def get_payment_connector(
+        %Client{} = client,
+        payment_connector_id,
+        payment_manager_id,
+        options \\ []
+      ) do
+    url_path =
+      "/payments/managers/#{AWS.Util.encode_uri(payment_manager_id)}/connectors/#{AWS.Util.encode_uri(payment_connector_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a specific payment credential provider.
+  """
+  @spec get_payment_credential_provider(map(), get_payment_credential_provider_request(), list()) ::
+          {:ok, get_payment_credential_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_payment_credential_provider_errors()}
+  def get_payment_credential_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/GetPaymentCredentialProvider"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves information about a specific payment manager.
+  """
+  @spec get_payment_manager(map(), String.t() | atom(), list()) ::
+          {:ok, get_payment_manager_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_payment_manager_errors()}
+  def get_payment_manager(%Client{} = client, payment_manager_id, options \\ []) do
+    url_path = "/payments/managers/#{AWS.Util.encode_uri(payment_manager_id)}"
     headers = []
     query_params = []
 
@@ -9964,6 +10920,114 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, list_online_evaluation_configs_errors()}
   def list_online_evaluation_configs(%Client{} = client, input, options \\ []) do
     url_path = "/online-evaluation-configs"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all payment connectors for a specified payment manager.
+  """
+  @spec list_payment_connectors(
+          map(),
+          String.t() | atom(),
+          list_payment_connectors_request(),
+          list()
+        ) ::
+          {:ok, list_payment_connectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_payment_connectors_errors()}
+  def list_payment_connectors(%Client{} = client, payment_manager_id, input, options \\ []) do
+    url_path = "/payments/managers/#{AWS.Util.encode_uri(payment_manager_id)}/connectors-list"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all payment credential providers in the account.
+  """
+  @spec list_payment_credential_providers(
+          map(),
+          list_payment_credential_providers_request(),
+          list()
+        ) ::
+          {:ok, list_payment_credential_providers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_payment_credential_providers_errors()}
+  def list_payment_credential_providers(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/ListPaymentCredentialProviders"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all payment managers in the account.
+  """
+  @spec list_payment_managers(map(), list_payment_managers_request(), list()) ::
+          {:ok, list_payment_managers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_payment_managers_errors()}
+  def list_payment_managers(%Client{} = client, input, options \\ []) do
+    url_path = "/payments/managers-list"
     headers = []
     custom_headers = []
 
@@ -11047,6 +12111,123 @@ defmodule AWS.BedrockAgentCoreControl do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates an existing payment connector.
+
+  This operation uses PATCH semantics, so you only need to specify the fields you
+  want to change.
+  """
+  @spec update_payment_connector(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_payment_connector_request(),
+          list()
+        ) ::
+          {:ok, update_payment_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_payment_connector_errors()}
+  def update_payment_connector(
+        %Client{} = client,
+        payment_connector_id,
+        payment_manager_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/payments/managers/#{AWS.Util.encode_uri(payment_manager_id)}/connectors/#{AWS.Util.encode_uri(payment_connector_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates an existing payment credential provider with new authentication
+  credentials.
+  """
+  @spec update_payment_credential_provider(
+          map(),
+          update_payment_credential_provider_request(),
+          list()
+        ) ::
+          {:ok, update_payment_credential_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_payment_credential_provider_errors()}
+  def update_payment_credential_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/UpdatePaymentCredentialProvider"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing payment manager.
+
+  This operation uses PATCH semantics, so you only need to specify the fields you
+  want to change.
+  """
+  @spec update_payment_manager(
+          map(),
+          String.t() | atom(),
+          update_payment_manager_request(),
+          list()
+        ) ::
+          {:ok, update_payment_manager_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_payment_manager_errors()}
+  def update_payment_manager(%Client{} = client, payment_manager_id, input, options \\ []) do
+    url_path = "/payments/managers/#{AWS.Util.encode_uri(payment_manager_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

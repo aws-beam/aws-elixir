@@ -22705,6 +22705,7 @@ defmodule AWS.EC2 do
         "ProcessorInfo" => processor_info(),
         "RebootMigrationSupport" => list(any()),
         "SupportedBootModes" => list(list(any())()),
+        "SupportedInRegion" => boolean(),
         "SupportedRootDeviceTypes" => list(list(any())()),
         "SupportedUsageClasses" => list(list(any())()),
         "SupportedVirtualizationTypes" => list(list(any())()),
@@ -30820,6 +30821,7 @@ defmodule AWS.EC2 do
       describe_instance_types_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
+        optional("IncludeUnsupportedInRegion") => boolean(),
         optional("InstanceTypes") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -41486,7 +41488,10 @@ defmodule AWS.EC2 do
   Describes the specified instance types.
 
   By default, all instance types for the current
-  Region are described. Alternatively, you can filter the results.
+  Region are described. Alternatively, you can filter the results. To include
+  instance types
+  that are not supported in the current Region, set `IncludeUnsupportedInRegion`
+  to `true`.
   """
   @spec describe_instance_types(map(), describe_instance_types_request(), list()) ::
           {:ok, describe_instance_types_result(), any()}

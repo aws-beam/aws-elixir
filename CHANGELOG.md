@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.11] - 2026-05-12
+- Add support for endpoint env override
+
 ## [v1.0.10] - 2025-11-21
 - Add support for endpoint env override
 

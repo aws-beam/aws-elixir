@@ -142,6 +142,36 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      list_code_review_job_tasks_input() :: %{
+        optional("categoryName") => [String.t() | atom()],
+        optional("codeReviewJobId") => [String.t() | atom()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("stepName") => list(any()),
+        required("agentSpaceId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_code_review_job_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_review_jobs_for_code_review_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_code_review_jobs_for_code_review_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_space_summary() :: %{
         "agentSpaceId" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
@@ -186,6 +216,20 @@ defmodule AWS.SecurityAgent do
 
   """
   @type list_memberships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_location() :: %{
+        "filePath" => [String.t() | atom()],
+        "label" => [String.t() | atom()],
+        "lineEnd" => [integer()],
+        "lineStart" => [integer()]
+      }
+
+  """
+  @type code_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -243,6 +287,18 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      batch_get_code_review_jobs_output() :: %{
+        "codeReviewJobs" => list(code_review_job()),
+        "notFound" => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_review_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_metadata() :: %{
         "email" => String.t() | atom(),
         "username" => [String.t() | atom()]
@@ -255,6 +311,23 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      update_code_review_input() :: %{
+        optional("assets") => assets(),
+        optional("codeRemediationStrategy") => list(any()),
+        optional("logConfig") => cloud_watch_log(),
+        optional("serviceRole") => String.t() | atom(),
+        optional("title") => [String.t() | atom()],
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewId") => [String.t() | atom()]
+      }
+
+  """
+  @type update_code_review_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_artifact_input() :: %{
         required("agentSpaceId") => String.t() | atom(),
         required("artifactId") => String.t() | atom()
@@ -262,6 +335,18 @@ defmodule AWS.SecurityAgent do
 
   """
   @type delete_artifact_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_reviews_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_reviews_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,6 +366,8 @@ defmodule AWS.SecurityAgent do
 
       finding_summary() :: %{
         "agentSpaceId" => [String.t() | atom()],
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
         "confidence" => list(any()),
         "createdAt" => [non_neg_integer()],
         "findingId" => [String.t() | atom()],
@@ -341,6 +428,25 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      code_review() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "assets" => assets(),
+        "codeRemediationStrategy" => list(any()),
+        "codeReviewId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "logConfig" => cloud_watch_log(),
+        "serviceRole" => String.t() | atom(),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_discovered_endpoints_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -387,6 +493,25 @@ defmodule AWS.SecurityAgent do
 
   """
   @type target_domain_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_review_output() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "assets" => assets(),
+        "codeRemediationStrategy" => list(any()),
+        "codeReviewId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "logConfig" => cloud_watch_log(),
+        "serviceRole" => String.t() | atom(),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type create_code_review_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -504,6 +629,18 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      batch_delete_code_reviews_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_delete_code_reviews_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_pentest_jobs_input() :: %{
         required("agentSpaceId") => [String.t() | atom()],
         required("pentestJobIds") => list([String.t() | atom()]())
@@ -524,6 +661,18 @@ defmodule AWS.SecurityAgent do
 
   """
   @type create_target_domain_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_code_review_job_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewJobId") => [String.t() | atom()]
+      }
+
+  """
+  @type stop_code_review_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -555,6 +704,19 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      list_code_reviews_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agentSpaceId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_code_reviews_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_target_domains_output() :: %{
         "nextToken" => String.t() | atom(),
         "targetDomainSummaries" => list(target_domain_summary())
@@ -562,6 +724,18 @@ defmodule AWS.SecurityAgent do
 
   """
   @type list_target_domains_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_code_reviews_output() :: %{
+        "deleted" => list([String.t() | atom()]()),
+        "failed" => list(delete_code_review_failure())
+      }
+
+  """
+  @type batch_delete_code_reviews_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -680,6 +854,18 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      batch_get_code_review_job_tasks_output() :: %{
+        "codeReviewJobTasks" => list(code_review_job_task()),
+        "notFound" => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_review_job_tasks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_integrated_resources_input() :: %{
         optional("integrationId") => String.t() | atom(),
         optional("maxResults") => integer(),
@@ -706,6 +892,25 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      update_code_review_output() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "assets" => assets(),
+        "codeRemediationStrategy" => list(any()),
+        "codeReviewId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "logConfig" => cloud_watch_log(),
+        "serviceRole" => String.t() | atom(),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_code_review_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_space() :: %{
         "agentSpaceId" => String.t() | atom(),
         "awsResources" => aws_resources(),
@@ -720,6 +925,23 @@ defmodule AWS.SecurityAgent do
 
   """
   @type agent_space() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_code_review_job_output() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type start_code_review_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,6 +978,34 @@ defmodule AWS.SecurityAgent do
 
   """
   @type update_pentest_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_review_failure() :: %{
+        "codeReviewId" => [String.t() | atom()],
+        "reason" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_code_review_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_review_input() :: %{
+        optional("codeRemediationStrategy") => list(any()),
+        optional("logConfig") => cloud_watch_log(),
+        optional("serviceRole") => String.t() | atom(),
+        required("agentSpaceId") => [String.t() | atom()],
+        required("assets") => assets(),
+        required("title") => [String.t() | atom()]
+      }
+
+  """
+  @type create_code_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -894,7 +1144,10 @@ defmodule AWS.SecurityAgent do
       finding() :: %{
         "agentSpaceId" => [String.t() | atom()],
         "attackScript" => [String.t() | atom()],
+        "codeLocations" => list(code_location()),
         "codeRemediationTask" => code_remediation_task(),
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
         "confidence" => list(any()),
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
@@ -931,6 +1184,18 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      batch_get_code_review_job_tasks_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewJobTaskIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_review_job_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_finding_input() :: %{
         optional("riskLevel") => list(any()),
         optional("status") => list(any()),
@@ -960,15 +1225,16 @@ defmodule AWS.SecurityAgent do
   ## Example:
 
       list_findings_input() :: %{
+        optional("codeReviewJobId") => [String.t() | atom()],
         optional("confidence") => list(any()),
         optional("maxResults") => integer(),
         optional("name") => [String.t() | atom()],
         optional("nextToken") => String.t() | atom(),
+        optional("pentestJobId") => [String.t() | atom()],
         optional("riskLevel") => list(any()),
         optional("riskType") => [String.t() | atom()],
         optional("status") => list(any()),
-        required("agentSpaceId") => [String.t() | atom()],
-        required("pentestJobId") => [String.t() | atom()]
+        required("agentSpaceId") => [String.t() | atom()]
       }
 
   """
@@ -1132,6 +1398,27 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      list_code_review_job_tasks_output() :: %{
+        "codeReviewJobTaskSummaries" => list(code_review_job_task_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_code_review_job_tasks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_code_review_job_output() :: %{}
+
+  """
+  @type stop_code_review_job_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       source_code_repository() :: %{
         "s3Location" => [String.t() | atom()]
       }
@@ -1187,6 +1474,21 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      code_review_summary() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "codeReviewId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       add_artifact_input() :: %{
         required("agentSpaceId") => String.t() | atom(),
         required("artifactContent") => [binary()],
@@ -1226,6 +1528,18 @@ defmodule AWS.SecurityAgent do
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_reviews_output() :: %{
+        "codeReviews" => list(code_review()),
+        "notFound" => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_reviews_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1489,6 +1803,18 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      start_code_review_job_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewId") => [String.t() | atom()]
+      }
+
+  """
+  @type start_code_review_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pentest_job_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "pentestId" => [String.t() | atom()],
@@ -1506,9 +1832,10 @@ defmodule AWS.SecurityAgent do
   ## Example:
 
       start_code_remediation_input() :: %{
+        optional("codeReviewJobId") => [String.t() | atom()],
+        optional("pentestJobId") => [String.t() | atom()],
         required("agentSpaceId") => [String.t() | atom()],
-        required("findingIds") => list([String.t() | atom()]()),
-        required("pentestJobId") => [String.t() | atom()]
+        required("findingIds") => list([String.t() | atom()]())
       }
 
   """
@@ -1588,6 +1915,25 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      code_review_job_task_summary() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "executionStatus" => list(any()),
+        "riskType" => list(any()),
+        "taskId" => [String.t() | atom()],
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_job_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_output() :: %{}
 
   """
@@ -1609,6 +1955,18 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      list_code_review_jobs_for_code_review_output() :: %{
+        "codeReviewJobSummaries" => list(code_review_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_code_review_jobs_for_code_review_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => [String.t() | atom()],
         "quotaCode" => [String.t() | atom()],
@@ -1617,6 +1975,32 @@ defmodule AWS.SecurityAgent do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_job() :: %{
+        "codeRemediationStrategy" => list(any()),
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "documents" => list(document_info()),
+        "errorInformation" => error_information(),
+        "executionContext" => list(execution_context()),
+        "integratedRepositories" => list(integrated_repository()),
+        "logConfig" => cloud_watch_log(),
+        "overview" => [String.t() | atom()],
+        "serviceRole" => String.t() | atom(),
+        "sourceCode" => list(source_code_repository()),
+        "status" => list(any()),
+        "steps" => list(step()),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1818,6 +2202,18 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      list_code_reviews_output() :: %{
+        "codeReviewSummaries" => list(code_review_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_code_reviews_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_resources() :: %{
         "iamRoles" => list(String.t() | atom()),
         "lambdaFunctionArns" => list(String.t() | atom()),
@@ -1853,6 +2249,22 @@ defmodule AWS.SecurityAgent do
 
   """
   @type list_artifacts_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_job_summary() :: %{
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1952,6 +2364,18 @@ defmodule AWS.SecurityAgent do
 
   """
   @type batch_get_pentest_job_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_review_jobs_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewJobIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_review_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2092,6 +2516,28 @@ defmodule AWS.SecurityAgent do
 
   """
   @type initiate_provider_registration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_job_task() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "categories" => list(category()),
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "executionStatus" => list(any()),
+        "logsLocation" => log_location(),
+        "riskType" => list(any()),
+        "taskId" => [String.t() | atom()],
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_job_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2270,6 +2716,34 @@ defmodule AWS.SecurityAgent do
   end
 
   @doc """
+  Deletes one or more code reviews from an agent space.
+  """
+  @spec batch_delete_code_reviews(map(), batch_delete_code_reviews_input(), list()) ::
+          {:ok, batch_delete_code_reviews_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def batch_delete_code_reviews(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchDeleteCodeReviews"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes one or more pentests from an agent space.
   """
   @spec batch_delete_pentests(map(), batch_delete_pentests_input(), list()) ::
@@ -2335,6 +2809,90 @@ defmodule AWS.SecurityAgent do
           | {:error, batch_get_artifact_metadata_errors()}
   def batch_get_artifact_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetArtifactMetadata"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves information about one or more tasks within a code review job.
+  """
+  @spec batch_get_code_review_job_tasks(map(), batch_get_code_review_job_tasks_input(), list()) ::
+          {:ok, batch_get_code_review_job_tasks_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def batch_get_code_review_job_tasks(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchGetCodeReviewJobTasks"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves information about one or more code review jobs in an agent space.
+  """
+  @spec batch_get_code_review_jobs(map(), batch_get_code_review_jobs_input(), list()) ::
+          {:ok, batch_get_code_review_jobs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def batch_get_code_review_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchGetCodeReviewJobs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves information about one or more code reviews in an agent space.
+  """
+  @spec batch_get_code_reviews(map(), batch_get_code_reviews_input(), list()) ::
+          {:ok, batch_get_code_reviews_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def batch_get_code_reviews(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchGetCodeReviews"
     headers = []
     custom_headers = []
     query_params = []
@@ -2536,6 +3094,37 @@ defmodule AWS.SecurityAgent do
           | {:error, term()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/CreateApplication"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new code review configuration in an agent space.
+
+  A code review defines the parameters for automated security-focused code
+  analysis.
+  """
+  @spec create_code_review(map(), create_code_review_input(), list()) ::
+          {:ok, create_code_review_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_code_review(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateCodeReview"
     headers = []
     custom_headers = []
     query_params = []
@@ -3053,6 +3642,96 @@ defmodule AWS.SecurityAgent do
   end
 
   @doc """
+  Returns a paginated list of task summaries for the specified code review job,
+  optionally filtered by step name or category.
+  """
+  @spec list_code_review_job_tasks(map(), list_code_review_job_tasks_input(), list()) ::
+          {:ok, list_code_review_job_tasks_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_code_review_job_tasks(%Client{} = client, input, options \\ []) do
+    url_path = "/ListCodeReviewJobTasks"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a paginated list of code review job summaries for the specified code
+  review configuration.
+  """
+  @spec list_code_review_jobs_for_code_review(
+          map(),
+          list_code_review_jobs_for_code_review_input(),
+          list()
+        ) ::
+          {:ok, list_code_review_jobs_for_code_review_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_code_review_jobs_for_code_review(%Client{} = client, input, options \\ []) do
+    url_path = "/ListCodeReviewJobsForCodeReview"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a paginated list of code review summaries for the specified agent space.
+  """
+  @spec list_code_reviews(map(), list_code_reviews_input(), list()) ::
+          {:ok, list_code_reviews_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_code_reviews(%Client{} = client, input, options \\ []) do
+    url_path = "/ListCodeReviews"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a paginated list of endpoints discovered during a pentest job execution.
   """
   @spec list_discovered_endpoints(map(), list_discovered_endpoints_input(), list()) ::
@@ -3360,6 +4039,36 @@ defmodule AWS.SecurityAgent do
   end
 
   @doc """
+  Starts a new code review job for a code review configuration.
+
+  The job executes the security-focused code analysis defined in the code review.
+  """
+  @spec start_code_review_job(map(), start_code_review_job_input(), list()) ::
+          {:ok, start_code_review_job_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def start_code_review_job(%Client{} = client, input, options \\ []) do
+    url_path = "/StartCodeReviewJob"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Starts a new pentest job for a pentest configuration.
 
   The job executes the security tests defined in the pentest.
@@ -3370,6 +4079,37 @@ defmodule AWS.SecurityAgent do
           | {:error, term()}
   def start_pentest_job(%Client{} = client, input, options \\ []) do
     url_path = "/StartPentestJob"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops a running code review job.
+
+  The job transitions to a stopping state and then to stopped after cleanup
+  completes.
+  """
+  @spec stop_code_review_job(map(), stop_code_review_job_input(), list()) ::
+          {:ok, stop_code_review_job_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def stop_code_review_job(%Client{} = client, input, options \\ []) do
+    url_path = "/StopCodeReviewJob"
     headers = []
     custom_headers = []
     query_params = []
@@ -3520,6 +4260,34 @@ defmodule AWS.SecurityAgent do
           | {:error, term()}
   def update_application(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateApplication"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing code review configuration.
+  """
+  @spec update_code_review(map(), update_code_review_input(), list()) ::
+          {:ok, update_code_review_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def update_code_review(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateCodeReview"
     headers = []
     custom_headers = []
     query_params = []

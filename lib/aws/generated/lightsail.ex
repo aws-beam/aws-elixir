@@ -3947,6 +3947,7 @@ defmodule AWS.Lightsail do
   ## Example:
       
       input_origin() :: %{
+        "ipAddressType" => list(any()),
         "name" => String.t() | atom(),
         "protocolPolicy" => list(any()),
         "regionName" => list(any()),
@@ -4167,6 +4168,7 @@ defmodule AWS.Lightsail do
   ## Example:
       
       origin() :: %{
+        "ipAddressType" => list(any()),
         "name" => String.t() | atom(),
         "protocolPolicy" => list(any()),
         "regionName" => list(any()),

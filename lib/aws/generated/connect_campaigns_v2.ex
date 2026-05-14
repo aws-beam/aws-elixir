@@ -301,7 +301,8 @@ defmodule AWS.ConnectCampaignsV2 do
 
       local_time_zone_config() :: %{
         "defaultTimeZone" => String.t() | atom(),
-        "localTimeZoneDetection" => list(String.t() | atom())
+        "localTimeZoneDetection" => list(String.t() | atom()),
+        "localTimeZoneDetectionScope" => String.t() | atom()
       }
 
   """

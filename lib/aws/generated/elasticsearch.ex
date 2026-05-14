@@ -605,6 +605,7 @@ defmodule AWS.Elasticsearch do
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options_input(),
+        optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
         optional("CognitoOptions") => cognito_options(),
         optional("DeploymentStrategyOptions") => deployment_strategy_options(),
         optional("DomainEndpointOptions") => domain_endpoint_options(),
@@ -970,6 +971,19 @@ defmodule AWS.Elasticsearch do
 
   ## Example:
 
+      automated_snapshot_pause_request_options() :: %{
+        "Enabled" => boolean(),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type automated_snapshot_pause_request_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_upgrade_history_response() :: %{
         "NextToken" => String.t() | atom(),
         "UpgradeHistories" => list(upgrade_history())
@@ -1079,6 +1093,7 @@ defmodule AWS.Elasticsearch do
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options(),
+        optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
         optional("CognitoOptions") => cognito_options(),
         optional("DeploymentStrategyOptions") => deployment_strategy_options(),
         optional("DomainEndpointOptions") => domain_endpoint_options(),
@@ -1294,6 +1309,7 @@ defmodule AWS.Elasticsearch do
         "AdvancedOptions" => advanced_options_status(),
         "AdvancedSecurityOptions" => advanced_security_options_status(),
         "AutoTuneOptions" => auto_tune_options_status(),
+        "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options_status(),
         "ChangeProgressDetails" => change_progress_details(),
         "CognitoOptions" => cognito_options_status(),
         "DeploymentStrategyOptions" => deployment_strategy_options_status(),
@@ -1323,6 +1339,18 @@ defmodule AWS.Elasticsearch do
 
   """
   @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_snapshot_pause_options_status() :: %{
+        "Options" => automated_snapshot_pause_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type automated_snapshot_pause_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1656,6 +1684,20 @@ defmodule AWS.Elasticsearch do
 
   ## Example:
 
+      automated_snapshot_pause_options() :: %{
+        "Enabled" => boolean(),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type automated_snapshot_pause_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_elasticsearch_domain_config_request() :: %{}
 
   """
@@ -1834,6 +1876,7 @@ defmodule AWS.Elasticsearch do
         "AdvancedOptions" => map(),
         "AdvancedSecurityOptions" => advanced_security_options(),
         "AutoTuneOptions" => auto_tune_options_output(),
+        "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options(),
         "ChangeProgressDetails" => change_progress_details(),
         "CognitoOptions" => cognito_options(),
         "Created" => boolean(),

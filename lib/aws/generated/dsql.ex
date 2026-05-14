@@ -37,6 +37,18 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      status_reason() :: %{
+        "error" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type status_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_cluster_policy_output() :: %{
         "policy" => String.t() | atom(),
         "policyVersion" => String.t() | atom()
@@ -66,10 +78,53 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      get_stream_output() :: %{
+        "arn" => String.t() | atom(),
+        "clusterIdentifier" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "format" => list(any()),
+        "ordering" => list(any()),
+        "status" => list(any()),
+        "statusReason" => status_reason(),
+        "streamIdentifier" => String.t() | atom(),
+        "tags" => map(),
+        "targetDefinition" => list()
+      }
+
+  """
+  @type get_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_stream_input() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_cluster_input() :: %{}
 
   """
   @type get_cluster_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      kinesis_target_definition() :: %{
+        "roleArn" => String.t() | atom(),
+        "streamArn" => String.t() | atom()
+      }
+
+  """
+  @type kinesis_target_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,6 +148,18 @@ defmodule AWS.DSQL do
 
   """
   @type list_clusters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_streams_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "streams" => list(stream_summary())
+      }
+
+  """
+  @type list_streams_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -231,6 +298,15 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      get_stream_input() :: %{}
+
+  """
+  @type get_stream_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_input() :: %{
         required("tags") => map()
       }
@@ -292,6 +368,18 @@ defmodule AWS.DSQL do
 
   """
   @type create_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_streams_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_streams_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,6 +469,36 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      stream_summary() :: %{
+        "arn" => String.t() | atom(),
+        "clusterIdentifier" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "status" => list(any()),
+        "streamIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type stream_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stream_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("format") => list(any()),
+        required("ordering") => list(any()),
+        required("targetDefinition") => list()
+      }
+
+  """
+  @type create_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       encryption_details() :: %{
         "encryptionStatus" => list(any()),
         "encryptionType" => list(any()),
@@ -417,10 +535,42 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      create_stream_output() :: %{
+        "arn" => String.t() | atom(),
+        "clusterIdentifier" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "format" => list(any()),
+        "ordering" => list(any()),
+        "status" => list(any()),
+        "streamIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type create_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_vpc_endpoint_service_name_input() :: %{}
 
   """
   @type get_vpc_endpoint_service_name_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_stream_output() :: %{
+        "arn" => String.t() | atom(),
+        "clusterIdentifier" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "status" => list(any()),
+        "streamIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type delete_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -434,14 +584,24 @@ defmodule AWS.DSQL do
   @type create_cluster_errors() ::
           validation_exception() | service_quota_exceeded_exception() | conflict_exception()
 
+  @type create_stream_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_cluster_errors() :: resource_not_found_exception() | conflict_exception()
 
   @type delete_cluster_policy_errors() ::
           validation_exception() | resource_not_found_exception() | conflict_exception()
 
+  @type delete_stream_errors() :: resource_not_found_exception() | conflict_exception()
+
   @type get_cluster_errors() :: resource_not_found_exception()
 
   @type get_cluster_policy_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type get_stream_errors() :: resource_not_found_exception()
 
   @type get_vpc_endpoint_service_name_errors() ::
           throttling_exception()
@@ -450,6 +610,8 @@ defmodule AWS.DSQL do
           | resource_not_found_exception()
 
   @type list_clusters_errors() :: resource_not_found_exception()
+
+  @type list_streams_errors() :: resource_not_found_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
@@ -566,6 +728,62 @@ defmodule AWS.DSQL do
   end
 
   @doc """
+  Creates a new change data capture (CDC) stream for a cluster.
+
+  The stream captures database changes and delivers them to the specified target
+  destination.
+
+  ## Required permissions
+
+  ## Definitions
+
+  ### dsql:CreateStream
+
+  Permission to create a new stream.
+
+  Resources: `arn:aws:dsql:region:account-id:cluster/cluster-id`
+
+  ### iam:PassRole
+
+  Permission to pass the IAM role specified in the target definition to the
+  service.
+
+  Resources: ARN of the IAM role specified in `targetDefinition.kinesis.roleArn`
+
+  ### kms:Decrypt
+
+  Required when the cluster uses a customer managed KMS key (CMK). Permission to
+  decrypt data using the cluster's CMK.
+
+  Resources: ARN of the KMS key used by the cluster
+  """
+  @spec create_stream(map(), String.t() | atom(), create_stream_input(), list()) ::
+          {:ok, create_stream_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_stream_errors()}
+  def create_stream(%Client{} = client, cluster_identifier, input, options \\ []) do
+    url_path = "/stream/#{AWS.Util.encode_uri(cluster_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a cluster in Amazon Aurora DSQL.
   """
   @spec delete_cluster(map(), String.t() | atom(), delete_cluster_input(), list()) ::
@@ -638,6 +856,54 @@ defmodule AWS.DSQL do
   end
 
   @doc """
+  Deletes a stream from a cluster.
+  """
+  @spec delete_stream(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_stream_input(),
+          list()
+        ) ::
+          {:ok, delete_stream_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_stream_errors()}
+  def delete_stream(
+        %Client{} = client,
+        cluster_identifier,
+        stream_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/stream/#{AWS.Util.encode_uri(cluster_identifier)}/#{AWS.Util.encode_uri(stream_identifier)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "client-token"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves information about a cluster.
   """
   @spec get_cluster(map(), String.t() | atom(), list()) ::
@@ -676,6 +942,26 @@ defmodule AWS.DSQL do
   end
 
   @doc """
+  Retrieves information about a stream.
+  """
+  @spec get_stream(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_stream_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_stream_errors()}
+  def get_stream(%Client{} = client, cluster_identifier, stream_identifier, options \\ []) do
+    url_path =
+      "/stream/#{AWS.Util.encode_uri(cluster_identifier)}/#{AWS.Util.encode_uri(stream_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the VPC endpoint service name.
   """
   @spec get_vpc_endpoint_service_name(map(), String.t() | atom(), list()) ::
@@ -703,6 +989,50 @@ defmodule AWS.DSQL do
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/cluster"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a list of streams for a cluster.
+  """
+  @spec list_streams(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_streams_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_streams_errors()}
+  def list_streams(
+        %Client{} = client,
+        cluster_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/stream/#{AWS.Util.encode_uri(cluster_identifier)}"
     headers = []
     query_params = []
 

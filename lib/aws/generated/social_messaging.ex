@@ -85,6 +85,7 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       associate_whats_app_business_account_output() :: %{
+        "linkedWhatsAppBusinessAccountId" => String.t() | atom(),
         "signupCallbackResult" => whats_app_signup_callback_result(),
         "statusCode" => [integer()]
       }
@@ -121,11 +122,13 @@ defmodule AWS.SocialMessaging do
 
       update_whats_app_message_template_input() :: %{
         optional("ctaUrlLinkTrackingOptedOut") => boolean(),
+        optional("metaTemplateId") => String.t() | atom(),
         optional("parameterFormat") => String.t() | atom(),
         optional("templateCategory") => String.t() | atom(),
         optional("templateComponents") => binary(),
-        required("id") => String.t() | atom(),
-        required("metaTemplateId") => String.t() | atom()
+        optional("templateLanguageCode") => String.t() | atom(),
+        optional("templateName") => String.t() | atom(),
+        required("id") => String.t() | atom()
       }
 
   """
@@ -213,8 +216,10 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       get_whats_app_message_template_input() :: %{
-        required("id") => String.t() | atom(),
-        required("metaTemplateId") => String.t() | atom()
+        optional("metaTemplateId") => String.t() | atom(),
+        optional("templateLanguageCode") => String.t() | atom(),
+        optional("templateName") => String.t() | atom(),
+        required("id") => String.t() | atom()
       }
 
   """
@@ -240,6 +245,7 @@ defmodule AWS.SocialMessaging do
         "eventDestinations" => list(whats_app_business_account_event_destination()),
         "id" => String.t() | atom(),
         "linkDate" => non_neg_integer(),
+        "marketingMessagesOnboardingStatus" => String.t() | atom(),
         "registrationStatus" => list(any()),
         "wabaId" => String.t() | atom(),
         "wabaName" => String.t() | atom()
@@ -413,6 +419,7 @@ defmodule AWS.SocialMessaging do
         "eventDestinations" => list(whats_app_business_account_event_destination()),
         "id" => String.t() | atom(),
         "linkDate" => non_neg_integer(),
+        "marketingMessagesOnboardingStatus" => String.t() | atom(),
         "phoneNumbers" => list(whats_app_phone_number_summary()),
         "registrationStatus" => list(any()),
         "wabaId" => String.t() | atom(),
@@ -1461,15 +1468,43 @@ defmodule AWS.SocialMessaging do
   @doc """
   Retrieves a specific WhatsApp message template.
   """
-  @spec get_whats_app_message_template(map(), String.t() | atom(), String.t() | atom(), list()) ::
+  @spec get_whats_app_message_template(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_whats_app_message_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_whats_app_message_template_errors()}
-  def get_whats_app_message_template(%Client{} = client, id, meta_template_id, options \\ []) do
+  def get_whats_app_message_template(
+        %Client{} = client,
+        id,
+        meta_template_id \\ nil,
+        template_language_code \\ nil,
+        template_name \\ nil,
+        options \\ []
+      ) do
     url_path = "/v1/whatsapp/template"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(template_name) do
+        [{"templateName", template_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(template_language_code) do
+        [{"templateLanguageCode", template_language_code} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(meta_template_id) do

@@ -1063,6 +1063,7 @@ defmodule AWS.SageMaker do
         "CapacityReservation" => capacity_reservation(),
         "CustomerEni" => [String.t() | atom()],
         "FailureMessage" => [String.t() | atom()],
+        "InstanceRequirementsEniConfigurations" => list(instance_requirements_eni_configuration()),
         "LcsExecutionState" => [String.t() | atom()],
         "NodeLogicalId" => String.t() | atom()
       }
@@ -1963,6 +1964,7 @@ defmodule AWS.SageMaker do
       describe_model_package_group_output() :: %{
         "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
+        "ManagedConfiguration" => managed_configuration(),
         "ModelPackageGroupArn" => String.t() | atom(),
         "ModelPackageGroupDescription" => String.t() | atom(),
         "ModelPackageGroupName" => String.t() | atom(),
@@ -10876,6 +10878,7 @@ defmodule AWS.SageMaker do
         "Description" => [String.t() | atom()],
         "EventDetails" => event_details(),
         "EventId" => String.t() | atom(),
+        "EventLevel" => list(any()),
         "EventTime" => non_neg_integer(),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceId" => [String.t() | atom()],
@@ -11104,6 +11107,18 @@ defmodule AWS.SageMaker do
       
   """
   @type additional_model_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_requirements_eni_configuration() :: %{
+        "AdditionalEnis" => additional_enis(),
+        "CustomerEni" => [String.t() | atom()]
+      }
+      
+  """
+  @type instance_requirements_eni_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12004,6 +12019,7 @@ defmodule AWS.SageMaker do
         "ClusterName" => String.t() | atom(),
         "Description" => [String.t() | atom()],
         "EventId" => String.t() | atom(),
+        "EventLevel" => list(any()),
         "EventTime" => non_neg_integer(),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceId" => [String.t() | atom()],
@@ -12116,6 +12132,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_model_package_group_input() :: %{
+        optional("ManagedConfiguration") => managed_configuration(),
         optional("ModelPackageGroupDescription") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("ModelPackageGroupName") => String.t() | atom()
@@ -12362,6 +12379,7 @@ defmodule AWS.SageMaker do
         optional("Domain") => String.t() | atom(),
         optional("DriftCheckBaselines") => drift_check_baselines(),
         optional("InferenceSpecification") => inference_specification(),
+        optional("ManagedStorageType") => list(any()),
         optional("MetadataProperties") => metadata_properties(),
         optional("ModelApprovalStatus") => list(any()),
         optional("ModelCard") => model_package_model_card(),
@@ -14033,6 +14051,7 @@ defmodule AWS.SageMaker do
       
       model_package_group_summary() :: %{
         "CreationTime" => non_neg_integer(),
+        "ManagedConfiguration" => managed_configuration(),
         "ModelPackageGroupArn" => String.t() | atom(),
         "ModelPackageGroupDescription" => String.t() | atom(),
         "ModelPackageGroupName" => String.t() | atom(),
@@ -15795,6 +15814,7 @@ defmodule AWS.SageMaker do
         "CheckpointConfig" => checkpoint_config(),
         "Tags" => list(tag()),
         "TrainingEndTime" => non_neg_integer(),
+        "WarmPoolStatus" => warm_pool_status(),
         "BillableTimeInSeconds" => integer(),
         "LabelingJobArn" => String.t() | atom(),
         "TensorBoardOutputConfig" => tensor_board_output_config(),
@@ -17094,7 +17114,8 @@ defmodule AWS.SageMaker do
         "LifecycleConfigArn" => String.t() | atom(),
         "SageMakerImageArn" => String.t() | atom(),
         "SageMakerImageVersionAlias" => String.t() | atom(),
-        "SageMakerImageVersionArn" => String.t() | atom()
+        "SageMakerImageVersionArn" => String.t() | atom(),
+        "TrainingPlanArn" => String.t() | atom()
       }
       
   """
@@ -18225,6 +18246,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       studio_web_portal_settings() :: %{
+        "ExecutionRoleSessionNameMode" => list(any()),
         "HiddenAppTypes" => list(list(any())()),
         "HiddenInstanceTypes" => list(list(any())()),
         "HiddenMlTools" => list(list(any())()),
@@ -18823,6 +18845,17 @@ defmodule AWS.SageMaker do
       
   """
   @type create_training_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_configuration() :: %{
+        "ManagedStorageType" => list(any())
+      }
+      
+  """
+  @type managed_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19821,6 +19854,7 @@ defmodule AWS.SageMaker do
         "InferenceSpecification" => inference_specification(),
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
+        "ManagedStorageType" => list(any()),
         "MetadataProperties" => metadata_properties(),
         "ModelApprovalStatus" => list(any()),
         "ModelCard" => model_package_model_card(),

@@ -753,6 +753,7 @@ defmodule AWS.OpenSearch do
         "AdvancedOptions" => advanced_options_status(),
         "AdvancedSecurityOptions" => advanced_security_options_status(),
         "AutoTuneOptions" => auto_tune_options_status(),
+        "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options_status(),
         "ChangeProgressDetails" => change_progress_details(),
         "ClusterConfig" => cluster_config_status(),
         "CognitoOptions" => cognito_options_status(),
@@ -1505,6 +1506,7 @@ defmodule AWS.OpenSearch do
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options_input(),
+        optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
         optional("ClusterConfig") => cluster_config(),
         optional("CognitoOptions") => cognito_options(),
         optional("DeploymentStrategyOptions") => deployment_strategy_options(),
@@ -1692,6 +1694,19 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      automated_snapshot_pause_request_options() :: %{
+        "Enabled" => boolean(),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type automated_snapshot_pause_request_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_insight_details_request() :: %{
         optional("ShowHtmlContent") => boolean(),
         required("Entity") => insight_entity(),
@@ -1761,6 +1776,7 @@ defmodule AWS.OpenSearch do
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options(),
+        optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
         optional("ClusterConfig") => cluster_config(),
         optional("CognitoOptions") => cognito_options(),
         optional("DeploymentStrategyOptions") => deployment_strategy_options(),
@@ -2317,6 +2333,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      automated_snapshot_pause_options_status() :: %{
+        "Options" => automated_snapshot_pause_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type automated_snapshot_pause_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       inbound_connection() :: %{
         "ConnectionId" => String.t() | atom(),
         "ConnectionMode" => list(any()),
@@ -2506,6 +2534,7 @@ defmodule AWS.OpenSearch do
         "DeploymentStrategyOptions" => deployment_strategy_options(),
         "OffPeakWindowOptions" => off_peak_window_options(),
         "SoftwareUpdateOptions" => software_update_options(),
+        "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options(),
         "Deleted" => boolean(),
         "IPAddressType" => list(any()),
         "EncryptionAtRestOptions" => encryption_at_rest_options(),
@@ -2941,6 +2970,20 @@ defmodule AWS.OpenSearch do
 
   """
   @type describe_domain_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_snapshot_pause_options() :: %{
+        "Enabled" => boolean(),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type automated_snapshot_pause_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

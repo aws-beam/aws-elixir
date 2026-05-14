@@ -297,6 +297,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_policy_generation_summaries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_generation_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_configuration_bundle_request() :: %{}
 
   """
@@ -669,6 +681,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_memory_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_summary_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1761,6 +1790,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_policy_generation_summary_request() :: %{}
+
+  """
+  @type get_policy_generation_summary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_evaluator_response() :: %{
         "evaluatorArn" => String.t() | atom(),
         "evaluatorId" => String.t() | atom(),
@@ -1902,6 +1940,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type semantic_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_summaries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("targetResourceScope") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_summaries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2209,6 +2260,25 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type session_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_generation_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "findings" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyGenerationArn" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom(),
+        "resource" => list(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_generation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2871,6 +2941,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_policy_engine_summary_request() :: %{}
+
+  """
+  @type get_policy_engine_summary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_online_evaluation_config_response() :: %{
         "createdAt" => [non_neg_integer()],
         "executionStatus" => list(any()),
@@ -3505,6 +3584,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       vpc_config() :: %{
+        "requireServiceS3Endpoint" => [boolean()],
         "securityGroups" => list(String.t() | atom()),
         "subnets" => list(String.t() | atom())
       }
@@ -4501,6 +4581,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_policy_summary_request() :: %{}
+
+  """
+  @type get_policy_summary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -4577,6 +4666,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_summaries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policies" => list(policy_summary())
+      }
+
+  """
+  @type list_policy_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5126,6 +5227,25 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_policy_generation_summary_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "findings" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyGenerationArn" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom(),
+        "resource" => list(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_generation_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_registry_record_status_request() :: %{
         required("status") => list(any()),
         required("statusReason") => [String.t() | atom()]
@@ -5196,6 +5316,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      policy_engine_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_engine_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       browser_signing_config_output() :: %{
         "enabled" => [boolean()]
       }
@@ -5235,6 +5372,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       list_registries_request() :: %{
+        optional("authorizerType") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
@@ -5641,6 +5779,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_policy_engine_summaries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_engine_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_gateway_rule_response() :: %{
         "actions" => list(list()),
         "conditions" => list(list()),
@@ -5796,6 +5946,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type weighted_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5975,6 +6142,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type agent_runtime() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_engine_summary_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_engine_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6244,6 +6428,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type policy_engine() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generation_summaries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyGenerations" => list(policy_generation_summary())
+      }
+
+  """
+  @type list_policy_generation_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6633,6 +6829,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type recording_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_engine_summaries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyEngines" => list(policy_engine_summary())
+      }
+
+  """
+  @type list_policy_engine_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7556,7 +7764,28 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_policy_engine_summary_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_policy_generation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_policy_generation_summary_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_policy_summary_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -7738,6 +7967,12 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_policy_engine_summaries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_policy_engines_errors() ::
           throttling_exception()
           | validation_exception()
@@ -7751,7 +7986,21 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_policy_generation_summaries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_policy_generations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_policy_summaries_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -10182,6 +10431,31 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Retrieves a metadata-only summary of a specific policy engine without decrypting
+  customer content.
+
+  This lightweight read operation returns resource identifiers, status,
+  timestamps, and the encryption key ARN, but does not include the description or
+  status reasons. Because this operation does not require access to the customer's
+  KMS key, it is suitable for resource discovery, inventory, and integration
+  scenarios where only metadata is needed.
+  """
+  @spec get_policy_engine_summary(map(), String.t() | atom(), list()) ::
+          {:ok, get_policy_engine_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_engine_summary_errors()}
+  def get_policy_engine_summary(%Client{} = client, policy_engine_id, options \\ []) do
+    url_path = "/policy-engine-summaries/#{AWS.Util.encode_uri(policy_engine_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a policy generation request within the AgentCore
   Policy system.
 
@@ -10202,6 +10476,65 @@ defmodule AWS.BedrockAgentCoreControl do
       ) do
     url_path =
       "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-generations/#{AWS.Util.encode_uri(policy_generation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a metadata-only summary of a specific policy generation request
+  without decrypting customer content.
+
+  This lightweight read operation returns resource identifiers, status,
+  timestamps, and findings, but does not include status reasons. Because this
+  operation does not require access to the customer's KMS key, it is suitable for
+  resource discovery, inventory, and integration scenarios where only metadata is
+  needed.
+  """
+  @spec get_policy_generation_summary(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_policy_generation_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_generation_summary_errors()}
+  def get_policy_generation_summary(
+        %Client{} = client,
+        policy_engine_id,
+        policy_generation_id,
+        options \\ []
+      ) do
+    url_path =
+      "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-generation-summaries/#{AWS.Util.encode_uri(policy_generation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a metadata-only summary of a specific policy without decrypting
+  customer content.
+
+  This lightweight read operation returns resource identifiers, status, and
+  timestamps, but does not include the policy definition, description, or status
+  reasons. Because this operation does not require access to the customer's KMS
+  key, it is suitable for resource discovery, inventory, and integration scenarios
+  where only metadata is needed.
+  """
+  @spec get_policy_summary(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_policy_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_summary_errors()}
+  def get_policy_summary(%Client{} = client, policy_engine_id, policy_id, options \\ []) do
+    url_path =
+      "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-summaries/#{AWS.Util.encode_uri(policy_id)}"
 
     headers = []
     query_params = []
@@ -11111,6 +11444,55 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Retrieves a paginated list of metadata-only policy engine summaries without
+  decrypting customer content.
+
+  This lightweight read operation returns resource identifiers, status, and
+  timestamps for each policy engine, but does not include descriptions or status
+  reasons. Because this operation does not require access to the customer's KMS
+  key, it is suitable for resource discovery, inventory, and integration scenarios
+  where only metadata is needed.
+  """
+  @spec list_policy_engine_summaries(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_policy_engine_summaries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_policy_engine_summaries_errors()}
+  def list_policy_engine_summaries(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/policy-engine-summaries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of policy engines within the AgentCore Policy system.
 
   This operation supports pagination to help administrators discover and manage
@@ -11205,6 +11587,59 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Retrieves a paginated list of metadata-only policy generation summaries within a
+  policy engine without decrypting customer content.
+
+  This lightweight read operation returns resource identifiers, status,
+  timestamps, and findings for each policy generation, but does not include status
+  reasons. Because this operation does not require access to the customer's KMS
+  key, it is suitable for resource discovery, inventory, and integration scenarios
+  where only metadata is needed.
+  """
+  @spec list_policy_generation_summaries(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_policy_generation_summaries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_policy_generation_summaries_errors()}
+  def list_policy_generation_summaries(
+        %Client{} = client,
+        policy_engine_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-generation-summaries"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of policy generation requests within the AgentCore Policy
   system.
 
@@ -11253,12 +11688,74 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Retrieves a paginated list of metadata-only policy summaries within a policy
+  engine without decrypting customer content.
+
+  This lightweight read operation returns resource identifiers, status, and
+  timestamps for each policy, but does not include policy definitions,
+  descriptions, or status reasons. Because this operation does not require access
+  to the customer's KMS key, it is suitable for resource discovery, inventory, and
+  integration scenarios where only metadata is needed.
+  """
+  @spec list_policy_summaries(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_policy_summaries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_policy_summaries_errors()}
+  def list_policy_summaries(
+        %Client{} = client,
+        policy_engine_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        target_resource_scope \\ nil,
+        options \\ []
+      ) do
+    url_path = "/policy-engines/#{AWS.Util.encode_uri(policy_engine_id)}/policy-summaries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(target_resource_scope) do
+        [{"targetResourceScope", target_resource_scope} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all registries in the account.
 
-  You can optionally filter results by status using the `status` parameter.
+  You can optionally filter results by status using the `status` parameter, or by
+  authorizer type using the `authorizerType` parameter.
   """
   @spec list_registries(
           map(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -11270,6 +11767,7 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, list_registries_errors()}
   def list_registries(
         %Client{} = client,
+        authorizer_type \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         status \\ nil,
@@ -11296,6 +11794,13 @@ defmodule AWS.BedrockAgentCoreControl do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(authorizer_type) do
+        [{"authorizerType", authorizer_type} | query_params]
       else
         query_params
       end

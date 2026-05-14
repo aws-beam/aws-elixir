@@ -364,6 +364,19 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      event_source_mapping() :: %{
+        "arn" => String.t() | atom(),
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()]
+      }
+      
+  """
+  @type event_source_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associated_alarm() :: %{
         "alarmType" => list(any()),
         "crossAccountRole" => String.t() | atom(),
@@ -969,6 +982,20 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      lambda_event_source_mapping_configuration() :: %{
+        "action" => list(any()),
+        "regionEventSourceMappings" => map(),
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => lambda_event_source_mapping_ungraceful()
+      }
+      
+  """
+  @type lambda_event_source_mapping_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_plan_execution_request() :: %{
         optional("comment") => String.t() | atom(),
         optional("latestVersion") => [String.t() | atom()],
@@ -1209,6 +1236,17 @@ defmodule AWS.ARCRegionswitch do
       
   """
   @type rds_promote_read_replica_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_event_source_mapping_ungraceful() :: %{
+        "behavior" => list(any())
+      }
+      
+  """
+  @type lambda_event_source_mapping_ungraceful() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

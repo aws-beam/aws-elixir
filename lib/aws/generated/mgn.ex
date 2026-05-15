@@ -85,6 +85,7 @@ defmodule AWS.Mgn do
         "mapperSegmentID" => String.t() | atom(),
         "networkMigrationDefinitionID" => String.t() | atom(),
         "networkMigrationExecutionID" => String.t() | atom(),
+        "referencedSegments" => list(String.t() | atom()),
         "segmentID" => String.t() | atom(),
         "segmentType" => String.t() | atom()
       }

@@ -4598,6 +4598,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_catalogs_request() :: %{
+        optional("HasDatabases") => boolean(),
         optional("IncludeRoot") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),

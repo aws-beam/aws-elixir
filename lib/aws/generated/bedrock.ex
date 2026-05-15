@@ -565,6 +565,27 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_advanced_prompt_optimization_job_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "failureMessage" => String.t() | atom(),
+        "inputConfig" => advanced_prompt_optimization_input_config(),
+        "jobArn" => String.t() | atom(),
+        "jobDescription" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
+        "jobStatus" => list(any()),
+        "lastModifiedTime" => non_neg_integer(),
+        "modelConfigurations" => list(model_configuration()),
+        "outputConfig" => advanced_prompt_optimization_output_config()
+      }
+
+  """
+  @type get_advanced_prompt_optimization_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_guardrail_request() :: %{
         optional("automatedReasoningPolicyConfig") => guardrail_automated_reasoning_policy_config(),
         optional("clientRequestToken") => String.t() | atom(),
@@ -733,6 +754,20 @@ defmodule AWS.Bedrock do
 
   """
   @type external_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_configuration() :: %{
+        "maxTokens" => [integer()],
+        "stopSequences" => list([String.t() | atom()]()),
+        "temperature" => [float()],
+        "topP" => [float()]
+      }
+
+  """
+  @type inference_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1225,6 +1260,21 @@ defmodule AWS.Bedrock do
 
   """
   @type get_custom_model_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_prompt_optimization_job_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "jobArn" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
+        "jobStatus" => list(any()),
+        "lastModifiedTime" => non_neg_integer()
+      }
+
+  """
+  @type advanced_prompt_optimization_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2985,6 +3035,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_advanced_prompt_optimization_job_request() :: %{}
+
+  """
+  @type get_advanced_prompt_optimization_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       r_f_t_config() :: %{
         "graderConfig" => list(),
         "hyperParameters" => r_f_t_hyper_parameters()
@@ -3339,6 +3398,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      model_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "inferenceConfig" => inference_configuration(),
+        "modelId" => String.t() | atom()
+      }
+
+  """
+  @type model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter_attribute() :: %{
         "key" => String.t() | atom(),
         "value" => any()
@@ -3475,6 +3547,24 @@ defmodule AWS.Bedrock do
 
   """
   @type create_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_advanced_prompt_optimization_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("encryptionKeyArn") => String.t() | atom(),
+        optional("jobDescription") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("inputConfig") => advanced_prompt_optimization_input_config(),
+        required("jobName") => String.t() | atom(),
+        required("modelConfigurations") => list(model_configuration()),
+        required("outputConfig") => advanced_prompt_optimization_output_config()
+      }
+
+  """
+  @type create_advanced_prompt_optimization_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3806,6 +3896,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      stop_advanced_prompt_optimization_job_request() :: %{}
+
+  """
+  @type stop_advanced_prompt_optimization_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       custom_metric_evaluator_model_config() :: %{
         "bedrockEvaluatorModels" => list(custom_metric_bedrock_evaluator_model())
       }
@@ -3963,6 +4062,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      list_advanced_prompt_optimization_jobs_response() :: %{
+        "jobSummaries" => list(advanced_prompt_optimization_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_advanced_prompt_optimization_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_automated_reasoning_policy_response() :: %{}
 
   """
@@ -3976,6 +4087,19 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_automated_reasoning_policy_build_workflow_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_advanced_prompt_optimization_job_request() :: %{
+        required("jobIdentifiers") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_advanced_prompt_optimization_job_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -4454,6 +4578,20 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      batch_delete_advanced_prompt_optimization_job_response() :: %{
+        "advancedPromptOptimizationJobs" => list(batch_delete_advanced_prompt_optimization_job_item()),
+        "errors" => list(batch_delete_advanced_prompt_optimization_job_error())
+      }
+
+  """
+  @type batch_delete_advanced_prompt_optimization_job_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       custom_model_units() :: %{
         "customModelUnitsPerModelCopy" => [integer()],
         "customModelUnitsVersion" => String.t() | atom()
@@ -4771,6 +4909,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_advanced_prompt_optimization_job_response() :: %{
+        "jobArn" => String.t() | atom()
+      }
+
+  """
+  @type create_advanced_prompt_optimization_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       automated_reasoning_policy_delete_type_value() :: %{
         "value" => String.t() | atom()
       }
@@ -5066,6 +5215,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      advanced_prompt_optimization_input_config() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type advanced_prompt_optimization_input_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_automated_reasoning_policy_test_case_response() :: %{}
 
   """
@@ -5292,6 +5452,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      batch_delete_advanced_prompt_optimization_job_item() :: %{
+        "jobIdentifier" => String.t() | atom(),
+        "jobStatus" => list(any())
+      }
+
+  """
+  @type batch_delete_advanced_prompt_optimization_job_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       automated_reasoning_policy_definition() :: %{
         "rules" => list(automated_reasoning_policy_definition_rule()),
         "types" => list(automated_reasoning_policy_definition_type()),
@@ -5392,12 +5564,34 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      batch_delete_advanced_prompt_optimization_job_error() :: %{
+        "code" => [String.t() | atom()],
+        "jobIdentifier" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_delete_advanced_prompt_optimization_job_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_foundation_model_response() :: %{
         "modelDetails" => foundation_model_details()
       }
 
   """
   @type get_foundation_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_advanced_prompt_optimization_job_response() :: %{}
+
+  """
+  @type stop_advanced_prompt_optimization_job_response() :: %{}
 
   @typedoc """
 
@@ -5480,6 +5674,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      advanced_prompt_optimization_output_config() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type advanced_prompt_optimization_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_marketplace_model_endpoint_request() :: %{}
 
   """
@@ -5508,6 +5713,20 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_foundation_model_agreement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_advanced_prompt_optimization_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_advanced_prompt_optimization_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5562,6 +5781,12 @@ defmodule AWS.Bedrock do
   """
   @type s3_data_source() :: %{(String.t() | atom()) => any()}
 
+  @type batch_delete_advanced_prompt_optimization_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type batch_delete_evaluation_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5576,6 +5801,16 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type create_advanced_prompt_optimization_job_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type create_automated_reasoning_policy_errors() ::
           too_many_tags_exception()
@@ -5864,6 +6099,13 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_advanced_prompt_optimization_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_automated_reasoning_policy_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6033,6 +6275,12 @@ defmodule AWS.Bedrock do
           | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_advanced_prompt_optimization_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_automated_reasoning_policies_errors() ::
           throttling_exception()
@@ -6224,6 +6472,14 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | resource_in_use_exception()
 
+  @type stop_advanced_prompt_optimization_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type stop_evaluation_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6338,6 +6594,39 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Batch delete the specified advanced prompt optimization jobs.
+  """
+  @spec batch_delete_advanced_prompt_optimization_job(
+          map(),
+          batch_delete_advanced_prompt_optimization_job_request(),
+          list()
+        ) ::
+          {:ok, batch_delete_advanced_prompt_optimization_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_delete_advanced_prompt_optimization_job_errors()}
+  def batch_delete_advanced_prompt_optimization_job(%Client{} = client, input, options \\ []) do
+    url_path = "/advanced-prompt-optimization-job/batch-delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a batch of evaluation jobs.
 
   An evaluation job can only be deleted if it has following status `FAILED`,
@@ -6413,6 +6702,39 @@ defmodule AWS.Bedrock do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Creates an asynchronous batch job for advanced prompt optimization.
+  """
+  @spec create_advanced_prompt_optimization_job(
+          map(),
+          create_advanced_prompt_optimization_job_request(),
+          list()
+        ) ::
+          {:ok, create_advanced_prompt_optimization_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_advanced_prompt_optimization_job_errors()}
+  def create_advanced_prompt_optimization_job(%Client{} = client, input, options \\ []) do
+    url_path = "/advanced-prompt-optimization-jobs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -7734,6 +8056,24 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Retrieves the details and status of an advanced prompt optimization job.
+  """
+  @spec get_advanced_prompt_optimization_job(map(), String.t() | atom(), list()) ::
+          {:ok, get_advanced_prompt_optimization_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_advanced_prompt_optimization_job_errors()}
+  def get_advanced_prompt_optimization_job(%Client{} = client, job_identifier, options \\ []) do
+    url_path = "/advanced-prompt-optimization-jobs/#{AWS.Util.encode_uri(job_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves details about an Automated Reasoning policy or policy version.
 
   Returns information including the policy definition, metadata, and timestamps.
@@ -8341,6 +8681,66 @@ defmodule AWS.Bedrock do
     url_path = "/use-case-for-model-access"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all advanced prompt optimization jobs for the account.
+  """
+  @spec list_advanced_prompt_optimization_jobs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_advanced_prompt_optimization_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_advanced_prompt_optimization_jobs_errors()}
+  def list_advanced_prompt_optimization_jobs(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        options \\ []
+      ) do
+    url_path = "/advanced-prompt-optimization-jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -10128,6 +10528,45 @@ defmodule AWS.Bedrock do
     url_path =
       "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/test-workflows"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops an in-progress advanced prompt optimization job.
+  """
+  @spec stop_advanced_prompt_optimization_job(
+          map(),
+          String.t() | atom(),
+          stop_advanced_prompt_optimization_job_request(),
+          list()
+        ) ::
+          {:ok, stop_advanced_prompt_optimization_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_advanced_prompt_optimization_job_errors()}
+  def stop_advanced_prompt_optimization_job(
+        %Client{} = client,
+        job_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/advanced-prompt-optimization-jobs/#{AWS.Util.encode_uri(job_identifier)}/stop"
     headers = []
     custom_headers = []
     query_params = []

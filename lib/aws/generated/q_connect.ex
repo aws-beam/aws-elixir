@@ -123,6 +123,20 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_models_request() :: %{
+        optional("aiPromptType") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("modelLifecycle") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_a_i_agent_version_response() :: %{}
 
   """
@@ -164,6 +178,18 @@ defmodule AWS.QConnect do
 
   """
   @type list_a_i_agents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_models_response() :: %{
+        "modelSummaries" => list(model_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,6 +586,24 @@ defmodule AWS.QConnect do
 
   """
   @type quick_response_filter_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_summary() :: %{
+        "crossRegionStatus" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "endOfLifeTimestamp" => [non_neg_integer()],
+        "legacyTimestamp" => [non_neg_integer()],
+        "modelId" => String.t() | atom(),
+        "modelLifecycle" => String.t() | atom(),
+        "supportedAIPromptTypes" => list(String.t() | atom()),
+        "supportsPromptCaching" => [boolean()]
+      }
+
+  """
+  @type model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5402,6 +5446,14 @@ defmodule AWS.QConnect do
   @type list_messages_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
+  @type list_models_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+
   @type list_quick_responses_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -8056,6 +8108,71 @@ defmodule AWS.QConnect do
     query_params =
       if !is_nil(filter) do
         [{"filter", filter} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the models available to an Amazon Q in Connect assistant in the
+  assistant's Amazon Web Services Region.
+
+  The available models are determined by the region of the specified assistant.
+  """
+  @spec list_models(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_models_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_models_errors()}
+  def list_models(
+        %Client{} = client,
+        assistant_id,
+        ai_prompt_type \\ nil,
+        max_results \\ nil,
+        model_lifecycle \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/models"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(model_lifecycle) do
+        [{"modelLifecycle", model_lifecycle} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ai_prompt_type) do
+        [{"aiPromptType", ai_prompt_type} | query_params]
       else
         query_params
       end

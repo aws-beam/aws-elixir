@@ -522,6 +522,7 @@ defmodule AWS.Grafana do
 
       update_workspace_request() :: %{
         optional("accountAccessType") => String.t() | atom(),
+        optional("ipAddressType") => String.t() | atom(),
         optional("networkAccessControl") => network_access_configuration(),
         optional("organizationRoleName") => String.t() | atom(),
         optional("permissionType") => String.t() | atom(),
@@ -571,6 +572,7 @@ defmodule AWS.Grafana do
         "grafanaToken" => String.t() | atom(),
         "grafanaVersion" => String.t() | atom(),
         "id" => String.t() | atom(),
+        "ipAddressType" => String.t() | atom(),
         "kmsKeyId" => String.t() | atom(),
         "licenseExpiration" => [non_neg_integer()],
         "licenseType" => String.t() | atom(),
@@ -960,6 +962,7 @@ defmodule AWS.Grafana do
         optional("clientToken") => String.t() | atom(),
         optional("configuration") => String.t() | atom(),
         optional("grafanaVersion") => String.t() | atom(),
+        optional("ipAddressType") => String.t() | atom(),
         optional("kmsKeyId") => String.t() | atom(),
         optional("networkAccessControl") => network_access_configuration(),
         optional("organizationRoleName") => String.t() | atom(),

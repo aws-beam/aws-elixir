@@ -1943,7 +1943,8 @@ defmodule AWS.CloudFront do
   ## Example:
 
       update_trust_store_request() :: %{
-        required("CaCertificatesBundleSource") => list(),
+        optional("CaCertificatesBundleSource") => list(),
+        optional("UseClientCertificateOCSPEndpoint") => boolean(),
         required("IfMatch") => String.t() | atom()
       }
 
@@ -3086,6 +3087,7 @@ defmodule AWS.CloudFront do
 
       create_trust_store_request() :: %{
         optional("Tags") => tags(),
+        optional("UseClientCertificateOCSPEndpoint") => boolean(),
         required("CaCertificatesBundleSource") => list(),
         required("Name") => String.t() | atom()
       }
@@ -8134,7 +8136,8 @@ defmodule AWS.CloudFront do
         "Name" => String.t() | atom(),
         "NumberOfCaCertificates" => integer(),
         "Reason" => String.t() | atom(),
-        "Status" => list(any())
+        "Status" => list(any()),
+        "UseClientCertificateOCSPEndpoint" => boolean()
       }
 
   """
@@ -16167,7 +16170,8 @@ defmodule AWS.CloudFront do
 
     {headers, input} =
       [
-        {"IfMatch", "If-Match"}
+        {"IfMatch", "If-Match"},
+        {"UseClientCertificateOCSPEndpoint", "UseClientCertificateOCSPEndpoint"}
       ]
       |> Request.build_params(input)
 

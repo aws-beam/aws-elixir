@@ -284,6 +284,7 @@ defmodule AWS.PartnerCentralSelling do
       
       project_summary() :: %{
         "DeliveryModels" => list(list(any())()),
+        "ExpectedContractDuration" => expected_contract_duration(),
         "ExpectedCustomerSpend" => list(expected_customer_spend())
       }
       
@@ -510,6 +511,7 @@ defmodule AWS.PartnerCentralSelling do
       project_view() :: %{
         "CustomerUseCase" => [String.t() | atom()],
         "DeliveryModels" => list(list(any())()),
+        "ExpectedContractDuration" => expected_contract_duration(),
         "ExpectedCustomerSpend" => list(expected_customer_spend()),
         "OtherSolutionDescription" => String.t() | atom(),
         "SalesActivities" => list(list(any())())
@@ -975,6 +977,7 @@ defmodule AWS.PartnerCentralSelling do
         "CustomerBusinessProblem" => String.t() | atom(),
         "CustomerUseCase" => [String.t() | atom()],
         "DeliveryModels" => list(list(any())()),
+        "ExpectedContractDuration" => expected_contract_duration(),
         "ExpectedCustomerSpend" => list(expected_customer_spend()),
         "OtherCompetitorNames" => [String.t() | atom()],
         "OtherSolutionDescription" => String.t() | atom(),
@@ -1573,6 +1576,18 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type address_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expected_contract_duration() :: %{
+        "Term" => list(any()),
+        "Value" => [String.t() | atom()]
+      }
+      
+  """
+  @type expected_contract_duration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

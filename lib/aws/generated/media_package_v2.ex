@@ -293,6 +293,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       create_dash_manifest_configuration() :: %{
+        "AvailabilityStartTimeConfiguration" => list(),
         "BaseUrls" => list(dash_base_url()),
         "Compactness" => list(any()),
         "DrmSignaling" => list(any()),
@@ -915,6 +916,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       get_dash_manifest_configuration() :: %{
+        "AvailabilityStartTimeConfiguration" => list(),
         "BaseUrls" => list(dash_base_url()),
         "Compactness" => list(any()),
         "DrmSignaling" => list(any()),

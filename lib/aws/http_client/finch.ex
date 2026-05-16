@@ -20,15 +20,19 @@ defmodule AWS.HTTPClient.Finch do
 
   @behaviour AWS.HTTPClient
 
+  @finch_options [:pool_timeout, :receive_timeout, :request_timeout, :pool_strategy]
+
   @impl AWS.HTTPClient
   def request(method, url, body, headers, options) do
     ensure_finch_running!()
 
     finch_name = Keyword.get(options, :finch_name, AWS.Finch)
+    finch_options = Keyword.take(options, @finch_options)
+
     url = IO.iodata_to_binary(url)
     request = Finch.build(method, url, headers, body)
 
-    case Finch.request(request, finch_name, options) do
+    case Finch.request(request, finch_name, finch_options) do
       {:ok, response} ->
         {:ok, %{status_code: response.status, headers: response.headers, body: response.body}}
 

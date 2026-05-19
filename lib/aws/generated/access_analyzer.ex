@@ -1150,6 +1150,17 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      delete_service_linked_analyzer_request() :: %{
+        optional("clientToken") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_service_linked_analyzer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_finding_recommendation_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
@@ -1615,6 +1626,20 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      create_service_linked_analyzer_request() :: %{
+        optional("archiveRules") => list(inline_archive_rule()),
+        optional("clientToken") => [String.t() | atom()],
+        optional("configuration") => list(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type create_service_linked_analyzer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access() :: %{
         "actions" => list(String.t() | atom()),
         "resources" => list(String.t() | atom())
@@ -1705,6 +1730,7 @@ defmodule AWS.AccessAnalyzer do
         "createdAt" => non_neg_integer(),
         "lastResourceAnalyzed" => [String.t() | atom()],
         "lastResourceAnalyzedAt" => non_neg_integer(),
+        "managedBy" => [String.t() | atom()],
         "name" => String.t() | atom(),
         "status" => String.t() | atom(),
         "statusReason" => status_reason(),
@@ -1751,6 +1777,17 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type check_access_not_granted_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_linked_analyzer_response() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type create_service_linked_analyzer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2086,6 +2123,14 @@ defmodule AWS.AccessAnalyzer do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_service_linked_analyzer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type delete_analyzer_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2099,6 +2144,14 @@ defmodule AWS.AccessAnalyzer do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type delete_service_linked_analyzer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type generate_finding_recommendation_errors() ::
           throttling_exception()
@@ -2557,6 +2610,42 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
+  Creates a service-linked analyzer managed by an Amazon Web Services service.
+
+  This operation can only be invoked by authorized Amazon Web Services services.
+  Direct customer invocation returns `AccessDeniedException`.
+
+  Service-linked analyzers enable Amazon Web Services services to create and
+  manage analyzers on behalf of customers. The lifecycle of these analyzers is
+  managed by the calling service.
+  """
+  @spec create_service_linked_analyzer(map(), create_service_linked_analyzer_request(), list()) ::
+          {:ok, create_service_linked_analyzer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_service_linked_analyzer_errors()}
+  def create_service_linked_analyzer(%Client{} = client, input, options \\ []) do
+    url_path = "/service-linked-analyzer"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified analyzer.
 
   When you delete an analyzer, IAM Access Analyzer is disabled for the account or
@@ -2612,6 +2701,53 @@ defmodule AWS.AccessAnalyzer do
     url_path =
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
 
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a service-linked analyzer.
+
+  This operation can be invoked by both authorized Amazon Web Services services
+  and customers.
+
+  When invoked by a customer, IAM Access Analyzer performs a callback to the
+  managing service to verify whether the analyzer is still in use and can be
+  deleted. If the service indicates the analyzer is still in use, the deletion is
+  rejected with `ConflictException`.
+  """
+  @spec delete_service_linked_analyzer(
+          map(),
+          String.t() | atom(),
+          delete_service_linked_analyzer_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_service_linked_analyzer_errors()}
+  def delete_service_linked_analyzer(%Client{} = client, analyzer_name, input, options \\ []) do
+    url_path = "/service-linked-analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
     headers = []
     custom_headers = []
 

@@ -6,30 +6,30 @@ defmodule AWS.Connect do
 
     *
 
-  [Amazon Connect actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
+  [Connect Customer actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
 
     *
 
-  [Amazon Connect data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
+  [Connect Customer data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
 
-  Amazon Connect is a cloud-based contact center solution that you use to set up
+  Connect Customer is a cloud-based contact center solution that you use to set up
   and manage a customer contact
   center and provide reliable customer engagement at any scale.
 
-  Amazon Connect provides metrics and real-time reporting that enable you to
+  Connect Customer provides metrics and real-time reporting that enable you to
   optimize contact routing. You can
   also resolve customer issues more efficiently by getting customers in touch with
   the appropriate agents.
 
-  There are limits to the number of Amazon Connect resources that you can create.
-  There are also limits to the
+  There are limits to the number of Connect Customer resources that you can
+  create. There are also limits to the
   number of requests that you can make per second. For more information, see
-  [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  [Connect Customer Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
 
   You can use an endpoint to connect programmatically to an Amazon Web Services
-  service. For a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  service. For a list of Connect Customer endpoints, see [Connect Customer Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
 
   alias AWS.Client
@@ -18314,7 +18314,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Activates an evaluation form in the specified Amazon Connect instance.
+  Activates an evaluation form in the specified Connect Customer instance.
 
   After the evaluation form is
   activated, it is available to start new evaluations based on the form.
@@ -18360,7 +18360,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Associates the specified dataset for a Amazon Connect instance with the target
+  Associates the specified dataset for a Connect Customer instance with the target
   account.
 
   You can associate
@@ -18398,9 +18398,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
-  Associates an approved origin to an Amazon Connect instance.
+  Associates an approved origin to an Connect Customer instance.
   """
   @spec associate_approved_origin(
           map(),
@@ -18434,10 +18434,10 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
-  Allows the specified Amazon Connect instance to access the specified Amazon Lex
-  or Amazon Lex V2
+  Allows the specified Connect Customer instance to access the specified Amazon
+  Lex or Amazon Lex V2
   bot.
   """
   @spec associate_bot(map(), String.t() | atom(), associate_bot_request(), list()) ::
@@ -18508,10 +18508,10 @@ defmodule AWS.Connect do
     *
   The service quota *Queues per routing profile per instance* applies to manually
   assigned
-  queues, too. For more information about this quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas)
-  in the *Amazon Connect Administrator Guide*.
+  queues, too. For more information about this quota, see [Connect Customer quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas)
+  in the *Connect Customer Administrator Guide*.
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec associate_contact_with_user(
           map(),
@@ -18556,7 +18556,7 @@ defmodule AWS.Connect do
   @doc """
   Associates an existing vocabulary as the default.
 
-  Contact Lens for Amazon Connect uses the vocabulary in post-call and real-time
+  Contact Lens for Connect Customer uses the vocabulary in post-call and real-time
   analysis sessions for the given language.
   """
   @spec associate_default_vocabulary(
@@ -18600,8 +18600,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Associates an email address alias with an existing email address in an Amazon
-  Connect instance.
+  Associates an email address alias with an existing email address in an Connect
+  Customer instance.
 
   This creates
   a forwarding relationship where emails sent to the alias email address are
@@ -18629,7 +18629,7 @@ defmodule AWS.Connect do
     *
 
   **Brand management**: Enable you to use familiar brand-specific email addresses
-  that forward to the appropriate Amazon Connect instance email address.
+  that forward to the appropriate Connect Customer instance email address.
 
   ## Important things to know
 
@@ -18658,14 +18658,14 @@ defmodule AWS.Connect do
     *
   The status of the forwarding configuration.
 
-  **Endpoints**: See [Amazon Connect endpoints and
+  **Endpoints**: See [Connect Customer endpoints and
   quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
 
   ## Related operations
 
     *
 
-  [DisassociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html): Removes the alias association between two email addresses in an Amazon Connect
+  [DisassociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html): Removes the alias association between two email addresses in an Connect Customer
   instance.
 
     *
@@ -18808,7 +18808,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Associates a storage resource type for the first time. You can only associate
   one type of storage configuration
@@ -18854,9 +18854,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
-  Allows the specified Amazon Connect instance to access the specified Lambda
+  Allows the specified Connect Customer instance to access the specified Lambda
   function.
   """
   @spec associate_lambda_function(
@@ -18891,10 +18891,10 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
-  Allows the specified Amazon Connect instance to access the specified Amazon Lex
-  V1 bot. This API
+  Allows the specified Connect Customer instance to access the specified Amazon
+  Lex V1 bot. This API
   only supports the association of Amazon Lex V1 bots.
   """
   @spec associate_lex_bot(map(), String.t() | atom(), associate_lex_bot_request(), list()) ::
@@ -18924,7 +18924,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Associates a flow with a phone number claimed to your Amazon Connect instance.
+  Associates a flow with a phone number claimed to your Connect Customer instance.
 
   If the number is claimed to a traffic distribution group, and you are calling
   this API using an instance in the Amazon Web Services Region where the traffic
@@ -18989,7 +18989,7 @@ defmodule AWS.Connect do
   1 default outbound email address, for a total of 50.
 
     *
-  The email addresses must already exist in the Amazon Connect instance before
+  The email addresses must already exist in the Connect Customer instance before
   they can be associated with a queue.
 
     *
@@ -19131,7 +19131,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Associates a security key to the instance.
   """
@@ -19321,8 +19321,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Associates a list of analytics datasets for a given Amazon Connect instance to a
-  target account.
+  Associates a list of analytics datasets for a given Connect Customer instance to
+  a target account.
 
   You can
   associate multiple datasets in a single call.
@@ -19509,7 +19509,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Removes a list of analytics datasets associated with a given Amazon Connect
+  Removes a list of analytics datasets associated with a given Connect Customer
   instance.
 
   You can disassociate
@@ -19626,11 +19626,11 @@ defmodule AWS.Connect do
 
   @doc """
 
-  Only the Amazon Connect outbound campaigns service principal is allowed to
+  Only the Connect Customer outbound campaigns service principal is allowed to
   assume a role in your account
   and call this API.
 
-  Allows you to create a batch of contacts in Amazon Connect. The outbound
+  Allows you to create a batch of contacts in Connect Customer. The outbound
   campaigns capability ingests dial
   requests via the
   [PutDialRequestBatch](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html)
@@ -19715,11 +19715,11 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Claims an available phone number to your Amazon Connect instance or traffic
+  Claims an available phone number to your Connect Customer instance or traffic
   distribution group.
 
   You can call
-  this API only in the same Amazon Web Services Region where the Amazon Connect
+  this API only in the same Amazon Web Services Region where the Connect Customer
   instance or traffic distribution group was
   created.
 
@@ -19727,7 +19727,7 @@ defmodule AWS.Connect do
   country](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html)
   and [Claim phone numbers to traffic distribution
   groups](https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html)
-  in the *Amazon Connect Administrator
+  in the *Connect Customer Administrator
   Guide*.
 
   You can call the
@@ -19839,7 +19839,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates an agent status for the specified Amazon Connect instance.
+  Creates an agent status for the specified Connect Customer instance.
   """
   @spec create_agent_status(map(), String.t() | atom(), create_agent_status_request(), list()) ::
           {:ok, create_agent_status_response(), any()}
@@ -19921,9 +19921,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a flow for the specified Amazon Connect instance.
+  Creates a flow for the specified Connect Customer instance.
 
-  You can also create and update flows using the [Amazon Connect Flow
+  You can also create and update flows using the [Connect Customer Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   @spec create_contact_flow(map(), String.t() | atom(), create_contact_flow_request(), list()) ::
@@ -19953,7 +19953,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a flow module for the specified Amazon Connect instance.
+  Creates a flow module for the specified Connect Customer instance.
   """
   @spec create_contact_flow_module(
           map(),
@@ -20210,11 +20210,11 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Create new email address in the specified Amazon Connect instance.
+  Create new email address in the specified Connect Customer instance.
 
   For more information about email
   addresses, see [Create email addresses](https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html)
-  in the Amazon Connect Administrator Guide.
+  in the Connect Customer Administrator Guide.
   """
   @spec create_email_address(map(), String.t() | atom(), create_email_address_request(), list()) ::
           {:ok, create_email_address_response(), any()}
@@ -20243,7 +20243,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates an evaluation form in the specified Amazon Connect instance.
+  Creates an evaluation form in the specified Connect Customer instance.
 
   The form can be used to define
   questions related to agent performance, and create sections to organize such
@@ -20316,7 +20316,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates an hours of operation override in an Amazon Connect hours of operation
+  Creates an hours of operation override in an Connect Customer hours of operation
   resource.
   """
   @spec create_hours_of_operation_override(
@@ -20360,19 +20360,19 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
-  Initiates an Amazon Connect instance with all the supported channels enabled. It
-  does not attach any
+  Initiates an Connect Customer instance with all the supported channels enabled.
+  It does not attach any
   storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It
   also does not allow for any
-  configurations on features, such as Contact Lens for Amazon Connect.
+  configurations on features, such as Contact Lens for Connect Customer.
 
-  For more information, see [Create an Amazon Connect instance](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html)
+  For more information, see [Create an Connect Customer instance](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
 
-  Amazon Connect enforces a limit on the total number of instances that you can
+  Connect Customer enforces a limit on the total number of instances that you can
   create or delete in 30 days.
   If you exceed this limit, you will get an error message indicating there has
   been an excessive number of attempts at creating or deleting instances.
@@ -20406,7 +20406,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates an Amazon Web Services resource association with an Amazon Connect
+  Creates an Amazon Web Services resource association with an Connect Customer
   instance.
   """
   @spec create_integration_association(
@@ -20512,7 +20512,7 @@ defmodule AWS.Connect do
   For more information about chat rehydration, see
   [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html)
   in
-  the *Amazon Connect Administrator Guide*.
+  the *Connect Customer Administrator Guide*.
   """
   @spec create_persistent_contact_association(
           map(),
@@ -20555,12 +20555,12 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a new predefined attribute for the specified Amazon Connect instance.
+  Creates a new predefined attribute for the specified Connect Customer instance.
 
   A *predefined attribute*
   is made up of a name and a value.
 
-  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+  For the predefined attributes per instance quota, see [Connect Customer quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
   ## Use cases
 
@@ -20579,7 +20579,7 @@ defmodule AWS.Connect do
   transfers or conferences. For more
   information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec create_predefined_attribute(
           map(),
@@ -20619,7 +20619,7 @@ defmodule AWS.Connect do
   length, see
   [Create prompts](https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html) in
   the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
   """
   @spec create_prompt(map(), String.t() | atom(), create_prompt_request(), list()) ::
           {:ok, create_prompt_response(), any()}
@@ -20652,9 +20652,9 @@ defmodule AWS.Connect do
   push notifications.
 
   For more
-  information about push notifications, see [Set up push notifications in Amazon Connect for mobile
+  information about push notifications, see [Set up push notifications in Connect Customer for mobile
   chat](https://docs.aws.amazon.com/connect/latest/adminguide/enable-push-notifications-for-mobile-chat.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec create_push_notification_registration(
           map(),
@@ -20688,13 +20688,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a new queue for the specified Amazon Connect instance.
+  Creates a new queue for the specified Connect Customer instance.
 
     
   If the phone number is claimed to a traffic distribution group that was created
   in the
-  same Region as the Amazon Connect instance where you are calling this API, then
-  you can use a
+  same Region as the Connect Customer instance where you are calling this API,
+  then you can use a
   full phone number ARN or a UUID for `OutboundCallerIdNumberId`. However, if the
   phone number is claimed
   to a traffic distribution group that is in one Region, and you are calling this
@@ -20746,7 +20746,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a quick connect for the specified Amazon Connect instance.
+  Creates a quick connect for the specified Connect Customer instance.
   """
   @spec create_quick_connect(map(), String.t() | atom(), create_quick_connect_request(), list()) ::
           {:ok, create_quick_connect_response(), any()}
@@ -20809,7 +20809,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a rule for the specified Amazon Connect instance.
+  Creates a rule for the specified Connect Customer instance.
 
   Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
   to code conditions for the rule.
@@ -20844,7 +20844,7 @@ defmodule AWS.Connect do
   Creates a security profile.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  in the *Connect Customer Administrator Guide*. For a mapping of the API name and
   user interface name of the security
   profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
@@ -20881,7 +20881,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a new task template in the specified Amazon Connect instance.
+  Creates a new task template in the specified Connect Customer instance.
   """
   @spec create_task_template(map(), String.t() | atom(), create_task_template_request(), list()) ::
           {:ok, create_task_template_response(), any()}
@@ -20948,7 +20948,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a traffic distribution group given an Amazon Connect instance that has
+  Creates a traffic distribution group given an Connect Customer instance that has
   been replicated.
 
   The `SignInConfig` distribution is available only on a
@@ -20962,7 +20962,7 @@ defmodule AWS.Connect do
   traffic distribution
   groups](https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
   """
   @spec create_traffic_distribution_group(
           map(),
@@ -21038,12 +21038,12 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a user account for the specified Amazon Connect instance.
+  Creates a user account for the specified Connect Customer instance.
 
   Certain
   [UserIdentityInfo](https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html) parameters are required in some situations. For example, `Email`,
-  `FirstName` and `LastName` are required if you are using Amazon Connect or SAML
-  for
+  `FirstName` and `LastName` are required if you are using Connect Customer or
+  SAML for
   identity management.
 
   Fields in `PhoneConfig` cannot be set simultaneously with their corresponding
@@ -21070,10 +21070,10 @@ defmodule AWS.Connect do
   `AfterContactWorkConfigs`, `PhoneNumberConfigs`, `PersistentConnectionConfigs`,
   and `VoiceEnhancementConfigs` for per-channel configuration.
 
-  For information about how to create users using the Amazon Connect admin
+  For information about how to create users using the Connect Customer admin
   website, see [Add
   Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html)
-  in the *Amazon Connect
+  in the *Connect Customer
   Administrator Guide*.
   """
   @spec create_user(map(), String.t() | atom(), create_user_request(), list()) ::
@@ -21220,11 +21220,11 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates a custom vocabulary associated with your Amazon Connect instance.
+  Creates a custom vocabulary associated with your Connect Customer instance.
 
   You can set a custom vocabulary to
-  be your default vocabulary for a given language. Contact Lens for Amazon Connect
-  uses the default vocabulary in post-call and real-time
+  be your default vocabulary for a given language. Contact Lens for Connect
+  Customer uses the default vocabulary in post-call and real-time
   contact analysis sessions for that language.
   """
   @spec create_vocabulary(map(), String.t() | atom(), create_vocabulary_request(), list()) ::
@@ -21324,7 +21324,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deactivates an evaluation form in the specified Amazon Connect instance.
+  Deactivates an evaluation form in the specified Connect Customer instance.
 
   After a form is deactivated, it is no longer
   available for users to start new evaluations based on the form.
@@ -21415,7 +21415,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes a contact evaluation in the specified Amazon Connect instance.
+  Deletes a contact evaluation in the specified Connect Customer instance.
   """
   @spec delete_contact_evaluation(
           map(),
@@ -21458,7 +21458,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes a flow for the specified Amazon Connect instance.
+  Deletes a flow for the specified Connect Customer instance.
   """
   @spec delete_contact_flow(
           map(),
@@ -21767,7 +21767,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes email address from the specified Amazon Connect instance.
+  Deletes email address from the specified Connect Customer instance.
   """
   @spec delete_email_address(
           map(),
@@ -21810,7 +21810,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes an evaluation form in the specified Amazon Connect instance.
+  Deletes an evaluation form in the specified Connect Customer instance.
 
     *
   If the version property is provided, only the specified version of the
@@ -21908,7 +21908,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes an hours of operation override in an Amazon Connect hours of operation
+  Deletes an hours of operation override in an Connect Customer hours of operation
   resource.
   """
   @spec delete_hours_of_operation_override(
@@ -21954,14 +21954,14 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
-  Deletes the Amazon Connect instance. For more information, see [Delete your Amazon Connect
+  Deletes the Connect Customer instance. For more information, see [Delete your Connect Customer
   instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-connect-instance.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
 
-  Amazon Connect enforces a limit on the total number of instances that you can
+  Connect Customer enforces a limit on the total number of instances that you can
   create or delete in 30 days.
   If you exceed this limit, you will get an error message indicating there has
   been an excessive number of attempts at creating or deleting instances.
@@ -22000,7 +22000,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes an Amazon Web Services resource association from an Amazon Connect
+  Deletes an Amazon Web Services resource association from an Connect Customer
   instance.
 
   The association must not
@@ -22087,7 +22087,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes a predefined attribute from the specified Amazon Connect instance.
+  Deletes a predefined attribute from the specified Connect Customer instance.
   """
   @spec delete_predefined_attribute(
           map(),
@@ -22255,9 +22255,9 @@ defmodule AWS.Connect do
   Remove deleted users so they don't appear to agents as transfer options.
 
     
-  Avoid the disruption of other Amazon Connect processes, such as instance
+  Avoid the disruption of other Connect Customer processes, such as instance
   replication and syncing if
-  you're using [Amazon Connect Global
+  you're using [Connect Customer Global
   Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
   """
   @spec delete_quick_connect(
@@ -22344,7 +22344,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes a rule for the specified Amazon Connect instance.
+  Deletes a rule for the specified Connect Customer instance.
   """
   @spec delete_rule(
           map(),
@@ -22511,7 +22511,7 @@ defmodule AWS.Connect do
   For more information about deleting traffic distribution groups, see [Delete traffic distribution
   groups](https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
   """
   @spec delete_traffic_distribution_group(
           map(),
@@ -22595,11 +22595,11 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Deletes a user account from the specified Amazon Connect instance.
+  Deletes a user account from the specified Connect Customer instance.
 
   For information about what happens to a user's data when their account is
-  deleted, see [Delete Users from Your Amazon Connect Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html)
-  in the *Amazon Connect Administrator Guide*.
+  deleted, see [Delete Users from Your Connect Customer Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html)
+  in the *Connect Customer Administrator Guide*.
 
   After calling DeleteUser, call
   [DeleteQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html) to delete any records
@@ -22612,9 +22612,9 @@ defmodule AWS.Connect do
   Remove deleted users so they don't appear to agents as transfer options.
 
     
-  Avoid the disruption of other Amazon Connect processes, such as instance
+  Avoid the disruption of other Connect Customer processes, such as instance
   replication and syncing if
-  you're using [Amazon Connect Global
+  you're using [Connect Customer Global
   Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
   """
   @spec delete_user(
@@ -22962,7 +22962,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describes the attached files configuration for the specified Amazon Connect
+  Describes the attached files configuration for the specified Connect Customer
   instance and attachment scope.
 
   If a custom configuration exists for the specified attachment scope, the custom
@@ -22997,7 +22997,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   To
   request access to this API, contact Amazon Web Services Support.
@@ -23027,7 +23027,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Describes the specified contact.
 
@@ -23062,11 +23062,11 @@ defmodule AWS.Connect do
   or CALLBACK
 
     *
-  Contact information remains available in Amazon Connect for 24 months from the
+  Contact information remains available in Connect Customer for 24 months from the
   `InitiationTimestamp`, and then it is deleted. Only contact information that is
-  available in Amazon Connect is returned by this API.
+  available in Connect Customer is returned by this API.
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec describe_contact(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_contact_response(), any()}
@@ -23084,7 +23084,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describes a contact evaluation in the specified Amazon Connect instance.
+  Describes a contact evaluation in the specified Connect Customer instance.
   """
   @spec describe_contact_evaluation(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_contact_evaluation_response(), any()}
@@ -23106,7 +23106,7 @@ defmodule AWS.Connect do
   @doc """
   Describes the specified flow.
 
-  You can also create and update flows using the [Amazon Connect Flow
+  You can also create and update flows using the [Connect Customer Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
   Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow.
@@ -23268,7 +23268,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describe email address form the specified Amazon Connect instance.
+  Describe email address form the specified Connect Customer instance.
   """
   @spec describe_email_address(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_email_address_response(), any()}
@@ -23288,7 +23288,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describes an evaluation form in the specified Amazon Connect instance.
+  Describes an evaluation form in the specified Connect Customer instance.
 
   If the version property is not
   provided, the latest version of the evaluation form is described.
@@ -23387,7 +23387,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Returns the current state of the specified instance identifier. It tracks the
   instance while it is being created
@@ -23414,7 +23414,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Describes the specified instance attribute.
   """
@@ -23436,7 +23436,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Retrieves the current storage configurations for the specified resource type,
   association ID, and instance
@@ -23500,8 +23500,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Gets details and status of a phone number that’s claimed to your Amazon Connect
-  instance or traffic distribution group.
+  Gets details and status of a phone number that’s claimed to your Connect
+  Customer instance or traffic distribution group.
 
   If the number is claimed to a traffic distribution group, and you are calling in
   the Amazon Web Services Region where the traffic distribution group was
@@ -23530,7 +23530,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describes a predefined attribute for the specified Amazon Connect instance.
+  Describes a predefined attribute for the specified Connect Customer instance.
 
   A *predefined attribute*
   is made up of a name and a value. You can use predefined attributes for:
@@ -23546,9 +23546,9 @@ defmodule AWS.Connect do
   name of the business unit
   handling the contact. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
-  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+  For the predefined attributes per instance quota, see [Connect Customer quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec describe_predefined_attribute(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_predefined_attribute_response(), any()}
@@ -23651,7 +23651,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describes a rule for the specified Amazon Connect instance.
+  Describes a rule for the specified Connect Customer instance.
   """
   @spec describe_rule(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_rule_response(), any()}
@@ -23672,7 +23672,7 @@ defmodule AWS.Connect do
   Gets basic information about the security profile.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  in the *Connect Customer Administrator Guide*. For a mapping of the API name and
   user interface name of the security
   profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
@@ -23764,7 +23764,7 @@ defmodule AWS.Connect do
   @doc """
   Describes the specified user.
 
-  You can [find the instance ID in the Amazon Connect console](https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html)
+  You can [find the instance ID in the Connect Customer console](https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html)
   (it’s the final part of the ARN). The console does not display the user IDs.
   Instead, list the users
   and note the IDs provided in the output.
@@ -23810,7 +23810,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Describes the hierarchy structure of the specified Amazon Connect instance.
+  Describes the hierarchy structure of the specified Connect Customer instance.
   """
   @spec describe_user_hierarchy_structure(map(), String.t() | atom(), list()) ::
           {:ok, describe_user_hierarchy_structure_response(), any()}
@@ -23828,7 +23828,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Retrieves the view for the specified Amazon Connect instance and view
+  Retrieves the view for the specified Connect Customer instance and view
   identifier.
 
   The view identifier can be supplied as a ViewId or ARN.
@@ -23837,7 +23837,7 @@ defmodule AWS.Connect do
 
   The view identifier can contain an optional qualifier, for example, `:$SAVED`,
   which
-  is either an actual version number or an Amazon Connect managed qualifier
+  is either an actual version number or an Connect Customer managed qualifier
   `$SAVED | $LATEST`. If it is
   not supplied, then `$LATEST` is assumed for customer managed views and an error
   is returned if there is no
@@ -23900,7 +23900,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Removes the dataset ID associated with a given Amazon Connect instance.
+  Removes the dataset ID associated with a given Connect Customer instance.
   """
   @spec disassociate_analytics_data_set(
           map(),
@@ -23934,9 +23934,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
-  Revokes access to integrated applications from Amazon Connect.
+  Revokes access to integrated applications from Connect Customer.
   """
   @spec disassociate_approved_origin(
           map(),
@@ -23976,7 +23976,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Revokes authorization from the specified instance to access the specified Amazon
   Lex or Amazon Lex V2 bot.
@@ -24008,7 +24008,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Removes the alias association between two email addresses in an Amazon Connect
+  Removes the alias association between two email addresses in an Connect Customer
   instance.
 
   After
@@ -24069,14 +24069,14 @@ defmodule AWS.Connect do
     *
   The timestamp of when the disassociation occurred.
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
 
   ## Related operations
 
     *
 
   [AssociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateEmailAddressAlias.html): Associates an email address alias with an existing email address in an
-  Amazon Connect instance.
+  Connect Customer instance.
 
     *
 
@@ -24234,7 +24234,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Removes the storage type configurations for the specified resource type and
   association ID.
@@ -24286,7 +24286,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Remove the Lambda function from the dropdown options available in the relevant
   flow blocks.
@@ -24329,7 +24329,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Revokes authorization from the specified instance to access the specified Amazon
   Lex bot.
@@ -24368,8 +24368,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Removes the flow association from a phone number claimed to your Amazon Connect
-  instance.
+  Removes the flow association from a phone number claimed to your Connect
+  Customer instance.
 
   If the number is claimed to a traffic distribution group, and you are calling
   this API using an instance in the Amazon Web Services Region where the traffic
@@ -24576,7 +24576,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Deletes the specified security key.
   """
@@ -24994,9 +24994,9 @@ defmodule AWS.Connect do
 
     *
   For more information, see the [Position in queue](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
-  metric in the *Amazon Connect Administrator Guide*.
+  metric in the *Connect Customer Administrator Guide*.
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec get_contact_metrics(map(), get_contact_metrics_request(), list()) ::
           {:ok, get_contact_metrics_response(), any()}
@@ -25025,10 +25025,10 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Gets the real-time metric data from the specified Amazon Connect instance.
+  Gets the real-time metric data from the specified Connect Customer instance.
 
   For a description of each metric, see [Metrics definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
 
   When you make a successful API request, you can expect the following metric
   values in the response:
@@ -25094,7 +25094,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Gets the real-time active user data from the specified Amazon Connect instance.
+  Gets the real-time active user data from the specified Connect Customer
+  instance.
   """
   @spec get_current_user_data(map(), String.t() | atom(), get_current_user_data_request(), list()) ::
           {:ok, get_current_user_data_response(), any()}
@@ -25171,13 +25172,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Supports SAML sign-in for Amazon Connect.
+  Supports SAML sign-in for Connect Customer.
 
-  Retrieves a token for federation. The token is for the Amazon Connect user which
-  corresponds to the IAM credentials that were used to invoke this action.
+  Retrieves a token for federation. The token is for the Connect Customer user
+  which corresponds to the IAM credentials that were used to invoke this action.
 
-  For more information about how SAML sign-in works in Amazon Connect, see
-  [Configure SAML with IAM for Amazon Connect in the *Amazon Connect Administrator
+  For more information about how SAML sign-in works in Connect Customer, see
+  [Configure SAML with IAM for Connect Customer in the *Connect Customer Administrator
   Guide*.](https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html
   )
 
@@ -25186,7 +25187,7 @@ defmodule AWS.Connect do
   message similar to the following one appears:
 
   `Provided identity: Principal: .... User: .... cannot be used for federation
-  with Amazon Connect`
+  with Connect Customer`
   """
   @spec get_federation_token(map(), String.t() | atom(), list()) ::
           {:ok, get_federation_token_response(), any()}
@@ -25236,10 +25237,10 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Gets historical metric data from the specified Amazon Connect instance.
+  Gets historical metric data from the specified Connect Customer instance.
 
   For a description of each historical metric, see [Metrics definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
 
   We recommend using the
   [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html)
@@ -25280,7 +25281,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Gets metric data from the specified Amazon Connect instance.
+  Gets metric data from the specified Connect Customer instance.
 
   `GetMetricDataV2` offers more features than
   [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html), the previous version of this API. It
@@ -25294,7 +25295,7 @@ defmodule AWS.Connect do
   `GetMetricDataV2` and
   `GetMetricData`, see [Metrics
   definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
 
   When you make a successful API request, you can expect the following metric
   values in the response:
@@ -25378,7 +25379,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Gets details about a specific task template in the specified Amazon Connect
+  Gets details about a specific task template in the specified Connect Customer
   instance.
   """
   @spec get_task_template(
@@ -25472,10 +25473,10 @@ defmodule AWS.Connect do
   @doc """
   Imports a claimed phone number from an external service, such as Amazon Web
   Services End User Messaging, into an
-  Amazon Connect instance.
+  Connect Customer instance.
 
   You can call this API only in the same Amazon Web Services Region where the
-  Amazon Connect instance was created.
+  Connect Customer instance was created.
 
   Call the
   [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html)
@@ -25619,8 +25620,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists the association status of requested dataset ID for a given Amazon Connect
-  instance.
+  Lists the association status of requested dataset ID for a given Connect
+  Customer instance.
   """
   @spec list_analytics_data_associations(
           map(),
@@ -25673,8 +25674,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists the data lake datasets available to associate with for a given Amazon
-  Connect instance.
+  Lists the data lake datasets available to associate with for a given Connect
+  Customer instance.
   """
   @spec list_analytics_data_lake_data_sets(
           map(),
@@ -25718,7 +25719,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Returns a paginated list of all approved origins associated with the instance.
   """
@@ -25819,7 +25820,7 @@ defmodule AWS.Connect do
 
   @doc """
   Provides summary information about the attached files configurations for the
-  specified Amazon Connect instance.
+  specified Connect Customer instance.
 
   This API returns effective configurations (custom overrides or defaults) for
   each attachment scope. If no custom configuration exists for a scope, the
@@ -25867,13 +25868,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   To
   request access to this API, contact Amazon Web Services Support.
 
   Provides summary information about the authentication profiles in a specified
-  Amazon Connect
+  Connect Customer
   instance.
   """
   @spec list_authentication_profiles(
@@ -25918,7 +25919,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   For the specified version of Amazon Lex, returns a paginated list of all the
   Amazon Lex bots
@@ -26030,7 +26031,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists contact evaluations in the specified Amazon Connect instance.
+  Lists contact evaluations in the specified Connect Customer instance.
   """
   @spec list_contact_evaluations(
           map(),
@@ -26172,7 +26173,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides information about the flow modules for the specified Amazon Connect
+  Provides information about the flow modules for the specified Connect Customer
   instance.
   """
   @spec list_contact_flow_modules(
@@ -26226,8 +26227,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Returns all the available versions for the specified Amazon Connect instance and
-  flow identifier.
+  Returns all the available versions for the specified Connect Customer instance
+  and flow identifier.
   """
   @spec list_contact_flow_versions(
           map(),
@@ -26275,14 +26276,15 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides information about the flows for the specified Amazon Connect instance.
+  Provides information about the flows for the specified Connect Customer
+  instance.
 
-  You can also create and update flows using the [Amazon Connect Flow
+  You can also create and update flows using the [Connect Customer Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
   For more information about flows, see
   [Flows](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html)
-  in the *Amazon Connect
+  in the *Connect Customer
   Administrator Guide*.
   """
   @spec list_contact_flows(
@@ -26336,7 +26338,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   For the specified `referenceTypes`, returns a list of references associated with
   the contact.
@@ -26592,7 +26594,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists the default vocabularies for the specified Amazon Connect instance.
+  Lists the default vocabularies for the specified Connect Customer instance.
   """
   @spec list_default_vocabularies(
           map(),
@@ -26661,7 +26663,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists versions of an evaluation form in the specified Amazon Connect instance.
+  Lists versions of an evaluation form in the specified Connect Customer instance.
   """
   @spec list_evaluation_form_versions(
           map(),
@@ -26709,7 +26711,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists evaluation forms in the specified Amazon Connect instance.
+  Lists evaluation forms in the specified Connect Customer instance.
   """
   @spec list_evaluation_forms(
           map(),
@@ -26854,13 +26856,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides information about the hours of operation for the specified Amazon
-  Connect instance.
+  Provides information about the hours of operation for the specified Connect
+  Customer instance.
 
   For more information about hours of operation, see [Set the Hours of Operation for a
   Queue](https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
   """
   @spec list_hours_of_operations(
           map(),
@@ -26904,7 +26906,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Returns a paginated list of all attribute types for the given instance.
   """
@@ -26950,7 +26952,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Returns a paginated list of storage configs for the identified instance and
   resource type.
@@ -27006,7 +27008,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Return a list of instances which are in active state, creation-in-progress
   state, and failed state. Instances
@@ -27045,7 +27047,7 @@ defmodule AWS.Connect do
 
   @doc """
   Provides summary information about the Amazon Web Services resource associations
-  for the specified Amazon Connect instance.
+  for the specified Connect Customer instance.
   """
   @spec list_integration_associations(
           map(),
@@ -27107,7 +27109,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Returns a paginated list of all Lambda functions that display in the dropdown
   options in the relevant flow
@@ -27155,7 +27157,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Returns a paginated list of all the Amazon Lex V1 bots currently associated with
   the instance. To return
@@ -27249,12 +27251,12 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides information about the phone numbers for the specified Amazon Connect
+  Provides information about the phone numbers for the specified Connect Customer
   instance.
 
   For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
 
     
   We recommend using
@@ -27332,7 +27334,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists phone numbers claimed to your Amazon Connect instance or traffic
+  Lists phone numbers claimed to your Connect Customer instance or traffic
   distribution group.
 
   If the provided `TargetArn`
@@ -27341,7 +27343,7 @@ defmodule AWS.Connect do
 
   For more information about phone numbers, see [Set Up Phone Numbers for Your Contact
   Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
 
     
   When given an instance ARN, `ListPhoneNumbersV2` returns only the phone numbers
@@ -27380,7 +27382,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists predefined attributes for the specified Amazon Connect instance.
+  Lists predefined attributes for the specified Connect Customer instance.
 
   A *predefined attribute* is
   made up of a name and a value. You can use predefined attributes for:
@@ -27396,9 +27398,9 @@ defmodule AWS.Connect do
   name of the business unit
   handling the contact. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
-  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+  For the predefined attributes per instance quota, see [Connect Customer quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec list_predefined_attributes(
           map(),
@@ -27442,7 +27444,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides information about the prompts for the specified Amazon Connect
+  Provides information about the prompts for the specified Connect Customer
   instance.
   """
   @spec list_prompts(
@@ -27606,7 +27608,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides information about the queues for the specified Amazon Connect instance.
+  Provides information about the queues for the specified Connect Customer
+  instance.
 
   If you do not specify a `QueueTypes` parameter, both standard and
   agent queues are returned. This might cause an unexpected truncation of results
@@ -27615,7 +27618,7 @@ defmodule AWS.Connect do
 
   For more information about queues, see [Queues: Standard and Agent](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
   """
   @spec list_queues(
           map(),
@@ -27668,7 +27671,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides information about the quick connects for the specified Amazon Connect
+  Provides information about the quick connects for the specified Connect Customer
   instance.
   """
   @spec list_quick_connects(
@@ -27786,8 +27789,8 @@ defmodule AWS.Connect do
   invalid request exception will be thrown).
 
   For information about how manual contact assignment works in the agent
-  workspace, see the [Access the Worklist app in the Amazon Connect agent workspace](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html)
-  in the *Amazon Connect Administrator Guide*.
+  workspace, see the [Access the Worklist app in the Connect Customer agent workspace](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html)
+  in the *Connect Customer Administrator Guide*.
 
   ## Important things to know
 
@@ -27797,7 +27800,7 @@ defmodule AWS.Connect do
   ListRoutingProfileQueues API to list the auto assignment queues for the routing
   profile.
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec list_routing_profile_manual_assignment_queues(
           map(),
@@ -27893,12 +27896,12 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides summary information about the routing profiles for the specified Amazon
-  Connect instance.
+  Provides summary information about the routing profiles for the specified
+  Connect Customer instance.
 
   For more information about routing profiles, see [Routing Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html)
   and [Create a Routing Profile](https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec list_routing_profiles(
           map(),
@@ -27942,7 +27945,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  List all rules for the specified Amazon Connect instance.
+  List all rules for the specified Connect Customer instance.
   """
   @spec list_rules(
           map(),
@@ -28004,7 +28007,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Returns a paginated list of all security keys associated with the instance.
   """
@@ -28150,7 +28153,7 @@ defmodule AWS.Connect do
   Lists the permissions granted to a security profile.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  in the *Connect Customer Administrator Guide*. For a mapping of the API name and
   user interface name of the security
   profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
@@ -28202,10 +28205,10 @@ defmodule AWS.Connect do
 
   @doc """
   Provides summary information about the security profiles for the specified
-  Amazon Connect instance.
+  Connect Customer instance.
 
   For more information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  in the *Connect Customer Administrator Guide*. For a mapping of the API name and
   user interface name of the security
   profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
@@ -28254,8 +28257,8 @@ defmodule AWS.Connect do
   @doc """
   Lists the tags for the specified resource.
 
-  For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
-  in the *Amazon Connect Administrator Guide*.
+  For sample policies that use tags, see [Connect Customer Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
+  in the *Connect Customer Administrator Guide*.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -28273,7 +28276,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Lists task templates for the specified Amazon Connect instance.
+  Lists task templates for the specified Connect Customer instance.
   """
   @spec list_task_templates(
           map(),
@@ -28675,11 +28678,11 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides summary information about the hierarchy groups for the specified Amazon
-  Connect instance.
+  Provides summary information about the hierarchy groups for the specified
+  Connect Customer instance.
 
   For more information about agent hierarchies, see [Set Up Agent Hierarchies](https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec list_user_hierarchy_groups(
           map(),
@@ -28820,7 +28823,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides summary information about the users for the specified Amazon Connect
+  Provides summary information about the users for the specified Connect Customer
   instance.
   """
   @spec list_users(
@@ -28865,8 +28868,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Returns all the available versions for the specified Amazon Connect instance and
-  view identifier.
+  Returns all the available versions for the specified Connect Customer instance
+  and view identifier.
 
   Results will be sorted from highest to lowest.
   """
@@ -29145,7 +29148,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Changes the current status of a user or agent in Amazon Connect.
+  Changes the current status of a user or agent in Connect Customer.
 
   If the agent is currently handling a
   contact, this sets the agent's next status.
@@ -29153,7 +29156,7 @@ defmodule AWS.Connect do
   For more information, see [Agent status](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html)
   and [Set your next
   status](https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec put_user_status(
           map(),
@@ -29188,14 +29191,14 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Releases a phone number previously claimed to an Amazon Connect instance or
+  Releases a phone number previously claimed to an Connect Customer instance or
   traffic distribution group.
 
   You can call this API
   only in the Amazon Web Services Region where the number was claimed.
 
   To release phone numbers from a traffic distribution group, use the
-  `ReleasePhoneNumber` API, not the Amazon Connect admin website.
+  `ReleasePhoneNumber` API, not the Connect Customer admin website.
 
   After releasing a phone number, the phone number enters into a cooldown period
   for up to 180 days. It cannot be
@@ -29258,13 +29261,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Replicates an Amazon Connect instance in the specified Amazon Web Services
+  Replicates an Connect Customer instance in the specified Amazon Web Services
   Region and copies configuration
-  information for Amazon Connect resources across Amazon Web Services Regions.
+  information for Connect Customer resources across Amazon Web Services Regions.
 
-  For more information about replicating an Amazon Connect instance, see [Create a replica of your existing Amazon Connect
+  For more information about replicating an Connect Customer instance, see [Create a replica of your existing Connect Customer
   instance](https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec replicate_instance(map(), String.t() | atom(), replicate_instance_request(), list()) ::
           {:ok, replicate_instance_response(), any()}
@@ -29359,7 +29362,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches AgentStatuses in an Amazon Connect instance, with optional filtering.
+  Searches AgentStatuses in an Connect Customer instance, with optional filtering.
   """
   @spec search_agent_statuses(map(), search_agent_statuses_request(), list()) ::
           {:ok, search_agent_statuses_response(), any()}
@@ -29388,7 +29391,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches for available phone numbers that you can claim to your Amazon Connect
+  Searches for available phone numbers that you can claim to your Connect Customer
   instance or traffic distribution group.
 
   If the
@@ -29423,7 +29426,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches contact evaluations in an Amazon Connect instance, with optional
+  Searches contact evaluations in an Connect Customer instance, with optional
   filtering.
 
   ## Use cases
@@ -29445,7 +29448,7 @@ defmodule AWS.Connect do
   evaluations, try calling the API again
   in a few seconds.
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec search_contact_evaluations(map(), search_contact_evaluations_request(), list()) ::
           {:ok, search_contact_evaluations_response(), any()}
@@ -29474,7 +29477,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches the flow modules in an Amazon Connect instance, with optional
+  Searches the flow modules in an Connect Customer instance, with optional
   filtering.
   """
   @spec search_contact_flow_modules(map(), search_contact_flow_modules_request(), list()) ::
@@ -29504,7 +29507,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches the flows in an Amazon Connect instance, with optional filtering.
+  Searches the flows in an Connect Customer instance, with optional filtering.
   """
   @spec search_contact_flows(map(), search_contact_flows_request(), list()) ::
           {:ok, search_contact_flows_response(), any()}
@@ -29533,7 +29536,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches contacts in an Amazon Connect instance.
+  Searches contacts in an Connect Customer instance.
   """
   @spec search_contacts(map(), search_contacts_request(), list()) ::
           {:ok, search_contacts_response(), any()}
@@ -29625,7 +29628,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches evaluation forms in an Amazon Connect instance, with optional
+  Searches evaluation forms in an Connect Customer instance, with optional
   filtering.
 
   ## Use cases
@@ -29651,7 +29654,7 @@ defmodule AWS.Connect do
   evaluations, try calling the API again
   in a few seconds.
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec search_evaluation_forms(map(), search_evaluation_forms_request(), list()) ::
           {:ok, search_evaluation_forms_response(), any()}
@@ -29713,7 +29716,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches the hours of operation in an Amazon Connect instance, with optional
+  Searches the hours of operation in an Connect Customer instance, with optional
   filtering.
   """
   @spec search_hours_of_operations(map(), search_hours_of_operations_request(), list()) ::
@@ -29791,9 +29794,9 @@ defmodule AWS.Connect do
   name of the business unit
   handling the contact. For more information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
-  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+  For the predefined attributes per instance quota, see [Connect Customer quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec search_predefined_attributes(map(), search_predefined_attributes_request(), list()) ::
           {:ok, search_predefined_attributes_response(), any()}
@@ -29822,7 +29825,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches prompts in an Amazon Connect instance, with optional filtering.
+  Searches prompts in an Connect Customer instance, with optional filtering.
   """
   @spec search_prompts(map(), search_prompts_request(), list()) ::
           {:ok, search_prompts_response(), any()}
@@ -29851,7 +29854,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches queues in an Amazon Connect instance, with optional filtering.
+  Searches queues in an Connect Customer instance, with optional filtering.
   """
   @spec search_queues(map(), search_queues_request(), list()) ::
           {:ok, search_queues_response(), any()}
@@ -29880,7 +29883,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches quick connects in an Amazon Connect instance, with optional filtering.
+  Searches quick connects in an Connect Customer instance, with optional
+  filtering.
   """
   @spec search_quick_connects(map(), search_quick_connects_request(), list()) ::
           {:ok, search_quick_connects_response(), any()}
@@ -29909,7 +29913,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches tags used in an Amazon Connect instance using optional search criteria.
+  Searches tags used in an Connect Customer instance using optional search
+  criteria.
   """
   @spec search_resource_tags(map(), search_resource_tags_request(), list()) ::
           {:ok, search_resource_tags_response(), any()}
@@ -29938,7 +29943,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches routing profiles in an Amazon Connect instance, with optional
+  Searches routing profiles in an Connect Customer instance, with optional
   filtering.
 
   `SearchRoutingProfiles` does not populate LastModifiedRegion, LastModifiedTime,
@@ -29974,11 +29979,11 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches security profiles in an Amazon Connect instance, with optional
+  Searches security profiles in an Connect Customer instance, with optional
   filtering.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  in the *Connect Customer Administrator Guide*. For a mapping of the API name and
   user interface name of the security
   profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
@@ -30040,7 +30045,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches UserHierarchyGroups in an Amazon Connect instance, with optional
+  Searches UserHierarchyGroups in an Connect Customer instance, with optional
   filtering.
 
   The UserHierarchyGroup with `"LevelId": "0"` is the foundation for building
@@ -30074,7 +30079,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches users in an Amazon Connect instance, with optional filtering.
+  Searches users in an Connect Customer instance, with optional filtering.
 
   `AfterContactWorkTimeLimit` is returned in milliseconds.
   """
@@ -30134,7 +30139,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches for vocabularies within a specific Amazon Connect instance using
+  Searches for vocabularies within a specific Connect Customer instance using
   `State`,
   `NameStartsWith`, and `LanguageCode`.
   """
@@ -30225,7 +30230,7 @@ defmodule AWS.Connect do
 
   @doc """
   Processes chat integration events from Amazon Web Services or external
-  integrations to Amazon Connect.
+  integrations to Connect Customer.
 
   A chat
   integration event includes:
@@ -30276,10 +30281,10 @@ defmodule AWS.Connect do
   @doc """
   Send outbound email for outbound campaigns.
 
-  For more information about outbound campaigns, see [Set up Amazon Connect outbound
+  For more information about outbound campaigns, see [Set up Connect Customer outbound
   campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html).
 
-  Only the Amazon Connect outbound campaigns service principal is allowed to
+  Only the Connect Customer outbound campaigns service principal is allowed to
   assume a role in your account
   and call this API.
   """
@@ -30312,8 +30317,8 @@ defmodule AWS.Connect do
   @doc """
   Provides a pre-signed Amazon S3 URL in response for uploading your content.
 
-  You may only use this API to upload attachments to an [Amazon Connect Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html)
-  or [Amazon Connect Email](https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html).
+  You may only use this API to upload attachments to an [Connect Customer Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html)
+  or [Connect Customer Email](https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html).
   """
   @spec start_attached_file_upload(
           map(),
@@ -30356,7 +30361,7 @@ defmodule AWS.Connect do
 
   Response of this API provides a token required to obtain
   credentials from the
-  [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API in the Amazon Connect Participant Service.
+  [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API in the Connect Customer Participant Service.
 
   When a new chat contact is successfully created, clients must subscribe to the
   participant’s connection for the
@@ -30381,16 +30386,17 @@ defmodule AWS.Connect do
   support the ability to configure custom chat durations. For more information,
   contact Amazon Web Services Support.
 
-  For more information about chat, see the following topics in the *Amazon Connect
+  For more information about chat, see the following topics in the *Connect
+  Customer
   Administrator Guide*:
 
     *
 
-  [Concepts: Web and mobile messaging capabilities in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html)
+  [Concepts: Web and mobile messaging capabilities in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html)
 
     *
 
-  [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat)
+  [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat)
   """
   @spec start_chat_contact(map(), start_chat_contact_request(), list()) ::
           {:ok, start_chat_contact_response(), any()}
@@ -30419,7 +30425,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Starts an empty evaluation in the specified Amazon Connect instance, using the
+  Starts an empty evaluation in the specified Connect Customer instance, using the
   given evaluation form for the
   particular contact.
 
@@ -30552,18 +30558,19 @@ defmodule AWS.Connect do
 
   For more information about message streaming, see [Enable real-time chat message streaming](https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
 
-  For more information about chat, see the following topics in the *Amazon Connect
+  For more information about chat, see the following topics in the *Connect
+  Customer
   Administrator Guide*:
 
     *
 
-  [Concepts: Web and mobile messaging capabilities in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html)
+  [Concepts: Web and mobile messaging capabilities in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html)
 
     *
 
-  [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat)
+  [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat)
   """
   @spec start_contact_streaming(map(), start_contact_streaming_request(), list()) ::
           {:ok, start_contact_streaming_response(), any()}
@@ -30641,9 +30648,9 @@ defmodule AWS.Connect do
   [StartOutboundChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html) Flow
   Action.
 
-  For more information about using SMS or WhatsApp in Amazon Connect, see the
+  For more information about using SMS or WhatsApp in Connect Customer, see the
   following topics in
-  the *Amazon Connect Administrator Guide*:
+  the *Connect Customer Administrator Guide*:
 
     *
 
@@ -30737,15 +30744,15 @@ defmodule AWS.Connect do
 
   UK numbers with a 447 prefix are not allowed by default. Before you can dial
   these UK mobile numbers, you must
-  submit a service quota increase request. For more information, see [Amazon Connect Service
+  submit a service quota increase request. For more information, see [Connect Customer Service
   Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
 
   Campaign calls are not allowed by default. Before you can make a call with
   `TrafficType` =
   `CAMPAIGN`, you must submit a service quota increase request to the quota
-  [Amazon Connect campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas).
+  [Connect Customer campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas).
 
   For Preview dialing mode, only the Amazon Connect outbound campaigns service
   principal is allowed to assume a
@@ -30782,7 +30789,7 @@ defmodule AWS.Connect do
 
   For more information about screen sharing, see [Set up in-app, web, video calling, and screen sharing
   capabilities](https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec start_screen_sharing(map(), start_screen_sharing_request(), list()) ::
           {:ok, start_screen_sharing_response(), any()}
@@ -30813,9 +30820,9 @@ defmodule AWS.Connect do
   @doc """
   Initiates a flow to start a new task contact.
 
-  For more information about task contacts, see [Concepts: Tasks in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html) in
+  For more information about task contacts, see [Concepts: Tasks in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html) in
   the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
 
   When using `PreviousContactId` and `RelatedContactId` input parameters, note the
   following:
@@ -30858,16 +30865,16 @@ defmodule AWS.Connect do
   specified, or only the
   `TaskTemplateID` is specified but it does not have a flow configured, the
   request returns an error
-  because Amazon Connect cannot identify the unique flow to run when the task is
+  because Connect Customer cannot identify the unique flow to run when the task is
   created.
 
   A `ServiceQuotaExceededException` occurs when the number of open tasks exceeds
   the active tasks quota
   or there are already 12 tasks referencing the same `PreviousContactId`. For more
   information about service
-  quotas for task contacts, see [Amazon Connect service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  quotas for task contacts, see [Connect Customer service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Connect Customer Administrator Guide*.
   """
   @spec start_task_contact(map(), start_task_contact_request(), list()) ::
           {:ok, start_task_contact_response(), any()}
@@ -30943,8 +30950,8 @@ defmodule AWS.Connect do
   the flow.
 
   It performs the actions
-  in the flow that are specified (in ContactFlowId) and present in the Amazon
-  Connect instance (specified as
+  in the flow that are specified (in ContactFlowId) and present in the Connect
+  Customer instance (specified as
   InstanceId).
   """
   @spec start_web_r_t_c_contact(map(), start_web_r_t_c_contact_request(), list()) ::
@@ -31171,7 +31178,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Submits a contact evaluation in the specified Amazon Connect instance.
+  Submits a contact evaluation in the specified Connect Customer instance.
 
   Answers included in the request are
   merged with existing answers for the given evaluation. If no answers or notes
@@ -31271,7 +31278,7 @@ defmodule AWS.Connect do
   Adds the specified tags to the contact resource.
 
   For more information about this API is used, see [Set up granular billing for a detailed
-  view of your Amazon Connect
+  view of your Connect Customer
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
   """
   @spec tag_contact(map(), tag_contact_request(), list()) ::
@@ -31306,10 +31313,10 @@ defmodule AWS.Connect do
   Some of the supported resource types are agents, routing profiles, queues, quick
   connects, flows, agent
   statuses, hours of operation, phone numbers, security profiles, and task
-  templates. For a complete list, see [Tagging resources in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
+  templates. For a complete list, see [Tagging resources in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
 
-  For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
-  in the *Amazon Connect Administrator Guide*.
+  For sample policies that use tags, see [Connect Customer Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
+  in the *Connect Customer Administrator Guide*.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -31398,7 +31405,7 @@ defmodule AWS.Connect do
   Removes the specified tags from the contact resource.
 
   For more information about this API is used, see [Set up granular billing for a detailed
-  view of your Amazon Connect
+  view of your Connect Customer
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
   """
   @spec untag_contact(
@@ -31512,7 +31519,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates the attached files configuration for the specified Amazon Connect
+  Updates the attached files configuration for the specified Connect Customer
   instance and attachment scope.
 
   If no instance-specific configuration exists, this operation creates one.
@@ -31560,7 +31567,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   To
   request access to this API, contact Amazon Web Services Support.
@@ -31608,7 +31615,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Adds or updates user-defined contact information associated with the specified
   contact. At least one field to be
@@ -31660,14 +31667,14 @@ defmodule AWS.Connect do
   that the agent took during the call that display to the next agent that takes
   the call. You can also update
   attributes for a contact using data from your CRM application and save the data
-  with the contact in Amazon Connect. You could also flag calls for additional
+  with the contact in Connect Customer. You could also flag calls for additional
   analysis, such as legal review or to identify abusive callers.
 
-  Contact attributes are available in Amazon Connect for 24 months, and are then
+  Contact attributes are available in Connect Customer for 24 months, and are then
   deleted. For information
   about contact record retention and the maximum size of the contact record
   attributes section, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec update_contact_attributes(map(), update_contact_attributes_request(), list()) ::
           {:ok, update_contact_attributes_response(), any()}
@@ -31696,7 +31703,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates details about a contact evaluation in the specified Amazon Connect
+  Updates details about a contact evaluation in the specified Connect Customer
   instance.
 
   A contact evaluation
@@ -31748,7 +31755,7 @@ defmodule AWS.Connect do
   @doc """
   Updates the specified flow.
 
-  You can also create and update flows using the [Amazon Connect Flow
+  You can also create and update flows using the [Connect Customer Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
   Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow.
@@ -31887,7 +31894,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates specified flow module for the specified Amazon Connect instance.
+  Updates specified flow module for the specified Connect Customer instance.
 
   Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow.
   For
@@ -31981,7 +31988,7 @@ defmodule AWS.Connect do
   @doc """
   The name of the flow.
 
-  You can also create and update flows using the [Amazon Connect Flow
+  You can also create and update flows using the [Connect Customer Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
   @spec update_contact_flow_name(
@@ -32267,7 +32274,7 @@ defmodule AWS.Connect do
   Updates an email address metadata.
 
   For more information about email addresses, see [Create email addresses](https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html)
-  in the Amazon Connect
+  in the Connect Customer
   Administrator Guide.
   """
   @spec update_email_address_metadata(
@@ -32311,8 +32318,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates details about a specific evaluation form version in the specified Amazon
-  Connect instance.
+  Updates details about a specific evaluation form version in the specified
+  Connect Customer instance.
 
   Question
   and section identifiers cannot be duplicated within the same evaluation form.
@@ -32450,7 +32457,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Updates the value for the specified attribute type.
   """
@@ -32495,7 +32502,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  This API is in preview release for Connect Customer and is subject to change.
 
   Updates an existing configuration for a resource type. This API is idempotent.
   """
@@ -32590,7 +32597,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Instructs Amazon Connect to resume the authentication process.
+  Instructs Connect Customer to resume the authentication process.
 
   The subsequent actions depend on the request
   body contents:
@@ -32703,8 +32710,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates your claimed phone number from its current Amazon Connect instance or
-  traffic distribution group to another Amazon Connect instance or traffic
+  Updates your claimed phone number from its current Connect Customer instance or
+  traffic distribution group to another Connect Customer instance or traffic
   distribution group in the same Amazon Web Services Region.
 
   After using this API, you must verify that the phone number is attached to the
@@ -32784,12 +32791,12 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates a predefined attribute for the specified Amazon Connect instance.
+  Updates a predefined attribute for the specified Connect Customer instance.
 
   A *predefined attribute* is
   made up of a name and a value.
 
-  For the predefined attributes per instance quota, see [Amazon Connect quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
+  For the predefined attributes per instance quota, see [Connect Customer quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas).
 
   ## Use cases
 
@@ -32808,7 +32815,7 @@ defmodule AWS.Connect do
   transfers or conferences. For more
   information, see [Use contact segment attributes](https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html).
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec update_predefined_attribute(
           map(),
@@ -33004,8 +33011,8 @@ defmodule AWS.Connect do
     
   If the phone number is claimed to a traffic distribution group that was created
   in the
-  same Region as the Amazon Connect instance where you are calling this API, then
-  you can use a
+  same Region as the Connect Customer instance where you are calling this API,
+  then you can use a
   full phone number ARN or a UUID for `OutboundCallerIdNumberId`. However, if the
   phone number is claimed
   to a traffic distribution group that is in one Region, and you are calling this
@@ -33461,7 +33468,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates a rule for the specified Amazon Connect instance.
+  Updates a rule for the specified Connect Customer instance.
 
   Use the [Rules Function language](https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html)
   to code conditions for the rule.
@@ -33502,7 +33509,7 @@ defmodule AWS.Connect do
   Updates a security profile.
 
   For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
-  in the *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  in the *Connect Customer Administrator Guide*. For a mapping of the API name and
   user interface name of the security
   profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
@@ -33548,7 +33555,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates details about a specific task template in the specified Amazon Connect
+  Updates details about a specific task template in the specified Connect Customer
   instance.
 
   This operation does
@@ -33661,7 +33668,7 @@ defmodule AWS.Connect do
   telephony traffic distribution
   across Amazon Web Services Regions
   ](https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
 
   ## Important things to know
 
@@ -33867,7 +33874,7 @@ defmodule AWS.Connect do
   attacker's email address, and then
   reset the password through email. For more information, see [Best Practices for Security
   Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Connect Customer Administrator Guide*.
   """
   @spec update_user_identity_info(
           map(),
@@ -34122,8 +34129,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates the view content of the given view identifier in the specified Amazon
-  Connect instance.
+  Updates the view content of the given view identifier in the specified Connect
+  Customer instance.
 
   It performs content validation if `Status` is set to `SAVED` and performs full
   content

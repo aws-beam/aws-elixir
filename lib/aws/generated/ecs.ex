@@ -150,6 +150,22 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      deployment_lifecycle_hook_detail() :: %{
+        "expiresAt" => non_neg_integer(),
+        "hookId" => String.t() | atom(),
+        "status" => list(any()),
+        "targetArn" => String.t() | atom(),
+        "targetType" => list(any()),
+        "timeoutAction" => list(any())
+      }
+      
+  """
+  @type deployment_lifecycle_hook_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_service_deployments_request() :: %{
         optional("cluster") => String.t() | atom(),
         optional("createdAt") => created_at(),
@@ -835,6 +851,17 @@ defmodule AWS.ECS do
       
   """
   @type service_connect_service_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      continue_service_deployment_response() :: %{
+        "serviceDeploymentArn" => String.t() | atom()
+      }
+      
+  """
+  @type continue_service_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2079,7 +2106,9 @@ defmodule AWS.ECS do
         "hookDetails" => any(),
         "hookTargetArn" => String.t() | atom(),
         "lifecycleStages" => list(list(any())()),
-        "roleArn" => String.t() | atom()
+        "roleArn" => String.t() | atom(),
+        "targetType" => list(any()),
+        "timeoutConfiguration" => deployment_lifecycle_hook_timeout_configuration()
       }
       
   """
@@ -2538,6 +2567,7 @@ defmodule AWS.ECS do
         "deploymentCircuitBreaker" => service_deployment_circuit_breaker(),
         "deploymentConfiguration" => deployment_configuration(),
         "finishedAt" => non_neg_integer(),
+        "lifecycleHookDetails" => list(deployment_lifecycle_hook_detail()),
         "lifecycleStage" => list(any()),
         "rollback" => rollback(),
         "serviceArn" => String.t() | atom(),
@@ -4635,6 +4665,19 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      continue_service_deployment_request() :: %{
+        optional("action") => list(any()),
+        required("hookId") => String.t() | atom(),
+        required("serviceDeploymentArn") => String.t() | atom()
+      }
+      
+  """
+  @type continue_service_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_account_setting_request() :: %{
         optional("principalArn") => String.t() | atom(),
         required("name") => list(any())
@@ -4653,6 +4696,18 @@ defmodule AWS.ECS do
       
   """
   @type create_task_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deployment_lifecycle_hook_timeout_configuration() :: %{
+        "action" => list(any()),
+        "timeoutInMinutes" => integer()
+      }
+      
+  """
+  @type deployment_lifecycle_hook_timeout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5215,6 +5270,14 @@ defmodule AWS.ECS do
       
   """
   @type resource() :: %{(String.t() | atom()) => any()}
+
+  @type continue_service_deployment_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | service_deployment_not_found_exception()
 
   @type create_capacity_provider_errors() ::
           limit_exceeded_exception()
@@ -5854,6 +5917,30 @@ defmodule AWS.ECS do
       signing_name: "ecs",
       target_prefix: "AmazonEC2ContainerServiceV20141113"
     }
+  end
+
+  @doc """
+  Continues or rolls back an Amazon ECS service deployment that is paused at a
+  lifecycle hook.
+
+  When a service deployment reaches a lifecycle stage that has a `PAUSE` hook
+  configured, the deployment pauses and waits for an explicit action. Use this API
+  to either continue the deployment to the next stage or roll back to the previous
+  service revision.
+
+  To find the `hookId` of the paused hook, call
+  [DescribeServiceDeployments](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html)
+  and inspect the `lifecycleHookDetails` field.
+  """
+  @spec continue_service_deployment(map(), continue_service_deployment_request(), list()) ::
+          {:ok, continue_service_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, continue_service_deployment_errors()}
+  def continue_service_deployment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ContinueServiceDeployment", input, options)
   end
 
   @doc """

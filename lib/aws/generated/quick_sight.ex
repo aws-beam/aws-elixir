@@ -2324,6 +2324,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      column_semantic_property() :: %{
+        "AdditionalNotes" => additional_notes(),
+        "Description" => column_description(),
+        "SemanticType" => column_semantic_type()
+      }
+
+  """
+  @type column_semantic_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sheet_layout_element_maximization_option() :: %{
         "AvailabilityStatus" => list(any())
       }
@@ -4240,6 +4253,17 @@ defmodule AWS.QuickSight do
 
   """
   @type data_set_date_filter_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_semantic_metadata() :: %{
+        "ColumnMetadata" => list(shared_column_semantic_metadata())
+      }
+
+  """
+  @type table_semantic_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7005,6 +7029,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      additional_notes() :: %{
+        "Text" => String.t() | atom()
+      }
+
+  """
+  @type additional_notes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_source_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
@@ -7736,6 +7771,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      column_semantic_type() :: %{
+        "GeographicalRole" => list(any())
+      }
+
+  """
+  @type column_semantic_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       colors_configuration() :: %{
         "CustomColors" => list(custom_color())
       }
@@ -7768,6 +7814,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       semantic_model_configuration() :: %{
+        "SemanticMetadata" => list(data_set_semantic_metadata()),
         "TableMap" => map()
       }
 
@@ -10951,6 +10998,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      inline_custom_instruction() :: %{
+        "InstructionText" => String.t() | atom(),
+        "UploadedDocumentMetadata" => uploaded_document_metadata()
+      }
+
+  """
+  @type inline_custom_instruction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       signup_response() :: %{
         "IAMUser" => boolean(),
         "accountName" => String.t() | atom(),
@@ -12027,6 +12086,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      uploaded_document_metadata() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type uploaded_document_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_field_combo_series_item() :: %{
         "FieldId" => String.t() | atom(),
         "FieldValue" => String.t() | atom(),
@@ -12089,6 +12159,17 @@ defmodule AWS.QuickSight do
 
   """
   @type filter_list_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_semantic_description() :: %{
+        "Text" => String.t() | atom()
+      }
+
+  """
+  @type data_set_semantic_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14504,6 +14585,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_set_semantic_metadata() :: %{
+        "CustomInstructions" => list(custom_instruction()),
+        "Description" => data_set_semantic_description()
+      }
+
+  """
+  @type data_set_semantic_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       period_over_period_computation() :: %{
         "ComputationId" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -14869,6 +14962,17 @@ defmodule AWS.QuickSight do
 
   """
   @type auth_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_instruction() :: %{
+        "InlineCustomInstruction" => inline_custom_instruction()
+      }
+
+  """
+  @type custom_instruction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17592,6 +17696,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      shared_column_semantic_metadata() :: %{
+        "ColumnNames" => list(String.t() | atom()),
+        "ColumnProperties" => list(column_semantic_property())
+      }
+
+  """
+  @type shared_column_semantic_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       font_size() :: %{
         "Absolute" => String.t() | atom(),
         "Relative" => list(any())
@@ -19544,7 +19660,8 @@ defmodule AWS.QuickSight do
       semantic_table() :: %{
         "Alias" => String.t() | atom(),
         "DestinationTableId" => String.t() | atom(),
-        "RowLevelPermissionConfiguration" => row_level_permission_configuration()
+        "RowLevelPermissionConfiguration" => row_level_permission_configuration(),
+        "SemanticMetadata" => table_semantic_metadata()
       }
 
   """

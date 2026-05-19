@@ -41,7 +41,8 @@ defmodule AWS.EC2 do
         "ResourceId" => String.t() | atom(),
         "ResourceOwner" => String.t() | atom(),
         "ResourceRegion" => String.t() | atom(),
-        "ResourceType" => list(any())
+        "ResourceType" => list(any()),
+        "Tags" => list(tag())
       }
       
   """
@@ -5436,6 +5437,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_network_insights_paths_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ipam_pool_allocation_result() :: %{
+        "IpamPoolAllocation" => ipam_pool_allocation()
+      }
+      
+  """
+  @type modify_ipam_pool_allocation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13722,6 +13734,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("NetmaskLength") => integer(),
         optional("PreviewNextCidr") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
         required("IpamPoolId") => String.t() | atom()
       }
       
@@ -24115,6 +24128,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_ipam_pool_allocations_result() :: %{
+        "IpamPoolAllocations" => list(ipam_pool_allocation()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_pool_allocations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_ipv6_pools_result() :: %{
         "Ipv6Pools" => list(ipv6_pool()),
         "NextToken" => String.t() | atom()
@@ -27332,6 +27357,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_ipam_pool_allocations_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("IpamPoolAllocationIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_ipam_pool_allocations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_export_image_tasks_request() :: %{
         optional("DryRun") => boolean(),
         optional("ExportImageTaskIds") => list(String.t() | atom()),
@@ -27757,6 +27797,7 @@ defmodule AWS.EC2 do
       volume_modification() :: %{
         "EndTime" => non_neg_integer(),
         "ModificationState" => list(any()),
+        "Operator" => operator_response(),
         "OriginalIops" => integer(),
         "OriginalMultiAttachEnabled" => boolean(),
         "OriginalSize" => integer(),
@@ -30383,6 +30424,19 @@ defmodule AWS.EC2 do
       
   """
   @type ebs_status_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ipam_pool_allocation_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        required("IpamPoolAllocationId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_ipam_pool_allocation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -41656,6 +41710,31 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes IPAM pool allocations.
+
+  You can describe all allocations owned by you across all pools, or you can
+  describe specific allocations by ID.
+
+  If you specify `IpamPoolAllocationIds`, the results include only the specified
+  allocations. If you do not specify `IpamPoolAllocationIds`, the results include
+  all allocations owned by you. You can use `Filters` to narrow the results.
+
+  This action returns only allocations directly owned by you. To view all
+  allocations in a pool you own or that has been shared with you, including
+  allocations owned by other accounts, use
+  [GetIpamPoolAllocations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.html).
+  """
+  @spec describe_ipam_pool_allocations(map(), describe_ipam_pool_allocations_request(), list()) ::
+          {:ok, describe_ipam_pool_allocations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_ipam_pool_allocations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIpamPoolAllocations", input, options)
+  end
+
+  @doc """
   Get information about your IPAM pools.
   """
   @spec describe_ipam_pools(map(), describe_ipam_pools_request(), list()) ::
@@ -48314,6 +48393,22 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyIpamPool", input, options)
+  end
+
+  @doc """
+  Modifies the description of an IPAM pool allocation.
+
+  For more information, see [Modify an IPAM pool allocation](https://docs.aws.amazon.com/vpc/latest/ipam/modify-alloc-ipam.html)
+  in the *Amazon VPC IPAM User Guide*.
+  """
+  @spec modify_ipam_pool_allocation(map(), modify_ipam_pool_allocation_request(), list()) ::
+          {:ok, modify_ipam_pool_allocation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_ipam_pool_allocation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyIpamPoolAllocation", input, options)
   end
 
   @doc """

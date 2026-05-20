@@ -3,22 +3,15 @@
 
 defmodule AWS.DevOpsAgent do
   @moduledoc """
-  AWS DevOps Agent is a frontier agent that resolves and proactively prevents
-  incidents, continuously improving
-  reliability and performance.
+  AWS DevOps Agent is your always-available operations teammate.
 
-  AWS DevOps Agent investigates incidents and identifies operational improvements
-  as an
-  experienced DevOps engineer.
-
-  The agent works by:
-
-  * Learning your resources and their relationships.
-  * Working with your observability tools, runbooks, code repositories, and CI/CD
-  pipelines.
-  * Correlating telemetry, code, and deployment data to understand relationships
-  between your application resources.
-  * Supporting applications in multicloud and hybrid environments.
+  It resolves and proactively prevents incidents, optimizes application
+  reliability and performance, and handles on-demand SRE tasks across AWS,
+  multicloud, and on-premises environments. AWS DevOps Agent investigates
+  incidents as an experienced DevOps engineer would. It learns your applications
+  and their relationships. It works with your observability tools, runbooks, code
+  repositories, and CI/CD pipelines. The agent correlates telemetry, code, and
+  deployment data across all of them.
   """
 
   alias AWS.Client
@@ -698,6 +691,20 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      m_c_p_server_sig_v4_authorization_config() :: %{
+        "customHeaders" => map(),
+        "region" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "service" => [String.t() | atom()]
+      }
+
+  """
+  @type m_c_p_server_sig_v4_authorization_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       goal() :: %{
         "agentSpaceArn" => [String.t() | atom()],
         "content" => goal_content(),
@@ -1121,6 +1128,23 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      registered_m_c_p_server_sig_v4_details() :: %{
+        "customHeaders" => map(),
+        "description" => String.t() | atom(),
+        "endpoint" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "region" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "service" => [String.t() | atom()]
+      }
+
+  """
+  @type registered_m_c_p_server_sig_v4_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_executions_response() :: %{
         "executions" => list(execution()),
         "nextToken" => [String.t() | atom()]
@@ -1282,6 +1306,8 @@ defmodule AWS.DevOpsAgent do
         "goalId" => [String.t() | atom()],
         "goalVersion" => [float()],
         "priority" => list(any()),
+        "rankPosition" => [integer()],
+        "rankedAt" => non_neg_integer(),
         "recommendationId" => [String.t() | atom()],
         "status" => list(any()),
         "taskId" => [String.t() | atom()],
@@ -1364,6 +1390,17 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type delete_agent_space_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      m_c_p_server_sig_v4_configuration() :: %{
+        "tools" => list([String.t() | atom()]())
+      }
+
+  """
+  @type m_c_p_server_sig_v4_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1563,6 +1600,20 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type list_associations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      m_c_p_server_sig_v4_service_details() :: %{
+        "authorizationConfig" => m_c_p_server_sig_v4_authorization_config(),
+        "description" => String.t() | atom(),
+        "endpoint" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type m_c_p_server_sig_v4_service_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3879,7 +3930,7 @@ defmodule AWS.DevOpsAgent do
     custom_headers = []
     query_params = []
 
-    meta = metadata()
+    meta = metadata() |> Map.put_new(:host_prefix, "cp.")
 
     Request.request_rest(
       client,

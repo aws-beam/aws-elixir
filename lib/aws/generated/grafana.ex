@@ -565,6 +565,7 @@ defmodule AWS.Grafana do
         "authentication" => authentication_summary(),
         "created" => [non_neg_integer()],
         "dataSources" => list(String.t() | atom()),
+        "degradedWorkspaceReason" => String.t() | atom(),
         "description" => String.t() | atom(),
         "endpoint" => String.t() | atom(),
         "freeTrialConsumed" => [boolean()],

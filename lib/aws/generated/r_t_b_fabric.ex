@@ -754,6 +754,7 @@ defmodule AWS.RTBFabric do
         "gatewayId" => String.t() | atom(),
         "gatewayType" => list(any()),
         "inboundLinksCount" => [integer()],
+        "linksRequestedCount" => [integer()],
         "listenerConfig" => listener_config(),
         "managedEndpointConfiguration" => list(),
         "port" => [integer()],

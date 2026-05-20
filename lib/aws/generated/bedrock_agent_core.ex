@@ -4376,6 +4376,7 @@ defmodule AWS.BedrockAgentCore do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | retryable_conflict_exception()
 
   @type invoke_agent_runtime_command_errors() ::
           runtime_client_error()
@@ -4612,6 +4613,7 @@ defmodule AWS.BedrockAgentCore do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | retryable_conflict_exception()
           | unauthorized_exception()
 
   @type update_a_b_test_errors() ::
@@ -4855,7 +4857,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Create a new payment instrument for a connector
+  Create a new payment instrument for a connector.
   """
   @spec create_payment_instrument(map(), create_payment_instrument_request(), list()) ::
           {:ok, create_payment_instrument_response(), any()}
@@ -4891,7 +4893,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Create a new payment manager session
+  Create a new payment session.
   """
   @spec create_payment_session(map(), create_payment_session_request(), list()) ::
           {:ok, create_payment_session_response(), any()}
@@ -5084,32 +5086,10 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Delete a payment instrument
+  Deletes a payment instrument.
 
-  Marks a payment instrument as deleted by updating its status to DELETED.
-
-  This is a soft delete
-  operation that preserves the record in the database for audit and compliance
-  purposes. The record
-  remains queryable for audit purposes but is excluded from normal list and get
-  operations.
-
-  Deleting an already-deleted or non-existent instrument returns
-  ResourceNotFoundException (404).
-
-  Authorization: The caller must own the instrument (accountId, userId, and
-  paymentManagerId must match).
-  If authorization fails, a 403 Forbidden error is returned.
-
-  Timestamp Management: The updatedAt timestamp is set to the current time, while
-  createdAt is preserved.
-  The version field is incremented for optimistic locking.
-
-  Errors:
-  - ResourceNotFoundException: The instrument does not exist or is already deleted
-  - AccessDeniedException: The caller is not authorized to delete this instrument
-  - ValidationException: Required fields are missing or invalid
-  - InternalServerException: An unexpected server error occurred
+  This is a soft delete operation that preserves the record for audit and
+  compliance purposes.
   """
   @spec delete_payment_instrument(map(), delete_payment_instrument_request(), list()) ::
           {:ok, delete_payment_instrument_response(), any()}
@@ -5144,26 +5124,9 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Delete a payment manager session
+  Deletes a payment session.
 
-  Permanently removes a payment session record from the database.
-
-  This is a hard delete operation
-  that removes the session completely.
-
-  Deleting a non-existent or already-deleted session returns
-  ResourceNotFoundException (404).
-
-  Authorization: The caller must own the session (accountId, userId, and
-  paymentManagerId must match).
-  If authorization fails, a 403 Forbidden error is returned.
-
-  Errors:
-  - ResourceNotFoundException: The session does not exist or has already been
-  deleted
-  - AccessDeniedException: The caller is not authorized to delete this session
-  - ValidationException: Required fields are missing or invalid
-  - InternalServerException: An unexpected server error occurred
+  This permanently removes the payment session record.
   """
   @spec delete_payment_session(map(), delete_payment_session_request(), list()) ::
           {:ok, delete_payment_session_response(), any()}
@@ -5495,7 +5458,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Get a payment instrument by ID
+  Get a payment instrument by ID.
   """
   @spec get_payment_instrument(map(), get_payment_instrument_request(), list()) ::
           {:ok, get_payment_instrument_response(), any()}
@@ -5531,7 +5494,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Get the balance of a payment instrument
+  Get the balance of a payment instrument.
   """
   @spec get_payment_instrument_balance(map(), get_payment_instrument_balance_request(), list()) ::
           {:ok, get_payment_instrument_balance_response(), any()}
@@ -5567,7 +5530,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Get a payment session
+  Get a payment session.
   """
   @spec get_payment_session(map(), get_payment_session_request(), list()) ::
           {:ok, get_payment_session_response(), any()}
@@ -6481,7 +6444,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  List payment instruments for a manager
+  List payment instruments for a manager.
   """
   @spec list_payment_instruments(map(), list_payment_instruments_request(), list()) ::
           {:ok, list_payment_instruments_response(), any()}
@@ -6517,7 +6480,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  List payment manager sessions
+  List payment sessions.
   """
   @spec list_payment_sessions(map(), list_payment_sessions_request(), list()) ::
           {:ok, list_payment_sessions_response(), any()}
@@ -6649,7 +6612,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Process a payment transaction
+  Processes a payment using a payment instrument within a payment session.
   """
   @spec process_payment(map(), process_payment_request(), list()) ::
           {:ok, process_payment_response(), any()}

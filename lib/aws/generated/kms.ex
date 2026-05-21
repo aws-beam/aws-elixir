@@ -233,7 +233,8 @@ defmodule AWS.KMS do
       
       grant_constraints() :: %{
         "EncryptionContextEquals" => map(),
-        "EncryptionContextSubset" => map()
+        "EncryptionContextSubset" => map(),
+        "SourceArn" => String.t() | atom()
       }
       
   """
@@ -257,7 +258,8 @@ defmodule AWS.KMS do
       list_retirable_grants_request() :: %{
         optional("Limit") => integer(),
         optional("Marker") => String.t() | atom(),
-        required("RetiringPrincipal") => String.t() | atom()
+        optional("RetiringPrincipal") => String.t() | atom(),
+        optional("RetiringServicePrincipal") => String.t() | atom()
       }
       
   """
@@ -554,6 +556,7 @@ defmodule AWS.KMS do
       list_grants_request() :: %{
         optional("GrantId") => String.t() | atom(),
         optional("GranteePrincipal") => String.t() | atom(),
+        optional("GranteeServicePrincipal") => String.t() | atom(),
         optional("Limit") => integer(),
         optional("Marker") => String.t() | atom(),
         required("KeyId") => String.t() | atom()
@@ -1077,9 +1080,11 @@ defmodule AWS.KMS do
         optional("Constraints") => grant_constraints(),
         optional("DryRun") => boolean(),
         optional("GrantTokens") => list(String.t() | atom()),
+        optional("GranteePrincipal") => String.t() | atom(),
+        optional("GranteeServicePrincipal") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
         optional("RetiringPrincipal") => String.t() | atom(),
-        required("GranteePrincipal") => String.t() | atom(),
+        optional("RetiringServicePrincipal") => String.t() | atom(),
         required("KeyId") => String.t() | atom(),
         required("Operations") => list(list(any())())
       }
@@ -1519,11 +1524,13 @@ defmodule AWS.KMS do
         "CreationDate" => non_neg_integer(),
         "GrantId" => String.t() | atom(),
         "GranteePrincipal" => String.t() | atom(),
+        "GranteeServicePrincipal" => String.t() | atom(),
         "IssuingAccount" => String.t() | atom(),
         "KeyId" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "Operations" => list(list(any())()),
-        "RetiringPrincipal" => String.t() | atom()
+        "RetiringPrincipal" => String.t() | atom(),
+        "RetiringServicePrincipal" => String.t() | atom()
       }
       
   """
@@ -3065,6 +3072,13 @@ defmodule AWS.KMS do
   temporary permissions because you can create one, use its permissions, and
   delete it without
   changing your key policies or IAM policies.
+
+  You can create a grant for an Amazon Web Services principal (IAM user, IAM role,
+  or Amazon Web Services account) by
+  specifying the `GranteePrincipal` parameter. You can also create a grant for an
+  Amazon Web Services service principal by specifying the
+  `GranteeServicePrincipal`
+  parameter.
 
   For detailed information about grants, including grant terminology, see [Grants in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in
   the
@@ -5777,8 +5791,8 @@ defmodule AWS.KMS do
   Gets a list of all grants for the specified KMS key.
 
   You must specify the KMS key in all requests. You can filter the grant list by
-  grant ID or
-  grantee principal.
+  grant ID,
+  grantee principal, or grantee service principal.
 
   For detailed information about grants, including grant terminology, see [Grants in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in
   the
@@ -5787,13 +5801,20 @@ defmodule AWS.KMS do
   *. For examples of creating grants in several
   programming languages, see [Use CreateGrant with an Amazon Web Services SDK or CLI](https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html).
 
-  The `GranteePrincipal` field in the `ListGrants` response usually contains the
-  user or role designated as the grantee principal in the grant. However, when the
-  grantee
-  principal in the grant is an Amazon Web Services service, the `GranteePrincipal`
-  field contains
-  the [service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services),
-  which might represent several different grantee principals.
+  When a grant is created with the `GranteePrincipal` field, the `ListGrants`
+  response usually contains the user or role designated as the grantee principal
+  in the grant. However, if the grantee principal
+  is an Amazon Web Services service, the `GranteePrincipal` field contains an
+  Amazon Web Services [service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services),
+  which
+  might correspond to several different grantee principals, such as an IAM user,
+  IAM role, or Amazon Web Services account.
+
+  When a grant is created with the `GranteeServicePrincipal` field, the
+  `ListGrants`
+  response always includes a `GranteeServicePrincipal` that indicates the grantee
+  is actually
+  an Amazon Web Services [service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services).
 
   **Cross-account use**: Yes. To perform this operation on a KMS key in a
   different Amazon Web Services account, specify the key
@@ -6030,7 +6051,7 @@ defmodule AWS.KMS do
   @doc """
   Returns information about all grants in the Amazon Web Services account and
   Region that have the
-  specified retiring principal.
+  specified retiring principal or retiring service principal.
 
   You can specify any principal in your Amazon Web Services account. The grants
   that are returned include
@@ -6060,12 +6081,16 @@ defmodule AWS.KMS do
   [kms:ListRetirableGrants](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy) in your
   Amazon Web Services account.
 
-  KMS authorizes `ListRetirableGrants` requests by evaluating the caller
+  When listing retirable grants by `RetiringPrincipal`, KMS authorizes
+  `ListRetirableGrants` requests by evaluating the caller
   account's kms:ListRetirableGrants permissions. The authorized resource in
   `ListRetirableGrants` calls is the retiring principal specified in the request.
   KMS does not evaluate the caller's permissions to verify their access to any KMS
   keys or
   grants that might be returned by the `ListRetirableGrants` call.
+
+  The `RetiringServicePrincipal` filter is only usable by callers in a
+  service principal.
 
   ## Related operations:
 
@@ -6207,6 +6232,11 @@ defmodule AWS.KMS do
   For
   details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *Key Management Service Developer Guide*.
+
+  When using grants with `SourceArn` constraints for
+  `ReEncrypt` operations, the grants on both the source KMS key (for
+  `ReEncryptFrom`) and the destination KMS key (for `ReEncryptTo`)
+  must specify the same `SourceArn` value.
 
   **Cross-account use**: Yes. The source KMS key and
   destination KMS key can be in different Amazon Web Services accounts. Either or

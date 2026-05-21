@@ -733,6 +733,7 @@ defmodule AWS.BedrockRuntime do
         optional("guardrailIdentifier") => String.t() | atom(),
         optional("guardrailVersion") => String.t() | atom(),
         optional("performanceConfigLatency") => list(any()),
+        optional("requestMetadata") => String.t() | atom(),
         optional("serviceTier") => list(any()),
         optional("trace") => list(any())
       }
@@ -785,6 +786,7 @@ defmodule AWS.BedrockRuntime do
         optional("guardrailIdentifier") => String.t() | atom(),
         optional("guardrailVersion") => String.t() | atom(),
         optional("performanceConfigLatency") => list(any()),
+        optional("requestMetadata") => String.t() | atom(),
         optional("serviceTier") => list(any()),
         optional("trace") => list(any())
       }
@@ -2157,6 +2159,7 @@ defmodule AWS.BedrockRuntime do
         {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
         {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
         {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"requestMetadata", "X-Amzn-Bedrock-Request-Metadata"},
         {"serviceTier", "X-Amzn-Bedrock-Service-Tier"},
         {"trace", "X-Amzn-Bedrock-Trace"}
       ]
@@ -2287,6 +2290,7 @@ defmodule AWS.BedrockRuntime do
         {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
         {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
         {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"requestMetadata", "X-Amzn-Bedrock-Request-Metadata"},
         {"serviceTier", "X-Amzn-Bedrock-Service-Tier"},
         {"trace", "X-Amzn-Bedrock-Trace"}
       ]

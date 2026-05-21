@@ -3,7 +3,7 @@
 
 defmodule AWS.CustomerProfiles do
   @moduledoc """
-  Amazon Connect Customer Profiles
+  Connect Customer Customer Profiles
 
     *
 
@@ -13,17 +13,18 @@ defmodule AWS.CustomerProfiles do
 
   [Customer Profiles data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Customer_Profiles.html)
 
-  Amazon Connect Customer Profiles is a unified customer profile for your contact
+  Connect Customer Customer Profiles is a unified customer profile for your
+  contact
   center that has pre-built connectors powered by AppFlow that make it easy to
   combine
   customer information from third party applications, such as Salesforce (CRM),
   ServiceNow
   (ITSM), and your enterprise resource planning (ERP), with contact history from
-  your Amazon Connect contact center.
+  your Connect Customer contact center.
 
-  For more information about the Amazon Connect Customer Profiles feature, see
+  For more information about the Connect Customer Customer Profiles feature, see
   [Use Customer Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles.html)
-  in the *Amazon Connect Administrator's Guide*.
+  in the *Connect Customer Administrator's Guide*.
   """
 
   alias AWS.Client
@@ -3638,6 +3639,7 @@ defmodule AWS.CustomerProfiles do
 
       recommender_config() :: %{
         "EventsConfig" => events_config(),
+        "ExcludedColumns" => map(),
         "IncludedColumns" => map(),
         "InferenceConfig" => inference_config(),
         "TrainingFrequency" => integer()
@@ -5608,8 +5610,8 @@ defmodule AWS.CustomerProfiles do
   You can create multiple
   domains, and each domain can have multiple third-party integrations.
 
-  Each Amazon Connect instance can be associated with only one domain. Multiple
-  Amazon Connect instances can be associated with one domain.
+  Each Connect Customer instance can be associated with only one domain. Multiple
+  Connect Customer instances can be associated with one domain.
 
   Use this API or
   [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html) to
@@ -5707,7 +5709,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Creates an event stream, which is a subscription to real-time events, such as
   when
-  profiles are created and updated through Amazon Connect Customer Profiles.
+  profiles are created and updated through Connect Customer Customer Profiles.
 
   Each event stream can be associated with only one Kinesis Data Stream
   destination in the

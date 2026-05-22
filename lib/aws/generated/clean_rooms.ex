@@ -230,7 +230,9 @@ defmodule AWS.CleanRooms do
       member_change_specification() :: %{
         "accountId" => String.t() | atom(),
         "displayName" => String.t() | atom(),
-        "memberAbilities" => list(list(any())())
+        "memberAbilities" => list(list(any())()),
+        "mlMemberAbilities" => ml_member_abilities(),
+        "paymentConfiguration" => payment_configuration()
       }
 
   """
@@ -429,6 +431,7 @@ defmodule AWS.CleanRooms do
         "createTime" => [non_neg_integer()],
         "error" => protected_job_error(),
         "id" => String.t() | atom(),
+        "jobComputePayerAccountId" => String.t() | atom(),
         "jobParameters" => protected_job_parameters(),
         "membershipArn" => String.t() | atom(),
         "membershipId" => String.t() | atom(),
@@ -518,6 +521,7 @@ defmodule AWS.CleanRooms do
         "id" => String.t() | atom(),
         "membershipArn" => String.t() | atom(),
         "membershipId" => String.t() | atom(),
+        "queryComputePayerAccountId" => String.t() | atom(),
         "receiverConfigurations" => list(receiver_configuration()),
         "status" => String.t() | atom()
       }
@@ -1150,6 +1154,19 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      update_membership_payment_configuration() :: %{
+        "jobCompute" => membership_job_compute_payment_config(),
+        "machineLearning" => membership_ml_payment_config(),
+        "queryCompute" => membership_query_compute_payment_config()
+      }
+
+  """
+  @type update_membership_payment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_output() :: %{
         "tags" => map()
       }
@@ -1708,6 +1725,7 @@ defmodule AWS.CleanRooms do
         "id" => String.t() | atom(),
         "membershipArn" => String.t() | atom(),
         "membershipId" => String.t() | atom(),
+        "queryComputePayerAccountId" => String.t() | atom(),
         "result" => protected_query_result(),
         "resultConfiguration" => protected_query_result_configuration(),
         "sqlParameters" => protected_query_s_q_l_parameters(),
@@ -1830,6 +1848,7 @@ defmodule AWS.CleanRooms do
       protected_job_summary() :: %{
         "createTime" => [non_neg_integer()],
         "id" => String.t() | atom(),
+        "jobComputePayerAccountId" => String.t() | atom(),
         "membershipArn" => String.t() | atom(),
         "membershipId" => String.t() | atom(),
         "receiverConfigurations" => list(protected_job_receiver_configuration()),
@@ -1960,6 +1979,7 @@ defmodule AWS.CleanRooms do
 
       start_protected_job_input() :: %{
         optional("computeConfiguration") => list(),
+        optional("jobComputePayerAccountId") => String.t() | atom(),
         optional("resultConfiguration") => protected_job_result_configuration_input(),
         required("jobParameters") => protected_job_parameters(),
         required("type") => list(any())
@@ -3591,6 +3611,7 @@ defmodule AWS.CleanRooms do
         optional("defaultJobResultConfiguration") => membership_protected_job_result_configuration(),
         optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
         optional("jobLogStatus") => list(any()),
+        optional("membershipPaymentConfiguration") => update_membership_payment_configuration(),
         optional("queryLogStatus") => list(any())
       }
 
@@ -3789,6 +3810,7 @@ defmodule AWS.CleanRooms do
 
       start_protected_query_input() :: %{
         optional("computeConfiguration") => list(),
+        optional("queryComputePayerAccountId") => String.t() | atom(),
         optional("resultConfiguration") => protected_query_result_configuration(),
         required("sqlParameters") => protected_query_s_q_l_parameters(),
         required("type") => String.t() | atom()

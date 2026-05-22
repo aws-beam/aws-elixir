@@ -693,6 +693,18 @@ defmodule AWS.Evs do
 
   ## Example:
       
+      get_depot_url_response() :: %{
+        "depotUrl" => [String.t() | atom()],
+        "token" => [String.t() | atom()]
+      }
+      
+  """
+  @type get_depot_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       error_detail() :: %{
         "errorCode" => [String.t() | atom()],
         "errorMessage" => [String.t() | atom()]
@@ -821,6 +833,17 @@ defmodule AWS.Evs do
       
   """
   @type list_environment_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_depot_url_request() :: %{
+        optional("rotate") => [boolean()]
+      }
+      
+  """
+  @type get_depot_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -980,6 +1003,9 @@ defmodule AWS.Evs do
           validation_exception() | resource_not_found_exception()
 
   @type disassociate_eip_from_vlan_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
+
+  @type get_depot_url_errors() ::
           throttling_exception() | validation_exception() | resource_not_found_exception()
 
   @type get_environment_errors() :: validation_exception() | resource_not_found_exception()
@@ -1230,6 +1256,27 @@ defmodule AWS.Evs do
     meta = metadata()
 
     Request.request_post(client, meta, "DisassociateEipFromVlan", input, options)
+  end
+
+  @doc """
+  Returns a URL and authentication token for accessing the Amazon EVS Custom Addon
+  depot.
+
+  Configure the depot URL as a download source in vSphere Lifecycle Manager (vLCM)
+  to sync and install the Amazon EVS Custom Addon.
+
+  The depot URL remains active until you rotate the authentication token by
+  calling this action with `rotate` set to `true`.
+  """
+  @spec get_depot_url(map(), get_depot_url_request(), list()) ::
+          {:ok, get_depot_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_depot_url_errors()}
+  def get_depot_url(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDepotUrl", input, options)
   end
 
   @doc """

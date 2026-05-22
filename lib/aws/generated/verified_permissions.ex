@@ -1553,6 +1553,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       delete_policy_store_alias_input() :: %{
+        optional("deletionMode") => list(any()),
         required("aliasName") => String.t() | atom()
       }
       
@@ -2091,8 +2092,8 @@ defmodule AWS.VerifiedPermissions do
 
   A policy store is a container for policy resources.
 
-  Although [Cedar supports multiple namespaces](https://docs.cedarpolicy.com/schema/schema.html#namespace), Verified
-  Permissions currently supports only one namespace per policy store.
+  As of May 2026, Verified Permissions has aligned with Cedar and now supports
+  multiple namespaces.
 
   Verified Permissions is * [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency) *. It can take a
   few seconds for a new or changed element to propagate through the service and be
@@ -2223,11 +2224,19 @@ defmodule AWS.VerifiedPermissions do
   This operation is idempotent. If you specify a policy store alias that does not
   exist, the request response will still return a successful HTTP 200 status code.
 
-  When a policy store alias is deleted, it enters the `PendingDeletion` state.
-  When a policy store alias is in the `PendingDeletion` state, new policy store
-  aliases cannot be created with the same name. If the policy store alias is used
-  in an API that has a `policyStoreId` field, the operation will fail with a
-  `ResourceNotFound` exception.
+  By default, when a policy store alias is deleted, it enters the
+  `PendingDeletion` state. When a policy store alias is in the `PendingDeletion`
+  state, new policy store aliases cannot be created with the same name. If the
+  policy store alias is used in an API that has a `policyStoreId` field, the
+  operation will fail with a `ResourceNotFound` exception.
+
+  To immediately delete a policy store alias and bypass the `PendingDeletion`
+  state, set the `deletionMode` parameter to `HardDelete`.
+
+  Verified Permissions is eventually consistent. If you hard delete a policy store
+  alias and then immediately recreate it to be associated with a different policy
+  store, requests that reference this alias may continue to be evaluated against
+  the previously associated policy store for a short period of time.
   """
   @spec delete_policy_store_alias(map(), delete_policy_store_alias_input(), list()) ::
           {:ok, delete_policy_store_alias_output(), any()}

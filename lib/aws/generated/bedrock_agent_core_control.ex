@@ -552,6 +552,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      s3_source() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory_summary() :: %{
         "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
@@ -606,6 +617,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_harness_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetVersion" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,6 +739,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type summary_memory_strategy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1185,6 +1224,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_dataset_examples_request() :: %{
+        optional("datasetVersion") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_dataset_examples_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       api_gateway_tool_filter() :: %{
         "filterPath" => [String.t() | atom()],
         "methods" => list(list(any())())
@@ -1540,6 +1592,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_datasets_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_gateway_response() :: %{
         "gatewayId" => String.t() | atom(),
         "status" => list(any()),
@@ -1548,6 +1612,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_dataset_examples_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("source") => list()
+      }
+
+  """
+  @type add_dataset_examples_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2612,6 +2688,32 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_dataset_examples_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetVersion" => String.t() | atom(),
+        "examples" => list(any()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_dataset_examples_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_version_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type create_dataset_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       episodic_memory_strategy_input() :: %{
         "description" => String.t() | atom(),
         "memoryRecordSchema" => memory_record_schema(),
@@ -2639,6 +2741,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type harness_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3068,6 +3184,26 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type episodic_reflection_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetName" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "draftStatus" => list(any()),
+        "exampleCount" => [float()],
+        "schemaType" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type dataset_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3522,6 +3658,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type custom_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_examples_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("exampleIds") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_dataset_examples_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4012,6 +4160,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_dataset_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => [String.t() | atom()]
+      }
+
+  """
+  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       container_configuration() :: %{
         "containerUri" => String.t() | atom()
       }
@@ -4044,6 +4204,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_version_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetVersion" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_dataset_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4657,6 +4832,29 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type get_configuration_bundle_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_examples_source() :: %{
+        "examples" => list(any())
+      }
+
+  """
+  @type inline_examples_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dataset_versions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_dataset_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5499,6 +5697,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_dataset_request() :: %{
+        optional("datasetVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       output_config() :: %{
         "cloudWatchConfig" => cloud_watch_output_config()
       }
@@ -5729,6 +5938,32 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      get_dataset_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetName" => String.t() | atom(),
+        "datasetVersion" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "downloadUrl" => String.t() | atom(),
+        "downloadUrlExpiresAt" => [non_neg_integer()],
+        "draftStatus" => list(any()),
+        "exampleCount" => [float()],
+        "failureReason" => [String.t() | atom()],
+        "kmsKeyArn" => String.t() | atom(),
+        "schemaType" => list(any()),
+        "status" => list(any()),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_policy_engine_response() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
@@ -5786,6 +6021,35 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_policy_engine_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("datasetName") => String.t() | atom(),
+        required("schemaType") => list(any()),
+        required("source") => list()
+      }
+
+  """
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_examples_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("examples") => list(any())
+      }
+
+  """
+  @type update_dataset_examples_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5998,6 +6262,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_version_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetVersion" => String.t() | atom(),
+        "exampleCount" => [float()]
+      }
+
+  """
+  @type dataset_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6367,6 +6644,29 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type session_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_request() :: %{
+        optional("datasetVersion") => String.t() | atom()
+      }
+
+  """
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_response() :: %{
+        "datasets" => list(dataset_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6914,6 +7214,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_dataset_versions_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "versions" => list(dataset_version_summary())
+      }
+
+  """
+  @type list_dataset_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_configuration_bundle_request() :: %{
         optional("branchName") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
@@ -6983,6 +7295,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_dataset_examples_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "deletedCount" => [float()],
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type delete_dataset_examples_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_preference_override_consolidation_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
@@ -7033,6 +7360,22 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      add_dataset_examples_response() :: %{
+        "addedCount" => [float()],
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "exampleIds" => list(String.t() | atom()),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type add_dataset_examples_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_payment_managers_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -7072,6 +7415,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_policy_engine_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_examples_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()],
+        "updatedCount" => [float()]
+      }
+
+  """
+  @type update_dataset_examples_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7215,6 +7573,15 @@ defmodule AWS.BedrockAgentCoreControl do
   """
   @type list_browsers_request() :: %{(String.t() | atom()) => any()}
 
+  @type add_dataset_examples_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_agent_runtime_errors() ::
           throttling_exception()
           | validation_exception()
@@ -7275,6 +7642,23 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_dataset_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type create_evaluator_errors() ::
@@ -7477,6 +7861,22 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_dataset_examples_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_evaluator_errors() ::
           throttling_exception()
           | validation_exception()
@@ -7668,6 +8068,14 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type get_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_evaluator_errors() ::
           throttling_exception()
@@ -7883,6 +8291,27 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
 
   @type list_configuration_bundles_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_dataset_examples_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_dataset_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_datasets_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -8131,6 +8560,23 @@ defmodule AWS.BedrockAgentCoreControl do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_dataset_examples_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_evaluator_errors() ::
           throttling_exception()
           | validation_exception()
@@ -8297,6 +8743,48 @@ defmodule AWS.BedrockAgentCoreControl do
       signing_name: "bedrock-agentcore",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Adds examples to the dataset's DRAFT.
+
+  **Validation:** All examples are validated against the dataset's schemaType
+  before any
+  writes occur. If any example fails validation, the entire batch is rejected with
+  ValidationException — no examples are written (all-or-nothing semantics).
+
+  **Asynchronous:** Operates in-place on DRAFT. No version bump occurs.
+  Use CreateDatasetVersion to publish DRAFT as a new numbered version.
+
+  **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset
+  status is not in {DRAFT, ACTIVE}.
+
+  **Request size limit:** Max 5 MB total request body. Max 1000 examples per call.
+  """
+  @spec add_dataset_examples(map(), String.t() | atom(), add_dataset_examples_request(), list()) ::
+          {:ok, add_dataset_examples_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, add_dataset_examples_errors()}
+  def add_dataset_examples(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/examples/add"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -8515,6 +9003,84 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates a new Dataset resource asynchronously.
+
+  Returns immediately with status CREATING. Poll GetDataset until
+  status transitions to ACTIVE or CREATE_FAILED (with failureReason).
+  """
+  @spec create_dataset(map(), create_dataset_request(), list()) ::
+          {:ok, create_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_dataset_errors()}
+  def create_dataset(%Client{} = client, input, options \\ []) do
+    url_path = "/datasets"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Publishes the current DRAFT as a new numbered version.
+
+  Snapshots the DRAFT examples as the next version (1, 2, 3, ...).
+  The DRAFT is preserved and remains editable after publishing.
+  Returns immediately with status UPDATING. Poll GetDataset until
+  status transitions to ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
+
+  **State guard:** Returns ConflictException (DATASET_NOT_READY) if status is in
+  {CREATING, UPDATING, DELETING}, or DATASET_IN_FAILED_STATE if status is in
+  {CREATE_FAILED, DELETE_FAILED}.
+
+  **Quota:** MAX_VERSIONS_PER_DATASET applies to published versions only (not
+  DRAFT).
+  """
+  @spec create_dataset_version(
+          map(),
+          String.t() | atom(),
+          create_dataset_version_request(),
+          list()
+        ) ::
+          {:ok, create_dataset_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_dataset_version_errors()}
+  def create_dataset_version(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/versions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -9327,6 +9893,119 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Deletes a dataset version or an entire dataset (all versions + name claim).
+
+  Asynchronous 202.
+
+  ## State transitions:
+  - If `datasetVersion` is absent (full delete): status transitions to DELETING
+  immediately.
+  - If `datasetVersion` is provided (version-specific delete): status transitions
+  to UPDATING.
+
+  **State guard (full delete):** Returns ConflictException (DATASET_NOT_READY) if
+  the
+  dataset status is in {CREATING, UPDATING}. Deletion is allowed from ACTIVE,
+  CREATE_FAILED,
+  UPDATE_FAILED, and DELETE_FAILED states.
+
+  **State guard (version-specific delete):** Returns ConflictException
+  (DATASET_NOT_READY) if
+  the dataset status is not in {ACTIVE, CREATE_FAILED, UPDATE_FAILED}.
+
+  Fails with ConflictException (REFERENCED_BY_EVAL_JOB) if referenced by an active
+  evaluation job (full delete only).
+
+  If the delete workflow fails after retries, status is set to DELETE_FAILED (full
+  delete)
+  or UPDATE_FAILED (version-specific delete).
+  Calling DeleteDataset on a DELETE_FAILED dataset re-triggers the delete workflow
+  (idempotent retry path).
+
+  ## Version parameter:
+  - If `datasetVersion` is absent: deletes ALL versions and the Dataset record
+  itself.
+  - If `datasetVersion` is provided: deletes only that specific DatasetVersion.
+  Returns ResourceNotFoundException if the specified version does not exist.
+  """
+  @spec delete_dataset(map(), String.t() | atom(), delete_dataset_request(), list()) ::
+          {:ok, delete_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_dataset_errors()}
+  def delete_dataset(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"datasetVersion", "datasetVersion"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes specific examples by ID from DRAFT.
+
+  **Validation:** All example IDs are validated before any deletes occur. If any
+  ID
+  does not exist in DRAFT, the entire batch is rejected with
+  ResourceNotFoundException —
+  no examples are deleted (all-or-nothing semantics).
+
+  **Asynchronous:** Operates in-place on DRAFT. No version bump occurs.
+  Use CreateDatasetVersion to publish DRAFT as a new numbered version.
+
+  **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset
+  status is not in {DRAFT, ACTIVE}.
+  """
+  @spec delete_dataset_examples(
+          map(),
+          String.t() | atom(),
+          delete_dataset_examples_request(),
+          list()
+        ) ::
+          {:ok, delete_dataset_examples_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_dataset_examples_errors()}
+  def delete_dataset_examples(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/examples/delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a custom evaluator.
 
   Builtin evaluators cannot be deleted. The evaluator must not be referenced by
@@ -10128,6 +10807,52 @@ defmodule AWS.BedrockAgentCoreControl do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves dataset metadata only.
+
+  Use `?datasetVersion=DRAFT` or `?datasetVersion=N` to retrieve a specific
+  version's metadata.
+  If absent, defaults to DRAFT (the mutable working copy).
+  Returns ResourceNotFoundException if the specified version is not found.
+
+  **Initial state after CreateDataset:** When CreateDataset completes successfully
+  (status transitions to ACTIVE), only a DRAFT working copy exists. No published
+  versions exist until CreateDatasetVersion is called. At this point draftStatus
+  is
+  MODIFIED because the DRAFT has content that has never been published.
+
+  **Default version behavior:** When `datasetVersion` is omitted, the operation
+  returns the DRAFT working copy. To retrieve a specific published version, pass
+  the version number as a string (e.g. `?datasetVersion=1`).
+
+  **State guard:** Allowed for all statuses including DELETING. Returns the
+  dataset
+  record with its current status so callers can observe the deletion in progress.
+
+  For paginated example IDs use ListDatasetExamples.
+  """
+  @spec get_dataset(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+          {:ok, get_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_dataset_errors()}
+  def get_dataset(%Client{} = client, dataset_id, dataset_version \\ nil, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(dataset_version) do
+        [{"datasetVersion", dataset_version} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -10989,6 +11714,154 @@ defmodule AWS.BedrockAgentCoreControl do
       options,
       200
     )
+  end
+
+  @doc """
+  Returns paginated examples from the dataset.
+
+  **Version-pinned pagination:** The server embeds the resolved version in the
+  `nextToken`.
+  Once pagination begins, all subsequent pages are pinned to that version
+  regardless of
+  concurrent mutations or whether `datasetVersion` is passed on subsequent
+  requests. The `datasetVersion`
+  query parameter is only used for the first request (when `nextToken` is absent);
+  if omitted,
+  defaults to DRAFT.
+
+  **State guard:** Allowed for all statuses including DELETING.
+  """
+  @spec list_dataset_examples(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_dataset_examples_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_dataset_examples_errors()}
+  def list_dataset_examples(
+        %Client{} = client,
+        dataset_id,
+        dataset_version \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/examples"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(dataset_version) do
+        [{"datasetVersion", dataset_version} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all published versions of a dataset, sorted by version number descending
+  (newest first).
+
+  Does not include the DRAFT working copy.
+
+  **State guard:** Allowed for all statuses including DELETING.
+  """
+  @spec list_dataset_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_dataset_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_dataset_versions_errors()}
+  def list_dataset_versions(
+        %Client{} = client,
+        dataset_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all datasets in the caller's account, paginated.
+
+  No presigned URLs in list results.
+  """
+  @spec list_datasets(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_datasets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_datasets_errors()}
+  def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/datasets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -12344,6 +13217,93 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Updates a dataset's metadata.
+
+  Synchronous operation.
+  Only provided fields are updated; omitted fields remain unchanged.
+
+  To modify dataset content, use AddDatasetExamples, UpdateDatasetExamples,
+  or DeleteDatasetExamples.
+
+  Cannot update: name, schemaType, kmsKeyArn (immutable after creation).
+  """
+  @spec update_dataset(map(), String.t() | atom(), update_dataset_request(), list()) ::
+          {:ok, update_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_dataset_errors()}
+  def update_dataset(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates multiple existing examples in-place on DRAFT.
+
+  **Validation:** All examples are validated against the dataset's schemaType
+  before any
+  writes occur. If any example fails validation, the entire batch is rejected with
+  ValidationException — no examples are updated (all-or-nothing semantics).
+
+  **Asynchronous:** Operates in-place on DRAFT. No version bump occurs.
+  Use CreateDatasetVersion to publish DRAFT as a new numbered version.
+
+  Fails with ResourceNotFoundException if any exampleId does not exist in DRAFT.
+  To add new examples, use AddDatasetExamples instead.
+
+  **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset
+  status is not in {DRAFT, ACTIVE}.
+
+  **Request size limit:** Max 5 MB total request body. Max 1000 examples per call.
+  """
+  @spec update_dataset_examples(
+          map(),
+          String.t() | atom(),
+          update_dataset_examples_request(),
+          list()
+        ) ::
+          {:ok, update_dataset_examples_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_dataset_examples_errors()}
+  def update_dataset_examples(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/examples/update"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

@@ -59,6 +59,7 @@ defmodule AWS.CleanRoomsML do
         "description" => String.t() | atom(),
         "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
         "membershipIdentifier" => String.t() | atom(),
+        "mlModelTrainingPayerAccountId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any()),
         "trainedModelArn" => String.t() | atom(),
@@ -215,6 +216,7 @@ defmodule AWS.CleanRoomsML do
       create_ml_input_channel_request() :: %{
         optional("description") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
+        optional("payerConfiguration") => payer_configuration(),
         optional("tags") => map(),
         required("configuredModelAlgorithmAssociations") => list(String.t() | atom()),
         required("inputChannel") => input_channel(),
@@ -307,6 +309,7 @@ defmodule AWS.CleanRoomsML do
         "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
         "metricsStatusDetails" => [String.t() | atom()],
+        "mlModelInferencePayerAccountId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "outputConfiguration" => inference_output_configuration(),
         "status" => list(any()),
@@ -461,6 +464,7 @@ defmodule AWS.CleanRoomsML do
         "name" => String.t() | atom(),
         "numberOfFiles" => [float()],
         "numberOfRecords" => [float()],
+        "payerConfiguration" => payer_configuration(),
         "privacyBudgets" => list(),
         "protectedQueryIdentifier" => String.t() | atom(),
         "retentionInDays" => [integer()],
@@ -524,6 +528,7 @@ defmodule AWS.CleanRoomsML do
         "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
         "metricsStatusDetails" => [String.t() | atom()],
+        "mlModelTrainingPayerAccountId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "resourceConfig" => resource_config(),
         "status" => list(any()),
@@ -571,6 +576,7 @@ defmodule AWS.CleanRoomsML do
         "membershipIdentifier" => String.t() | atom(),
         "mlInputChannelArn" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "payerConfiguration" => payer_configuration(),
         "status" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
@@ -590,6 +596,7 @@ defmodule AWS.CleanRoomsML do
         "membershipIdentifier" => String.t() | atom(),
         "mlInputChannelArn" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "payerConfiguration" => payer_configuration(),
         "protectedQueryIdentifier" => String.t() | atom(),
         "status" => list(any()),
         "updateTime" => [non_neg_integer()]
@@ -700,6 +707,7 @@ defmodule AWS.CleanRoomsML do
         "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
         "metricsStatusDetails" => [String.t() | atom()],
+        "mlModelTrainingPayerAccountId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "resourceConfig" => resource_config(),
         "status" => list(any()),
@@ -1007,6 +1015,18 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      payer_configuration() :: %{
+        "computePayerAccountId" => String.t() | atom(),
+        "syntheticDataPayerAccountId" => String.t() | atom()
+      }
+
+  """
+  @type payer_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_audience_model_request() :: %{}
 
   """
@@ -1231,6 +1251,7 @@ defmodule AWS.CleanRoomsML do
         optional("hyperparameters") => map(),
         optional("incrementalTrainingDataChannels") => list(incremental_training_data_channel()),
         optional("kmsKeyArn") => String.t() | atom(),
+        optional("mlModelTrainingPayerAccountId") => String.t() | atom(),
         optional("stoppingCondition") => stopping_condition(),
         optional("tags") => map(),
         optional("trainingInputMode") => list(any()),
@@ -1267,6 +1288,7 @@ defmodule AWS.CleanRoomsML do
         "description" => String.t() | atom(),
         "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
         "membershipIdentifier" => String.t() | atom(),
+        "mlModelTrainingPayerAccountId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any()),
         "trainedModelArn" => String.t() | atom(),
@@ -1445,6 +1467,7 @@ defmodule AWS.CleanRoomsML do
         optional("description") => String.t() | atom(),
         optional("environment") => map(),
         optional("kmsKeyArn") => String.t() | atom(),
+        optional("mlModelInferencePayerAccountId") => String.t() | atom(),
         optional("tags") => map(),
         optional("trainedModelVersionIdentifier") => String.t() | atom(),
         required("dataSource") => model_inference_data_source(),
@@ -1950,6 +1973,7 @@ defmodule AWS.CleanRoomsML do
         "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
         "metricsStatusDetails" => [String.t() | atom()],
+        "mlModelInferencePayerAccountId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "outputConfiguration" => inference_output_configuration(),
         "status" => list(any()),
@@ -2009,6 +2033,7 @@ defmodule AWS.CleanRoomsML do
         "mlInputChannelArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "numberOfRecords" => [float()],
+        "payerConfiguration" => payer_configuration(),
         "privacyBudgets" => list(),
         "retentionInDays" => [integer()],
         "status" => list(any()),
@@ -2241,6 +2266,7 @@ defmodule AWS.CleanRoomsML do
         "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
         "metricsStatusDetails" => [String.t() | atom()],
+        "mlModelInferencePayerAccountId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "outputConfiguration" => inference_output_configuration(),
         "resourceConfig" => inference_resource_config(),

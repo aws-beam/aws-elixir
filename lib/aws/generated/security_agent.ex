@@ -562,6 +562,18 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      verification_script_env_var() :: %{
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type verification_script_env_var() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_pentest_job_input() :: %{
         required("agentSpaceId") => [String.t() | atom()],
         required("pentestJobId") => [String.t() | atom()]
@@ -1162,7 +1174,8 @@ defmodule AWS.SecurityAgent do
         "riskType" => [String.t() | atom()],
         "status" => list(any()),
         "taskId" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
+        "updatedAt" => [non_neg_integer()],
+        "verificationScript" => verification_script()
       }
 
   """
@@ -2306,6 +2319,20 @@ defmodule AWS.SecurityAgent do
 
   """
   @type artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verification_script() :: %{
+        "envVars" => list(verification_script_env_var()),
+        "instructions" => [String.t() | atom()],
+        "scriptType" => [String.t() | atom()],
+        "scriptUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type verification_script() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

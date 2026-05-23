@@ -847,6 +847,19 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      guardrail_policy_result() :: %{
+        "action" => String.t() | atom(),
+        "details" => String.t() | atom(),
+        "policyType" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conversation_state() :: %{
         "reason" => String.t() | atom(),
         "status" => String.t() | atom()
@@ -1212,6 +1225,7 @@ defmodule AWS.QConnect do
         "outputMessages" => list(span_message()),
         "cacheWriteInputTokens" => [integer()],
         "responseFinishReasons" => list(String.t() | atom()),
+        "guardrailAssessments" => list(span_guardrail_assessment()),
         "aiAgentType" => String.t() | atom()
       }
 
@@ -3057,6 +3071,21 @@ defmodule AWS.QConnect do
 
   """
   @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      span_guardrail_assessment() :: %{
+        "action" => String.t() | atom(),
+        "guardrailId" => String.t() | atom(),
+        "guardrailName" => String.t() | atom(),
+        "policies" => list(guardrail_policy_result()),
+        "source" => String.t() | atom()
+      }
+
+  """
+  @type span_guardrail_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -6078,6 +6078,21 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      vpc_properties_output() :: %{
+        "glueConnectionNames" => list(String.t() | atom()),
+        "securityGroupId" => String.t() | atom(),
+        "status" => list(any()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       glossary_term_item_additional_attributes() :: %{
         "matchRationale" => list(list())
       }
@@ -6140,6 +6155,32 @@ defmodule AWS.DataZone do
 
   """
   @type row_filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_properties_input() :: %{
+        "securityGroupId" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_properties_patch() :: %{
+        "securityGroupId" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_properties_patch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

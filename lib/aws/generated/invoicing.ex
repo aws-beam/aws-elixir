@@ -174,6 +174,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       put_procurement_portal_preference_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
         optional("EinvoiceDeliveryPreference") => einvoice_delivery_preference(),
         optional("ProcurementPortalInstanceEndpoint") => String.t() | atom(),
         optional("ProcurementPortalSharedSecret") => String.t() | atom(),
@@ -409,6 +410,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       delete_invoice_unit_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
         required("InvoiceUnitArn") => String.t() | atom()
       }
       
@@ -549,6 +551,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       update_procurement_portal_preference_status_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
         optional("EinvoiceDeliveryPreferenceStatus") => list(any()),
         optional("EinvoiceDeliveryPreferenceStatusReason") => String.t() | atom(),
         optional("PurchaseOrderRetrievalPreferenceStatus") => list(any()),
@@ -644,6 +647,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       delete_procurement_portal_preference_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
         required("ProcurementPortalPreferenceArn") => String.t() | atom()
       }
       
@@ -849,6 +853,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       create_invoice_unit_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("ResourceTags") => list(resource_tag()),
         optional("TaxInheritanceDisabled") => boolean(),
@@ -865,6 +870,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       update_invoice_unit_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("Rule") => invoice_unit_rule(),
         optional("TaxInheritanceDisabled") => boolean(),

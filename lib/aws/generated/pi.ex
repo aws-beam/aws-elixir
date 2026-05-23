@@ -65,6 +65,20 @@ defmodule AWS.PI do
 
   ## Example:
       
+      list_performance_analysis_report_recommendations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Recommendations" => list(recommendation())
+      }
+      
+  """
+  @type list_performance_analysis_report_recommendations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       list_available_resource_dimensions_request() :: %{
         optional("AuthorizedActions") => list(list(any())()),
         optional("MaxResults") => integer(),
@@ -287,8 +301,8 @@ defmodule AWS.PI do
   ## Example:
       
       create_performance_analysis_report_request() :: %{
+        optional("EndTime") => non_neg_integer(),
         optional("Tags") => list(tag()),
-        required("EndTime") => non_neg_integer(),
         required("Identifier") => String.t() | atom(),
         required("ServiceType") => list(any()),
         required("StartTime") => non_neg_integer()
@@ -351,6 +365,7 @@ defmodule AWS.PI do
       
       recommendation() :: %{
         "RecommendationDescription" => String.t() | atom(),
+        "RecommendationDetails" => String.t() | atom(),
         "RecommendationId" => String.t() | atom()
       }
       
@@ -374,6 +389,24 @@ defmodule AWS.PI do
       
   """
   @type analysis_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_performance_analysis_report_recommendations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RecommendationIds") => list(String.t() | atom()),
+        required("AnalysisReportId") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("ServiceType") => list(any())
+      }
+      
+  """
+  @type list_performance_analysis_report_recommendations_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -716,6 +749,9 @@ defmodule AWS.PI do
   @type list_available_resource_metrics_errors() ::
           internal_service_error() | invalid_argument_exception() | not_authorized_exception()
 
+  @type list_performance_analysis_report_recommendations_errors() ::
+          internal_service_error() | invalid_argument_exception() | not_authorized_exception()
+
   @type list_performance_analysis_reports_errors() ::
           internal_service_error() | invalid_argument_exception() | not_authorized_exception()
 
@@ -914,6 +950,30 @@ defmodule AWS.PI do
     meta = metadata()
 
     Request.request_post(client, meta, "ListAvailableResourceMetrics", input, options)
+  end
+
+  @doc """
+  Retrieves recommendations for a performance analysis report.
+  """
+  @spec list_performance_analysis_report_recommendations(
+          map(),
+          list_performance_analysis_report_recommendations_request(),
+          list()
+        ) ::
+          {:ok, list_performance_analysis_report_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_performance_analysis_report_recommendations_errors()}
+  def list_performance_analysis_report_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "ListPerformanceAnalysisReportRecommendations",
+      input,
+      options
+    )
   end
 
   @doc """

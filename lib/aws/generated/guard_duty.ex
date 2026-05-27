@@ -877,7 +877,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       scan_configuration_recovery_point() :: %{
-        "BackupVaultName" => String.t() | atom()
+        "BackupVaultName" => String.t() | atom(),
+        "ContinuousScanDetails" => scan_configuration_continuous_scan_details()
       }
 
   """
@@ -1773,6 +1774,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type member_features_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      continuous_scan_details() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type continuous_scan_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3321,6 +3334,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type get_member_detectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_configuration_continuous_scan_details() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type scan_configuration_continuous_scan_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5362,7 +5387,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       recovery_point() :: %{
-        "BackupVaultName" => String.t() | atom()
+        "BackupVaultName" => String.t() | atom(),
+        "ContinuousScanDetails" => continuous_scan_details()
       }
 
   """

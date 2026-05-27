@@ -2842,6 +2842,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       environment_blueprint_configuration_item() :: %{
+        "allowUserProvidedConfigurations" => [boolean()],
         "createdAt" => [non_neg_integer()],
         "domainId" => String.t() | atom(),
         "enabledRegions" => list(String.t() | atom()),
@@ -2851,6 +2852,7 @@ defmodule AWS.DataZone do
         "provisioningConfigurations" => list(list()),
         "provisioningRoleArn" => String.t() | atom(),
         "regionalParameters" => map(),
+        "resourceConfigurations" => list(resource_configuration()),
         "updatedAt" => [non_neg_integer()]
       }
 
@@ -3417,6 +3419,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       put_environment_blueprint_configuration_output() :: %{
+        "allowUserProvidedConfigurations" => [boolean()],
         "createdAt" => [non_neg_integer()],
         "domainId" => String.t() | atom(),
         "enabledRegions" => list(String.t() | atom()),
@@ -3426,6 +3429,7 @@ defmodule AWS.DataZone do
         "provisioningConfigurations" => list(list()),
         "provisioningRoleArn" => String.t() | atom(),
         "regionalParameters" => map(),
+        "resourceConfigurations" => list(resource_configuration()),
         "updatedAt" => [non_neg_integer()]
       }
 
@@ -6242,6 +6246,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       get_environment_blueprint_configuration_output() :: %{
+        "allowUserProvidedConfigurations" => [boolean()],
         "createdAt" => [non_neg_integer()],
         "domainId" => String.t() | atom(),
         "enabledRegions" => list(String.t() | atom()),
@@ -6251,6 +6256,7 @@ defmodule AWS.DataZone do
         "provisioningConfigurations" => list(list()),
         "provisioningRoleArn" => String.t() | atom(),
         "regionalParameters" => map(),
+        "resourceConfigurations" => list(resource_configuration()),
         "updatedAt" => [non_neg_integer()]
       }
 
@@ -6802,6 +6808,21 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      resource_configuration() :: %{
+        "description" => [String.t() | atom()],
+        "identifier" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "parameters" => map(),
+        "region" => String.t() | atom()
+      }
+
+  """
+  @type resource_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       in_expression() :: %{
         "columnName" => [String.t() | atom()],
         "values" => list([String.t() | atom()]())
@@ -7151,6 +7172,20 @@ defmodule AWS.DataZone do
 
   """
   @type get_notebook_run_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_configuration() :: %{
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "parameters" => map(),
+        "region" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9535,12 +9570,14 @@ defmodule AWS.DataZone do
   ## Example:
 
       put_environment_blueprint_configuration_input() :: %{
+        optional("allowUserProvidedConfigurations") => [boolean()],
         optional("environmentRolePermissionBoundary") => String.t() | atom(),
         optional("globalParameters") => map(),
         optional("manageAccessRoleArn") => String.t() | atom(),
         optional("provisioningConfigurations") => list(list()),
         optional("provisioningRoleArn") => String.t() | atom(),
         optional("regionalParameters") => map(),
+        optional("resourceConfigurations") => list(put_resource_configuration()),
         required("enabledRegions") => list(String.t() | atom())
       }
 

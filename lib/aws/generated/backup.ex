@@ -883,6 +883,7 @@ defmodule AWS.Backup do
   ## Example:
 
       start_scan_job_input() :: %{
+        optional("ContinuousScanEndTime") => [non_neg_integer()],
         optional("IdempotencyToken") => [String.t() | atom()],
         optional("ScanBaseRecoveryPointArn") => [String.t() | atom()],
         required("BackupVaultName") => [String.t() | atom()],
@@ -909,6 +910,20 @@ defmodule AWS.Backup do
 
   """
   @type update_recovery_point_index_settings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_p_i_t_r_malware_scan_results_input() :: %{
+        required("BackupVaultName") => [String.t() | atom()],
+        required("MalwareScanner") => list(any()),
+        required("RecoveryPointArn") => [String.t() | atom()],
+        required("ScanEndTime") => [non_neg_integer()]
+      }
+
+  """
+  @type get_p_i_t_r_malware_scan_results_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1030,6 +1045,8 @@ defmodule AWS.Backup do
         "BackupVaultArn" => [String.t() | atom()],
         "BackupVaultName" => [String.t() | atom()],
         "CompletionDate" => [non_neg_integer()],
+        "ContinuousScanEndTime" => [non_neg_integer()],
+        "ContinuousScanStartTime" => [non_neg_integer()],
         "CreatedBy" => scan_job_creator(),
         "CreationDate" => [non_neg_integer()],
         "IamRoleArn" => [String.t() | atom()],
@@ -1126,6 +1143,8 @@ defmodule AWS.Backup do
         "BackupVaultArn" => [String.t() | atom()],
         "BackupVaultName" => [String.t() | atom()],
         "CompletionDate" => [non_neg_integer()],
+        "ContinuousScanEndTime" => [non_neg_integer()],
+        "ContinuousScanStartTime" => [non_neg_integer()],
         "CreatedBy" => scan_job_creator(),
         "CreationDate" => [non_neg_integer()],
         "IamRoleArn" => [String.t() | atom()],
@@ -2050,6 +2069,21 @@ defmodule AWS.Backup do
 
   """
   @type recovery_point_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_p_i_t_r_malware_scan_results_output() :: %{
+        "LastScanJobTime" => [non_neg_integer()],
+        "ScanEndTime" => [non_neg_integer()],
+        "ScanId" => [String.t() | atom()],
+        "ScanMode" => list(any()),
+        "ScanResult" => scan_result_info()
+      }
+
+  """
+  @type get_p_i_t_r_malware_scan_results_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4114,6 +4148,12 @@ defmodule AWS.Backup do
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
+  @type get_p_i_t_r_malware_scan_results_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+
   @type get_recovery_point_index_details_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
@@ -6049,6 +6089,67 @@ defmodule AWS.Backup do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the malware scan results for a specified point in time within a
+  continuous (point-in-time recovery) backup.
+  """
+  @spec get_p_i_t_r_malware_scan_results(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_p_i_t_r_malware_scan_results_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_p_i_t_r_malware_scan_results_errors()}
+  def get_p_i_t_r_malware_scan_results(
+        %Client{} = client,
+        backup_vault_name,
+        malware_scanner,
+        recovery_point_arn,
+        scan_end_time,
+        options \\ []
+      ) do
+    url_path = "/scan/pitr-malware-scan-results"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(scan_end_time) do
+        [{"ScanEndTime", scan_end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(recovery_point_arn) do
+        [{"RecoveryPointArn", recovery_point_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(malware_scanner) do
+        [{"MalwareScanner", malware_scanner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(backup_vault_name) do
+        [{"BackupVaultName", backup_vault_name} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

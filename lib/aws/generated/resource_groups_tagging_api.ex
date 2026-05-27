@@ -16,6 +16,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       compliance_details() :: %{
         "ComplianceStatus" => boolean(),
         "KeysWithNoncompliantValues" => list(String.t() | atom()),
+        "MissingTagKeys" => list(String.t() | atom()),
         "NoncompliantKeys" => list(String.t() | atom())
       }
       

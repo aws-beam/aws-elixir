@@ -1857,6 +1857,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_shared_environment_config() :: %{
+        "FSxLustreConfig" => f_sx_lustre_config(),
+        "FSxLustreDeletionPolicy" => list(any())
+      }
+      
+  """
+  @type cluster_shared_environment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_storage_config() :: %{
         "KmsKeyId" => String.t() | atom(),
         "ResolvedOutputS3Uri" => String.t() | atom(),
@@ -1940,6 +1952,7 @@ defmodule AWS.SageMaker do
         "NodeRecovery" => list(any()),
         "Orchestrator" => cluster_orchestrator(),
         "RestrictedInstanceGroups" => list(cluster_restricted_instance_group_details()),
+        "RestrictedInstanceGroupsConfig" => cluster_restricted_instance_groups_config_output(),
         "TieredStorageConfig" => cluster_tiered_storage_config(),
         "VpcConfig" => vpc_config()
       }
@@ -3780,6 +3793,17 @@ defmodule AWS.SageMaker do
       
   """
   @type pipeline_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_restricted_instance_groups_config_output() :: %{
+        "SharedEnvironmentConfig" => cluster_shared_environment_config_details()
+      }
+      
+  """
+  @type cluster_restricted_instance_groups_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5941,6 +5965,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_restricted_instance_groups_config() :: %{
+        "SharedEnvironmentConfig" => cluster_shared_environment_config()
+      }
+      
+  """
+  @type cluster_restricted_instance_groups_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_a_i_workload_configs_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -6155,6 +6190,7 @@ defmodule AWS.SageMaker do
         optional("NodeRecovery") => list(any()),
         optional("Orchestrator") => cluster_orchestrator(),
         optional("RestrictedInstanceGroups") => list(cluster_restricted_instance_group_specification()),
+        optional("RestrictedInstanceGroupsConfig") => cluster_restricted_instance_groups_config(),
         optional("TieredStorageConfig") => cluster_tiered_storage_config(),
         required("ClusterName") => String.t() | atom()
       }
@@ -8010,6 +8046,7 @@ defmodule AWS.SageMaker do
         optional("NodeRecovery") => list(any()),
         optional("Orchestrator") => cluster_orchestrator(),
         optional("RestrictedInstanceGroups") => list(cluster_restricted_instance_group_specification()),
+        optional("RestrictedInstanceGroupsConfig") => cluster_restricted_instance_groups_config(),
         optional("Tags") => list(tag()),
         optional("TieredStorageConfig") => cluster_tiered_storage_config(),
         optional("VpcConfig") => vpc_config(),
@@ -16312,6 +16349,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_shared_environment_config_details() :: %{
+        "CurrentFSxLustreConfig" => f_sx_lustre_config(),
+        "CurrentFSxLustreDeletionPolicy" => list(any()),
+        "DesiredFSxLustreConfig" => f_sx_lustre_config(),
+        "DesiredFSxLustreDeletionPolicy" => list(any())
+      }
+      
+  """
+  @type cluster_shared_environment_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_code_repository_output() :: %{
         "CodeRepositoryArn" => String.t() | atom(),
         "CodeRepositoryName" => String.t() | atom(),
@@ -18723,6 +18774,7 @@ defmodule AWS.SageMaker do
       
       reserved_capacity_summary() :: %{
         "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "DurationHours" => float(),
         "DurationMinutes" => float(),
         "EndTime" => non_neg_integer(),

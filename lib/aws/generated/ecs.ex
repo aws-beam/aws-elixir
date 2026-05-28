@@ -364,6 +364,7 @@ defmodule AWS.ECS do
         "name" => String.t() | atom(),
         "networkBindings" => list(network_binding()),
         "networkInterfaces" => list(network_interface()),
+        "neuronDeviceIds" => list(String.t() | atom()),
         "reason" => String.t() | atom(),
         "runtimeId" => String.t() | atom(),
         "taskArn" => String.t() | atom()

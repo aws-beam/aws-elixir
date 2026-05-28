@@ -1266,6 +1266,17 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      document_custom_output_configuration() :: %{
+        "fallbackBlueprints" => list(blueprint_item())
+      }
+
+  """
+  @type document_custom_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_blueprint_optimization_status_response() :: %{
         "errorMessage" => [String.t() | atom()],
         "errorType" => [String.t() | atom()],
@@ -1437,7 +1448,8 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       custom_output_configuration() :: %{
-        "blueprints" => list(blueprint_item())
+        "blueprints" => list(blueprint_item()),
+        "document" => document_custom_output_configuration()
       }
 
   """

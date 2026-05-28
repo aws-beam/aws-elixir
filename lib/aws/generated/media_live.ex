@@ -487,6 +487,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       describe_inference_settings() :: %{
+        "AudioFeedInputs" => list(audio_feed_input()),
         "FeedArn" => String.t() | atom()
       }
 
@@ -1284,6 +1285,7 @@ defmodule AWS.MediaLive do
         "EmbeddedSourceSettings" => embedded_source_settings(),
         "Scte20SourceSettings" => scte20_source_settings(),
         "Scte27SourceSettings" => scte27_source_settings(),
+        "SmartSubtitleSourceSettings" => smart_subtitle_source_settings(),
         "TeletextSourceSettings" => teletext_source_settings()
       }
 
@@ -2059,6 +2061,18 @@ defmodule AWS.MediaLive do
 
   """
   @type create_cloud_watch_alarm_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      smart_subtitle_source_settings() :: %{
+        "CaptionSynchronizationMode" => list(any()),
+        "InferenceFeedOutput" => String.t() | atom()
+      }
+
+  """
+  @type smart_subtitle_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5797,6 +5811,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      audio_feed_input() :: %{
+        "AudioSelectorName" => String.t() | atom(),
+        "FeedInput" => String.t() | atom()
+      }
+
+  """
+  @type audio_feed_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_network_response() :: %{
         "Arn" => String.t() | atom(),
         "AssociatedClusterIds" => list(String.t() | atom()),
@@ -7086,6 +7112,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       inference_settings() :: %{
+        "AudioFeedInputs" => list(audio_feed_input()),
         "FeedArn" => String.t() | atom()
       }
 

@@ -1033,10 +1033,19 @@ defmodule AWS.IoT do
   ## Example:
 
       get_thing_connectivity_data_response() :: %{
+        "cleanSession" => boolean(),
+        "clientId" => String.t() | atom(),
         "connected" => boolean(),
         "disconnectReason" => list(any()),
+        "keepAliveDuration" => integer(),
+        "sessionExpiry" => float(),
+        "sourceIp" => String.t() | atom(),
+        "sourcePort" => integer(),
+        "targetIp" => String.t() | atom(),
+        "targetPort" => integer(),
         "thingName" => String.t() | atom(),
-        "timestamp" => non_neg_integer()
+        "timestamp" => non_neg_integer(),
+        "vpcEndpointId" => String.t() | atom()
       }
 
   """
@@ -2526,8 +2535,12 @@ defmodule AWS.IoT do
   ## Example:
 
       thing_connectivity() :: %{
+        "cleanSession" => boolean(),
+        "clientId" => String.t() | atom(),
         "connected" => boolean(),
         "disconnectReason" => String.t() | atom(),
+        "keepAliveDuration" => integer(),
+        "sessionExpiry" => float(),
         "timestamp" => float()
       }
 
@@ -3247,6 +3260,7 @@ defmodule AWS.IoT do
   ## Example:
 
       indexing_filter() :: %{
+        "connectivity" => connectivity_filter(),
         "geoLocations" => list(geo_location_target()),
         "namedShadowNames" => list(String.t() | atom())
       }
@@ -3737,6 +3751,17 @@ defmodule AWS.IoT do
 
   """
   @type create_security_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connectivity_filter() :: %{
+        "includeSocketInformation" => list(list(any())())
+      }
+
+  """
+  @type connectivity_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7830,10 +7855,12 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      get_thing_connectivity_data_request() :: %{}
+      get_thing_connectivity_data_request() :: %{
+        optional("includeSocketInformation") => boolean()
+      }
 
   """
-  @type get_thing_connectivity_data_request() :: %{}
+  @type get_thing_connectivity_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

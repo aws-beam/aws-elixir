@@ -371,6 +371,7 @@ defmodule AWS.OpenSearchServerless do
         "collectionGroupName" => String.t() | atom(),
         "createdDate" => [float()],
         "dashboardEndpoint" => [String.t() | atom()],
+        "deletionProtection" => String.t() | atom(),
         "description" => [String.t() | atom()],
         "failureCode" => [String.t() | atom()],
         "failureMessage" => [String.t() | atom()],
@@ -420,6 +421,18 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type delete_collection_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      current_capacity() :: %{
+        "indexing" => capacity_details(),
+        "search" => capacity_details()
+      }
+      
+  """
+  @type current_capacity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,6 +520,7 @@ defmodule AWS.OpenSearchServerless do
         "capacityLimits" => collection_group_capacity_limits(),
         "createdDate" => [float()],
         "description" => [String.t() | atom()],
+        "generation" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "standbyReplicas" => String.t() | atom(),
@@ -550,6 +564,7 @@ defmodule AWS.OpenSearchServerless do
         optional("capacityLimits") => collection_group_capacity_limits(),
         optional("clientToken") => String.t() | atom(),
         optional("description") => [String.t() | atom()],
+        optional("generation") => String.t() | atom(),
         optional("tags") => list(tag()),
         required("name") => String.t() | atom(),
         required("standbyReplicas") => String.t() | atom()
@@ -589,6 +604,7 @@ defmodule AWS.OpenSearchServerless do
         "arn" => [String.t() | atom()],
         "capacityLimits" => collection_group_capacity_limits(),
         "createdDate" => [float()],
+        "generation" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "numberOfCollections" => [integer()]
@@ -862,7 +878,9 @@ defmodule AWS.OpenSearchServerless do
         "arn" => [String.t() | atom()],
         "capacityLimits" => collection_group_capacity_limits(),
         "createdDate" => [float()],
+        "currentCapacity" => current_capacity(),
         "description" => [String.t() | atom()],
+        "generation" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "numberOfCollections" => [integer()],
@@ -1026,6 +1044,7 @@ defmodule AWS.OpenSearchServerless do
   ## Example:
       
       delete_collection_detail() :: %{
+        "deletionProtection" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => String.t() | atom()
@@ -1041,6 +1060,7 @@ defmodule AWS.OpenSearchServerless do
       create_collection_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("collectionGroupName") => String.t() | atom(),
+        optional("deletionProtection") => String.t() | atom(),
         optional("description") => [String.t() | atom()],
         optional("encryptionConfig") => encryption_config(),
         optional("standbyReplicas") => String.t() | atom(),
@@ -1548,6 +1568,7 @@ defmodule AWS.OpenSearchServerless do
         "capacityLimits" => collection_group_capacity_limits(),
         "createdDate" => [float()],
         "description" => [String.t() | atom()],
+        "generation" => String.t() | atom(),
         "id" => String.t() | atom(),
         "lastModifiedDate" => [float()],
         "name" => String.t() | atom()
@@ -1584,6 +1605,7 @@ defmodule AWS.OpenSearchServerless do
       
       update_collection_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("deletionProtection") => String.t() | atom(),
         optional("description") => [String.t() | atom()],
         optional("vectorOptions") => vector_options(),
         required("id") => String.t() | atom()
@@ -1616,6 +1638,18 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type create_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_details() :: %{
+        "autoscalingStatus" => String.t() | atom(),
+        "capacityInOcu" => [float()]
+      }
+      
+  """
+  @type capacity_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1672,6 +1706,7 @@ defmodule AWS.OpenSearchServerless do
       update_collection_detail() :: %{
         "arn" => [String.t() | atom()],
         "createdDate" => [float()],
+        "deletionProtection" => String.t() | atom(),
         "description" => [String.t() | atom()],
         "id" => String.t() | atom(),
         "lastModifiedDate" => [float()],
@@ -1834,6 +1869,7 @@ defmodule AWS.OpenSearchServerless do
         "arn" => [String.t() | atom()],
         "collectionGroupName" => String.t() | atom(),
         "createdDate" => [float()],
+        "deletionProtection" => String.t() | atom(),
         "description" => [String.t() | atom()],
         "id" => String.t() | atom(),
         "kmsKeyArn" => [String.t() | atom()],

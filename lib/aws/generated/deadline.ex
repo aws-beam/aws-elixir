@@ -121,6 +121,30 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      get_volume_response() :: %{
+        "attachedWorkerId" => String.t() | atom(),
+        "availabilityZoneId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "expiresAt" => non_neg_integer(),
+        "farmId" => String.t() | atom(),
+        "fleetId" => String.t() | atom(),
+        "iops" => integer(),
+        "lastAssignedAt" => non_neg_integer(),
+        "lastReleasedAt" => non_neg_integer(),
+        "sizeGiB" => integer(),
+        "state" => list(any()),
+        "throughputMiB" => integer(),
+        "volumeId" => String.t() | atom(),
+        "volumeType" => list(any())
+      }
+
+  """
+  @type get_volume_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_details_error() :: %{
         "code" => list(any()),
         "jobId" => String.t() | atom(),
@@ -468,6 +492,15 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      delete_volume_request() :: %{}
+
+  """
+  @type delete_volume_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_session_actions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -486,6 +519,18 @@ defmodule AWS.Deadline do
 
   """
   @type delete_queue_fleet_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_volumes_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "volumes" => list(volume_summary())
+      }
+
+  """
+  @type list_volumes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -901,6 +946,15 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      get_volume_request() :: %{}
+
+  """
+  @type get_volume_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_workers_request() :: %{
         optional("filterExpressions") => search_grouped_filter_expressions(),
         optional("pageSize") => integer(),
@@ -959,6 +1013,7 @@ defmodule AWS.Deadline do
         "autoScalingConfiguration" => service_managed_ec2_auto_scaling_configuration(),
         "instanceCapabilities" => service_managed_ec2_instance_capabilities(),
         "instanceMarketOptions" => service_managed_ec2_instance_market_options(),
+        "persistentVolumeConfiguration" => persistent_volume_configuration(),
         "storageProfileId" => String.t() | atom(),
         "vpcConfiguration" => vpc_configuration()
       }
@@ -1585,6 +1640,23 @@ defmodule AWS.Deadline do
 
   """
   @type service_managed_ec2_instance_capabilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      volume_summary() :: %{
+        "attachedWorkerId" => String.t() | atom(),
+        "availabilityZoneId" => String.t() | atom(),
+        "farmId" => String.t() | atom(),
+        "fleetId" => String.t() | atom(),
+        "sizeGiB" => integer(),
+        "state" => list(any()),
+        "volumeId" => String.t() | atom()
+      }
+
+  """
+  @type volume_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2702,6 +2774,21 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      persistent_volume_configuration() :: %{
+        "iops" => integer(),
+        "lastUsedTtlHours" => integer(),
+        "mountPath" => String.t() | atom(),
+        "sizeGiB" => integer(),
+        "throughputMiB" => integer()
+      }
+
+  """
+  @type persistent_volume_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_queue_limit_associations_response() :: %{
         "nextToken" => String.t() | atom(),
         "queueLimitAssociations" => list(queue_limit_association_summary())
@@ -2809,6 +2896,18 @@ defmodule AWS.Deadline do
 
   """
   @type list_metered_products_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_volumes_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_volumes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3319,6 +3418,15 @@ defmodule AWS.Deadline do
 
   """
   @type get_worker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_volume_response() :: %{}
+
+  """
+  @type delete_volume_response() :: %{}
 
   @typedoc """
 
@@ -5598,6 +5706,14 @@ defmodule AWS.Deadline do
           | validation_exception()
           | access_denied_exception()
 
+  @type delete_volume_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_worker_errors() ::
           throttling_exception()
           | internal_server_error_exception()
@@ -5763,6 +5879,13 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
 
   @type get_task_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_volume_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | validation_exception()
@@ -5958,6 +6081,13 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
 
   @type list_tasks_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_volumes_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | validation_exception()
@@ -7864,6 +7994,44 @@ defmodule AWS.Deadline do
   end
 
   @doc """
+  Deletes a persistent volume.
+  """
+  @spec delete_volume(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_volume_request(),
+          list()
+        ) ::
+          {:ok, delete_volume_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_volume_errors()}
+  def delete_volume(%Client{} = client, farm_id, fleet_id, volume_id, input, options \\ []) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/volumes/#{AWS.Util.encode_uri(volume_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a worker.
   """
   @spec delete_worker(
@@ -8554,6 +8722,26 @@ defmodule AWS.Deadline do
   def get_task(%Client{} = client, farm_id, job_id, queue_id, step_id, task_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/tasks/#{AWS.Util.encode_uri(task_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a persistent volume.
+  """
+  @spec get_volume(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_volume_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_volume_errors()}
+  def get_volume(%Client{} = client, farm_id, fleet_id, volume_id, options \\ []) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/volumes/#{AWS.Util.encode_uri(volume_id)}"
 
     headers = []
     query_params = []
@@ -9956,6 +10144,54 @@ defmodule AWS.Deadline do
       ) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/steps/#{AWS.Util.encode_uri(step_id)}/tasks"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the persistent volumes in a fleet.
+  """
+  @spec list_volumes(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_volumes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_volumes_errors()}
+  def list_volumes(
+        %Client{} = client,
+        farm_id,
+        fleet_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/volumes"
 
     headers = []
     query_params = []

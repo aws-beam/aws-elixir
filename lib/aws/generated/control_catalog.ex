@@ -227,9 +227,11 @@ defmodule AWS.ControlCatalog do
         "Behavior" => list(any()),
         "CreateTime" => [non_neg_integer()],
         "Description" => [String.t() | atom()],
+        "GovernedProviders" => list(String.t() | atom()),
         "GovernedResources" => list(String.t() | atom()),
         "Implementation" => implementation_summary(),
         "Name" => [String.t() | atom()],
+        "ParameterRequirementSummary" => list(any()),
         "Severity" => list(any())
       }
 
@@ -405,6 +407,7 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       control_filter() :: %{
+        "GovernedProviders" => list(String.t() | atom()),
         "Implementations" => implementation_filter()
       }
 
@@ -421,9 +424,11 @@ defmodule AWS.ControlCatalog do
         "Behavior" => list(any()),
         "CreateTime" => [non_neg_integer()],
         "Description" => [String.t() | atom()],
+        "GovernedProviders" => list(String.t() | atom()),
         "GovernedResources" => list(String.t() | atom()),
         "Implementation" => implementation_details(),
         "Name" => [String.t() | atom()],
+        "ParameterRequirementSummary" => list(any()),
         "Parameters" => list(control_parameter()),
         "RegionConfiguration" => region_configuration(),
         "Severity" => list(any())
@@ -460,7 +465,8 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       control_parameter() :: %{
-        "Name" => [String.t() | atom()]
+        "Name" => [String.t() | atom()],
+        "Requirement" => list(any())
       }
 
   """

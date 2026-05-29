@@ -4215,11 +4215,12 @@ defmodule AWS.Bedrock do
 
       create_custom_model_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
+        optional("customModelDataSource") => list(),
         optional("modelKmsKeyArn") => String.t() | atom(),
+        optional("modelSourceConfig") => list(),
         optional("modelTags") => list(tag()),
         optional("roleArn") => String.t() | atom(),
-        required("modelName") => String.t() | atom(),
-        required("modelSourceConfig") => list()
+        required("modelName") => String.t() | atom()
       }
 
   """
@@ -5294,6 +5295,17 @@ defmodule AWS.Bedrock do
 
   """
   @type deregister_marketplace_model_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      model_package_arn_data_source() :: %{
+        "modelPackageArn" => String.t() | atom()
+      }
+
+  """
+  @type model_package_arn_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6594,7 +6606,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Batch delete the specified advanced prompt optimization jobs.
+  Deletes one or more advanced prompt optimization jobs.
   """
   @spec batch_delete_advanced_prompt_optimization_job(
           map(),
@@ -6706,7 +6718,10 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Creates an asynchronous batch job for advanced prompt optimization.
+  Creates an advanced prompt optimization job.
+
+  The job optimizes your prompt templates for specific models using your
+  evaluation dataset and criteria.
   """
   @spec create_advanced_prompt_optimization_job(
           map(),
@@ -6868,6 +6883,15 @@ defmodule AWS.Bedrock do
   Creates a new custom model in Amazon Bedrock.
 
   After the model is active, you can use it for inference.
+
+  You can provide the model data source in one of the following ways:
+
+    * `customModelDataSource` — Specify a SageMaker AI model package
+  ARN. Amazon Bedrock resolves the model package to retrieve the model artifacts.
+  This is the preferred method for new SageMaker AI training outputs.
+
+    * `modelSourceConfig` — Specify an Amazon S3 URI pointing to the
+  Amazon-managed Amazon S3 bucket containing your model artifacts.
 
   To use the model for inference, you must purchase Provisioned Throughput for it.
   You can't use On-demand inference with these custom models. For more information
@@ -8056,7 +8080,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Retrieves the details and status of an advanced prompt optimization job.
+  Gets information about an advanced prompt optimization job.
   """
   @spec get_advanced_prompt_optimization_job(map(), String.t() | atom(), list()) ::
           {:ok, get_advanced_prompt_optimization_job_response(), any()}
@@ -8688,7 +8712,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Lists all advanced prompt optimization jobs for the account.
+  Lists the advanced prompt optimization jobs in your account.
   """
   @spec list_advanced_prompt_optimization_jobs(
           map(),
@@ -10548,7 +10572,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Stops an in-progress advanced prompt optimization job.
+  Stops an advanced prompt optimization job that is in progress.
   """
   @spec stop_advanced_prompt_optimization_job(
           map(),

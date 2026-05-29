@@ -517,6 +517,7 @@ defmodule AWS.PCS do
   ## Example:
       
       update_compute_node_group_slurm_configuration_request() :: %{
+        "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting())
       }
       
@@ -609,6 +610,7 @@ defmodule AWS.PCS do
   ## Example:
       
       compute_node_group_slurm_configuration_request() :: %{
+        "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting())
       }
       
@@ -729,6 +731,7 @@ defmodule AWS.PCS do
   ## Example:
       
       compute_node_group_slurm_configuration() :: %{
+        "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting())
       }
       

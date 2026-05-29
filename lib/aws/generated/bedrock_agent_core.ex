@@ -623,6 +623,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_skill_s3_source() :: %{
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type harness_skill_s3_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_a_b_test_response() :: %{
         "abTestArn" => String.t() | atom(),
         "abTestId" => String.t() | atom(),
@@ -778,6 +789,19 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type cloud_watch_logs_trace_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_skill_git_source() :: %{
+        "auth" => harness_skill_git_auth(),
+        "path" => [String.t() | atom()],
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type harness_skill_git_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2116,6 +2140,7 @@ defmodule AWS.BedrockAgentCore do
         optional("maxIterations") => [integer()],
         optional("maxTokens") => [integer()],
         optional("model") => list(),
+        optional("runtimeUserId") => [String.t() | atom()],
         optional("skills") => list(list()),
         optional("systemPrompt") => list(list()),
         optional("timeoutSeconds") => [integer()],
@@ -2221,6 +2246,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type harness_metadata_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_skill_git_auth() :: %{
+        "credentialArn" => String.t() | atom(),
+        "username" => [String.t() | atom()]
+      }
+
+  """
+  @type harness_skill_git_auth() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2928,6 +2965,23 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_lite_llm_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiBase" => String.t() | atom(),
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_lite_llm_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
@@ -3013,6 +3067,8 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       harness_bedrock_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiFormat" => list(any()),
         "maxTokens" => integer(),
         "modelId" => String.t() | atom(),
         "temperature" => float(),
@@ -3094,6 +3150,8 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       harness_open_ai_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiFormat" => list(any()),
         "apiKeyArn" => String.t() | atom(),
         "maxTokens" => integer(),
         "modelId" => String.t() | atom(),
@@ -4405,7 +4463,8 @@ defmodule AWS.BedrockAgentCore do
           | conflict_exception()
 
   @type invoke_harness_errors() ::
-          throttling_exception()
+          runtime_client_error()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -6086,7 +6145,8 @@ defmodule AWS.BedrockAgentCore do
 
     {headers, input} =
       [
-        {"runtimeSessionId", "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id"}
+        {"runtimeSessionId", "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id"},
+        {"runtimeUserId", "X-Amzn-Bedrock-AgentCore-Runtime-User-Id"}
       ]
       |> Request.build_params(input)
 

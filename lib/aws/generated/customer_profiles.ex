@@ -229,6 +229,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      batch_put_profile_object_response_item() :: %{
+        "Id" => String.t() | atom(),
+        "ProfileObjectUniqueKey" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_profile_object_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       date_dimension() :: %{
         "DimensionType" => list(any()),
         "Values" => list([String.t() | atom()]())
@@ -236,6 +248,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type date_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_profile_object_request_item() :: %{
+        "Id" => String.t() | atom(),
+        "Object" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_profile_object_request_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2163,6 +2187,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      batch_put_profile_object_request() :: %{
+        required("Items") => list(batch_put_profile_object_request_item()),
+        required("ObjectTypeName") => String.t() | atom()
+      }
+
+  """
+  @type batch_put_profile_object_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_calculated_attribute_for_profile_response() :: %{
         "CalculatedAttributeValues" => list(calculated_attribute_value()),
         "ConditionOverrides" => condition_overrides(),
@@ -3528,6 +3564,19 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      batch_put_profile_object_error_item() :: %{
+        "Code" => integer(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_profile_object_error_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_event_stream_response() :: %{}
 
   """
@@ -4166,6 +4215,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      batch_put_profile_object_response() :: %{
+        "Failed" => list(batch_put_profile_object_error_item()),
+        "Successful" => list(batch_put_profile_object_response_item())
+      }
+
+  """
+  @type batch_put_profile_object_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       profile_attribute_values_response() :: %{
         "AttributeName" => String.t() | atom(),
         "DomainName" => String.t() | atom(),
@@ -4713,6 +4774,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type batch_get_profile_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_put_profile_object_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -5539,6 +5607,59 @@ defmodule AWS.CustomerProfiles do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds multiple profile objects to a domain of a given ObjectType in a single API
+  call.
+
+  When adding a specific profile object, like a Contact Record, an inferred
+  profile can
+  get created if it is not mapped to an existing profile. The resulting profile
+  will only
+  have a phone number populated in the standard ProfileObject. Any additional
+  Contact Records
+  with the same phone number will be mapped to the same inferred profile.
+
+  When a ProfileObject is created and if a ProfileObjectType already exists for
+  the
+  ProfileObject, it will provide data to a standard profile depending on the
+  ProfileObjectType definition.
+
+  BatchPutProfileObject needs an ObjectType, which can be created using
+  PutProfileObjectType.
+  """
+  @spec batch_put_profile_object(
+          map(),
+          String.t() | atom(),
+          batch_put_profile_object_request(),
+          list()
+        ) ::
+          {:ok, batch_put_profile_object_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_put_profile_object_errors()}
+  def batch_put_profile_object(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/batch-put-profile-object"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

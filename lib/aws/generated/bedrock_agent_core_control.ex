@@ -1444,6 +1444,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      harness_skill_s3_source() :: %{
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type harness_skill_s3_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       encryption_failure() :: %{
         "message" => [String.t() | atom()]
       }
@@ -1763,6 +1774,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type harness_agent_core_gateway_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_skill_git_source() :: %{
+        "auth" => harness_skill_git_auth(),
+        "path" => [String.t() | atom()],
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type harness_skill_git_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3637,6 +3661,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "bundleArn" => String.t() | atom(),
         "bundleId" => String.t() | atom(),
         "bundleName" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom()
       }
 
@@ -4142,6 +4167,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type policy_generation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_skill_git_auth() :: %{
+        "credentialArn" => String.t() | atom(),
+        "username" => [String.t() | atom()]
+      }
+
+  """
+  @type harness_skill_git_auth() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5992,6 +6029,23 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      harness_lite_llm_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiBase" => String.t() | atom(),
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_lite_llm_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
@@ -6088,6 +6142,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       harness_bedrock_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiFormat" => list(any()),
         "maxTokens" => integer(),
         "modelId" => String.t() | atom(),
         "temperature" => float(),
@@ -6140,6 +6196,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       harness_open_ai_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiFormat" => list(any()),
         "apiKeyArn" => String.t() | atom(),
         "maxTokens" => integer(),
         "modelId" => String.t() | atom(),

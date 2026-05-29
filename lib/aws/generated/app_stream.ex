@@ -2698,11 +2698,12 @@ defmodule AWS.AppStream do
         optional("Description") => String.t() | atom(),
         optional("DisplayName") => String.t() | atom(),
         optional("DryRun") => boolean(),
+        optional("IamRoleArn") => String.t() | atom(),
         optional("RuntimeValidationConfig") => runtime_validation_config(),
+        optional("SourceAmiId") => String.t() | atom(),
         optional("Tags") => map(),
-        required("IamRoleArn") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("SourceAmiId") => String.t() | atom()
+        optional("WorkspaceImageId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
@@ -3400,6 +3401,7 @@ defmodule AWS.AppStream do
           | invalid_role_exception()
           | operation_not_permitted_exception()
           | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
           | dry_run_operation_exception()
 
   @type create_stack_errors() ::

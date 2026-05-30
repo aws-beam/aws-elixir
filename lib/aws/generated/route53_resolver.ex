@@ -164,6 +164,19 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      batch_update_firewall_rule_error() :: %{
+        "Code" => String.t() | atom(),
+        "FirewallRule" => update_firewall_rule_entry(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type batch_update_firewall_rule_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_resolver_query_log_config_response() :: %{
         "ResolverQueryLogConfig" => resolver_query_log_config()
       }
@@ -186,6 +199,19 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      firewall_rule_type() :: %{
+        "DnsThreatProtection" => dns_threat_protection_rule_type_config(),
+        "FirewallAdvancedContentCategory" => firewall_advanced_content_category_config(),
+        "FirewallAdvancedThreatCategory" => firewall_advanced_threat_category_config()
+      }
+      
+  """
+  @type firewall_rule_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_firewall_rule_request() :: %{
         optional("Action") => list(any()),
         optional("BlockOverrideDnsType") => list(any()),
@@ -196,6 +222,7 @@ defmodule AWS.Route53Resolver do
         optional("DnsThreatProtection") => list(any()),
         optional("FirewallDomainListId") => String.t() | atom(),
         optional("FirewallDomainRedirectionAction") => list(any()),
+        optional("FirewallRuleType") => firewall_rule_type(),
         optional("FirewallThreatProtectionId") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
         optional("Priority") => integer(),
@@ -254,6 +281,19 @@ defmodule AWS.Route53Resolver do
       
   """
   @type list_firewall_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_firewall_rule_error() :: %{
+        "Code" => String.t() | atom(),
+        "FirewallRule" => create_firewall_rule_entry(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type batch_create_firewall_rule_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,6 +391,19 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      list_firewall_rule_types_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RuleType") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_resolver_dnssec_configs_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
@@ -426,6 +479,7 @@ defmodule AWS.Route53Resolver do
         optional("DnsThreatProtection") => list(any()),
         optional("FirewallDomainListId") => String.t() | atom(),
         optional("FirewallDomainRedirectionAction") => list(any()),
+        optional("FirewallRuleType") => firewall_rule_type(),
         optional("Qtype") => String.t() | atom(),
         required("Action") => list(any()),
         required("CreatorRequestId") => String.t() | atom(),
@@ -443,10 +497,12 @@ defmodule AWS.Route53Resolver do
       
       firewall_domain_list() :: %{
         "Arn" => String.t() | atom(),
+        "Category" => String.t() | atom(),
         "CreationTime" => String.t() | atom(),
         "CreatorRequestId" => String.t() | atom(),
         "DomainCount" => integer(),
         "Id" => String.t() | atom(),
+        "ManagedListType" => list(any()),
         "ManagedOwnerName" => String.t() | atom(),
         "ModificationTime" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -540,6 +596,17 @@ defmodule AWS.Route53Resolver do
       
   """
   @type delete_firewall_domain_list_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_advanced_content_category_config() :: %{
+        "Category" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_advanced_content_category_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -969,6 +1036,31 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      update_firewall_rule_entry() :: %{
+        "Action" => list(any()),
+        "BlockOverrideDnsType" => list(any()),
+        "BlockOverrideDomain" => String.t() | atom(),
+        "BlockOverrideTtl" => integer(),
+        "BlockResponse" => list(any()),
+        "ConfidenceThreshold" => list(any()),
+        "DnsThreatProtection" => list(any()),
+        "FirewallDomainListId" => String.t() | atom(),
+        "FirewallDomainRedirectionAction" => list(any()),
+        "FirewallRuleGroupId" => String.t() | atom(),
+        "FirewallRuleType" => firewall_rule_type(),
+        "FirewallThreatProtectionId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Priority" => integer(),
+        "Qtype" => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_rule_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_resolver_endpoint_ip_address_response() :: %{
         "ResolverEndpoint" => resolver_endpoint()
       }
@@ -1145,6 +1237,17 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      firewall_advanced_threat_category_config() :: %{
+        "Category" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_advanced_threat_category_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -1234,6 +1337,17 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      batch_create_firewall_rule_request() :: %{
+        required("CreateFirewallRuleEntries") => list(create_firewall_rule_entry())
+      }
+      
+  """
+  @type batch_create_firewall_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_firewall_config_request() :: %{
         required("FirewallFailOpen") => list(any()),
         required("ResourceId") => String.t() | atom()
@@ -1241,6 +1355,17 @@ defmodule AWS.Route53Resolver do
       
   """
   @type update_firewall_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_firewall_rule_request() :: %{
+        required("DeleteFirewallRuleEntries") => list(delete_firewall_rule_entry())
+      }
+      
+  """
+  @type batch_delete_firewall_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1292,6 +1417,18 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      batch_create_firewall_rule_response() :: %{
+        "CreateErrors" => list(batch_create_firewall_rule_error()),
+        "CreatedFirewallRules" => list(firewall_rule())
+      }
+      
+  """
+  @type batch_create_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_outpost_resolver_response() :: %{
         "OutpostResolver" => outpost_resolver()
       }
@@ -1316,6 +1453,7 @@ defmodule AWS.Route53Resolver do
         "FirewallDomainListId" => String.t() | atom(),
         "FirewallDomainRedirectionAction" => list(any()),
         "FirewallRuleGroupId" => String.t() | atom(),
+        "FirewallRuleType" => firewall_rule_type(),
         "FirewallThreatProtectionId" => String.t() | atom(),
         "ModificationTime" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -1371,12 +1509,35 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      batch_update_firewall_rule_request() :: %{
+        required("UpdateFirewallRuleEntries") => list(update_firewall_rule_entry())
+      }
+      
+  """
+  @type batch_update_firewall_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_resolver_rule_policy_request() :: %{
         required("Arn") => String.t() | atom()
       }
       
   """
   @type get_resolver_rule_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_update_firewall_rule_response() :: %{
+        "UpdateErrors" => list(batch_update_firewall_rule_error()),
+        "UpdatedFirewallRules" => list(firewall_rule())
+      }
+      
+  """
+  @type batch_update_firewall_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1635,6 +1796,18 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      dns_threat_protection_rule_type_config() :: %{
+        "ConfidenceThreshold" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type dns_threat_protection_rule_type_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_exists_exception() :: %{
         "Message" => String.t() | atom(),
         "ResourceType" => String.t() | atom()
@@ -1722,6 +1895,19 @@ defmodule AWS.Route53Resolver do
       
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_firewall_rule_error() :: %{
+        "Code" => String.t() | atom(),
+        "FirewallRule" => delete_firewall_rule_entry(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type batch_delete_firewall_rule_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1829,6 +2015,18 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      batch_delete_firewall_rule_response() :: %{
+        "DeleteErrors" => list(batch_delete_firewall_rule_error()),
+        "DeletedFirewallRules" => list(firewall_rule())
+      }
+      
+  """
+  @type batch_delete_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_resolver_rule_response() :: %{
         "ResolverRule" => resolver_rule()
       }
@@ -1913,6 +2111,20 @@ defmodule AWS.Route53Resolver do
       
   """
   @type disassociate_resolver_endpoint_ip_address_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_rule_entry() :: %{
+        "FirewallDomainListId" => String.t() | atom(),
+        "FirewallRuleGroupId" => String.t() | atom(),
+        "FirewallThreatProtectionId" => String.t() | atom(),
+        "Qtype" => String.t() | atom()
+      }
+      
+  """
+  @type delete_firewall_rule_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2020,14 +2232,42 @@ defmodule AWS.Route53Resolver do
       
       firewall_domain_list_metadata() :: %{
         "Arn" => String.t() | atom(),
+        "Category" => String.t() | atom(),
         "CreatorRequestId" => String.t() | atom(),
         "Id" => String.t() | atom(),
+        "ManagedListType" => list(any()),
         "ManagedOwnerName" => String.t() | atom(),
         "Name" => String.t() | atom()
       }
       
   """
   @type firewall_domain_list_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_rule_type_definition() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "RuleType" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_rule_type_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_types_response() :: %{
+        "FirewallRuleTypes" => list(firewall_rule_type_definition()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2111,6 +2351,31 @@ defmodule AWS.Route53Resolver do
       
   """
   @type get_firewall_rule_group_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_rule_entry() :: %{
+        "Action" => list(any()),
+        "BlockOverrideDnsType" => list(any()),
+        "BlockOverrideDomain" => String.t() | atom(),
+        "BlockOverrideTtl" => integer(),
+        "BlockResponse" => list(any()),
+        "ConfidenceThreshold" => list(any()),
+        "CreatorRequestId" => String.t() | atom(),
+        "DnsThreatProtection" => list(any()),
+        "FirewallDomainListId" => String.t() | atom(),
+        "FirewallDomainRedirectionAction" => list(any()),
+        "FirewallRuleGroupId" => String.t() | atom(),
+        "FirewallRuleType" => firewall_rule_type(),
+        "Name" => String.t() | atom(),
+        "Priority" => integer(),
+        "Qtype" => String.t() | atom()
+      }
+      
+  """
+  @type create_firewall_rule_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2347,6 +2612,27 @@ defmodule AWS.Route53Resolver do
           | resource_not_found_exception()
           | internal_service_error_exception()
           | resource_unavailable_exception()
+
+  @type batch_create_firewall_rule_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_service_error_exception()
+
+  @type batch_delete_firewall_rule_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_service_error_exception()
+
+  @type batch_update_firewall_rule_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_service_error_exception()
 
   @type create_firewall_domain_list_errors() ::
           limit_exceeded_exception()
@@ -2630,6 +2916,12 @@ defmodule AWS.Route53Resolver do
           | internal_service_error_exception()
 
   @type list_firewall_rule_groups_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_service_error_exception()
+
+  @type list_firewall_rule_types_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2938,6 +3230,48 @@ defmodule AWS.Route53Resolver do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateResolverRule", input, options)
+  end
+
+  @doc """
+  Creates multiple DNS Firewall rules in the specified rule group.
+  """
+  @spec batch_create_firewall_rule(map(), batch_create_firewall_rule_request(), list()) ::
+          {:ok, batch_create_firewall_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_create_firewall_rule_errors()}
+  def batch_create_firewall_rule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchCreateFirewallRule", input, options)
+  end
+
+  @doc """
+  Deletes multiple DNS Firewall rules from the specified rule group.
+  """
+  @spec batch_delete_firewall_rule(map(), batch_delete_firewall_rule_request(), list()) ::
+          {:ok, batch_delete_firewall_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_delete_firewall_rule_errors()}
+  def batch_delete_firewall_rule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDeleteFirewallRule", input, options)
+  end
+
+  @doc """
+  Updates multiple DNS Firewall rules in the specified rule group.
+  """
+  @spec batch_update_firewall_rule(map(), batch_update_firewall_rule_request(), list()) ::
+          {:ok, batch_update_firewall_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_update_firewall_rule_errors()}
+  def batch_update_firewall_rule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchUpdateFirewallRule", input, options)
   end
 
   @doc """
@@ -3694,6 +4028,20 @@ defmodule AWS.Route53Resolver do
     meta = metadata()
 
     Request.request_post(client, meta, "ListFirewallRuleGroups", input, options)
+  end
+
+  @doc """
+  Retrieves the available rule types that can be used in DNS Firewall rules.
+  """
+  @spec list_firewall_rule_types(map(), list_firewall_rule_types_request(), list()) ::
+          {:ok, list_firewall_rule_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_firewall_rule_types_errors()}
+  def list_firewall_rule_types(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFirewallRuleTypes", input, options)
   end
 
   @doc """

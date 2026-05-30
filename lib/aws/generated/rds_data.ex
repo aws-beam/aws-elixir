@@ -8,19 +8,15 @@ defmodule AWS.RDSData do
   Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora
   DB cluster.
 
-  To run these
-  statements, you use the RDS Data API (Data API).
+  To run these statements, you use the RDS Data API (Data API).
 
   Data API is available with the following types of Aurora databases:
 
-    *
-  Aurora PostgreSQL - Serverless v2, provisioned, and Serverless v1
+    * Aurora PostgreSQL - Serverless v2, provisioned, and Serverless v1
 
-    *
-  Aurora MySQL - Serverless v2, provisioned, and Serverless v1
+    * Aurora MySQL - Serverless v2, provisioned, and Serverless v1
 
-  For more information about the Data API, see
-  [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
+  For more information about the Data API, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
   in the *Amazon Aurora User Guide*.
   """
 
@@ -188,7 +184,7 @@ defmodule AWS.RDSData do
 
       sql_parameter() :: %{
         "name" => String.t() | atom(),
-        "typeHint" => String.t() | atom(),
+        "typeHint" => list(any()),
         "value" => list()
       }
 
@@ -266,8 +262,8 @@ defmodule AWS.RDSData do
   ## Example:
 
       result_set_options() :: %{
-        "decimalReturnType" => String.t() | atom(),
-        "longReturnType" => String.t() | atom()
+        "decimalReturnType" => list(any()),
+        "longReturnType" => list(any())
       }
 
   """
@@ -420,7 +416,7 @@ defmodule AWS.RDSData do
       execute_statement_request() :: %{
         "continueAfterTimeout" => boolean(),
         "database" => String.t() | atom(),
-        "formatRecordsAs" => String.t() | atom(),
+        "formatRecordsAs" => list(any()),
         "includeResultMetadata" => boolean(),
         "parameters" => list(sql_parameter()),
         "resourceArn" => String.t() | atom(),
@@ -604,21 +600,19 @@ defmodule AWS.RDSData do
 
   You can run bulk update and insert operations for multiple records using a DML
   statement with different parameter sets. Bulk operations can provide a
-  significant
-  performance improvement over individual insert and update operations.
+  significant performance improvement over individual insert and update
+  operations.
 
   If a call isn't part of a transaction because it doesn't include the
-  `transactionID` parameter,
-  changes that result from the call are committed automatically.
+  `transactionID` parameter, changes that result from the call are committed
+  automatically.
 
   There isn't a fixed upper limit on the number of parameter sets. However, the
-  maximum size of the HTTP request
-  submitted through the Data API is 4 MiB. If the request exceeds this limit, the
-  Data API returns an error and doesn't
-  process the request. This 4-MiB limit includes the size of the HTTP headers and
-  the JSON notation in the request. Thus, the
-  number of parameter sets that you can include depends on a combination of
-  factors, such as the size of the SQL statement and
+  maximum size of the HTTP request submitted through the Data API is 4 MiB. If the
+  request exceeds this limit, the Data API returns an error and doesn't process
+  the request. This 4-MiB limit includes the size of the HTTP headers and the JSON
+  notation in the request. Thus, the number of parameter sets that you can include
+  depends on a combination of factors, such as the size of the SQL statement and
   the size of each parameter set.
 
   The response size limit is 1 MiB. If the call returns more than 1 MiB of
@@ -654,12 +648,10 @@ defmodule AWS.RDSData do
   Starts a SQL transaction.
 
   A transaction can run for a maximum of 24 hours. A transaction is terminated and
-  rolled back automatically after 24
-  hours.
+  rolled back automatically after 24 hours.
 
   A transaction times out if no calls use its transaction ID in three minutes. If
-  a transaction times out before it's
-  committed, it's rolled back automatically.
+  a transaction times out before it's committed, it's rolled back automatically.
 
   For Aurora MySQL, DDL statements inside a transaction cause an implicit commit.
   We recommend that you run each MySQL DDL statement in a separate
@@ -692,8 +684,8 @@ defmodule AWS.RDSData do
   end
 
   @doc """
-  Ends a SQL transaction started with the `BeginTransaction` operation and
-  commits the changes.
+  Ends a SQL transaction started with the `BeginTransaction` operation and commits
+  the changes.
   """
   @spec commit_transaction(map(), commit_transaction_request(), list()) ::
           {:ok, commit_transaction_response(), any()}
@@ -725,9 +717,8 @@ defmodule AWS.RDSData do
   Runs one or more SQL statements.
 
   This operation isn't supported for Aurora Serverless v2 and provisioned DB
-  clusters.
-  For Aurora Serverless v1 DB clusters, the operation is deprecated.
-  Use the `BatchExecuteStatement` or `ExecuteStatement` operation.
+  clusters. For Aurora Serverless v1 DB clusters, the operation is deprecated. Use
+  the `BatchExecuteStatement` or `ExecuteStatement` operation.
   """
   @spec execute_sql(map(), execute_sql_request(), list()) ::
           {:ok, execute_sql_response(), any()}
@@ -759,8 +750,8 @@ defmodule AWS.RDSData do
   Runs a SQL statement against a database.
 
   If a call isn't part of a transaction because it doesn't include the
-  `transactionID` parameter, changes that result from the call are
-  committed automatically.
+  `transactionID` parameter, changes that result from the call are committed
+  automatically.
 
   If the binary response data from the database is more than 1 MB, the call is
   terminated.

@@ -188,10 +188,12 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
-      get_suppressed_destination_request() :: %{}
+      get_suppressed_destination_request() :: %{
+        optional("TenantName") => String.t() | atom()
+      }
 
   """
-  @type get_suppressed_destination_request() :: %{}
+  @type get_suppressed_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -290,6 +292,7 @@ defmodule AWS.SESv2 do
       create_tenant_response() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "SendingStatus" => list(any()),
+        "SuppressionAttributes" => tenant_suppression_attributes(),
         "Tags" => list(tag()),
         "TenantArn" => String.t() | atom(),
         "TenantId" => String.t() | atom(),
@@ -1105,6 +1108,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       put_suppressed_destination_request() :: %{
+        optional("TenantName") => String.t() | atom(),
         required("EmailAddress") => String.t() | atom(),
         required("Reason") => list(any())
       }
@@ -1240,7 +1244,8 @@ defmodule AWS.SESv2 do
         optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer(),
         optional("Reasons") => list(list(any())()),
-        optional("StartDate") => non_neg_integer()
+        optional("StartDate") => non_neg_integer(),
+        optional("TenantName") => String.t() | atom()
       }
 
   """
@@ -1294,6 +1299,7 @@ defmodule AWS.SESv2 do
 
       put_configuration_set_suppression_options_request() :: %{
         optional("SuppressedReasons") => list(list(any())()),
+        optional("SuppressionScope") => list(any()),
         optional("ValidationOptions") => suppression_validation_options()
       }
 
@@ -1495,6 +1501,7 @@ defmodule AWS.SESv2 do
       tenant() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "SendingStatus" => list(any()),
+        "SuppressionAttributes" => tenant_suppression_attributes(),
         "Tags" => list(tag()),
         "TenantArn" => String.t() | atom(),
         "TenantId" => String.t() | atom(),
@@ -1699,10 +1706,12 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
-      delete_suppressed_destination_request() :: %{}
+      delete_suppressed_destination_request() :: %{
+        optional("TenantName") => String.t() | atom()
+      }
 
   """
-  @type delete_suppressed_destination_request() :: %{}
+  @type delete_suppressed_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2542,7 +2551,8 @@ defmodule AWS.SESv2 do
         "Attributes" => suppressed_destination_attributes(),
         "EmailAddress" => String.t() | atom(),
         "LastUpdateTime" => non_neg_integer(),
-        "Reason" => list(any())
+        "Reason" => list(any()),
+        "TenantName" => String.t() | atom()
       }
 
   """
@@ -2946,6 +2956,7 @@ defmodule AWS.SESv2 do
 
       suppression_options() :: %{
         "SuppressedReasons" => list(list(any())()),
+        "SuppressionScope" => list(any()),
         "ValidationOptions" => suppression_validation_options()
       }
 
@@ -2977,6 +2988,19 @@ defmodule AWS.SESv2 do
 
   """
   @type status_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_tenant_suppression_attributes_request() :: %{
+        optional("SuppressedReasons") => list(list(any())()),
+        optional("SuppressionScope") => list(any()),
+        required("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type put_tenant_suppression_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3291,6 +3315,18 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      tenant_suppression_attributes() :: %{
+        "SuppressedReasons" => list(list(any())()),
+        "SuppressionScope" => list(any())
+      }
+
+  """
+  @type tenant_suppression_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_configuration_set_request() :: %{}
 
   """
@@ -3451,6 +3487,15 @@ defmodule AWS.SESv2 do
 
   """
   @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_tenant_suppression_attributes_response() :: %{}
+
+  """
+  @type put_tenant_suppression_attributes_response() :: %{}
 
   @typedoc """
 
@@ -3744,6 +3789,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       create_tenant_request() :: %{
+        optional("SuppressionAttributes") => tenant_suppression_attributes(),
         optional("Tags") => list(tag()),
         required("TenantName") => String.t() | atom()
       }
@@ -4387,7 +4433,10 @@ defmodule AWS.SESv2 do
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
   @type list_suppressed_destinations_errors() ::
-          bad_request_exception() | invalid_next_token_exception() | too_many_requests_exception()
+          bad_request_exception()
+          | not_found_exception()
+          | invalid_next_token_exception()
+          | too_many_requests_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
@@ -4468,7 +4517,10 @@ defmodule AWS.SESv2 do
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
   @type put_suppressed_destination_errors() ::
-          bad_request_exception() | too_many_requests_exception()
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_tenant_suppression_attributes_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
   @type send_bulk_email_errors() ::
           bad_request_exception()
@@ -5160,6 +5212,12 @@ defmodule AWS.SESv2 do
   isolate and manage
   email sending for different customers or business units within your Amazon SES
   API v2 account.
+
+  You can optionally specify `SuppressionAttributes` to configure tenant-level
+  suppression at creation time. When tenant-level suppression is enabled, Amazon
+  SES maintains a
+  separate suppression list for the tenant instead of using the account-level
+  suppression list.
   """
   @spec create_tenant(map(), create_tenant_request(), list()) ::
           {:ok, create_tenant_response(), any()}
@@ -5629,7 +5687,13 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Removes an email address from the suppression list for your account.
+  Removes an email address from the suppression list for your account or for a
+  specific
+  tenant.
+
+  To target a tenant's suppression list, specify the `TenantName`
+  parameter. If you omit `TenantName`, the address is removed from the
+  account-level suppression list.
   """
   @spec delete_suppressed_destination(
           map(),
@@ -5645,7 +5709,12 @@ defmodule AWS.SESv2 do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"TenantName", "TenantName"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -6212,7 +6281,7 @@ defmodule AWS.SESv2 do
   text
   part) for the template you specify.
 
-  You can execute this operation no more than once per second.
+  You can execute this operation no more than 50 times per second.
   """
   @spec get_email_template(map(), String.t() | atom(), list()) ::
           {:ok, get_email_template_response(), any()}
@@ -6347,17 +6416,33 @@ defmodule AWS.SESv2 do
   @doc """
   Retrieves information about a specific email address that's on the suppression
   list
-  for your account.
+  for your account or for a specific tenant.
+
+  To target a tenant's suppression list,
+  specify the `TenantName` parameter. If you omit `TenantName`,
+  the operation targets the account-level suppression list.
   """
-  @spec get_suppressed_destination(map(), String.t() | atom(), list()) ::
+  @spec get_suppressed_destination(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_suppressed_destination_errors()}
-  def get_suppressed_destination(%Client{} = client, email_address, options \\ []) do
+  def get_suppressed_destination(
+        %Client{} = client,
+        email_address,
+        tenant_name \\ nil,
+        options \\ []
+      ) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(tenant_name) do
+        [{"TenantName", tenant_name} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -6366,7 +6451,7 @@ defmodule AWS.SESv2 do
 
   @doc """
   Get information about a specific tenant, including the tenant's name, ID, ARN,
-  creation timestamp, tags, and sending status.
+  creation timestamp, tags, sending status, and suppression attributes.
   """
   @spec get_tenant(map(), get_tenant_request(), list()) ::
           {:ok, get_tenant_response(), any()}
@@ -7010,10 +7095,15 @@ defmodule AWS.SESv2 do
 
   @doc """
   Retrieves a list of email addresses that are on the suppression list for your
-  account.
+  account or for a specific tenant.
+
+  To target a tenant's suppression list, specify the
+  `TenantName` parameter. If you omit `TenantName`, the operation
+  targets the account-level suppression list.
   """
   @spec list_suppressed_destinations(
           map(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -7032,11 +7122,19 @@ defmodule AWS.SESv2 do
         page_size \\ nil,
         reasons \\ nil,
         start_date \\ nil,
+        tenant_name \\ nil,
         options \\ []
       ) do
     url_path = "/v2/email/suppression/addresses"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(tenant_name) do
+        [{"TenantName", tenant_name} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(start_date) do
@@ -7512,7 +7610,13 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Specify the account suppression list preferences for a configuration set.
+  Specify the suppression list preferences for a configuration set.
+
+  You can
+  also use this operation to specify a `SuppressionScope` to override the
+  suppression scope of the tenant or account for emails sent using this
+  configuration
+  set.
   """
   @spec put_configuration_set_suppression_options(
           map(),
@@ -8029,7 +8133,12 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Adds an email address to the suppression list for your account.
+  Adds an email address to the suppression list for your account or for a specific
+  tenant.
+
+  To target a tenant's suppression list, specify the `TenantName`
+  parameter. If you omit `TenantName`, the address is added to the
+  account-level suppression list.
   """
   @spec put_suppressed_destination(map(), put_suppressed_destination_request(), list()) ::
           {:ok, put_suppressed_destination_response(), any()}
@@ -8048,6 +8157,47 @@ defmodule AWS.SESv2 do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Configure the suppression list preferences for a tenant.
+
+  Use this operation to enable
+  or disable tenant-level suppression, or to change the suppressed reasons for a
+  tenant.
+
+  When you set the suppression scope to `TENANT`, Amazon SES maintains a separate
+  suppression list for the tenant. When you set the scope to `ACCOUNT`, the tenant
+  uses the account-level suppression list.
+  """
+  @spec put_tenant_suppression_attributes(
+          map(),
+          put_tenant_suppression_attributes_request(),
+          list()
+        ) ::
+          {:ok, put_tenant_suppression_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_tenant_suppression_attributes_errors()}
+  def put_tenant_suppression_attributes(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/tenant/suppression"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -272,8 +272,12 @@ defmodule AWS.BedrockAgentCoreControl do
       stripe_privy_configuration_input() :: %{
         "appId" => String.t() | atom(),
         "appSecret" => String.t() | atom(),
+        "appSecretConfig" => secret_reference(),
+        "appSecretSource" => list(any()),
         "authorizationId" => String.t() | atom(),
-        "authorizationPrivateKey" => String.t() | atom()
+        "authorizationPrivateKey" => String.t() | atom(),
+        "authorizationPrivateKeyConfig" => secret_reference(),
+        "authorizationPrivateKeySource" => list(any())
       }
 
   """
@@ -333,6 +337,8 @@ defmodule AWS.BedrockAgentCoreControl do
       create_oauth2_credential_provider_response() :: %{
         "callbackUrl" => [String.t() | atom()],
         "clientSecretArn" => secret(),
+        "clientSecretJsonKey" => String.t() | atom(),
+        "clientSecretSource" => list(any()),
         "credentialProviderArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "oauth2ProviderConfigOutput" => list(),
@@ -429,6 +435,8 @@ defmodule AWS.BedrockAgentCoreControl do
 
       get_api_key_credential_provider_response() :: %{
         "apiKeySecretArn" => secret(),
+        "apiKeySecretJsonKey" => String.t() | atom(),
+        "apiKeySecretSource" => list(any()),
         "createdTime" => [non_neg_integer()],
         "credentialProviderArn" => String.t() | atom(),
         "lastUpdatedTime" => [non_neg_integer()],
@@ -446,6 +454,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizationEndpoint" => String.t() | atom(),
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any()),
         "issuer" => String.t() | atom(),
         "tokenEndpoint" => String.t() | atom()
       }
@@ -675,6 +685,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secret_reference() :: %{
+        "jsonKey" => String.t() | atom(),
+        "secretId" => String.t() | atom()
+      }
+
+  """
+  @type secret_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -987,7 +1009,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
       salesforce_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom()
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
       }
 
   """
@@ -1668,6 +1692,8 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_api_key_credential_provider_response() :: %{
         "apiKeySecretArn" => secret(),
+        "apiKeySecretJsonKey" => String.t() | atom(),
+        "apiKeySecretSource" => list(any()),
         "credentialProviderArn" => String.t() | atom(),
         "name" => String.t() | atom()
       }
@@ -1862,8 +1888,12 @@ defmodule AWS.BedrockAgentCoreControl do
       stripe_privy_configuration_output() :: %{
         "appId" => String.t() | atom(),
         "appSecretArn" => secret(),
+        "appSecretJsonKey" => String.t() | atom(),
+        "appSecretSource" => list(any()),
         "authorizationId" => String.t() | atom(),
-        "authorizationPrivateKeyArn" => secret()
+        "authorizationPrivateKeyArn" => secret(),
+        "authorizationPrivateKeyJsonKey" => String.t() | atom(),
+        "authorizationPrivateKeySource" => list(any())
       }
 
   """
@@ -2176,8 +2206,10 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_api_key_credential_provider_request() :: %{
+        optional("apiKey") => String.t() | atom(),
+        optional("apiKeySecretConfig") => secret_reference(),
+        optional("apiKeySecretSource") => list(any()),
         optional("tags") => map(),
-        required("apiKey") => String.t() | atom(),
         required("name") => String.t() | atom()
       }
 
@@ -2434,7 +2466,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
       github_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom()
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
       }
 
   """
@@ -3161,7 +3195,11 @@ defmodule AWS.BedrockAgentCoreControl do
       coinbase_cdp_configuration_input() :: %{
         "apiKeyId" => String.t() | atom(),
         "apiKeySecret" => String.t() | atom(),
-        "walletSecret" => String.t() | atom()
+        "apiKeySecretConfig" => secret_reference(),
+        "apiKeySecretSource" => list(any()),
+        "walletSecret" => String.t() | atom(),
+        "walletSecretConfig" => secret_reference(),
+        "walletSecretSource" => list(any())
       }
 
   """
@@ -3563,6 +3601,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "clientAuthenticationMethod" => list(any()),
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any()),
         "oauthDiscovery" => list(),
         "onBehalfOfTokenExchangeConfig" => on_behalf_of_token_exchange_config_type(),
         "privateEndpoint" => list(),
@@ -4347,6 +4387,8 @@ defmodule AWS.BedrockAgentCoreControl do
       update_oauth2_credential_provider_response() :: %{
         "callbackUrl" => [String.t() | atom()],
         "clientSecretArn" => secret(),
+        "clientSecretJsonKey" => String.t() | atom(),
+        "clientSecretSource" => list(any()),
         "createdTime" => [non_neg_integer()],
         "credentialProviderArn" => String.t() | atom(),
         "credentialProviderVendor" => list(any()),
@@ -4523,7 +4565,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
       slack_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom()
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
       }
 
   """
@@ -4833,6 +4877,8 @@ defmodule AWS.BedrockAgentCoreControl do
       microsoft_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any()),
         "tenantId" => String.t() | atom()
       }
 
@@ -5157,7 +5203,9 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_api_key_credential_provider_request() :: %{
-        required("apiKey") => String.t() | atom(),
+        optional("apiKey") => String.t() | atom(),
+        optional("apiKeySecretConfig") => secret_reference(),
+        optional("apiKeySecretSource") => list(any()),
         required("name") => String.t() | atom()
       }
 
@@ -5390,6 +5438,8 @@ defmodule AWS.BedrockAgentCoreControl do
       get_oauth2_credential_provider_response() :: %{
         "callbackUrl" => [String.t() | atom()],
         "clientSecretArn" => secret(),
+        "clientSecretJsonKey" => String.t() | atom(),
+        "clientSecretSource" => list(any()),
         "createdTime" => [non_neg_integer()],
         "credentialProviderArn" => String.t() | atom(),
         "credentialProviderVendor" => list(any()),
@@ -5919,7 +5969,11 @@ defmodule AWS.BedrockAgentCoreControl do
       coinbase_cdp_configuration_output() :: %{
         "apiKeyId" => String.t() | atom(),
         "apiKeySecretArn" => secret(),
-        "walletSecretArn" => secret()
+        "apiKeySecretJsonKey" => String.t() | atom(),
+        "apiKeySecretSource" => list(any()),
+        "walletSecretArn" => secret(),
+        "walletSecretJsonKey" => String.t() | atom(),
+        "walletSecretSource" => list(any())
       }
 
   """
@@ -6170,7 +6224,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
       atlassian_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom()
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
       }
 
   """
@@ -7237,6 +7293,8 @@ defmodule AWS.BedrockAgentCoreControl do
 
       update_api_key_credential_provider_response() :: %{
         "apiKeySecretArn" => secret(),
+        "apiKeySecretJsonKey" => String.t() | atom(),
+        "apiKeySecretSource" => list(any()),
         "createdTime" => [non_neg_integer()],
         "credentialProviderArn" => String.t() | atom(),
         "lastUpdatedTime" => [non_neg_integer()],
@@ -7459,7 +7517,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
       google_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom()
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
       }
 
   """
@@ -7533,7 +7593,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
       linkedin_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom()
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
       }
 
   """

@@ -236,6 +236,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_o_auth_client_application_request() :: %{}
+
+  """
+  @type delete_o_auth_client_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       gutter_style() :: %{
         "Show" => boolean()
       }
@@ -2096,6 +2105,18 @@ defmodule AWS.QuickSight do
 
   """
   @type update_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_o_auth_client_applications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_o_auth_client_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4178,6 +4199,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_o_auth_client_application_response() :: %{
+        "Arn" => String.t() | atom(),
+        "OAuthClientApplicationId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer(),
+        "UpdateStatus" => list(any())
+      }
+
+  """
+  @type update_o_auth_client_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       global_table_border_options() :: %{
         "SideSpecificBorder" => table_side_border_options(),
         "UniformBorder" => table_border_options()
@@ -4508,6 +4544,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_o_auth_client_application_response() :: %{
+        "Arn" => String.t() | atom(),
+        "OAuthClientApplicationId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type delete_o_auth_client_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_prep_simple_aggregation_function() :: %{
         "FunctionType" => list(any()),
         "InputColumnName" => String.t() | atom()
@@ -4613,6 +4663,27 @@ defmodule AWS.QuickSight do
 
   """
   @type theme_alias() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_client_application() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "DataSourceType" => list(any()),
+        "IdentityProviderVpcConnectionProperties" => vpc_connection_properties(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "OAuthAuthorizationEndpointUrl" => String.t() | atom(),
+        "OAuthClientApplicationId" => String.t() | atom(),
+        "OAuthClientAuthenticationType" => list(any()),
+        "OAuthScopes" => String.t() | atom(),
+        "OAuthTokenEndpointUrl" => String.t() | atom()
+      }
+
+  """
+  @type o_auth_client_application() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4982,6 +5053,24 @@ defmodule AWS.QuickSight do
 
   """
   @type error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_client_application_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "DataSourceType" => list(any()),
+        "IdentityProviderVpcConnectionProperties" => vpc_connection_properties(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "OAuthClientApplicationId" => String.t() | atom(),
+        "OAuthClientAuthenticationType" => list(any())
+      }
+
+  """
+  @type o_auth_client_application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8033,6 +8122,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_o_auth_client_application_request() :: %{}
+
+  """
+  @type describe_o_auth_client_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_theme_permissions_request() :: %{}
 
   """
@@ -10023,6 +10121,27 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_o_auth_client_application_request() :: %{
+        optional("DataSourceType") => list(any()),
+        optional("IdentityProviderVpcConnectionProperties") => vpc_connection_properties(),
+        optional("OAuthAuthorizationEndpointUrl") => String.t() | atom(),
+        optional("OAuthScopes") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ClientId") => String.t() | atom(),
+        required("ClientSecret") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("OAuthClientApplicationId") => String.t() | atom(),
+        required("OAuthClientAuthenticationType") => list(any()),
+        required("OAuthTokenEndpointUrl") => String.t() | atom()
+      }
+
+  """
+  @type create_o_auth_client_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       threshold_alerts_configurations() :: %{
         "Enabled" => boolean()
       }
@@ -11107,6 +11226,24 @@ defmodule AWS.QuickSight do
 
   """
   @type update_role_custom_permission_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_o_auth_client_application_request() :: %{
+        optional("ClientId") => String.t() | atom(),
+        optional("ClientSecret") => String.t() | atom(),
+        optional("DataSourceType") => list(any()),
+        optional("IdentityProviderVpcConnectionProperties") => vpc_connection_properties(),
+        optional("OAuthAuthorizationEndpointUrl") => String.t() | atom(),
+        optional("OAuthScopes") => String.t() | atom(),
+        optional("OAuthTokenEndpointUrl") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_o_auth_client_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13406,6 +13543,19 @@ defmodule AWS.QuickSight do
 
   """
   @type spacing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_o_auth_client_application_response() :: %{
+        "OAuthClientApplication" => o_auth_client_application(),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_o_auth_client_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16138,6 +16288,20 @@ defmodule AWS.QuickSight do
 
   """
   @type delete_brand_assignment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_o_auth_client_applications_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OAuthClientApplications" => list(o_auth_client_application_summary()),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type list_o_auth_client_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18910,6 +19074,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_o_auth_client_application_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationStatus" => list(any()),
+        "OAuthClientApplicationId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type create_o_auth_client_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       self_upgrade_request_detail() :: %{
         "CreationTime" => float(),
         "OriginalRole" => list(any()),
@@ -20691,6 +20870,16 @@ defmodule AWS.QuickSight do
           | resource_unavailable_exception()
           | internal_failure_exception()
 
+  @type create_o_auth_client_application_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type create_refresh_schedule_errors() ::
           precondition_not_met_exception()
           | limit_exceeded_exception()
@@ -20946,6 +21135,14 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type delete_o_auth_client_application_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | internal_failure_exception()
 
   @type delete_refresh_schedule_errors() ::
@@ -21356,6 +21553,13 @@ defmodule AWS.QuickSight do
           | resource_unavailable_exception()
           | internal_failure_exception()
 
+  @type describe_o_auth_client_application_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type describe_q_personalization_configuration_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -21747,6 +21951,14 @@ defmodule AWS.QuickSight do
           | invalid_next_token_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type list_o_auth_client_applications_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type list_refresh_schedules_errors() ::
@@ -22309,6 +22521,15 @@ defmodule AWS.QuickSight do
           throttling_exception()
           | access_denied_exception()
           | invalid_parameter_value_exception()
+          | internal_failure_exception()
+
+  @type update_o_auth_client_application_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | internal_failure_exception()
 
   @type update_public_sharing_settings_errors() ::
@@ -23372,6 +23593,40 @@ defmodule AWS.QuickSight do
           | {:error, create_namespace_errors()}
   def create_namespace(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an OAuthClientApplication.
+  """
+  @spec create_o_auth_client_application(
+          map(),
+          String.t() | atom(),
+          create_o_auth_client_application_request(),
+          list()
+        ) ::
+          {:ok, create_o_auth_client_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_o_auth_client_application_errors()}
+  def create_o_auth_client_application(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/oauth-client-applications"
     headers = []
     custom_headers = []
     query_params = []
@@ -24671,6 +24926,49 @@ defmodule AWS.QuickSight do
   def delete_namespace(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an OAuthClientApplication.
+  """
+  @spec delete_o_auth_client_application(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_o_auth_client_application_request(),
+          list()
+        ) ::
+          {:ok, delete_o_auth_client_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_o_auth_client_application_errors()}
+  def delete_o_auth_client_application(
+        %Client{} = client,
+        aws_account_id,
+        o_auth_client_application_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/oauth-client-applications/#{AWS.Util.encode_uri(o_auth_client_application_id)}"
 
     headers = []
     custom_headers = []
@@ -26567,6 +26865,36 @@ defmodule AWS.QuickSight do
   def describe_namespace(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes an OAuthClientApplication.
+  """
+  @spec describe_o_auth_client_application(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_o_auth_client_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_o_auth_client_application_errors()}
+  def describe_o_auth_client_application(
+        %Client{} = client,
+        aws_account_id,
+        o_auth_client_application_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/oauth-client-applications/#{AWS.Util.encode_uri(o_auth_client_application_id)}"
 
     headers = []
     query_params = []
@@ -28695,6 +29023,51 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all OAuthClientApplications in the current Amazon Web Services Region that
+  belong to this Amazon Web Services account.
+  """
+  @spec list_o_auth_client_applications(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_o_auth_client_applications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_o_auth_client_applications_errors()}
+  def list_o_auth_client_applications(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/oauth-client-applications"
     headers = []
     query_params = []
 
@@ -31596,6 +31969,49 @@ defmodule AWS.QuickSight do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an OAuthClientApplication.
+  """
+  @spec update_o_auth_client_application(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_o_auth_client_application_request(),
+          list()
+        ) ::
+          {:ok, update_o_auth_client_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_o_auth_client_application_errors()}
+  def update_o_auth_client_application(
+        %Client{} = client,
+        aws_account_id,
+        o_auth_client_application_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/oauth-client-applications/#{AWS.Util.encode_uri(o_auth_client_application_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

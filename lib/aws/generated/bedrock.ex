@@ -2780,6 +2780,20 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_reasoning_policy_iterative_refinement_content() :: %{
+        "documents" => list(automated_reasoning_policy_build_workflow_document()),
+        "feedback" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_iterative_refinement_content() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       create_provisioned_model_throughput_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         optional("commitmentDuration") => list(any()),

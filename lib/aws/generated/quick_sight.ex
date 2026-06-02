@@ -187,6 +187,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      custom_prompt_profile() :: %{
+        "ModelProfileId" => String.t() | atom(),
+        "QbsAwsAccountId" => String.t() | atom(),
+        "SubscriptionId" => String.t() | atom()
+      }
+
+  """
+  @type custom_prompt_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_dashboard_snapshot_job_request() :: %{}
 
   """
@@ -348,6 +361,19 @@ defmodule AWS.QuickSight do
 
   """
   @type image_menu_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_agents_response() :: %{
+        "AgentSummaries" => list(agent_summary()),
+        "NextToken" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type search_agents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -525,6 +551,20 @@ defmodule AWS.QuickSight do
 
   """
   @type reference_line_data_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("FlowDefinition") => any(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -760,6 +800,15 @@ defmodule AWS.QuickSight do
 
   """
   @type template_alias() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_space_request() :: %{}
+
+  """
+  @type delete_space_request() :: %{}
 
   @typedoc """
 
@@ -1239,6 +1288,19 @@ defmodule AWS.QuickSight do
 
   """
   @type update_identity_propagation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_space_response() :: %{
+        "RequestId" => [String.t() | atom()],
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type delete_space_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1918,6 +1980,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_agents_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_agents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_ingestions_response() :: %{
         "Ingestions" => list(ingestion()),
         "NextToken" => String.t() | atom(),
@@ -2047,6 +2121,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_flow_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Permissions") => list(permission()),
+        required("FlowDefinition") => any(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_ingestion_request() :: %{}
 
   """
@@ -2060,6 +2149,20 @@ defmodule AWS.QuickSight do
 
   """
   @type delete_theme_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_space_permissions_response() :: %{
+        "permissions" => list(resource_permission()),
+        "requestId" => [String.t() | atom()],
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type update_space_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2092,6 +2195,18 @@ defmodule AWS.QuickSight do
 
   """
   @type dashboard_version_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      space_resource_operation() :: %{
+        "ResourceDetails" => list(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type space_resource_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2610,6 +2725,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_space_resources_response() :: %{
+        "RequestId" => [String.t() | atom()],
+        "SpaceResources" => list(space_resource_summary()),
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type list_space_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_import_job_theme_override_parameters() :: %{
         "Name" => String.t() | atom(),
         "ThemeId" => String.t() | atom()
@@ -2728,6 +2857,19 @@ defmodule AWS.QuickSight do
 
   """
   @type list_flows_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agents_response() :: %{
+        "AgentSummaries" => list(agent_summary()),
+        "NextToken" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type list_agents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2879,6 +3021,26 @@ defmodule AWS.QuickSight do
 
   """
   @type geospatial_heatmap_data_color() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_request() :: %{
+        optional("ActionConnectors") => list(String.t() | atom()),
+        optional("AgentLifecycle") => list(any()),
+        optional("CustomPromptInput") => list(),
+        optional("Description") => String.t() | atom(),
+        optional("IconId") => String.t() | atom(),
+        optional("Spaces") => list(String.t() | atom()),
+        optional("StarterPrompts") => list(String.t() | atom()),
+        optional("WelcomeMessage") => String.t() | atom(),
+        required("AgentId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3279,6 +3441,25 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      custom_prompt_interface() :: %{
+        "CustomInstructions" => String.t() | atom(),
+        "Identity" => String.t() | atom(),
+        "ModelProfileId" => String.t() | atom(),
+        "OutputStyle" => String.t() | atom(),
+        "QbsAwsAccountId" => String.t() | atom(),
+        "ResponseLength" => String.t() | atom(),
+        "SubscriptionId" => String.t() | atom(),
+        "Tone" => String.t() | atom(),
+        "promptSummary" => String.t() | atom()
+      }
+
+  """
+  @type custom_prompt_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       funnel_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options())
@@ -3672,6 +3853,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_agent_permissions_request() :: %{}
+
+  """
+  @type describe_agent_permissions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       sheet_layout_group() :: %{
         "Id" => String.t() | atom(),
         "Members" => list(sheet_layout_group_member())
@@ -4018,6 +4208,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_space_request() :: %{
+        optional("MaxContributors") => integer()
+      }
+
+  """
+  @type describe_space_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       integer_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
         "StaticValues" => list(float())
@@ -4113,6 +4314,15 @@ defmodule AWS.QuickSight do
 
   """
   @type anonymous_user_dashboard_embedding_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_request() :: %{}
+
+  """
+  @type delete_flow_request() :: %{}
 
   @typedoc """
 
@@ -4289,6 +4499,19 @@ defmodule AWS.QuickSight do
 
   """
   @type data_set_date_filter_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_to_update_association() :: %{
+        "Arn" => [String.t() | atom()],
+        "ErrorCode" => [String.t() | atom()],
+        "ErrorMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type failed_to_update_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4558,6 +4781,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_agent_permissions_request() :: %{
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
+      }
+
+  """
+  @type update_agent_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_prep_simple_aggregation_function() :: %{
         "FunctionType" => list(any()),
         "InputColumnName" => String.t() | atom()
@@ -4817,6 +5052,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      space_quicksight_search_filter() :: %{
+        "name" => list(any()),
+        "operator" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type space_quicksight_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_namespace_request() :: %{}
 
   """
@@ -5005,6 +5253,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_flow_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "FlowId" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type create_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       gauge_chart_options() :: %{
         "Arc" => arc_configuration(),
         "ArcAxis" => arc_axis_configuration(),
@@ -5024,6 +5286,18 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_topic_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_response() :: %{
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type delete_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5194,6 +5468,25 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      space_details() :: %{
+        "consumedSourceDocCount" => integer(),
+        "consumedSourceSize" => float(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "createdByArn" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resources" => list(space_quick_sight_resource()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type space_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_vpc_connection_request() :: %{
         optional("DnsResolvers") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
@@ -5302,6 +5595,21 @@ defmodule AWS.QuickSight do
 
   """
   @type visual_customization_fields_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_spaces_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()],
+        "SpaceSummaries" => list(space_summary()),
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type search_spaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6485,6 +6793,30 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_agent_response() :: %{
+        "Agent" => agent(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      space_quick_sight_resource() :: %{
+        "resourceDetails" => list(),
+        "resourceType" => list(any())
+      }
+
+  """
+  @type space_quick_sight_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       table_inline_visualization() :: %{
         "DataBars" => data_bars_options(),
         "Sparklines" => sparklines_options()
@@ -6975,6 +7307,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_agent_response() :: %{
+        "AgentId" => String.t() | atom(),
+        "AgentName" => String.t() | atom(),
+        "AgentStatus" => list(any()),
+        "Arn" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type create_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_data_sources_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -7332,6 +7679,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      failed_space_resource_operation() :: %{
+        "ErrorMessage" => [String.t() | atom()],
+        "ResourceDetails" => list(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type failed_space_resource_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_folder_membership_response() :: %{
         "RequestId" => String.t() | atom(),
         "Status" => integer()
@@ -7372,6 +7732,19 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_data_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_search_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type agent_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7528,6 +7901,24 @@ defmodule AWS.QuickSight do
 
   """
   @type web_crawler_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_response() :: %{
+        "AgentId" => String.t() | atom(),
+        "AgentStatus" => list(any()),
+        "Arn" => String.t() | atom(),
+        "FailedToAddActionConnectors" => list(failed_to_update_association()),
+        "FailedToAddSpaces" => list(failed_to_update_association()),
+        "FailedToRemoveActionConnectors" => list(failed_to_update_association()),
+        "FailedToRemoveSpaces" => list(failed_to_update_association()),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type update_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7866,6 +8257,33 @@ defmodule AWS.QuickSight do
 
   """
   @type column_semantic_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_space_response() :: %{
+        "RequestId" => [String.t() | atom()],
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type create_space_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_space_permissions_response() :: %{
+        "Permissions" => list(resource_permission()),
+        "RequestId" => [String.t() | atom()],
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type describe_space_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8455,6 +8873,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_space_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("SpaceId") => String.t() | atom()
+      }
+
+  """
+  @type create_space_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filled_map_sort_configuration() :: %{
         "CategorySort" => list(field_sort_options())
       }
@@ -8841,6 +9272,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_space_permissions_request() :: %{
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
+      }
+
+  """
+  @type update_space_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       topic_template() :: %{
         "Slots" => list(slot()),
         "TemplateType" => String.t() | atom()
@@ -9155,6 +9598,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_agent_permissions_response() :: %{
+        "AgentId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Permissions" => list(resource_permission()),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_agent_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_role_memberships_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -9378,6 +9835,17 @@ defmodule AWS.QuickSight do
 
   """
   @type radar_chart_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_flow_request() :: %{
+        required("PublishState") => list(any())
+      }
+
+  """
+  @type describe_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9828,6 +10296,32 @@ defmodule AWS.QuickSight do
 
   """
   @type create_brand_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent() :: %{
+        "ActionConnectors" => list(String.t() | atom()),
+        "AgentId" => String.t() | atom(),
+        "AgentLifecycle" => list(any()),
+        "AgentStatus" => list(any()),
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Creator" => [String.t() | atom()],
+        "CustomPromptInterface" => custom_prompt_interface(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => [String.t() | atom()],
+        "IconId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Spaces" => list(String.t() | atom()),
+        "StarterPrompts" => list(String.t() | atom()),
+        "UpdatedAt" => [non_neg_integer()],
+        "WelcomeMessage" => String.t() | atom()
+      }
+
+  """
+  @type agent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10755,6 +11249,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_agent_response() :: %{
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bar_chart_configuration() :: %{
         "BarsArrangement" => list(any()),
         "CategoryAxis" => axis_display_options(),
@@ -10779,6 +11284,19 @@ defmodule AWS.QuickSight do
 
   """
   @type bar_chart_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_agents_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()],
+        required("Filters") => list(agent_search_filter())
+      }
+
+  """
+  @type search_agents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10966,6 +11484,19 @@ defmodule AWS.QuickSight do
 
   """
   @type anonymous_user_dashboard_feature_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_space_response() :: %{
+        "RequestId" => [String.t() | atom()],
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type update_space_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11720,6 +12251,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_agent_request() :: %{}
+
+  """
+  @type describe_agent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       sheet_control_layout() :: %{
         "Configuration" => sheet_control_layout_configuration()
       }
@@ -12337,6 +12877,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_space_response() :: %{
+        "Contributors" => list(space_contributor()),
+        "RequestId" => [String.t() | atom()],
+        "Space" => space_details(),
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type describe_space_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       geospatial_map_state() :: %{
         "Bounds" => geospatial_coordinate_bounds(),
         "MapNavigation" => list(any())
@@ -12463,6 +13018,15 @@ defmodule AWS.QuickSight do
 
   """
   @type sheet_image_tooltip_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_space_resources_request() :: %{}
+
+  """
+  @type list_space_resources_request() :: %{}
 
   @typedoc """
 
@@ -13333,6 +13897,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      space_resource_summary() :: %{
+        "ResourceDetails" => list(),
+        "ResourceName" => [String.t() | atom()],
+        "ResourceType" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type space_resource_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       topic_numeric_range_filter() :: %{
         "Aggregation" => list(any()),
         "Constant" => topic_range_filter_constant(),
@@ -13812,6 +14390,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_space_resources_response() :: %{
+        "FailedResourceOperations" => list(failed_space_resource_operation()),
+        "RequestId" => [String.t() | atom()],
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type update_space_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_data_set_parameter_value_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
@@ -14056,6 +14648,18 @@ defmodule AWS.QuickSight do
 
   """
   @type parameter_selectable_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_space_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_space_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14642,6 +15246,26 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_agent_request() :: %{
+        optional("ActionConnectorsToAdd") => list(String.t() | atom()),
+        optional("ActionConnectorsToRemove") => list(String.t() | atom()),
+        optional("CustomPromptInput") => list(),
+        optional("Description") => String.t() | atom(),
+        optional("IconId") => String.t() | atom(),
+        optional("SpacesToAdd") => list(String.t() | atom()),
+        optional("SpacesToRemove") => list(String.t() | atom()),
+        optional("StarterPrompts") => list(String.t() | atom()),
+        optional("WelcomeMessage") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       theme_summary() :: %{
         "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
@@ -14841,6 +15465,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_agent_permissions_response() :: %{
+        "AgentId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Permissions" => list(resource_permission()),
+        "RequestId" => [String.t() | atom()]
+      }
+
+  """
+  @type update_agent_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       text_box_menu_option() :: %{
         "AvailabilityStatus" => list(any())
       }
@@ -14948,6 +15586,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_agent_request() :: %{}
+
+  """
+  @type delete_agent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       category_filter() :: %{
         "Column" => column_identifier(),
         "Configuration" => category_filter_configuration(),
@@ -14957,6 +15604,19 @@ defmodule AWS.QuickSight do
 
   """
   @type category_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      space_contributor() :: %{
+        "percentage" => float(),
+        "rawFileSizeBytes" => float(),
+        "userName" => [String.t() | atom()]
+      }
+
+  """
+  @type space_contributor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15205,6 +15865,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_spaces_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()],
+        "SpaceSummaries" => list(space_summary()),
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom()
+      }
+
+  """
+  @type list_spaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_set_string_filter_condition() :: %{
         "ColumnName" => String.t() | atom(),
         "ComparisonFilterCondition" => data_set_string_comparison_filter_condition(),
@@ -15416,6 +16091,19 @@ defmodule AWS.QuickSight do
 
   """
   @type border_style() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_spaces_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Filters") => list(space_quicksight_search_filter())
+      }
+
+  """
+  @type search_spaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16768,6 +17456,23 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      agent_summary() :: %{
+        "AgentId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "IconId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type agent_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_vpc_connection_response() :: %{
         "Arn" => String.t() | atom(),
         "AvailabilityStatus" => list(any()),
@@ -17629,6 +18334,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_flow_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "FlowId" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type update_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_export_job_warning() :: %{
         "Arn" => String.t() | atom(),
         "Message" => String.t() | atom()
@@ -17762,6 +18481,21 @@ defmodule AWS.QuickSight do
 
   """
   @type table_cell_conditional_formatting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_prompt_input_parameters() :: %{
+        "CustomInstructions" => String.t() | atom(),
+        "Identity" => String.t() | atom(),
+        "OutputStyle" => String.t() | atom(),
+        "ResponseLength" => String.t() | atom(),
+        "Tone" => String.t() | atom()
+      }
+
+  """
+  @type custom_prompt_input_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18285,6 +19019,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      step_alias_mapping() :: %{
+        "StepAlias" => [String.t() | atom()],
+        "StepId" => String.t() | atom()
+      }
+
+  """
+  @type step_alias_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       image_set() :: %{
         "Height32" => image(),
         "Height64" => image(),
@@ -18599,6 +19345,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_flow_response() :: %{
+        "Flow" => flow_detail(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type describe_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_theme_versions_response() :: %{
         "NextToken" => String.t() | atom(),
         "RequestId" => String.t() | atom(),
@@ -18631,6 +19390,18 @@ defmodule AWS.QuickSight do
 
   """
   @type date_time_hierarchy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_space_resources_request() :: %{
+        optional("AddResources") => list(space_resource_operation()),
+        optional("RemoveResources") => list(space_resource_operation())
+      }
+
+  """
+  @type update_space_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19652,6 +20423,27 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      flow_detail() :: %{
+        "Arn" => [String.t() | atom()],
+        "CreatedBy" => [String.t() | atom()],
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FlowDefinition" => any(),
+        "FlowId" => String.t() | atom(),
+        "LastUpdatedBy" => [String.t() | atom()],
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "PublishState" => list(any()),
+        "StepAliases" => list(step_alias_mapping())
+      }
+
+  """
+  @type flow_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_template_response() :: %{
         "RequestId" => String.t() | atom(),
         "Status" => integer(),
@@ -19934,6 +20726,27 @@ defmodule AWS.QuickSight do
 
   """
   @type sheet_image_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      space_summary() :: %{
+        "consumedSourceDocCount" => integer(),
+        "consumedSourceSize" => float(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "createdByArn" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resourcesCount" => integer(),
+        "spaceArn" => String.t() | atom(),
+        "spaceId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type space_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -20488,6 +21301,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_space_permissions_request() :: %{}
+
+  """
+  @type describe_space_permissions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       default_new_sheet_configuration() :: %{
         "InteractiveLayoutConfiguration" => default_interactive_layout_configuration(),
         "PaginatedLayoutConfiguration" => default_paginated_layout_configuration(),
@@ -20546,6 +21368,18 @@ defmodule AWS.QuickSight do
 
   """
   @type update_quick_sight_q_search_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_spaces_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_spaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -20736,6 +21570,16 @@ defmodule AWS.QuickSight do
           | conflict_exception()
           | internal_failure_exception()
 
+  @type create_agent_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type create_analysis_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -20797,6 +21641,16 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | conflict_exception()
           | customer_managed_key_unavailable_exception()
+          | internal_failure_exception()
+
+  @type create_flow_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | internal_failure_exception()
 
   @type create_folder_errors() ::
@@ -20897,6 +21751,15 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type create_space_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | conflict_exception()
           | internal_failure_exception()
 
   @type create_template_errors() ::
@@ -21003,6 +21866,14 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type delete_agent_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type delete_analysis_errors() ::
           throttling_exception()
           | invalid_parameter_value_exception()
@@ -21072,6 +21943,14 @@ defmodule AWS.QuickSight do
   @type delete_default_q_business_application_errors() ::
           throttling_exception()
           | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type delete_flow_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | conflict_exception()
           | internal_failure_exception()
@@ -21169,6 +22048,13 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type delete_space_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type delete_template_errors() ::
@@ -21299,6 +22185,22 @@ defmodule AWS.QuickSight do
 
   @type describe_action_connector_permissions_errors() ::
           throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type describe_agent_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type describe_agent_permissions_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
           | access_denied_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -21472,6 +22374,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type describe_flow_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type describe_folder_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -21601,6 +22510,20 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type describe_space_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type describe_space_permissions_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type describe_template_errors() ::
@@ -21792,6 +22715,15 @@ defmodule AWS.QuickSight do
           | access_denied_exception()
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
+          | internal_failure_exception()
+
+  @type list_agents_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+          | unsupported_user_edition_exception()
           | internal_failure_exception()
 
   @type list_analyses_errors() ::
@@ -21991,6 +22923,20 @@ defmodule AWS.QuickSight do
           | resource_unavailable_exception()
           | internal_failure_exception()
 
+  @type list_space_resources_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type list_spaces_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type list_tags_for_resource_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -22142,6 +23088,14 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
 
+  @type search_agents_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+
   @type search_analyses_errors() ::
           throttling_exception()
           | invalid_parameter_value_exception()
@@ -22198,6 +23152,13 @@ defmodule AWS.QuickSight do
           | invalid_next_token_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type search_spaces_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type search_topics_errors() ::
@@ -22303,6 +23264,27 @@ defmodule AWS.QuickSight do
 
   @type update_action_connector_permissions_errors() ::
           limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unsupported_user_edition_exception()
+          | internal_failure_exception()
+
+  @type update_agent_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type update_agent_permissions_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
           | throttling_exception()
           | access_denied_exception()
           | invalid_parameter_value_exception()
@@ -22459,6 +23441,15 @@ defmodule AWS.QuickSight do
           | conflict_exception()
           | internal_failure_exception()
 
+  @type update_flow_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type update_flow_permissions_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -22601,6 +23592,34 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type update_space_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type update_space_permissions_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unsupported_user_edition_exception()
+          | internal_failure_exception()
+
+  @type update_space_resources_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | internal_failure_exception()
 
   @type update_template_errors() ::
@@ -23050,6 +24069,35 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Creates an agent in Amazon QuickSight.
+  """
+  @spec create_agent(map(), String.t() | atom(), create_agent_request(), list()) ::
+          {:ok, create_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_agent_errors()}
+  def create_agent(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/agents"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an analysis in Amazon Quick Sight.
 
   Analyses can be created either from a template or from an `AnalysisDefinition`.
@@ -23258,6 +24306,40 @@ defmodule AWS.QuickSight do
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new flow in the specified Amazon Web Services account.
+
+  Creates both a DRAFT and PUBLISHED (auto-published) version.
+
+  This operation is idempotent. Supply a `ClientToken` to safely retry without
+  creating duplicate resources.
+  """
+  @spec create_flow(map(), String.t() | atom(), create_flow_request(), list()) ::
+          {:ok, create_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_flow_errors()}
+  def create_flow(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/flows"
     headers = []
     custom_headers = []
     query_params = []
@@ -23720,6 +24802,38 @@ defmodule AWS.QuickSight do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members/#{AWS.Util.encode_uri(member_name)}"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new Amazon QuickSight space.
+
+  A space is a collection of resources that can be used to organize and manage
+  QuickSight assets.
+  """
+  @spec create_space(map(), String.t() | atom(), create_space_request(), list()) ::
+          {:ok, create_space_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_space_errors()}
+  def create_space(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spaces"
     headers = []
     custom_headers = []
     query_params = []
@@ -24236,6 +25350,43 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes an agent.
+  """
+  @spec delete_agent(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_agent_request(),
+          list()
+        ) ::
+          {:ok, delete_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_agent_errors()}
+  def delete_agent(%Client{} = client, agent_id, aws_account_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/agents/#{AWS.Util.encode_uri(agent_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an analysis from Amazon Quick Sight.
 
   You can optionally include a recovery window during
@@ -24619,6 +25770,45 @@ defmodule AWS.QuickSight do
         {"Namespace", "namespace"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Permanently deletes a flow from the specified Amazon Web Services account.
+
+  This operation cannot be undone.
+  """
+  @spec delete_flow(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_flow_request(),
+          list()
+        ) ::
+          {:ok, delete_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_flow_errors()}
+  def delete_flow(%Client{} = client, aws_account_id, flow_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/flows/#{AWS.Util.encode_uri(flow_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -25123,6 +26313,43 @@ defmodule AWS.QuickSight do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes an Amazon QuickSight space.
+  """
+  @spec delete_space(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_space_request(),
+          list()
+        ) ::
+          {:ok, delete_space_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_space_errors()}
+  def delete_space(%Client{} = client, aws_account_id, space_id, input, options \\ []) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spaces/#{AWS.Util.encode_uri(space_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -25777,6 +27004,46 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/action-connectors/#{AWS.Util.encode_uri(action_connector_id)}/permissions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes an agent.
+  """
+  @spec describe_agent(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_agent_errors()}
+  def describe_agent(%Client{} = client, agent_id, aws_account_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/agents/#{AWS.Util.encode_uri(agent_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the resource permissions for an agent.
+  """
+  @spec describe_agent_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_agent_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_agent_permissions_errors()}
+  def describe_agent_permissions(%Client{} = client, agent_id, aws_account_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/agents/#{AWS.Util.encode_uri(agent_id)}/permissions"
 
     headers = []
     query_params = []
@@ -26540,6 +27807,40 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Returns the full details of a flow for the latest version of the requested
+  publish state.
+  """
+  @spec describe_flow(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_flow_errors()}
+  def describe_flow(%Client{} = client, aws_account_id, flow_id, publish_state, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/flows/#{AWS.Util.encode_uri(flow_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(publish_state) do
+        [{"publish-state", publish_state} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Describes a folder.
   """
   @spec describe_folder(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -27031,6 +28332,65 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/self-upgrade-configuration"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes an Amazon QuickSight space.
+  """
+  @spec describe_space(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, describe_space_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_space_errors()}
+  def describe_space(
+        %Client{} = client,
+        aws_account_id,
+        space_id,
+        max_contributors \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spaces/#{AWS.Util.encode_uri(space_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_contributors) do
+        [{"maxContributors", max_contributors} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the permissions for an Amazon QuickSight space.
+  """
+  @spec describe_space_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_space_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_space_permissions_errors()}
+  def describe_space_permissions(%Client{} = client, aws_account_id, space_id, options \\ []) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spaces/#{AWS.Util.encode_uri(space_id)}/permissions"
 
     headers = []
     query_params = []
@@ -28062,6 +29422,50 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/action-connectors"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all agents in an Amazon QuickSight account.
+  """
+  @spec list_agents(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_agents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_agents_errors()}
+  def list_agents(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/agents"
     headers = []
     query_params = []
 
@@ -29211,6 +30615,70 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Lists the resources in an Amazon QuickSight space.
+  """
+  @spec list_space_resources(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, list_space_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_space_resources_errors()}
+  def list_space_resources(%Client{} = client, aws_account_id, space_id, options \\ []) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spaces/#{AWS.Util.encode_uri(space_id)}/resources"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all Amazon QuickSight spaces in an Amazon Web Services account.
+  """
+  @spec list_spaces(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_spaces_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_spaces_errors()}
+  def list_spaces(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spaces"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the tags assigned to a resource.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
@@ -29965,6 +31433,41 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Searches for agents based on specified filters.
+  """
+  @spec search_agents(map(), String.t() | atom(), search_agents_request(), list()) ::
+          {:ok, search_agents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_agents_errors()}
+  def search_agents(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/agents"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "max-results"},
+        {"NextToken", "next-token"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches for analyses that belong to the user specified in the filter.
 
   This operation is eventually consistent. The results are best effort and may not
@@ -30174,6 +31677,35 @@ defmodule AWS.QuickSight do
         {"NextToken", "next-token"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches for Amazon QuickSight spaces that match the specified filters.
+  """
+  @spec search_spaces(map(), String.t() | atom(), search_spaces_request(), list()) ::
+          {:ok, search_spaces_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_spaces_errors()}
+  def search_spaces(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/spaces"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -30937,6 +32469,80 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates an existing agent.
+  """
+  @spec update_agent(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_agent_request(),
+          list()
+        ) ::
+          {:ok, update_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_agent_errors()}
+  def update_agent(%Client{} = client, agent_id, aws_account_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/agents/#{AWS.Util.encode_uri(agent_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the resource permissions for an agent.
+  """
+  @spec update_agent_permissions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_agent_permissions_request(),
+          list()
+        ) ::
+          {:ok, update_agent_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_agent_permissions_errors()}
+  def update_agent_permissions(%Client{} = client, agent_id, aws_account_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/agents/#{AWS.Util.encode_uri(agent_id)}/permissions"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates an analysis in Amazon Quick Sight
   """
   @spec update_analysis(
@@ -31635,6 +33241,47 @@ defmodule AWS.QuickSight do
         {"Namespace", "namespace"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing flow.
+
+  Supply only the fields you want to change. Updates both DRAFT and PUBLISHED
+  versions. When `FlowDefinition` is provided, all existing steps are replaced
+  with the new definition.
+  """
+  @spec update_flow(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_flow_request(),
+          list()
+        ) ::
+          {:ok, update_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_flow_errors()}
+  def update_flow(%Client{} = client, aws_account_id, flow_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/flows/#{AWS.Util.encode_uri(flow_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -32353,6 +34000,117 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/self-upgrade-configuration"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the metadata of an Amazon QuickSight space.
+  """
+  @spec update_space(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_space_request(),
+          list()
+        ) ::
+          {:ok, update_space_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_space_errors()}
+  def update_space(%Client{} = client, aws_account_id, space_id, input, options \\ []) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spaces/#{AWS.Util.encode_uri(space_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the permissions for an Amazon QuickSight space.
+  """
+  @spec update_space_permissions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_space_permissions_request(),
+          list()
+        ) ::
+          {:ok, update_space_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_space_permissions_errors()}
+  def update_space_permissions(%Client{} = client, aws_account_id, space_id, input, options \\ []) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spaces/#{AWS.Util.encode_uri(space_id)}/permissions"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds or removes resources from an Amazon QuickSight space.
+  """
+  @spec update_space_resources(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_space_resources_request(),
+          list()
+        ) ::
+          {:ok, update_space_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_space_resources_errors()}
+  def update_space_resources(%Client{} = client, aws_account_id, space_id, input, options \\ []) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spaces/#{AWS.Util.encode_uri(space_id)}/resources"
 
     headers = []
     custom_headers = []

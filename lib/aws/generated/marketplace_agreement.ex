@@ -10,20 +10,6 @@ defmodule AWS.MarketplaceAgreement do
   The AWS Marketplace Agreement Service provides an API interface that helps AWS
   Marketplace sellers and buyers manage their product-related agreements,
   including listing, searching, creating, and filtering agreements.
-
-  To manage agreements in AWS Marketplace, you must ensure that your AWS Identity
-  and Access Management (IAM) policies and roles are set up. The user must have
-  the required policies/permissions that allow them to carry out the actions in
-  AWS:
-
-    * `DescribeAgreement` – Grants permission to users to obtain
-  detailed meta data about any of their agreements.
-
-    * `GetAgreementTerms` – Grants permission to users to obtain details
-  about the terms of an agreement.
-
-    * `SearchAgreements` – Grants permission to users to search through
-  all their agreements.
   """
 
   alias AWS.Client
@@ -504,6 +490,7 @@ defmodule AWS.MarketplaceAgreement do
         "agreementId" => String.t() | atom(),
         "agreementType" => String.t() | atom(),
         "endTime" => non_neg_integer(),
+        "entitlements" => list(entitlement()),
         "proposalSummary" => proposal_summary(),
         "proposer" => proposer(),
         "startTime" => non_neg_integer(),
@@ -1005,6 +992,17 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type billing_adjustment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entitlement() :: %{
+        "licenseArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type entitlement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

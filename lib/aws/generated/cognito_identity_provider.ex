@@ -64,7 +64,8 @@ defmodule AWS.CognitoIdentityProvider do
       
       create_user_pool_domain_response() :: %{
         "CloudFrontDomain" => String.t() | atom(),
-        "ManagedLoginVersion" => integer()
+        "ManagedLoginVersion" => integer(),
+        "Routing" => routing_type()
       }
       
   """
@@ -198,6 +199,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      delete_user_pool_replica_request() :: %{
+        required("RegionName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_pool_replica_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       web_authn_challenge_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -231,6 +244,8 @@ defmodule AWS.CognitoIdentityProvider do
         optional("EmailConfiguration") => email_configuration_type(),
         optional("EmailVerificationMessage") => String.t() | atom(),
         optional("EmailVerificationSubject") => String.t() | atom(),
+        optional("IssuerConfiguration") => issuer_configuration_type(),
+        optional("KeyConfiguration") => key_configuration_type(),
         optional("LambdaConfig") => lambda_config_type(),
         optional("MfaConfiguration") => list(any()),
         optional("Policies") => user_pool_policy_type(),
@@ -550,6 +565,7 @@ defmodule AWS.CognitoIdentityProvider do
       create_user_pool_domain_request() :: %{
         optional("CustomDomainConfig") => custom_domain_config_type(),
         optional("ManagedLoginVersion") => integer(),
+        optional("Routing") => routing_type(),
         required("Domain") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom()
       }
@@ -593,7 +609,8 @@ defmodule AWS.CognitoIdentityProvider do
       
       update_user_pool_domain_response() :: %{
         "CloudFrontDomain" => String.t() | atom(),
-        "ManagedLoginVersion" => integer()
+        "ManagedLoginVersion" => integer(),
+        "Routing" => routing_type()
       }
       
   """
@@ -659,6 +676,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type admin_link_provider_for_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      issuer_configuration_type() :: %{
+        "Type" => list(any())
+      }
+      
+  """
+  @type issuer_configuration_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,6 +975,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      list_user_pool_replicas_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_user_pool_replicas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       user_type() :: %{
         "Attributes" => list(attribute_type()),
         "Enabled" => boolean(),
@@ -1076,6 +1116,7 @@ defmodule AWS.CognitoIdentityProvider do
         "LambdaConfig" => lambda_config_type(),
         "LastModifiedDate" => non_neg_integer(),
         "Name" => String.t() | atom(),
+        "ReplicaRegions" => list(String.t() | atom()),
         "Status" => list(any())
       }
       
@@ -1154,6 +1195,20 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type admin_create_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_pool_replica_type() :: %{
+        "RegionName" => String.t() | atom(),
+        "Role" => list(any()),
+        "Status" => list(any()),
+        "UserPoolArn" => String.t() | atom()
+      }
+      
+  """
+  @type user_pool_replica_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1467,6 +1522,7 @@ defmodule AWS.CognitoIdentityProvider do
       update_user_pool_domain_request() :: %{
         optional("CustomDomainConfig") => custom_domain_config_type(),
         optional("ManagedLoginVersion") => integer(),
+        optional("Routing") => routing_type(),
         required("Domain") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom()
       }
@@ -1600,6 +1656,18 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type identity_provider_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_configuration_type() :: %{
+        "KeyType" => list(any()),
+        "KmsKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type key_configuration_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1797,6 +1865,19 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type get_signing_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_pool_replica_request() :: %{
+        optional("UserPoolTags") => map(),
+        required("RegionName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_user_pool_replica_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2243,6 +2324,8 @@ defmodule AWS.CognitoIdentityProvider do
         optional("EmailConfiguration") => email_configuration_type(),
         optional("EmailVerificationMessage") => String.t() | atom(),
         optional("EmailVerificationSubject") => String.t() | atom(),
+        optional("IssuerConfiguration") => issuer_configuration_type(),
+        optional("KeyConfiguration") => key_configuration_type(),
         optional("LambdaConfig") => lambda_config_type(),
         optional("MfaConfiguration") => list(any()),
         optional("Policies") => user_pool_policy_type(),
@@ -3081,6 +3164,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      routing_type() :: %{
+        "Failover" => failover_type()
+      }
+      
+  """
+  @type routing_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_user_pool_request() :: %{
         required("UserPoolId") => String.t() | atom()
       }
@@ -3155,6 +3249,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type delete_user_pool_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_pool_replica_response() :: %{
+        "UserPoolReplica" => user_pool_replica_type()
+      }
+      
+  """
+  @type update_user_pool_replica_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3427,6 +3532,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      operation_not_enabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type operation_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       global_sign_out_response() :: %{}
       
   """
@@ -3620,6 +3736,18 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type update_auth_event_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_pool_replicas_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "UserPoolReplicas" => list(user_pool_replica_type())
+      }
+      
+  """
+  @type list_user_pool_replicas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3892,6 +4020,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      delete_user_pool_replica_response() :: %{
+        "UserPoolReplica" => user_pool_replica_type()
+      }
+      
+  """
+  @type delete_user_pool_replica_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       notify_configuration_type() :: %{
         "BlockEmail" => notify_email_type(),
         "From" => String.t() | atom(),
@@ -3915,6 +4054,19 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type admin_list_groups_for_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_pool_replica_request() :: %{
+        required("RegionName") => String.t() | atom(),
+        required("Status") => list(any()),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_user_pool_replica_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4239,6 +4391,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      failover_type() :: %{
+        "PrimaryRoute53HealthCheckId" => String.t() | atom(),
+        "SecondaryRegion" => String.t() | atom()
+      }
+      
+  """
+  @type failover_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_group_request() :: %{
         required("GroupName") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom()
@@ -4389,10 +4553,12 @@ defmodule AWS.CognitoIdentityProvider do
         "CreationDate" => non_neg_integer(),
         "Policies" => user_pool_policy_type(),
         "EmailVerificationSubject" => String.t() | atom(),
+        "KeyConfiguration" => key_configuration_type(),
         "UsernameConfiguration" => username_configuration_type(),
         "SmsConfiguration" => sms_configuration_type(),
         "LambdaConfig" => lambda_config_type(),
         "UserPoolTier" => list(any()),
+        "IssuerConfiguration" => issuer_configuration_type(),
         "MfaConfiguration" => list(any()),
         "UserAttributeUpdateSettings" => user_attribute_update_settings_type(),
         "Id" => String.t() | atom(),
@@ -4442,6 +4608,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type precondition_not_met_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_pool_replica_response() :: %{
+        "UserPoolReplica" => user_pool_replica_type()
+      }
+      
+  """
+  @type create_user_pool_replica_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4781,6 +4958,7 @@ defmodule AWS.CognitoIdentityProvider do
         "CustomDomainConfig" => custom_domain_config_type(),
         "Domain" => String.t() | atom(),
         "ManagedLoginVersion" => integer(),
+        "Routing" => routing_type(),
         "S3Bucket" => String.t() | atom(),
         "Status" => list(any()),
         "UserPoolId" => String.t() | atom(),
@@ -4793,6 +4971,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type add_custom_attributes_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -4809,6 +4988,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_add_user_to_group_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4819,6 +4999,7 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | invalid_lambda_response_exception()
@@ -4836,6 +5017,7 @@ defmodule AWS.CognitoIdentityProvider do
           | code_delivery_failure_exception()
           | username_exists_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | invalid_lambda_response_exception()
@@ -4848,6 +5030,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_delete_user_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4856,6 +5039,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_delete_user_attributes_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4864,6 +5048,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_disable_provider_for_user_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4873,6 +5058,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_disable_user_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4881,6 +5067,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_enable_user_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4889,6 +5076,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_forget_device_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -4898,6 +5086,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_get_device_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
@@ -4906,6 +5095,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_get_user_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4917,6 +5107,7 @@ defmodule AWS.CognitoIdentityProvider do
           | mfa_method_not_found_exception()
           | invalid_sms_role_trust_relationship_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
@@ -4934,6 +5125,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4943,6 +5135,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_list_devices_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
@@ -4951,6 +5144,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_list_groups_for_user_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4959,6 +5153,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_list_user_auth_events_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | user_pool_add_on_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -4968,6 +5163,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_remove_user_from_group_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -4979,6 +5175,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_sms_role_trust_relationship_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | invalid_lambda_response_exception()
@@ -4996,6 +5193,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_sms_role_trust_relationship_exception()
           | software_token_mfa_not_found_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
@@ -5015,6 +5213,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_set_user_mfa_preference_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | password_reset_required_exception()
@@ -5025,6 +5224,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | invalid_password_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -5034,6 +5234,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_set_user_settings_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -5041,6 +5242,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_update_auth_event_feedback_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | user_pool_add_on_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -5050,6 +5252,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_update_device_status_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -5061,6 +5264,7 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | invalid_sms_role_trust_relationship_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | invalid_lambda_response_exception()
@@ -5074,6 +5278,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type admin_user_global_sign_out_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | resource_not_found_exception()
@@ -5084,6 +5289,7 @@ defmodule AWS.CognitoIdentityProvider do
           | concurrent_modification_exception()
           | software_token_mfa_not_found_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | forbidden_exception()
@@ -5093,6 +5299,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_password_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | password_reset_required_exception()
@@ -5108,6 +5315,7 @@ defmodule AWS.CognitoIdentityProvider do
           | limit_exceeded_exception()
           | web_authn_not_enabled_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | web_authn_credential_not_supported_exception()
           | web_authn_client_mismatch_exception()
@@ -5123,6 +5331,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_password_exception()
           | username_exists_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | invalid_lambda_response_exception()
@@ -5139,6 +5348,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_password_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | expired_code_exception()
@@ -5157,6 +5367,7 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | expired_code_exception()
@@ -5173,6 +5384,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | group_exists_exception()
           | resource_not_found_exception()
@@ -5192,6 +5404,7 @@ defmodule AWS.CognitoIdentityProvider do
           | limit_exceeded_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | managed_login_branding_exists_exception()
           | resource_not_found_exception()
@@ -5201,6 +5414,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5211,6 +5425,7 @@ defmodule AWS.CognitoIdentityProvider do
           | limit_exceeded_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5220,6 +5435,7 @@ defmodule AWS.CognitoIdentityProvider do
           | precondition_not_met_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5241,6 +5457,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | invalid_o_auth_flow_exception()
           | feature_unavailable_in_tier_exception()
@@ -5253,13 +5470,26 @@ defmodule AWS.CognitoIdentityProvider do
           | limit_exceeded_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | feature_unavailable_in_tier_exception()
           | resource_not_found_exception()
 
+  @type create_user_pool_replica_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | user_pool_tagging_exception()
+          | feature_unavailable_in_tier_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type delete_group_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5277,6 +5507,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5284,6 +5515,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type delete_resource_server_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5292,6 +5524,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5299,6 +5532,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type delete_user_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | password_reset_required_exception()
@@ -5310,6 +5544,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type delete_user_attributes_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | password_reset_required_exception()
@@ -5321,6 +5556,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type delete_user_pool_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5330,6 +5566,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5345,13 +5582,23 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
+
+  @type delete_user_pool_replica_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
 
   @type delete_web_authn_credential_errors() ::
           internal_error_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | password_reset_required_exception()
           | resource_not_found_exception()
@@ -5368,6 +5615,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type describe_managed_login_branding_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5375,6 +5623,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type describe_managed_login_branding_by_client_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5382,6 +5631,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type describe_resource_server_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5389,6 +5639,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type describe_risk_configuration_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | user_pool_add_on_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
@@ -5397,6 +5648,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type describe_terms_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5404,6 +5656,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type describe_user_import_job_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5411,6 +5664,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type describe_user_pool_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_pool_tagging_exception()
           | resource_not_found_exception()
@@ -5419,6 +5673,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type describe_user_pool_client_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5426,12 +5681,14 @@ defmodule AWS.CognitoIdentityProvider do
   @type describe_user_pool_domain_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
 
   @type forget_device_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -5448,6 +5705,7 @@ defmodule AWS.CognitoIdentityProvider do
           | code_delivery_failure_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | invalid_lambda_response_exception()
@@ -5461,6 +5719,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type get_csv_header_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5468,6 +5727,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type get_device_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -5480,6 +5740,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type get_group_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5501,12 +5762,14 @@ defmodule AWS.CognitoIdentityProvider do
   @type get_signing_certificate_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
 
   @type get_tokens_from_refresh_token_errors() ::
           unexpected_lambda_exception()
           | internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | invalid_lambda_response_exception()
@@ -5519,6 +5782,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type get_ui_customization_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5526,6 +5790,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type get_user_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | password_reset_required_exception()
@@ -5541,6 +5806,7 @@ defmodule AWS.CognitoIdentityProvider do
           | code_delivery_failure_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | invalid_lambda_response_exception()
@@ -5556,6 +5822,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type get_user_auth_factors_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | password_reset_required_exception()
@@ -5574,6 +5841,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type global_sign_out_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | password_reset_required_exception()
           | resource_not_found_exception()
@@ -5586,6 +5854,7 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | invalid_sms_role_trust_relationship_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
@@ -5603,6 +5872,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type list_devices_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -5615,6 +5885,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type list_groups_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5629,6 +5900,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type list_resource_servers_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5636,6 +5908,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type list_tags_for_resource_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5643,6 +5916,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type list_terms_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5650,6 +5924,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type list_user_import_jobs_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5664,6 +5939,15 @@ defmodule AWS.CognitoIdentityProvider do
   @type list_user_pool_clients_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type list_user_pool_replicas_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5677,6 +5961,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type list_users_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5684,6 +5969,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type list_users_in_group_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5692,6 +5978,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | password_reset_required_exception()
           | too_many_requests_exception()
@@ -5704,6 +5991,7 @@ defmodule AWS.CognitoIdentityProvider do
           | code_delivery_failure_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | invalid_lambda_response_exception()
@@ -5722,6 +6010,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_sms_role_trust_relationship_exception()
           | software_token_mfa_not_found_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
@@ -5742,6 +6031,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type revoke_token_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | too_many_requests_exception()
           | forbidden_exception()
           | unauthorized_exception()
@@ -5760,6 +6050,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | code_delivery_failure_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | user_pool_add_on_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
@@ -5769,6 +6060,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type set_ui_customization_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5776,6 +6068,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type set_user_mfa_preference_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | password_reset_required_exception()
@@ -5788,6 +6081,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_sms_role_trust_relationship_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | feature_unavailable_in_tier_exception()
           | resource_not_found_exception()
@@ -5797,6 +6091,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type set_user_settings_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
           | password_reset_required_exception()
@@ -5813,6 +6108,7 @@ defmodule AWS.CognitoIdentityProvider do
           | limit_exceeded_exception()
           | username_exists_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | invalid_lambda_response_exception()
@@ -5826,6 +6122,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | precondition_not_met_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5835,6 +6132,7 @@ defmodule AWS.CognitoIdentityProvider do
           | limit_exceeded_exception()
           | web_authn_not_enabled_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | web_authn_configuration_missing_exception()
           | password_reset_required_exception()
@@ -5845,6 +6143,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | precondition_not_met_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5852,6 +6151,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type tag_resource_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5859,6 +6159,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type untag_resource_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5866,6 +6167,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type update_auth_event_feedback_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | user_pool_add_on_not_enabled_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -5875,6 +6177,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type update_device_status_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -5887,6 +6190,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type update_group_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5904,6 +6208,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5911,6 +6216,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type update_resource_server_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5920,6 +6226,7 @@ defmodule AWS.CognitoIdentityProvider do
           | terms_exists_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -5930,6 +6237,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_sms_role_trust_relationship_exception()
           | code_delivery_failure_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_lambda_validation_exception()
           | expired_code_exception()
@@ -5950,6 +6258,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_sms_role_trust_relationship_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | user_pool_tagging_exception()
           | feature_unavailable_in_tier_exception()
@@ -5964,6 +6273,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | invalid_o_auth_flow_exception()
           | feature_unavailable_in_tier_exception()
@@ -5975,8 +6285,17 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | concurrent_modification_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | feature_unavailable_in_tier_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type update_user_pool_replica_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
@@ -5985,6 +6304,7 @@ defmodule AWS.CognitoIdentityProvider do
           | enable_software_token_mfa_exception()
           | software_token_mfa_not_found_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | invalid_user_pool_configuration_exception()
           | not_authorized_exception()
           | user_not_found_exception()
@@ -5999,6 +6319,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | expired_code_exception()
           | user_not_found_exception()
@@ -7822,6 +8143,41 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Creates a replica of an existing user pool in a specified Amazon Web Services
+  Region.
+
+  The replica
+  enables multi-region replication for high availability and disaster recovery. To
+  create
+  a replica, you must have permissions to create user pools in the target Region.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec create_user_pool_replica(map(), create_user_pool_replica_request(), list()) ::
+          {:ok, create_user_pool_replica_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_user_pool_replica_errors()}
+  def create_user_pool_replica(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUserPoolReplica", input, options)
+  end
+
+  @doc """
   Deletes a group from the specified user pool.
 
   When you delete a group, that group no
@@ -8129,6 +8485,38 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteUserPoolDomain", input, options)
+  end
+
+  @doc """
+  Deletes a secondary replica user pool.
+
+  You can only delete replicas that are in the
+  INACTIVE status. This operation must be called from the primary Region.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec delete_user_pool_replica(map(), delete_user_pool_replica_request(), list()) ::
+          {:ok, delete_user_pool_replica_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_user_pool_replica_errors()}
+  def delete_user_pool_replica(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUserPoolReplica", input, options)
   end
 
   @doc """
@@ -9259,6 +9647,40 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Lists all replicas for a user pool, including both primary and secondary
+  replicas.
+
+  We
+  recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec list_user_pool_replicas(map(), list_user_pool_replicas_request(), list()) ::
+          {:ok, list_user_pool_replicas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_user_pool_replicas_errors()}
+  def list_user_pool_replicas(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUserPoolReplicas", input, options)
+  end
+
+  @doc """
   Lists user pools and their details in the current Amazon Web Services account.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
@@ -9573,6 +9995,13 @@ defmodule AWS.CognitoIdentityProvider do
   request. To activate this setting, your user pool must be on the [
   Plus
   tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html).
+
+  In secondary regions for user pools with multi-region replication, only the
+  `SourceARN` and `From` attributes of
+  `NotifyConfiguration` can be modified to configure region-specific SES
+  integration. All other risk configuration settings must match the existing
+  values to
+  maintain consistency across replicas.
   """
   @spec set_risk_configuration(map(), set_risk_configuration_request(), list()) ::
           {:ok, set_risk_configuration_response(), any()}
@@ -10250,8 +10679,15 @@ defmodule AWS.CognitoIdentityProvider do
   user
   pool, modified to include the changes that you want to make.
 
-  With the exception of `UserPoolTier`, if you don't provide a value for an
-  attribute, Amazon Cognito sets it to its default value.
+  If you don't provide a value for an attribute, Amazon Cognito sets it to its
+  default value.
+
+  In secondary regions for user pools with multi-region replication, regional
+  configurations for email, SMS, Lambda functions, and tags can be updated. Both
+  global
+  and regional settings must be provided as inputs, with global settings required
+  to match
+  existing values to maintain consistency across replicas.
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers
@@ -10407,6 +10843,40 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateUserPoolDomain", input, options)
+  end
+
+  @doc """
+  Updates replica-specific settings for a user pool replica.
+
+  You can modify the status
+  to activate or deactivate the replica. This request can be made in both primary
+  and secondary
+  regions of the user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec update_user_pool_replica(map(), update_user_pool_replica_request(), list()) ::
+          {:ok, update_user_pool_replica_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_user_pool_replica_errors()}
+  def update_user_pool_replica(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateUserPoolReplica", input, options)
   end
 
   @doc """

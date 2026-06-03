@@ -749,7 +749,8 @@ defmodule AWS.Lambda do
   ## Example:
 
       update_capacity_provider_request() :: %{
-        optional("CapacityProviderScalingConfig") => capacity_provider_scaling_config()
+        optional("CapacityProviderScalingConfig") => capacity_provider_scaling_config(),
+        optional("PropagateTags") => propagate_tags()
       }
 
   """
@@ -2842,6 +2843,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      propagate_tags() :: %{
+        "ExplicitTags" => map(),
+        "Mode" => list(any())
+      }
+
+  """
+  @type propagate_tags() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_code_signing_config_response() :: %{
         "CodeSigningConfig" => code_signing_config()
       }
@@ -3376,6 +3389,7 @@ defmodule AWS.Lambda do
         "KmsKeyArn" => String.t() | atom(),
         "LastModified" => String.t() | atom(),
         "PermissionsConfig" => capacity_provider_permissions_config(),
+        "PropagateTags" => propagate_tags(),
         "State" => list(any()),
         "VpcConfig" => capacity_provider_vpc_config()
       }
@@ -3429,6 +3443,7 @@ defmodule AWS.Lambda do
         optional("CapacityProviderScalingConfig") => capacity_provider_scaling_config(),
         optional("InstanceRequirements") => instance_requirements(),
         optional("KmsKeyArn") => String.t() | atom(),
+        optional("PropagateTags") => propagate_tags(),
         optional("Tags") => map(),
         required("CapacityProviderName") => String.t() | atom(),
         required("PermissionsConfig") => capacity_provider_permissions_config(),

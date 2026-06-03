@@ -1331,6 +1331,30 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_job_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "FailureReason" => String.t() | atom(),
+        "JobArn" => String.t() | atom(),
+        "JobCategory" => list(any()),
+        "JobConfigDocument" => String.t() | atom(),
+        "JobConfigSchemaVersion" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "RoleArn" => String.t() | atom(),
+        "SecondaryStatus" => list(any()),
+        "SecondaryStatusTransitions" => list(job_secondary_status_transition()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type describe_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       trial_component_source() :: %{
         "SourceArn" => String.t() | atom(),
         "SourceType" => String.t() | atom()
@@ -1619,6 +1643,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_job_response() :: %{
+        "JobArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pipeline_execution_step_metadata() :: %{
         "AutoMLJob" => auto_ml_job_step_metadata(),
         "BedrockCustomModel" => bedrock_custom_model_metadata(),
@@ -1633,6 +1668,7 @@ defmodule AWS.SageMaker do
         "EndpointConfig" => endpoint_config_step_metadata(),
         "Fail" => fail_step_metadata(),
         "InferenceComponent" => inference_component_metadata(),
+        "Job" => job_step_metadata(),
         "Lambda" => lambda_step_metadata(),
         "Lineage" => lineage_metadata(),
         "Model" => model_step_metadata(),
@@ -3019,6 +3055,27 @@ defmodule AWS.SageMaker do
       
   """
   @type priority_class() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any()),
+        required("JobCategory") => list(any())
+      }
+      
+  """
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4804,6 +4861,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      stop_job_request() :: %{
+        required("JobCategory") => list(any()),
+        required("JobName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_artifact_response() :: %{
         "ArtifactArn" => String.t() | atom()
       }
@@ -4862,6 +4931,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_jobs_response() :: %{
+        "JobSummaries" => list(job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       monitoring_statistics_resource() :: %{
         "S3Uri" => String.t() | atom()
       }
@@ -4912,6 +4993,22 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_training_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_job_request() :: %{
+        optional("Tags") => list(tag()),
+        required("JobCategory") => list(any()),
+        required("JobConfigDocument") => String.t() | atom(),
+        required("JobConfigSchemaVersion") => String.t() | atom(),
+        required("JobName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7195,6 +7292,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_job_schema_version_request() :: %{
+        optional("JobConfigSchemaVersion") => String.t() | atom(),
+        required("JobCategory") => list(any())
+      }
+      
+  """
+  @type describe_job_schema_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_human_task_uis_response() :: %{
         "HumanTaskUiSummaries" => list(human_task_ui_summary()),
         "NextToken" => String.t() | atom()
@@ -7405,6 +7514,24 @@ defmodule AWS.SageMaker do
       
   """
   @type hyper_parameter_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "JobArn" => String.t() | atom(),
+        "JobCategory" => list(any()),
+        "JobName" => String.t() | atom(),
+        "JobSecondaryStatus" => list(any()),
+        "JobStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
+  """
+  @type job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8408,6 +8535,20 @@ defmodule AWS.SageMaker do
       
   """
   @type time_series_transformations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_secondary_status_transition() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type job_secondary_status_transition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10867,6 +11008,29 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      job_config_schema_version_summary() :: %{
+        "JobConfigSchemaVersion" => String.t() | atom()
+      }
+      
+  """
+  @type job_config_schema_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_job_request() :: %{
+        required("JobCategory") => list(any()),
+        required("JobName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       a_i_model_source_s3() :: %{
         "S3Uri" => String.t() | atom()
       }
@@ -11729,6 +11893,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_job_schema_versions_response() :: %{
+        "JobConfigSchemas" => list(job_config_schema_version_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_job_schema_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       human_loop_activation_conditions_config() :: %{
         "HumanLoopActivationConditions" => String.t() | atom()
       }
@@ -12393,6 +12569,19 @@ defmodule AWS.SageMaker do
       
   """
   @type list_app_image_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_job_schema_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("JobCategory") => list(any())
+      }
+      
+  """
+  @type list_job_schema_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15520,6 +15709,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      delete_job_request() :: %{
+        required("JobCategory") => list(any()),
+        required("JobName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_flow_definition_request() :: %{
         required("FlowDefinitionName") => String.t() | atom()
       }
@@ -17005,6 +17206,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      job_step_metadata() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type job_step_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_hub_request() :: %{
         optional("HubDisplayName") => String.t() | atom(),
         optional("HubSearchKeywords") => list(String.t() | atom()),
@@ -17219,6 +17431,19 @@ defmodule AWS.SageMaker do
       
   """
   @type create_processing_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_job_schema_version_response() :: %{
+        "JobCategory" => list(any()),
+        "JobConfigSchema" => String.t() | atom(),
+        "JobConfigSchemaVersion" => String.t() | atom()
+      }
+      
+  """
+  @type describe_job_schema_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18820,6 +19045,15 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      stop_job_response() :: %{}
+      
+  """
+  @type stop_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       update_hub_content_response() :: %{
         "HubArn" => String.t() | atom(),
         "HubContentArn" => String.t() | atom()
@@ -19463,6 +19697,15 @@ defmodule AWS.SageMaker do
       
   """
   @type create_notebook_instance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_job_response() :: %{}
+      
+  """
+  @type delete_job_response() :: %{}
 
   @typedoc """
 
@@ -21314,6 +21557,9 @@ defmodule AWS.SageMaker do
   @type create_inference_recommendations_job_errors() ::
           resource_limit_exceeded() | resource_in_use()
 
+  @type create_job_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
   @type create_labeling_job_errors() :: resource_limit_exceeded() | resource_in_use()
 
   @type create_mlflow_app_errors() :: resource_limit_exceeded()
@@ -21444,6 +21690,8 @@ defmodule AWS.SageMaker do
 
   @type delete_inference_experiment_errors() :: conflict_exception() | resource_not_found()
 
+  @type delete_job_errors() :: resource_in_use() | resource_not_found()
+
   @type delete_mlflow_app_errors() :: resource_not_found()
 
   @type delete_mlflow_tracking_server_errors() :: resource_not_found()
@@ -21554,6 +21802,10 @@ defmodule AWS.SageMaker do
 
   @type describe_inference_recommendations_job_errors() :: resource_not_found()
 
+  @type describe_job_errors() :: resource_not_found()
+
+  @type describe_job_schema_version_errors() :: resource_not_found()
+
   @type describe_labeling_job_errors() :: resource_not_found()
 
   @type describe_lineage_group_errors() :: resource_not_found()
@@ -21643,6 +21895,8 @@ defmodule AWS.SageMaker do
 
   @type list_inference_recommendations_job_steps_errors() :: resource_not_found()
 
+  @type list_job_schema_versions_errors() :: resource_not_found()
+
   @type list_labeling_jobs_for_workteam_errors() :: resource_not_found()
 
   @type list_model_card_versions_errors() :: resource_not_found()
@@ -21716,6 +21970,8 @@ defmodule AWS.SageMaker do
   @type stop_inference_experiment_errors() :: conflict_exception() | resource_not_found()
 
   @type stop_inference_recommendations_job_errors() :: resource_not_found()
+
+  @type stop_job_errors() :: resource_not_found()
 
   @type stop_labeling_job_errors() :: resource_not_found()
 
@@ -23022,6 +23278,49 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateInferenceRecommendationsJob", input, options)
+  end
+
+  @doc """
+  Creates a model customization job in Amazon SageMaker.
+
+  A job runs a workload based on the job category and configuration you provide.
+  You specify the job category, a schema-versioned configuration document, and an
+  IAM role that grants Amazon SageMaker permission to access resources on your
+  behalf.
+
+  Use the `AgentRFT` category to fine-tune a model using multi-turn reinforcement
+  learning with reward signals. Use the `AgentRFTEvaluation` category to evaluate
+  a fine-tuned or base model by running multi-turn rollouts against a held-out
+  prompt dataset and computing metrics such as pass@k and mean reward.
+
+  Before creating a job, call `ListJobSchemaVersions` and
+  `DescribeJobSchemaVersion` to retrieve the configuration schema for your job
+  category. The `JobConfigDocument` must conform to the schema specified by
+  `JobConfigSchemaVersion`.
+
+  The following operations are related to `CreateJob`:
+
+    * `DescribeJob`
+
+    * `ListJobs`
+
+    * `StopJob`
+
+    * `DeleteJob`
+
+    * `ListJobSchemaVersions`
+
+    * `DescribeJobSchemaVersion`
+  """
+  @spec create_job(map(), create_job_request(), list()) ::
+          {:ok, create_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_job_errors()}
+  def create_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateJob", input, options)
   end
 
   @doc """
@@ -24500,6 +24799,31 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes a job.
+
+  This operation is idempotent. If the job is currently running, you must stop it
+  before deleting it by calling `StopJob`.
+
+  The following operations are related to `DeleteJob`:
+
+    * `CreateJob`
+
+    * `StopJob`
+
+    * `DescribeJob`
+  """
+  @spec delete_job(map(), delete_job_request(), list()) ::
+          {:ok, delete_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_job_errors()}
+  def delete_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteJob", input, options)
+  end
+
+  @doc """
   Deletes an MLflow App.
   """
   @spec delete_mlflow_app(map(), delete_mlflow_app_request(), list()) ::
@@ -25571,6 +25895,60 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeInferenceRecommendationsJob", input, options)
+  end
+
+  @doc """
+  Returns detailed information about a job, including its current status,
+  secondary status, configuration, and timestamps.
+
+  Use `SecondaryStatus` for granular progress tracking and
+  `SecondaryStatusTransitions` to see the full history of status changes with
+  timestamps.
+
+  The following operations are related to `DescribeJob`:
+
+    * `CreateJob`
+
+    * `ListJobs`
+
+    * `StopJob`
+
+    * `DeleteJob`
+  """
+  @spec describe_job(map(), describe_job_request(), list()) ::
+          {:ok, describe_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_job_errors()}
+  def describe_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeJob", input, options)
+  end
+
+  @doc """
+  Returns the JSON schema for a specified job category and schema version.
+
+  Use this schema to validate your `JobConfigDocument` before calling `CreateJob`.
+  If you don't specify a schema version, the latest version is returned. The
+  schema defines required fields, allowed values, and constraints for the job
+  configuration.
+
+  The following operations are related to `DescribeJobSchemaVersion`:
+
+    * `ListJobSchemaVersions`
+
+    * `CreateJob`
+  """
+  @spec describe_job_schema_version(map(), describe_job_schema_version_request(), list()) ::
+          {:ok, describe_job_schema_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_job_schema_version_errors()}
+  def describe_job_schema_version(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeJobSchemaVersion", input, options)
   end
 
   @doc """
@@ -26958,6 +27336,52 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists available configuration schema versions for a specified job category.
+
+  Use the schema versions with `DescribeJobSchemaVersion` to retrieve the full
+  schema document.
+
+  The following operations are related to `ListJobSchemaVersions`:
+
+    * `DescribeJobSchemaVersion`
+
+    * `CreateJob`
+  """
+  @spec list_job_schema_versions(map(), list_job_schema_versions_request(), list()) ::
+          {:ok, list_job_schema_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_job_schema_versions_errors()}
+  def list_job_schema_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListJobSchemaVersions", input, options)
+  end
+
+  @doc """
+  Lists jobs in a specified category.
+
+  You can filter results by creation time, last modified time, name, and status.
+  Results are sorted by the field you specify in `SortBy`. Use pagination to
+  retrieve large result sets efficiently.
+
+  The following operations are related to `ListJobs`:
+
+    * `CreateJob`
+
+    * `DescribeJob`
+  """
+  @spec list_jobs(map(), list_jobs_request(), list()) ::
+          {:ok, list_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_jobs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListJobs", input, options)
+  end
+
+  @doc """
   Gets a list of labeling jobs.
   """
   @spec list_labeling_jobs(map(), list_labeling_jobs_request(), list()) ::
@@ -28098,6 +28522,33 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "StopInferenceRecommendationsJob", input, options)
+  end
+
+  @doc """
+  Stops a running job.
+
+  When you call `StopJob`, Amazon SageMaker sets the job status to `Stopping`.
+  After the job stops, the status changes to `Stopped`. Partial results may be
+  available in the output location if the job was in progress. To delete a stopped
+  job, call `DeleteJob`.
+
+  The following operations are related to `StopJob`:
+
+    * `CreateJob`
+
+    * `DescribeJob`
+
+    * `DeleteJob`
+  """
+  @spec stop_job(map(), stop_job_request(), list()) ::
+          {:ok, stop_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_job_errors()}
+  def stop_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopJob", input, options)
   end
 
   @doc """

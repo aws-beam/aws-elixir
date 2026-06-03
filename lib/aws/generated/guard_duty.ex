@@ -4320,6 +4320,8 @@ defmodule AWS.GuardDuty do
       runtime_context() :: %{
         "AddressFamily" => String.t() | atom(),
         "CommandLineExample" => String.t() | atom(),
+        "FileOperation" => String.t() | atom(),
+        "FilePath" => String.t() | atom(),
         "FileSystemType" => String.t() | atom(),
         "Flags" => list(String.t() | atom()),
         "IanaProtocolNumber" => integer(),
@@ -4333,6 +4335,7 @@ defmodule AWS.GuardDuty do
         "ModuleSha256" => String.t() | atom(),
         "MountSource" => String.t() | atom(),
         "MountTarget" => String.t() | atom(),
+        "RelatedFilePaths" => list(String.t() | atom()),
         "ReleaseAgentPath" => String.t() | atom(),
         "RuncBinaryPath" => String.t() | atom(),
         "ScriptPath" => String.t() | atom(),

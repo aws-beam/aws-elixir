@@ -60,6 +60,7 @@ defmodule AWS.KeyspacesStreams do
       
       get_records_output() :: %{
         "changeRecords" => list(record()),
+        "iteratorDescription" => iterator_description(),
         "nextShardIterator" => String.t() | atom()
       }
       
@@ -134,6 +135,17 @@ defmodule AWS.KeyspacesStreams do
       
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iterator_description() :: %{
+        "iteratorPosition" => list(any())
+      }
+      
+  """
+  @type iterator_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

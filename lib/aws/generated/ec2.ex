@@ -5950,6 +5950,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_reservation_configuration() :: %{
+        "InstanceCount" => integer(),
+        "ReservationState" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_reservation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_internet_gateways_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -16398,6 +16410,22 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_capacity_reservation_cancellation_quote_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("CapacityReservationId") => String.t() | atom()
+      }
+      
+  """
+  @type create_capacity_reservation_cancellation_quote_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       instance_private_ip_address() :: %{
         "Association" => instance_network_interface_association(),
         "Primary" => boolean(),
@@ -20984,7 +21012,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       cancel_capacity_reservation_request() :: %{
+        optional("ApplyCancellationCharges") => list(any()),
         optional("DryRun") => boolean(),
+        optional("QuoteId") => String.t() | atom(),
         required("CapacityReservationId") => String.t() | atom()
       }
       
@@ -21281,6 +21311,23 @@ defmodule AWS.EC2 do
       
   """
   @type instance_network_interface_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_reservation_cancellation_quotes_request() :: %{
+        optional("CapacityReservationCancellationQuoteIds") => list(String.t() | atom()),
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_reservation_cancellation_quotes_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -23366,6 +23413,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_capacity_reservation_cancellation_quote_result() :: %{
+        "CapacityReservationCancellationQuote" => capacity_reservation_cancellation_quote()
+      }
+      
+  """
+  @type create_capacity_reservation_cancellation_quote_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       client_vpn_endpoint_attribute_status() :: %{
         "Code" => list(any()),
         "Message" => String.t() | atom()
@@ -23796,6 +23856,21 @@ defmodule AWS.EC2 do
       
   """
   @type delete_image_usage_report_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancellation_terms() :: %{
+        "CancellationType" => list(any()),
+        "ChargeCommitmentDurationHours" => float(),
+        "ChargeEndDate" => non_neg_integer(),
+        "CommittedInstanceCount" => integer(),
+        "ReservationState" => String.t() | atom()
+      }
+      
+  """
+  @type cancellation_terms() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -28519,6 +28594,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_capacity_reservation_cancellation_quotes_result() :: %{
+        "CapacityReservationCancellationQuotes" => list(capacity_reservation_cancellation_quote()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_reservation_cancellation_quotes_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       destination_options_request() :: %{
         "FileFormat" => list(any()),
         "HiveCompatiblePartitions" => boolean(),
@@ -33163,6 +33252,24 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_reservation_cancellation_quote() :: %{
+        "CancellationTerms" => list(cancellation_terms()),
+        "CapacityReservationCancellationQuoteId" => String.t() | atom(),
+        "CapacityReservationId" => String.t() | atom(),
+        "CreateTime" => non_neg_integer(),
+        "CurrentConfiguration" => capacity_reservation_configuration(),
+        "ExpirationTime" => non_neg_integer(),
+        "QuoteState" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type capacity_reservation_cancellation_quote() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_network_interface_specification() :: %{
         "AssociateCarrierIpAddress" => boolean(),
         "AssociatePublicIpAddress" => boolean(),
@@ -34915,9 +35022,20 @@ defmodule AWS.EC2 do
 
     *
 
+  `scheduled`
+
+    *
+
   `active` and there is no commitment duration or the commitment
-  duration has elapsed. You can't cancel a future-dated Capacity Reservation
-  during the commitment duration.
+  duration has elapsed.
+
+    *
+
+  `active` during the commitment duration, if you provide a
+  cancellation quote ID and accept the cancellation charges. Use
+  `CreateCapacityReservationCancellationQuote` to generate a quote.
+  The Capacity Reservation transitions to `cancelling` while charges
+  are applied.
 
   You can't modify or cancel a Capacity Block. For more information, see [Capacity Blocks for
   ML](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html).
@@ -35450,6 +35568,34 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateCapacityReservationBySplitting", input, options)
+  end
+
+  @doc """
+  Generates a cancellation quote for a future-dated Capacity Reservation that is
+  within its commitment duration.
+
+  The quote includes the cancellation terms and a quote ID
+  that you can pass to the `CancelCapacityReservation` action. Cancellation
+  quotes are valid for 24 hours.
+  """
+  @spec create_capacity_reservation_cancellation_quote(
+          map(),
+          create_capacity_reservation_cancellation_quote_request(),
+          list()
+        ) ::
+          {:ok, create_capacity_reservation_cancellation_quote_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_capacity_reservation_cancellation_quote(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "CreateCapacityReservationCancellationQuote",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -40416,6 +40562,33 @@ defmodule AWS.EC2 do
       client,
       meta,
       "DescribeCapacityReservationBillingRequests",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Describes one or more Capacity Reservation cancellation quotes.
+
+  The results describe
+  only the quotes that you have previously generated by using the
+  `CreateCapacityReservationCancellationQuote` action.
+  """
+  @spec describe_capacity_reservation_cancellation_quotes(
+          map(),
+          describe_capacity_reservation_cancellation_quotes_request(),
+          list()
+        ) ::
+          {:ok, describe_capacity_reservation_cancellation_quotes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_capacity_reservation_cancellation_quotes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DescribeCapacityReservationCancellationQuotes",
       input,
       options
     )

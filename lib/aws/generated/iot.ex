@@ -17034,6 +17034,11 @@ defmodule AWS.IoT do
 
   @doc """
   Retrieves the live connectivity status per device.
+
+  If a device has never connected to IoT Core or was disconnected for more than 1
+  hour before fleet indexing's `thingConnectivityIndexingMode` was enabled, the
+  response will have the `connected` field set to `false` with no additional
+  session details.
   """
   @spec get_thing_connectivity_data(
           map(),
@@ -21337,7 +21342,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  The query search index.
+  Searches the specified index.
+
+  If a device has never connected to IoT Core or was disconnected for more than 1
+  hour before fleet indexing's `thingConnectivityIndexingMode` was enabled, the
+  `connectivity` object for this device in the response will have the `connected`
+  field set to `false` with no additional session details.
 
   Requires permission to access the
   [SearchIndex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)

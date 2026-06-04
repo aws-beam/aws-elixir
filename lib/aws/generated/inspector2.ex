@@ -144,6 +144,19 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      v_m_scanner_state() :: %{
+        "activated" => [boolean()],
+        "activatedAt" => non_neg_integer(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type v_m_scanner_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_delegated_admin_account_response() :: %{
         optional("delegatedAdmin") => delegated_admin()
       }
@@ -666,6 +679,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       ec2_configuration() :: %{
+        "activateVMScanner" => [boolean()],
         "scanMode" => String.t() | atom()
       }
 
@@ -692,7 +706,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       ec2_configuration_state() :: %{
-        "scanModeState" => ec2_scan_mode_state()
+        "scanModeState" => ec2_scan_mode_state(),
+        "vmScannerState" => v_m_scanner_state()
       }
 
   """

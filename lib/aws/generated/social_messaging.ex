@@ -73,6 +73,19 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      update_whats_app_flow_assets_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("flowJson") => binary(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type update_whats_app_flow_assets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       send_whats_app_message_output() :: %{
         "messageId" => [String.t() | atom()]
       }
@@ -92,6 +105,28 @@ defmodule AWS.SocialMessaging do
 
   """
   @type associate_whats_app_business_account_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_flow_output() :: %{
+        "application" => meta_flow_application_info(),
+        "categories" => list(list(any())()),
+        "dataApiVersion" => String.t() | atom(),
+        "endpointUri" => String.t() | atom(),
+        "flowId" => String.t() | atom(),
+        "flowName" => String.t() | atom(),
+        "flowStatus" => String.t() | atom(),
+        "healthStatus" => meta_flow_health_status(),
+        "jsonVersion" => String.t() | atom(),
+        "preview" => meta_flow_preview_info(),
+        "validationErrors" => list(String.t() | atom()),
+        "whatsAppBusinessAccount" => meta_flow_whats_app_business_account_info()
+      }
+
+  """
+  @type get_whats_app_flow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -152,6 +187,22 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      create_whats_app_flow_input() :: %{
+        optional("cloneFlowId") => String.t() | atom(),
+        optional("flowJson") => binary(),
+        optional("publish") => [boolean()],
+        required("categories") => list(list(any())()),
+        required("flowName") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type create_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       whats_app_signup_callback_result() :: %{
         "associateInProgressToken" => String.t() | atom(),
         "linkedAccountsWithIncompleteSetup" => map()
@@ -159,6 +210,19 @@ defmodule AWS.SocialMessaging do
 
   """
   @type whats_app_signup_callback_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_health_entity() :: %{
+        "canSendMessage" => String.t() | atom(),
+        "entityType" => String.t() | atom(),
+        "id" => [String.t() | atom()]
+      }
+
+  """
+  @type meta_flow_health_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,6 +279,42 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      meta_flow_asset() :: %{
+        "assetType" => String.t() | atom(),
+        "downloadUrl" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type meta_flow_asset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deprecate_whats_app_flow_output() :: %{}
+
+  """
+  @type deprecate_whats_app_flow_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_whats_app_flow_input() :: %{
+        optional("categories") => list(list(any())()),
+        optional("flowName") => String.t() | atom(),
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type update_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_whats_app_message_template_input() :: %{
         optional("metaTemplateId") => String.t() | atom(),
         optional("templateLanguageCode") => String.t() | atom(),
@@ -224,6 +324,19 @@ defmodule AWS.SocialMessaging do
 
   """
   @type get_whats_app_message_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_application_info() :: %{
+        "id" => String.t() | atom(),
+        "link" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type meta_flow_application_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -338,6 +451,18 @@ defmodule AWS.SocialMessaging do
   @type create_whats_app_message_template_from_library_output() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_flow_preview_output() :: %{
+        "flowId" => String.t() | atom(),
+        "preview" => meta_flow_preview_info()
+      }
+
+  """
+  @type get_whats_app_flow_preview_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -481,6 +606,41 @@ defmodule AWS.SocialMessaging do
 
   """
   @type template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_flow_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type get_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_whats_app_flow_assets_output() :: %{
+        "validationErrors" => list(String.t() | atom())
+      }
+
+  """
+  @type update_whats_app_flow_assets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_whats_app_flow_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type publish_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -639,12 +799,39 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      list_whats_app_flow_assets_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_flow_assets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_output() :: %{
         "statusCode" => [integer()]
       }
 
   """
   @type tag_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_flow_preview_input() :: %{
+        optional("invalidate") => [boolean()],
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type get_whats_app_flow_preview_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -678,12 +865,46 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      list_whats_app_flows_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_flows_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_whats_app_flow_assets_output() :: %{
+        "flowAssets" => list(meta_flow_asset()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_flow_assets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_whats_app_flow_output() :: %{}
+
+  """
+  @type publish_whats_app_flow_output() :: %{}
 
   @typedoc """
 
@@ -714,6 +935,33 @@ defmodule AWS.SocialMessaging do
 
   """
   @type delete_whats_app_message_template_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_summary() :: %{
+        "flowCategories" => list(list(any())()),
+        "flowId" => String.t() | atom(),
+        "flowName" => String.t() | atom(),
+        "flowStatus" => String.t() | atom(),
+        "validationErrors" => list(String.t() | atom())
+      }
+
+  """
+  @type meta_flow_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deprecate_whats_app_flow_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type deprecate_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -809,6 +1057,15 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      update_whats_app_flow_output() :: %{}
+
+  """
+  @type update_whats_app_flow_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       whats_app_phone_number_summary() :: %{
         "arn" => String.t() | atom(),
         "dataLocalizationRegion" => String.t() | atom(),
@@ -822,6 +1079,15 @@ defmodule AWS.SocialMessaging do
 
   """
   @type whats_app_phone_number_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_whats_app_flow_output() :: %{}
+
+  """
+  @type delete_whats_app_flow_output() :: %{}
 
   @typedoc """
 
@@ -875,6 +1141,18 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      list_whats_app_flows_output() :: %{
+        "flows" => list(meta_flow_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_flows_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_linked_whats_app_business_accounts_output() :: %{
         "linkedAccounts" => list(linked_whats_app_business_account_summary()),
         "nextToken" => String.t() | atom()
@@ -882,6 +1160,21 @@ defmodule AWS.SocialMessaging do
 
   """
   @type list_linked_whats_app_business_accounts_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_whats_app_business_account_info() :: %{
+        "currency" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "messageTemplateNamespace" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "timezoneId" => String.t() | atom()
+      }
+
+  """
+  @type meta_flow_whats_app_business_account_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -915,6 +1208,30 @@ defmodule AWS.SocialMessaging do
 
   """
   @type meta_library_template_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_whats_app_flow_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type delete_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_flow_output() :: %{
+        "flowId" => String.t() | atom(),
+        "validationErrors" => list(String.t() | atom())
+      }
+
+  """
+  @type create_whats_app_flow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -969,10 +1286,42 @@ defmodule AWS.SocialMessaging do
   """
   @type waba_setup_finalization() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_health_status() :: %{
+        "canSendMessage" => String.t() | atom(),
+        "entities" => list(meta_flow_health_entity())
+      }
+
+  """
+  @type meta_flow_health_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_preview_info() :: %{
+        "expiresAt" => String.t() | atom(),
+        "previewUrl" => String.t() | atom()
+      }
+
+  """
+  @type meta_flow_preview_info() :: %{(String.t() | atom()) => any()}
+
   @type associate_whats_app_business_account_errors() ::
           limit_exceeded_exception()
           | invalid_parameters_exception()
           | throttled_request_exception()
+          | dependency_exception()
+
+  @type create_whats_app_flow_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
 
   @type create_whats_app_message_template_errors() ::
@@ -980,6 +1329,7 @@ defmodule AWS.SocialMessaging do
           | throttled_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
 
   @type create_whats_app_message_template_from_library_errors() ::
@@ -987,6 +1337,7 @@ defmodule AWS.SocialMessaging do
           | throttled_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
 
   @type create_whats_app_message_template_media_errors() ::
@@ -994,6 +1345,15 @@ defmodule AWS.SocialMessaging do
           | throttled_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+
+  @type delete_whats_app_flow_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
 
   @type delete_whats_app_message_media_errors() ::
@@ -1009,6 +1369,15 @@ defmodule AWS.SocialMessaging do
           | throttled_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+
+  @type deprecate_whats_app_flow_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
 
   @type disassociate_whats_app_business_account_errors() ::
@@ -1031,6 +1400,22 @@ defmodule AWS.SocialMessaging do
           | internal_service_exception()
           | dependency_exception()
 
+  @type get_whats_app_flow_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+
+  @type get_whats_app_flow_preview_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+
   @type get_whats_app_message_media_errors() ::
           invalid_parameters_exception()
           | throttled_request_exception()
@@ -1044,6 +1429,7 @@ defmodule AWS.SocialMessaging do
           | throttled_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
 
   @type list_linked_whats_app_business_accounts_errors() ::
@@ -1057,11 +1443,28 @@ defmodule AWS.SocialMessaging do
           | throttled_request_exception()
           | internal_service_exception()
 
+  @type list_whats_app_flow_assets_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+
+  @type list_whats_app_flows_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+
   @type list_whats_app_message_templates_errors() ::
           invalid_parameters_exception()
           | throttled_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
 
   @type list_whats_app_template_library_errors() ::
@@ -1069,9 +1472,18 @@ defmodule AWS.SocialMessaging do
           | throttled_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
 
   @type post_whats_app_message_media_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+
+  @type publish_whats_app_flow_errors() ::
           invalid_parameters_exception()
           | throttled_request_exception()
           | resource_not_found_exception()
@@ -1101,11 +1513,28 @@ defmodule AWS.SocialMessaging do
           | throttled_request_exception()
           | internal_service_exception()
 
+  @type update_whats_app_flow_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+
+  @type update_whats_app_flow_assets_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+
   @type update_whats_app_message_template_errors() ::
           invalid_parameters_exception()
           | throttled_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
 
   def metadata do
@@ -1139,6 +1568,41 @@ defmodule AWS.SocialMessaging do
           | {:error, associate_whats_app_business_account_errors()}
   def associate_whats_app_business_account(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/signup"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new WhatsApp Flow.
+
+  Flows enable businesses to create rich, interactive forms and experiences
+  that users can complete without leaving WhatsApp. The Flow is created in DRAFT
+  status. If `publish`
+  is set to `true` and a valid `flowJson` is provided, the Flow is published
+  immediately.
+  """
+  @spec create_whats_app_flow(map(), create_whats_app_flow_input(), list()) ::
+          {:ok, create_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_whats_app_flow_errors()}
+  def create_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/create"
     headers = []
     custom_headers = []
     query_params = []
@@ -1262,6 +1726,44 @@ defmodule AWS.SocialMessaging do
   end
 
   @doc """
+  Deletes a WhatsApp Flow permanently.
+
+  Only Flows in DRAFT status can be deleted. Published or deprecated Flows cannot
+  be deleted.
+  """
+  @spec delete_whats_app_flow(map(), delete_whats_app_flow_input(), list()) ::
+          {:ok, delete_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_whats_app_flow_errors()}
+  def delete_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"flowId", "flowId"},
+        {"id", "id"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete a media object from the WhatsApp service.
 
   If the object is still in an Amazon S3 bucket you should delete it from there
@@ -1331,6 +1833,38 @@ defmodule AWS.SocialMessaging do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deprecates a published WhatsApp Flow, marking it as no longer recommended for
+  use.
+
+  The Flow must be in PUBLISHED status. This is an irreversible operation.
+  """
+  @spec deprecate_whats_app_flow(map(), deprecate_whats_app_flow_input(), list()) ::
+          {:ok, deprecate_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, deprecate_whats_app_flow_errors()}
+  def deprecate_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/deprecate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -1421,6 +1955,92 @@ defmodule AWS.SocialMessaging do
     query_params =
       if !is_nil(id) do
         [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the metadata and status of a WhatsApp Flow, including validation
+  errors, preview information, and health status.
+  """
+  @spec get_whats_app_flow(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_whats_app_flow_errors()}
+  def get_whats_app_flow(%Client{} = client, flow_id, id, options \\ []) do
+    url_path = "/v1/whatsapp/flow"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(flow_id) do
+        [{"flowId", flow_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Generates a web preview URL for testing a WhatsApp Flow before publishing.
+
+  Preview URLs expire in 30 days and can be shared with stakeholders for review.
+  """
+  @spec get_whats_app_flow_preview(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_whats_app_flow_preview_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_whats_app_flow_preview_errors()}
+  def get_whats_app_flow_preview(
+        %Client{} = client,
+        flow_id,
+        id,
+        invalidate \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/whatsapp/flow/preview"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(invalidate) do
+        [{"invalidate", invalidate} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(flow_id) do
+        [{"flowId", flow_id} | query_params]
       else
         query_params
       end
@@ -1593,6 +2213,122 @@ defmodule AWS.SocialMessaging do
   end
 
   @doc """
+  Lists the assets (Flow JSON definition) of a WhatsApp Flow with presigned
+  download URLs.
+
+  Download URLs are generated by Meta and expire after a short period.
+  """
+  @spec list_whats_app_flow_assets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_whats_app_flow_assets_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_whats_app_flow_assets_errors()}
+  def list_whats_app_flow_assets(
+        %Client{} = client,
+        flow_id,
+        id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/whatsapp/flow/assets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(flow_id) do
+        [{"flowId", flow_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all WhatsApp Flows for a WhatsApp Business Account.
+
+  Returns summary information including Flow ID, name, status, and categories.
+  """
+  @spec list_whats_app_flows(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_whats_app_flows_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_whats_app_flows_errors()}
+  def list_whats_app_flows(
+        %Client{} = client,
+        id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/whatsapp/flow/list"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists WhatsApp message templates for a specific WhatsApp Business Account.
   """
   @spec list_whats_app_message_templates(
@@ -1696,6 +2432,38 @@ defmodule AWS.SocialMessaging do
           | {:error, post_whats_app_message_media_errors()}
   def post_whats_app_message_media(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/media"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Publishes a WhatsApp Flow, making it available for use in template messages.
+
+  The Flow must be in DRAFT status with valid Flow JSON that passes Meta's
+  validation. This is an irreversible operation.
+  """
+  @spec publish_whats_app_flow(map(), publish_whats_app_flow_input(), list()) ::
+          {:ok, publish_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, publish_whats_app_flow_errors()}
+  def publish_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/publish"
     headers = []
     custom_headers = []
     query_params = []
@@ -1830,6 +2598,71 @@ defmodule AWS.SocialMessaging do
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags/untag-resource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the metadata of a WhatsApp Flow, such as its name or categories.
+
+  This does not update the Flow JSON definition. Use
+  [UpdateWhatsAppFlowAssets](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_UpdateWhatsAppFlowAssets.html)
+  to update the Flow JSON.
+  """
+  @spec update_whats_app_flow(map(), update_whats_app_flow_input(), list()) ::
+          {:ok, update_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_whats_app_flow_errors()}
+  def update_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/update"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the Flow JSON definition (assets) of a WhatsApp Flow.
+
+  Updating a published Flow's assets reverts it to DRAFT status, requiring
+  re-publishing.
+  """
+  @spec update_whats_app_flow_assets(map(), update_whats_app_flow_assets_input(), list()) ::
+          {:ok, update_whats_app_flow_assets_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_whats_app_flow_assets_errors()}
+  def update_whats_app_flow_assets(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/assets/update"
     headers = []
     custom_headers = []
     query_params = []

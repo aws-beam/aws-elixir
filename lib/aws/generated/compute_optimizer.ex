@@ -261,6 +261,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       ebs_effective_recommendation_preferences() :: %{
+        "lookBackPeriod" => list(any()),
         "savingsEstimationMode" => ebs_savings_estimation_mode()
       }
       
@@ -1767,6 +1768,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       e_c_s_effective_recommendation_preferences() :: %{
+        "lookBackPeriod" => list(any()),
         "savingsEstimationMode" => e_c_s_savings_estimation_mode()
       }
       

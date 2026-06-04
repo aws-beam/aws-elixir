@@ -82,6 +82,17 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      neptune_ungraceful() :: %{
+        "ungraceful" => list(any())
+      }
+      
+  """
+  @type neptune_ungraceful() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("arn") => String.t() | atom(),
         required("tags") => map()
@@ -530,6 +541,22 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      aurora_serverless_scaling_configuration() :: %{
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()],
+        "globalClusterIdentifier" => String.t() | atom(),
+        "regionDatabaseClusterArns" => map(),
+        "targetPercent" => [integer()],
+        "timeoutMinutes" => [integer()]
+      }
+      
+  """
+  @type aurora_serverless_scaling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       kubernetes_scaling_resource() :: %{
         "hpaName" => [String.t() | atom()],
         "name" => [String.t() | atom()],
@@ -944,6 +971,22 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      aurora_provisioned_scaling_configuration() :: %{
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()],
+        "globalClusterIdentifier" => String.t() | atom(),
+        "instanceArns" => map(),
+        "regionDatabaseClusterArns" => map(),
+        "timeoutMinutes" => [integer()]
+      }
+      
+  """
+  @type aurora_provisioned_scaling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       step_state() :: %{
         "endTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
@@ -1218,6 +1261,23 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      neptune_global_database_configuration() :: %{
+        "behavior" => list(any()),
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()],
+        "globalClusterIdentifier" => String.t() | atom(),
+        "regionDatabaseClusterArns" => map(),
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => neptune_ungraceful()
+      }
+      
+  """
+  @type neptune_global_database_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       approve_plan_execution_step_response() :: %{}
       
   """
@@ -1314,7 +1374,10 @@ defmodule AWS.ARCRegionswitch do
   @type list_plans_in_region_errors() :: access_denied_exception()
 
   @type list_route53_health_checks_errors() ::
-          access_denied_exception() | internal_server_exception() | resource_not_found_exception()
+          access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | illegal_argument_exception()
 
   @type list_route53_health_checks_in_region_errors() ::
           access_denied_exception()

@@ -4,22 +4,29 @@
 defmodule AWS.Connect do
   @moduledoc """
 
+  Amazon Connect now refers to a portfolio of agentic solutions for business
+  functions.
+
+  The
+  legacy product is now called Amazon Connect Customer, or simply Customer. The
+  legacy name
+  is used interchangeably in this documentation.
+
     *
 
-  [Connect Customer actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
+  [Connect Customer Customer actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
 
     *
 
-  [Connect Customer data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
+  [Connect Customer Customer data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
 
-  Connect Customer is a cloud-based contact center solution that you use to set up
-  and manage a customer contact
-  center and provide reliable customer engagement at any scale.
+  Connect Customer Customer engages customers at every touchpoint and creates
+  deeper
+  relationships with AI powered capabilities.
 
-  Connect Customer provides metrics and real-time reporting that enable you to
-  optimize contact routing. You can
-  also resolve customer issues more efficiently by getting customers in touch with
-  the appropriate agents.
+  Build and manage customer communication experiences. Connect customers to
+  agents, enable
+  intelligent routing, and track performance in real-time.
 
   There are limits to the number of Connect Customer resources that you can
   create. There are also limits to the
@@ -7971,6 +7978,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_search_summary_ai_agent_info() :: %{
+        "AiAgentEscalated" => boolean(),
+        "AiAgentVersionId" => String.t() | atom(),
+        "AiUseCase" => list(any())
+      }
+
+  """
+  @type contact_search_summary_ai_agent_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_user_hierarchy_group_response() :: %{
         "HierarchyGroupArn" => String.t() | atom(),
         "HierarchyGroupId" => String.t() | atom()
@@ -12041,6 +12061,7 @@ defmodule AWS.Connect do
 
       contact_search_summary() :: %{
         "AgentInfo" => contact_search_summary_agent_info(),
+        "AiAgentInfo" => list(contact_search_summary_ai_agent_info()),
         "Arn" => String.t() | atom(),
         "Channel" => list(any()),
         "DisconnectTimestamp" => non_neg_integer(),
@@ -13572,6 +13593,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      ai_agent_search_criteria() :: %{
+        "AiAgentEscalated" => boolean(),
+        "AiUseCase" => list(any()),
+        "Id" => String.t() | atom(),
+        "VersionNumber" => integer()
+      }
+
+  """
+  @type ai_agent_search_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_notification_request() :: %{}
 
   """
@@ -13922,6 +13957,7 @@ defmodule AWS.Connect do
         "AdditionalTimeRange" => search_contacts_additional_time_range(),
         "AgentHierarchyGroups" => agent_hierarchy_groups(),
         "AgentIds" => list(String.t() | atom()),
+        "AiAgents" => ai_agents_criteria(),
         "Channels" => list(list(any())()),
         "ContactAnalysis" => contact_analysis(),
         "ContactTags" => control_plane_tag_filter(),
@@ -15135,6 +15171,17 @@ defmodule AWS.Connect do
 
   """
   @type resource_tags_search_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ai_agents_criteria() :: %{
+        "Criteria" => list(ai_agent_search_criteria())
+      }
+
+  """
+  @type ai_agents_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

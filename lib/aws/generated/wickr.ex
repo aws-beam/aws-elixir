@@ -55,6 +55,19 @@ defmodule AWS.Wickr do
   In this reference guide, the documentation for each API has an Errors section
   that includes a brief discussion about HTTP status codes. We recommend looking
   there as part of your investigation when you get an error.
+
+  *Regional availability*
+
+  The Amazon Web Services Wickr API is available in several Amazon Web Services
+  Regions and it provides an endpoint for each of these Regions. For a list of all
+  the Regions and endpoints where the API is currently available, see [Amazon Web Services Wickr endpoints and
+  quotas](https://docs.aws.amazon.com/general/latest/gr/wickr.html) in the *Amazon
+  Web Services General Reference Guide*.
+
+  Wickr API endpoints are region-specific and include a region code in the format:
+  `https://admin.wickr.[regioncode].amazonaws.com`. For example, for the US East
+  (N.Virginia) `us-east-1`, the API endpoint is
+  `https://admin.wickr.us-east-1.amazonaws.com`.
   """
 
   alias AWS.Client
@@ -450,6 +463,20 @@ defmodule AWS.Wickr do
 
   ## Example:
 
+      consent_popup_config() :: %{
+        "closeButtonLabel" => String.t() | atom(),
+        "content" => String.t() | atom(),
+        "enabled" => [boolean()],
+        "header" => String.t() | atom()
+      }
+
+  """
+  @type consent_popup_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_user_response() :: %{
         "firstName" => String.t() | atom(),
         "isAdmin" => [boolean()],
@@ -586,6 +613,7 @@ defmodule AWS.Wickr do
   ## Example:
 
       network_settings() :: %{
+        "consentPopup" => consent_popup_config(),
         "dataRetention" => [boolean()],
         "enableClientMetrics" => [boolean()],
         "enableTrustedDataFormat" => [boolean()],
@@ -1621,6 +1649,7 @@ defmodule AWS.Wickr do
   ## Example:
 
       security_group_settings() :: %{
+        "maxNonSsoSessionMinutes" => [integer()],
         "shredder" => shredder_settings(),
         "enableRestrictedGlobalFederation" => [boolean()],
         "showMasterRecoveryKey" => [boolean()],

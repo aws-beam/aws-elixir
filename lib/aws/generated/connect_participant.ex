@@ -12,14 +12,16 @@ defmodule AWS.ConnectParticipant do
 
   [Participant Service data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Participant_Service.html)
 
-  Amazon Connect is an easy-to-use omnichannel cloud contact center service that
+  Connect Customer is an easy-to-use omnichannel cloud contact center service that
   enables companies of any size to deliver superior customer service at a lower
   cost.
 
-  Amazon Connect communications capabilities make it easy for companies to deliver
+  Connect Customer communications capabilities make it easy for companies to
+  deliver
   personalized interactions across communication channels, including chat.
 
-  Use the Amazon Connect Participant Service to manage participants (for example,
+  Use the Connect Customer Participant Service to manage participants (for
+  example,
   agents, customers, and managers listening in), and to send messages and events
   within a
   chat contact. The APIs in the service enable the following: sending chat
@@ -752,7 +754,7 @@ defmodule AWS.ConnectParticipant do
   A conflict exception is thrown when an attachment
   with that identifier is already being uploaded.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
@@ -794,9 +796,9 @@ defmodule AWS.ConnectParticipant do
   @doc """
   Creates the participant's connection.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
-  For WebRTC security recommendations, see [Amazon Connect WebRTC security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security).
+  For WebRTC security recommendations, see [Connect Customer WebRTC security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security).
 
   `ParticipantToken` is used for invoking this API instead of
   `ConnectionToken`.
@@ -912,7 +914,7 @@ defmodule AWS.ConnectParticipant do
   @doc """
   Retrieves the view for the specified view token.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
   """
   @spec describe_view(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_view_response(), any()}
@@ -940,7 +942,7 @@ defmodule AWS.ConnectParticipant do
   @doc """
   Disconnects a participant.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
@@ -985,7 +987,7 @@ defmodule AWS.ConnectParticipant do
   This is an
   asynchronous API for use with active contacts.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
     
   The participant role `CUSTOM_BOT` is not permitted to access
@@ -1036,7 +1038,7 @@ defmodule AWS.ConnectParticipant do
   Retrieves the AuthenticationUrl for the current authentication session for the
   AuthenticateCustomer flow block.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
     
   This API can only be called within one minute of receiving the
@@ -1091,7 +1093,7 @@ defmodule AWS.ConnectParticipant do
   see
   [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html).
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   If you have a process that consumes events in the transcript of an chat that has
   ended, note that chat transcripts contain the following event content types if
@@ -1175,7 +1177,7 @@ defmodule AWS.ConnectParticipant do
   supervisor
   is barged-in will result in a conflict exception.
 
-  For security recommendations, see [Amazon Connect Chat security best
+  For security recommendations, see [Connect Customer Chat security best
   practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
@@ -1218,7 +1220,7 @@ defmodule AWS.ConnectParticipant do
   @doc """
   Sends a message.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
@@ -1262,7 +1264,7 @@ defmodule AWS.ConnectParticipant do
   to
   S3.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.

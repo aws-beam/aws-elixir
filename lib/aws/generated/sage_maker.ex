@@ -1743,6 +1743,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_model_package_input() :: %{
+        optional("IncludedData") => list(any()),
         required("ModelPackageName") => String.t() | atom()
       }
       
@@ -13932,6 +13933,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_model_card_request() :: %{
+        optional("IncludedData") => list(any()),
         optional("ModelCardVersion") => integer(),
         required("ModelCardName") => String.t() | atom()
       }
@@ -16293,6 +16295,30 @@ defmodule AWS.SageMaker do
       
   """
   @type create_user_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job() :: %{
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "FailureReason" => String.t() | atom(),
+        "JobArn" => String.t() | atom(),
+        "JobCategory" => list(any()),
+        "JobConfigDocument" => String.t() | atom(),
+        "JobConfigSchemaVersion" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "RoleArn" => String.t() | atom(),
+        "SecondaryStatus" => list(any()),
+        "SecondaryStatusTransitions" => list(job_secondary_status_transition()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19840,6 +19866,7 @@ defmodule AWS.SageMaker do
         "FeatureGroup" => feature_group(),
         "FeatureMetadata" => feature_metadata(),
         "HyperParameterTuningJob" => hyper_parameter_tuning_job_search_entity(),
+        "Job" => job(),
         "Model" => model_dashboard_model(),
         "ModelCard" => model_card(),
         "ModelPackage" => model_package(),
@@ -26045,6 +26072,12 @@ defmodule AWS.SageMaker do
   @doc """
   Describes the content, creation time, and security configuration of an Amazon
   SageMaker Model Card.
+
+  To retrieve only metadata about a model card without requiring `kms:Decrypt`
+  permission on the associated customer-managed Amazon Web Services KMS key, set
+  `IncludedData` to `MetadataOnly`. The default is `AllData`, which returns the
+  full model card `Content` and requires `kms:Decrypt` permission when a
+  customer-managed key is configured.
   """
   @spec describe_model_card(map(), describe_model_card_request(), list()) ::
           {:ok, describe_model_card_response(), any()}
@@ -26095,7 +26128,10 @@ defmodule AWS.SageMaker do
 
   If you provided a KMS Key ID when you created your model package, you will see
   the [KMS Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)
-  API call in your CloudTrail logs when you use this API.
+  API call in your CloudTrail logs when you use this API. To call this operation
+  without requiring `kms:Decrypt` permission on the customer-managed key, set
+  `IncludedData` to `MetadataOnly`; the response is returned with the embedded
+  `ModelCard.ModelCardContent` field sanitized.
 
   To create models in SageMaker, buyers can subscribe to model packages listed on
   Amazon Web Services Marketplace.

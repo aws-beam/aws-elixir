@@ -55,6 +55,21 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      start_session_output() :: %{
+        "AccountId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "ClusterId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type start_session_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_auto_termination_policy_input() :: %{
         required("ClusterId") => String.t() | atom()
       }
@@ -294,6 +309,18 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      certificate_authority() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "CertificateData" => String.t() | atom()
+      }
+      
+  """
+  @type certificate_authority() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_step_output() :: %{
         "Step" => step()
       }
@@ -359,6 +386,18 @@ defmodule AWS.EMR do
       
   """
   @type step_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_session_input() :: %{
+        required("ClusterId") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type terminate_session_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -459,6 +498,18 @@ defmodule AWS.EMR do
       
   """
   @type spot_resizing_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_managed_logging_configuration() :: %{
+        "Enabled" => boolean(),
+        "EncryptionKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type session_managed_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -574,6 +625,7 @@ defmodule AWS.EMR do
   ## Example:
       
       add_tags_input() :: %{
+        optional("ClusterId") => String.t() | atom(),
         required("ResourceId") => String.t() | atom(),
         required("Tags") => list(tag())
       }
@@ -594,6 +646,21 @@ defmodule AWS.EMR do
       
   """
   @type hadoop_step_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_cloud_watch_logging_configuration() :: %{
+        "Enabled" => boolean(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "LogGroup" => String.t() | atom(),
+        "LogStreamNamePrefix" => String.t() | atom(),
+        "LogTypes" => map()
+      }
+      
+  """
+  @type session_cloud_watch_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -775,6 +842,24 @@ defmodule AWS.EMR do
       
   """
   @type remove_tags_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_session_input() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("EngineConfigurations") => list(configuration()),
+        optional("ExecutionRoleArn") => String.t() | atom(),
+        optional("MonitoringConfiguration") => session_monitoring_configuration(),
+        optional("Name") => String.t() | atom(),
+        optional("SessionIdleTimeoutInMinutes") => float(),
+        optional("Tags") => list(tag()),
+        required("ClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type start_session_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,6 +1233,18 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      get_session_input() :: %{
+        required("ClusterId") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type get_session_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_security_configuration_input() :: %{
         required("Name") => String.t() | atom()
       }
@@ -1161,6 +1258,7 @@ defmodule AWS.EMR do
       
       cluster() :: %{
         "Status" => cluster_status(),
+        "SessionEnabled" => boolean(),
         "SecurityConfiguration" => String.t() | atom(),
         "AutoScalingRole" => String.t() | atom(),
         "TerminationProtected" => boolean(),
@@ -1438,6 +1536,17 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      get_session_output() :: %{
+        "Session" => session()
+      }
+      
+  """
+  @type get_session_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_fleet_resizing_specifications() :: %{
         "OnDemandResizeSpecification" => on_demand_resizing_specification(),
         "SpotResizeSpecification" => spot_resizing_specification()
@@ -1641,6 +1750,36 @@ defmodule AWS.EMR do
       
   """
   @type instance_resize_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session() :: %{
+        "AccountId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CertificateAuthority" => certificate_authority(),
+        "ClusterId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "EndedAt" => non_neg_integer(),
+        "EngineConfigurations" => list(configuration()),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IdleSince" => non_neg_integer(),
+        "MonitoringConfiguration" => session_monitoring_configuration(),
+        "Name" => String.t() | atom(),
+        "ReleaseLabel" => String.t() | atom(),
+        "ServerUrl" => String.t() | atom(),
+        "SessionIdleTimeoutInMinutes" => float(),
+        "StartedAt" => non_neg_integer(),
+        "State" => list(any()),
+        "StateChangeReason" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1979,6 +2118,18 @@ defmodule AWS.EMR do
       
   """
   @type instance_timeline() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_session_endpoint_input() :: %{
+        required("ClusterId") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type get_session_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2360,6 +2511,19 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      terminate_session_output() :: %{
+        "ClusterId" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type terminate_session_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       job_flow_execution_status_detail() :: %{
         "CreationDateTime" => non_neg_integer(),
         "EndDateTime" => non_neg_integer(),
@@ -2502,6 +2666,18 @@ defmodule AWS.EMR do
       
   """
   @type shrink_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sessions_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Sessions" => list(session())
+      }
+      
+  """
+  @type list_sessions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2710,6 +2886,20 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      get_session_endpoint_output() :: %{
+        "AuthToken" => String.t() | atom(),
+        "AuthTokenExpirationTime" => non_neg_integer(),
+        "Credentials" => list(),
+        "Endpoint" => String.t() | atom()
+      }
+      
+  """
+  @type get_session_endpoint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_cluster_input() :: %{
         required("ClusterId") => String.t() | atom()
       }
@@ -2722,6 +2912,7 @@ defmodule AWS.EMR do
   ## Example:
       
       remove_tags_input() :: %{
+        optional("ClusterId") => String.t() | atom(),
         required("ResourceId") => String.t() | atom(),
         required("TagKeys") => list(String.t() | atom())
       }
@@ -2914,6 +3105,20 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      list_sessions_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SessionStates") => list(list(any())()),
+        required("ClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type list_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_type_specification() :: %{
         "BidPrice" => String.t() | atom(),
         "BidPriceAsPercentageOfOnDemandPrice" => float(),
@@ -2962,6 +3167,7 @@ defmodule AWS.EMR do
         optional("AutoTerminationPolicy") => auto_termination_policy(),
         optional("ExtendedSupport") => boolean(),
         optional("EbsRootVolumeThroughput") => integer(),
+        optional("SessionEnabled") => boolean(),
         optional("Configurations") => list(configuration()),
         optional("BootstrapActions") => list(bootstrap_action_config()),
         optional("Tags") => list(tag()),
@@ -2984,6 +3190,33 @@ defmodule AWS.EMR do
       
   """
   @type create_security_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_monitoring_configuration() :: %{
+        "CloudWatchLoggingConfiguration" => session_cloud_watch_logging_configuration(),
+        "ManagedLoggingConfiguration" => session_managed_logging_configuration(),
+        "S3LoggingConfiguration" => session_s3_logging_configuration()
+      }
+      
+  """
+  @type session_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_s3_logging_configuration() :: %{
+        "Enabled" => boolean(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "LogTypes" => map(),
+        "LogUri" => String.t() | atom()
+      }
+      
+  """
+  @type session_s3_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3060,6 +3293,10 @@ defmodule AWS.EMR do
   @type get_persistent_app_ui_presigned_url_errors() ::
           internal_server_error() | invalid_request_exception()
 
+  @type get_session_errors() :: internal_server_exception() | invalid_request_exception()
+
+  @type get_session_endpoint_errors() :: internal_server_exception() | invalid_request_exception()
+
   @type get_studio_session_mapping_errors() ::
           internal_server_error() | invalid_request_exception()
 
@@ -3080,6 +3317,8 @@ defmodule AWS.EMR do
 
   @type list_security_configurations_errors() ::
           internal_server_exception() | invalid_request_exception()
+
+  @type list_sessions_errors() :: internal_server_exception() | invalid_request_exception()
 
   @type list_steps_errors() :: internal_server_exception() | invalid_request_exception()
 
@@ -3116,9 +3355,13 @@ defmodule AWS.EMR do
   @type start_notebook_execution_errors() ::
           internal_server_exception() | invalid_request_exception()
 
+  @type start_session_errors() :: internal_server_exception() | invalid_request_exception()
+
   @type stop_notebook_execution_errors() :: internal_server_error() | invalid_request_exception()
 
   @type terminate_job_flows_errors() :: internal_server_error()
+
+  @type terminate_session_errors() :: internal_server_exception() | invalid_request_exception()
 
   @type update_studio_errors() :: internal_server_exception() | invalid_request_exception()
 
@@ -3623,6 +3866,38 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Returns detailed information about a session.
+  """
+  @spec get_session(map(), get_session_input(), list()) ::
+          {:ok, get_session_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_session_errors()}
+  def get_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSession", input, options)
+  end
+
+  @doc """
+  Returns the Spark Connect endpoint URL and a time-limited authentication token
+  for the specified session.
+
+  Use the endpoint and token to connect a PySpark client to the session. Call this
+  operation again when the token expires to obtain a new one.
+  """
+  @spec get_session_endpoint(map(), get_session_endpoint_input(), list()) ::
+          {:ok, get_session_endpoint_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_session_endpoint_errors()}
+  def get_session_endpoint(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSessionEndpoint", input, options)
+  end
+
+  @doc """
   Fetches mapping details for the specified Amazon EMR Studio and identity (user
   or group).
   """
@@ -3779,6 +4054,22 @@ defmodule AWS.EMR do
     meta = metadata()
 
     Request.request_post(client, meta, "ListSecurityConfigurations", input, options)
+  end
+
+  @doc """
+  Lists the sessions on a cluster.
+
+  You can filter the results by session state. Newer sessions are returned first.
+  """
+  @spec list_sessions(map(), list_sessions_input(), list()) ::
+          {:ok, list_sessions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sessions_errors()}
+  def list_sessions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSessions", input, options)
   end
 
   @doc """
@@ -4257,6 +4548,23 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Creates and starts a new Spark Connect session on the specified cluster.
+
+  The cluster must be in the `RUNNING` or `WAITING` state and have sessions
+  enabled. This operation is supported in Amazon EMR Spark 8.0.0 and later.
+  """
+  @spec start_session(map(), start_session_input(), list()) ::
+          {:ok, start_session_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_session_errors()}
+  def start_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSession", input, options)
+  end
+
+  @doc """
   Stops a notebook execution.
   """
   @spec stop_notebook_execution(map(), stop_notebook_execution_input(), list()) ::
@@ -4295,6 +4603,23 @@ defmodule AWS.EMR do
     meta = metadata()
 
     Request.request_post(client, meta, "TerminateJobFlows", input, options)
+  end
+
+  @doc """
+  Terminates an active session.
+
+  After you call this operation, the session enters the `TERMINATING` state and
+  then transitions to `TERMINATED`.
+  """
+  @spec terminate_session(map(), terminate_session_input(), list()) ::
+          {:ok, terminate_session_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, terminate_session_errors()}
+  def terminate_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateSession", input, options)
   end
 
   @doc """

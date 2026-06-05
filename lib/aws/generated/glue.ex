@@ -182,6 +182,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_dashboard_url_request() :: %{
+        optional("RequestOrigin") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom(),
+        required("ResourceType") => list(any())
+      }
+      
+  """
+  @type get_dashboard_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       integration_config() :: %{
         "ContinuousSync" => boolean(),
         "RefreshInterval" => String.t() | atom(),
@@ -1640,6 +1653,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_session_endpoint_response() :: %{
+        "SparkConnect" => session_endpoint()
+      }
+      
+  """
+  @type get_session_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_table_optimizer_response() :: %{}
       
   """
@@ -2955,6 +2979,17 @@ defmodule AWS.Glue do
       
   """
   @type get_user_defined_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_session_endpoint_request() :: %{
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type get_session_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4970,6 +5005,7 @@ defmodule AWS.Glue do
         optional("NumberOfWorkers") => integer(),
         optional("RequestOrigin") => String.t() | atom(),
         optional("SecurityConfiguration") => String.t() | atom(),
+        optional("SessionType") => list(any()),
         optional("Tags") => map(),
         optional("Timeout") => integer(),
         optional("WorkerType") => list(any()),
@@ -6439,6 +6475,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      session_busy_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type session_busy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       workflow_graph() :: %{
         "Edges" => list(edge()),
         "Nodes" => list(node())
@@ -6508,6 +6555,17 @@ defmodule AWS.Glue do
       
   """
   @type dynamo_db_e_l_t_connector_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dashboard_url_response() :: %{
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type get_dashboard_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7913,6 +7971,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      session_endpoint() :: %{
+        "AuthToken" => String.t() | atom(),
+        "AuthTokenExpirationTime" => non_neg_integer(),
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type session_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_csv_classifier_request() :: %{
         "AllowSingleColumn" => boolean(),
         "ContainsHeader" => list(any()),
@@ -8236,6 +8307,7 @@ defmodule AWS.Glue do
         "Progress" => float(),
         "Role" => String.t() | atom(),
         "SecurityConfiguration" => String.t() | atom(),
+        "SessionType" => list(any()),
         "Status" => list(any()),
         "WorkerType" => list(any())
       }
@@ -14059,7 +14131,8 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
 
   @type create_session_errors() ::
-          validation_exception()
+          operation_not_supported_exception()
+          | validation_exception()
           | access_denied_exception()
           | invalid_input_exception()
           | idempotent_parameter_mismatch_exception()
@@ -14475,6 +14548,13 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type get_dashboard_url_errors() ::
+          operation_not_supported_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
   @type get_data_catalog_encryption_settings_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
 
@@ -14737,6 +14817,15 @@ defmodule AWS.Glue do
           access_denied_exception()
           | invalid_input_exception()
           | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_session_endpoint_errors() ::
+          operation_not_supported_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | illegal_session_state_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
 
@@ -15090,9 +15179,11 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
 
   @type run_statement_errors() ::
-          validation_exception()
+          operation_not_supported_exception()
+          | validation_exception()
           | access_denied_exception()
           | invalid_input_exception()
+          | session_busy_exception()
           | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | illegal_session_state_exception()
@@ -17357,6 +17448,20 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieves the URL for the Spark monitoring dashboard for a Glue resource.
+  """
+  @spec get_dashboard_url(map(), get_dashboard_url_request(), list()) ::
+          {:ok, get_dashboard_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_dashboard_url_errors()}
+  def get_dashboard_url(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDashboardUrl", input, options)
+  end
+
+  @doc """
   Retrieves the security configuration for a specified catalog.
   """
   @spec get_data_catalog_encryption_settings(
@@ -18060,6 +18165,21 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "GetSession", input, options)
+  end
+
+  @doc """
+  Returns the Spark Connect endpoint URL and authentication token for an
+  interactive session.
+  """
+  @spec get_session_endpoint(map(), get_session_endpoint_request(), list()) ::
+          {:ok, get_session_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_session_endpoint_errors()}
+  def get_session_endpoint(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetSessionEndpoint", input, options)
   end
 
   @doc """

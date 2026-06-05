@@ -400,6 +400,7 @@ defmodule AWS.Config do
         "EvaluationModes" => list(evaluation_mode_configuration()),
         "InputParameters" => String.t() | atom(),
         "MaximumExecutionFrequency" => list(any()),
+        "RuleEvaluationVisibility" => list(any()),
         "Scope" => scope(),
         "Source" => source()
       }
@@ -1076,7 +1077,8 @@ defmodule AWS.Config do
   ## Example:
       
       describe_config_rules_filters() :: %{
-        "EvaluationMode" => list(any())
+        "EvaluationMode" => list(any()),
+        "RuleEvaluationVisibility" => list(any())
       }
       
   """
@@ -2735,6 +2737,7 @@ defmodule AWS.Config do
       scope() :: %{
         "ComplianceResourceId" => String.t() | atom(),
         "ComplianceResourceTypes" => list(String.t() | atom()),
+        "ServicePrincipals" => list(String.t() | atom()),
         "TagKey" => String.t() | atom(),
         "TagValue" => String.t() | atom()
       }

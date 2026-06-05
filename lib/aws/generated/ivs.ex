@@ -333,6 +333,19 @@ defmodule AWS.Ivs do
 
   ## Example:
 
+      update_ad_configuration_request() :: %{
+        optional("mediaTailorPlaybackConfigurations") => list(media_tailor_playback_configuration()),
+        optional("name") => String.t() | atom(),
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type update_ad_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_stream_sessions_response() :: %{
         optional("nextToken") => String.t() | atom(),
         required("streamSessions") => list(stream_session_summary())
@@ -734,6 +747,17 @@ defmodule AWS.Ivs do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ad_configuration_response() :: %{
+        "adConfiguration" => ad_configuration()
+      }
+
+  """
+  @type update_ad_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1888,6 +1912,16 @@ defmodule AWS.Ivs do
 
   @type untag_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_ad_configuration_errors() ::
+          pending_verification()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_channel_errors() ::
           pending_verification()
@@ -3153,6 +3187,35 @@ defmodule AWS.Ivs do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a specified ad configuration.
+  """
+  @spec update_ad_configuration(map(), update_ad_configuration_request(), list()) ::
+          {:ok, update_ad_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_ad_configuration_errors()}
+  def update_ad_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateAdConfiguration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

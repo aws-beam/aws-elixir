@@ -4232,13 +4232,13 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Creates a client-add-in for Amazon Connect within a directory.
+  Creates a client-add-in for Connect Customer within a directory.
 
   You can create only
-  one Amazon Connect client add-in within a directory.
+  one Connect Customer client add-in within a directory.
 
-  This client add-in allows WorkSpaces users to seamlessly connect to Amazon
-  Connect.
+  This client add-in allows WorkSpaces users to seamlessly connect to Connect
+  Customer.
   """
   @spec create_connect_client_add_in(map(), create_connect_client_add_in_request(), list()) ::
           {:ok, create_connect_client_add_in_result(), any()}
@@ -4488,7 +4488,7 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Deletes a client-add-in for Amazon Connect that is configured within a
+  Deletes a client-add-in for Connect Customer that is configured within a
   directory.
   """
   @spec delete_connect_client_add_in(map(), delete_connect_client_add_in_request(), list()) ::
@@ -4769,7 +4769,7 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Retrieves a list of Amazon Connect client add-ins that have been created.
+  Retrieves a list of Connect Customer client add-ins that have been created.
   """
   @spec describe_connect_client_add_ins(map(), describe_connect_client_add_ins_request(), list()) ::
           {:ok, describe_connect_client_add_ins_result(), any()}
@@ -5744,10 +5744,10 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Updates a Amazon Connect client add-in.
+  Updates a Connect Customer client add-in.
 
   Use this action to update the name and
-  endpoint URL of a Amazon Connect client add-in.
+  endpoint URL of a Connect Customer client add-in.
   """
   @spec update_connect_client_add_in(map(), update_connect_client_add_in_request(), list()) ::
           {:ok, update_connect_client_add_in_result(), any()}

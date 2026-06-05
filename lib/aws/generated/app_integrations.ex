@@ -17,9 +17,9 @@ defmodule AWS.AppIntegrations do
   connections to external
   applications.
 
-  For information about how you can use external applications with Amazon Connect,
-  see
-  the following topics in the *Amazon Connect Administrator
+  For information about how you can use external applications with Connect
+  Customer, see
+  the following topics in the *Connect Customer Administrator
   Guide*:
 
     *

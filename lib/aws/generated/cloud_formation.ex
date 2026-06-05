@@ -11,8 +11,8 @@ defmodule AWS.CloudFormation do
 
   You can use CloudFormation to leverage Amazon Web Services products, such as
   Amazon Elastic Compute Cloud, Amazon Elastic Block Store,
-  Amazon Simple Notification Service, ELB, and Amazon EC2 Auto Scaling to build
-  highly reliable, highly scalable, cost-effective
+  Amazon Simple Notification Service, Elastic Load Balancing, and Amazon EC2 Auto
+  Scaling to build highly reliable, highly scalable, cost-effective
   applications without creating or configuring the underlying Amazon Web Services
   infrastructure.
 

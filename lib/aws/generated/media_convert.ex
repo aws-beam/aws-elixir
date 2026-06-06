@@ -1363,6 +1363,7 @@ defmodule AWS.MediaConvert do
         "FragmentLength" => integer(),
         "ImageBasedTrickPlay" => list(any()),
         "ImageBasedTrickPlaySettings" => cmaf_image_based_trick_play_settings(),
+        "ImageBasedTrickPlayVariants" => list(cmaf_image_based_trick_play_variant()),
         "ManifestCompression" => list(any()),
         "ManifestDurationFormat" => list(any()),
         "MinBufferTime" => integer(),
@@ -1524,6 +1525,18 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      content_light_level() :: %{
+        "MaxContentLightLevel" => integer(),
+        "MaxFrameAverageLightLevel" => integer()
+      }
+
+  """
+  @type content_light_level() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       video_overlay_input_clipping() :: %{
         "EndTimecode" => String.t() | atom(),
         "StartTimecode" => String.t() | atom()
@@ -1640,6 +1653,22 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      hls_image_based_trick_play_variant() :: %{
+        "IntervalCadence" => list(any()),
+        "ThumbnailHeight" => integer(),
+        "ThumbnailInterval" => float(),
+        "ThumbnailWidth" => integer(),
+        "TileHeight" => integer(),
+        "TileWidth" => integer()
+      }
+
+  """
+  @type hls_image_based_trick_play_variant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       output_group() :: %{
         "AutomatedEncodingSettings" => automated_encoding_settings(),
         "CustomName" => String.t() | atom(),
@@ -1738,6 +1767,22 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      cmaf_image_based_trick_play_variant() :: %{
+        "IntervalCadence" => list(any()),
+        "ThumbnailHeight" => integer(),
+        "ThumbnailInterval" => float(),
+        "ThumbnailWidth" => integer(),
+        "TileHeight" => integer(),
+        "TileWidth" => integer()
+      }
+
+  """
+  @type cmaf_image_based_trick_play_variant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       video_codec_settings() :: %{
         "Av1Settings" => av1_settings(),
         "AvcIntraSettings" => avc_intra_settings(),
@@ -1792,6 +1837,7 @@ defmodule AWS.MediaConvert do
         "Channels" => integer(),
         "FrameRate" => frame_rate(),
         "LanguageCode" => String.t() | atom(),
+        "ObjectCount" => integer(),
         "SampleRate" => integer()
       }
 
@@ -1994,6 +2040,22 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      dash_iso_image_based_trick_play_variant() :: %{
+        "IntervalCadence" => list(any()),
+        "ThumbnailHeight" => integer(),
+        "ThumbnailInterval" => float(),
+        "ThumbnailWidth" => integer(),
+        "TileHeight" => integer(),
+        "TileWidth" => integer()
+      }
+
+  """
+  @type dash_iso_image_based_trick_play_variant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       h265_settings() :: %{
         "PerFrameMetrics" => list(list(any())()),
         "MvTemporalPredictor" => list(any()),
@@ -2092,6 +2154,26 @@ defmodule AWS.MediaConvert do
 
   """
   @type file_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mastering_display_color_volume() :: %{
+        "BluePrimaryX" => integer(),
+        "BluePrimaryY" => integer(),
+        "GreenPrimaryX" => integer(),
+        "GreenPrimaryY" => integer(),
+        "MaxLuminance" => float(),
+        "MinLuminance" => float(),
+        "RedPrimaryX" => integer(),
+        "RedPrimaryY" => integer(),
+        "WhitePointX" => integer(),
+        "WhitePointY" => integer()
+      }
+
+  """
+  @type mastering_display_color_volume() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2402,38 +2484,39 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       hls_group_settings() :: %{
-        "AdMarkers" => list(list(any())()),
-        "AdditionalManifests" => list(hls_additional_manifest()),
-        "AudioOnlyHeader" => list(any()),
-        "BaseUrl" => String.t() | atom(),
-        "CaptionLanguageMappings" => list(hls_caption_language_mapping()),
-        "CaptionLanguageSetting" => list(any()),
-        "CaptionSegmentLengthControl" => list(any()),
-        "ClientCache" => list(any()),
-        "CodecSpecification" => list(any()),
-        "Destination" => String.t() | atom(),
-        "DestinationSettings" => destination_settings(),
+        "TimestampDeltaMilliseconds" => integer(),
         "DirectoryStructure" => list(any()),
-        "Encryption" => hls_encryption_settings(),
-        "ImageBasedTrickPlay" => list(any()),
-        "ImageBasedTrickPlaySettings" => hls_image_based_trick_play_settings(),
-        "ManifestCompression" => list(any()),
-        "ManifestDurationFormat" => list(any()),
         "MinFinalSegmentLength" => float(),
-        "MinSegmentLength" => integer(),
-        "OutputSelection" => list(any()),
-        "ProgramDateTime" => list(any()),
-        "ProgramDateTimePeriod" => integer(),
         "ProgressiveWriteHlsManifest" => list(any()),
-        "SegmentControl" => list(any()),
-        "SegmentLength" => integer(),
-        "SegmentLengthControl" => list(any()),
-        "SegmentsPerSubdirectory" => integer(),
         "StreamInfResolution" => list(any()),
-        "TargetDurationCompatibilityMode" => list(any()),
+        "Encryption" => hls_encryption_settings(),
+        "SegmentLengthControl" => list(any()),
+        "ClientCache" => list(any()),
+        "DestinationSettings" => destination_settings(),
+        "SegmentLength" => integer(),
+        "CaptionLanguageSetting" => list(any()),
+        "SegmentControl" => list(any()),
+        "AdditionalManifests" => list(hls_additional_manifest()),
+        "BaseUrl" => String.t() | atom(),
+        "Destination" => String.t() | atom(),
+        "OutputSelection" => list(any()),
+        "CaptionLanguageMappings" => list(hls_caption_language_mapping()),
         "TimedMetadataId3Frame" => list(any()),
+        "SegmentsPerSubdirectory" => integer(),
+        "ImageBasedTrickPlayVariants" => list(hls_image_based_trick_play_variant()),
+        "ManifestCompression" => list(any()),
+        "ProgramDateTimePeriod" => integer(),
         "TimedMetadataId3Period" => integer(),
-        "TimestampDeltaMilliseconds" => integer()
+        "MinSegmentLength" => integer(),
+        "AudioOnlyHeader" => list(any()),
+        "ProgramDateTime" => list(any()),
+        "CodecSpecification" => list(any()),
+        "ManifestDurationFormat" => list(any()),
+        "ImageBasedTrickPlay" => list(any()),
+        "TargetDurationCompatibilityMode" => list(any()),
+        "AdMarkers" => list(list(any())()),
+        "CaptionSegmentLengthControl" => list(any()),
+        "ImageBasedTrickPlaySettings" => hls_image_based_trick_play_settings()
       }
 
   """
@@ -2710,8 +2793,10 @@ defmodule AWS.MediaConvert do
         "CodecMetadata" => codec_metadata(),
         "ColorPrimaries" => list(any()),
         "FrameRate" => frame_rate(),
+        "HdrMetadata" => hdr_metadata(),
         "Height" => integer(),
         "MatrixCoefficients" => list(any()),
+        "Rotation" => integer(),
         "TransferCharacteristics" => list(any()),
         "Width" => integer()
       }
@@ -2743,6 +2828,18 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      hdr_metadata() :: %{
+        "ContentLightLevel" => content_light_level(),
+        "MasteringDisplayColorVolume" => mastering_display_color_volume()
+      }
+
+  """
+  @type hdr_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       queue_transition() :: %{
         "DestinationQueue" => String.t() | atom(),
         "SourceQueue" => String.t() | atom(),
@@ -2761,10 +2858,12 @@ defmodule AWS.MediaConvert do
         "ChromaSubsampling" => String.t() | atom(),
         "CodedFrameRate" => frame_rate(),
         "ColorPrimaries" => list(any()),
+        "ContentLightLevel" => content_light_level(),
         "Height" => integer(),
         "Level" => String.t() | atom(),
         "MatrixCoefficients" => list(any()),
         "Profile" => String.t() | atom(),
+        "Rotation" => integer(),
         "ScanType" => String.t() | atom(),
         "TransferCharacteristics" => list(any()),
         "Width" => integer()
@@ -3365,7 +3464,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       cmaf_encryption_settings() :: %{
-        "ClearLead" => list(any()),
+        "ClearLeadSegments" => integer(),
         "ConstantInitializationVector" => String.t() | atom(),
         "EncryptionMethod" => list(any()),
         "InitializationVectorInManifest" => list(any()),
@@ -3977,6 +4076,7 @@ defmodule AWS.MediaConvert do
         "HbbtvCompliance" => list(any()),
         "ImageBasedTrickPlay" => list(any()),
         "ImageBasedTrickPlaySettings" => dash_iso_image_based_trick_play_settings(),
+        "ImageBasedTrickPlayVariants" => list(dash_iso_image_based_trick_play_variant()),
         "MinBufferTime" => integer(),
         "MinFinalSegmentLength" => float(),
         "MpdManifestBandwidthType" => list(any()),
@@ -5698,10 +5798,10 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Add tags to a MediaConvert queue, preset, or job template.
+  Add tags to a MediaConvert queue, preset, job, or job template.
 
   For information about tagging, see the User Guide at
-  https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
+  https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-mediaconvert-resources.html.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -5730,10 +5830,10 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Remove tags from a MediaConvert queue, preset, or job template.
+  Remove tags from a MediaConvert queue, preset, job, or job template.
 
   For information about tagging, see the User Guide at
-  https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
+  https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-mediaconvert-resources.html.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

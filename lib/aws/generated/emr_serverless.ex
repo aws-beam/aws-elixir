@@ -55,6 +55,7 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       image_configuration_input() :: %{
+        "applicationLevelDigestResolution" => [boolean()],
         "imageUri" => String.t() | atom()
       }
 
@@ -228,6 +229,7 @@ defmodule AWS.EMRServerless do
         "executionIamPolicy" => job_run_execution_iam_policy(),
         "executionRole" => String.t() | atom(),
         "executionTimeoutMinutes" => float(),
+        "imageConfiguration" => image_configuration(),
         "jobDriver" => list(),
         "jobRunId" => String.t() | atom(),
         "mode" => String.t() | atom(),
@@ -242,7 +244,8 @@ defmodule AWS.EMRServerless do
         "tags" => map(),
         "totalExecutionDurationSeconds" => [integer()],
         "totalResourceUtilization" => total_resource_utilization(),
-        "updatedAt" => non_neg_integer()
+        "updatedAt" => non_neg_integer(),
+        "workerTypeSpecifications" => map()
       }
 
   """
@@ -1133,6 +1136,7 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       image_configuration() :: %{
+        "applicationLevelDigestResolution" => [boolean()],
         "imageUri" => String.t() | atom(),
         "resolvedImageDigest" => String.t() | atom()
       }

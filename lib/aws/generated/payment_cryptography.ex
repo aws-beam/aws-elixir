@@ -591,6 +591,17 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      cfn_key_item() :: %{
+        "Policy" => String.t() | atom()
+      }
+      
+  """
+  @type cfn_key_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_tr31_key_block() :: %{
         "WrappedKeyBlock" => String.t() | atom(),
         "WrappingKeyIdentifier" => String.t() | atom()

@@ -6118,6 +6118,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       a_i_recommendation_output_config() :: %{
+        "MlflowConfig" => a_i_mlflow_config(),
         "ModelPackageGroupIdentifier" => String.t() | atom(),
         "S3OutputLocation" => String.t() | atom()
       }
@@ -11120,6 +11121,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      a_i_mlflow_config() :: %{
+        "MlflowExperimentName" => String.t() | atom(),
+        "MlflowResourceArn" => String.t() | atom(),
+        "MlflowRunName" => String.t() | atom()
+      }
+      
+  """
+  @type a_i_mlflow_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_quality_job_input() :: %{
         "BatchTransformInput" => batch_transform_input(),
         "EndpointInput" => endpoint_input(),
@@ -14395,6 +14409,7 @@ defmodule AWS.SageMaker do
       
       a_i_benchmark_output_result() :: %{
         "CloudWatchLogs" => list(a_i_cloud_watch_logs()),
+        "MlflowConfig" => a_i_mlflow_config(),
         "S3OutputLocation" => String.t() | atom()
       }
       
@@ -17041,6 +17056,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       a_i_recommendation_output_result() :: %{
+        "MlflowConfig" => a_i_mlflow_config(),
         "ModelPackageGroupIdentifier" => String.t() | atom(),
         "S3OutputLocation" => String.t() | atom()
       }
@@ -18240,6 +18256,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       a_i_benchmark_output_config() :: %{
+        "MlflowConfig" => a_i_mlflow_config(),
         "S3OutputLocation" => String.t() | atom()
       }
       

@@ -220,6 +220,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      knowledge_base_configuration() :: %{
+        "eventEnabled" => boolean(),
+        "templateConfiguration" => kb_template_configuration()
+      }
+
+  """
+  @type knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_dashboard_permissions_response() :: %{
         "DashboardArn" => String.t() | atom(),
         "DashboardId" => String.t() | atom(),
@@ -710,6 +722,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      batch_delete_knowledge_base_success() :: %{
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "KnowledgeBaseId" => String.t() | atom()
+      }
+
+  """
+  @type batch_delete_knowledge_base_success() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       table_path_element() :: %{
         "Id" => String.t() | atom(),
         "Name" => String.t() | atom()
@@ -787,6 +811,19 @@ defmodule AWS.QuickSight do
 
   """
   @type data_stories_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_extraction_configuration() :: %{
+        "audioExtractionConfiguration" => audio_extraction_configuration(),
+        "imageExtractionConfiguration" => image_extraction_configuration(),
+        "videoExtractionConfiguration" => video_extraction_configuration()
+      }
+
+  """
+  @type media_extraction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1540,6 +1577,22 @@ defmodule AWS.QuickSight do
 
   """
   @type get_identity_context_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_index_capacity_request() :: %{
+        optional("filters") => list(list()),
+        optional("maxResults") => integer(),
+        optional("namespace") => String.t() | atom(),
+        optional("nextToken") => [String.t() | atom()],
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_users_index_capacity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2701,6 +2754,25 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      user_index_capacity() :: %{
+        "email" => [String.t() | atom()],
+        "kbCount" => integer(),
+        "role" => [String.t() | atom()],
+        "spaceCount" => integer(),
+        "totalCapacityBytes" => float(),
+        "totalKBCapacityBytes" => float(),
+        "totalSpaceCapacityBytes" => float(),
+        "userArn" => [String.t() | atom()],
+        "userName" => [String.t() | atom()]
+      }
+
+  """
+  @type user_index_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       read_iam_connection_metadata() :: %{
         "RoleArn" => String.t() | atom(),
         "SourceArn" => String.t() | atom()
@@ -2734,6 +2806,19 @@ defmodule AWS.QuickSight do
 
   """
   @type list_space_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_knowledge_base_failure() :: %{
+        "ErrorCode" => [String.t() | atom()],
+        "ErrorMessage" => [String.t() | atom()],
+        "KnowledgeBaseId" => String.t() | atom()
+      }
+
+  """
+  @type batch_delete_knowledge_base_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4161,6 +4246,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_knowledge_base_permissions_request() :: %{
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
+      }
+
+  """
+  @type update_knowledge_base_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dashboard_version() :: %{
         "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
@@ -4745,6 +4842,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      video_extraction_configuration() :: %{
+        "videoExtractionStatus" => list(any()),
+        "videoExtractionType" => list(any())
+      }
+
+  """
+  @type video_extraction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       radar_chart_series_settings() :: %{
         "AreaStyleSettings" => radar_chart_area_style_settings()
       }
@@ -4824,6 +4933,20 @@ defmodule AWS.QuickSight do
 
   """
   @type scroll_bar_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_knowledge_base_response() :: %{
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "KnowledgeBaseId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type delete_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5689,6 +5812,21 @@ defmodule AWS.QuickSight do
 
   """
   @type read_client_credentials_grant_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_knowledge_base_permissions_response() :: %{
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "KnowledgeBaseId" => String.t() | atom(),
+        "Permissions" => list(resource_permission()),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_knowledge_base_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6805,6 +6943,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      image_extraction_configuration() :: %{
+        "imageExtractionStatus" => list(any())
+      }
+
+  """
+  @type image_extraction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       space_quick_sight_resource() :: %{
         "resourceDetails" => list(),
         "resourceType" => list(any())
@@ -6873,6 +7022,17 @@ defmodule AWS.QuickSight do
 
   """
   @type dashboard_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_knowledge_base_request() :: %{
+        required("KnowledgeBaseIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_knowledge_base_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7275,6 +7435,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_knowledge_base_response() :: %{
+        "KnowledgeBase" => knowledge_base(),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_brand_published_version_request() :: %{}
 
   """
@@ -7591,6 +7764,35 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      knowledge_base() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "DataSourceArn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DocumentCount" => float(),
+        "FirstCompletedIngestionSummary" => knowledge_base_ingestion_summary(),
+        "FirstIncompleteIngestionSummary" => knowledge_base_ingestion_summary(),
+        "IsEmailNotificationOptedForIngestionFailures" => boolean(),
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "KnowledgeBaseConfiguration" => knowledge_base_configuration(),
+        "KnowledgeBaseId" => String.t() | atom(),
+        "KnowledgeBaseSizeBytes" => float(),
+        "LatestIngestionSummary" => knowledge_base_ingestion_summary(),
+        "MediaExtractionConfiguration" => media_extraction_configuration(),
+        "Name" => String.t() | atom(),
+        "PrimaryOwnerArn" => [String.t() | atom()],
+        "PrimaryOwnerUsername" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => [String.t() | atom()],
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type knowledge_base() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_dashboard_snapshot_job_response() :: %{
         "Arn" => String.t() | atom(),
         "AwsAccountId" => String.t() | atom(),
@@ -7631,6 +7833,17 @@ defmodule AWS.QuickSight do
 
   """
   @type delete_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_extraction_configuration() :: %{
+        "audioExtractionStatus" => list(any())
+      }
+
+  """
+  @type audio_extraction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7888,6 +8101,28 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      knowledge_base_summary() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "DataSourceArn" => String.t() | atom(),
+        "DocumentCount" => float(),
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "KnowledgeBaseId" => String.t() | atom(),
+        "KnowledgeBaseSizeBytes" => float(),
+        "Name" => String.t() | atom(),
+        "PrimaryOwnerArn" => [String.t() | atom()],
+        "PrimaryOwnerUsername" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => [String.t() | atom()],
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type knowledge_base_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       web_crawler_parameters() :: %{
         "LoginPageUrl" => String.t() | atom(),
         "PasswordButtonXpath" => String.t() | atom(),
@@ -7963,6 +8198,18 @@ defmodule AWS.QuickSight do
 
   """
   @type numeric_range_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_knowledge_bases_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8695,6 +8942,15 @@ defmodule AWS.QuickSight do
   @type asset_bundle_export_job_data_set_override_properties() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      describe_knowledge_base_request() :: %{}
+
+  """
+  @type describe_knowledge_base_request() :: %{}
 
   @typedoc """
 
@@ -10347,12 +10603,35 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      user_name_or_email_filter() :: %{
+        "prefix" => String.t() | atom()
+      }
+
+  """
+  @type user_name_or_email_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_key_registration_request() :: %{
         optional("DefaultKeyOnly") => boolean()
       }
 
   """
   @type describe_key_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_sort_by() :: %{
+        "sortByField" => list(any()),
+        "sortOrder" => list(any())
+      }
+
+  """
+  @type knowledge_base_sort_by() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11139,6 +11418,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_knowledge_base_request() :: %{}
+
+  """
+  @type delete_knowledge_base_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_account_settings_request() :: %{
         optional("NotificationEmail") => String.t() | atom(),
         optional("TerminationProtectionEnabled") => boolean(),
@@ -11396,6 +11684,17 @@ defmodule AWS.QuickSight do
 
   """
   @type visual_interaction_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kb_template_configuration() :: %{
+        "template" => any()
+      }
+
+  """
+  @type kb_template_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13070,6 +13369,19 @@ defmodule AWS.QuickSight do
 
   """
   @type analysis() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_index_capacity_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()],
+        "users" => list(user_index_capacity())
+      }
+
+  """
+  @type list_users_index_capacity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15147,6 +15459,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_knowledge_base_permissions_request() :: %{}
+
+  """
+  @type describe_knowledge_base_permissions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       start_dashboard_snapshot_job_response() :: %{
         "Arn" => String.t() | atom(),
         "RequestId" => String.t() | atom(),
@@ -15460,6 +15781,18 @@ defmodule AWS.QuickSight do
 
   """
   @type waterfall_visual() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_bytes_range_filter() :: %{
+        "maxBytes" => float(),
+        "minBytes" => float()
+      }
+
+  """
+  @type capacity_bytes_range_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16137,6 +16470,20 @@ defmodule AWS.QuickSight do
 
   """
   @type decal_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_knowledge_base_response() :: %{
+        "Deleted" => list(batch_delete_knowledge_base_success()),
+        "Errors" => list(batch_delete_knowledge_base_failure()),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type batch_delete_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17539,6 +17886,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_knowledge_bases_response() :: %{
+        "KnowledgeBaseSummaries" => list(knowledge_base_summary()),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type list_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_vpc_connection_request() :: %{
         optional("DnsResolvers") => list(String.t() | atom()),
         required("Name") => String.t() | atom(),
@@ -17747,6 +18108,20 @@ defmodule AWS.QuickSight do
 
   """
   @type rename_columns_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_ingestion_summary() :: %{
+        "EndTime" => [non_neg_integer()],
+        "IngestionId" => String.t() | atom(),
+        "IngestionStatus" => list(any()),
+        "StartTime" => [non_neg_integer()]
+      }
+
+  """
+  @type knowledge_base_ingestion_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18064,6 +18439,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      search_knowledge_bases_request() :: %{
+        optional("Filters") => list(knowledge_base_search_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => knowledge_base_sort_by()
+      }
+
+  """
+  @type search_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_automation_job_request() :: %{
         optional("IncludeInputPayload") => boolean(),
         optional("IncludeOutputPayload") => boolean()
@@ -18301,6 +18690,21 @@ defmodule AWS.QuickSight do
 
   """
   @type table_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_knowledge_base_permissions_response() :: %{
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "KnowledgeBaseId" => String.t() | atom(),
+        "Permissions" => list(resource_permission()),
+        "RequestId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_knowledge_base_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19014,6 +19418,19 @@ defmodule AWS.QuickSight do
 
   """
   @type conditional_formatting_solid_color() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_search_filter() :: %{
+        "name" => list(any()),
+        "operator" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type knowledge_base_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -20616,6 +21033,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      search_knowledge_bases_response() :: %{
+        "KnowledgeBaseSummaries" => list(knowledge_base_summary()),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type search_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       geospatial_solid_color() :: %{
         "Color" => String.t() | atom(),
         "State" => list(any())
@@ -21525,6 +21956,15 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type batch_delete_knowledge_base_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
   @type batch_delete_topic_reviewed_answer_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -22007,6 +22447,17 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type delete_knowledge_base_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type delete_namespace_errors() ::
           precondition_not_met_exception()
           | throttling_exception()
@@ -22454,6 +22905,26 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | internal_failure_exception()
 
+  @type describe_knowledge_base_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type describe_knowledge_base_permissions_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type describe_namespace_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -22875,6 +23346,14 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type list_knowledge_bases_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
   @type list_namespaces_errors() ::
           precondition_not_met_exception()
           | throttling_exception()
@@ -23037,6 +23516,14 @@ defmodule AWS.QuickSight do
           | resource_unavailable_exception()
           | internal_failure_exception()
 
+  @type list_users_index_capacity_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type list_vpc_connections_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -23152,6 +23639,15 @@ defmodule AWS.QuickSight do
           | invalid_next_token_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type search_knowledge_bases_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type search_spaces_errors() ::
@@ -23514,6 +24010,17 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | internal_failure_exception()
 
+  @type update_knowledge_base_permissions_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type update_o_auth_client_application_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -23791,6 +24298,40 @@ defmodule AWS.QuickSight do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes one or more knowledge bases.
+  """
+  @spec batch_delete_knowledge_base(
+          map(),
+          String.t() | atom(),
+          batch_delete_knowledge_base_request(),
+          list()
+        ) ::
+          {:ok, batch_delete_knowledge_base_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_delete_knowledge_base_errors()}
+  def batch_delete_knowledge_base(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/batch-delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -26094,6 +26635,49 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes a knowledge base.
+  """
+  @spec delete_knowledge_base(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_knowledge_base_request(),
+          list()
+        ) ::
+          {:ok, delete_knowledge_base_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_knowledge_base_errors()}
+  def delete_knowledge_base(
+        %Client{} = client,
+        aws_account_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a namespace and the users and groups that are associated with the
   namespace.
 
@@ -28149,6 +28733,61 @@ defmodule AWS.QuickSight do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes a knowledge base.
+  """
+  @spec describe_knowledge_base(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_knowledge_base_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_knowledge_base_errors()}
+  def describe_knowledge_base(
+        %Client{} = client,
+        aws_account_id,
+        knowledge_base_id,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the resource permissions for a knowledge base.
+  """
+  @spec describe_knowledge_base_permissions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_knowledge_base_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_knowledge_base_permissions_errors()}
+  def describe_knowledge_base_permissions(
+        %Client{} = client,
+        aws_account_id,
+        knowledge_base_id,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}/permissions"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -30404,6 +31043,50 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Lists all knowledge bases in an Amazon QuickSight account.
+  """
+  @spec list_knowledge_bases(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_knowledge_bases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_knowledge_bases_errors()}
+  def list_knowledge_bases(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the namespaces for the specified Amazon Web Services account.
 
   This operation doesn't list deleted namespaces.
@@ -31170,6 +31853,40 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Lists per-user index capacity consumption for an account.
+  """
+  @spec list_users_index_capacity(
+          map(),
+          String.t() | atom(),
+          list_users_index_capacity_request(),
+          list()
+        ) ::
+          {:ok, list_users_index_capacity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_users_index_capacity_errors()}
+  def list_users_index_capacity(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/quick-index/user-capacity"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all of the VPC connections in the current set Amazon Web Services Region
   of an
   Amazon Web Services account.
@@ -31677,6 +32394,40 @@ defmodule AWS.QuickSight do
         {"NextToken", "next-token"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches for a subset of knowledge bases based on specified filters.
+  """
+  @spec search_knowledge_bases(
+          map(),
+          String.t() | atom(),
+          search_knowledge_bases_request(),
+          list()
+        ) ::
+          {:ok, search_knowledge_bases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_knowledge_bases_errors()}
+  def search_knowledge_bases(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/knowledge-bases"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -33606,6 +34357,49 @@ defmodule AWS.QuickSight do
           | {:error, update_key_registration_errors()}
   def update_key_registration(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/key-registration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the resource permissions for a knowledge base.
+  """
+  @spec update_knowledge_base_permissions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_knowledge_base_permissions_request(),
+          list()
+        ) ::
+          {:ok, update_knowledge_base_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_knowledge_base_permissions_errors()}
+  def update_knowledge_base_permissions(
+        %Client{} = client,
+        aws_account_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}/permissions"
+
     headers = []
     custom_headers = []
     query_params = []

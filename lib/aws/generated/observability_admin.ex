@@ -149,6 +149,17 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      source_metrics_configuration() :: %{
+        "MetricsSelectionCriteria" => String.t() | atom()
+      }
+
+  """
+  @type source_metrics_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_s3_table_integration_input() :: %{
         required("Arn") => String.t() | atom()
       }
@@ -453,7 +464,8 @@ defmodule AWS.ObservabilityAdmin do
       centralization_rule_source() :: %{
         "Regions" => list(String.t() | atom()),
         "Scope" => String.t() | atom(),
-        "SourceLogsConfiguration" => source_logs_configuration()
+        "SourceLogsConfiguration" => source_logs_configuration(),
+        "SourceMetricsConfiguration" => source_metrics_configuration()
       }
 
   """
@@ -916,6 +928,17 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      metrics_backup_configuration() :: %{
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type metrics_backup_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_s3_table_integrations_output() :: %{
         "IntegrationSummaries" => list(integration_summary()),
         "NextToken" => String.t() | atom()
@@ -1209,9 +1232,21 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      destination_metrics_configuration() :: %{
+        "BackupConfiguration" => metrics_backup_configuration()
+      }
+
+  """
+  @type destination_metrics_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       centralization_rule_destination() :: %{
         "Account" => String.t() | atom(),
         "DestinationLogsConfiguration" => destination_logs_configuration(),
+        "DestinationMetricsConfiguration" => destination_metrics_configuration(),
         "Region" => String.t() | atom()
       }
 

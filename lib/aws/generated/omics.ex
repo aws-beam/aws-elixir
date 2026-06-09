@@ -341,6 +341,7 @@ defmodule AWS.Omics do
   ## Example:
 
       inline_setting() :: %{
+        "engineSettings" => any(),
         "name" => String.t() | atom(),
         "outputBucketOwnerId" => String.t() | atom(),
         "outputUri" => String.t() | atom(),
@@ -984,6 +985,7 @@ defmodule AWS.Omics do
         "cacheBehavior" => String.t() | atom(),
         "cacheId" => String.t() | atom(),
         "configurationName" => String.t() | atom(),
+        "engineSettings" => any(),
         "logLevel" => String.t() | atom(),
         "name" => String.t() | atom(),
         "networkingMode" => String.t() | atom(),

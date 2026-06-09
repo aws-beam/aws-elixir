@@ -2865,6 +2865,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       associate_member_to_job_request() :: %{
+        optional("identityCenterRegion") => String.t() | atom(),
         required("identityStoreId") => String.t() | atom(),
         required("membershipLevel") => list(any()),
         required("principalType") => list(any())
@@ -3536,6 +3537,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       associate_member_to_fleet_request() :: %{
+        optional("identityCenterRegion") => String.t() | atom(),
         required("identityStoreId") => String.t() | atom(),
         required("membershipLevel") => list(any()),
         required("principalType") => list(any())
@@ -3660,6 +3662,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       associate_member_to_queue_request() :: %{
+        optional("identityCenterRegion") => String.t() | atom(),
         required("identityStoreId") => String.t() | atom(),
         required("membershipLevel") => list(any()),
         required("principalType") => list(any())
@@ -4812,6 +4815,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       associate_member_to_farm_request() :: %{
+        optional("identityCenterRegion") => String.t() | atom(),
         required("identityStoreId") => String.t() | atom(),
         required("membershipLevel") => list(any()),
         required("principalType") => list(any())

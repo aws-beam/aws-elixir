@@ -325,6 +325,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       idle_utilization_metric() :: %{
+        "dimensions" => list(idle_dimension()),
         "name" => list(any()),
         "statistic" => list(any()),
         "value" => float()
@@ -347,6 +348,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type db_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_dimension() :: %{
+        "key" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type idle_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -145,6 +145,17 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      sage_maker_endpoint() :: %{
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type sage_maker_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ec2_auto_scaling_group() :: %{
         "configuration" => ec2_auto_scaling_group_configuration(),
         "costCalculation" => resource_cost_calculation()
@@ -226,6 +237,17 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type reserved_instances_pricing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      work_spaces() :: %{
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type work_spaces() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -448,6 +470,17 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      document_db_cluster() :: %{
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type document_db_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       elasti_cache_reserved_instances() :: %{
         "configuration" => elasti_cache_reserved_instances_configuration(),
         "costCalculation" => reserved_instances_cost_calculation()
@@ -478,6 +511,17 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type redshift_reserved_instances_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      elasti_cache_cluster() :: %{
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type elasti_cache_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1010,6 +1054,17 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      dynamo_db_table() :: %{
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type dynamo_db_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ec2_instance_savings_plans_configuration() :: %{
         "accountScope" => [String.t() | atom()],
         "hourlyCommitment" => [String.t() | atom()],
@@ -1048,6 +1103,17 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type list_recommendation_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      memory_db_cluster() :: %{
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type memory_db_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

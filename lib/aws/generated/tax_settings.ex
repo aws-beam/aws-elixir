@@ -4,22 +4,18 @@
 defmodule AWS.TaxSettings do
   @moduledoc """
   You can use the tax setting API to programmatically set, modify, and delete the
-  tax
-  registration number (TRN), associated business legal name, and address
-  (Collectively referred
-  to as "TRN information").
+  tax registration number (TRN), associated business legal name, and address
+  (Collectively referred to as "TRN information").
 
-  You can also programmatically view TRN information and tax addresses
-  ("Tax profiles").
+  You can also programmatically view TRN information and tax addresses ("Tax
+  profiles").
 
   You can use this API to automate your TRN information settings instead of
-  manually using
-  the console.
+  manually using the console.
 
   Service Endpoint
 
-    *
-  https://tax.us-east-1.amazonaws.com
+    * https://tax.us-east-1.amazonaws.com
   """
 
   alias AWS.Client
@@ -90,10 +86,13 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       additional_info_response() :: %{
+        "belgiumAdditionalInfo" => belgium_additional_info(),
         "brazilAdditionalInfo" => brazil_additional_info(),
         "canadaAdditionalInfo" => canada_additional_info(),
+        "chileAdditionalInfo" => chile_additional_info(),
         "egyptAdditionalInfo" => egypt_additional_info(),
         "estoniaAdditionalInfo" => estonia_additional_info(),
+        "franceAdditionalInfo" => france_additional_info(),
         "georgiaAdditionalInfo" => georgia_additional_info(),
         "greeceAdditionalInfo" => greece_additional_info(),
         "indiaAdditionalInfo" => india_additional_info(),
@@ -102,6 +101,7 @@ defmodule AWS.TaxSettings do
         "italyAdditionalInfo" => italy_additional_info(),
         "kenyaAdditionalInfo" => kenya_additional_info(),
         "malaysiaAdditionalInfo" => malaysia_additional_info(),
+        "philippinesAdditionalInfo" => philippines_additional_info(),
         "polandAdditionalInfo" => poland_additional_info(),
         "romaniaAdditionalInfo" => romania_additional_info(),
         "saudiArabiaAdditionalInfo" => saudi_arabia_additional_info(),
@@ -115,6 +115,18 @@ defmodule AWS.TaxSettings do
 
   """
   @type additional_info_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chile_additional_info() :: %{
+        "businessActivity" => String.t() | atom(),
+        "documentType" => list(any())
+      }
+
+  """
+  @type chile_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,6 +146,7 @@ defmodule AWS.TaxSettings do
       italy_additional_info() :: %{
         "cigNumber" => String.t() | atom(),
         "cupNumber" => String.t() | atom(),
+        "customerType" => list(any()),
         "sdiAccountId" => String.t() | atom(),
         "taxCode" => String.t() | atom()
       }
@@ -255,11 +268,24 @@ defmodule AWS.TaxSettings do
 
       poland_additional_info() :: %{
         "individualRegistrationNumber" => String.t() | atom(),
-        "isGroupVatEnabled" => boolean()
+        "isGroupVatEnabled" => [boolean()],
+        "taxRegistrationNumberType" => list(any())
       }
 
   """
   @type poland_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      belgium_additional_info() :: %{
+        "isMercuriusBoxEnabled" => [boolean()],
+        "peppolId" => String.t() | atom()
+      }
+
+  """
+  @type belgium_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -389,9 +415,12 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       additional_info_request() :: %{
+        "belgiumAdditionalInfo" => belgium_additional_info(),
         "canadaAdditionalInfo" => canada_additional_info(),
+        "chileAdditionalInfo" => chile_additional_info(),
         "egyptAdditionalInfo" => egypt_additional_info(),
         "estoniaAdditionalInfo" => estonia_additional_info(),
+        "franceAdditionalInfo" => france_additional_info(),
         "georgiaAdditionalInfo" => georgia_additional_info(),
         "greeceAdditionalInfo" => greece_additional_info(),
         "indonesiaAdditionalInfo" => indonesia_additional_info(),
@@ -399,6 +428,7 @@ defmodule AWS.TaxSettings do
         "italyAdditionalInfo" => italy_additional_info(),
         "kenyaAdditionalInfo" => kenya_additional_info(),
         "malaysiaAdditionalInfo" => malaysia_additional_info(),
+        "philippinesAdditionalInfo" => philippines_additional_info(),
         "polandAdditionalInfo" => poland_additional_info(),
         "romaniaAdditionalInfo" => romania_additional_info(),
         "saudiArabiaAdditionalInfo" => saudi_arabia_additional_info(),
@@ -615,6 +645,17 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      france_additional_info() :: %{
+        "sirenNumber" => String.t() | atom()
+      }
+
+  """
+  @type france_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tax_exemptions_response() :: %{
         "nextToken" => String.t() | atom(),
         "taxExemptionDetailsMap" => map()
@@ -714,7 +755,7 @@ defmodule AWS.TaxSettings do
       canada_additional_info() :: %{
         "canadaQuebecSalesTaxNumber" => String.t() | atom(),
         "canadaRetailSalesTaxNumber" => String.t() | atom(),
-        "isResellerAccount" => boolean(),
+        "isResellerAccount" => [boolean()],
         "provincialSalesTaxId" => String.t() | atom()
       }
 
@@ -849,6 +890,17 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      philippines_additional_info() :: %{
+        "isVatRegistered" => [boolean()]
+      }
+
+  """
+  @type philippines_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_tax_exemption_request() :: %{
         required("accountIds") => list(String.t() | atom()),
         required("authority") => authority(),
@@ -915,7 +967,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       tax_exemption_details() :: %{
-        "heritageObtainedDetails" => boolean(),
+        "heritageObtainedDetails" => [boolean()],
         "heritageObtainedParentEntity" => String.t() | atom(),
         "heritageObtainedReason" => String.t() | atom(),
         "taxExemptions" => list(tax_exemption())
@@ -1193,8 +1245,8 @@ defmodule AWS.TaxSettings do
   @doc """
   Deletes tax registration for multiple accounts in batch.
 
-  This can be used to delete tax
-  registrations for up to five accounts in one batch.
+  This can be used to delete tax registrations for up to five accounts in one
+  batch.
 
   This API operation can't be used to delete your tax registration in Brazil. Use
   the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods)
@@ -1260,62 +1312,51 @@ defmodule AWS.TaxSettings do
   @doc """
   Adds or updates tax registration for multiple accounts in batch.
 
-  This can be used to add
-  or update tax registrations for up to five accounts in one batch. You can't set
-  a TRN if there's a pending TRN. You'll need to delete the pending TRN first.
+  This can be used to add or update tax registrations for up to five accounts in
+  one batch. You can't set a TRN if there's a pending TRN. You'll need to delete
+  the pending TRN first.
 
   To call this API operation for specific countries, see the following
-  country-specific
-  requirements.
+  country-specific requirements.
 
   ## Bangladesh
 
-    *
-  You must specify the tax registration certificate document in the
-  `taxRegistrationDocuments` field of the `VerificationDetails`
-  object.
+    * You must specify the tax registration certificate document in the
+  `taxRegistrationDocuments` field of the `VerificationDetails` object.
 
   ## Brazil
 
-    *
-  You must complete the tax registration process in the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods)
+    * You must complete the tax registration process in the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods)
   page in the Billing and Cost Management console. After your TRN and billing
   address are verified, you can call this API operation.
 
-    *
-  For Amazon Web Services accounts created through Organizations, you can call
-  this API operation when you don't have a billing address.
+    * For Amazon Web Services accounts created through Organizations,
+  you can call this API operation when you don't have a billing address.
 
   ## Georgia
 
-    *
-  The valid `personType` values are `Physical Person` and `Business`.
+    * The valid `personType` values are `Physical Person` and
+  `Business`.
 
   ## Indonesia
 
-    *
-
-  `PutTaxRegistration`: The use of this operation to submit tax information is
-  subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
+    * `PutTaxRegistration`: The use of this operation to submit tax
+  information is subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
   consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided
   by you with the Directorate General of Taxes of Indonesia in accordance with the
   Minister of Finance Regulation (PMK) Number 112/PMK.03/2022.
 
-    *
-
-  `BatchPutTaxRegistration`: The use of this operation to submit tax information
-  is subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
+    * `BatchPutTaxRegistration`: The use of this operation to submit tax
+  information is subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
   consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided
   by you with the Directorate General of Taxes of Indonesia in accordance with the
   Minister of Finance Regulation (PMK) Number 112/PMK.03/2022, through our
   third-party partner PT Achilles Advanced Management (OnlinePajak).
 
-    *
-  You must specify the `taxRegistrationNumberType` in the
+    * You must specify the `taxRegistrationNumberType` in the
   `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
 
-    *
-  If you specify `decisionNumber`, you must specify the
+    * If you specify `decisionNumber`, you must specify the
   `ppnExceptionDesignationCode` in the `indonesiaAdditionalInfo` field of the
   `additionalTaxInformation` object. If the `taxRegistrationNumberType` is set to
   NPWP or NITKU, valid values for `ppnExceptionDesignationCode` are either `01`,
@@ -1324,46 +1365,38 @@ defmodule AWS.TaxSettings do
   For other `taxRegistrationNumberType` values, `ppnExceptionDesignationCode` must
   be either `01`, `07`, or `08`.
 
-    *
-  If `ppnExceptionDesignationCode` is `07`, you must specify the `decisionNumber`
-  in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
+    * If `ppnExceptionDesignationCode` is `07` or `08`, you must specify
+  the `decisionNumber` in the `indonesiaAdditionalInfo` field of the
+  `additionalTaxInformation` object.
 
   ## Kenya
 
-    *
-  You must specify the `personType` in the `kenyaAdditionalInfo`
+    * You must specify the `personType` in the `kenyaAdditionalInfo`
   field of the `additionalTaxInformation` object.
 
-    *
-  If the `personType` is `Physical Person`, you must specify the
-  tax registration certificate document in the `taxRegistrationDocuments` field
-  of the `VerificationDetails` object.
+    * If the `personType` is `Physical Person`, you must specify the tax
+  registration certificate document in the `taxRegistrationDocuments` field of the
+  `VerificationDetails` object.
 
   ## Malaysia
 
-    *
-  The sector valid values are `Business` and `Individual`.
+    * The sector valid values are `Business` and `Individual`.
 
-    *
+    * `RegistrationType` valid values are `NRIC` for individual, and TIN
+  and sales and service tax (SST) for Business.
 
-  `RegistrationType` valid values are `NRIC` for individual, and TIN and sales and
-  service tax (SST) for Business.
-
-    *
-  For individual, you can specify the `taxInformationNumber` in
+    * For individual, you can specify the `taxInformationNumber` in
   `MalaysiaAdditionalInfo` with NRIC type, and a valid `MyKad` or NRIC number.
 
-    *
-  For business, you must specify a `businessRegistrationNumber` in
+    * For business, you must specify a `businessRegistrationNumber` in
   `MalaysiaAdditionalInfo` with a TIN type and tax identification number.
 
-    *
-  For business resellers, you must specify a `businessRegistrationNumber` and
-  `taxInformationNumber` in `MalaysiaAdditionalInfo` with a sales and service tax
-  (SST) type and a valid SST number.
+    * For business resellers, you must specify a
+  `businessRegistrationNumber` and `taxInformationNumber` in
+  `MalaysiaAdditionalInfo` with a sales and service tax (SST) type and a valid SST
+  number.
 
-    *
-  For business resellers with service codes, you must specify
+    * For business resellers with service codes, you must specify
   `businessRegistrationNumber`, `taxInformationNumber`, and distinct
   `serviceTaxCodes` in `MalaysiaAdditionalInfo` with a SST type and valid sales
   and service tax (SST) number. By using this API operation, Amazon Web Services
@@ -1371,17 +1404,14 @@ defmodule AWS.TaxSettings do
   registered with the Royal Malaysia Customs Department (RMCD), and have a valid
   SST number.
 
-    *
-  Amazon Web Services reserves the right to seek additional information and/or
-  take other actions to
-  support your self-declaration as appropriate.
+    * Amazon Web Services reserves the right to seek additional
+  information and/or take other actions to support your self-declaration as
+  appropriate.
 
-    *
-  Amazon Web Services is currently registered under the following service tax
-  codes. You must include
-  at least one of the service tax codes in the service tax code strings to declare
-  yourself
-  as an authorized registered business reseller.
+    * Amazon Web Services is currently registered under the following
+  service tax codes. You must include at least one of the service tax codes in the
+  service tax code strings to declare yourself as an authorized registered
+  business reseller.
 
   Taxable service and service tax codes:
 
@@ -1393,84 +1423,100 @@ defmodule AWS.TaxSettings do
 
   Digital services and electronic medium - 9907121690
 
+  ## Mexico
+
+    * You must provide a Constancia de Situación fiscal (CSF) document
+  in the **verificationDetails** field.
+
+    * You do not need to provide address and legal name. These will be
+  populated based on your tax registration number.
+
   ## Nepal
 
-    *
-  The sector valid values are `Business` and `Individual`.
+    * The sector valid values are `Business` and `Individual`.
 
   ## Saudi Arabia
 
-    *
-  For `address`, you must specify `addressLine3`.
+    * For `address`, you must specify `addressLine3`.
 
   ## South Korea
 
-    *
-  You must specify the `certifiedEmailId` and `legalName` in the
-  `TaxRegistrationEntry` object. Use Korean characters for
-  `legalName`.
+    * You must specify the `certifiedEmailId` and `legalName` in the
+  `TaxRegistrationEntry` object. Use Korean characters for `legalName`.
 
-    *
-  You must specify the `businessRepresentativeName`,
-  `itemOfBusiness`, and `lineOfBusiness` in the
-  `southKoreaAdditionalInfo` field of the `additionalTaxInformation`
-  object. Use Korean characters for these fields.
+    * You must specify the `businessRepresentativeName`,
+  `itemOfBusiness`, and `lineOfBusiness` in the `southKoreaAdditionalInfo` field
+  of the `additionalTaxInformation` object. Use Korean characters for these
+  fields.
 
-    *
-  You must specify the tax registration certificate document in the
-  `taxRegistrationDocuments` field of the `VerificationDetails`
-  object.
+    * You must specify the tax registration certificate document in the
+  `taxRegistrationDocuments` field of the `VerificationDetails` object.
 
-    *
-  For the `address` object, use Korean characters for `addressLine1`,
-  `addressLine2`
-  `city`, `postalCode`, and `stateOrRegion`.
+    * For the `address` object, use Korean characters for
+  `addressLine1`, `addressLine2` `city`, `postalCode`, and `stateOrRegion`.
 
   ## Spain
 
-    *
-  You must specify the `registrationType` in the
-  `spainAdditionalInfo` field of the `additionalTaxInformation`
-  object.
+    * You must specify the `registrationType` in the
+  `spainAdditionalInfo` field of the `additionalTaxInformation` object.
 
-    *
-  If the `registrationType` is `Local`, you must specify the tax
-  registration certificate document in the `taxRegistrationDocuments` field of
-  the `VerificationDetails` object.
+    * If the `registrationType` is `Local`, you must specify the tax
+  registration certificate document in the `taxRegistrationDocuments` field of the
+  `VerificationDetails` object.
 
   ## Turkey
 
-    *
-  You must specify the `sector` in the `taxRegistrationEntry` object.
+    * You must specify the `sector` in the `taxRegistrationEntry`
+  object.
 
-    *
-  If your `sector` is `Business`, `Individual`, or
-  `Government`:
+    * If your `sector` is `Business`, `Individual`, or `Government`:
 
-      *
-  Specify the `taxOffice`. If your
-  `sector` is `Individual`, don't enter this value.
+      * Specify the `taxOffice`. If your `sector` is
+  `Individual`, don't enter this value.
 
-      *
-  (Optional) Specify the `kepEmailId`. If your
-  `sector` is `Individual`, don't enter this value.
+      * (Optional) Specify the `kepEmailId`. If your `sector`
+  is `Individual`, don't enter this value.
 
-      *
+      * **Note:** In the **Tax Settings** page of the Billing
+  console, `Government` appears as ## Public institutions
 
-  **Note:** In the **Tax Settings** page of the Billing console, `Government`
-  appears as ## Public institutions
+    * If your `sector` is `Business` and you're subject to KDV tax, you
+  must specify your industry in the `industries` field.
 
-    *
-  If your `sector` is `Business` and you're subject to KDV tax,
-  you must specify your industry in the `industries` field.
-
-    *
-  For `address`, you must specify `districtOrCounty`.
+    * For `address`, you must specify `districtOrCounty`.
 
   ## Ukraine
 
-    *
-  The sector valid values are `Business` and `Individual`.
+    * The sector valid values are `Business` and `Individual`.
+
+  ## Philippines
+
+    * You can optionally specify the `isVatRegistered` in the
+  `philippinesAdditionalInfo` field of the `additionalTaxInformation` object to
+  indicate your VAT registration status with the Bureau of Internal Revenue (BIR).
+
+  ## Belgium
+
+    * You can optionally specify the `peppolId` in the
+  `belgiumAdditionalInfo` field of the `additionalTaxInformation` object.
+
+  ## Chile
+
+    * You can optionally specify the `documentType` and
+  `businessActivity` in the `chileAdditionalInfo` field of the
+  `additionalTaxInformation` object.
+
+  ## France
+
+    * You must specify the `sirenNumber` in the `franceAdditionalInfo`
+  field of the `additionalTaxInformation` object.
+
+  ## Poland
+
+    * You can optionally specify the `taxRegistrationNumberType` in the
+  `polandAdditionalInfo` field of the `additionalTaxInformation` object. Valid
+  values are `EUTaxRegistrationNumber`, `LocalTaxRegistrationNumber`, or
+  `LocalRegistrationNumber`.
   """
   @spec batch_put_tax_registration(map(), batch_put_tax_registration_request(), list()) ::
           {:ok, batch_put_tax_registration_response(), any()}
@@ -1499,7 +1545,6 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
-
   Deletes a supplemental tax registration for a single account.
   """
   @spec delete_supplemental_tax_registration(
@@ -1685,7 +1730,6 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
-
   Retrieves supplemental tax registrations for a single account.
   """
   @spec list_supplemental_tax_registrations(
@@ -1753,8 +1797,7 @@ defmodule AWS.TaxSettings do
   Retrieves the tax registration of accounts listed in a consolidated billing
   family.
 
-  This
-  can be used to retrieve up to 100 accounts' tax registrations in one call
+  This can be used to retrieve up to 100 accounts' tax registrations in one call
   (default 50).
   """
   @spec list_tax_registrations(map(), list_tax_registrations_request(), list()) ::
@@ -1784,7 +1827,6 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
-
   Stores supplemental tax registration for a single account.
   """
   @spec put_supplemental_tax_registration(
@@ -1885,57 +1927,46 @@ defmodule AWS.TaxSettings do
   TRN first.
 
   To call this API operation for specific countries, see the following
-  country-specific
-  requirements.
+  country-specific requirements.
 
   ## Bangladesh
 
-    *
-  You must specify the tax registration certificate document in the
-  `taxRegistrationDocuments` field of the `VerificationDetails`
-  object.
+    * You must specify the tax registration certificate document in the
+  `taxRegistrationDocuments` field of the `VerificationDetails` object.
 
   ## Brazil
 
-    *
-  You must complete the tax registration process in the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods)
+    * You must complete the tax registration process in the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences/paymentmethods)
   page in the Billing and Cost Management console. After your TRN and billing
   address are verified, you can call this API operation.
 
-    *
-  For Amazon Web Services accounts created through Organizations, you can call
-  this API operation when you don't have a billing address.
+    * For Amazon Web Services accounts created through Organizations,
+  you can call this API operation when you don't have a billing address.
 
   ## Georgia
 
-    *
-  The valid `personType` values are `Physical Person` and `Business`.
+    * The valid `personType` values are `Physical Person` and
+  `Business`.
 
   ## Indonesia
 
-    *
-
-  `PutTaxRegistration`: The use of this operation to submit tax information is
-  subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
+    * `PutTaxRegistration`: The use of this operation to submit tax
+  information is subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
   consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided
   by you with the Directorate General of Taxes of Indonesia in accordance with the
   Minister of Finance Regulation (PMK) Number 112/PMK.03/2022.
 
-    *
-
-  `BatchPutTaxRegistration`: The use of this operation to submit tax information
-  is subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
+    * `BatchPutTaxRegistration`: The use of this operation to submit tax
+  information is subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
   consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided
   by you with the Directorate General of Taxes of Indonesia in accordance with the
   Minister of Finance Regulation (PMK) Number 112/PMK.03/2022, through our
   third-party partner PT Achilles Advanced Management (OnlinePajak).
 
-    *
-  You must specify the `taxRegistrationNumberType` in the
+    * You must specify the `taxRegistrationNumberType` in the
   `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
 
-    *
-  If you specify `decisionNumber`, you must specify the
+    * If you specify `decisionNumber`, you must specify the
   `ppnExceptionDesignationCode` in the `indonesiaAdditionalInfo` field of the
   `additionalTaxInformation` object. If the `taxRegistrationNumberType` is set to
   NPWP or NITKU, valid values for `ppnExceptionDesignationCode` are either `01`,
@@ -1944,46 +1975,38 @@ defmodule AWS.TaxSettings do
   For other `taxRegistrationNumberType` values, `ppnExceptionDesignationCode` must
   be either `01`, `07`, or `08`.
 
-    *
-  If `ppnExceptionDesignationCode` is `07`, you must specify the `decisionNumber`
-  in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
+    * If `ppnExceptionDesignationCode` is `07` or `08`, you must specify
+  the `decisionNumber` in the `indonesiaAdditionalInfo` field of the
+  `additionalTaxInformation` object.
 
   ## Kenya
 
-    *
-  You must specify the `personType` in the `kenyaAdditionalInfo`
+    * You must specify the `personType` in the `kenyaAdditionalInfo`
   field of the `additionalTaxInformation` object.
 
-    *
-  If the `personType` is `Physical Person`, you must specify the
-  tax registration certificate document in the `taxRegistrationDocuments` field
-  of the `VerificationDetails` object.
+    * If the `personType` is `Physical Person`, you must specify the tax
+  registration certificate document in the `taxRegistrationDocuments` field of the
+  `VerificationDetails` object.
 
   ## Malaysia
 
-    *
-  The sector valid values are `Business` and `Individual`.
+    * The sector valid values are `Business` and `Individual`.
 
-    *
+    * `RegistrationType` valid values are `NRIC` for individual, and TIN
+  and sales and service tax (SST) for Business.
 
-  `RegistrationType` valid values are `NRIC` for individual, and TIN and sales and
-  service tax (SST) for Business.
-
-    *
-  For individual, you can specify the `taxInformationNumber` in
+    * For individual, you can specify the `taxInformationNumber` in
   `MalaysiaAdditionalInfo` with NRIC type, and a valid `MyKad` or NRIC number.
 
-    *
-  For business, you must specify a `businessRegistrationNumber` in
+    * For business, you must specify a `businessRegistrationNumber` in
   `MalaysiaAdditionalInfo` with a TIN type and tax identification number.
 
-    *
-  For business resellers, you must specify a `businessRegistrationNumber` and
-  `taxInformationNumber` in `MalaysiaAdditionalInfo` with a sales and service tax
-  (SST) type and a valid SST number.
+    * For business resellers, you must specify a
+  `businessRegistrationNumber` and `taxInformationNumber` in
+  `MalaysiaAdditionalInfo` with a sales and service tax (SST) type and a valid SST
+  number.
 
-    *
-  For business resellers with service codes, you must specify
+    * For business resellers with service codes, you must specify
   `businessRegistrationNumber`, `taxInformationNumber`, and distinct
   `serviceTaxCodes` in `MalaysiaAdditionalInfo` with a SST type and valid sales
   and service tax (SST) number. By using this API operation, Amazon Web Services
@@ -1991,17 +2014,14 @@ defmodule AWS.TaxSettings do
   registered with the Royal Malaysia Customs Department (RMCD), and have a valid
   SST number.
 
-    *
-  Amazon Web Services reserves the right to seek additional information and/or
-  take other actions to
-  support your self-declaration as appropriate.
+    * Amazon Web Services reserves the right to seek additional
+  information and/or take other actions to support your self-declaration as
+  appropriate.
 
-    *
-  Amazon Web Services is currently registered under the following service tax
-  codes. You must include
-  at least one of the service tax codes in the service tax code strings to declare
-  yourself
-  as an authorized registered business reseller.
+    * Amazon Web Services is currently registered under the following
+  service tax codes. You must include at least one of the service tax codes in the
+  service tax code strings to declare yourself as an authorized registered
+  business reseller.
 
   Taxable service and service tax codes:
 
@@ -2013,84 +2033,100 @@ defmodule AWS.TaxSettings do
 
   Digital services and electronic medium - 9907121690
 
+  ## Mexico
+
+    * You must provide a Constancia de Situación fiscal (CSF) document
+  in the **verificationDetails** field.
+
+    * You do not need to provide address and legal name. These will be
+  populated based on your tax registration number.
+
   ## Nepal
 
-    *
-  The sector valid values are `Business` and `Individual`.
+    * The sector valid values are `Business` and `Individual`.
 
   ## Saudi Arabia
 
-    *
-  For `address`, you must specify `addressLine3`.
+    * For `address`, you must specify `addressLine3`.
 
   ## South Korea
 
-    *
-  You must specify the `certifiedEmailId` and `legalName` in the
-  `TaxRegistrationEntry` object. Use Korean characters for
-  `legalName`.
+    * You must specify the `certifiedEmailId` and `legalName` in the
+  `TaxRegistrationEntry` object. Use Korean characters for `legalName`.
 
-    *
-  You must specify the `businessRepresentativeName`,
-  `itemOfBusiness`, and `lineOfBusiness` in the
-  `southKoreaAdditionalInfo` field of the `additionalTaxInformation`
-  object. Use Korean characters for these fields.
+    * You must specify the `businessRepresentativeName`,
+  `itemOfBusiness`, and `lineOfBusiness` in the `southKoreaAdditionalInfo` field
+  of the `additionalTaxInformation` object. Use Korean characters for these
+  fields.
 
-    *
-  You must specify the tax registration certificate document in the
-  `taxRegistrationDocuments` field of the `VerificationDetails`
-  object.
+    * You must specify the tax registration certificate document in the
+  `taxRegistrationDocuments` field of the `VerificationDetails` object.
 
-    *
-  For the `address` object, use Korean characters for `addressLine1`,
-  `addressLine2`
-  `city`, `postalCode`, and `stateOrRegion`.
+    * For the `address` object, use Korean characters for
+  `addressLine1`, `addressLine2` `city`, `postalCode`, and `stateOrRegion`.
 
   ## Spain
 
-    *
-  You must specify the `registrationType` in the
-  `spainAdditionalInfo` field of the `additionalTaxInformation`
-  object.
+    * You must specify the `registrationType` in the
+  `spainAdditionalInfo` field of the `additionalTaxInformation` object.
 
-    *
-  If the `registrationType` is `Local`, you must specify the tax
-  registration certificate document in the `taxRegistrationDocuments` field of
-  the `VerificationDetails` object.
+    * If the `registrationType` is `Local`, you must specify the tax
+  registration certificate document in the `taxRegistrationDocuments` field of the
+  `VerificationDetails` object.
 
   ## Turkey
 
-    *
-  You must specify the `sector` in the `taxRegistrationEntry` object.
+    * You must specify the `sector` in the `taxRegistrationEntry`
+  object.
 
-    *
-  If your `sector` is `Business`, `Individual`, or
-  `Government`:
+    * If your `sector` is `Business`, `Individual`, or `Government`:
 
-      *
-  Specify the `taxOffice`. If your
-  `sector` is `Individual`, don't enter this value.
+      * Specify the `taxOffice`. If your `sector` is
+  `Individual`, don't enter this value.
 
-      *
-  (Optional) Specify the `kepEmailId`. If your
-  `sector` is `Individual`, don't enter this value.
+      * (Optional) Specify the `kepEmailId`. If your `sector`
+  is `Individual`, don't enter this value.
 
-      *
+      * **Note:** In the **Tax Settings** page of the Billing
+  console, `Government` appears as ## Public institutions
 
-  **Note:** In the **Tax Settings** page of the Billing console, `Government`
-  appears as ## Public institutions
+    * If your `sector` is `Business` and you're subject to KDV tax, you
+  must specify your industry in the `industries` field.
 
-    *
-  If your `sector` is `Business` and you're subject to KDV tax,
-  you must specify your industry in the `industries` field.
-
-    *
-  For `address`, you must specify `districtOrCounty`.
+    * For `address`, you must specify `districtOrCounty`.
 
   ## Ukraine
 
-    *
-  The sector valid values are `Business` and `Individual`.
+    * The sector valid values are `Business` and `Individual`.
+
+  ## Philippines
+
+    * You can optionally specify the `isVatRegistered` in the
+  `philippinesAdditionalInfo` field of the `additionalTaxInformation` object to
+  indicate your VAT registration status with the Bureau of Internal Revenue (BIR).
+
+  ## Belgium
+
+    * You can optionally specify the `peppolId` in the
+  `belgiumAdditionalInfo` field of the `additionalTaxInformation` object.
+
+  ## Chile
+
+    * You can optionally specify the `documentType` and
+  `businessActivity` in the `chileAdditionalInfo` field of the
+  `additionalTaxInformation` object.
+
+  ## France
+
+    * You must specify the `sirenNumber` in the `franceAdditionalInfo`
+  field of the `additionalTaxInformation` object.
+
+  ## Poland
+
+    * You can optionally specify the `taxRegistrationNumberType` in the
+  `polandAdditionalInfo` field of the `additionalTaxInformation` object. Valid
+  values are `EUTaxRegistrationNumber`, `LocalTaxRegistrationNumber`, or
+  `LocalRegistrationNumber`.
   """
   @spec put_tax_registration(map(), put_tax_registration_request(), list()) ::
           {:ok, put_tax_registration_response(), any()}

@@ -50,6 +50,15 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      delete_asset_file_request() :: %{}
+
+  """
+  @type delete_asset_file_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_chat_response() :: %{
         "createdAt" => [non_neg_integer()],
         "executionId" => String.t() | atom()
@@ -84,7 +93,7 @@ defmodule AWS.DevOpsAgent do
 
       registered_grafana_server_details() :: %{
         "authorizationMethod" => list(any()),
-        "endpoint" => [String.t() | atom()]
+        "endpoint" => String.t() | atom()
       }
 
   """
@@ -233,10 +242,12 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       register_service_input() :: %{
+        optional("exchangeUrlPrivateConnectionName") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("privateConnectionName") => String.t() | atom(),
         optional("tags") => map(),
+        optional("targetUrlPrivateConnectionName") => String.t() | atom(),
         required("serviceDetails") => list()
       }
 
@@ -258,8 +269,23 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      asset_file_content() :: %{
+        "body" => list(),
+        "metadata" => [any()],
+        "path" => String.t() | atom()
+      }
+
+  """
+  @type asset_file_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_private_connection_output() :: %{
         "certificateExpiryTime" => [non_neg_integer()],
+        "dnsResolution" => list(any()),
+        "failureMessage" => String.t() | atom(),
         "hostAddress" => String.t() | atom(),
         "name" => String.t() | atom(),
         "resourceConfigurationId" => String.t() | atom(),
@@ -307,7 +333,8 @@ defmodule AWS.DevOpsAgent do
       get_operator_app_output() :: %{
         "iam" => iam_auth_configuration(),
         "idc" => idc_auth_configuration(),
-        "idp" => idp_auth_configuration()
+        "idp" => idp_auth_configuration(),
+        "operatorAppUrl" => String.t() | atom()
       }
 
   """
@@ -409,8 +436,8 @@ defmodule AWS.DevOpsAgent do
       datadog_service_details() :: %{
         "authorizationConfig" => list(),
         "description" => String.t() | atom(),
-        "endpoint" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
+        "endpoint" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
@@ -481,12 +508,40 @@ defmodule AWS.DevOpsAgent do
       grafana_service_details() :: %{
         "authorizationConfig" => list(),
         "description" => String.t() | atom(),
-        "endpoint" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
+        "endpoint" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
   @type grafana_service_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_file() :: %{
+        "content" => list(),
+        "createdAt" => [non_neg_integer()],
+        "metadata" => [any()],
+        "path" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "version" => [integer()]
+      }
+
+  """
+  @type asset_file() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_types_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_asset_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,6 +601,18 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      list_asset_versions_response() :: %{
+        "items" => list(asset_version_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generic_webhook() :: %{
         "apiKey" => String.t() | atom(),
         "webhookId" => [String.t() | atom()],
@@ -576,6 +643,8 @@ defmodule AWS.DevOpsAgent do
 
       update_private_connection_certificate_output() :: %{
         "certificateExpiryTime" => [non_neg_integer()],
+        "dnsResolution" => list(any()),
+        "failureMessage" => String.t() | atom(),
         "hostAddress" => String.t() | atom(),
         "name" => String.t() | atom(),
         "resourceConfigurationId" => String.t() | atom(),
@@ -617,11 +686,26 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      create_asset_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("metadata") => [any()],
+        required("assetType") => String.t() | atom(),
+        required("content") => list()
+      }
+
+  """
+  @type create_asset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       enable_operator_app_output() :: %{
         "agentSpaceId" => String.t() | atom(),
         "iam" => iam_auth_configuration(),
         "idc" => idc_auth_configuration(),
-        "idp" => idp_auth_configuration()
+        "idp" => idp_auth_configuration(),
+        "operatorAppUrl" => String.t() | atom()
       }
 
   """
@@ -693,8 +777,9 @@ defmodule AWS.DevOpsAgent do
 
       m_c_p_server_sig_v4_authorization_config() :: %{
         "customHeaders" => map(),
+        "mcpRoleArn" => String.t() | atom(),
         "region" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
+        "roleArn" => [String.t() | atom()],
         "service" => [String.t() | atom()]
       }
 
@@ -754,12 +839,36 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      asset_version_metadata() :: %{
+        "createdAt" => [non_neg_integer()],
+        "updatedAt" => [non_neg_integer()],
+        "version" => [integer()]
+      }
+
+  """
+  @type asset_version_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       o_auth_additional_step_details() :: %{
         "authorizationUrl" => [String.t() | atom()]
       }
 
   """
   @type o_auth_additional_step_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_file_request() :: %{
+        optional("assetVersion") => [integer()]
+      }
+
+  """
+  @type get_asset_file_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -804,6 +913,8 @@ defmodule AWS.DevOpsAgent do
 
       private_connection_summary() :: %{
         "certificateExpiryTime" => [non_neg_integer()],
+        "dnsResolution" => list(any()),
+        "failureMessage" => String.t() | atom(),
         "hostAddress" => String.t() | atom(),
         "name" => String.t() | atom(),
         "resourceConfigurationId" => String.t() | atom(),
@@ -864,6 +975,17 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type send_message_response_in_progress_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_asset_response() :: %{
+        "asset" => asset()
+      }
+
+  """
+  @type update_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1054,6 +1176,22 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      asset() :: %{
+        "assetId" => String.t() | atom(),
+        "assetType" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "metadata" => [any()],
+        "updatedAt" => [non_neg_integer()],
+        "version" => [integer()]
+      }
+
+  """
+  @type asset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       send_message_content_block_delta_event() :: %{
         "delta" => list(),
         "index" => [integer()],
@@ -1082,6 +1220,17 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type get_operator_app_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_content_request() :: %{
+        optional("assetVersion") => [integer()]
+      }
+
+  """
+  @type get_asset_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1131,10 +1280,11 @@ defmodule AWS.DevOpsAgent do
       registered_m_c_p_server_sig_v4_details() :: %{
         "customHeaders" => map(),
         "description" => String.t() | atom(),
-        "endpoint" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
+        "endpoint" => String.t() | atom(),
+        "mcpRoleArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "region" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
+        "roleArn" => [String.t() | atom()],
         "service" => [String.t() | atom()]
       }
 
@@ -1176,6 +1326,8 @@ defmodule AWS.DevOpsAgent do
 
       describe_private_connection_output() :: %{
         "certificateExpiryTime" => [non_neg_integer()],
+        "dnsResolution" => list(any()),
+        "failureMessage" => String.t() | atom(),
         "hostAddress" => String.t() | atom(),
         "name" => String.t() | atom(),
         "resourceConfigurationId" => String.t() | atom(),
@@ -1298,6 +1450,17 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      asset_zip_content() :: %{
+        "zipFile" => binary()
+      }
+
+  """
+  @type asset_zip_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       recommendation() :: %{
         "additionalContext" => [String.t() | atom()],
         "agentSpaceArn" => [String.t() | atom()],
@@ -1406,6 +1569,18 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      list_asset_files_response() :: %{
+        "items" => list(asset_file_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_files_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       association() :: %{
         "agentSpaceId" => String.t() | atom(),
         "associationId" => String.t() | atom(),
@@ -1418,6 +1593,15 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_response() :: %{}
+
+  """
+  @type delete_asset_response() :: %{}
 
   @typedoc """
 
@@ -1439,6 +1623,19 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type get_account_usage_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_file_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("metadata") => [any()],
+        required("content") => list()
+      }
+
+  """
+  @type create_asset_file_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1502,6 +1699,21 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      asset_file_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "metadata" => [any()],
+        "path" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "version" => [integer()]
+      }
+
+  """
+  @type asset_file_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception_field() :: %{
         "message" => [String.t() | atom()],
         "path" => [String.t() | atom()]
@@ -1509,6 +1721,18 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_versions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_asset_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1523,6 +1747,17 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type dynatrace_o_auth_client_credentials_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_asset_file_response() :: %{
+        "file" => asset_file()
+      }
+
+  """
+  @type update_asset_file_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1576,6 +1811,17 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      get_asset_response() :: %{
+        "asset" => asset()
+      }
+
+  """
+  @type get_asset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registered_service() :: %{
         "accessibleResources" => list([any()]()),
         "additionalServiceDetails" => list(),
@@ -1608,12 +1854,23 @@ defmodule AWS.DevOpsAgent do
       m_c_p_server_sig_v4_service_details() :: %{
         "authorizationConfig" => m_c_p_server_sig_v4_authorization_config(),
         "description" => String.t() | atom(),
-        "endpoint" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
+        "endpoint" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
   @type m_c_p_server_sig_v4_service_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_file_response() :: %{
+        "file" => asset_file()
+      }
+
+  """
+  @type get_asset_file_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1639,7 +1896,7 @@ defmodule AWS.DevOpsAgent do
         "exchangeParameters" => map(),
         "exchangeUrl" => [String.t() | atom()],
         "returnToEndpoint" => [String.t() | atom()],
-        "scopes" => list([String.t() | atom()]()),
+        "scopes" => list(String.t() | atom()),
         "supportCodeChallenge" => [boolean()]
       }
 
@@ -1678,6 +1935,19 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type delete_private_connection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_files_request() :: %{
+        optional("assetVersion") => [integer()],
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_asset_files_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1784,11 +2054,20 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      delete_asset_request() :: %{}
+
+  """
+  @type delete_asset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       m_c_p_server_details() :: %{
         "authorizationConfig" => list(),
         "description" => String.t() | atom(),
-        "endpoint" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
+        "endpoint" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
@@ -1855,6 +2134,43 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      update_asset_file_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("content") => list(),
+        optional("metadata") => [any()]
+      }
+
+  """
+  @type update_asset_file_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_response() :: %{
+        "asset" => asset()
+      }
+
+  """
+  @type create_asset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_asset_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("content") => list(),
+        optional("metadata") => [any()]
+      }
+
+  """
+  @type update_asset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_backlog_task_response() :: %{
         "task" => task()
       }
@@ -1904,6 +2220,15 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type self_managed_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_file_response() :: %{}
+
+  """
+  @type delete_asset_file_response() :: %{}
 
   @typedoc """
 
@@ -2003,6 +2328,29 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      get_asset_request() :: %{
+        optional("assetVersion") => [integer()]
+      }
+
+  """
+  @type get_asset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_type_summary() :: %{
+        "assetType" => String.t() | atom(),
+        "description" => [String.t() | atom()]
+      }
+
+  """
+  @type asset_type_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -2018,6 +2366,18 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type deregister_service_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_content_response() :: %{
+        "content" => asset_zip_content(),
+        "version" => [integer()]
+      }
+
+  """
+  @type get_asset_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2048,6 +2408,7 @@ defmodule AWS.DevOpsAgent do
 
       service_managed_input() :: %{
         "certificate" => String.t() | atom(),
+        "dnsResolution" => list(any()),
         "hostAddress" => String.t() | atom(),
         "ipAddressType" => list(any()),
         "ipv4AddressesPerEni" => integer(),
@@ -2065,6 +2426,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       send_message_request() :: %{
+        optional("assetIds") => list([String.t() | atom()]()),
         optional("context") => send_message_context(),
         optional("userId") => String.t() | atom(),
         required("content") => String.t() | atom(),
@@ -2098,6 +2460,21 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type slack_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assets_request() :: %{
+        optional("assetType") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("updatedAfter") => [non_neg_integer()],
+        optional("updatedBefore") => [non_neg_integer()]
+      }
+
+  """
+  @type list_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2249,6 +2626,18 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      list_assets_response() :: %{
+        "items" => list(asset()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       task_filter() :: %{
         "createdAfter" => non_neg_integer(),
         "createdBefore" => non_neg_integer(),
@@ -2302,7 +2691,7 @@ defmodule AWS.DevOpsAgent do
         "clientSecret" => String.t() | atom(),
         "exchangeParameters" => map(),
         "exchangeUrl" => [String.t() | atom()],
-        "scopes" => list([String.t() | atom()]())
+        "scopes" => list(String.t() | atom())
       }
 
   """
@@ -2332,6 +2721,18 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type list_services_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_types_response() :: %{
+        "items" => list(asset_type_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2409,6 +2810,17 @@ defmodule AWS.DevOpsAgent do
   """
   @type registered_github_service_details() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      create_asset_file_response() :: %{
+        "file" => asset_file()
+      }
+
+  """
+  @type create_asset_file_response() :: %{(String.t() | atom()) => any()}
+
   @type associate_service_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2423,6 +2835,22 @@ defmodule AWS.DevOpsAgent do
           | invalid_parameter_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_asset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_asset_file_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | content_size_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type create_backlog_task_errors() ::
@@ -2451,6 +2879,21 @@ defmodule AWS.DevOpsAgent do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type delete_asset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_asset_file_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type delete_private_connection_errors() ::
           throttling_exception()
@@ -2504,6 +2947,27 @@ defmodule AWS.DevOpsAgent do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_asset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_asset_content_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_asset_file_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_association_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2536,6 +3000,32 @@ defmodule AWS.DevOpsAgent do
 
   @type list_agent_spaces_errors() ::
           throttling_exception() | validation_exception() | internal_server_exception()
+
+  @type list_asset_files_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_asset_types_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_asset_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_assets_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_associations_errors() ::
           throttling_exception()
@@ -2639,6 +3129,23 @@ defmodule AWS.DevOpsAgent do
           throttling_exception()
           | validation_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_asset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_asset_file_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | content_size_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2756,6 +3263,73 @@ defmodule AWS.DevOpsAgent do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new asset in the specified agent space
+  """
+  @spec create_asset(map(), String.t() | atom(), create_asset_request(), list()) ::
+          {:ok, create_asset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_asset_errors()}
+  def create_asset(%Client{} = client, agent_space_id, input, options \\ []) do
+    url_path = "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a file in an asset
+  """
+  @spec create_asset_file(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_asset_file_request(),
+          list()
+        ) ::
+          {:ok, create_asset_file_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_asset_file_errors()}
+  def create_asset_file(%Client{} = client, agent_space_id, asset_id, path, input, options \\ []) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}/files/#{AWS.Util.encode_multi_segment_uri(path)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
 
     Request.request_rest(
       client,
@@ -2891,6 +3465,81 @@ defmodule AWS.DevOpsAgent do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes an asset and all its files from the specified agent space
+  """
+  @spec delete_asset(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_asset_request(),
+          list()
+        ) ::
+          {:ok, delete_asset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_asset_errors()}
+  def delete_asset(%Client{} = client, agent_space_id, asset_id, input, options \\ []) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a file from an asset
+  """
+  @spec delete_asset_file(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_asset_file_request(),
+          list()
+        ) ::
+          {:ok, delete_asset_file_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_asset_file_errors()}
+  def delete_asset_file(%Client{} = client, agent_space_id, asset_id, path, input, options \\ []) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}/files/#{AWS.Util.encode_multi_segment_uri(path)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -3123,6 +3772,119 @@ defmodule AWS.DevOpsAgent do
   end
 
   @doc """
+  Gets an asset from the specified agent space
+  """
+  @spec get_asset(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_asset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_asset_errors()}
+  def get_asset(%Client{} = client, agent_space_id, asset_id, asset_version \\ nil, options \\ []) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(asset_version) do
+        [{"assetVersion", asset_version} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets an asset's content as a zip bundle
+  """
+  @spec get_asset_content(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_asset_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_asset_content_errors()}
+  def get_asset_content(
+        %Client{} = client,
+        agent_space_id,
+        asset_id,
+        asset_version \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}/content"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(asset_version) do
+        [{"assetVersion", asset_version} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a file from an asset
+  """
+  @spec get_asset_file(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_asset_file_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_asset_file_errors()}
+  def get_asset_file(
+        %Client{} = client,
+        agent_space_id,
+        asset_id,
+        path,
+        asset_version \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}/files/#{AWS.Util.encode_multi_segment_uri(path)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(asset_version) do
+        [{"assetVersion", asset_version} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves given associations configured for a specific AgentSpace.
   """
   @spec get_association(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -3270,6 +4032,214 @@ defmodule AWS.DevOpsAgent do
       options,
       200
     )
+  end
+
+  @doc """
+  Lists files in an asset
+  """
+  @spec list_asset_files(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_asset_files_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_asset_files_errors()}
+  def list_asset_files(
+        %Client{} = client,
+        agent_space_id,
+        asset_id,
+        asset_version \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}/files"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_version) do
+        [{"assetVersion", asset_version} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the supported asset types
+  """
+  @spec list_asset_types(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_asset_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_asset_types_errors()}
+  def list_asset_types(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/asset/types"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists versions of an asset in the specified agent space
+  """
+  @spec list_asset_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_asset_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_asset_versions_errors()}
+  def list_asset_versions(
+        %Client{} = client,
+        agent_space_id,
+        asset_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists assets in the specified agent space
+  """
+  @spec list_assets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_assets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_assets_errors()}
+  def list_assets(
+        %Client{} = client,
+        agent_space_id,
+        asset_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        updated_after \\ nil,
+        updated_before \\ nil,
+        options \\ []
+      ) do
+    url_path = "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(updated_before) do
+        [{"updatedBefore", updated_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(updated_after) do
+        [{"updatedAfter", updated_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_type) do
+        [{"assetType", asset_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -3782,6 +4752,81 @@ defmodule AWS.DevOpsAgent do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an asset in the specified agent space
+  """
+  @spec update_asset(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_asset_request(),
+          list()
+        ) ::
+          {:ok, update_asset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_asset_errors()}
+  def update_asset(%Client{} = client, agent_space_id, asset_id, input, options \\ []) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a file in an asset
+  """
+  @spec update_asset_file(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_asset_file_request(),
+          list()
+        ) ::
+          {:ok, update_asset_file_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_asset_file_errors()}
+  def update_asset_file(%Client{} = client, agent_space_id, asset_id, path, input, options \\ []) do
+    url_path =
+      "/asset/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/assets/#{AWS.Util.encode_uri(asset_id)}/files/#{AWS.Util.encode_multi_segment_uri(path)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
 
     Request.request_rest(
       client,

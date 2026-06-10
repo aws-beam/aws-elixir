@@ -3470,6 +3470,7 @@ defmodule AWS.EC2 do
         optional("LogFormat") => String.t() | atom(),
         optional("LogGroupName") => String.t() | atom(),
         optional("MaxAggregationInterval") => integer(),
+        optional("TagFieldSpecifications") => list(tag_field_specification_request()),
         optional("TagSpecifications") => list(tag_specification()),
         optional("TrafficType") => list(any()),
         required("ResourceIds") => list(String.t() | atom()),
@@ -13036,6 +13037,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      tag_field_specification_request() :: %{
+        "ResourceType" => list(any()),
+        "TagKeys" => list(String.t() | atom())
+      }
+      
+  """
+  @type tag_field_specification_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_capacity_reservation_request() :: %{
         optional("AvailabilityZone") => String.t() | atom(),
         optional("AvailabilityZoneId") => String.t() | atom(),
@@ -17505,6 +17518,7 @@ defmodule AWS.EC2 do
         "LogGroupName" => String.t() | atom(),
         "MaxAggregationInterval" => integer(),
         "ResourceId" => String.t() | atom(),
+        "TagFieldSpecifications" => list(tag_field_specification_response()),
         "Tags" => list(tag()),
         "TrafficType" => list(any())
       }
@@ -25962,9 +25976,9 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("EndDate") => non_neg_integer(),
         optional("InstanceMatchCriteria") => list(any()),
+        optional("InstanceTypeSpecifications") => list(reservation_fleet_instance_specification()),
         optional("TagSpecifications") => list(tag_specification()),
         optional("Tenancy") => list(any()),
-        required("InstanceTypeSpecifications") => list(reservation_fleet_instance_specification()),
         required("TotalTargetCapacity") => integer()
       }
       
@@ -26685,6 +26699,18 @@ defmodule AWS.EC2 do
       
   """
   @type delete_transit_gateway_metering_policy_entry_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_field_specification_response() :: %{
+        "ResourceType" => list(any()),
+        "TagKeys" => list(String.t() | atom())
+      }
+      
+  """
+  @type tag_field_specification_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -27917,7 +27943,6 @@ defmodule AWS.EC2 do
       volume_modification() :: %{
         "EndTime" => non_neg_integer(),
         "ModificationState" => list(any()),
-        "Operator" => operator_response(),
         "OriginalIops" => integer(),
         "OriginalMultiAttachEnabled" => boolean(),
         "OriginalSize" => integer(),

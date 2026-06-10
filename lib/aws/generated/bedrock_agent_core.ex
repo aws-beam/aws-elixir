@@ -4309,6 +4309,7 @@ defmodule AWS.BedrockAgentCore do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | retryable_conflict_exception()
 
   @type get_batch_evaluation_errors() ::
           throttling_exception()
@@ -4444,6 +4445,7 @@ defmodule AWS.BedrockAgentCore do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | retryable_conflict_exception()
 
   @type invoke_browser_errors() ::
           throttling_exception()

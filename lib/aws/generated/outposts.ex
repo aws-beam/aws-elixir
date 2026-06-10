@@ -32,6 +32,21 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      quote_option() :: %{
+        "Capacities" => list(quote_capacity()),
+        "CapacitySummary" => capacity_summary(),
+        "PricingOptions" => list(pricing_option()),
+        "QuoteOptionIdentifier" => String.t() | atom(),
+        "Specifications" => list(quote_specification())
+      }
+
+  """
+  @type quote_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_outpost_supported_instance_types_input() :: %{
         optional("AssetId") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -95,6 +110,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       create_renewal_output() :: %{
+        "Currency" => list(any()),
         "MonthlyRecurringPrice" => float(),
         "OutpostId" => String.t() | atom(),
         "PaymentOption" => list(any()),
@@ -158,6 +174,32 @@ defmodule AWS.Outposts do
 
   """
   @type asset_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quote_specification() :: %{
+        "ExistingRackSpecificationDetails" => rack_specification_details(),
+        "FinalRackSpecificationDetails" => rack_specification_details(),
+        "QuoteSpecificationType" => list(any()),
+        "ServerSpecificationDetails" => server_specification_details()
+      }
+
+  """
+  @type quote_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_quotes_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_quotes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,6 +297,31 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      quote_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ExpirationDate" => non_neg_integer(),
+        "OutpostArn" => String.t() | atom(),
+        "QuoteId" => String.t() | atom(),
+        "QuoteOptions" => list(quote_option()),
+        "QuoteStatus" => list(any()),
+        "RequestedCapacities" => list(quote_capacity()),
+        "RequestedConstraints" => list(quote_constraint()),
+        "RequestedPaymentOptions" => list(list(any())()),
+        "RequestedPaymentTerms" => list(list(any())()),
+        "StatusMessage" => String.t() | atom(),
+        "SubmittedOrderId" => String.t() | atom()
+      }
+
+  """
+  @type quote_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_orders_output() :: %{
         "NextToken" => String.t() | atom(),
         "Orders" => list(order_summary())
@@ -281,12 +348,36 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      ordering_requirement() :: %{
+        "OrderingRequirementType" => list(any()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type ordering_requirement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_site_output() :: %{
         "Site" => site()
       }
 
   """
   @type get_site_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_quote_output() :: %{
+        "Quote" => quote()
+      }
+
+  """
+  @type create_quote_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,6 +415,15 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      delete_quote_output() :: %{}
+
+  """
+  @type delete_quote_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t() | atom())
       }
@@ -352,6 +452,21 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      detailed_instance_type_item() :: %{
+        "FormFactorConfigs" => list(form_factor_config()),
+        "InstanceType" => String.t() | atom(),
+        "MemoryInMib" => integer(),
+        "NetworkPerformance" => String.t() | atom(),
+        "VCPUs" => integer()
+      }
+
+  """
+  @type detailed_instance_type_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_site_address_input() :: %{
         required("AddressType") => list(any())
       }
@@ -369,6 +484,23 @@ defmodule AWS.Outposts do
 
   """
   @type create_site_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_quote_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("OutpostIdentifier") => String.t() | atom(),
+        optional("RequestedConstraints") => list(quote_constraint()),
+        optional("RequestedPaymentOptions") => list(list(any())()),
+        optional("RequestedPaymentTerms") => list(list(any())()),
+        required("CountryCode") => String.t() | atom(),
+        required("RequestedCapacities") => list(quote_capacity())
+      }
+
+  """
+  @type create_quote_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -400,6 +532,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       subscription_pricing_details() :: %{
+        "Currency" => list(any()),
         "MonthlyRecurringPrice" => float(),
         "PaymentOption" => list(any()),
         "PaymentTerm" => list(any()),
@@ -408,6 +541,23 @@ defmodule AWS.Outposts do
 
   """
   @type subscription_pricing_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_specification_details() :: %{
+        "EC2Capacities" => list(ec2_capacity()),
+        "RackUnitHeight" => list(any()),
+        "ServerDepthInches" => float(),
+        "ServerHeightInches" => float(),
+        "ServerPowerDrawKva" => float(),
+        "ServerWeightLbs" => float(),
+        "ServerWidthInches" => float()
+      }
+
+  """
+  @type server_specification_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -473,6 +623,17 @@ defmodule AWS.Outposts do
 
   """
   @type update_site_address_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_quote_output() :: %{
+        "Quote" => quote()
+      }
+
+  """
+  @type get_quote_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,6 +709,19 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      capacity_summary() :: %{
+        "CapacityChange" => list(quote_capacity()),
+        "ExistingCapacities" => list(quote_capacity()),
+        "FinalCapacities" => list(quote_capacity())
+      }
+
+  """
+  @type capacity_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_instance_type_capacity() :: %{
         "Count" => integer(),
         "InstanceType" => String.t() | atom()
@@ -606,6 +780,18 @@ defmodule AWS.Outposts do
 
   """
   @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_quotes_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Quotes" => list(quote_summary())
+      }
+
+  """
+  @type list_quotes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -716,6 +902,15 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      delete_quote_input() :: %{}
+
+  """
+  @type delete_quote_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_renewal_pricing_input() :: %{}
 
   """
@@ -731,6 +926,19 @@ defmodule AWS.Outposts do
 
   """
   @type get_order_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quote_capacity() :: %{
+        "Quantity" => float(),
+        "QuoteCapacityType" => list(any()),
+        "Unit" => String.t() | atom()
+      }
+
+  """
+  @type quote_capacity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -813,6 +1021,23 @@ defmodule AWS.Outposts do
 
   """
   @type list_sites_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_quote_input() :: %{
+        optional("CountryCode") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("OutpostIdentifier") => String.t() | atom(),
+        optional("RequestedCapacities") => list(quote_capacity()),
+        optional("RequestedConstraints") => list(quote_constraint()),
+        optional("RequestedPaymentOptions") => list(list(any())()),
+        optional("RequestedPaymentTerms") => list(list(any())())
+      }
+
+  """
+  @type update_quote_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -912,6 +1137,15 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      get_quote_input() :: %{}
+
+  """
+  @type get_quote_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_site_output() :: %{}
 
   """
@@ -928,6 +1162,18 @@ defmodule AWS.Outposts do
 
   """
   @type get_outpost_billing_information_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quote_constraint() :: %{
+        "QuoteConstraintType" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type quote_constraint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,6 +1248,32 @@ defmodule AWS.Outposts do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      quote() :: %{
+        "AccountId" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ExpirationDate" => non_neg_integer(),
+        "OrderingRequirements" => list(ordering_requirement()),
+        "OutpostArn" => String.t() | atom(),
+        "QuoteId" => String.t() | atom(),
+        "QuoteOptions" => list(quote_option()),
+        "QuoteStatus" => list(any()),
+        "RequestedCapacities" => list(quote_capacity()),
+        "RequestedConstraints" => list(quote_constraint()),
+        "RequestedPaymentOptions" => list(list(any())()),
+        "RequestedPaymentTerms" => list(list(any())()),
+        "StatusMessage" => String.t() | atom(),
+        "SubmittedOrderId" => String.t() | atom()
+      }
+
+  """
+  @type quote() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1103,6 +1375,7 @@ defmodule AWS.Outposts do
 
       subscription() :: %{
         "BeginDate" => non_neg_integer(),
+        "Currency" => list(any()),
         "EndDate" => non_neg_integer(),
         "MonthlyRecurringPrice" => float(),
         "OrderIds" => list(String.t() | atom()),
@@ -1114,6 +1387,30 @@ defmodule AWS.Outposts do
 
   """
   @type subscription() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_quote_output() :: %{
+        "Quote" => quote()
+      }
+
+  """
+  @type update_quote_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_orderable_instance_types_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OutpostGenerationFilter") => list(any())
+      }
+
+  """
+  @type list_orderable_instance_types_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1362,6 +1659,25 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      rack_specification_details() :: %{
+        "EC2Capacities" => list(ec2_capacity()),
+        "RackDepthInches" => float(),
+        "RackHeightInches" => float(),
+        "RackId" => String.t() | atom(),
+        "RackPowerDrawKva" => float(),
+        "RackUnitHeight" => list(any()),
+        "RackUse" => list(any()),
+        "RackWeightLbs" => float(),
+        "RackWidthInches" => float()
+      }
+
+  """
+  @type rack_specification_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_capacity_task_output() :: %{
         "AssetId" => String.t() | atom(),
         "CapacityTaskId" => String.t() | atom(),
@@ -1380,6 +1696,30 @@ defmodule AWS.Outposts do
 
   """
   @type get_capacity_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_orderable_instance_types_output() :: %{
+        "InstanceTypes" => list(detailed_instance_type_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_orderable_instance_types_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      form_factor_config() :: %{
+        "FormFactor" => list(any()),
+        "OutpostGeneration" => list(any())
+      }
+
+  """
+  @type form_factor_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1428,6 +1768,12 @@ defmodule AWS.Outposts do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_quote_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
   @type create_renewal_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1447,6 +1793,12 @@ defmodule AWS.Outposts do
           | internal_server_exception()
           | not_found_exception()
           | conflict_exception()
+
+  @type delete_quote_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
 
   @type delete_site_errors() ::
           validation_exception()
@@ -1492,6 +1844,12 @@ defmodule AWS.Outposts do
           | not_found_exception()
 
   @type get_outpost_supported_instance_types_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
+  @type get_quote_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -1545,6 +1903,12 @@ defmodule AWS.Outposts do
           | internal_server_exception()
           | not_found_exception()
 
+  @type list_orderable_instance_types_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
   @type list_orders_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1553,6 +1917,8 @@ defmodule AWS.Outposts do
 
   @type list_outposts_errors() ::
           validation_exception() | access_denied_exception() | internal_server_exception()
+
+  @type list_quotes_errors() :: access_denied_exception() | internal_server_exception()
 
   @type list_sites_errors() ::
           validation_exception() | access_denied_exception() | internal_server_exception()
@@ -1592,6 +1958,12 @@ defmodule AWS.Outposts do
           | internal_server_exception()
           | not_found_exception()
           | conflict_exception()
+
+  @type update_quote_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
 
   @type update_site_errors() ::
           validation_exception()
@@ -1763,6 +2135,41 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Creates a quote for an Outpost.
+
+  A quote provides pricing and configuration options based
+  on the requested capacity. You can optionally associate the quote with an
+  existing Outpost or
+  create a standalone quote by specifying only the country code and requested
+  capacities.
+  """
+  @spec create_quote(map(), create_quote_input(), list()) ::
+          {:ok, create_quote_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_quote_errors()}
+  def create_quote(%Client{} = client, input, options \\ []) do
+    url_path = "/quotes"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a renewal contract for the specified Outpost.
   """
   @spec create_renewal(map(), create_renewal_input(), list()) ::
@@ -1830,6 +2237,35 @@ defmodule AWS.Outposts do
           | {:error, delete_outpost_errors()}
   def delete_outpost(%Client{} = client, outpost_id, input, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the specified quote.
+  """
+  @spec delete_quote(map(), String.t() | atom(), delete_quote_input(), list()) ::
+          {:ok, delete_quote_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_quote_errors()}
+  def delete_quote(%Client{} = client, quote_identifier, input, options \\ []) do
+    url_path = "/quotes/#{AWS.Util.encode_uri(quote_identifier)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -2132,6 +2568,24 @@ defmodule AWS.Outposts do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about the specified quote.
+  """
+  @spec get_quote(map(), String.t() | atom(), list()) ::
+          {:ok, get_quote_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_quote_errors()}
+  def get_quote(%Client{} = client, quote_identifier, options \\ []) do
+    url_path = "/quotes/#{AWS.Util.encode_uri(quote_identifier)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -2554,6 +3008,60 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Lists the instance types that can be ordered for an Outpost.
+
+  You can filter the results
+  by Outpost generation.
+  """
+  @spec list_orderable_instance_types(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_orderable_instance_types_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_orderable_instance_types_errors()}
+  def list_orderable_instance_types(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        outpost_generation_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/instanceTypes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(outpost_generation_filter) do
+        [{"OutpostGenerationFilter", outpost_generation_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the Outpost orders for your Amazon Web Services account.
   """
   @spec list_orders(
@@ -2670,6 +3178,38 @@ defmodule AWS.Outposts do
     query_params =
       if !is_nil(availability_zone_filter) do
         [{"AvailabilityZoneFilter", availability_zone_filter} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the quotes for your Amazon Web Services account.
+  """
+  @spec list_quotes(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_quotes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_quotes_errors()}
+  def list_quotes(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/quotes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2963,6 +3503,38 @@ defmodule AWS.Outposts do
           | {:error, update_outpost_errors()}
   def update_outpost(%Client{} = client, outpost_id, input, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified quote.
+
+  You can modify the requested capacities, constraints,
+  payment options, payment terms, or Outpost association.
+  """
+  @spec update_quote(map(), String.t() | atom(), update_quote_input(), list()) ::
+          {:ok, update_quote_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_quote_errors()}
+  def update_quote(%Client{} = client, quote_identifier, input, options \\ []) do
+    url_path = "/quotes/#{AWS.Util.encode_uri(quote_identifier)}"
     headers = []
     custom_headers = []
     query_params = []

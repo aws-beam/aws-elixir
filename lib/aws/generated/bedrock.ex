@@ -1233,6 +1233,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      put_account_data_retention_request() :: %{
+        required("mode") => list(any())
+      }
+
+  """
+  @type put_account_data_retention_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       automated_evaluation_custom_metric_config() :: %{
         "customMetrics" => list(list()),
         "evaluatorModelConfig" => custom_metric_evaluator_model_config()
@@ -3407,6 +3418,18 @@ defmodule AWS.Bedrock do
 
   """
   @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_data_retention_response() :: %{
+        "mode" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type put_account_data_retention_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5623,6 +5646,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_account_data_retention_request() :: %{}
+
+  """
+  @type get_account_data_retention_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_tags_exception() :: %{
         "message" => String.t() | atom(),
         "resourceName" => String.t() | atom()
@@ -5648,6 +5680,18 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_topic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_data_retention_response() :: %{
+        "mode" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_account_data_retention_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6125,6 +6169,12 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_account_data_retention_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type get_advanced_prompt_optimization_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6444,6 +6494,12 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type put_account_data_retention_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type put_enforced_guardrail_configuration_errors() ::
           throttling_exception()
@@ -8085,6 +8141,24 @@ defmodule AWS.Bedrock do
           | {:error, export_automated_reasoning_policy_version_errors()}
   def export_automated_reasoning_policy_version(%Client{} = client, policy_arn, options \\ []) do
     url_path = "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/export"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the account-wide data retention mode for Amazon Bedrock.
+  """
+  @spec get_account_data_retention(map(), list()) ::
+          {:ok, get_account_data_retention_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_account_data_retention_errors()}
+  def get_account_data_retention(%Client{} = client, options \\ []) do
+    url_path = "/data-retention"
     headers = []
     query_params = []
 
@@ -10313,6 +10387,35 @@ defmodule AWS.Bedrock do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sets the account-wide data retention mode for Amazon Bedrock.
+  """
+  @spec put_account_data_retention(map(), put_account_data_retention_request(), list()) ::
+          {:ok, put_account_data_retention_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_account_data_retention_errors()}
+  def put_account_data_retention(%Client{} = client, input, options \\ []) do
+    url_path = "/data-retention"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

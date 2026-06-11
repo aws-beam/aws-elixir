@@ -534,6 +534,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      attach_image_watermark_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ImageId") => String.t() | atom(),
+        required("WatermarkName") => String.t() | atom()
+      }
+      
+  """
+  @type attach_image_watermark_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ena_srd_specification_request() :: %{
         "EnaSrdEnabled" => boolean(),
         "EnaSrdUdpSpecification" => ena_srd_udp_specification_request()
@@ -11217,6 +11230,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      detach_image_watermark_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ImageId") => String.t() | atom(),
+        required("WatermarkKey") => String.t() | atom()
+      }
+      
+  """
+  @type detach_image_watermark_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       copy_volumes_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("DryRun") => boolean(),
@@ -13795,6 +13821,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      detach_image_watermark_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type detach_image_watermark_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       allocate_ipam_pool_cidr_request() :: %{
         optional("AllowedCidrs") => list(String.t() | atom()),
         optional("Cidr") => String.t() | atom(),
@@ -14501,6 +14538,21 @@ defmodule AWS.EC2 do
       
   """
   @type response_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_watermark() :: %{
+        "SourceImageCreationTime" => non_neg_integer(),
+        "SourceImageId" => String.t() | atom(),
+        "SourceImageRegion" => String.t() | atom(),
+        "WatermarkCreationTime" => non_neg_integer(),
+        "WatermarkKey" => String.t() | atom()
+      }
+      
+  """
+  @type image_watermark() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16724,6 +16776,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      attach_image_watermark_result() :: %{
+        "WatermarkKey" => String.t() | atom()
+      }
+      
+  """
+  @type attach_image_watermark_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       transit_gateway_policy_table_entry() :: %{
         "PolicyRule" => transit_gateway_policy_rule(),
         "PolicyRuleNumber" => String.t() | atom(),
@@ -18509,6 +18572,7 @@ defmodule AWS.EC2 do
         "ImageAllowed" => boolean(),
         "ImageId" => String.t() | atom(),
         "ImageOwnerAlias" => String.t() | atom(),
+        "ImageWatermarks" => list(image_watermark()),
         "IsPublic" => boolean(),
         "Name" => String.t() | atom(),
         "OwnerId" => String.t() | atom(),
@@ -22287,6 +22351,7 @@ defmodule AWS.EC2 do
         "RamdiskId" => String.t() | atom(),
         "PlatformDetails" => String.t() | atom(),
         "KernelId" => String.t() | atom(),
+        "ImageWatermarks" => list(image_watermark()),
         "ImageType" => list(any()),
         "SourceImageId" => String.t() | atom(),
         "StateReason" => state_reason(),
@@ -34778,6 +34843,29 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Attaches a watermark to a non-public AMI.
+
+  The watermark is a structured identifier that
+  automatically propagates to all derivative images created through
+  [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html),  [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html),
+
+  and
+  [CreateRestoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRestoreImageTask.html).
+
+  Only the AMI owner can attach watermarks. Watermarks cannot be added to public
+  AMIs.
+  """
+  @spec attach_image_watermark(map(), attach_image_watermark_request(), list()) ::
+          {:ok, attach_image_watermark_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def attach_image_watermark(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AttachImageWatermark", input, options)
+  end
+
+  @doc """
   Attaches an internet gateway or a virtual private gateway to a VPC, enabling
   connectivity
   between the internet and the VPC.
@@ -44342,6 +44430,28 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DetachClassicLinkVpc", input, options)
+  end
+
+  @doc """
+  Removes a watermark from the specified AMI.
+
+  This is an idempotent operation. It succeeds
+  even if the watermark does not exist on the image.
+
+  Removing a watermark from an image does not affect derivative images that
+  already carry
+  the watermark.
+
+  Only the AMI owner can detach watermarks.
+  """
+  @spec detach_image_watermark(map(), detach_image_watermark_request(), list()) ::
+          {:ok, detach_image_watermark_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def detach_image_watermark(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetachImageWatermark", input, options)
   end
 
   @doc """

@@ -98,7 +98,9 @@ defmodule AWS.Amp do
       update_workspace_configuration_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("limitsPerLabelSet") => list(limits_per_label_set()),
-        optional("retentionPeriodInDays") => [integer()]
+        optional("outOfOrderTimeWindowInSeconds") => [integer()],
+        optional("retentionPeriodInDays") => [integer()],
+        optional("ruleQueryOffsetInSeconds") => [integer()]
       }
 
   """
@@ -535,7 +537,9 @@ defmodule AWS.Amp do
 
       workspace_configuration_description() :: %{
         "limitsPerLabelSet" => list(limits_per_label_set()),
+        "outOfOrderTimeWindowInSeconds" => [integer()],
         "retentionPeriodInDays" => [integer()],
+        "ruleQueryOffsetInSeconds" => [integer()],
         "status" => workspace_configuration_status()
       }
 

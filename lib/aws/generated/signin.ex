@@ -42,6 +42,18 @@ defmodule AWS.Signin do
 
   ## Example:
 
+      conflict_exception() :: %{
+        "error" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_o_auth2_token_request() :: %{
         required("tokenInput") => create_o_auth2_token_request_body()
       }
@@ -95,6 +107,95 @@ defmodule AWS.Signin do
 
   ## Example:
 
+      delete_console_authorization_configuration_input() :: %{
+        optional("targetId") => String.t() | atom()
+      }
+
+  """
+  @type delete_console_authorization_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_console_authorization_configuration_output() :: %{
+        "consoleAuthorizationEnabled" => [boolean()],
+        "scope" => [String.t() | atom()],
+        "targetId" => String.t() | atom()
+      }
+
+  """
+  @type delete_console_authorization_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_permission_statement_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("statementId") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_permission_statement_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_permission_statement_output() :: %{}
+
+  """
+  @type delete_resource_permission_statement_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_console_authorization_configuration_input() :: %{
+        optional("targetId") => String.t() | atom()
+      }
+
+  """
+  @type get_console_authorization_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_console_authorization_configuration_output() :: %{
+        "consoleAuthorizationEnabled" => [boolean()],
+        "scope" => [String.t() | atom()],
+        "targetId" => String.t() | atom()
+      }
+
+  """
+  @type get_console_authorization_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_input() :: %{}
+
+  """
+  @type get_resource_policy_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_output() :: %{
+        "signinResourceBasedPolicy" => signin_resource_based_policy()
+      }
+
+  """
+  @type get_resource_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "error" => list(any()),
         "message" => [String.t() | atom()]
@@ -102,6 +203,146 @@ defmodule AWS.Signin do
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_permission_statements_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_resource_permission_statements_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_permission_statements_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "permissionStatements" => list(permission_statement_summary())
+      }
+
+  """
+  @type list_resource_permission_statements_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_statement_summary() :: %{
+        "condition" => map(),
+        "sid" => String.t() | atom()
+      }
+
+  """
+  @type permission_statement_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_statement() :: %{
+        "action" => list([String.t() | atom()]()),
+        "condition" => map(),
+        "effect" => [String.t() | atom()],
+        "principal" => map(),
+        "resource" => [String.t() | atom()]
+      }
+
+  """
+  @type policy_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_console_authorization_configuration_input() :: %{
+        optional("targetId") => String.t() | atom()
+      }
+
+  """
+  @type put_console_authorization_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_console_authorization_configuration_output() :: %{
+        "consoleAuthorizationEnabled" => [boolean()],
+        "scope" => [String.t() | atom()],
+        "targetId" => String.t() | atom()
+      }
+
+  """
+  @type put_console_authorization_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_permission_statement_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("consoleSourceVpce") => String.t() | atom(),
+        optional("excludedPrincipal") => String.t() | atom(),
+        optional("requestedRegion") => String.t() | atom(),
+        optional("signinSourceVpce") => String.t() | atom(),
+        optional("sourceIp") => String.t() | atom(),
+        optional("sourceVpc") => String.t() | atom(),
+        optional("vpcSourceIp") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_permission_statement_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_permission_statement_output() :: %{
+        "statementId" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_permission_statement_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "error" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "error" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signin_resource_based_policy() :: %{
+        "statement" => list(policy_statement()),
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type signin_resource_based_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,6 +372,56 @@ defmodule AWS.Signin do
           validation_exception()
           | too_many_requests_error()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type delete_console_authorization_configuration_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type delete_resource_permission_statement_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_console_authorization_configuration_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_resource_policy_errors() ::
+          too_many_requests_error()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_resource_permission_statements_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_console_authorization_configuration_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type put_resource_permission_statement_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   def metadata do
@@ -198,6 +489,233 @@ defmodule AWS.Signin do
           | {:error, create_o_auth2_token_errors()}
   def create_o_auth2_token(%Client{} = client, input, options \\ []) do
     url_path = "/v1/token"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Delete console authorization configuration with automatic scope detection
+  """
+  @spec delete_console_authorization_configuration(
+          map(),
+          delete_console_authorization_configuration_input(),
+          list()
+        ) ::
+          {:ok, delete_console_authorization_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_console_authorization_configuration_errors()}
+  def delete_console_authorization_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/delete-console-authorization-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Remove a permission statement from the account's SignIn resource-based policy
+  """
+  @spec delete_resource_permission_statement(
+          map(),
+          delete_resource_permission_statement_input(),
+          list()
+        ) ::
+          {:ok, delete_resource_permission_statement_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_permission_statement_errors()}
+  def delete_resource_permission_statement(%Client{} = client, input, options \\ []) do
+    url_path = "/delete-resource-permission-statement"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Get console authorization configuration with automatic scope detection
+  """
+  @spec get_console_authorization_configuration(
+          map(),
+          get_console_authorization_configuration_input(),
+          list()
+        ) ::
+          {:ok, get_console_authorization_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_console_authorization_configuration_errors()}
+  def get_console_authorization_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/get-console-authorization-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieve the account's consolidated SignIn resource-based policy
+  """
+  @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
+          {:ok, get_resource_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/get-resource-policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieve all permission statements in the account's SignIn resource-based policy
+  """
+  @spec list_resource_permission_statements(
+          map(),
+          list_resource_permission_statements_input(),
+          list()
+        ) ::
+          {:ok, list_resource_permission_statements_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_resource_permission_statements_errors()}
+  def list_resource_permission_statements(%Client{} = client, input, options \\ []) do
+    url_path = "/list-resource-permission-statements"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Enable console authorization configuration with automatic scope detection
+  """
+  @spec put_console_authorization_configuration(
+          map(),
+          put_console_authorization_configuration_input(),
+          list()
+        ) ::
+          {:ok, put_console_authorization_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_console_authorization_configuration_errors()}
+  def put_console_authorization_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/put-console-authorization-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Create a permission statement in the account's SignIn resource-based policy
+  """
+  @spec put_resource_permission_statement(
+          map(),
+          put_resource_permission_statement_input(),
+          list()
+        ) ::
+          {:ok, put_resource_permission_statement_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_permission_statement_errors()}
+  def put_resource_permission_statement(%Client{} = client, input, options \\ []) do
+    url_path = "/put-resource-permission-statement"
     headers = []
     custom_headers = []
     query_params = []

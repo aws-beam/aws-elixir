@@ -3,7 +3,19 @@
 
 defmodule AWS.ConnectHealth do
   @moduledoc """
-  Health Agent for healthcare providers and patient engagement
+  Amazon Connect Health is an AI-powered healthcare service built on Amazon
+  Connect.
+
+  It provides pre-built agents that automate patient engagement workflows and
+  support clinical documentation at the point of care.
+
+  You can use the Amazon Connect Health API to programmatically manage domains,
+  configure patient engagement agents, run patient insights jobs, and stream
+  ambient documentation sessions. This API reference describes the available API
+  operations and data types for Amazon Connect Health.
+
+  We recommend that you use the AWS SDKs to make programmatic API calls to Amazon
+  Connect Health.
   """
 
   alias AWS.Client
@@ -888,6 +900,17 @@ defmodule AWS.ConnectHealth do
 
   """
   @type list_subscriptions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_binary_audio_event() :: %{
+        "audioChunk" => binary()
+      }
+
+  """
+  @type medical_scribe_binary_audio_event() :: %{(String.t() | atom()) => any()}
 
   @type activate_subscription_errors() ::
           validation_exception()

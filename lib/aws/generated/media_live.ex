@@ -2554,6 +2554,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       audio_track() :: %{
+        "PremixSettings" => audio_pre_mixer_settings(),
         "Track" => integer()
       }
 
@@ -7374,7 +7375,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       audio_pid_selection() :: %{
-        "Pid" => integer()
+        "Pid" => integer(),
+        "Pids" => list(audio_pid())
       }
 
   """
@@ -7469,6 +7471,8 @@ defmodule AWS.MediaLive do
       audio_normalization_settings() :: %{
         "Algorithm" => list(any()),
         "AlgorithmControl" => list(any()),
+        "PeakCalculation" => list(any()),
+        "PeakLimiterThreshold" => float(),
         "TargetLkfs" => float()
       }
 
@@ -7744,6 +7748,19 @@ defmodule AWS.MediaLive do
 
   """
   @type claim_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_pid() :: %{
+        "DolbyEDecode" => audio_dolby_e_decode(),
+        "Pid" => integer(),
+        "PremixSettings" => audio_pre_mixer_settings()
+      }
+
+  """
+  @type audio_pid() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8167,6 +8184,20 @@ defmodule AWS.MediaLive do
 
   """
   @type list_cloud_watch_alarm_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_pre_mixer_settings() :: %{
+        "AudioNormalizationSettings" => audio_normalization_settings(),
+        "Channels" => integer(),
+        "GainDb" => float(),
+        "RemixSettings" => remix_settings()
+      }
+
+  """
+  @type audio_pre_mixer_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

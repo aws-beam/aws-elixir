@@ -57,6 +57,7 @@ defmodule AWS.Neptune do
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("EngineVersion") => String.t() | atom(),
         optional("KmsKeyId") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("OptionGroupName") => String.t() | atom(),
         optional("Port") => integer(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
@@ -710,6 +711,7 @@ defmodule AWS.Neptune do
         optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("KmsKeyId") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("OptionGroupName") => String.t() | atom(),
         optional("Port") => integer(),
         optional("RestoreToTime") => non_neg_integer(),
@@ -953,6 +955,7 @@ defmodule AWS.Neptune do
         "StatusInfos" => list(db_instance_status_info()),
         "Engine" => String.t() | atom(),
         "VpcSecurityGroups" => list(vpc_security_group_membership()),
+        "NetworkType" => String.t() | atom(),
         "MultiAZ" => boolean(),
         "CACertificateIdentifier" => String.t() | atom(),
         "Timezone" => String.t() | atom(),
@@ -1110,6 +1113,17 @@ defmodule AWS.Neptune do
       
   """
   @type db_subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_type_not_supported_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type network_type_not_supported_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1532,6 +1546,7 @@ defmodule AWS.Neptune do
         "MultiAZCapable" => boolean(),
         "ReadReplicaCapable" => boolean(),
         "StorageType" => String.t() | atom(),
+        "SupportedNetworkTypes" => list(String.t() | atom()),
         "SupportsEnhancedMonitoring" => boolean(),
         "SupportsGlobalDatabases" => boolean(),
         "SupportsIAMDatabaseAuthentication" => boolean(),
@@ -1959,6 +1974,7 @@ defmodule AWS.Neptune do
         "EngineVersion" => String.t() | atom(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
         "Iops" => integer(),
+        "NetworkType" => String.t() | atom(),
         "PendingCloudwatchLogsExports" => pending_cloudwatch_logs_exports(),
         "StorageType" => String.t() | atom()
       }
@@ -2103,6 +2119,7 @@ defmodule AWS.Neptune do
         optional("KmsKeyId") => String.t() | atom(),
         optional("MasterUserPassword") => String.t() | atom(),
         optional("MasterUsername") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("OptionGroupName") => String.t() | atom(),
         optional("Port") => integer(),
         optional("PreSignedUrl") => String.t() | atom(),
@@ -2489,6 +2506,7 @@ defmodule AWS.Neptune do
         "LatestRestorableTime" => non_neg_integer(),
         "Engine" => String.t() | atom(),
         "VpcSecurityGroups" => list(vpc_security_group_membership()),
+        "NetworkType" => String.t() | atom(),
         "MultiAZ" => boolean(),
         "EarliestRestorableTime" => non_neg_integer(),
         "DatabaseName" => String.t() | atom(),
@@ -2913,6 +2931,7 @@ defmodule AWS.Neptune do
         "DBSubnetGroupName" => String.t() | atom(),
         "SubnetGroupStatus" => String.t() | atom(),
         "Subnets" => list(subnet()),
+        "SupportedNetworkTypes" => list(String.t() | atom()),
         "VpcId" => String.t() | atom()
       }
       
@@ -3017,6 +3036,7 @@ defmodule AWS.Neptune do
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("EngineVersion") => String.t() | atom(),
         optional("MasterUserPassword") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("NewDBClusterIdentifier") => String.t() | atom(),
         optional("OptionGroupName") => String.t() | atom(),
         optional("Port") => integer(),
@@ -3429,6 +3449,7 @@ defmodule AWS.Neptune do
           | db_subnet_group_does_not_cover_enough_a_zs()
           | invalid_vpc_network_state_fault()
           | invalid_global_cluster_state_fault()
+          | network_type_not_supported_fault()
           | invalid_subnet()
           | invalid_db_subnet_group_state_fault()
           | db_cluster_quota_exceeded_fault()
@@ -3590,6 +3611,7 @@ defmodule AWS.Neptune do
           | storage_quota_exceeded_fault()
           | db_subnet_group_not_found_fault()
           | invalid_vpc_network_state_fault()
+          | network_type_not_supported_fault()
           | storage_type_not_supported_fault()
           | invalid_subnet()
           | invalid_db_subnet_group_state_fault()
@@ -3696,6 +3718,7 @@ defmodule AWS.Neptune do
           | db_subnet_group_not_found_fault()
           | invalid_db_cluster_snapshot_state_fault()
           | invalid_vpc_network_state_fault()
+          | network_type_not_supported_fault()
           | invalid_subnet()
           | invalid_restore_fault()
           | db_cluster_quota_exceeded_fault()
@@ -3715,6 +3738,7 @@ defmodule AWS.Neptune do
           | db_subnet_group_not_found_fault()
           | invalid_db_cluster_snapshot_state_fault()
           | invalid_vpc_network_state_fault()
+          | network_type_not_supported_fault()
           | invalid_subnet()
           | invalid_restore_fault()
           | db_cluster_quota_exceeded_fault()

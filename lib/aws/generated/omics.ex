@@ -1186,6 +1186,7 @@ defmodule AWS.Omics do
         "storageCapacity" => [integer()],
         "storageType" => String.t() | atom(),
         "workflowId" => String.t() | atom(),
+        "workflowName" => String.t() | atom(),
         "workflowVersionName" => String.t() | atom()
       }
 

@@ -6694,6 +6694,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       metadata_schema_entry() :: %{
         "extractionConfig" => list(),
+        "extractionType" => list(any()),
         "key" => String.t() | atom(),
         "type" => list(any())
       }
@@ -8868,18 +8869,9 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Adds examples to the dataset's DRAFT.
 
-  **Validation:** All examples are validated against the dataset's schemaType
-  before any
-  writes occur. If any example fails validation, the entire batch is rejected with
-  ValidationException — no examples are written (all-or-nothing semantics).
-
-  **Asynchronous:** Operates in-place on DRAFT. No version bump occurs.
-  Use CreateDatasetVersion to publish DRAFT as a new numbered version.
-
-  **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset
-  status is not in {DRAFT, ACTIVE}.
-
-  **Request size limit:** Max 5 MB total request body. Max 1000 examples per call.
+  All examples are validated against the dataset's schema type before any writes
+  occur. If any example fails validation, the entire batch is rejected
+  (all-or-nothing semantics).
   """
   @spec add_dataset_examples(map(), String.t() | atom(), add_dataset_examples_request(), list()) ::
           {:ok, add_dataset_examples_response(), any()}
@@ -9127,10 +9119,10 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Creates a new Dataset resource asynchronously.
+  Creates a new dataset resource asynchronously.
 
-  Returns immediately with status CREATING. Poll GetDataset until
-  status transitions to ACTIVE or CREATE_FAILED (with failureReason).
+  Returns immediately with status CREATING. Poll `GetDataset` until status
+  transitions to ACTIVE or CREATE_FAILED.
   """
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
@@ -9161,17 +9153,9 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Publishes the current DRAFT as a new numbered version.
 
-  Snapshots the DRAFT examples as the next version (1, 2, 3, ...).
-  The DRAFT is preserved and remains editable after publishing.
-  Returns immediately with status UPDATING. Poll GetDataset until
-  status transitions to ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
-
-  **State guard:** Returns ConflictException (DATASET_NOT_READY) if status is in
-  {CREATING, UPDATING, DELETING}, or DATASET_IN_FAILED_STATE if status is in
-  {CREATE_FAILED, DELETE_FAILED}.
-
-  **Quota:** MAX_VERSIONS_PER_DATASET applies to published versions only (not
-  DRAFT).
+  The DRAFT is preserved and remains editable after publishing. Returns
+  immediately with status UPDATING. Poll `GetDataset` until status transitions to
+  ACTIVE or UPDATE_FAILED.
   """
   @spec create_dataset_version(
           map(),
@@ -10013,40 +9997,10 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Deletes a dataset version or an entire dataset (all versions + name claim).
+  Deletes a dataset version or an entire dataset asynchronously.
 
-  Asynchronous 202.
-
-  ## State transitions:
-  - If `datasetVersion` is absent (full delete): status transitions to DELETING
-  immediately.
-  - If `datasetVersion` is provided (version-specific delete): status transitions
-  to UPDATING.
-
-  **State guard (full delete):** Returns ConflictException (DATASET_NOT_READY) if
-  the
-  dataset status is in {CREATING, UPDATING}. Deletion is allowed from ACTIVE,
-  CREATE_FAILED,
-  UPDATE_FAILED, and DELETE_FAILED states.
-
-  **State guard (version-specific delete):** Returns ConflictException
-  (DATASET_NOT_READY) if
-  the dataset status is not in {ACTIVE, CREATE_FAILED, UPDATE_FAILED}.
-
-  Fails with ConflictException (REFERENCED_BY_EVAL_JOB) if referenced by an active
-  evaluation job (full delete only).
-
-  If the delete workflow fails after retries, status is set to DELETE_FAILED (full
-  delete)
-  or UPDATE_FAILED (version-specific delete).
-  Calling DeleteDataset on a DELETE_FAILED dataset re-triggers the delete workflow
-  (idempotent retry path).
-
-  ## Version parameter:
-  - If `datasetVersion` is absent: deletes ALL versions and the Dataset record
-  itself.
-  - If `datasetVersion` is provided: deletes only that specific DatasetVersion.
-  Returns ResourceNotFoundException if the specified version does not exist.
+  If `datasetVersion` is absent, deletes all versions and the dataset record
+  itself. If provided, deletes only that specific version.
   """
   @spec delete_dataset(map(), String.t() | atom(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
@@ -10082,17 +10036,8 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Deletes specific examples by ID from DRAFT.
 
-  **Validation:** All example IDs are validated before any deletes occur. If any
-  ID
-  does not exist in DRAFT, the entire batch is rejected with
-  ResourceNotFoundException —
-  no examples are deleted (all-or-nothing semantics).
-
-  **Asynchronous:** Operates in-place on DRAFT. No version bump occurs.
-  Use CreateDatasetVersion to publish DRAFT as a new numbered version.
-
-  **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset
-  status is not in {DRAFT, ACTIVE}.
+  All example IDs are validated before any deletes occur. If any ID does not exist
+  in DRAFT, the entire batch is rejected (all-or-nothing semantics).
   """
   @spec delete_dataset_examples(
           map(),
@@ -10934,28 +10879,11 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Retrieves dataset metadata only.
+  Retrieves dataset metadata.
 
-  Use `?datasetVersion=DRAFT` or `?datasetVersion=N` to retrieve a specific
-  version's metadata.
-  If absent, defaults to DRAFT (the mutable working copy).
-  Returns ResourceNotFoundException if the specified version is not found.
-
-  **Initial state after CreateDataset:** When CreateDataset completes successfully
-  (status transitions to ACTIVE), only a DRAFT working copy exists. No published
-  versions exist until CreateDatasetVersion is called. At this point draftStatus
-  is
-  MODIFIED because the DRAFT has content that has never been published.
-
-  **Default version behavior:** When `datasetVersion` is omitted, the operation
-  returns the DRAFT working copy. To retrieve a specific published version, pass
-  the version number as a string (e.g. `?datasetVersion=1`).
-
-  **State guard:** Allowed for all statuses including DELETING. Returns the
-  dataset
-  record with its current status so callers can observe the deletion in progress.
-
-  For paginated example IDs use ListDatasetExamples.
+  Use the `datasetVersion` query parameter to retrieve a specific version's
+  metadata. If absent, defaults to DRAFT. For paginated example content, use
+  `ListDatasetExamples`.
   """
   @spec get_dataset(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_dataset_response(), any()}
@@ -11839,17 +11767,9 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Returns paginated examples from the dataset.
 
-  **Version-pinned pagination:** The server embeds the resolved version in the
-  `nextToken`.
-  Once pagination begins, all subsequent pages are pinned to that version
-  regardless of
-  concurrent mutations or whether `datasetVersion` is passed on subsequent
-  requests. The `datasetVersion`
-  query parameter is only used for the first request (when `nextToken` is absent);
-  if omitted,
-  defaults to DRAFT.
-
-  **State guard:** Allowed for all statuses including DELETING.
+  The server embeds the resolved version in the pagination token. Once pagination
+  begins, all subsequent pages are pinned to that version regardless of concurrent
+  mutations.
   """
   @spec list_dataset_examples(
           map(),
@@ -11906,8 +11826,6 @@ defmodule AWS.BedrockAgentCoreControl do
   (newest first).
 
   Does not include the DRAFT working copy.
-
-  **State guard:** Allowed for all statuses including DELETING.
   """
   @spec list_dataset_versions(
           map(),
@@ -11952,8 +11870,6 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @doc """
   Lists all datasets in the caller's account, paginated.
-
-  No presigned URLs in list results.
   """
   @spec list_datasets(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_datasets_response(), any()}
@@ -13343,13 +13259,9 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Updates a dataset's metadata.
 
-  Synchronous operation.
-  Only provided fields are updated; omitted fields remain unchanged.
-
-  To modify dataset content, use AddDatasetExamples, UpdateDatasetExamples,
-  or DeleteDatasetExamples.
-
-  Cannot update: name, schemaType, kmsKeyArn (immutable after creation).
+  Synchronous operation. Only provided fields are updated; omitted fields remain
+  unchanged. To modify dataset content, use `AddDatasetExamples`,
+  `UpdateDatasetExamples`, or `DeleteDatasetExamples`.
   """
   @spec update_dataset(map(), String.t() | atom(), update_dataset_request(), list()) ::
           {:ok, update_dataset_response(), any()}
@@ -13380,21 +13292,9 @@ defmodule AWS.BedrockAgentCoreControl do
   @doc """
   Updates multiple existing examples in-place on DRAFT.
 
-  **Validation:** All examples are validated against the dataset's schemaType
-  before any
-  writes occur. If any example fails validation, the entire batch is rejected with
-  ValidationException — no examples are updated (all-or-nothing semantics).
-
-  **Asynchronous:** Operates in-place on DRAFT. No version bump occurs.
-  Use CreateDatasetVersion to publish DRAFT as a new numbered version.
-
-  Fails with ResourceNotFoundException if any exampleId does not exist in DRAFT.
-  To add new examples, use AddDatasetExamples instead.
-
-  **State guard:** Returns ConflictException (DATASET_NOT_READY) if the dataset
-  status is not in {DRAFT, ACTIVE}.
-
-  **Request size limit:** Max 5 MB total request body. Max 1000 examples per call.
+  All examples are validated against the dataset's schema type before any writes
+  occur. If any example fails validation, the entire batch is rejected
+  (all-or-nothing semantics).
   """
   @spec update_dataset_examples(
           map(),

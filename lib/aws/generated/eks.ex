@@ -226,6 +226,8 @@ defmodule AWS.EKS do
       outpost_config_response() :: %{
         "controlPlaneInstanceType" => String.t() | atom(),
         "controlPlanePlacement" => control_plane_placement_response(),
+        "etcdInstanceType" => String.t() | atom(),
+        "etcdPlacement" => etcd_placement_response(),
         "outpostArns" => list(String.t() | atom())
       }
 
@@ -899,7 +901,8 @@ defmodule AWS.EKS do
   ## Example:
 
       control_plane_placement_response() :: %{
-        "groupName" => String.t() | atom()
+        "groupName" => String.t() | atom(),
+        "spreadLevel" => list(any())
       }
 
   """
@@ -1343,6 +1346,8 @@ defmodule AWS.EKS do
       outpost_config_request() :: %{
         "controlPlaneInstanceType" => String.t() | atom(),
         "controlPlanePlacement" => control_plane_placement_request(),
+        "etcdInstanceType" => String.t() | atom(),
+        "etcdPlacement" => etcd_placement_request(),
         "outpostArns" => list(String.t() | atom())
       }
 
@@ -1996,6 +2001,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      etcd_placement_request() :: %{
+        "spreadLevel" => list(any())
+      }
+
+  """
+  @type etcd_placement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_access_policy_response() :: %{
         "associatedAccessPolicy" => associated_access_policy(),
         "clusterName" => String.t() | atom(),
@@ -2069,7 +2085,8 @@ defmodule AWS.EKS do
   ## Example:
 
       control_plane_placement_request() :: %{
-        "groupName" => String.t() | atom()
+        "groupName" => String.t() | atom(),
+        "spreadLevel" => list(any())
       }
 
   """
@@ -2717,6 +2734,17 @@ defmodule AWS.EKS do
 
   """
   @type argo_cd_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      etcd_placement_response() :: %{
+        "spreadLevel" => list(any())
+      }
+
+  """
+  @type etcd_placement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

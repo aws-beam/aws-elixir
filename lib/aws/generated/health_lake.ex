@@ -285,6 +285,17 @@ defmodule AWS.HealthLake do
 
   ## Example:
       
+      update_fhir_datastore_response() :: %{
+        "DatastoreProperties" => datastore_properties()
+      }
+      
+  """
+  @type update_fhir_datastore_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -334,6 +345,7 @@ defmodule AWS.HealthLake do
   ## Example:
       
       datastore_properties() :: %{
+        "AnalyticsConfiguration" => analytics_configuration(),
         "CreatedAt" => non_neg_integer(),
         "DatastoreArn" => String.t() | atom(),
         "DatastoreEndpoint" => String.t() | atom(),
@@ -343,7 +355,9 @@ defmodule AWS.HealthLake do
         "DatastoreTypeVersion" => list(any()),
         "ErrorCause" => error_cause(),
         "IdentityProviderConfiguration" => identity_provider_configuration(),
+        "NlpConfiguration" => nlp_configuration(),
         "PreloadDataConfig" => preload_data_config(),
+        "ProfileConfiguration" => profile_configuration(),
         "SseConfiguration" => sse_configuration()
       }
       
@@ -396,6 +410,17 @@ defmodule AWS.HealthLake do
       
   """
   @type kms_encryption_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      profile_configuration() :: %{
+        "DefaultProfiles" => list(String.t() | atom())
+      }
+      
+  """
+  @type profile_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,6 +532,33 @@ defmodule AWS.HealthLake do
 
   ## Example:
       
+      nlp_configuration() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type nlp_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fhir_datastore_request() :: %{
+        optional("AnalyticsConfiguration") => analytics_configuration(),
+        optional("DatastoreName") => String.t() | atom(),
+        optional("IdentityProviderConfiguration") => identity_provider_configuration(),
+        optional("NlpConfiguration") => nlp_configuration(),
+        optional("ProfileConfiguration") => profile_configuration(),
+        required("DatastoreId") => String.t() | atom()
+      }
+      
+  """
+  @type update_fhir_datastore_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_fhir_import_job_response() :: %{
         "ImportJobProperties" => import_job_properties()
       }
@@ -547,6 +599,17 @@ defmodule AWS.HealthLake do
       
   """
   @type create_fhir_datastore_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analytics_configuration() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type analytics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -655,6 +718,14 @@ defmodule AWS.HealthLake do
   @type tag_resource_errors() :: validation_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_fhir_datastore_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -857,5 +928,19 @@ defmodule AWS.HealthLake do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  <para>Update the properties of a FHIR-enabled data store.</para>
+  """
+  @spec update_fhir_datastore(map(), update_fhir_datastore_request(), list()) ::
+          {:ok, update_fhir_datastore_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_fhir_datastore_errors()}
+  def update_fhir_datastore(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFHIRDatastore", input, options)
   end
 end

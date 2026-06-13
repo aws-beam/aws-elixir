@@ -1905,11 +1905,13 @@ defmodule AWS.BedrockAgentCoreControl do
 
       update_online_evaluation_config_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("clusteringConfig") => clustering_config(),
         optional("dataSourceConfig") => list(),
         optional("description") => String.t() | atom(),
         optional("evaluationExecutionRoleArn") => String.t() | atom(),
         optional("evaluators") => list(list()),
         optional("executionStatus") => list(any()),
+        optional("insights") => list(insight()),
         optional("rule") => rule()
       }
 
@@ -1943,10 +1945,12 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       online_evaluation_config_summary() :: %{
+        "clusteringConfig" => clustering_config(),
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
         "executionStatus" => list(any()),
         "failureReason" => [String.t() | atom()],
+        "insights" => list(insight()),
         "onlineEvaluationConfigArn" => String.t() | atom(),
         "onlineEvaluationConfigId" => String.t() | atom(),
         "onlineEvaluationConfigName" => String.t() | atom(),
@@ -2515,6 +2519,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "components" => map(),
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
         "lineageMetadata" => version_lineage_metadata(),
         "updatedAt" => [non_neg_integer()],
         "versionId" => String.t() | atom()
@@ -2644,6 +2649,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("components") => map(),
         optional("createdBy") => version_created_by_source(),
         optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("parentVersionIds") => list(String.t() | atom())
       }
 
@@ -3006,12 +3012,14 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_online_evaluation_config_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("clusteringConfig") => clustering_config(),
         optional("description") => String.t() | atom(),
+        optional("evaluators") => list(list()),
+        optional("insights") => list(insight()),
         optional("tags") => map(),
         required("dataSourceConfig") => list(),
         required("enableOnCreate") => [boolean()],
         required("evaluationExecutionRoleArn") => String.t() | atom(),
-        required("evaluators") => list(list()),
         required("onlineEvaluationConfigName") => String.t() | atom(),
         required("rule") => rule()
       }
@@ -3762,6 +3770,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       get_online_evaluation_config_response() :: %{
+        "clusteringConfig" => clustering_config(),
         "createdAt" => [non_neg_integer()],
         "dataSourceConfig" => list(),
         "description" => String.t() | atom(),
@@ -3769,6 +3778,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "evaluators" => list(list()),
         "executionStatus" => list(any()),
         "failureReason" => [String.t() | atom()],
+        "insights" => list(insight()),
         "onlineEvaluationConfigArn" => String.t() | atom(),
         "onlineEvaluationConfigId" => String.t() | atom(),
         "onlineEvaluationConfigName" => String.t() | atom(),
@@ -3889,6 +3899,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_harnesses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clustering_config() :: %{
+        "frequencies" => list(list(any())())
+      }
+
+  """
+  @type clustering_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4908,6 +4929,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "components" => map(),
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
         "lineageMetadata" => version_lineage_metadata(),
         "versionCreatedAt" => [non_neg_integer()],
         "versionId" => String.t() | atom()
@@ -6894,6 +6916,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      insight() :: %{
+        "insightId" => String.t() | atom()
+      }
+
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory() :: %{
         "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
@@ -7349,6 +7382,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("commitMessage") => [String.t() | atom()],
         optional("createdBy") => version_created_by_source(),
         optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("tags") => map(),
         required("bundleName") => String.t() | atom(),
         required("components") => map()

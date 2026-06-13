@@ -48,14 +48,15 @@ defmodule AWS.SageMakerRuntime do
 
       invoke_endpoint_async_input() :: %{
         optional("Accept") => String.t() | atom(),
+        optional("Body") => binary(),
         optional("ContentType") => String.t() | atom(),
         optional("CustomAttributes") => String.t() | atom(),
         optional("Filename") => String.t() | atom(),
         optional("InferenceId") => String.t() | atom(),
+        optional("InputLocation") => String.t() | atom(),
         optional("InvocationTimeoutSeconds") => integer(),
         optional("RequestTTLSeconds") => integer(),
-        optional("S3OutputPathExtension") => String.t() | atom(),
-        required("InputLocation") => String.t() | atom()
+        optional("S3OutputPathExtension") => String.t() | atom()
       }
 
   """
@@ -405,6 +406,13 @@ defmodule AWS.SageMakerRuntime do
           {"X-Amzn-SageMaker-FailureLocation", "FailureLocation"},
           {"X-Amzn-SageMaker-OutputLocation", "OutputLocation"}
         ]
+      )
+
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
       )
 
     meta = metadata()

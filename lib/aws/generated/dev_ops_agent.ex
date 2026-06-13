@@ -139,6 +139,15 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      delete_trigger_request() :: %{}
+
+  """
+  @type delete_trigger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -241,6 +250,18 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      list_triggers_response() :: %{
+        "items" => list(trigger()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_triggers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       register_service_input() :: %{
         optional("exchangeUrlPrivateConnectionName") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
@@ -277,6 +298,24 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type asset_file_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger() :: %{
+        "action" => any(),
+        "agentSpaceId" => String.t() | atom(),
+        "condition" => list(),
+        "createdAt" => [non_neg_integer()],
+        "status" => String.t() | atom(),
+        "triggerId" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1103,6 +1142,18 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      update_trigger_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type update_trigger_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       identity_center_service_exception() :: %{
         "message" => [String.t() | atom()],
         "underlyingErrorCode" => [String.t() | atom()]
@@ -1277,6 +1328,17 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      create_trigger_response() :: %{
+        "trigger" => trigger()
+      }
+
+  """
+  @type create_trigger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registered_m_c_p_server_sig_v4_details() :: %{
         "customHeaders" => map(),
         "description" => String.t() | atom(),
@@ -1445,6 +1507,19 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_triggers_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_triggers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1675,6 +1750,17 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      update_trigger_response() :: %{
+        "trigger" => trigger()
+      }
+
+  """
+  @type update_trigger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registered_slack_service_details() :: %{
         "teamId" => [String.t() | atom()],
         "teamName" => [String.t() | atom()]
@@ -1781,6 +1867,21 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type send_message_response_created_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trigger_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("status") => String.t() | atom(),
+        required("action") => any(),
+        required("condition") => list(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type create_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1911,6 +2012,17 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type delete_agent_space_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trigger_response() :: %{
+        "trigger" => trigger()
+      }
+
+  """
+  @type get_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2303,6 +2415,15 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      delete_trigger_response() :: %{}
+
+  """
+  @type delete_trigger_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       send_message_response_failed_event() :: %{
         "errorCode" => [String.t() | atom()],
         "errorMessage" => [String.t() | atom()],
@@ -2568,6 +2689,26 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type describe_private_connection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trigger_request() :: %{}
+
+  """
+  @type get_trigger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule_condition() :: %{
+        "expression" => String.t() | atom()
+      }
+
+  """
+  @type schedule_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2873,6 +3014,14 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type create_trigger_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_agent_space_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2901,6 +3050,14 @@ defmodule AWS.DevOpsAgent do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type delete_trigger_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type deregister_service_errors() ::
           throttling_exception()
@@ -2998,6 +3155,13 @@ defmodule AWS.DevOpsAgent do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_trigger_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_agent_spaces_errors() ::
           throttling_exception() | validation_exception() | internal_server_exception()
 
@@ -3089,6 +3253,13 @@ defmodule AWS.DevOpsAgent do
 
   @type list_tags_for_resource_errors() ::
           validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_triggers_errors() ::
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -3191,6 +3362,13 @@ defmodule AWS.DevOpsAgent do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type update_trigger_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type validate_aws_associations_errors() ::
           throttling_exception()
@@ -3438,6 +3616,35 @@ defmodule AWS.DevOpsAgent do
   end
 
   @doc """
+  Creates a new Trigger in the specified agent space
+  """
+  @spec create_trigger(map(), String.t() | atom(), create_trigger_request(), list()) ::
+          {:ok, create_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_trigger_errors()}
+  def create_trigger(%Client{} = client, agent_space_id, input, options \\ []) do
+    url_path = "/trigger/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/triggers"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Deletes an AgentSpace.
 
   This operation is idempotent and returns a 204 No Content response on success.
@@ -3565,6 +3772,43 @@ defmodule AWS.DevOpsAgent do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a Trigger from the specified agent space
+  """
+  @spec delete_trigger(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_trigger_request(),
+          list()
+        ) ::
+          {:ok, delete_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_trigger_errors()}
+  def delete_trigger(%Client{} = client, agent_space_id, trigger_id, input, options \\ []) do
+    url_path =
+      "/trigger/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/triggers/#{AWS.Util.encode_uri(trigger_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
 
     Request.request_rest(
       client,
@@ -3995,6 +4239,26 @@ defmodule AWS.DevOpsAgent do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a Trigger from the specified agent space
+  """
+  @spec get_trigger(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_trigger_errors()}
+  def get_trigger(%Client{} = client, agent_space_id, trigger_id, options \\ []) do
+    url_path =
+      "/trigger/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/triggers/#{AWS.Util.encode_uri(trigger_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -4579,6 +4843,59 @@ defmodule AWS.DevOpsAgent do
   end
 
   @doc """
+  Lists Triggers in the specified agent space
+  """
+  @spec list_triggers(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_triggers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_triggers_errors()}
+  def list_triggers(
+        %Client{} = client,
+        agent_space_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/trigger/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/triggers"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   List all webhooks for given Association
   """
   @spec list_webhooks(
@@ -5047,6 +5364,43 @@ defmodule AWS.DevOpsAgent do
       ) do
     url_path =
       "/backlog/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/recommendations/#{AWS.Util.encode_uri(recommendation_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the status of an existing Trigger
+  """
+  @spec update_trigger(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_trigger_request(),
+          list()
+        ) ::
+          {:ok, update_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_trigger_errors()}
+  def update_trigger(%Client{} = client, agent_space_id, trigger_id, input, options \\ []) do
+    url_path =
+      "/trigger/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/triggers/#{AWS.Util.encode_uri(trigger_id)}"
 
     headers = []
     custom_headers = []

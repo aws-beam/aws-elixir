@@ -2702,6 +2702,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_table_request() :: %{
+        optional("AttributesToGet") => list(list(any())()),
         optional("AuditContext") => audit_context(),
         optional("CatalogId") => String.t() | atom(),
         optional("IncludeStatusDetails") => boolean(),
@@ -4338,6 +4339,28 @@ defmodule AWS.Glue do
       
   """
   @type get_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_table_metadata() :: %{
+        "CurrentSchemaId" => integer(),
+        "DefaultSortOrderId" => integer(),
+        "DefaultSpecId" => integer(),
+        "FormatVersion" => String.t() | atom(),
+        "LastColumnId" => integer(),
+        "LastPartitionId" => integer(),
+        "Location" => String.t() | atom(),
+        "PartitionSpecs" => list(iceberg_partition_spec()),
+        "Properties" => map(),
+        "Schemas" => list(iceberg_schema()),
+        "SortOrders" => list(iceberg_sort_order()),
+        "TableUuid" => String.t() | atom()
+      }
+      
+  """
+  @type iceberg_table_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12677,6 +12700,7 @@ defmodule AWS.Glue do
         "DatabaseName" => String.t() | atom(),
         "Description" => String.t() | atom(),
         "FederatedTable" => federated_table(),
+        "IcebergTableMetadata" => iceberg_table_metadata(),
         "IsMaterializedView" => boolean(),
         "IsMultiDialectView" => boolean(),
         "IsRegisteredWithLakeFormation" => boolean(),

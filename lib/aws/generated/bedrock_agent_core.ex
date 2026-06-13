@@ -59,6 +59,7 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       tool_description_output() :: %{
+        "explanation" => String.t() | atom(),
         "recommendedToolDescription" => String.t() | atom(),
         "toolName" => String.t() | atom()
       }
@@ -160,6 +161,22 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type batch_update_memory_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      root_cause_cluster() :: %{
+        "affectedSessionCount" => [integer()],
+        "affectedSessions" => list(affected_session()),
+        "clusterId" => [integer()],
+        "name" => [String.t() | atom()],
+        "recommendation" => [String.t() | atom()],
+        "rootCause" => [String.t() | atom()]
+      }
+
+  """
+  @type root_cause_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -468,6 +485,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      user_intent_affected_session() :: %{
+        "sessionId" => [String.t() | atom()],
+        "userMessages" => list([String.t() | atom()]())
+      }
+
+  """
+  @type user_intent_affected_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_payment_instruments_response() :: %{
         "nextToken" => [String.t() | atom()],
         "paymentInstruments" => list(payment_instrument_summary())
@@ -690,6 +719,21 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      failure_category_cluster() :: %{
+        "affectedSessionCount" => [integer()],
+        "clusterId" => [integer()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "subCategories" => list(failure_sub_category_cluster())
+      }
+
+  """
+  @type failure_category_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       complete_resource_token_auth_request() :: %{
         required("sessionUri") => String.t() | atom(),
         required("userIdentifier") => list()
@@ -789,6 +833,21 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type cloud_watch_logs_trace_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_summary_cluster() :: %{
+        "affectedSessionCount" => [integer()],
+        "affectedSessions" => list(execution_summary_affected_session()),
+        "clusterId" => [integer()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type execution_summary_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1223,6 +1282,21 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      affected_session() :: %{
+        "explanation" => [String.t() | atom()],
+        "failureSpans" => list(failure_span_detail()),
+        "fixType" => [String.t() | atom()],
+        "recommendation" => [String.t() | atom()],
+        "sessionId" => [String.t() | atom()]
+      }
+
+  """
+  @type affected_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       key_shortcut_result() :: %{
         "error" => [String.t() | atom()],
         "status" => list(any())
@@ -1379,6 +1453,7 @@ defmodule AWS.BedrockAgentCore do
         optional("description") => String.t() | atom(),
         optional("enableOnCreate") => [boolean()],
         optional("gatewayFilter") => gateway_filter(),
+        optional("tags") => map(),
         required("evaluationConfig") => list(),
         required("gatewayArn") => String.t() | atom(),
         required("name") => String.t() | atom(),
@@ -1478,6 +1553,8 @@ defmodule AWS.BedrockAgentCore do
       start_recommendation_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
         required("name") => String.t() | atom(),
         required("recommendationConfig") => list(),
         required("type") => list(any())
@@ -2337,12 +2414,49 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      batch_evaluation_trace_config() :: %{
+        "batchEvaluationArn" => String.t() | atom()
+      }
+
+  """
+  @type batch_evaluation_trace_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       proxy_bypass() :: %{
         "domainPatterns" => list(String.t() | atom())
       }
 
   """
   @type proxy_bypass() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failure_sub_category_cluster() :: %{
+        "affectedSessionCount" => [integer()],
+        "clusterId" => [integer()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "rootCauses" => list(root_cause_cluster())
+      }
+
+  """
+  @type failure_sub_category_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_summary_clustering_result_content() :: %{
+        "executionSummaries" => list(execution_summary_cluster())
+      }
+
+  """
+  @type execution_summary_clustering_result_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2457,6 +2571,19 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      failure_span_detail() :: %{
+        "signals" => list(insights_failure_signal()),
+        "spanId" => [String.t() | atom()],
+        "traceId" => [String.t() | atom()]
+      }
+
+  """
+  @type failure_span_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_batch_evaluation_request() :: %{}
 
   """
@@ -2509,6 +2636,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type configuration_bundle_ref() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_intent_clustering_result_content() :: %{
+        "userIntents" => list(user_intent_cluster())
+      }
+
+  """
+  @type user_intent_clustering_result_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2621,6 +2759,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      failure_analysis_result_content() :: %{
+        "failures" => list(failure_category_cluster())
+      }
+
+  """
+  @type failure_analysis_result_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       session_filter() :: %{
         "eventFilter" => list(any())
       }
@@ -2727,6 +2876,21 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      user_intent_cluster() :: %{
+        "affectedSessionCount" => [integer()],
+        "affectedSessions" => list(user_intent_affected_session()),
+        "clusterId" => [integer()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type user_intent_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_event_input() :: %{
         optional("branch") => branch(),
         optional("clientToken") => [String.t() | atom()],
@@ -2799,6 +2963,9 @@ defmodule AWS.BedrockAgentCore do
         optional("description") => String.t() | atom(),
         optional("evaluationMetadata") => list(),
         optional("evaluators") => list(evaluator()),
+        optional("insights") => list(insight()),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
         required("batchEvaluationName") => String.t() | atom(),
         required("dataSourceConfig") => list()
       }
@@ -3285,6 +3452,7 @@ defmodule AWS.BedrockAgentCore do
         "configurationBundle" => recommendation_result_configuration_bundle(),
         "errorCode" => String.t() | atom(),
         "errorMessage" => String.t() | atom(),
+        "explanation" => String.t() | atom(),
         "recommendedSystemPrompt" => String.t() | atom()
       }
 
@@ -3302,8 +3470,11 @@ defmodule AWS.BedrockAgentCore do
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
         "evaluators" => list(evaluator()),
+        "insights" => list(insight()),
+        "kmsKeyArn" => String.t() | atom(),
         "outputConfig" => list(),
-        "status" => list(any())
+        "status" => list(any()),
+        "tags" => map()
       }
 
   """
@@ -3568,6 +3739,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      insight() :: %{
+        "insightId" => String.t() | atom()
+      }
+
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       harness_stream_metrics() :: %{
         "latencyMs" => [float()]
       }
@@ -3732,6 +3914,19 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      execution_summary_affected_session() :: %{
+        "approachTaken" => [String.t() | atom()],
+        "finalOutcome" => [String.t() | atom()],
+        "sessionId" => [String.t() | atom()]
+      }
+
+  """
+  @type execution_summary_affected_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_payment_session_request() :: %{
         optional("agentName") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
@@ -3808,6 +4003,8 @@ defmodule AWS.BedrockAgentCore do
         "errorDetails" => list([String.t() | atom()]()),
         "evaluationResults" => evaluation_job_results(),
         "evaluators" => list(evaluator()),
+        "insights" => list(insight()),
+        "kmsKeyArn" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
@@ -3831,6 +4028,7 @@ defmodule AWS.BedrockAgentCore do
       get_recommendation_response() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "recommendationArn" => String.t() | atom(),
         "recommendationConfig" => list(),
@@ -3843,6 +4041,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_recommendation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      online_evaluation_config_source() :: %{
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "sessionFilterConfig" => session_filter_config()
+      }
+
+  """
+  @type online_evaluation_config_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4014,6 +4224,19 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      insights_failure_signal() :: %{
+        "category" => list(any()),
+        "confidence" => [float()],
+        "evidence" => [String.t() | atom()]
+      }
+
+  """
+  @type insights_failure_signal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory_metadata_filter_expression() :: %{
         "left" => list(),
         "operator" => list(any()),
@@ -4050,9 +4273,14 @@ defmodule AWS.BedrockAgentCore do
         "errorDetails" => list([String.t() | atom()]()),
         "evaluationResults" => evaluation_job_results(),
         "evaluators" => list(evaluator()),
+        "executionSummaryResult" => execution_summary_clustering_result_content(),
+        "failureAnalysisResult" => failure_analysis_result_content(),
+        "insights" => list(insight()),
+        "kmsKeyArn" => String.t() | atom(),
         "outputConfig" => list(),
         "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
+        "updatedAt" => [non_neg_integer()],
+        "userIntentResult" => user_intent_clustering_result_content()
       }
 
   """

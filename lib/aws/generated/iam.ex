@@ -6042,13 +6042,27 @@ defmodule AWS.IAM do
   supported
   service per user.
 
-  You can create service-specific credentials for Amazon Bedrock, Amazon
-  CloudWatch Logs, CodeCommit and Amazon Keyspaces (for Apache Cassandra).
-
   You can reset the password to a new service-generated value by calling
-  [ResetServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html).   For more information about service-specific credentials, see [Service-specific
-  credentials for IAM
-  users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_bedrock.html)
+  [ResetServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html).   For more information about using service-specific credentials to authenticate to
+  an
+  Amazon Web Services service, refer to the following docs:
+
+    *
+  For service-specific credentials with CodeCommit, refer to [IAM credentials for
+  CodeCommit: Git credentials, SSH keys, and Amazon Web Services access
+  keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html)
+  in the *IAM User Guide*.
+
+    *
+  For service-specific credentials with Amazon Keyspaces (for Apache Cassandra),
+  refer to [Use IAM with Amazon Keyspaces (for Apache
+  Cassandra)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html)
+  in the
+  *IAM User Guide*.
+
+    *
+  For services that support long-term API keys, refer to [API keys for Amazon Web Services
+  services](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html)
   in the
   *IAM User Guide*.
   """
@@ -8999,9 +9013,26 @@ defmodule AWS.IAM do
   authenticating
   the IAM user to a specific service. For more information about using
   service-specific
-  credentials to authenticate to an Amazon Web Services service, see [Set up service-specific
-  credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html)
-  in the CodeCommit User Guide.
+  credentials to authenticate to an Amazon Web Services service, refer to the
+  following docs:
+
+    *
+  For service-specific credentials with CodeCommit, refer to [IAM credentials for CodeCommit: Git credentials, SSH keys, and Amazon Web Services access
+  keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html)
+  in the *IAM User Guide*.
+
+    *
+  For service-specific credentials with Amazon Keyspaces (for Apache Cassandra),
+  refer to [Use IAM with Amazon Keyspaces (for Apache
+  Cassandra)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html)
+  in the
+  *IAM User Guide*.
+
+    *
+  For services that support long-term API keys, refer to [API keys for Amazon Web Services
+  services](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html)
+  in the
+  *IAM User Guide*.
   """
   @spec list_service_specific_credentials(
           map(),
